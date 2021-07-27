@@ -1,20 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
+import { useTranslation } from "next-i18next";
 import Button from "@bmi/button";
 import Table from "@bmi/table";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
+import { gql } from "@apollo/client";
+import { EvidenceItemInput } from "@bmi/intouch-api-types";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+import { UploadFile } from "../../../../../../components/upload/src/";
+import {
+  useAddEvidencesMutation,
+  GetProjectDocument
+} from "../../../graphql/generated/hooks";
 import styles from "./styles.module.scss";
+import { AddEvidenceDialog } from "./AddEvidenceDialog";
 
 export type UploadsTabProps = {
+  projectId: number;
   uploads?: Map<string, string[]>;
 };
 
-export const UploadsTab = ({ uploads }: UploadsTabProps) => {
+export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
+  const { t } = useTranslation("project-page");
+  const [isEvidenceDialogOpen, setEvidenceDialogOpen] = useState(false);
+  const [addEvidences] = useAddEvidencesMutation({
+    refetchQueries: [
+      {
+        query: GetProjectDocument,
+        variables: {
+          projectId
+        }
+      }
+    ]
+  });
+  const evidenceDialogConfirmHandler = async (uploadedFiles: UploadFile[]) => {
+    if (uploadedFiles.length > 0) {
+      const evidences = uploadedFiles.map(
+        (uploadedFile) =>
+          ({
+            projectId,
+            attachmentUpload: uploadedFile.file,
+            evidenceCategoryType: "MISCELLANEOUS"
+          } as EvidenceItemInput)
+      );
+      await addEvidences({
+        variables: {
+          input: {
+            evidences
+          }
+        }
+      });
+    }
+    setEvidenceDialogOpen(false);
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <Button variant="outlined">Upload file</Button>
+        <Button variant="outlined" onClick={() => setEvidenceDialogOpen(true)}>
+          {t("upload_tab.header")}
+        </Button>
       </div>
       <div className={styles.body}>
         <Accordion>
@@ -30,8 +75,11 @@ export const UploadsTab = ({ uploads }: UploadsTabProps) => {
                   <Accordion.Details>
                     <Table>
                       <Table.Body>
-                        {values.map((value) => (
-                          <Table.Row key={value} data-testid="uploads-item">
+                        {values.map((value, index) => (
+                          <Table.Row
+                            key={`upload-items-${key}-${index}`}
+                            data-testid="uploads-item"
+                          >
                             <Table.Cell>{value}</Table.Cell>
                             <Table.Cell>
                               <VisibilityIcon />
@@ -46,6 +94,24 @@ export const UploadsTab = ({ uploads }: UploadsTabProps) => {
             })}
         </Accordion>
       </div>
+      <div>
+        <AddEvidenceDialog
+          isOpen={isEvidenceDialogOpen}
+          onCloseClick={() => setEvidenceDialogOpen(false)}
+          onConfirmClick={evidenceDialogConfirmHandler}
+        />
+      </div>
     </div>
   );
 };
+
+export const ADD_PROJECT_EVIDENCES = gql`
+  mutation addEvidences($input: EvidenceItemsAddInput!) {
+    evidenceItemsAdd(input: $input) {
+      evidenceItems {
+        id
+        name
+      }
+    }
+  }
+`;

@@ -616,6 +616,7 @@ export const ssrCompanyMembers = {
 
   usePage: useCompanyMembers
 };
+
 export async function getServerPageTraining(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.TrainingQueryVariables>,

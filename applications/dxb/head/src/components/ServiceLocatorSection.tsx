@@ -20,6 +20,11 @@ import GoogleMap from "@bmi/google-map";
 import Grid from "@bmi/grid";
 import LinkCard, { Props as LinkCardProps } from "@bmi/link-card";
 import Section from "@bmi/section";
+import Logo, {
+  RoofProElite,
+  RoofProExpert,
+  RoofProPartnerSmall
+} from "@bmi/logo";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import CloseIcon from "@material-ui/icons/Close";
@@ -454,6 +459,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     return isAddressHidden ? companyDetails : [address, ...companyDetails];
   };
 
+  const iconSourceMap: Record<RoofProLevel, SVGImport> = {
+    expert: RoofProExpert,
+    partner: RoofProPartnerSmall,
+    elite: RoofProElite
+  };
+
   return (
     <Section
       backgroundColor="white"
@@ -572,7 +583,24 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     onCloseClick={clearRooferAndResetMap}
                     isOpen={selectedRoofer && selectedRoofer.id === roofer.id}
                     title={roofer.name}
-                    subtitle={roofer.address}
+                    subtitle={
+                      <>
+                        {roofer.address}
+                        {roofer.certification && (
+                          <div className={styles["roofpro-certification"]}>
+                            {getMicroCopy("findARoofer.certificationLabel")}:
+                            <Logo
+                              source={
+                                iconSourceMap[
+                                  roofer.certification.toLowerCase()
+                                ]
+                              }
+                              className={styles["roofpro-icon"]}
+                            />
+                          </div>
+                        )}
+                      </>
+                    }
                   >
                     <CompanyDetails details={getCompanyDetails(roofer, true)}>
                       <Typography>{roofer.summary}</Typography>

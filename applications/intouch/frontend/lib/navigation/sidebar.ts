@@ -23,12 +23,11 @@ export const getSidebarLinks = (account: Account, t) => {
       label: t("Training"),
       isVisible: can(account, "navigation", "training")
     },
-    // TODO: Change to people
     {
       href: "/team",
       icon: People,
       label: t("Team"),
-      isVisible: can(account, "navigation", "people")
+      isVisible: can(account, "navigation", "team")
     },
     {
       href: "/company",

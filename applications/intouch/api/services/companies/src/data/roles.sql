@@ -50,7 +50,9 @@ grant select on company_operation to installer;
 grant select, insert, update, delete on company_operation to super_admin;
 
 -- account
-grant select, insert, update, delete on account to installer;
+grant select, insert, delete on account to installer;
+grant update (email, phone, first_name, last_name, docebo_user_id, docebo_username, photo) on account to installer;
+grant select, insert, update, delete on account to company_admin;
 
 
 -- address

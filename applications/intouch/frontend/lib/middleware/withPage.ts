@@ -5,6 +5,7 @@ import { getAuth0Instance } from "../auth0";
 import { initializeApollo } from "../apolloClient";
 import { marketRedirect } from "../redirects/market";
 import { redirectCompanyRegistration } from "../redirects/companyRegistration";
+import { userRegistration } from "../redirects/userRegistration";
 import { queryAccountByEmail } from "../account";
 import { getServerPageGetGlobalData } from "../../graphql/generated/page";
 
@@ -33,8 +34,12 @@ export const innerGetServerSideProps = async (
   let redirect = marketRedirect(req, accountByEmail);
   if (redirect) return redirect;
 
-  // Redirect to copmany registration if new company
-  redirect = redirectCompanyRegistration(req, accountByEmail);
+  // Redirect to user registration if missing data in the user profile
+  redirect = userRegistration(ctx.resolvedUrl, accountByEmail);
+  if (redirect) return redirect;
+
+  // Redirect to company registration if new company
+  redirect = redirectCompanyRegistration(ctx.resolvedUrl, accountByEmail);
   if (redirect) return redirect;
 
   const {

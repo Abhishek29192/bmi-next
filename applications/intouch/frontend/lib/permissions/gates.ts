@@ -33,6 +33,12 @@ const gates = {
       MARKET_ADMIN: true,
       INSTALLER: false,
       COMPANY_ADMIN: true
+    },
+    changeRole: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: true
     }
   },
   navigation: {
@@ -40,19 +46,25 @@ const gates = {
     home: true,
     // Projects (Available to all enabled Markets for all authenticated users except Installers who are not assigned to any Projects)
     projects: (account) => {
+      // Market config takes precedence as a feature flag effectively
+      if (!account?.market?.projectsEnabled) {
+        return false;
+      }
+
       if (account?.role === ROLES.SUPER_ADMIN) {
         return true;
       }
 
-      const isInstallerWithoutProject =
-        account?.role === ROLES.INSTALLER && !hasProjects(account);
+      if (account?.role === ROLES.INSTALLER) {
+        return hasProjects(account);
+      }
 
-      return account?.market?.projectsEnabled && !isInstallerWithoutProject;
+      return true;
     },
     // Training (Available to all authenticated users, although not critical for Market Admins and Super Admins).
     training: true,
-    // People (Available to Company Admins and Market Admins)
-    people: (account) => {
+    // Team (Available to Company Admins and Market Admins)
+    team: (account) => {
       return [
         ROLES.COMPANY_ADMIN,
         ROLES.MARKET_ADMIN,

@@ -63,7 +63,11 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
           {bodyList.map(({ title, content }, index) => (
             <IconList.Item
               key={index}
-              icon={<EmojiObjectsOutlinedIcon style={{ color: "#009FE3" }} />}
+              icon={
+                <EmojiObjectsOutlinedIcon
+                  style={{ color: "var(--color-brand-accent)" }}
+                />
+              }
               title={title}
               component="h5"
             >

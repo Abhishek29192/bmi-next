@@ -24,6 +24,15 @@ describe("Team page server side props", () => {
       apolloClient: {
         query: mockApolloQuery
       },
+      account: {
+        companyMembers: {
+          nodes: [
+            {
+              id: 1
+            }
+          ]
+        }
+      },
       locale: {}
     };
   });
@@ -32,6 +41,15 @@ describe("Team page server side props", () => {
     (getServerPageCompanyMembers as jest.Mock).mockImplementationOnce(() =>
       Promise.resolve({
         props: {
+          account: {
+            companyMembers: {
+              nodes: [
+                {
+                  id: 1
+                }
+              ]
+            }
+          },
           data: {
             companyMembers: {
               nodes: [
@@ -50,6 +68,15 @@ describe("Team page server side props", () => {
 
     expect(result).toEqual({
       props: {
+        account: {
+          companyMembers: {
+            nodes: [
+              {
+                id: 1
+              }
+            ]
+          }
+        },
         data: {
           companyMembers: {
             nodes: [

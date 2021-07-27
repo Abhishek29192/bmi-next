@@ -24,7 +24,13 @@ type Props = {
   isFlat?: boolean;
 };
 
-const LocationCard = ({ title, details, footNote, isFlat }: Props) => {
+const LocationCard = ({
+  anchorComponent,
+  title,
+  details,
+  footNote,
+  isFlat
+}: Props) => {
   return (
     <address
       className={classnames(
@@ -35,7 +41,11 @@ const LocationCard = ({ title, details, footNote, isFlat }: Props) => {
       <Typography variant="h5">{title}</Typography>
       <dl className={styles["list"]}>
         {details.map((detail, index) => (
-          <LocationItem key={index} {...detail} />
+          <LocationItem
+            key={index}
+            anchorComponent={anchorComponent}
+            {...detail}
+          />
         ))}
       </dl>
       <div className={styles["foot-note"]}>{footNote}</div>

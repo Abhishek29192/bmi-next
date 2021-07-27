@@ -1,10 +1,6 @@
-process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
+export {}; // silences --isolatedModules warning
 
-import {
-  getMarketFromReq,
-  loginHandler,
-  afterCallback
-} from "../../../pages/api/auth/[...auth0]";
+process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 
 const mockGetAccount = jest.fn();
 const mockCreateAccount = jest.fn();
@@ -49,7 +45,18 @@ describe("Market", () => {
   };
   let res = {};
 
+  beforeEach(() => {
+    jest.resetModules();
+  });
+
   it("should return the en market if localhost", () => {
+    jest.mock("../../../lib/config", () => ({
+      baseUrlDomain: "localhost",
+      isProd: false,
+      isSingleMarket: true
+    }));
+    const { getMarketFromReq } = require("../../../pages/api/auth/[...auth0]");
+
     const market = getMarketFromReq(
       { ...req, headers: { host: "localhost:3000" } },
       res
@@ -59,6 +66,12 @@ describe("Market", () => {
   });
 
   it("should return es market when es the subdmin", () => {
+    jest.mock("../../../lib/config", () => ({
+      baseUrlDomain: "local.intouch",
+      isProd: false,
+      isSingleMarket: false
+    }));
+    const { getMarketFromReq } = require("../../../pages/api/auth/[...auth0]");
     const market = getMarketFromReq(
       { ...req, headers: { host: "es.local.intouch:3000" } },
       res
@@ -68,6 +81,12 @@ describe("Market", () => {
   });
 
   it("should return en market when en the subdmin", () => {
+    jest.mock("../../../lib/config", () => ({
+      baseUrlDomain: "local.intouch",
+      isProd: false,
+      isSingleMarket: false
+    }));
+    const { getMarketFromReq } = require("../../../pages/api/auth/[...auth0]");
     const market = getMarketFromReq(
       { ...req, headers: { host: "en.local.intouch:3000" } },
       res
@@ -77,6 +96,13 @@ describe("Market", () => {
   });
 
   it("should return en when the online dev domain", () => {
+    jest.mock("../../../lib/config", () => ({
+      baseUrlDomain: "intouch.dddev.io",
+      isProd: true,
+      isSingleMarket: false
+    }));
+    const { getMarketFromReq } = require("../../../pages/api/auth/[...auth0]");
+
     const market = getMarketFromReq(
       { ...req, headers: { host: "intouch.dddev.io" } },
       res
@@ -107,9 +133,17 @@ describe("Auth0 Handler", () => {
     };
     auth0 = { handleLogin: jest.fn() };
     logger = { info: jest.fn(), error: jest.fn() };
+    jest.resetModules();
   });
 
   it("should redirect to login with the market when localhost", async () => {
+    jest.mock("../../../lib/config", () => ({
+      baseUrlDomain: "localhost",
+      isProd: false,
+      isSingleMarket: true
+    }));
+    const { loginHandler } = require("../../../pages/api/auth/[...auth0]");
+
     req.headers.host = "localhost:3000";
     await loginHandler(req, res, auth0, logger);
 
@@ -120,6 +154,13 @@ describe("Auth0 Handler", () => {
   });
 
   it("should redirect to login with the market when es.local.intouch", async () => {
+    jest.mock("../../../lib/config", () => ({
+      baseUrlDomain: "local.intouch",
+      isProd: false,
+      isSingleMarket: false
+    }));
+    const { loginHandler } = require("../../../pages/api/auth/[...auth0]");
+
     req.headers.host = "es.local.intouch:3000";
     await loginHandler(req, res, auth0, logger);
 
@@ -130,6 +171,13 @@ describe("Auth0 Handler", () => {
   });
 
   it("should redirect to login with the market when online", async () => {
+    jest.mock("../../../lib/config", () => ({
+      baseUrlDomain: "intouch.dddev.io",
+      isProd: true,
+      isSingleMarket: false
+    }));
+    const { loginHandler } = require("../../../pages/api/auth/[...auth0]");
+
     req.headers.host = "intouch.dddev.io";
     await loginHandler(req, res, auth0, logger);
 
@@ -140,6 +188,13 @@ describe("Auth0 Handler", () => {
   });
 
   it("should return to home if param not present", async () => {
+    jest.mock("../../../lib/config", () => ({
+      baseUrlDomain: "local.intouch",
+      isProd: false,
+      isSingleMarket: false
+    }));
+    const { loginHandler } = require("../../../pages/api/auth/[...auth0]");
+
     req.headers.host = "es.local.intouch:3000";
     delete req.query.returnTo;
     await loginHandler(req, res, auth0, logger);
@@ -156,10 +211,15 @@ describe("Auth0 callback", () => {
   let res;
   let state;
   let session;
+  let afterCallback;
 
   let logger = () => ({
     info: () => {},
     error: () => {}
+  });
+
+  beforeAll(() => {
+    afterCallback = require("../../../pages/api/auth/[...auth0]").afterCallback;
   });
 
   beforeEach(() => {
@@ -191,9 +251,7 @@ describe("Auth0 callback", () => {
     await afterCallback(req, res, session, state);
 
     expect(mockCreateAccount).toHaveBeenCalledWith(session);
-    expect(mockCreateDoceboUser).toHaveBeenCalledWith({
-      id: 1
-    });
+    expect(mockCreateDoceboUser).toHaveBeenCalledWith({ id: 1 });
     expect(state).toEqual({
       returnTo: "/api/silent-login"
     });

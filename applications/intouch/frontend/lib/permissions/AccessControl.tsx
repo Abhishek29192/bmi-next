@@ -6,6 +6,7 @@ type AccessControlProps = {
   dataModel: string;
   action: string;
   extraData?: any;
+  message?: string;
   children: React.ReactNode;
 };
 
@@ -17,10 +18,10 @@ const AccessControl = (props: AccessControlProps) => {
     return null;
   }
 
-  const { dataModel, action, extraData, children } = props;
+  const { dataModel, action, extraData, children, message } = props;
 
   if (!can(account, dataModel, action, extraData)) {
-    return <div>Not allowed</div>;
+    return message ? <div>{message}</div> : null;
   }
 
   // todo: fallback view?

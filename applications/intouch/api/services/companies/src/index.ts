@@ -16,7 +16,8 @@ async function main() {
   await setEnvFromSecrets([
     { secret: "COMPANIES_DB_HOST", env: "PG_HOST" },
     { secret: "COMPANIES_DB_PASSWORD", env: "PG_PASSWORD" },
-    { secret: "AUTH0_API_CLIENT_SECRET", env: "AUTH0_API_CLIENT_SECRET" }
+    { secret: "AUTH0_API_CLIENT_SECRET", env: "AUTH0_API_CLIENT_SECRET" },
+    { secret: "CONTENTFUL_TOKEN", env: "CONTENTFUL_TOKEN" }
   ]);
 
   const app = express();

@@ -26,5 +26,19 @@
       "send": "Invia invito",
       "success": "L'invito è stato inviato con successo"
     }
+  },
+  "user_card": {
+    "add_admin": "Aggiungi amministratore",
+    "remove_admin": "Rimuovi amministratore",
+    "confirm": "Conferma",
+    "cancel": "Cancella",
+    "role_dialog": {
+      "title": "Cambia ruolo",
+      "text": "Vuoi cambiare il ruolo di questo utente?"
+    },
+    "remove_user_dialog": {
+      "title": "Rimuovi dall'azienda",
+      "text": "Vuoi rimuovere questo utente dall'azienda?"
+    }
   }
 }

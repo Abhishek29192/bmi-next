@@ -1,4 +1,5 @@
 import { graphql } from "gatsby";
+import { RoofProLevel } from "@bmi/company-details";
 
 export const rooferTypes = [
   "Pitched roof",
@@ -23,7 +24,7 @@ export type Data = {
   email: string | null;
   website: string | null;
   type: RooferType[] | null;
-  certification: string | null;
+  certification: RoofProLevel | null;
   summary: string | null;
 };
 

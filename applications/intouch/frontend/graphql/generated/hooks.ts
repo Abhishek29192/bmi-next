@@ -711,6 +711,59 @@ export type AddProjectsMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.AddProjectsMemberMutation,
   OperationTypes.AddProjectsMemberMutationVariables
 >;
+export const AddEvidencesDocument = gql`
+  mutation addEvidences($input: EvidenceItemsAddInput!) {
+    evidenceItemsAdd(input: $input) {
+      evidenceItems {
+        id
+        name
+      }
+    }
+  }
+`;
+export type AddEvidencesMutationFn = Apollo.MutationFunction<
+  OperationTypes.AddEvidencesMutation,
+  OperationTypes.AddEvidencesMutationVariables
+>;
+
+/**
+ * __useAddEvidencesMutation__
+ *
+ * To run a mutation, you first call `useAddEvidencesMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddEvidencesMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addEvidencesMutation, { data, loading, error }] = useAddEvidencesMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useAddEvidencesMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.AddEvidencesMutation,
+    OperationTypes.AddEvidencesMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.AddEvidencesMutation,
+    OperationTypes.AddEvidencesMutationVariables
+  >(AddEvidencesDocument, options);
+}
+export type AddEvidencesMutationHookResult = ReturnType<
+  typeof useAddEvidencesMutation
+>;
+export type AddEvidencesMutationResult =
+  Apollo.MutationResult<OperationTypes.AddEvidencesMutation>;
+export type AddEvidencesMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.AddEvidencesMutation,
+  OperationTypes.AddEvidencesMutationVariables
+>;
 export const AccountByEmailDocument = gql`
   query accountByEmail($email: String!) {
     accountByEmail(email: $email) {
@@ -1876,6 +1929,7 @@ export const CompanyMembersDocument = gql`
           photo
           lastName
           firstName
+          formattedRole
           certificationsByDoceboUserId(
             filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
           ) {
@@ -1941,6 +1995,58 @@ export type CompanyMembersLazyQueryHookResult = ReturnType<
 export type CompanyMembersQueryResult = Apollo.QueryResult<
   OperationTypes.CompanyMembersQuery,
   OperationTypes.CompanyMembersQueryVariables
+>;
+export const UpdateRoleAccountDocument = gql`
+  mutation UpdateRoleAccount($input: UpdateAccountInput!) {
+    updateAccount(input: $input) {
+      account {
+        id
+      }
+    }
+  }
+`;
+export type UpdateRoleAccountMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateRoleAccountMutation,
+  OperationTypes.UpdateRoleAccountMutationVariables
+>;
+
+/**
+ * __useUpdateRoleAccountMutation__
+ *
+ * To run a mutation, you first call `useUpdateRoleAccountMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateRoleAccountMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateRoleAccountMutation, { data, loading, error }] = useUpdateRoleAccountMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateRoleAccountMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateRoleAccountMutation,
+    OperationTypes.UpdateRoleAccountMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateRoleAccountMutation,
+    OperationTypes.UpdateRoleAccountMutationVariables
+  >(UpdateRoleAccountDocument, options);
+}
+export type UpdateRoleAccountMutationHookResult = ReturnType<
+  typeof useUpdateRoleAccountMutation
+>;
+export type UpdateRoleAccountMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateRoleAccountMutation>;
+export type UpdateRoleAccountMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateRoleAccountMutation,
+  OperationTypes.UpdateRoleAccountMutationVariables
 >;
 export const TrainingDocument = gql`
   query training($catalogueId: Int, $userId: Int) {

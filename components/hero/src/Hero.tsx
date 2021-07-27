@@ -192,7 +192,7 @@ const SingleHero = ({
             <Typography
               variant="h1"
               hasUnderline
-              hasDarkBackground
+              hasDarkBackground={levelProps.level !== 3}
               className={styles["title"]}
             >
               {title}

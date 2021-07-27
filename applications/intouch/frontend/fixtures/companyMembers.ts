@@ -12,6 +12,7 @@ export const companyMembers: CompanyMembersQuery = {
         account: {
           id: 1,
           role: "COMPANY_ADMIN",
+          formattedRole: "Company Admin",
           email: "Alex@Green.co.uk",
           firstName: "Alex",
           lastName: "Green",
@@ -39,6 +40,7 @@ export const companyMembers: CompanyMembersQuery = {
         account: {
           id: 2,
           role: "INSTALLER",
+          formattedRole: "Installer",
           email: "Aron@Musk.co.uk",
           firstName: "Aron",
           lastName: "Musk",
@@ -66,6 +68,7 @@ export const companyMembers: CompanyMembersQuery = {
         account: {
           id: 3,
           role: "COMPANY_ADMIN",
+          formattedRole: "Company Admin",
           email: "Elon@Gates.co.uk",
           firstName: "Elon",
           lastName: "Gates",
@@ -88,6 +91,7 @@ export const companyMembers: CompanyMembersQuery = {
         account: {
           id: 4,
           role: "COMPANY_ADMIN",
+          formattedRole: "Company Admin",
           email: "Luke@Skywalker.co.uk",
           firstName: "Luke",
           lastName: "Skywalker",

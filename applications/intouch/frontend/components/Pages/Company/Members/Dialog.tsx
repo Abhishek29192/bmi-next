@@ -48,12 +48,11 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
 
   const onSubmit = (event, values) => {
     event.preventDefault();
-    const { emails, personalNote } = values;
     inviteUsers({
       variables: {
         input: {
-          emails: emails?.replace(/ /g, "")?.split(",") || [],
-          personalNote
+          emails: values.emails?.replace(/ /g, "")?.split(",") || [],
+          personalNote: values.personalNote
         }
       }
     });
@@ -109,11 +108,11 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
               onClick={onCloseClick}
               className={styles.cancel}
               variant="outlined"
-              data-testid="cancel"
+              data-testid="invite-dialog-cancel"
             >
               {t("invitation.dialog.cancel")}
             </Button>
-            <Form.SubmitButton data-testid="submit">
+            <Form.SubmitButton data-testid="invite-dialog-submit">
               {t("invitation.dialog.send")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>

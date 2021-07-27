@@ -12,7 +12,7 @@ type Props = {
   open?: boolean;
   maxWidth?: "sm" | "md" | "lg" | "xl";
   color?: "white" | "pearl" | "alabaster";
-  onCloseClick: () => any;
+  onCloseClick?: () => any;
   onBackdropClick?: ModalProps["onBackdropClick"];
   backdropProps?: ModalProps["BackdropProps"];
   areaLabelledby?: string;
@@ -67,15 +67,17 @@ const Dialog = ({
         >
           <div className={styles["header"]}>
             {title}
-            <Button
-              isIconButton
-              variant="text"
-              className={styles["iconButton"]}
-              onClick={onCloseClick}
-              accessibilityLabel={"Close"}
-            >
-              <CloseIcon />
-            </Button>
+            {onCloseClick && (
+              <Button
+                isIconButton
+                variant="text"
+                className={styles["iconButton"]}
+                onClick={onCloseClick}
+                accessibilityLabel={"Close"}
+              >
+                <CloseIcon />
+              </Button>
+            )}
           </div>
           {otherChildren}
         </div>

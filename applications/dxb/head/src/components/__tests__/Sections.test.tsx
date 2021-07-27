@@ -330,9 +330,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulImageGallerySection",
         title: "Gallery title",
-        description: {
-          description: "card section 1 description"
-        },
+        longDescription: null,
         medias: [
           {
             type: null,
@@ -748,5 +746,71 @@ describe("Sections component", () => {
       </MockSiteContext>
     );
     expect(container.children).toHaveLength(0); // returns empty array
+  });
+
+  it("renders alternate backgrounds for promos", () => {
+    const data: Data = [
+      {
+        __typename: "ContentfulPromo",
+        id: "1",
+        title: "Promo 1",
+        subtitle: null,
+        body: null,
+        brandLogo: null,
+        tags: null,
+        featuredMedia: null,
+        cta: null,
+        featuredVideo: null,
+        backgroundColor: null
+      },
+      {
+        __typename: "ContentfulPromo",
+        id: "2",
+        title: "Promo 2",
+        subtitle: null,
+        body: null,
+        brandLogo: null,
+        tags: null,
+        featuredMedia: null,
+        cta: null,
+        featuredVideo: null,
+        backgroundColor: null
+      },
+      {
+        __typename: "ContentfulPromo",
+        id: "3",
+        title: "Promo 3",
+        subtitle: null,
+        body: {
+          raw: JSON.stringify({
+            nodeType: "document",
+            data: {},
+            content: [
+              {
+                nodeType: "heading-2",
+                content: [
+                  { nodeType: "text", value: "Heading 2", marks: [], data: {} }
+                ],
+                data: {}
+              }
+            ]
+          }),
+          references: []
+        },
+        brandLogo: null,
+        tags: null,
+        featuredMedia: null,
+        cta: null,
+        featuredVideo: null,
+        backgroundColor: null
+      }
+    ];
+
+    const { container } = render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
+    expect(container.children).toMatchSnapshot();
   });
 });

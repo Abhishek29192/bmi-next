@@ -114,7 +114,7 @@ const UploadedFiles = ({
   project: GetProjectQuery["project"];
 }) => {
   const { t } = useTranslation("project-page");
-  const { guarantees, evidenceItems } = project;
+  const { id, guarantees, evidenceItems } = project;
 
   const map = new Map<string, string[]>();
   //Default category
@@ -138,7 +138,7 @@ const UploadedFiles = ({
     const existFiles = map.has(categoryLabel) ? map.get(categoryLabel) : [];
     map.set(categoryLabel, [...existFiles, evidence.name]);
   }
-  return <UploadsTab uploads={map} />;
+  return <UploadsTab projectId={id} uploads={map} />;
 };
 
 export default ProjectDetail;

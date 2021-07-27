@@ -1,24 +1,39 @@
 import "@testing-library/jest-dom";
 import React, { useRef } from "react";
-import { render, fireEvent, screen, within } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  screen,
+  within,
+  waitFor,
+  waitForElementToBeRemoved
+} from "@testing-library/react";
 import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
 import Apollo from "../../../../../lib/tests/fixtures/apollo";
 import CompanyMembersPage, { PageProps } from "..";
 import { companyMembers } from "../../../../../fixtures/companyMembers";
+import { useAccountContext } from "../../../../../context/AccountContext";
 
 const inviteMock = jest.fn();
 const mockDelete = jest.fn();
 const mockCompanyMembers = jest.fn();
+const mockRoleAccountMutation = jest.fn();
+
 jest.mock("../../../../../graphql/generated/hooks", () => ({
   __esModule: true,
   useInviteMutation: () => [inviteMock],
   useDeleteCompanyMemberMutation: () => [mockDelete],
-  useCompanyMembersLazyQuery: () => [mockCompanyMembers]
+  useCompanyMembersLazyQuery: () => [mockCompanyMembers],
+  useUpdateRoleAccountMutation: () => [mockRoleAccountMutation]
 }));
 
 jest.mock("@bmi/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
+}));
+
+jest.mock("../../../../../context/AccountContext", () => ({
+  useAccountContext: jest.fn()
 }));
 
 describe("Company Members Page", () => {
@@ -28,7 +43,16 @@ describe("Company Members Page", () => {
     data: companyMembers
   };
 
+  afterEach(() => {
+    jest.resetAllMocks();
+    jest.restoreAllMocks();
+  });
+
   beforeEach(() => {
+    (useAccountContext as jest.Mock).mockImplementation(() => ({
+      account: { role: "COMPANY_ADMIN" }
+    }));
+
     wrapper = render(
       <Apollo>
         <I18nProvider>
@@ -47,13 +71,13 @@ describe("Company Members Page", () => {
       const elements = wrapper.getAllByTestId("list-item");
       let listItem = elements[0];
       expect(listItem).toHaveTextContent("Alex Green");
-      expect(listItem).toHaveTextContent("company admin");
+      expect(listItem).toHaveTextContent("Company Admin");
       within(listItem).getByTestId("icon-FLAT");
       within(listItem).getByTestId("icon-PITCHED");
 
       listItem = elements[1];
       expect(listItem).toHaveTextContent("Aron Musk");
-      expect(listItem).toHaveTextContent("installer");
+      expect(listItem).toHaveTextContent("Installer");
       within(listItem).getByTestId("icon-FLAT");
     });
 
@@ -121,7 +145,7 @@ describe("Company Members Page", () => {
     it("should have a default user", () => {
       const userCard = screen.getByTestId("user-card");
       expect(userCard).toHaveTextContent("Alex Green");
-      expect(userCard).toHaveTextContent("company admin");
+      expect(userCard).toHaveTextContent("Company Admin");
     });
 
     it("should show certifications", () => {
@@ -135,7 +159,7 @@ describe("Company Members Page", () => {
 
       const userCard = screen.getByTestId("user-card");
       expect(userCard).toHaveTextContent("Aron Musk");
-      expect(userCard).toHaveTextContent("installer");
+      expect(userCard).toHaveTextContent("Installer");
 
       const table = screen.getByTestId("certification-table");
       expect(table).toHaveTextContent("Certification name 2");
@@ -155,7 +179,7 @@ describe("Company Members Page", () => {
             value: "Lorem ipsum"
           }
         });
-        fireEvent.click(screen.getByTestId("submit"));
+        fireEvent.click(screen.getByTestId("invite-dialog-submit"));
 
         expect(inviteMock).toHaveBeenCalledWith({
           variables: {
@@ -169,14 +193,121 @@ describe("Company Members Page", () => {
     });
 
     describe("Remove Member", () => {
+      it("Should not remove the member if press cancel", async () => {
+        fireEvent.click(screen.getByTestId("remove-member"));
+
+        await waitFor(() => screen.getByText("user_card.cancel"));
+
+        fireEvent.click(screen.getByText("user_card.cancel"));
+
+        await waitForElementToBeRemoved(() =>
+          screen.getByText("user_card.confirm")
+        );
+
+        expect(mockDelete).toHaveBeenCalledTimes(0);
+      });
+
       it("Should remove the member", async () => {
         fireEvent.click(screen.getByTestId("remove-member"));
+
+        await waitFor(() => screen.getByText("user_card.confirm"));
+
+        fireEvent.click(screen.getByText("user_card.confirm"));
+
+        await waitForElementToBeRemoved(() =>
+          screen.getByText("user_card.confirm")
+        );
 
         mockDelete.mockResolvedValueOnce(() => ({}));
 
         expect(mockDelete).toHaveBeenCalledWith({
           variables: { id: 1 }
         });
+      });
+
+      it("the remove button shouldn't be visible if installer", async () => {
+        (useAccountContext as jest.Mock).mockImplementation(() => ({
+          account: { role: "INSTALLER" }
+        }));
+
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...props} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        expect(
+          within(wrapper.container).queryByTestId("remove-member")
+        ).toBeNull();
+      });
+    });
+
+    describe("Change user role", () => {
+      it("Should not change the member role if press cancel", async () => {
+        fireEvent.click(screen.getByTestId("change-role"));
+
+        await waitFor(() => screen.getByText("user_card.cancel"));
+
+        fireEvent.click(screen.getByText("user_card.cancel"));
+
+        expect(mockRoleAccountMutation).toHaveBeenCalledTimes(0);
+      });
+      it("Should change the role to installer", async () => {
+        fireEvent.click(screen.getByTestId("change-role"));
+
+        await waitFor(() => screen.getByText("user_card.confirm"));
+
+        fireEvent.click(screen.getByText("user_card.confirm"));
+
+        mockRoleAccountMutation.mockResolvedValueOnce(() => ({}));
+
+        expect(mockRoleAccountMutation).toHaveBeenCalledWith({
+          variables: { input: { id: 1, patch: { role: "INSTALLER" } } }
+        });
+      });
+
+      it("Should change the role to copmany admin", async () => {
+        fireEvent.click(screen.getByText("Aron Musk"));
+
+        const userCard = screen.getByTestId("user-card");
+
+        await waitFor(() => within(userCard).getByText("Aron Musk"));
+
+        fireEvent.click(screen.getByTestId("change-role"));
+
+        await waitFor(() => screen.getByText("user_card.confirm"));
+
+        fireEvent.click(screen.getByText("user_card.confirm"));
+
+        await waitForElementToBeRemoved(() =>
+          screen.getByText("user_card.confirm")
+        );
+
+        mockRoleAccountMutation.mockResolvedValueOnce(() => ({}));
+
+        expect(mockRoleAccountMutation).toHaveBeenCalledWith({
+          variables: { input: { id: 2, patch: { role: "COMPANY_ADMIN" } } }
+        });
+      });
+
+      it("the remove button shouldn't be visible if installer", async () => {
+        (useAccountContext as jest.Mock).mockImplementation(() => ({
+          account: { role: "INSTALLER" }
+        }));
+
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...props} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        expect(
+          within(wrapper.container).queryByTestId("change-role")
+        ).toBeNull();
       });
     });
   });

@@ -1,8 +1,10 @@
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useState, useRef } from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import Button from "@bmi/button";
 import { flatten } from "lodash";
 import Hero, { HeroItem } from "@bmi/hero";
+import SpotlightHero from "@bmi/spotlight-hero";
 import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import CheckIcon from "@material-ui/icons/Check";
@@ -32,7 +34,7 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import { iconMap } from "../components/Icon";
 import RichText, { RichTextData } from "../components/RichText";
 import { Data as PageInfoData } from "../components/PageInfo";
-import {
+import Link, {
   Data as LinkData,
   getClickableActionFromUrl
 } from "../components/Link";
@@ -49,6 +51,8 @@ import {
 import { devLog } from "../utils/devLog";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { Product } from "../components/types/ProductBaseTypes";
+import { renderVideo } from "../components/Video";
+import { renderImage } from "../components/Image";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -60,6 +64,14 @@ type Data = PageInfoData &
     features: string[] | null;
     featuresLink: LinkData | null;
     breadcrumbs: BreadcrumbsData;
+    heroType:
+      | "Hierarchy"
+      | "Spotlight"
+      | "Level 1"
+      | "Level 2"
+      | "Level 3"
+      | null;
+    cta: LinkData | null;
   };
 
 type QueryParams = {
@@ -85,10 +97,13 @@ type Props = {
   };
 };
 
-const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
+const BlueCheckIcon = (
+  <CheckIcon style={{ color: "var(--color-brand-accent)" }} />
+);
 
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
+    brandLogo,
     title,
     subtitle,
     content,
@@ -97,14 +112,25 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     featuresLink,
     breadcrumbs,
     inputBanner,
-    seo
+    seo,
+    heroType,
+    featuredVideo,
+    cta
   } = data.contentfulProductListerPage;
 
-  const initialProducts = data.initialProducts ? data.initialProducts : [];
+  const initialProducts = data.initialProducts || [];
 
   const heroProps: HeroItem = {
     title,
-    children: subtitle
+    children: subtitle,
+    media: featuredVideo
+      ? renderVideo(featuredVideo)
+      : renderImage(featuredMedia, { size: "cover" }),
+    cta: cta && (
+      <Link component={Button} data={cta}>
+        {cta.label}
+      </Link>
+    )
   };
   const { countryCode } = data.contentfulSite;
 
@@ -261,8 +287,28 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     label: "children"
   });
 
+  let heroLevel;
+  if (heroType == "Spotlight" || heroType == "Hierarchy") {
+    heroLevel = (Math.min(breadcrumbs.filter(({ slug }) => slug).length, 3) ||
+      1) as 1 | 2 | 3;
+  } else {
+    const levelMap = {
+      "Level 1": 1,
+      "Level 2": 2,
+      "Level 3": 3
+    };
+    heroLevel = levelMap[heroType] as 1 | 2 | 3;
+  }
+  const breadcrumbsNode = (
+    <Breadcrumbs
+      data={breadcrumbs}
+      isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
+    />
+  );
+
   return (
     <Page
+      brand={brandLogo}
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
@@ -278,11 +324,15 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   <ProgressIndicator theme="light" />
                 </Scrim>
               ) : null}
-              <Hero
-                level={2}
-                {...heroProps}
-                breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
-              />
+              {heroType === "Spotlight" ? (
+                <SpotlightHero {...heroProps} breadcrumbs={breadcrumbsNode} />
+              ) : (
+                <Hero
+                  level={heroLevel}
+                  {...heroProps}
+                  breadcrumbs={breadcrumbsNode}
+                />
+              )}
               <Section backgroundColor="white">
                 <LeadBlock>
                   <LeadBlock.Content>
@@ -456,6 +506,10 @@ export const pageQuery = graphql`
       }
       features
       featuresLink {
+        ...LinkFragment
+      }
+      heroType
+      cta {
         ...LinkFragment
       }
     }

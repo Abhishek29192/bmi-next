@@ -9,7 +9,7 @@ import Account, {
   mutationCreateDoceboUser
 } from "../";
 
-jest.mock("../../utils", () => ({
+jest.mock("../../utils/account", () => ({
   randomPassword: () => "password"
 }));
 

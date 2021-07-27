@@ -19,7 +19,7 @@ export const TrainingCourseDetail = ({
       type={trainingType}
       status={status}
       image={image}
-      lmsUrl={!url ? lmsUrl : `${lmsUrl}?path=${url}}`}
+      lmsUrl={!url ? lmsUrl : `${lmsUrl}?path=${url}`}
     >
       <Typography variant="h5">{t("Description")}</Typography>
 
