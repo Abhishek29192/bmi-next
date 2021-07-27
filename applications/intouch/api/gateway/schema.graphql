@@ -1906,7 +1906,7 @@ type Company implements Node {
   """
   ek
   """
-  tier: Tier
+  tier: Tier!
 
   """
   ek

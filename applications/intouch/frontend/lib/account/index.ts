@@ -1,5 +1,5 @@
 import { Logger } from "winston";
-import { Account } from "@bmi/intouch-api-types";
+import { Account, Tier } from "@bmi/intouch-api-types";
 import { ApolloClient, NormalizedCacheObject, gql } from "@apollo/client";
 import { randomPassword } from "../utils/account";
 
@@ -141,7 +141,7 @@ export const findAccountCompany = (account: Account) => {
 
 // Account inherits tier from company.
 // if not assigned to a company, fallback to T1.
-export const findAccountTier = (account: Account) => {
+export const findAccountTier = (account: Account): Tier => {
   const company = findAccountCompany(account);
 
   // company may be created but not completed,

@@ -210,19 +210,19 @@ describe("Account", () => {
   });
 
   describe("findAccountTier", () => {
-    it("should default to T1 for installers", () => {
+    it("should default to T1 for users without a company", () => {
       expect(
         findAccountTier(
           generateAccount({
-            role: ROLES.INSTALLER,
-            hasCompany: false,
-            companyTier: "T1"
+            hasCompany: false
           })
         )
       ).toEqual("T1");
     });
 
-    it("should return T1 for company admins when company has no tier", () => {
+    // Companies should always have a tier (created as T1 by default)
+    // but leaving this test for now
+    it("should return T1 if company has no tier", () => {
       expect(
         findAccountTier(
           generateAccount({

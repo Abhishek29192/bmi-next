@@ -173,7 +173,7 @@ CREATE TABLE company (
   owner_email text,
   owner_phone text,
   business_type business_type,
-  tier tier,
+  tier tier NOT NULL DEFAULT 'T1',
   status company_status,
   registered_by text,
   registered_date timestamp,
