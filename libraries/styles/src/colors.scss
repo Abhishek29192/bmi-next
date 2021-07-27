@@ -67,10 +67,10 @@ $color-siplast-black: #1a171b;
   --color-theme-focus: #{$color-cyan-600};
 
   // Secondary(action cards colors)
-  --color-brand-secondary-1: #{$color-cyan-700};
-  --color-brand-secondary-2: #{$color-slate};
-  --color-brand-secondary-3: #{$color-blue-800};
-  --color-brand-secondary-4: #{$color-charcoal};
+  --color-theme-secondary-1: #{$color-cyan-700};
+  --color-theme-secondary-2: #{$color-slate};
+  --color-theme-secondary-3: #{$color-blue-800};
+  --color-theme-secondary-4: #{$color-charcoal};
 }
 
 // brand variables
@@ -80,10 +80,10 @@ $color-theme-inter: var(--color-theme-inter);
 $color-theme-focus: var(--color-theme-focus);
 
 // Secondary(action cards colors)
-$color-brand-secondary-1: var(--color-brand-secondary-1);
-$color-brand-secondary-2: var(--color-brand-secondary-2);
-$color-brand-secondary-3: var(--color-brand-secondary-3);
-$color-brand-secondary-4: var(--color-brand-secondary-4);
+$color-theme-secondary-1: var(--color-theme-secondary-1);
+$color-theme-secondary-2: var(--color-theme-secondary-2);
+$color-theme-secondary-3: var(--color-theme-secondary-3);
+$color-theme-secondary-4: var(--color-theme-secondary-4);
 
 // exported variables
 :export {
