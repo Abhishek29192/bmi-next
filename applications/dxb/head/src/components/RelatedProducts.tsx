@@ -64,7 +64,6 @@ const ProductListing = ({
             if (a.name > b.name) {
               return 1;
             }
-            return 0;
           }
 
           return weightB - weightA;
