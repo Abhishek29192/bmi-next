@@ -1,7 +1,10 @@
 process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 process.env.GRAPHQL_URL = "GRAPHQL_URL";
 
+import { ROLES } from "../../constants";
+import { generateAccount } from "../../tests/factories/account";
 import Account, {
+  findAccountTier,
   mutationCreateAccount,
   queryAccountByEmail,
   mutationCompleteInvitation,
@@ -204,5 +207,47 @@ describe("Account", () => {
         }
       }
     });
+  });
+
+  describe("findAccountTier", () => {
+    it("should default to T1 for installers", () => {
+      expect(
+        findAccountTier(
+          generateAccount({
+            role: ROLES.INSTALLER,
+            hasCompany: false,
+            companyTier: "T1"
+          })
+        )
+      ).toEqual("T1");
+    });
+
+    it("should return T1 for company admins when company has no tier", () => {
+      expect(
+        findAccountTier(
+          generateAccount({
+            role: ROLES.COMPANY_ADMIN,
+            hasCompany: true,
+            companyTier: null,
+            companyStatus: "ACTIVE"
+          })
+        )
+      ).toEqual("T1");
+    });
+
+    it("should return company tier when company has a tier", () => {
+      expect(
+        findAccountTier(
+          generateAccount({
+            role: ROLES.COMPANY_ADMIN,
+            hasCompany: true,
+            companyTier: "T3",
+            companyStatus: "ACTIVE"
+          })
+        )
+      ).toEqual("T3");
+    });
+
+    // TODO: test case for company.status = DEACTIVATED?
   });
 });

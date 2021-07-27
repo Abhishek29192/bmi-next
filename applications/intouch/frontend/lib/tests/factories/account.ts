@@ -6,6 +6,7 @@ import {
   Market,
   Company
 } from "@bmi/intouch-api-types";
+import { ROLES } from "../../constants";
 
 type AccountConfig = {
   role: Role;
@@ -20,7 +21,7 @@ type AccountConfig = {
 };
 
 const defaultConfig: AccountConfig = {
-  role: "INSTALLER",
+  role: ROLES.INSTALLER,
   hasCompany: false,
   companyTier: "T2",
   companyStatus: "ACTIVE",

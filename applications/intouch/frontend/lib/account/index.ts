@@ -144,7 +144,9 @@ export const findAccountCompany = (account: Account) => {
 export const findAccountTier = (account: Account) => {
   const company = findAccountCompany(account);
 
-  if (company) {
+  // company may be created but not completed,
+  // and therefore have no tier
+  if (company && company.tier) {
     return company.tier;
   }
 
