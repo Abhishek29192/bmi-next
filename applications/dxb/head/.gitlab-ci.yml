@@ -15,7 +15,6 @@ test_head:
 
 test_mr_coverage_head:
   extends: .test_jest_mr_coverage
-  allow_failure: true
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
