@@ -7,12 +7,22 @@
   width: 450px;
   max-width: 100%;
   margin: auto;
+
+  :global {
+    .Mui-disabled {
+      opacity: 0.5;
+    }
+  }
 }
 
 .clickable {
   display: flex !important;
   padding: 1.5rem !important;
   justify-content: flex-start !important;
+  &--selected {
+    background-color: $color-pearl;
+    border: 2px solid $color-storm;
+  }
 }
 
 .logo {
