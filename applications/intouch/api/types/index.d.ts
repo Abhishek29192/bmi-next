@@ -1139,7 +1139,7 @@ export type Company = Node & {
   /** ek */
   businessType?: Maybe<BusinessType>;
   /** ek */
-  tier?: Maybe<Tier>;
+  tier: Tier;
   /** ek */
   status?: Maybe<CompanyStatus>;
   /** the email address of the person who filled out the company registration form */
