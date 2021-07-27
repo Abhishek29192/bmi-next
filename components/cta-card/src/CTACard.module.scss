@@ -42,7 +42,7 @@
   .heading {
     display: flex;
     align-items: center;
-    color: $color-brand-inter;
+    color: $color-theme-inter;
     transition: $transition color;
   }
 
@@ -82,7 +82,7 @@
     }
 
     .heading {
-      color: $color-brand-focus;
+      color: $color-theme-focus;
     }
   }
 }

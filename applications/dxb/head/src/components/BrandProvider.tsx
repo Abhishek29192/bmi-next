@@ -47,7 +47,7 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
   useLayoutEffect(() => {
     if (ref.current) {
       const style = getComputedStyle(ref.current);
-      const interColor = style.getPropertyValue("--color-brand-inter").trim();
+      const interColor = style.getPropertyValue("--color-theme-inter").trim();
       if (interColor) {
         setInterColor(interColor);
       }

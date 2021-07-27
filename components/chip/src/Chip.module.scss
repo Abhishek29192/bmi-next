@@ -7,22 +7,22 @@
   font-size: 16px;
 
   &--default {
-    color: $color-brand-inter;
+    color: $color-theme-inter;
     background-color: $color-pearl;
     &:hover {
       background-color: $color-alabaster;
-      color: $color-brand-focus;
+      color: $color-theme-focus;
     }
   }
 
   &:global(.Mui-disabled) {
     background-color: rgba($color-pearl, 0.5);
-    color: rgba($color-brand-inter, 0.3);
+    color: rgba($color-theme-inter, 0.3);
   }
 
   &.MuiChip-colorPrimary {
     color: $color-white;
-    background-color: $color-brand-inter;
+    background-color: $color-theme-inter;
   }
 
   &--theme-white {
@@ -36,14 +36,14 @@
 
     .MuiChip-colorPrimary {
       color: $color-white;
-      background-color: $color-brand-inter;
+      background-color: $color-theme-inter;
     }
   }
 
   :global {
     .MuiChip-deleteIcon {
       width: 16px;
-      color: $color-brand-inter;
+      color: $color-theme-inter;
     }
   }
 }
