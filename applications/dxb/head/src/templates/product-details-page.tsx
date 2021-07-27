@@ -99,6 +99,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   return (
     <Page
+      brand={brandCode}
       title={product.name}
       pageData={pageData}
       siteData={contentfulSite}

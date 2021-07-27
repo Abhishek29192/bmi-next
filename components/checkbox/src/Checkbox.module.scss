@@ -3,10 +3,10 @@
 .Checkbox {
   :global {
     .MuiCheckbox-colorPrimary {
-      color: $color-cyan-500;
+      color: $color-theme-inter;
 
       &.Mui-disabled {
-        color: rgba($color-cyan-500, 0.25);
+        color: rgba($color-theme-inter, 0.25);
       }
     }
 

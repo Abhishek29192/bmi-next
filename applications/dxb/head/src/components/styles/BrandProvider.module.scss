@@ -1,0 +1,99 @@
+@import "@bmi/styles";
+
+.AeroDeck {
+  --color-theme-accent-300: #{$color-storm};
+  --color-theme-accent: #{$color-slate};
+  --color-theme-inter: #{$color-slate};
+  --color-theme-focus: #{$color-charcoal};
+
+  // Secondary(action cards colors)
+  --color-theme-secondary-1: #{$color-blue-900};
+  --color-theme-secondary-2: #{$color-blue-300};
+  --color-theme-secondary-3: #{$color-black};
+  --color-theme-secondary-4: #{$color-cyan-700};
+}
+
+.BrandRed {
+  --color-theme-accent-300: #{$color-brand-red-300};
+  --color-theme-accent: #{$color-brand-red};
+  --color-theme-inter: #{$color-brand-red-inter};
+  --color-theme-focus: #{$color-brand-red-focus};
+
+  // Secondary(action cards colors)
+  --color-theme-secondary-1: #{$color-orange-400};
+  --color-theme-secondary-2: #{$color-slate};
+  --color-theme-secondary-3: #{$color-charcoal};
+  --color-theme-secondary-4: #{$color-brand-red-inter};
+}
+
+.RoyalBlue {
+  --color-theme-accent-300: #{$color-cyan-400};
+  --color-theme-accent: #{$color-royal-blue};
+  --color-theme-inter: #{$color-royal-blue};
+  --color-theme-focus: #{$color-royal-blue-focus};
+
+  // Secondary(action cards colors)
+  --color-theme-secondary-1: #{$color-royal-blue-focus};
+  --color-theme-secondary-2: #{$color-blue-800};
+  --color-theme-secondary-3: #{$color-slate};
+  --color-theme-secondary-4: #{$color-cyan-700};
+}
+
+.Purple {
+  --color-theme-accent-300: #{$color-purple-300};
+  --color-theme-accent: #{$color-purple};
+  --color-theme-inter: #{$color-purple};
+  --color-theme-focus: #{$color-purple-focus};
+
+  // Secondary(action cards colors)
+  --color-theme-secondary-1: #{$color-purple-focus};
+  --color-theme-secondary-2: #{$color-slate};
+  --color-theme-secondary-3: #{$color-charcoal};
+  --color-theme-secondary-4: #{$color-blue-800};
+}
+
+.NavyBlue {
+  --color-theme-accent-300: #{$color-cyan-400};
+  --color-theme-accent: #{$color-navy-blue};
+  --color-theme-inter: #{$color-navy-blue};
+  --color-theme-focus: #{$color-navy-blue-focus};
+
+  // Secondary(action cards colors)
+  --color-theme-secondary-1: #{$color-navy-blue-focus};
+  --color-theme-secondary-2: #{$color-slate};
+  --color-theme-secondary-3: #{$color-cyan-700};
+  --color-theme-secondary-4: #{$color-blue-800};
+}
+
+.SealoflexBlue {
+  --color-theme-accent-300: #{$color-cyan-400};
+  --color-theme-accent: #{$color-sealoflex-blue};
+  --color-theme-inter: #{$color-sealoflex-blue};
+  --color-theme-focus: #{$color-sealoflex-blue-focus};
+
+  // Secondary(action cards colors)
+  --color-theme-secondary-1: #{$color-purple-focus};
+  --color-theme-secondary-2: #{$color-teal-500};
+  --color-theme-secondary-3: #{$color-aqua-500};
+  --color-theme-secondary-4: #{$color-slate};
+}
+
+.BrandGreen {
+  --color-theme-accent-300: #{$color-brand-green};
+  --color-theme-accent: #{$color-brand-green};
+  --color-theme-inter: #{$color-brand-green-inter};
+  --color-theme-focus: #{$color-brand-green-focus};
+
+  // Secondary(action cards colors)
+  --color-theme-secondary-1: #{$color-brand-green-focus};
+  --color-theme-secondary-2: #{$color-slate};
+  --color-theme-secondary-3: #{$color-charcoal};
+  --color-theme-secondary-4: #{$color-brand-green-inter};
+}
+
+.SiplastBlack {
+  --color-theme-accent-300: #{$color-storm};
+  --color-theme-accent: #{$color-siplast-black};
+  --color-theme-inter: #{$color-cyan-500};
+  --color-theme-focus: #{$color-siplast-black};
+}

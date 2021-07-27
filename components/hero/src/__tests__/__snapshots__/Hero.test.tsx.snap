@@ -17,7 +17,7 @@ exports[`Hero component renders level 1 1`] = `
           class="content"
         >
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading
           </h1>
@@ -55,7 +55,7 @@ exports[`Hero component renders level 1 with CTA 1`] = `
           class="content"
         >
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading
           </h1>
@@ -108,7 +108,7 @@ exports[`Hero component renders level 2 1`] = `
           class="content"
         >
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading
           </h1>
@@ -164,7 +164,7 @@ exports[`Hero component renders with deprecated imageSource - not string 1`] = `
           class="content"
         >
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading
           </h1>
@@ -204,7 +204,7 @@ exports[`Hero component renders with deprecated imageSource 1`] = `
           class="content"
         >
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading
           </h1>
