@@ -3,7 +3,7 @@
 exports[`ImageGallerySection tests When ONLY master images are provided should render siingle master image 1`] = `
 <div>
   <div
-    class="Section Section--pearl"
+    class="imageGallery-section Section Section--pearl"
   >
     <div
       class="Container"
@@ -18,7 +18,7 @@ exports[`ImageGallerySection tests When ONLY master images are provided should r
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
           >
             <div
-              class="ImageGallery"
+              class="ImageGallery gallery"
             >
               <div
                 class="image-wrapper"
@@ -34,7 +34,11 @@ exports[`ImageGallerySection tests When ONLY master images are provided should r
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
           >
-            Layers Accordion will be here
+            <div
+              style="height: 1500px; background-color: green;"
+            >
+              Layers Accordion will be here
+            </div>
           </div>
         </div>
       </div>
@@ -46,7 +50,7 @@ exports[`ImageGallerySection tests When ONLY master images are provided should r
 exports[`ImageGallerySection tests When images are empty array should render empty section 1`] = `
 <div>
   <div
-    class="Section Section--pearl"
+    class="imageGallery-section Section Section--pearl"
   >
     <div
       class="Container"
@@ -63,7 +67,11 @@ exports[`ImageGallerySection tests When images are empty array should render emp
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
           >
-            Layers Accordion will be here
+            <div
+              style="height: 1500px; background-color: green;"
+            >
+              Layers Accordion will be here
+            </div>
           </div>
         </div>
       </div>
@@ -75,7 +83,7 @@ exports[`ImageGallerySection tests When images are empty array should render emp
 exports[`ImageGallerySection tests When images are null should render empty section 1`] = `
 <div>
   <div
-    class="Section Section--pearl"
+    class="imageGallery-section Section Section--pearl"
   >
     <div
       class="Container"
@@ -92,7 +100,11 @@ exports[`ImageGallerySection tests When images are null should render empty sect
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
           >
-            Layers Accordion will be here
+            <div
+              style="height: 1500px; background-color: green;"
+            >
+              Layers Accordion will be here
+            </div>
           </div>
         </div>
       </div>
@@ -104,7 +116,7 @@ exports[`ImageGallerySection tests When images are null should render empty sect
 exports[`ImageGallerySection tests When master images and gallery images are provided should render siingle master image and multiple gallery images 1`] = `
 <div>
   <div
-    class="Section Section--pearl"
+    class="imageGallery-section Section Section--pearl"
   >
     <div
       class="Container"
@@ -119,7 +131,7 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
           >
             <div
-              class="ImageGallery"
+              class="ImageGallery gallery"
             >
               <div
                 class="image-wrapper"
@@ -217,7 +229,11 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
           >
-            Layers Accordion will be here
+            <div
+              style="height: 1500px; background-color: green;"
+            >
+              Layers Accordion will be here
+            </div>
           </div>
         </div>
       </div>

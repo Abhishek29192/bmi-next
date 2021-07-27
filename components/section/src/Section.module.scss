@@ -3,6 +3,7 @@
 .Section {
   padding: 60px 0;
   background-color: transparent;
+  overflow: hidden;
 
   &--alabaster {
     background-color: $color-alabaster;

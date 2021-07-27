@@ -33,6 +33,7 @@ $chevron-margin-left-lg: 3px;
   left: 0;
   width: 100%;
   z-index: 10;
+  overflow: hidden;
 
   ul {
     margin-bottom: 0;
@@ -170,7 +171,6 @@ $chevron-margin-left-lg: 3px;
   }
 
   .search-drawer {
-    position: absolute;
     padding: 30px;
 
     :global(.MuiTypography-root) {
