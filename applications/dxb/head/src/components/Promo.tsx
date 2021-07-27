@@ -8,7 +8,8 @@ import { Data as ImageData } from "./Image";
 export type Data = {
   __typename: "ContentfulPromo";
   id: string;
-  title: string;
+  name: string;
+  title: string | null;
   subtitle: string | null;
   body: RichTextData | null;
   brandLogo: string | null;
@@ -29,6 +30,7 @@ export const promoQuery = graphql`
   fragment BasePromoFragment on ContentfulPromo {
     __typename
     id
+    name
     title
     subtitle
     body {

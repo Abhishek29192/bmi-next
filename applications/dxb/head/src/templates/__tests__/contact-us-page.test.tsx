@@ -18,6 +18,7 @@ describe("Contact us page", () => {
         {
           __typename: "ContentfulPromo",
           id: "osyfb64chkucgrh76we",
+          name: "Action 1",
           title: "Action 1",
           subtitle: null,
           body: null,
@@ -31,6 +32,7 @@ describe("Contact us page", () => {
         {
           __typename: "ContentfulPromo",
           id: "q345789naetw9ny84",
+          name: "Action 2",
           title: "Action 2",
           subtitle: null,
           body: null,
@@ -232,6 +234,7 @@ describe("Contact us page", () => {
             {
               __typename: "ContentfulPromo",
               id: "a6f7e167-7c2b-5336-8df1-24e14f7203b8",
+              name: "BMI test video on PROMO",
               title: "BMI test video on PROMO",
               subtitle: null,
               body: null,

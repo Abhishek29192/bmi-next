@@ -65,7 +65,7 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
               key={index}
               icon={
                 <EmojiObjectsOutlinedIcon
-                  style={{ color: "var(--color-brand-accent)" }}
+                  style={{ color: "var(--color-theme-accent)" }}
                 />
               }
               title={title}

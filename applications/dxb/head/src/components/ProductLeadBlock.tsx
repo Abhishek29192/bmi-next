@@ -20,7 +20,7 @@ import { Classification } from "./types/ProductBaseTypes";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 
 const BlueCheckIcon = (
-  <Icon source={CheckIcon} style={{ color: "var(--color-brand-accent-300)" }} />
+  <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
 );
 
 type GuaranteesAndAwardsAsset = {

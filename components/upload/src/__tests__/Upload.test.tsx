@@ -223,4 +223,28 @@ describe("Upload component", () => {
 
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("onFilesChange handler is called", async () => {
+    const onFilesChange = jest.fn((files) => {});
+    const { getByTestId } = render(
+      <Upload
+        id="onFilesChange-mock-upload"
+        name="onFilesChange-mock-upload"
+        buttonLabel="Upload here"
+        mapBody={mapBody}
+        mapValue={mapValue}
+        microcopyProvider={{ test: "test" }}
+        onFilesChange={onFilesChange}
+      />
+    );
+    const input = getByTestId("onFilesChange-mock-upload");
+
+    const files = [new File([], "name", { type: "image" })];
+    fireEvent.change(input, {
+      target: {
+        files
+      }
+    });
+
+    expect(onFilesChange).toHaveBeenCalledWith(files);
+  });
 });

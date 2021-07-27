@@ -33,6 +33,7 @@ $chevron-margin-left-lg: 3px;
   left: 0;
   width: 100%;
   z-index: 10;
+  overflow: hidden;
 
   ul {
     margin-bottom: 0;
@@ -94,7 +95,7 @@ $chevron-margin-left-lg: 3px;
       }
 
       &--selected {
-        border-bottom: 5px solid $color-brand-inter !important;
+        border-bottom: 5px solid $color-theme-inter !important;
       }
     }
 
@@ -106,7 +107,7 @@ $chevron-margin-left-lg: 3px;
   }
 
   .search-button {
-    color: $color-brand-inter;
+    color: $color-theme-inter;
 
     // This breakpoint is not custom to this component
     @media (min-width: $breakpoint-lg) {
@@ -117,7 +118,7 @@ $chevron-margin-left-lg: 3px;
   }
 
   .burger-button {
-    color: $color-brand-inter;
+    color: $color-theme-inter;
     margin-left: 10px;
   }
 
@@ -170,7 +171,6 @@ $chevron-margin-left-lg: 3px;
   }
 
   .search-drawer {
-    position: absolute;
     padding: 30px;
 
     :global(.MuiTypography-root) {

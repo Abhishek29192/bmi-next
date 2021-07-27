@@ -89,6 +89,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulPromo",
             id: "1234",
+            name: "Villain 1",
             title: "Villain 1",
             brandLogo: null,
             tags: null,
@@ -102,6 +103,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulPromo",
             id: "3456",
+            name: "Villain 2",
             title: "Villain 2",
             brandLogo: null,
             tags: null,
@@ -115,6 +117,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulPromo",
             id: "4567",
+            name: "Villain 3",
             title: "Villain 3",
             brandLogo: null,
             tags: null,
@@ -156,6 +159,7 @@ describe("Sections component", () => {
         cards: [
           {
             __typename: "ContentfulPromo",
+            name: "promo title",
             title: "promo title",
             brandLogo: "AeroDek",
             subtitle: "promo subtitle",
@@ -248,6 +252,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulPromo",
         id: "5678",
+        name: "card section title 2",
         title: "card section title 2",
         subtitle: null,
         body: null,
@@ -281,6 +286,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulPromo",
         id: "5678",
+        name: "card section title 2",
         title: "card section title 2",
         subtitle: null,
         body: null,
@@ -705,6 +711,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulPromo",
             id: "1234",
+            name: "Villain 1",
             title: "Villain 1",
             brandLogo: null,
             tags: null,
@@ -753,6 +760,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulPromo",
         id: "1",
+        name: "Promo 1",
         title: "Promo 1",
         subtitle: null,
         body: null,
@@ -766,6 +774,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulPromo",
         id: "2",
+        name: "Promo 2",
         title: "Promo 2",
         subtitle: null,
         body: null,
@@ -779,6 +788,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulPromo",
         id: "3",
+        name: "Promo 3",
         title: "Promo 3",
         subtitle: null,
         body: {

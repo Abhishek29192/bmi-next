@@ -118,7 +118,7 @@ export const CompanyDetailsFragment = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, res }) => {
+  async ({ locale, apolloClient, globalPageData, res, account }) => {
     const {
       props: {
         data: { currentCompany }
@@ -128,7 +128,7 @@ export const getServerSideProps = withPage(
     if (!currentCompany) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(404);
+      return generatePageError(statusCode, {}, { globalPageData });
     }
 
     const {
@@ -143,6 +143,7 @@ export const getServerSideProps = withPage(
       props: {
         company,
         contactDetailsCollection,
+        account,
         globalPageData,
         ...(await serverSideTranslations(locale, [
           "common",

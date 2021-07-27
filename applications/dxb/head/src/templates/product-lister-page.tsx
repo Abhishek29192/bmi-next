@@ -98,7 +98,7 @@ type Props = {
 };
 
 const BlueCheckIcon = (
-  <CheckIcon style={{ color: "var(--color-brand-accent)" }} />
+  <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
 );
 
 const ProductListerPage = ({ pageContext, data }: Props) => {

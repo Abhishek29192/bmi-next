@@ -13,10 +13,10 @@ import { SiteContext } from "./Site";
 export type Data = (PromoData | PageInfoData)[];
 
 const indexToBackgroundMap: Colors[] = [
-  "color-brand-secondary-1",
-  "color-brand-secondary-2",
-  "color-brand-secondary-3",
-  "color-brand-secondary-4"
+  "color-theme-secondary-1",
+  "color-theme-secondary-2",
+  "color-theme-secondary-3",
+  "color-theme-secondary-4"
 ];
 
 const NextBestActions = ({ data }: { data: Data }) => {

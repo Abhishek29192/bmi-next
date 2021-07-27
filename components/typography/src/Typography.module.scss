@@ -3,7 +3,7 @@
 .Typography {
   &--underline {
     &::after {
-      background-color: $color-brand-accent;
+      background-color: $color-theme-accent;
       content: "";
       display: block;
       height: 4px;
@@ -12,7 +12,7 @@
     }
     &--dark-bg {
       &::after {
-        background-color: $color-brand-accent-300;
+        background-color: $color-theme-accent-300;
       }
     }
   }

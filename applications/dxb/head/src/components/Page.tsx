@@ -202,7 +202,7 @@ const Page = ({
                   shareWidgetData={resources?.visualiserShareWidget}
                 >
                   <Calculator onError={() => navigate(`/${countryCode}/422`)}>
-                    <div className={styles["content"]}>{children}</div>
+                    {children}
                   </Calculator>
                 </VisualiserProvider>
                 {inputBanner ? <InputBanner data={inputBanner} /> : null}

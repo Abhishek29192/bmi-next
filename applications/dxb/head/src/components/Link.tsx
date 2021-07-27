@@ -219,10 +219,6 @@ export const Link = ({
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
 
-  if (data?.type === "HubSpot CTA" && !process.env.GATSBY_HUBSPOT_CTA_ENABLED) {
-    return null;
-  }
-
   const handleOnClick = useCallback(
     (...args) => {
       onClick && onClick(...args);

@@ -61,29 +61,29 @@ $color-siplast-black: #1a171b;
 
 // css variables #{$color-black}
 :root {
-  --color-brand-accent-300: #{$color-cyan-400};
-  --color-brand-accent: #{$color-cyan-400};
-  --color-brand-inter: #{$color-cyan-500};
-  --color-brand-focus: #{$color-cyan-600};
+  --color-theme-accent-300: #{$color-cyan-400};
+  --color-theme-accent: #{$color-cyan-400};
+  --color-theme-inter: #{$color-cyan-500};
+  --color-theme-focus: #{$color-cyan-600};
 
   // Secondary(action cards colors)
-  --color-brand-secondary-1: #{$color-cyan-700};
-  --color-brand-secondary-2: #{$color-slate};
-  --color-brand-secondary-3: #{$color-blue-800};
-  --color-brand-secondary-4: #{$color-charcoal};
+  --color-theme-secondary-1: #{$color-cyan-700};
+  --color-theme-secondary-2: #{$color-slate};
+  --color-theme-secondary-3: #{$color-blue-800};
+  --color-theme-secondary-4: #{$color-charcoal};
 }
 
 // brand variables
-$color-brand-accent-300: var(--color-brand-accent-300);
-$color-brand-accent: var(--color-brand-accent);
-$color-brand-inter: var(--color-brand-inter);
-$color-brand-focus: var(--color-brand-focus);
+$color-theme-accent-300: var(--color-theme-accent-300);
+$color-theme-accent: var(--color-theme-accent);
+$color-theme-inter: var(--color-theme-inter);
+$color-theme-focus: var(--color-theme-focus);
 
 // Secondary(action cards colors)
-$color-brand-secondary-1: var(--color-brand-secondary-1);
-$color-brand-secondary-2: var(--color-brand-secondary-2);
-$color-brand-secondary-3: var(--color-brand-secondary-3);
-$color-brand-secondary-4: var(--color-brand-secondary-4);
+$color-theme-secondary-1: var(--color-theme-secondary-1);
+$color-theme-secondary-2: var(--color-theme-secondary-2);
+$color-theme-secondary-3: var(--color-theme-secondary-3);
+$color-theme-secondary-4: var(--color-theme-secondary-4);
 
 // exported variables
 :export {
