@@ -105,28 +105,40 @@ deploy_head_preview:
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-baseline.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+    - zap-baseline.py -t "${BASE_URL}" -J gl-dast-report.json -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT} || failed=true
+    - cp /zap/wrk/gl-dast-report.json .
+    - cp /zap/wrk/zap_output.html  .
+    - "[ $failed ] && exit 1"
   artifacts:
+    reports:
+      dast: gl-dast-report.json
     paths:
       - zap_output.html
+    when: always
 
 .full_scan:
   stage: dynamic security
   rules:
     - when: never
   image: owasp/zap2docker-stable:latest
+  timeout: 3h
   cache: {}
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-full-scan.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+    - zap-full-scan.py -t "${BASE_URL}" -J gl-dast-report.json -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT} || failed=true
+    - cp /zap/wrk/gl-dast-report.json .
+    - cp /zap/wrk/zap_output.html  .
+    - "[ $failed ] && exit 1"
   artifacts:
+    reports:
+      dast: gl-dast-report.json
     paths:
       - zap_output.html
+    when: always
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Triggered by Netlify when deploy is complete
-# Disabled until it can be fixed
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
@@ -137,6 +149,7 @@ baseline_scan_head_preview:
         - libraries/**/*
   needs:
     - deploy_head_preview
+  allow_failure: true
   variables:
     ZAP_ENVIRONMENT: "mr"
   before_script:
@@ -146,11 +159,6 @@ baseline_scan_head_preview:
       [ -z "${BASE_URL}" ] && echo "Nothing deployed to test" && exit 0
       xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${BASE_URL}" applications/dxb/head/dast/mr.context
       export BASE_URL=${BASE_URL}/no
-  # Only need script until we do the work to actually get the script to pass (as it always fails), but we want to know when MRs are eventually passing
-  script:
-    - mkdir /zap/wrk
-    - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-baseline.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT} || echo "ZAP check failed"
 
 # https://www.zaproxy.org/docs/docker/full-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
