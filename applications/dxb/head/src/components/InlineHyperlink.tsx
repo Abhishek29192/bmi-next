@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import { Inline } from "@contentful/rich-text-types";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import withGTM from "../utils/google-tag-manager";
-import { getClickableActionFromUrl } from "./Link";
+import { getClickableActionFromUrl, getLinkURL } from "./Link";
 import { SiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
@@ -45,7 +45,7 @@ const InlineHyperlink = ({ node, children }: Props) => {
       <GTMAnchorLink
         action={getClickableActionFromUrl(
           linkedPage,
-          url,
+          getLinkURL(fields),
           countryCode,
           asset ? `https:${asset?.file?.url}` : undefined,
           String(children),
