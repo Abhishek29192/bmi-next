@@ -22,11 +22,11 @@ export const IconLink = ({
   isExternal = false,
   ...rest
 }: IconLinkProps) => (
-  <Link href={href} className={styles.main} isExternal={isExternal} {...rest}>
-    <>
+  <Link href={href} isExternal={isExternal} {...rest}>
+    <div className={styles.main}>
       <Icon source={icon} color="action" style={{ fontSize: 24 }} />
       <Typography variant="body1">{label}</Typography>
-    </>
+    </div>
   </Link>
 );
 

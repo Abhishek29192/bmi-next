@@ -1870,6 +1870,109 @@ export type GetPartnerBrandsQueryResult = Apollo.QueryResult<
   OperationTypes.GetPartnerBrandsQuery,
   OperationTypes.GetPartnerBrandsQueryVariables
 >;
+export const GetUserProfileDocument = gql`
+  query getUserProfile($accountId: Int!) {
+    account(id: $accountId) {
+      firstName
+      lastName
+      role
+      email
+      phone
+      photo
+      companyMembers {
+        nodes {
+          company {
+            id
+            name
+            phone
+            website
+            aboutUs
+            registeredAddress {
+              firstLine
+              secondLine
+              town
+              region
+              country
+              postcode
+            }
+            logo
+            taxNumber
+            tier
+            businessType
+            ownerFullname
+            ownerEmail
+            ownerPhone
+            phone
+            publicEmail
+            website
+            linkedIn
+            facebook
+            referenceNumber
+          }
+        }
+      }
+      certificationsByDoceboUserId {
+        nodes {
+          id
+          technology
+          expiryDate
+          name
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetUserProfileQuery__
+ *
+ * To run a query within a React component, call `useGetUserProfileQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserProfileQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserProfileQuery({
+ *   variables: {
+ *      accountId: // value for 'accountId'
+ *   },
+ * });
+ */
+export function useGetUserProfileQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetUserProfileQuery,
+    OperationTypes.GetUserProfileQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetUserProfileQuery,
+    OperationTypes.GetUserProfileQueryVariables
+  >(GetUserProfileDocument, options);
+}
+export function useGetUserProfileLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetUserProfileQuery,
+    OperationTypes.GetUserProfileQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetUserProfileQuery,
+    OperationTypes.GetUserProfileQueryVariables
+  >(GetUserProfileDocument, options);
+}
+export type GetUserProfileQueryHookResult = ReturnType<
+  typeof useGetUserProfileQuery
+>;
+export type GetUserProfileLazyQueryHookResult = ReturnType<
+  typeof useGetUserProfileLazyQuery
+>;
+export type GetUserProfileQueryResult = Apollo.QueryResult<
+  OperationTypes.GetUserProfileQuery,
+  OperationTypes.GetUserProfileQueryVariables
+>;
 export const GetProjectsDocument = gql`
   query GetProjects {
     projects {

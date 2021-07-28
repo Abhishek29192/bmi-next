@@ -923,6 +923,71 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type GetUserProfileQueryVariables = SchemaTypes.Exact<{
+  accountId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type GetUserProfileQuery = { readonly __typename?: "Query" } & {
+  readonly account?: SchemaTypes.Maybe<
+    { readonly __typename?: "Account" } & Pick<
+      SchemaTypes.Account,
+      "firstName" | "lastName" | "role" | "email" | "phone" | "photo"
+    > & {
+        readonly companyMembers: {
+          readonly __typename?: "CompanyMembersConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "CompanyMember" } & {
+              readonly company?: SchemaTypes.Maybe<
+                { readonly __typename?: "Company" } & Pick<
+                  SchemaTypes.Company,
+                  | "id"
+                  | "name"
+                  | "phone"
+                  | "website"
+                  | "aboutUs"
+                  | "logo"
+                  | "taxNumber"
+                  | "tier"
+                  | "businessType"
+                  | "ownerFullname"
+                  | "ownerEmail"
+                  | "ownerPhone"
+                  | "publicEmail"
+                  | "linkedIn"
+                  | "facebook"
+                  | "referenceNumber"
+                > & {
+                    readonly registeredAddress?: SchemaTypes.Maybe<
+                      { readonly __typename?: "Address" } & Pick<
+                        SchemaTypes.Address,
+                        | "firstLine"
+                        | "secondLine"
+                        | "town"
+                        | "region"
+                        | "country"
+                        | "postcode"
+                      >
+                    >;
+                  }
+              >;
+            }
+          >;
+        };
+        readonly certificationsByDoceboUserId: {
+          readonly __typename?: "CertificationsConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "Certification" } & Pick<
+              SchemaTypes.Certification,
+              "id" | "technology" | "expiryDate" | "name"
+            >
+          >;
+        };
+      }
+  >;
+};
+
 export type GetProjectsQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;

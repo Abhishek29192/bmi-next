@@ -530,6 +530,49 @@ export const ssrGetPartnerBrands = {
 
   usePage: useGetPartnerBrands
 };
+export async function getServerPageGetUserProfile(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetUserProfileQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetUserProfileQuery>({
+    ...options,
+    query: Operations.GetUserProfileDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetUserProfile = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetUserProfileQuery,
+    OperationTypes.GetUserProfileQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetUserProfileDocument, options);
+};
+export type PageGetUserProfileComp = React.FC<{
+  data?: OperationTypes.GetUserProfileQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetUserProfile = {
+  getServerPage: getServerPageGetUserProfile,
+
+  usePage: useGetUserProfile
+};
 export async function getServerPageGetProjects(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetProjectsQueryVariables>,
