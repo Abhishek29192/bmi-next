@@ -1,5 +1,5 @@
 module.exports.description =
-  "Add display field to support Merhants and Branchs";
+  "Add display type field to support Merhants and Branchs";
 
 module.exports.up = (migration) => {
   const serviceLocatorSection = migration.editContentType(
@@ -22,7 +22,8 @@ module.exports.up = (migration) => {
     transformEntryForLocale: () => {
       // All entries before this migration are of type "Roofer"
       return { type: "Roofer" };
-    }
+    },
+    shouldPublish: "preserve"
   });
 };
 

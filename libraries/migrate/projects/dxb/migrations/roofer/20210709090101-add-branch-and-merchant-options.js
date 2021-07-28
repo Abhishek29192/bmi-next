@@ -32,7 +32,8 @@ module.exports.up = async (
     transformEntryForLocale: () => {
       // All entries before this migration are of type "Roofer"
       return { entryType: "Roofer" };
-    }
+    },
+    shouldPublish: "preserve"
   });
 
   const conditionalFieldsApp = await getAppByNameFromSpace(
