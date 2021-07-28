@@ -45,7 +45,7 @@ const SpotlightHero = ({
     <div
       className={classnames(
         styles["SpotlightHero"],
-        brand && styles["SpotlightHero--keyline"]
+        process.env.BRAND_PROVIDER && brand && styles["SpotlightHero--keyline"]
       )}
     >
       <div

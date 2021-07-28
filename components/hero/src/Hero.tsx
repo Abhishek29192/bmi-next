@@ -93,7 +93,7 @@ const Hero = ({
         styles["Hero"],
         styles["Hero--slim"],
         styles["Hero--carousel"],
-        brand && styles["Hero--keyline"],
+        process.env.BRAND_PROVIDER && brand && styles["Hero--keyline"],
         hasSpaceBottom && styles["Hero--space-bottom"],
         className
       )}
@@ -184,7 +184,7 @@ const SingleHero = ({
     <div
       className={classnames(
         styles["Hero"],
-        brand && styles["Hero--keyline"],
+        process.env.BRAND_PROVIDER && brand && styles["Hero--keyline"],
         levelProps.level === 3 && styles["Hero--light"],
         levelProps.level !== 1 && styles["Hero--slim"],
         !!levelProps.level && styles[`Hero--lvl-${levelProps.level}`],
