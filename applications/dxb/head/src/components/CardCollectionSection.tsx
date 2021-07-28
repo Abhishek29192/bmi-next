@@ -9,6 +9,8 @@ import { uniq, flatten } from "lodash";
 import Chip, { Props as ChipProps } from "@bmi/chip";
 import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
+import { withClickable } from "@bmi/clickable";
+import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";
@@ -66,13 +68,28 @@ const CardCollectionItem = ({
 
   const transformedCardLabel = label
     ? label.replace(/{{title}}/g, title || name)
-    : link?.label || `Go to ${title || name}`;
+    : link?.label;
 
   const GTMButton = withGTM<ButtonProps>(Button);
+  const GTMButtonBase = withGTM<ButtonBaseProps>(withClickable(ButtonBase));
+
+  const CardButton = (props) => (
+    <Link
+      component={GTMButtonBase}
+      data={link}
+      gtm={{
+        id: "cta-click1",
+        label: transformedCardLabel,
+        action: link.linkedPage?.path || link.url
+      }}
+      {...props}
+    />
+  );
+
+  const isFlat = type === "Story Card";
 
   return (
     <OverviewCard
-      hasTitleUnderline
       title={title || name}
       media={
         type !== "Text Card"
@@ -81,8 +98,10 @@ const CardCollectionItem = ({
             : renderImage(featuredMedia)
           : undefined
       }
-      isFlat={type === "Story Card"}
+      isFlat={isFlat}
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
+      clickableArea={type !== "Text Card" && featuredVideo ? "body" : "full"}
+      buttonComponent={link && !isFlat ? CardButton : "div"}
       footer={
         <>
           {date ? (
@@ -90,21 +109,21 @@ const CardCollectionItem = ({
               {date}
             </Typography>
           ) : null}
-          {link ? (
-            <Link
-              data-testid={"card-link"}
-              component={GTMButton}
-              data={link}
-              variant="outlined"
-              startIcon={<ArrowForwardIcon />}
-              gtm={{
-                id: "cta-click1",
-                label: transformedCardLabel,
-                action: link.linkedPage?.path || link.url
-              }}
-            >
-              {transformedCardLabel}
-            </Link>
+          {link && transformedCardLabel ? (
+            isFlat ? (
+              <CardButton
+                data-testid={"card-link"}
+                component={GTMButton}
+                variant="outlined"
+                startIcon={<ArrowForwardIcon />}
+              >
+                {transformedCardLabel}
+              </CardButton>
+            ) : (
+              <Button data-testid={"card-link"} component="span">
+                {transformedCardLabel}
+              </Button>
+            )
           ) : undefined}
         </>
       }

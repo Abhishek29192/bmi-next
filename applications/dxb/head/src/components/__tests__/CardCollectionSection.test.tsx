@@ -813,7 +813,7 @@ describe("CardCollectionSection component", () => {
       expect(cardLink).toBeNull();
     });
 
-    it("renders as 'Go to card.title' if cardLabel and link label are not provided", () => {
+    it("doesn't render button if cardLabel and link label are not provided", () => {
       const cards: Card[] = [
         {
           __typename: "ContentfulPromo",
@@ -871,14 +871,13 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(
+      const { container } = render(
         <SiteContext.Provider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
         </SiteContext.Provider>
       );
 
-      const cardLink = wrapper.getByTestId("card-link");
-      expect(cardLink.textContent).toEqual(`Go to ${card1.title}`);
+      expect(container).toMatchSnapshot();
     });
   });
 

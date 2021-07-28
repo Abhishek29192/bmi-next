@@ -1,15 +1,16 @@
 import React from "react";
 import classnames from "classnames";
 import Media, { AcceptedNode } from "@bmi/media";
+import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import Typography from "@bmi/typography";
+import { withClickable } from "@bmi/clickable";
 import styles from "./OverviewCard.module.scss";
 
-type Props = {
+export type Props = Omit<ButtonBaseProps, "action"> & {
   title: React.ReactNode;
   titleVariant?: "h4" | "h5" | "h6";
   subtitle?: React.ReactNode;
   subtitleVariant?: "h5" | "h6"; // TODO: Add h6 (from DS) smallest when needed.
-  hasTitleUnderline?: boolean;
   children: React.ReactNode;
   /**
    * @deprecated Use `media` instead.
@@ -20,6 +21,9 @@ type Props = {
   brandImageSource?: SVGImport | string;
   footer?: React.ReactNode;
   isFlat?: boolean;
+  buttonComponent?: React.ComponentType<any>;
+  component?: React.ElementType<any>;
+  clickableArea?: "full" | "body";
 };
 
 const __DeprecatedImageSource = ({
@@ -73,20 +77,39 @@ const OverviewCard = ({
   titleVariant = "h4",
   subtitle,
   subtitleVariant = "h5",
-  hasTitleUnderline,
   children,
   imageSource,
   imageSize = "cover",
   media,
   brandImageSource,
   footer,
-  isFlat = false
+  isFlat = false,
+  buttonComponent: Button = ButtonBase,
+  className,
+  clickableArea = "full",
+  ...rest
 }: Props) => {
+  const ClickableArea = ({
+    className,
+    children
+  }: {
+    className?: string;
+    children?: React.ReactNode;
+  }) => (
+    <Button {...rest} className={className}>
+      {children}
+    </Button>
+  );
+
+  const Wrapper = isFlat || clickableArea === "body" ? "div" : ClickableArea;
+  const Body = !isFlat && clickableArea === "body" ? ClickableArea : "div";
+
   return (
-    <div
+    <Wrapper
       className={classnames(
         styles["OverviewCard"],
-        isFlat && styles["OverviewCard--flat"]
+        styles[`OverviewCard--${isFlat ? "flat" : "clickable"}`],
+        className
       )}
     >
       <__DeprecatedImageSource
@@ -96,7 +119,7 @@ const OverviewCard = ({
       <Media size={imageSize} className={styles["header-picture"]}>
         {media}
       </Media>
-      <div className={styles["body"]}>
+      <Body className={styles["body"]}>
         <BrandLogo
           brandImageSource={brandImageSource}
           imageSource={imageSource}
@@ -104,7 +127,6 @@ const OverviewCard = ({
         />
         <Typography
           variant={titleVariant}
-          hasUnderline={hasTitleUnderline}
           className={classnames(
             styles["title"],
             !brandImageSource && styles["title--no-brand-logo"]
@@ -113,15 +135,17 @@ const OverviewCard = ({
           {title}
         </Typography>
         {subtitle && (
-          <Typography variant={subtitleVariant} className={styles["title"]}>
+          <Typography variant={subtitleVariant} className={styles["text"]}>
             {subtitle}
           </Typography>
         )}
-        <div className={styles["children"]}>{children}</div>
+        <div className={classnames(styles["children"], styles["text"])}>
+          {children}
+        </div>
         {footer && <div className={styles["footer"]}>{footer}</div>}
-      </div>
-    </div>
+      </Body>
+    </Wrapper>
   );
 };
 
-export default OverviewCard;
+export default withClickable<Props>(OverviewCard);

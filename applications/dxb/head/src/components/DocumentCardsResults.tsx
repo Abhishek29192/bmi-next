@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Button, { ButtonProps } from "@bmi/button";
-import OverviewCard from "@bmi/overview-card";
+import Button from "@bmi/button";
+import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Grid from "@bmi/grid";
 import withGTM from "../utils/google-tag-manager";
@@ -27,7 +27,7 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
     page * documentsPerPage
   );
 
-  const GTMButton = withGTM<ButtonProps>(Button);
+  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
     <Grid container spacing={3}>
@@ -35,31 +35,28 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
         ({ title, description, featuredMedia, asset, brand }, index) => {
           return (
             <Grid item key={`${title}-${index}`} xs={12} sm={12} lg={6} xl={4}>
-              <OverviewCard
+              <GTMOverviewCard
                 title={title}
-                hasTitleUnderline
                 media={renderImage(featuredMedia) || undefined}
                 brandImageSource={iconMap[brand]}
+                action={{
+                  model: "download",
+                  href: `https:${asset.file.url}`
+                }}
+                gtm={{
+                  id: "cta-click1",
+                  label: getMicroCopy("documentLibrary.card.download"),
+                  action: asset.file.url
+                }}
+                component={"a"}
                 footer={
-                  <GTMButton
-                    action={{
-                      model: "download",
-                      href: `https:${asset.file.url}`
-                    }}
-                    variant="outlined"
-                    startIcon={<ArrowForwardIcon />}
-                    gtm={{
-                      id: "cta-click1",
-                      label: getMicroCopy("documentLibrary.card.download"),
-                      action: asset.file.url
-                    }}
-                  >
+                  <Button component="span">
                     {getMicroCopy("documentLibrary.card.download")}
-                  </GTMButton>
+                  </Button>
                 }
               >
                 {description && <RichText document={description} />}
-              </OverviewCard>
+              </GTMOverviewCard>
             </Grid>
           );
         }

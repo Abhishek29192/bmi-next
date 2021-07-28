@@ -4,8 +4,8 @@ import { Link, graphql } from "gatsby";
 import { Tab, TabProps } from "@material-ui/core";
 import { Add as AddIcon } from "@material-ui/icons";
 import Grid from "@bmi/grid";
-import OverviewCard from "@bmi/overview-card";
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
+import AnchorLink from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import { uniqBy } from "lodash";
@@ -64,7 +64,6 @@ const ProductListing = ({
             if (a.name > b.name) {
               return 1;
             }
-            return 0;
           }
 
           return weightB - weightA;
@@ -86,7 +85,7 @@ const ProductListing = ({
     return null;
   }
 
-  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
     <>
@@ -116,7 +115,7 @@ const ProductListing = ({
               md={6}
               lg={3}
             >
-              <OverviewCard
+              <GTMOverviewCard
                 title={product.name}
                 titleVariant="h5"
                 subtitle={uniqueClassifications}
@@ -124,22 +123,21 @@ const ProductListing = ({
                 imageSize="contain"
                 imageSource={mainImage}
                 brandImageSource={brandLogo}
+                component={Link}
+                action={{
+                  model: "routerLink",
+                  linkComponent: Link,
+                  to: productUrl
+                }}
+                gtm={{
+                  id: "cta-click1",
+                  label: getMicroCopy("pdp.relatedProducts.viewDetails"),
+                  action: productUrl
+                }}
                 footer={
-                  <GTMAnchorLink
-                    iconEnd
-                    action={{
-                      model: "routerLink",
-                      linkComponent: Link,
-                      to: productUrl
-                    }}
-                    gtm={{
-                      id: "cta-click1",
-                      label: getMicroCopy("pdp.relatedProducts.viewDetails"),
-                      action: productUrl
-                    }}
-                  >
+                  <AnchorLink component="span" iconEnd>
                     {getMicroCopy("pdp.relatedProducts.viewDetails")}
-                  </GTMAnchorLink>
+                  </AnchorLink>
                 }
               >
                 {variant.externalProductCode !== null &&
@@ -151,7 +149,7 @@ const ProductListing = ({
                 ) : (
                   ""
                 )}
-              </OverviewCard>
+              </GTMOverviewCard>
             </Grid>
           );
         })}
