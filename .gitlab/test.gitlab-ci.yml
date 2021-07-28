@@ -29,6 +29,8 @@
     reports:
       junit:
         - $ROOT_DIR/junit.xml
+      cobertura:
+        - coverage/cobertura-coverage.xml
 
 ##############################################################################
 # Template to check the MR coverage using Jest
@@ -50,6 +52,7 @@
         - "**/package.json"
   needs:
     - install
+  allow_failure: true
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:

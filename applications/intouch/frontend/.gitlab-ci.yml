@@ -1,7 +1,5 @@
 test_intouch_frontend:
-  stage: test
-  needs:
-    - install
+  extends: .test_jest
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
@@ -10,16 +8,9 @@ test_intouch_frontend:
         - libraries/**/*
         - package.json
         - "**/package.json"
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/intouch-frontend coverage:jest
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
-  artifacts:
-    when: always
-    reports:
-      junit:
-        - applications/intouch/frontend/junit.xml
+  variables:
+    WORKSPACE: "@bmi/intouch-frontend"
+    ROOT_DIR: "applications/intouch/frontend"
 
 build_intouch_frontend_dev:
   needs: []
