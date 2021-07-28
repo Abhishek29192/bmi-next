@@ -28,12 +28,6 @@ module.exports.up = async (migration, { makeRequest }) => {
     );
     return;
   }
-  if (!inputBannerRequest.items.length) {
-    console.warn(
-      "No Input Banners were found when trying to migrate back to site. Please ensure that the right data gets added."
-    );
-    return;
-  }
   const inputBanner = inputBannerRequest.items[0];
   pageContentTypes.forEach((contentType) => {
     const currentContentType = migration.editContentType(contentType);
@@ -48,24 +42,26 @@ module.exports.up = async (migration, { makeRequest }) => {
       "builtin",
       "entryLinkEditor"
     );
-    migration.transformEntries({
-      contentType,
-      from: ["showSignUpBanner"],
-      to: ["inputBanner"],
-      transformEntryForLocale: function (fromFields, currentLocale) {
-        if (
-          !fromFields.showSignUpBanner ||
-          !fromFields.showSignUpBanner[currentLocale]
-        ) {
-          return;
-        }
-        return {
-          inputBanner: {
-            sys: { type: "Link", linkType: "Entry", id: inputBanner.sys.id }
+    if (inputBanner) {
+      migration.transformEntries({
+        contentType,
+        from: ["showSignUpBanner"],
+        to: ["inputBanner"],
+        transformEntryForLocale: function (fromFields, currentLocale) {
+          if (
+            !fromFields.showSignUpBanner ||
+            !fromFields.showSignUpBanner[currentLocale]
+          ) {
+            return;
           }
-        };
-      }
-    });
+          return {
+            inputBanner: {
+              sys: { type: "Link", linkType: "Entry", id: inputBanner.sys.id }
+            }
+          };
+        }
+      });
+    }
     currentContentType.deleteField("showSignUpBanner");
   });
 };
