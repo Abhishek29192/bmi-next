@@ -325,12 +325,17 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 </Scrim>
               ) : null}
               {heroType === "Spotlight" ? (
-                <SpotlightHero {...heroProps} breadcrumbs={breadcrumbsNode} />
+                <SpotlightHero
+                  {...heroProps}
+                  breadcrumbs={breadcrumbsNode}
+                  brand={brandLogo}
+                />
               ) : (
                 <Hero
                   level={heroLevel}
                   {...heroProps}
                   breadcrumbs={breadcrumbsNode}
+                  brand={brandLogo}
                 />
               )}
               <Section backgroundColor="white">

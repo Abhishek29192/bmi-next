@@ -68,4 +68,28 @@ describe("Hero component", () => {
     const { container } = render(<Hero title="H1 Heading" level={3} />);
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders level 1 with keyline for brand ", () => {
+    const { container } = render(
+      <Hero title="H1 Heading" level={3} brand="Brand Name" />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders level 0 with keyline for brand ", () => {
+    const { container } = render(
+      <Hero
+        heroes={[
+          {
+            title: "Title",
+            imageSource,
+            children: ""
+          }
+        ]}
+        level={0}
+        brand="Brand Name"
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

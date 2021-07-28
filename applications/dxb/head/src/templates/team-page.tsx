@@ -61,6 +61,7 @@ const TeamPage = ({ data, pageContext }: Props) => {
       <Hero
         level={2}
         title={title}
+        brand={brandLogo}
         breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
       />
       <Tabs

@@ -112,6 +112,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           return (
             <Hero
               level={0}
+              brand={brandLogo}
               breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom

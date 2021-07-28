@@ -27,6 +27,7 @@ export type HeroItem = {
 type Props<L = undefined> = {
   breadcrumbs?: React.ReactNode;
   className?: string;
+  brand?: string;
 } & (
   | L
   | ({
@@ -57,6 +58,7 @@ const __DeprecatedImageSource = ({
 const Hero = ({
   breadcrumbs,
   className,
+  brand,
   ...levelProps
 }: Props<{
   level: 0;
@@ -73,6 +75,7 @@ const Hero = ({
       <SingleHero
         breadcrumbs={breadcrumbs}
         className={className}
+        brand={brand}
         {...levelProps}
       />
     );
@@ -90,6 +93,7 @@ const Hero = ({
         styles["Hero"],
         styles["Hero--slim"],
         styles["Hero--carousel"],
+        brand && styles["Hero--keyline"],
         hasSpaceBottom && styles["Hero--space-bottom"],
         className
       )}
@@ -173,12 +177,14 @@ const SingleHero = ({
   breadcrumbs,
   title,
   className,
+  brand,
   ...levelProps
 }: Props) => {
   return (
     <div
       className={classnames(
         styles["Hero"],
+        brand && styles["Hero--keyline"],
         levelProps.level === 3 && styles["Hero--light"],
         levelProps.level !== 1 && styles["Hero--slim"],
         !!levelProps.level && styles[`Hero--lvl-${levelProps.level}`],
