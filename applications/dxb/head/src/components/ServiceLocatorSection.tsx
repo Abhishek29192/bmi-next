@@ -503,7 +503,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           certification
         ].filter(Boolean);
       case "Branch":
-        return [...detailsStart, distance, phone, email, fax].filter(Boolean);
+        return [
+          ...detailsStart,
+          distance,
+          phone,
+          email,
+          fax,
+          directions
+        ].filter(Boolean);
       case "Merchant":
         return [
           ...detailsStart,
