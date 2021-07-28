@@ -225,3 +225,19 @@ $$
 LANGUAGE sql
 stable STRICT
 SECURITY DEFINER;
+
+CREATE OR REPLACE FUNCTION search_systems (query text,technology technology)
+    RETURNS setof system
+    AS $$
+    SELECT * from system
+    WHERE
+        system.published = true
+        AND system.market_id =current_market ()
+        and system.technology =search_systems.technology
+        and 
+        (system.name ILIKE '%' || query || '%' or system.description ILIKE '%' || query || '%')
+        order by system.name
+$$
+LANGUAGE sql
+stable STRICT
+SECURITY DEFINER;

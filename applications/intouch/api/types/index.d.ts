@@ -10627,7 +10627,7 @@ export type QuerySearchProductsArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QuerySearchSystemsArgs = {
   query: Scalars["String"];
-  technology_: Technology;
+  technology: Technology;
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;

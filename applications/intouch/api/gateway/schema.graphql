@@ -16113,7 +16113,7 @@ type Query implements Node {
   """
   searchSystems(
     query: String!
-    technology_: Technology!
+    technology: Technology!
 
     """
     Only read the first `n` values of the set.
