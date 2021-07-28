@@ -19,7 +19,7 @@ const BRANDS_CLASSES = {
   Necoflex: styles["NavyBlue"],
   Ormax: styles["BrandRed"],
   Redland: styles["BrandRed"],
-  Sealoflex: styles["SealoflexBlue"],
+  Sealoflex: styles["NavyBlue"],
   Siplast: styles["SiplastBlack"],
   Sunscape: styles["BrandRed"],
   Vedag: styles["NavyBlue"],
