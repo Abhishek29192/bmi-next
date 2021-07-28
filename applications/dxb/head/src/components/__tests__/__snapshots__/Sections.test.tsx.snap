@@ -647,8 +647,12 @@ HTMLCollection [
               >
                 <div
                   class="YoutubeVideo"
-                  style="background-image: url(https://i.ytimg.com/vi/abc123/maxresdefault.jpg);"
                 >
+                  <img
+                    alt="Video"
+                    class="preview-image"
+                    src="https://i.ytimg.com/vi/abc123/maxresdefault.jpg"
+                  />
                   <span
                     class="AlternativeContent"
                   >
