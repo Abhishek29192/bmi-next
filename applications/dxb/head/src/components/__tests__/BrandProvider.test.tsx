@@ -6,6 +6,18 @@ import { useTheme } from "@material-ui/core";
 import BrandProvider, { getBrandClassName } from "../BrandProvider";
 
 describe("BrandProvider", () => {
+  const OLD_ENV = process.env;
+
+  beforeEach(() => {
+    jest.resetModules(); // Most important - it clears the cache
+    process.env = { ...OLD_ENV }; // Make a copy
+    process.env.BRAND_PROVIDER = "true";
+  });
+
+  afterAll(() => {
+    process.env = OLD_ENV; // Restore old environment
+  });
+
   it("renders", () => {
     const view = render(<BrandProvider>Test</BrandProvider>);
     expect(view.container.firstChild).toMatchSnapshot();

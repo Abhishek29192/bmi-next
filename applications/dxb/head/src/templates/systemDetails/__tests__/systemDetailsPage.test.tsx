@@ -11,6 +11,18 @@ const siteId = "1234";
 jest.mock("gatsby");
 
 describe("SystemDetailsPage template component", () => {
+  const OLD_ENV = process.env;
+
+  beforeEach(() => {
+    jest.resetModules(); // Most important - it clears the cache
+    process.env = { ...OLD_ENV }; // Make a copy
+    process.env.BRAND_PROVIDER = "true";
+  });
+
+  afterAll(() => {
+    process.env = OLD_ENV; // Restore old environment
+  });
+
   it("should render", () => {
     const { container } = renderWithRouter(
       <SystemDetailsPage
