@@ -9750,6 +9750,10 @@ export type Query = Node & {
    * which can only query top level fields if they are in a particular form.
    */
   query: Query;
+  /** Reads and enables pagination through a set of `Product`. */
+  searchProducts?: Maybe<ProductsConnection>;
+  /** Reads and enables pagination through a set of `System`. */
+  searchSystems?: Maybe<SystemsConnection>;
   system?: Maybe<System>;
   systemByBmiRef?: Maybe<System>;
   /** Reads a single `System` using its globally unique `ID`. */
@@ -10606,6 +10610,30 @@ export type QueryProjectsArgs = {
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
   condition?: Maybe<ProjectCondition>;
   filter?: Maybe<ProjectFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QuerySearchProductsArgs = {
+  query: Scalars["String"];
+  technology: Technology;
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  filter?: Maybe<ProductFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QuerySearchSystemsArgs = {
+  query: Scalars["String"];
+  technology: Technology;
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  filter?: Maybe<SystemFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */

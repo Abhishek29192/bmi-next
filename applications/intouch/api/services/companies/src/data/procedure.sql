@@ -209,3 +209,35 @@ CREATE OR REPLACE FUNCTION evidence_items_add(evidences evidence_item[])
     select e.custom_evidence_category_id,e.project_id,e.guarantee_id,e.evidence_category_type,e.name,e.attachment from unnest(evidences) as e
      RETURNING *;
 $$ LANGUAGE sql STRICT VOLATILE;
+
+CREATE OR REPLACE FUNCTION search_products (query text,technology technology)
+    RETURNS setof product
+    AS $$
+    SELECT * from product
+    WHERE
+        product.published = true
+        AND product.market_id =current_market ()
+        and product.technology =search_products.technology
+        and 
+        (product.name ILIKE '%' || query || '%' or product.description ILIKE '%' || query || '%')
+        order by product.name
+$$
+LANGUAGE sql
+stable STRICT
+SECURITY DEFINER;
+
+CREATE OR REPLACE FUNCTION search_systems (query text,technology technology)
+    RETURNS setof system
+    AS $$
+    SELECT * from system
+    WHERE
+        system.published = true
+        AND system.market_id =current_market ()
+        and system.technology =search_systems.technology
+        and 
+        (system.name ILIKE '%' || query || '%' or system.description ILIKE '%' || query || '%')
+        order by system.name
+$$
+LANGUAGE sql
+stable STRICT
+SECURITY DEFINER;
