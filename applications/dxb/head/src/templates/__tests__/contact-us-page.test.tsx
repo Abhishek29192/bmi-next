@@ -1,5 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import regions from "../../countries/region.json";
 import ContactUsPage, { Data } from "../contact-us-page";
 
 describe("Contact us page", () => {
@@ -347,7 +348,8 @@ describe("Contact us page", () => {
       scriptGA: null,
       scriptOnetrust: null,
       scriptHotJar: null,
-      scriptGOptLoad: null
+      scriptGOptLoad: null,
+      regions: regions.slice(-1)
     }
   };
 

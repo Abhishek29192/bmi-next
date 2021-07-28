@@ -1,9 +1,9 @@
-import languages, { defaultLanguage } from "./languages";
+import languages from "./languages";
 import LanguageSelection, {
   LanguageSelectionItem,
   LanguageSelectionList
 } from "./LanguageSelection";
 
-export { defaultLanguage, languages };
+export { languages };
 export type { LanguageSelectionItem, LanguageSelectionList };
 export default LanguageSelection;

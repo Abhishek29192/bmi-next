@@ -1,0 +1,34 @@
+<svg id="The_Netherlands_Nederland" data-name="The Netherlands / Nederland" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" y1="13.33333" x2="20" y2="13.33333" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0082e8"/>
+      <stop offset="0.54469" stop-color="#008af0"/>
+      <stop offset="1" stop-color="#06c"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="8" x2="20" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e8e8e8"/>
+      <stop offset="0.43855" stop-color="#f7f7f7"/>
+      <stop offset="1" stop-color="#ccc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" y1="2.66667" x2="20" y2="2.66667" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fd5928"/>
+      <stop offset="0.52235" stop-color="#ff6030"/>
+      <stop offset="1" stop-color="#f63404"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="8.18947" cy="5.50048" r="10.47368" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect y="10.66667" width="20" height="5.33333" fill="url(#linear-gradient)"/>
+  <rect y="5.33333" width="20" height="5.33333" fill="url(#linear-gradient-2)"/>
+  <rect width="20" height="5.33333" fill="url(#linear-gradient-3)"/>
+  <g clip-path="url(#clip-path)">
+    <circle cx="8.18947" cy="5.50048" r="10.47368" fill="url(#radial-gradient)"/>
+  </g>
+  <path d="M19,1V15H1V1ZM0,0V16H20V0Z" opacity="0.15"/>
+</svg>

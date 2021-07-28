@@ -988,6 +988,9 @@ type ContentfulResources implements Node {
   "The share widget for the visualiser for these resources."
   visualiserShareWidget: ContentfulShareWidgetSection
     @link(from: "visualiserShareWidget___NODE")
+
+  " Language selection dialog introduction"
+  countryNavigationIntroduction: ContentfulRichText
 }
 
 """
@@ -1094,6 +1097,9 @@ type ContentfulSite implements Node {
 
   "Google Optimize Load balancing ID"
   scriptGOptLoad: String
+
+  "Regions for country navigation"
+  regions: [RegionJson]! @link(from: "regions___NODE")
 }
 
 """
@@ -1602,4 +1608,15 @@ type ContentfulIframe implements Node {
 
   "iframe height"
   height: String!
+}
+
+type CountryJSON {
+  code: String!
+  label: String!
+  icon: String
+}
+
+type RegionJson implements Node @dontInfer {
+  label: String!
+  menu: [CountryJSON]!
 }

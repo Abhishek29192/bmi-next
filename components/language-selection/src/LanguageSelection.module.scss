@@ -1,3 +1,5 @@
+@import "@bmi/styles";
+
 .LanguageSelection {
   .heading {
     margin-top: 2rem;
@@ -12,6 +14,11 @@
   .link {
     justify-content: start;
     width: 100%;
+    margin: 0;
+
+    @media (min-width: $breakpoint-md) {
+      margin: 10px 0px;
+    }
   }
 }
 

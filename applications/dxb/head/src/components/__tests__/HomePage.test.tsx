@@ -6,6 +6,7 @@ import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as PageData } from "../../components/Page";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as SectionsData } from "../../components/Sections";
+import regions from "../../countries/region.json";
 import { Data as PromoData } from "../Promo";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
@@ -213,7 +214,8 @@ describe("HomePage template", () => {
       menuNavigation: mockNavigation,
       menuUtilities: mockNavigation,
       resources: null,
-      scriptGOptLoad: null
+      scriptGOptLoad: null,
+      regions: regions.slice(-1)
     };
 
     const hpData = {
