@@ -128,6 +128,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   } = data;
 
   const shouldEnableSearch = sectionType !== "Branch";
+  const shouldListCertification = sectionType === "Roofer";
 
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
@@ -659,7 +660,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     subtitle={
                       <>
                         {service.address}
-                        {service.certification && (
+                        {service.certification && shouldListCertification && (
                           <div className={styles["roofpro-certification"]}>
                             {getMicroCopy("findARoofer.certificationLabel")}:
                             <Logo
