@@ -1,7 +1,7 @@
 import { fetch } from "cross-fetch";
 import { GraphQLSchema, print } from "graphql";
 import { wrapSchema, introspectSchema } from "@graphql-tools/wrap";
-import { Executor, ExecutionParams } from "@graphql-tools/delegate";
+import { AsyncExecutor, ExecutionParams } from "@graphql-tools/delegate";
 import { transformSchemaFederation } from "graphql-transform-federation";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
@@ -23,7 +23,10 @@ const getSecret = async (client, project, key) => {
 
 const CONTENTFUL_SERVICE = `${CONTENTFUL_API_HOST}/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`;
 
-const executor: Executor = async ({ document, variables }: ExecutionParams) => {
+const executor: AsyncExecutor = async ({
+  document,
+  variables
+}: ExecutionParams) => {
   const query = print(document);
   const CONTENTFUL_TOKEN = await getSecret(
     client,
