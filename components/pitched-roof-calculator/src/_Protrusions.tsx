@@ -27,7 +27,7 @@ const SelectProtrusion = ({
 
   const [selected, setSelected] = useState(defaultValue);
 
-  const handleOnChange = (e) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setSelected(newValue);
     updateField(newValue, undefined);
@@ -46,7 +46,7 @@ const SelectProtrusion = ({
               name={`select-protrusion-${id}`}
               value={type}
               illustratedImage={illustration}
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 pushEvent({
                   event: "dxb.button_click",
                   id: "rc-dimensions-protrusions-type",
@@ -90,7 +90,7 @@ const Input = ({
 
   const handleOnBlur = () => setIsBlurred(true);
 
-  const handleOnChange = (newValue) => {
+  const handleOnChange = (newValue: string) => {
     const newError = validator(newValue);
     setError(newError);
     updateField(newValue, newError);
@@ -129,7 +129,7 @@ const Input = ({
 
 type ProtrusionDimensionsProps = {
   id: string;
-  onAddAnother: () => void;
+  onAddAnother?: () => void;
   createUpdateField: (name: string) => (value?: string, error?: string) => any;
   onRemove: () => void;
   type: Type;
@@ -227,7 +227,7 @@ type ProtrusionItem = {
 
 type ProtrusionProps = {
   id: string;
-  onAddAnother: () => void;
+  onAddAnother?: () => void;
   onUpdate: (
     getChange: (item: ProtrusionItem) => Partial<ProtrusionItem>
   ) => void;
@@ -324,12 +324,15 @@ const Protrusions = ({
       { id: getNextId(), values: {}, errors: {} }
     ]);
 
-  const updateProtrusion = (id, getChange) =>
+  const updateProtrusion = (
+    id: string,
+    getChange: (item: ProtrusionItem) => Partial<ProtrusionItem>
+  ) =>
     setProtrusions((protrusions) =>
       protrusions.map((p) => (p.id === id ? { ...p, ...getChange(p) } : p))
     );
 
-  const removeProtrusion = (id) =>
+  const removeProtrusion = (id: string) =>
     setProtrusions((protrusions) => protrusions.filter((p) => p.id !== id));
 
   const protrusionsElements = useMemo(
@@ -351,7 +354,7 @@ const Protrusions = ({
 
   useEffect(() => {
     let error = false;
-    const list = [];
+    const list: ProtrusionItem["values"][] = [];
 
     for (const { values, errors } of protrusions) {
       list.push(values);

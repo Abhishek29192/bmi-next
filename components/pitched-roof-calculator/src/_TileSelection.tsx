@@ -5,7 +5,7 @@ import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import validateRangesAgainstPitchValues from "./helpers/validateRangesAgainstPitchValues";
 import getPitchValues from "./helpers/getPitchValues";
-import { MainTile, MainTileCategory, RangeValue } from "./types";
+import { BaseProduct, MainTile, MainTileCategory, RangeValue } from "./types";
 import { DimensionsValues } from "./types/roof";
 import { AnalyticsContext } from "./helpers/analytics";
 
@@ -23,15 +23,17 @@ const validateTileForPitchValues = (
     validateRangesAgainstPitchValues(ranges, pitchValues)
   );
 
-const byName = ({ name: firstTile }, { name: secondTile }) =>
-  firstTile.localeCompare(secondTile);
+const byName = (
+  { name: firstTile }: BaseProduct,
+  { name: secondTile }: BaseProduct
+) => firstTile.localeCompare(secondTile);
 
 type TileSelectionRowProps = {
   title: string;
   // TODO: Type when importing from Contentful
-  select: (tile: object) => void;
-  selected?: any;
-  options: ReadonlyArray<any>;
+  select: (tile: MainTile) => void;
+  selected?: MainTile;
+  options: ReadonlyArray<MainTile>;
 };
 
 const TileSelectionRow = ({

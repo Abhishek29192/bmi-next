@@ -1,7 +1,7 @@
 import React from "react";
 
-const calculateStyle = (style, props) => {
-  const calculatedStyle = {};
+const calculateStyle = (style: any, props: any): any => {
+  const calculatedStyle: { [key: string]: any } = {};
 
   for (const [key, value] of Object.entries(style)) {
     // eslint-disable-next-line security/detect-object-injection
@@ -11,8 +11,9 @@ const calculateStyle = (style, props) => {
   return calculatedStyle;
 };
 
-// eslint-disable-next-line react/display-name
-const styled = (Component) => (style) => (props) =>
-  <Component {...calculateStyle(style, props)} {...props} />;
+const styled =
+  // eslint-disable-next-line react/display-name
+  (Component: any) => (style: any) => (props: any) =>
+    <Component {...calculateStyle(style, props)} {...props} />;
 
 export default styled;

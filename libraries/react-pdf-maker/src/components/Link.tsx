@@ -1,15 +1,10 @@
-import React from "react";
 import extractDefinitions from "../extractDefinitions";
 import { PDFNode } from "../types";
+import { ComponentProps } from "../types";
 
-const Link = ({
-  children,
-  href: link,
-  ...rest
-}: {
-  children: React.ReactNode[];
-  href: string;
-}): any => {
+type LinkProps = ComponentProps & { href: string };
+
+const Link = ({ children, href: link, ...rest }: LinkProps): any => {
   return {
     text: (extractDefinitions(children) as PDFNode[]).join(""),
     link,

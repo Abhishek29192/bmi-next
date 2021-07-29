@@ -10,11 +10,8 @@ export type Props = {
   imageSource?: string;
   illustratedImage?: SVGImport;
 } & (
-  | ({ component: "div" } & Omit<ButtonBaseProps<"div">, "component">)
-  | ({ component?: "button" } & Omit<
-      ButtonBaseProps<"button">,
-      "component" | "type"
-    >)
+  | ({ component?: "div" } & Omit<ButtonBaseProps<"div">, "component">)
+  | ({ component: "button" } & Omit<ButtonBaseProps<"button">, "component">)
 );
 
 const ToggleCard = ({

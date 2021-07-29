@@ -5,7 +5,7 @@ import { getFieldTypes, Type } from "../helpers/fieldTypes";
 import styles from "./_InputTextField.module.scss";
 
 type InputTextFieldProps = {
-  name?: string;
+  name: string;
   label?: string;
   defaultValue?: string;
   type: Type;

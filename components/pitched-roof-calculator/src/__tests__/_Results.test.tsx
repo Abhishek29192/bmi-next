@@ -1,4 +1,5 @@
 import React from "react";
+import { Props } from "@bmi/quantity-table/src/QuantityTable";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import fetchMockJest from "fetch-mock-jest";
@@ -22,7 +23,9 @@ afterAll(() => {
 });
 
 jest.mock("@bmi/quantity-table", () => {
-  const QuantityTable = (props) => <p>{JSON.stringify(props, null, 2)}</p>;
+  const QuantityTable = (props: Props) => (
+    <p>{JSON.stringify(props, null, 2)}</p>
+  );
 
   return {
     __esModule: true,
@@ -30,7 +33,7 @@ jest.mock("@bmi/quantity-table", () => {
   };
 });
 
-let openPDF;
+let openPDF: jest.Mock;
 jest.mock("../_PDF", () => {
   openPDF = jest.fn();
   return {
@@ -38,6 +41,7 @@ jest.mock("../_PDF", () => {
     default: openPDF
   };
 });
+global.open = jest.fn();
 
 const resultsProps = {
   measurements: {
@@ -504,19 +508,19 @@ describe("PitchedRoofCalculator Results component", () => {
     );
 
     const nameInput = container.querySelector(`input[name="name"]`);
-    fireEvent.change(nameInput, { target: { value: "Test Test" } });
+    fireEvent.change(nameInput!, { target: { value: "Test Test" } });
 
     const emailInput = container.querySelector(`input[name="email"]`);
-    fireEvent.change(emailInput, { target: { value: "test@test.test" } });
+    fireEvent.change(emailInput!, { target: { value: "test@test.test" } });
 
     const gdpr_1Input = container.querySelector(`input[name="gdpr_1"]`);
-    fireEvent.click(gdpr_1Input);
+    fireEvent.click(gdpr_1Input!);
 
     const gdpr_2Input = container.querySelector(`input[name="gdpr_2"]`);
-    fireEvent.click(gdpr_2Input);
+    fireEvent.click(gdpr_2Input!);
 
     const submitButton = container.querySelector(`.submit`);
-    fireEvent.click(submitButton);
+    fireEvent.click(submitButton!);
 
     expect(sendEmailAddress.mock.calls).toMatchSnapshot(
       "Email address details"

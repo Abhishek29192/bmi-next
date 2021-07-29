@@ -203,14 +203,16 @@ const DownPipeSelection = ({
   );
 };
 
+export type GutteringSelections = {
+  guttering?: string;
+  gutteringVariant?: string;
+  gutteringHook?: string;
+  downPipes?: number;
+  downPipeConnectors?: number;
+};
+
 type GutteringProps = {
-  selections: {
-    guttering?: string;
-    gutteringVariant?: string;
-    gutteringHook?: string;
-    downPipes?: number;
-    downPipeConnectors?: number;
-  };
+  selections: GutteringSelections;
   gutters: GutteringType[];
   gutterHooks: LengthBasedProduct[];
 };

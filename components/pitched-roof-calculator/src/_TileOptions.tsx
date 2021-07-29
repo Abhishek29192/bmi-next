@@ -178,13 +178,15 @@ const VentilationHoodOptions = ({
   );
 };
 
+export type TileOptionsSeletions = {
+  verge?: string;
+  ridge?: string;
+  ventilation?: string[];
+};
+
 type TileOptionsProps = {
   variant: MainTileVariant;
-  selections: {
-    verge?: string;
-    ridge?: string;
-    ventilation?: string[];
-  };
+  selections: TileOptionsSeletions;
 };
 
 const TileOptions = ({ variant, selections }: TileOptionsProps) => {

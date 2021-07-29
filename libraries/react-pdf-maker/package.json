@@ -5,8 +5,7 @@
   "license": "BMI-DXB",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w"
+    "check:ts": "tsc"
   },
   "dependencies": {
     "pdfmake": "^0.2.2",

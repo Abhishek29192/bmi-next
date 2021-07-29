@@ -10,10 +10,9 @@ import { AnalyticsContext } from "./helpers/analytics";
 type VariantSelectionRowProps = {
   title: string;
   dimensions: DimensionsValues;
-  // TODO: Type when importing from Contentful
-  select: (tile: object) => void;
+  select: (tile: MainTileVariant) => void;
   selected?: MainTileVariant;
-  options: ReadonlyArray<any>;
+  options: ReadonlyArray<MainTileVariant>;
   tile: MainTile;
 };
 

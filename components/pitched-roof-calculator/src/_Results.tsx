@@ -2,7 +2,7 @@ import React, { useContext, useMemo, useState } from "react";
 import QuantityTable from "@bmi/quantity-table";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
-import Form from "@bmi/form";
+import Form, { Values as FormValues } from "@bmi/form";
 import TextField from "@bmi/text-field";
 import Checkbox from "@bmi/checkbox";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
@@ -23,6 +23,8 @@ import { AnalyticsContext } from "./helpers/analytics";
 import Alert from "./subcomponents/_Alert";
 import styles from "./_Results.module.scss";
 import { EmailFormValues } from "./types/EmailFormValues";
+import { TileOptionsSeletions } from "./_TileOptions";
+import { GutteringSelections } from "./_Guttering";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 
 type EmailAddressCollectionProps = {
@@ -76,7 +78,10 @@ const EmailAddressCollection = ({
   return (
     <Form
       className={styles["form"]}
-      onSubmit={async (e, values: EmailFormValues) => {
+      onSubmit={async (
+        e: React.FormEvent<HTMLFormElement>,
+        values: FormValues
+      ) => {
         e.preventDefault();
 
         if (loading) {
@@ -87,7 +92,7 @@ const EmailAddressCollection = ({
 
         try {
           // await for captcha and such
-          await sendEmailAddress(values);
+          await sendEmailAddress(values as EmailFormValues);
         } catch (error) {
           if (process.env.NODE_ENV === "development") {
             // eslint-disable-next-line no-console
@@ -214,15 +219,23 @@ const EmailAddressCollection = ({
   );
 };
 
-type SetRows = (replacer: (rows: ResultsRow[]) => ResultsRow[]) => void;
+type SetRows = React.Dispatch<React.SetStateAction<Array<ResultsRow>>>;
 
-const getRemoveRow = (setRows: SetRows) => (externalProductCode) =>
+const createEmptyResult = () => ({
+  tiles: [],
+  fixings: [],
+  sealing: [],
+  ventilation: [],
+  accessories: []
+});
+
+const getRemoveRow = (setRows: SetRows) => (externalProductCode: string) =>
   setRows((rows) =>
     rows.filter((row) => row.externalProductCode !== externalProductCode)
   );
 
 const getChangeQuantity =
-  (setRows: SetRows) => (externalProductCode, newQuantity) =>
+  (setRows: SetRows) => (externalProductCode: string, newQuantity: number) =>
     setRows((rows) =>
       rows.map((row) =>
         row.externalProductCode === externalProductCode
@@ -249,9 +262,9 @@ const Results = ({
   isDebugging?: boolean;
   measurements: Measurements;
   variant: MainTileVariant;
-  tileOptions: any;
-  underlay: any;
-  guttering: any;
+  tileOptions: TileOptionsSeletions;
+  underlay: Underlay;
+  guttering: GutteringSelections;
   sendEmailAddress: EmailAddressCollectionProps["sendEmailAddress"];
 }) => {
   const copy = useContext(MicroCopyContext);
@@ -259,7 +272,7 @@ const Results = ({
   const { faces, lines, area } = measurements;
 
   const results = useMemo(() => {
-    let vergeOption: VergeOption;
+    let vergeOption: VergeOption | undefined;
 
     if (tileOptions.verge && tileOptions.verge !== "none") {
       vergeOption = variant.vergeOptions.find(
@@ -273,8 +286,12 @@ const Results = ({
         )
       : variant.ridgeOptions[0];
 
+    if (!ridge) {
+      return createEmptyResult();
+    }
+
     const ventilationHoods = variant.ventilationHoodOptions.filter((v) =>
-      tileOptions.ventilation.includes(v.externalProductCode)
+      tileOptions.ventilation?.includes(v.externalProductCode)
     );
 
     let gutteringVariant, gutteringHook;
@@ -282,7 +299,7 @@ const Results = ({
     if (guttering.gutteringVariant) {
       gutteringVariant = gutters
         .find(({ name }) => guttering.guttering === name)
-        .variants.find(
+        ?.variants.find(
           ({ externalProductCode }) =>
             guttering.gutteringVariant === externalProductCode
         );
@@ -296,13 +313,17 @@ const Results = ({
     }
 
     const selectedUnderlay = underlays.find(
-      (u) => u.externalProductCode === underlay.underlay
+      (u) => u.externalProductCode === underlay.externalProductCode
     );
+
+    if (!selectedUnderlay) {
+      return createEmptyResult();
+    }
 
     const quantitiesCalculator = new QuantitiesCalculator({
       measurements,
       mainTileVariant: variant,
-      vergeOption: vergeOption,
+      vergeOption,
       ridge,
       ventilationHoods,
       underlay: selectedUnderlay,
@@ -416,7 +437,7 @@ const Results = ({
             ventilation: ventilationRows,
             accessories: accessoryRows
           },
-          area,
+          area: area || 0,
           sendEmailAddress
         }}
       />

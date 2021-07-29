@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { act } from "@testing-library/react";
-import { MicroCopy } from "../helpers/microCopy";
 import roofs from "../calculation/roofs";
+import { MicroCopy } from "../helpers/microCopy";
 import data from "../samples/data.json";
 import en from "../samples/copy/en.json";
 import PitchedRoofCalculatorSteps from "../_PitchedRoofCalculatorSteps";
@@ -147,7 +147,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
       .mockImplementation((selection) => (selected = selection));
     const sendEmailAddress = jest.fn();
 
-    const getComponent = (selected) => (
+    const getComponent = (selected: Step) => (
       <MicroCopy.Provider values={en}>
         <PitchedRoofCalculatorSteps
           selected={selected}
@@ -167,15 +167,12 @@ describe("PitchedRoofCalculatorSteps component", () => {
     expect(renderedStep).toBe("enter-dimensions");
 
     act(() =>
-      stepProps["enter-dimensions"].nextButtonOnClick(
-        { preventDefault: () => {} },
-        {
-          A: "9",
-          B: "15",
-          P: "22",
-          protrusions: []
-        }
-      )
+      stepProps["enter-dimensions"].nextButtonOnClick!(createFormEvent(), {
+        A: "9",
+        B: "15",
+        P: "22",
+        protrusions: []
+      })
     );
     rerender(getComponent(selected));
     expect(renderedStep).toBe("select-tile");
@@ -193,14 +190,11 @@ describe("PitchedRoofCalculatorSteps component", () => {
     expect(renderedStep).toBe("tile-options");
 
     act(() =>
-      stepProps["tile-options"].nextButtonOnClick(
-        { preventDefault: () => {} },
-        {
-          verge: "none",
-          ridge: variant.ridgeOptions[0].externalProductCode,
-          ventilation: "none"
-        }
-      )
+      stepProps["tile-options"].nextButtonOnClick!(createFormEvent(), {
+        verge: "none",
+        ridge: variant.ridgeOptions[0].externalProductCode,
+        ventilation: "none"
+      })
     );
     rerender(getComponent(selected));
     expect(renderedStep).toBe("select-underlay");
@@ -208,21 +202,18 @@ describe("PitchedRoofCalculatorSteps component", () => {
     const underlay = data.underlays[0];
 
     act(() =>
-      stepProps["select-underlay"].nextButtonOnClick(
-        { preventDefault: () => {} },
-        {
-          underlay: underlay.externalProductCode
-        }
-      )
+      stepProps["select-underlay"].nextButtonOnClick!(createFormEvent(), {
+        underlay: underlay.externalProductCode
+      })
     );
     rerender(getComponent(selected));
     expect(renderedStep).toBe("guttering");
 
-    act(() => stepProps["guttering"].linkOnClick());
+    act(() => stepProps["guttering"].linkOnClick!());
     rerender(getComponent(selected));
     expect(renderedStep).toBe("your-solution-contains");
 
-    act(() => stepProps["your-solution-contains"].backButtonOnClick());
+    act(() => stepProps["your-solution-contains"].backButtonOnClick!());
     rerender(getComponent(selected));
     expect(renderedStep).toBe("guttering");
 
@@ -231,16 +222,13 @@ describe("PitchedRoofCalculatorSteps component", () => {
     const gutterHook = data.gutterHooks[0];
 
     act(() =>
-      stepProps["guttering"].nextButtonOnClick(
-        { preventDefault: () => {} },
-        {
-          guttering: gutter.name,
-          gutteringVariant: gutterVariant.externalProductCode,
-          gutteringHook: gutterHook.externalProductCode,
-          downPipes: 10,
-          downPipeConnectors: 15
-        }
-      )
+      stepProps["guttering"].nextButtonOnClick!(createFormEvent(), {
+        guttering: gutter.name,
+        gutteringVariant: gutterVariant.externalProductCode,
+        gutteringHook: gutterHook.externalProductCode,
+        downPipes: 10,
+        downPipeConnectors: 15
+      })
     );
     rerender(getComponent(selected));
     expect(renderedStep).toBe("your-solution-contains");
@@ -261,3 +249,9 @@ describe("PitchedRoofCalculatorSteps component", () => {
     });
   });
 });
+
+const createFormEvent = (): React.FormEvent<Element> => {
+  return {
+    preventDefault: () => {}
+  } as React.FormEvent<Element>;
+};

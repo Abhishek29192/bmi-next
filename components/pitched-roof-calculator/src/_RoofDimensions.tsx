@@ -7,19 +7,17 @@ import { DimensionsValues, Roof } from "./types/roof";
 
 type RoofDimensionsProps = {
   dimensions: DimensionsValues;
-  roof?: Roof;
+  roof: Roof;
 };
 
-const RoofDimensions = ({
-  dimensions,
-  roof: { dimensionsIllustration: Illustration, fields: items }
-}: RoofDimensionsProps) => {
+const RoofDimensions = ({ dimensions, roof }: RoofDimensionsProps) => {
+  const Illustration = roof.dimensionsIllustration;
   return (
     <div className={styles["RoofDimensions"]}>
       <div className={styles["form"]}>
         <Illustration className={styles["illustration"]} />
         <Grid container spacing={3}>
-          {items.map(({ name, type }) => (
+          {roof.fields.map(({ name, type }) => (
             <Grid key={name} item xs={12} lg={3}>
               <InputTextField
                 // eslint-disable-next-line security/detect-object-injection

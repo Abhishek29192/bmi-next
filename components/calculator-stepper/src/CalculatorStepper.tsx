@@ -7,7 +7,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Form from "@bmi/form";
 import styles from "./CalculatorStepper.module.scss";
 
-type Props = {
+export type Props = {
   selected: string;
   children: React.ReactNode;
 };
@@ -29,7 +29,7 @@ const CalculatorStepper = ({ selected, children }: Props) => {
   return <div className={styles["CalculatorStepper"]}>{current}</div>;
 };
 
-type StepProps = {
+export type StepProps = {
   isForm?: boolean;
   title: string;
   subtitle: string;
