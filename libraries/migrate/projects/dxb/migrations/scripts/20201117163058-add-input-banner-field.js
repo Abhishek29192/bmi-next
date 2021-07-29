@@ -8,7 +8,7 @@ module.exports.up = (migration) => {
     .createField("pdpInputBanner")
     .name("PDP: Input Banner")
     .type("Link")
-    .validations([{ linkContentType: ["pdpInputBanner"] }])
+    .validations([{ linkContentType: ["inputBanner"] }])
     .linkType("Entry");
 
   resources.changeFieldControl("pdpInputBanner", "builtin", "entryLinkEditor");
