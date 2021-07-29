@@ -8,6 +8,7 @@ import { GetCompanyQuery } from "../../../../graphql/generated/operations";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
 import styles from "./styles.module.scss";
+import { EditCompanyButton } from "../EditCompany/Button";
 
 export type CompanyRegisteredDetailsProps = {
   company: GetCompanyQuery["company"];
@@ -34,17 +35,17 @@ export const formatCompanyOperations = (t, operations: Operation[]) => {
 };
 
 export const CompanyRegisteredDetails = ({
-  company: {
+  company
+}: CompanyRegisteredDetailsProps) => {
+  const { t } = useTranslation(["common", "company-page"]);
+  const {
     companyOperationsByCompany,
     name,
     referenceNumber,
     registeredAddress,
     taxNumber,
     tier
-  }
-}: CompanyRegisteredDetailsProps) => {
-  const { t } = useTranslation(["common", "company-page"]);
-
+  } = company;
   const operations = companyOperationsByCompany.nodes.map(
     (node) => node.operation
   );
@@ -58,7 +59,9 @@ export const CompanyRegisteredDetails = ({
       <div className={styles.body}>
         <InfoPair title={t("Registered name")}>{name}</InfoPair>
 
-        <InfoPair title={t("Membership number")}>{referenceNumber}</InfoPair>
+        {referenceNumber ? (
+          <InfoPair title={t("Membership number")}>{referenceNumber}</InfoPair>
+        ) : null}
 
         {registeredAddress ? (
           <InfoPair title={t("Registered address")}>
@@ -66,15 +69,21 @@ export const CompanyRegisteredDetails = ({
           </InfoPair>
         ) : null}
 
-        <InfoPair title={t("Company VAT number")}>{taxNumber}</InfoPair>
+        {taxNumber ? (
+          <InfoPair title={t("Company VAT number")}>{taxNumber}</InfoPair>
+        ) : null}
 
-        <InfoPair title={t("Tier")}>{tier}</InfoPair>
+        {tier ? (
+          <InfoPair title={t("Tier")}>{t(`common:tier.${tier}`)}</InfoPair>
+        ) : null}
 
         {operations.length > 0 ? (
           <InfoPair title={t("company-page:company.operations")}>
             {formatCompanyOperations(t, operations)}
           </InfoPair>
         ) : null}
+
+        <EditCompanyButton company={company} />
       </div>
     </div>
   );

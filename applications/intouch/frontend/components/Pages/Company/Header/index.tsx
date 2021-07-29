@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { gql } from "@apollo/client";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import { Facebook, LinkedIn } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
-import { BUSINESS_TYPES } from "../../../../lib/constants";
 import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../../IconLink";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
+import { EditCompanyButton } from "../EditCompany/Button";
 import styles from "./styles.module.scss";
 
 export type CompanyHeaderProps = {
@@ -17,6 +17,7 @@ export type CompanyHeaderProps = {
 
 export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
   const { t } = useTranslation(["common", "company-page"]);
+
   return (
     <div className={styles.main}>
       <Typography variant="h4" hasUnderline>
@@ -90,6 +91,8 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
                   </InfoPair>
                 </div>
               </Grid>
+
+              <EditCompanyButton company={company} />
             </Grid>
           </Grid>
         </Grid>
