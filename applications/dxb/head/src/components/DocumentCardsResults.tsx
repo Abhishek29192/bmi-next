@@ -48,7 +48,6 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
                   label: getMicroCopy("documentLibrary.card.download"),
                   action: asset.file.url
                 }}
-                component={"a"}
                 footer={
                   <Button component="span">
                     {getMicroCopy("documentLibrary.card.download")}
