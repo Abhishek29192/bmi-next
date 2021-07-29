@@ -89,7 +89,7 @@ describe("SpotlightHero component", () => {
   });
 
   it("renders with keyline for brand", () => {
-    process.env.BRAND_PROVIDER = "true";
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
     const { container } = render(
       <SpotlightHero
         breadcrumbs={breadcrumbNode}

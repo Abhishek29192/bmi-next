@@ -11,7 +11,7 @@ describe("BrandProvider", () => {
   beforeEach(() => {
     jest.resetModules(); // Most important - it clears the cache
     process.env = { ...OLD_ENV }; // Make a copy
-    process.env.BRAND_PROVIDER = "true";
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
   });
 
   afterAll(() => {
@@ -19,6 +19,12 @@ describe("BrandProvider", () => {
   });
 
   it("renders", () => {
+    const view = render(<BrandProvider>Test</BrandProvider>);
+    expect(view.container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders without BrandProvider", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
     const view = render(<BrandProvider>Test</BrandProvider>);
     expect(view.container.firstChild).toMatchSnapshot();
   });

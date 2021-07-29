@@ -81,7 +81,7 @@ describe("Hero component", () => {
   });
 
   it("renders level 1 with keyline for brand ", () => {
-    process.env.BRAND_PROVIDER = "true";
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
 
     const { container } = render(
       <Hero title="H1 Heading" level={3} brand="Brand Name" />
@@ -90,7 +90,7 @@ describe("Hero component", () => {
   });
 
   it("renders level 1 with keyline for brand if brand", () => {
-    process.env.BRAND_PROVIDER = "false";
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
 
     const { container } = render(
       <Hero title="H1 Heading" level={3} brand="Brand Name" />
@@ -99,7 +99,7 @@ describe("Hero component", () => {
   });
 
   it("renders level 0 with keyline for brand ", () => {
-    process.env.BRAND_PROVIDER = "true";
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
 
     const { container } = render(
       <Hero

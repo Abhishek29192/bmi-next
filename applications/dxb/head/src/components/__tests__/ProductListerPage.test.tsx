@@ -286,7 +286,7 @@ afterEach(() => {
 beforeEach(() => {
   jest.resetModules(); // Most important - it clears the cache
   process.env = { ...OLD_ENV }; // Make a copy
-  process.env.BRAND_PROVIDER = "true";
+  process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
   mockUseDimensions({
     containerWidth: 400,
     normalTableWidth: 400,
@@ -295,6 +295,20 @@ beforeEach(() => {
 });
 
 describe("ProductListerPage template", () => {
+  describe("ProductListerPage without initialProducts without BrandProvider", () => {
+    it("renders basic ProductListerPage", async () => {
+      process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
+      pageData.initialProducts = [];
+      pageData.productFilters = [];
+      const { container, findByText } = renderWithStylesAndLocationProvider(
+        pageData,
+        pageContext
+      );
+      await findByText(heroTitle);
+      await waitFor(() => expect(container.parentElement).toMatchSnapshot());
+    });
+  });
+
   describe("ProductListerPage without initialProducts", () => {
     it("renders basic ProductListerPage", async () => {
       pageData.initialProducts = [];

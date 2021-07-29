@@ -61,7 +61,7 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
     return theme;
   };
 
-  if (!process.env.BRAND_PROVIDER) {
+  if (Boolean(process.env.GATSBY_ENABLE_BRAND_PROVIDER) === false) {
     return (
       <BmiThemeProvider longText={Boolean(process.env.GATSBY_LONG_TEXT)}>
         {children}
