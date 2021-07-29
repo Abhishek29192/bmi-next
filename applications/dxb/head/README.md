@@ -490,7 +490,6 @@ Follow the steps under [migrate initialise](../../../libraries/migrate/README.md
 1. Initialise personal Contentful space to use migration scripts using `yarn migrate init`
 1. Create content model in personal Contentnful space using `yarn migrate up -a -e master`
 1. Install `contentful-cli` globally using `yarn global add contentful-cli`
-<!-- 1. Export the DXB `development` environment using `contentful space export --space-id <DXB SPACE ID> --environment-id development --mt <YOUR PERSONAL ACCESS TOKEN> --include-drafts --skip-roles --skip-webhooks --content-file dump.json` -->
 1. Export the DXB `development` environment using `contentful space export --space-id <DXB SPACE ID> --environment-id development --mt <YOUR PERSONAL ACCESS TOKEN> --include-drafts --skip-roles --skip-webhooks --skip-content-model --content-file dump.json`
 1. Import the newly created JSON dump into your personal development space using `contentful space import --space-id <YOUR OWN ACC SPACE ID> --environment-id master --mt <YOUR PERSONAL ACCESS TOKEN> --content-file dump.json`
 
