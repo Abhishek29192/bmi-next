@@ -1,10 +1,10 @@
 build_intouch_api_gateway_dev:
   stage: build
   needs: []
-  cache: {}
   image: google/cloud-sdk
   services:
     - docker:dind
+  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
@@ -23,6 +23,7 @@ deploy_intouch_api_gateway_dev:
   image: google/cloud-sdk
   services:
     - docker:dind
+  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:

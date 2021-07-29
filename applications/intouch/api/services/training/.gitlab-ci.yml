@@ -20,16 +20,17 @@ build_intouch_api_training_dev:
 
 deploy_intouch_api_training_dev:
   stage: deploy
+  needs:
+    - build_intouch_api_training_dev
+    # TODO: add a test step
   image: google/cloud-sdk
   services:
     - docker:dind
+  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/api/services/training/**/*
-  needs:
-    - build_intouch_api_training_dev
-    # TODO: add a test step
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json

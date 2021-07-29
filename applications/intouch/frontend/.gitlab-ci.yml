@@ -14,6 +14,7 @@ test_intouch_frontend:
 
 build_intouch_frontend_dev:
   needs: []
+  cache: {}
   image: google/cloud-sdk
   stage: build
   services:
@@ -34,6 +35,7 @@ build_intouch_frontend_dev:
 
 deploy_intouch_frontend_dev_to_cloudrun:
   stage: deploy
+  cache: {}
   needs:
     - build_intouch_frontend_dev
     - test_intouch_frontend
