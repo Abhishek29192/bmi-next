@@ -49,7 +49,12 @@ const ImageGallerySection = ({ images, accordionItems }: Props) => {
                     <Grid container spacing={3}>
                       {item.relatedProducts?.map((product) => (
                         <Grid item xs={12} md={12} lg={12} key={product.code}>
-                          <AnchorLink action={{ model: "htmlLink", href: "/" }}>
+                          <AnchorLink
+                            action={{
+                              model: "htmlLink",
+                              href: product.variantOptions[0].path
+                            }}
+                          >
                             {product.name}
                           </AnchorLink>
                         </Grid>
