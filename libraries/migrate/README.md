@@ -1,6 +1,6 @@
 # Migrate
 
-This package uses the [`contentful-migration`](https://github.com/contentful/contentful-migration) lib to create content types and migrations with code.
+This package uses the [`contentful-migrate`](https://github.com/deluan/contentful-migrate) lib to create content types and migrations with code.
 
 ## Setup
 
