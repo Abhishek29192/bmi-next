@@ -160,7 +160,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       return;
     }
     const uniqueRooferTypes: ServiceType[] = Array.from(
-      new Set(services.flatMap((roofer) => roofer.type))
+      new Set(services.flatMap((service) => service.type))
     ).filter((x) => x !== null);
 
     setUniqueRoofTypeByData(uniqueRooferTypes);
@@ -176,8 +176,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       allQueries,
       (a, b) => a.toLowerCase() === b.toLowerCase()
     );
-    matchingRooferTypes.forEach((rooferType: ServiceType) => {
-      updateActiveFilters({ name: rooferType, state: true });
+    matchingRooferTypes.forEach((serviceType: ServiceType) => {
+      updateActiveFilters({ name: serviceType, state: true });
     });
 
     // there were no matching queries in querystring
@@ -244,11 +244,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       return true;
     }
 
-    // user has selcted the filter chip the roofer must have type and it must match
+    // user has selcted the filter chip the service must have type and it must match
     if (Object.keys(activeFilters).some((key) => activeFilters[key] === true)) {
       return type && type.some((filter) => activeFilters[filter]);
     }
-    // roofer's type is null hence return true
+    // service's type is null hence return true
     return type?.length ? type.some((filter) => activeFilters[filter]) : true;
   };
 
@@ -283,17 +283,19 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
           return carry;
         }, [])
-        .sort((rooferA, rooferB) => {
-          const distanceSort = centre ? rooferA.distance - rooferB.distance : 0;
+        .sort((serviceA, serviceB) => {
+          const distanceSort = centre
+            ? serviceA.distance - serviceB.distance
+            : 0;
 
           if (distanceSort === 0) {
-            const rooferNameA = rooferA.name.toLowerCase();
-            const rooferNameB = rooferB.name.toLowerCase();
+            const serviceNameA = serviceA.name.toLowerCase();
+            const serviceNameB = serviceB.name.toLowerCase();
 
-            if (rooferNameA === rooferNameB) {
+            if (serviceNameA === serviceNameB) {
               return 0;
             } else {
-              return rooferNameA < rooferNameB ? -1 : 1;
+              return serviceNameA < serviceNameB ? -1 : 1;
             }
           }
 
@@ -305,25 +307,25 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const markers = useMemo(
     () =>
       filteredRoofers.map(
-        (roofer: Service): MarkerOptionsWithData<Service> => ({
-          title: roofer.name,
+        (service: Service): MarkerOptionsWithData<Service> => ({
+          title: service.name,
           position: {
-            lat: roofer.location.lat,
-            lng: roofer.location.lon
+            lat: service.location.lat,
+            lng: service.location.lon
           },
-          isActive: selectedRoofer && selectedRoofer.id === roofer.id,
-          data: roofer
+          isActive: selectedRoofer && selectedRoofer.id === service.id,
+          data: service
         })
       ),
     [selectedRoofer, filteredRoofers]
   );
 
-  const handleListClick = (roofer: Service) => {
-    setSelectedRoofer(roofer);
+  const handleListClick = (service: Service) => {
+    setSelectedRoofer(service);
   };
 
   const handlePlaceChange = (location?: GoogleGeocoderResult) => {
-    // We want to clear the roofer whenever the place changes.
+    // We want to clear the service whenever the place changes.
     setSelectedRoofer(null);
     setZoom(location ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
     setCentre(
@@ -336,8 +338,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     );
   };
 
-  const handleMarkerClick = (roofer: Service) => {
-    setSelectedRoofer(roofer);
+  const handleMarkerClick = (service: Service) => {
+    setSelectedRoofer(service);
   };
 
   const clearRooferAndResetMap = () => {
@@ -347,7 +349,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   };
 
   const getCompanyDetails = (
-    roofer: Service,
+    service: Service,
     isAddressHidden?: boolean
   ): DetailProps[] => {
     const shouldShowIcons = sectionType === "Roofer";
@@ -359,13 +361,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     const address: DetailProps = {
       type: "address",
       display: shouldShowIcons ? "icon" : "contentOnly",
-      text: roofer.address,
+      text: service.address,
       label: getMicroCopy("findARoofer.address"),
       action: isAddressClickable
         ? getClickableActionFromUrl(
             null,
             `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
-              roofer.address
+              service.address
             )}/`,
             countryCode,
             null,
@@ -375,11 +377,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     };
 
     const distance: DetailProps | undefined =
-      roofer.distance !== undefined
+      service.distance !== undefined
         ? {
             type: "distance",
             display: shouldShowIcons ? "icon" : "label",
-            text: `${Math.floor(roofer.distance) / 1000}km`,
+            text: `${Math.floor(service.distance) / 1000}km`,
             label: getMicroCopy("findARoofer.distanceLabel")
           }
         : undefined;
@@ -390,7 +392,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       action: getClickableActionFromUrl(
         null,
         `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
-          roofer.address
+          service.address
         )}/`,
         countryCode,
         null,
@@ -399,14 +401,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       label: getMicroCopy("findARoofer.getDirectionsLabel")
     };
 
-    const phone: DetailProps | undefined = roofer.phone
+    const phone: DetailProps | undefined = service.phone
       ? {
           type: "phone",
           display: shouldShowIcons ? "icon" : "label",
-          text: roofer.phone,
+          text: service.phone,
           action: getClickableActionFromUrl(
             null,
-            `tel:${roofer.phone}`,
+            `tel:${service.phone}`,
             countryCode,
             null,
             getMicroCopy("findARoofer.telephoneLabel")
@@ -415,14 +417,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         }
       : undefined;
 
-    const email: DetailProps | undefined = roofer.email
+    const email: DetailProps | undefined = service.email
       ? {
           type: "email",
           display: shouldShowIcons ? "icon" : "label",
-          text: roofer.email,
+          text: service.email,
           action: getClickableActionFromUrl(
             null,
-            `mailto:${roofer.email}`,
+            `mailto:${service.email}`,
             countryCode,
             null,
             getMicroCopy("findARoofer.emailLabel")
@@ -431,16 +433,16 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         }
       : undefined;
 
-    const website: DetailProps | undefined = roofer.website
+    const website: DetailProps | undefined = service.website
       ? {
           type: "website",
           display: shouldShowIcons ? "icon" : "label",
           text: shouldShowWebsiteLinkAsLabel
-            ? roofer.website
+            ? service.website
             : getMicroCopy("findARoofer.websiteLabel"),
           action: getClickableActionFromUrl(
             null,
-            roofer.website,
+            service.website,
             countryCode,
             null,
             shouldShowWebsiteLinkAsLabel
@@ -453,22 +455,22 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         }
       : undefined;
 
-    const fax: DetailProps | undefined = roofer.fax
+    const fax: DetailProps | undefined = service.fax
       ? {
           type: "content",
-          text: roofer.fax,
+          text: service.fax,
           textStyle: "bold",
           label: getMicroCopy("findARoofer.faxLabel")
         }
       : undefined;
 
-    const type: DetailProps | undefined = roofer.type
+    const type: DetailProps | undefined = service.type
       ? {
           type: "content",
           label: getMicroCopy("findARoofer.roofTypeLabel"),
           text: (
             <b>
-              {roofer.type
+              {service.type
                 .map((type) =>
                   getMicroCopy(
                     `findARoofer.filters.${camelCase(type)}`
@@ -480,11 +482,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         }
       : undefined;
 
-    const certification: DetailProps = roofer.certification
+    const certification: DetailProps = service.certification
       ? {
           type: "roofProLevel",
           label: getMicroCopy("findARoofer.certificationLabel"),
-          level: roofer.certification.toLowerCase() as RoofProLevel
+          level: service.certification.toLowerCase() as RoofProLevel
         }
       : undefined;
 
@@ -611,18 +613,18 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                   <Typography variant="h6" className={styles["chips-label"]}>
                     {getMicroCopy("findARoofer.filtersLabel")}
                   </Typography>
-                  {uniqueRoofTypeByData.map((rooferType, index) => (
+                  {uniqueRoofTypeByData.map((serviceType, index) => (
                     <Chip
                       key={index}
                       type="selectable"
                       onClick={() => {
                         setUserAction(true);
-                        updateActiveFilters({ name: rooferType });
+                        updateActiveFilters({ name: serviceType });
                       }}
-                      isSelected={activeFilters[rooferType]}
+                      isSelected={activeFilters[serviceType]}
                     >
                       {getMicroCopy(
-                        `findARoofer.filters.${camelCase(rooferType)}`
+                        `findARoofer.filters.${camelCase(serviceType)}`
                       )}
                     </Chip>
                   ))}
@@ -647,23 +649,23 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           >
             <div className={styles["list"]}>
               {filteredRoofers.length ? (
-                filteredRoofers.map((roofer) => (
+                filteredRoofers.map((service) => (
                   <IntegratedLinkCard
-                    key={roofer.id}
-                    onClick={() => handleListClick(roofer)}
+                    key={service.id}
+                    onClick={() => handleListClick(service)}
                     onCloseClick={clearRooferAndResetMap}
-                    isOpen={selectedRoofer && selectedRoofer.id === roofer.id}
-                    title={roofer.name}
+                    isOpen={selectedRoofer && selectedRoofer.id === service.id}
+                    title={service.name}
                     subtitle={
                       <>
-                        {roofer.address}
-                        {roofer.certification && (
+                        {service.address}
+                        {service.certification && (
                           <div className={styles["roofpro-certification"]}>
                             {getMicroCopy("findARoofer.certificationLabel")}:
                             <Logo
                               source={
                                 iconSourceMap[
-                                  roofer.certification.toLowerCase()
+                                  service.certification.toLowerCase()
                                 ]
                               }
                               className={styles["roofpro-icon"]}
@@ -673,8 +675,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                       </>
                     }
                   >
-                    <CompanyDetails details={getCompanyDetails(roofer, true)}>
-                      <Typography>{roofer.summary}</Typography>
+                    <CompanyDetails details={getCompanyDetails(service, true)}>
+                      <Typography>{service.summary}</Typography>
                     </CompanyDetails>
                   </IntegratedLinkCard>
                 ))
