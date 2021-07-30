@@ -123,7 +123,6 @@ const ProductListing = ({
                 imageSize="contain"
                 imageSource={mainImage}
                 brandImageSource={brandLogo}
-                component={Link}
                 action={{
                   model: "routerLink",
                   linkComponent: Link,

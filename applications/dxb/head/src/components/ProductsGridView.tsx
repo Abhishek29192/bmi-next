@@ -74,7 +74,6 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
               }
               imageSize="contain"
               brandImageSource={brandLogo}
-              component={Link}
               action={{
                 model: "routerLink",
                 linkComponent: Link,

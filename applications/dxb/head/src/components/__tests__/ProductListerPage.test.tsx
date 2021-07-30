@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  render,
-  RenderResult,
-  waitFor,
-  screen,
-  act
-} from "@testing-library/react";
+import { render, RenderResult, waitFor } from "@testing-library/react";
 import {
   createHistory,
   createMemorySource,
@@ -24,7 +18,6 @@ import { Data as LinkData } from "../../components/Link";
 import regions from "../../countries/region.json";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
-import createProduct from "../../__tests__/PimDocumentProductHelper";
 import ProvideStyles from "./utils/StylesProvider";
 
 window.alert = jest.fn();

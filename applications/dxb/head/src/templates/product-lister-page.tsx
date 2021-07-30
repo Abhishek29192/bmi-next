@@ -15,6 +15,7 @@ import Typography from "@bmi/typography";
 import { Filter } from "@bmi/filters";
 import queryString from "query-string";
 import { navigate, useLocation } from "@reach/router";
+import { Link as GatsbyLink } from "gatsby";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -418,7 +419,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                             countryCode,
                             pageContext.variantCodeToPathMap[variant.code]
                           );
-
                           const uniqueClassifications = mapClassificationValues(
                             findUniqueVariantClassifications(
                               { ...variant, _product: product },
@@ -448,10 +448,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 }
                                 imageSize="contain"
                                 brandImageSource={brandLogo}
-                                component={Link}
                                 action={{
                                   model: "routerLink",
-                                  linkComponent: Link,
+                                  linkComponent: GatsbyLink,
                                   to: productUrl
                                 }}
                                 gtm={{

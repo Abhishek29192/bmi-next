@@ -22,7 +22,6 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   footer?: React.ReactNode;
   isFlat?: boolean;
   buttonComponent?: React.ComponentType<any>;
-  component?: React.ElementType<any>;
   clickableArea?: "full" | "body";
 };
 
