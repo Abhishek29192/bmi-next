@@ -79,6 +79,7 @@ export type SystemLayer = {
   products: ProductCode[];
   shortDescription: string;
   type: string;
+  relatedOptionalProducts: Product[];
   relatedProducts: Product[];
 };
 

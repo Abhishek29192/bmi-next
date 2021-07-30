@@ -22,7 +22,7 @@
     "clean": "gatsby clean",
     "contentful-graph": "dotenv -c development -- contentful-graph",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "dev": "gatsby develop",
+    "dev": "gatsby clean && gatsby develop",
     "dev:debug": "node --nolazy --inspect-brk node_modules/.bin/gatsby develop",
     "lighthouse": "yarn lhci autorun",
     "microcopy": "node ./scripts/get-microcopy.js",

@@ -62,7 +62,7 @@ describe("ImageGallerySection tests", () => {
   });
 
   describe("When master images and gallery images are provided", () => {
-    it("should render siingle master image and multiple gallery images", async () => {
+    it("should render single master image and multiple gallery images", async () => {
       const img_1_altText = "TBK SN-403 T";
       const images: Image[] = [
         {
