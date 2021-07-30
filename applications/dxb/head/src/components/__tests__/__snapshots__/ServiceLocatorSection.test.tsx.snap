@@ -1183,7 +1183,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                       name="autocomplete-field"
                       spellcheck="false"
                       type="text"
-                      value="roofer"
+                      value="r"
                     />
                     <div
                       class="MuiAutocomplete-endAdornment"
@@ -1382,7 +1382,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                       <h6
                         class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
                       >
-                        r
+                        roofer 1
                       </h6>
                       <p
                         class="MuiTypography-root subtitle Typography MuiTypography-body1"

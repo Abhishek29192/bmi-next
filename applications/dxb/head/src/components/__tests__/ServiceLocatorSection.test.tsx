@@ -336,13 +336,13 @@ describe("ServiceLocatorSection component", () => {
       position: 1,
       centre: null,
       zoom: 8,
-      services: [createRoofer({ name: "r" })]
+      services: [createRoofer({ name: "roofer 1" })]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const nameInput = wrapper.container.querySelector("#company-autocomplete");
 
-    fireEvent.change(nameInput, { target: { value: "roofer" } });
+    fireEvent.change(nameInput, { target: { value: "r" } });
 
     expect(wrapper.container.parentElement).toMatchSnapshot();
   });
