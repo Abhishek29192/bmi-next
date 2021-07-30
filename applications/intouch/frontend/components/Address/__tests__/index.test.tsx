@@ -4,6 +4,11 @@ import { render, screen } from "../../../lib/tests/utils";
 import { Address } from "..";
 
 describe("Address", () => {
+  it("should render null if no address is provided", () => {
+    const { container } = render(<Address address={null} />);
+    expect(container.firstChild).toEqual(null);
+  });
+
   it("should render firstLine", () => {
     render(<Address address={mockAddress} />);
     expect(screen.getByTestId("addressLine-firstLine")).toBeInTheDocument();

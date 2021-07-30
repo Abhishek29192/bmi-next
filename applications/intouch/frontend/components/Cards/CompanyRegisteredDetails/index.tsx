@@ -71,9 +71,11 @@ export const CompanyRegisteredDetails = ({
 
         <InfoPair title={t("Membership number")}>{referenceNumber}</InfoPair>
 
-        <InfoPair title={t("Registered address")}>
-          <Address address={registeredAddress} />
-        </InfoPair>
+        {registeredAddress ? (
+          <InfoPair title={t("Registered address")}>
+            <Address address={registeredAddress} />
+          </InfoPair>
+        ) : null}
 
         <InfoPair title={t("Company VAT number")}>{taxNumber}</InfoPair>
 
