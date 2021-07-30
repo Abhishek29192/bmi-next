@@ -1207,15 +1207,22 @@ export type AssetFilter = {
 export type AssetLinkingCollections = {
   __typename?: "AssetLinkingCollections";
   entryCollection?: Maybe<EntryCollection>;
+  mediaToolCollection?: Maybe<MediaToolCollection>;
   guaranteeTemplateCollection?: Maybe<GuaranteeTemplateCollection>;
-  carouselItemCollection?: Maybe<CarouselItemCollection>;
   guaranteeTypeCollection?: Maybe<GuaranteeTypeCollection>;
+  carouselItemCollection?: Maybe<CarouselItemCollection>;
   trainingContentCollection?: Maybe<TrainingContentCollection>;
   partnerBrandCollection?: Maybe<PartnerBrandCollection>;
-  mediaToolCollection?: Maybe<MediaToolCollection>;
 };
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type AssetLinkingCollectionsMediaToolCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -1229,14 +1236,14 @@ export type AssetLinkingCollectionsGuaranteeTemplateCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export type AssetLinkingCollectionsCarouselItemCollectionArgs = {
+export type AssetLinkingCollectionsGuaranteeTypeCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
   locale?: Maybe<Scalars["String"]>;
 };
 
-export type AssetLinkingCollectionsGuaranteeTypeCollectionArgs = {
+export type AssetLinkingCollectionsCarouselItemCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -1251,13 +1258,6 @@ export type AssetLinkingCollectionsTrainingContentCollectionArgs = {
 };
 
 export type AssetLinkingCollectionsPartnerBrandCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type AssetLinkingCollectionsMediaToolCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -8128,6 +8128,7 @@ export type GuaranteeTemplate = Entry & {
   contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<GuaranteeTemplateLinkingCollections>;
   displayName?: Maybe<Scalars["String"]>;
+  languageDescriptor?: Maybe<Scalars["String"]>;
   approvalMessage?: Maybe<MessageTemplate>;
   rejectionMessage?: Maybe<MessageTemplate>;
   logo?: Maybe<Asset>;
@@ -8153,8 +8154,8 @@ export type GuaranteeTemplate = Entry & {
   terms?: Maybe<Asset>;
   mailBody?: Maybe<Scalars["String"]>;
   filenamePrefix?: Maybe<Scalars["String"]>;
-  lockupLine1?: Maybe<Scalars["String"]>;
-  lockupLine2?: Maybe<Scalars["String"]>;
+  titleLine1?: Maybe<Scalars["String"]>;
+  titleLine2?: Maybe<Scalars["String"]>;
   roofType?: Maybe<Scalars["String"]>;
 };
 
@@ -8165,6 +8166,11 @@ export type GuaranteeTemplateLinkedFromArgs = {
 
 /** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateDisplayNameArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateLanguageDescriptorArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -8299,12 +8305,12 @@ export type GuaranteeTemplateFilenamePrefixArgs = {
 };
 
 /** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
-export type GuaranteeTemplateLockupLine1Args = {
+export type GuaranteeTemplateTitleLine1Args = {
   locale?: Maybe<Scalars["String"]>;
 };
 
 /** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
-export type GuaranteeTemplateLockupLine2Args = {
+export type GuaranteeTemplateTitleLine2Args = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -8333,6 +8339,13 @@ export type GuaranteeTemplateFilter = {
   displayName_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   displayName_contains?: Maybe<Scalars["String"]>;
   displayName_not_contains?: Maybe<Scalars["String"]>;
+  languageDescriptor_exists?: Maybe<Scalars["Boolean"]>;
+  languageDescriptor?: Maybe<Scalars["String"]>;
+  languageDescriptor_not?: Maybe<Scalars["String"]>;
+  languageDescriptor_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  languageDescriptor_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  languageDescriptor_contains?: Maybe<Scalars["String"]>;
+  languageDescriptor_not_contains?: Maybe<Scalars["String"]>;
   approvalMessage_exists?: Maybe<Scalars["Boolean"]>;
   rejectionMessage_exists?: Maybe<Scalars["Boolean"]>;
   logo_exists?: Maybe<Scalars["Boolean"]>;
@@ -8478,20 +8491,20 @@ export type GuaranteeTemplateFilter = {
   filenamePrefix_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   filenamePrefix_contains?: Maybe<Scalars["String"]>;
   filenamePrefix_not_contains?: Maybe<Scalars["String"]>;
-  lockupLine1_exists?: Maybe<Scalars["Boolean"]>;
-  lockupLine1?: Maybe<Scalars["String"]>;
-  lockupLine1_not?: Maybe<Scalars["String"]>;
-  lockupLine1_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  lockupLine1_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  lockupLine1_contains?: Maybe<Scalars["String"]>;
-  lockupLine1_not_contains?: Maybe<Scalars["String"]>;
-  lockupLine2_exists?: Maybe<Scalars["Boolean"]>;
-  lockupLine2?: Maybe<Scalars["String"]>;
-  lockupLine2_not?: Maybe<Scalars["String"]>;
-  lockupLine2_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  lockupLine2_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  lockupLine2_contains?: Maybe<Scalars["String"]>;
-  lockupLine2_not_contains?: Maybe<Scalars["String"]>;
+  titleLine1_exists?: Maybe<Scalars["Boolean"]>;
+  titleLine1?: Maybe<Scalars["String"]>;
+  titleLine1_not?: Maybe<Scalars["String"]>;
+  titleLine1_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  titleLine1_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  titleLine1_contains?: Maybe<Scalars["String"]>;
+  titleLine1_not_contains?: Maybe<Scalars["String"]>;
+  titleLine2_exists?: Maybe<Scalars["Boolean"]>;
+  titleLine2?: Maybe<Scalars["String"]>;
+  titleLine2_not?: Maybe<Scalars["String"]>;
+  titleLine2_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  titleLine2_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  titleLine2_contains?: Maybe<Scalars["String"]>;
+  titleLine2_not_contains?: Maybe<Scalars["String"]>;
   roofType_exists?: Maybe<Scalars["Boolean"]>;
   roofType?: Maybe<Scalars["String"]>;
   roofType_not?: Maybe<Scalars["String"]>;
@@ -8526,6 +8539,8 @@ export type GuaranteeTemplateLinkingCollectionsGuaranteeTypeCollectionArgs = {
 export type GuaranteeTemplateOrder =
   | "displayName_ASC"
   | "displayName_DESC"
+  | "languageDescriptor_ASC"
+  | "languageDescriptor_DESC"
   | "signatory_ASC"
   | "signatory_DESC"
   | "headingGuarantee_ASC"
@@ -8562,10 +8577,10 @@ export type GuaranteeTemplateOrder =
   | "guaranteeScope_DESC"
   | "filenamePrefix_ASC"
   | "filenamePrefix_DESC"
-  | "lockupLine1_ASC"
-  | "lockupLine1_DESC"
-  | "lockupLine2_ASC"
-  | "lockupLine2_DESC"
+  | "titleLine1_ASC"
+  | "titleLine1_DESC"
+  | "titleLine2_ASC"
+  | "titleLine2_DESC"
   | "roofType_ASC"
   | "roofType_DESC"
   | "sys_id_ASC"
@@ -10139,7 +10154,6 @@ export type MediaTool = Entry & {
   name?: Maybe<Scalars["String"]>;
   thumbnail?: Maybe<Asset>;
   media?: Maybe<Asset>;
-  description?: Maybe<Scalars["String"]>;
   url?: Maybe<Scalars["String"]>;
 };
 
@@ -10162,11 +10176,6 @@ export type MediaToolThumbnailArgs = {
 /** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
 export type MediaToolMediaArgs = {
   preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
-export type MediaToolDescriptionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -10195,13 +10204,6 @@ export type MediaToolFilter = {
   name_not_contains?: Maybe<Scalars["String"]>;
   thumbnail_exists?: Maybe<Scalars["Boolean"]>;
   media_exists?: Maybe<Scalars["Boolean"]>;
-  description_exists?: Maybe<Scalars["Boolean"]>;
-  description?: Maybe<Scalars["String"]>;
-  description_not?: Maybe<Scalars["String"]>;
-  description_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  description_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  description_contains?: Maybe<Scalars["String"]>;
-  description_not_contains?: Maybe<Scalars["String"]>;
   url_exists?: Maybe<Scalars["Boolean"]>;
   url?: Maybe<Scalars["String"]>;
   url_not?: Maybe<Scalars["String"]>;
@@ -15975,6 +15977,7 @@ export type TierBenefit = Entry & {
   linkedFrom?: Maybe<TierBenefitLinkingCollections>;
   name?: Maybe<Scalars["String"]>;
   tier?: Maybe<Scalars["String"]>;
+  guaranteeValidityOffsetYears?: Maybe<Scalars["Int"]>;
   description?: Maybe<TierBenefitDescription>;
   shortDescription?: Maybe<Scalars["String"]>;
 };
@@ -15991,6 +15994,11 @@ export type TierBenefitNameArgs = {
 
 /** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
 export type TierBenefitTierArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+export type TierBenefitGuaranteeValidityOffsetYearsArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -16054,6 +16062,15 @@ export type TierBenefitFilter = {
   tier_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   tier_contains?: Maybe<Scalars["String"]>;
   tier_not_contains?: Maybe<Scalars["String"]>;
+  guaranteeValidityOffsetYears_exists?: Maybe<Scalars["Boolean"]>;
+  guaranteeValidityOffsetYears?: Maybe<Scalars["Int"]>;
+  guaranteeValidityOffsetYears_not?: Maybe<Scalars["Int"]>;
+  guaranteeValidityOffsetYears_in?: Maybe<Array<Maybe<Scalars["Int"]>>>;
+  guaranteeValidityOffsetYears_not_in?: Maybe<Array<Maybe<Scalars["Int"]>>>;
+  guaranteeValidityOffsetYears_gt?: Maybe<Scalars["Int"]>;
+  guaranteeValidityOffsetYears_gte?: Maybe<Scalars["Int"]>;
+  guaranteeValidityOffsetYears_lt?: Maybe<Scalars["Int"]>;
+  guaranteeValidityOffsetYears_lte?: Maybe<Scalars["Int"]>;
   description_exists?: Maybe<Scalars["Boolean"]>;
   description_contains?: Maybe<Scalars["String"]>;
   description_not_contains?: Maybe<Scalars["String"]>;
@@ -16085,6 +16102,8 @@ export type TierBenefitOrder =
   | "name_DESC"
   | "tier_ASC"
   | "tier_DESC"
+  | "guaranteeValidityOffsetYears_ASC"
+  | "guaranteeValidityOffsetYears_DESC"
   | "sys_id_ASC"
   | "sys_id_DESC"
   | "sys_publishedAt_ASC"
