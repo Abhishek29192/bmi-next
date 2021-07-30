@@ -39,8 +39,8 @@ resource "google_cloud_run_service" "default" {
           value = "intouch.dddev.io"
         }
         env {
-          name  = "FRONTEND_DOMAIN"
-          value = "intouch.dddev.io"
+          name  = "FRONTEND_BASE_URL"
+          value = "http://intouch.dddev.io"
         }
         env {
           name  = "GRAPHQL_URL"

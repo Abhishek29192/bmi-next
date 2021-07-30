@@ -7,7 +7,6 @@ const { baseUrlDomain, isProd, isSingleMarket } = require("./lib/config");
 // domain = multimarket
 
 const multiMarketDomains = [
-  { domain: baseUrlDomain, defaultLocale: "en_EN" },
   { domain: `en.${baseUrlDomain}`, defaultLocale: "en_EN" },
   { domain: `no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
 
