@@ -22,6 +22,17 @@ const breadcrumbNode = (
 );
 
 describe("SpotlightHero component", () => {
+  const OLD_ENV = process.env;
+
+  beforeEach(() => {
+    jest.resetModules(); // Most important - it clears the cache
+    process.env = { ...OLD_ENV }; // Make a copy
+  });
+
+  afterAll(() => {
+    process.env = OLD_ENV; // Restore old environment
+  });
+
   it("renders correctly", () => {
     const { container } = render(
       <SpotlightHero
@@ -78,6 +89,7 @@ describe("SpotlightHero component", () => {
   });
 
   it("renders with keyline for brand", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
     const { container } = render(
       <SpotlightHero
         breadcrumbs={breadcrumbNode}
