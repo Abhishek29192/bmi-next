@@ -28,8 +28,6 @@ module.exports.up = (migration) => {
     .validations([{ linkMimetypeGroup: ["image", "video", "pdfdocument"] }])
     .linkType("Asset");
 
-  mediaTool.createField("description").name("Description").type("Text");
-
   mediaTool
     .createField("url")
     .name("url")
@@ -42,7 +40,6 @@ module.exports.up = (migration) => {
   });
   mediaTool.changeFieldControl("thumbnail", "builtin", "assetLinkEditor");
   mediaTool.changeFieldControl("media", "builtin", "assetLinkEditor");
-  mediaTool.changeFieldControl("description", "builtin", "markdown");
   mediaTool.changeFieldControl("url", "builtin", "urlEditor");
 };
 
