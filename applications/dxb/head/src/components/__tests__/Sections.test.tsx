@@ -4,7 +4,7 @@ import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
 import { SiteContext } from "../Site";
 import { serviceTypes } from "../Service";
-import createRoofer from "../../__tests__/RooferHelper";
+import createService from "../../__tests__/ServiceHelper";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -404,12 +404,12 @@ describe("Sections component", () => {
         label: "Find A Roofer",
         body: null,
         services: [
-          createRoofer({
+          createService({
             id: "roofer_1",
             name: "roofer 1",
             type: [serviceTypes[0], serviceTypes[1]]
           }),
-          createRoofer({
+          createService({
             id: "roofer_2",
             name: "roofer 2",
             type: [serviceTypes[0], serviceTypes[1]]

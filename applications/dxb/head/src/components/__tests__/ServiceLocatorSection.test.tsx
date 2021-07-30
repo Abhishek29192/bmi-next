@@ -5,7 +5,7 @@ import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../ServiceLocatorSection";
 import { serviceTypes } from "../Service";
-import createRoofer from "../../__tests__/RooferHelper";
+import createService from "../../__tests__/ServiceHelper";
 
 describe("ServiceLocatorSection component", () => {
   it("renders correctly with NO service", () => {
@@ -36,7 +36,7 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [createRoofer()]
+        services: [createService()]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
@@ -53,7 +53,7 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [createRoofer({ type: [] })]
+        services: [createService({ type: [] })]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
@@ -70,7 +70,7 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [createRoofer({ type: [serviceTypes[0]] })]
+        services: [createService({ type: [serviceTypes[0]] })]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
@@ -87,7 +87,7 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [createRoofer({ type: [serviceTypes[0], serviceTypes[0]] })]
+        services: [createService({ type: [serviceTypes[0], serviceTypes[0]] })]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
@@ -107,8 +107,8 @@ describe("ServiceLocatorSection component", () => {
         centre: null,
         zoom: 8,
         services: [
-          createRoofer({ id: "roofer_1", name: "roofer 1" }),
-          createRoofer({ id: "roofer_2", name: "roofer 1" })
+          createService({ id: "roofer_1", name: "roofer 1" }),
+          createService({ id: "roofer_2", name: "roofer 1" })
         ]
       };
 
@@ -127,12 +127,12 @@ describe("ServiceLocatorSection component", () => {
         centre: null,
         zoom: 8,
         services: [
-          createRoofer({
+          createService({
             id: "roofer_1",
             name: "roofer 1",
             type: [serviceTypes[0]]
           }),
-          createRoofer({
+          createService({
             id: "roofer_2",
             name: "roofer 2",
             type: [serviceTypes[0]]
@@ -155,14 +155,14 @@ describe("ServiceLocatorSection component", () => {
         centre: null,
         zoom: 8,
         services: [
-          createRoofer({
+          createService({
             entryType: "Branch",
             id: "roofer_1",
             name: "roofer 1",
             type: [serviceTypes[0]],
             fax: "222222"
           }),
-          createRoofer({
+          createService({
             entryType: "Branch",
             id: "roofer_2",
             name: "roofer 2",
@@ -186,13 +186,13 @@ describe("ServiceLocatorSection component", () => {
         centre: null,
         zoom: 8,
         services: [
-          createRoofer({
+          createService({
             entryType: "Merchant",
             id: "roofer_1",
             name: "roofer 1",
             type: [serviceTypes[0]]
           }),
-          createRoofer({
+          createService({
             entryType: "Merchant",
             id: "roofer_2",
             name: "roofer 2",
@@ -217,13 +217,13 @@ describe("ServiceLocatorSection component", () => {
         centre: null,
         zoom: 8,
         services: [
-          createRoofer({
+          createService({
             entryType: "Merchant",
             id: "roofer_1",
             name: "roofer 1",
             type: [serviceTypes[0]]
           }),
-          createRoofer({
+          createService({
             entryType: "Merchant",
             id: "roofer_2",
             name: "roofer 2",
@@ -247,12 +247,12 @@ describe("ServiceLocatorSection component", () => {
         centre: null,
         zoom: 8,
         services: [
-          createRoofer({
+          createService({
             id: "roofer_1",
             name: "roofer 1",
             type: [serviceTypes[0], serviceTypes[1]]
           }),
-          createRoofer({
+          createService({
             id: "roofer_2",
             name: "roofer 2",
             type: [serviceTypes[0], serviceTypes[1]]
@@ -275,7 +275,7 @@ describe("ServiceLocatorSection component", () => {
         centre: null,
         zoom: 8,
         services: [
-          createRoofer({
+          createService({
             id: "roofer_1",
             name: "roofer 1",
             type: [
@@ -286,7 +286,7 @@ describe("ServiceLocatorSection component", () => {
               serviceTypes[4]
             ]
           }),
-          createRoofer({
+          createService({
             id: "roofer_2",
             name: "roofer 2",
             type: [
@@ -315,7 +315,7 @@ describe("ServiceLocatorSection component", () => {
       position: 1,
       centre: null,
       zoom: 8,
-      services: [createRoofer({ name: "roofer 1" })]
+      services: [createService({ name: "roofer 1" })]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
@@ -336,7 +336,7 @@ describe("ServiceLocatorSection component", () => {
       position: 1,
       centre: null,
       zoom: 8,
-      services: [createRoofer({ name: "roofer 1" })]
+      services: [createService({ name: "roofer 1" })]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
@@ -357,7 +357,7 @@ describe("ServiceLocatorSection component", () => {
       position: 1,
       centre: null,
       zoom: 8,
-      services: [createRoofer({ name: "roofer 1" })]
+      services: [createService({ name: "roofer 1" })]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
@@ -376,7 +376,7 @@ describe("ServiceLocatorSection component", () => {
       position: 1,
       centre: null,
       zoom: 8,
-      services: [createRoofer({ name: "roofer 1" })]
+      services: [createService({ name: "roofer 1" })]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
@@ -397,19 +397,19 @@ describe("ServiceLocatorSection component", () => {
       centre: null,
       zoom: 8,
       services: [
-        createRoofer({
+        createService({
           id: "roofer_1",
           name: "roofer 1",
           distance: 10,
           type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
           distance: 5,
           type: [serviceTypes[1]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_3",
           name: "roofer 3",
           distance: 15,
@@ -437,12 +437,12 @@ describe("ServiceLocatorSection component", () => {
       centre: null,
       zoom: 8,
       services: [
-        createRoofer({
+        createService({
           id: "roofer_1",
           name: "roofer 1",
           type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
           type: [serviceTypes[1]]
@@ -470,12 +470,12 @@ describe("ServiceLocatorSection component", () => {
       centre: null,
       zoom: 8,
       services: [
-        createRoofer({
+        createService({
           id: "roofer_1",
           name: "roofer 1",
           type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
           type: [serviceTypes[1]]
@@ -513,12 +513,12 @@ describe("ServiceLocatorSection component", () => {
       centre: null,
       zoom: 8,
       services: [
-        createRoofer({
+        createService({
           id: "roofer_1",
           name: "roofer 1",
           type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
           type: [serviceTypes[1]]
@@ -549,7 +549,7 @@ describe("ServiceLocatorSection component", () => {
       centre: null,
       zoom: 8,
       services: [
-        createRoofer({
+        createService({
           id: "roofer_1",
           name: "roofer 1",
           type: [serviceTypes[0]]
@@ -579,7 +579,7 @@ describe("ServiceLocatorSection component", () => {
       centre: null,
       zoom: 8,
       services: [
-        createRoofer({
+        createService({
           id: "roofer_1",
           name: "roofer 1",
           type: [...serviceTypes]
@@ -602,12 +602,12 @@ describe("ServiceLocatorSection component", () => {
       centre: null,
       zoom: 8,
       services: [
-        createRoofer({
+        createService({
           id: "roofer_1",
           name: "roofer 1",
           type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
           type: [serviceTypes[0]]
