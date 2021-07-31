@@ -8,7 +8,8 @@ import { useGetProductGuaranteeTypesLazyQuery } from "../../../graphql/generated
 import {
   SelectGuarantee,
   SelectGuaranteesTemplate,
-  SelectGuaranteeType
+  SelectGuaranteeType,
+  SelectProducts
 } from "./Steps";
 
 type ApplyGuaranteeDialogProps = {
@@ -52,6 +53,7 @@ export const ApplyGuaranteeDialog = ({
         <Wizard>
           <SelectGuarantee guarantees={guaranteeTypes} />
           <SelectGuaranteesTemplate />
+          <SelectProducts />
         </Wizard>
       </Dialog.Content>
     </Dialog>

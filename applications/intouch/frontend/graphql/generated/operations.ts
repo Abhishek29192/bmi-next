@@ -815,6 +815,33 @@ export type GetProductGuaranteeTypesQuery = {
   >;
 };
 
+export type SearchProductsQueryVariables = SchemaTypes.Exact<{
+  query: SchemaTypes.Scalars["String"];
+  technology: SchemaTypes.Technology;
+}>;
+
+export type SearchProductsQuery = { readonly __typename?: "Query" } & {
+  readonly searchProducts?: SchemaTypes.Maybe<
+    { readonly __typename?: "ProductsConnection" } & Pick<
+      SchemaTypes.ProductsConnection,
+      "totalCount"
+    > & {
+        readonly nodes: ReadonlyArray<
+          { readonly __typename?: "Product" } & Pick<
+            SchemaTypes.Product,
+            | "id"
+            | "technology"
+            | "name"
+            | "description"
+            | "published"
+            | "brand"
+            | "family"
+          >
+        >;
+      }
+  >;
+};
+
 export type DeleteProjectMemberMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.DeleteProjectMemberInput;
 }>;

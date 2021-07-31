@@ -1010,6 +1010,74 @@ export type GetProductGuaranteeTypesQueryResult = Apollo.QueryResult<
   OperationTypes.GetProductGuaranteeTypesQuery,
   OperationTypes.GetProductGuaranteeTypesQueryVariables
 >;
+export const SearchProductsDocument = gql`
+  query searchProducts($query: String!, $technology: Technology!) {
+    searchProducts(query: $query, technology: $technology, first: 20) {
+      totalCount
+      nodes {
+        id
+        technology
+        name
+        description
+        published
+        brand
+        family
+      }
+    }
+  }
+`;
+
+/**
+ * __useSearchProductsQuery__
+ *
+ * To run a query within a React component, call `useSearchProductsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSearchProductsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSearchProductsQuery({
+ *   variables: {
+ *      query: // value for 'query'
+ *      technology: // value for 'technology'
+ *   },
+ * });
+ */
+export function useSearchProductsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >(SearchProductsDocument, options);
+}
+export function useSearchProductsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >(SearchProductsDocument, options);
+}
+export type SearchProductsQueryHookResult = ReturnType<
+  typeof useSearchProductsQuery
+>;
+export type SearchProductsLazyQueryHookResult = ReturnType<
+  typeof useSearchProductsLazyQuery
+>;
+export type SearchProductsQueryResult = Apollo.QueryResult<
+  OperationTypes.SearchProductsQuery,
+  OperationTypes.SearchProductsQueryVariables
+>;
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {

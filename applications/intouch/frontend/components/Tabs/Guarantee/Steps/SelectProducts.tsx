@@ -1,0 +1,99 @@
+import React, { useState } from "react";
+import { gql } from "@apollo/client";
+import { useTranslation } from "next-i18next";
+import { Product, Technology } from "@bmi/intouch-api-types";
+import { useSearchProductsLazyQuery } from "../../../../graphql/generated/hooks";
+import {
+  WizardAutoComplete,
+  WizardAutoCompleteOptions,
+  WizardAutoCompleteItem
+} from "../../../../components/WizardLayout/WizardAutoComplete";
+import { useWizardContext } from "../../../../context/WizardContext";
+import { WizardProductDetailCard } from "../../../../components/WizardLayout/WizardProductDetailCard";
+
+export const SelectProducts = () => {
+  const { data, setData } = useWizardContext();
+  const { t } = useTranslation("common");
+
+  const [products, setProducts] = useState<Product[]>();
+
+  const [productOptions, setProductOptions] =
+    useState<WizardAutoCompleteOptions>();
+  const [productsSearch] = useSearchProductsLazyQuery({
+    onCompleted: ({ searchProducts: { totalCount, nodes } }) => {
+      setProducts(nodes as Product[]);
+      const products = {
+        totalCount,
+        items: nodes.map(({ id, name, description }) => ({
+          id,
+          name,
+          description
+        }))
+      };
+      setProductOptions(products);
+    }
+  });
+  const [value, setValue] = useState<WizardAutoCompleteItem>(null);
+
+  const handleChange = (value: WizardAutoCompleteItem) => {
+    const selectedProduct = value
+      ? products.find((product) => product.id === value.id)
+      : null;
+    setData({
+      ...data,
+      product: selectedProduct
+    });
+
+    setValue(value);
+  };
+  const handleInput = async (input: string) => {
+    setProductOptions(null);
+    if (input.length > 0) {
+      productsSearch({
+        variables: {
+          query: input,
+          technology: data.guaranteeType.technology as Technology
+        }
+      });
+    }
+  };
+
+  return (
+    <div>
+      <WizardAutoComplete
+        options={productOptions}
+        value={value}
+        onChange={handleChange}
+        onInputChange={handleInput}
+      />
+      {data.product && (
+        <WizardProductDetailCard
+          name={data.product.name}
+          description={data.product.description}
+          brand={data.product.brand}
+          family={data.product.family}
+          onClick={() => {
+            handleChange(null);
+          }}
+        />
+      )}
+    </div>
+  );
+};
+
+export const GET_GUARANTEE_PRODUCTS = gql`
+  query searchProducts($query: String!, $technology: Technology!) {
+    searchProducts(query: $query, technology: $technology, first: 20) {
+      totalCount
+      nodes {
+        id
+        technology
+        name
+        description
+        published
+        brand
+        family
+      }
+    }
+  }
+`;

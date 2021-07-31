@@ -137,6 +137,49 @@ export const ssrGetProductGuaranteeTypes = {
 
   usePage: useGetProductGuaranteeTypes
 };
+export async function getServerPageSearchProducts(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.SearchProductsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.SearchProductsQuery>({
+    ...options,
+    query: Operations.SearchProductsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useSearchProducts = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.SearchProductsDocument, options);
+};
+export type PageSearchProductsComp = React.FC<{
+  data?: OperationTypes.SearchProductsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrSearchProducts = {
+  getServerPage: getServerPageSearchProducts,
+
+  usePage: useSearchProducts
+};
 
 export async function getServerPageGetProjectCompanyMembers(
   options: Omit<
