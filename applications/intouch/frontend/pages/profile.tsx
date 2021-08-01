@@ -3,7 +3,11 @@ import ProfileCard from "@bmi/profile-card";
 import Button from "@bmi/button";
 import Table from "@bmi/table";
 import { Account } from "@bmi/intouch-api-types";
+import Dialog from "@bmi/dialog";
+import TextField from "@bmi/text-field";
+import Typography from "@bmi/typography";
 import { Email, Phone, Edit } from "@material-ui/icons";
+import Avatar from "@material-ui/core/Avatar";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
@@ -111,9 +115,10 @@ const UserProfilePage = ({
   pageAccount,
   globalPageData
 }: UserProfilePageProps) => {
-  const { t } = useTranslation("common");
-  const account = pageAccount;
+  const { t } = useTranslation("profile");
+  const [open, setOpen] = React.useState(false);
 
+  const account = pageAccount;
   // TODO: types don't match exactly, but this works practically
   const currentCompany = findAccountCompany(account as Account);
 
@@ -141,7 +146,7 @@ const UserProfilePage = ({
                 name={[account.firstName, account.lastName]
                   .filter(Boolean)
                   .join(" ")}
-                title={t(account.role)}
+                title={t(`profileCard.role.${account.role}`)}
               />
             }
           >
@@ -153,10 +158,32 @@ const UserProfilePage = ({
               {account.email}
             </ProfileCard.Row>
             <div className={UserProfile.cardChildren}>
-              <Button variant="link" startIcon={<Edit />}>
-                {t("Edit")}
+              <Button
+                variant="link"
+                startIcon={<Edit />}
+                onClick={() => setOpen(true)}
+              >
+                {t("profileCard.buttons.editProfile")}
               </Button>
-              <Button>{t("Change password")}</Button>
+              <Dialog
+                open={open}
+                onCloseClick={() => setOpen(false)}
+                backdropProps={{
+                  className: "test-backdrop"
+                }}
+                className={UserProfile.modal}
+              >
+                <Dialog.Title hasUnderline>{t("editModal.title")}</Dialog.Title>
+                <Dialog.Content className={UserProfile.modalContent}>
+                  <EditUserForm account={account} />
+                  <Dialog.Actions
+                    className={UserProfile.modalClose}
+                    confirmLabel={t("editModal.buttons.saveAndClose")}
+                    onConfirmClick={() => setOpen(false)}
+                  />
+                </Dialog.Content>
+              </Dialog>
+              <Button>{t("profileCard.buttons.changePassword")}</Button>
             </div>
           </ProfileCard>
         </div>
@@ -179,6 +206,7 @@ export const getServerSideProps = withPage(
         account,
         pageAccount: data.account,
         ...(await serverSideTranslations(locale, [
+          "profile",
           "common",
           "sidebar",
           "footer",
