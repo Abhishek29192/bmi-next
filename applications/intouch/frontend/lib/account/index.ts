@@ -359,7 +359,9 @@ export default class AccountService {
             lastname: lastName,
             language,
             level,
+            valid: 1,
             email_validation_status: 1,
+            can_manage_subordinates: false,
             send_notification_email: false,
             select_orgchart: {
               branch_id: branchId
