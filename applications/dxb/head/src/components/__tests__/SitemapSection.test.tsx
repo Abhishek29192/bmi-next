@@ -25,7 +25,8 @@ describe("SitemapSection component", () => {
               linkedPage: null,
               type: "External",
               parameters: null,
-              dialogContent: null
+              dialogContent: null,
+              hubSpotCTAID: null
             }
           ]
         },
@@ -46,12 +47,22 @@ describe("SitemapSection component", () => {
               },
               type: "Internal",
               parameters: null,
-              dialogContent: null
+              dialogContent: null,
+              hubSpotCTAID: null
             }
           ]
         }
       ]
     };
+
+    const { container } = render(<SitemapSection data={data} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly if incomplete", () => {
+    const data = {
+      __typename: "ContentfulNavigation"
+    } as NavigationData;
 
     const { container } = render(<SitemapSection data={data} />);
     expect(container.firstChild).toMatchSnapshot();

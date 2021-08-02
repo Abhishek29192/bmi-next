@@ -231,6 +231,7 @@ DROP TABLE IF EXISTS evidence_item CASCADE;
 CREATE TABLE evidence_item (
   id serial PRIMARY KEY,
   custom_evidence_category_id text,
+  project_id int,
   guarantee_id int,
   evidence_category_type evidence_category_type,
   name text,
@@ -245,7 +246,6 @@ CREATE TABLE guarantee (
   id serial PRIMARY KEY,
   file_storage_id text,
   requestor_account_id int,
-  responsible_installer_account_id int,
   project_id int,
   guarantee_type_id text,
   system_bmi_ref text,
@@ -363,6 +363,7 @@ CREATE TABLE project_member (
   id serial PRIMARY KEY,
   project_id int,
   account_id int,
+  is_responsible_installer boolean,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -404,10 +405,10 @@ INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last
   VALUES ('3', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+3@digitaldetox.co.uk', '1234567', 'Dom', 'Perignon', '2020-06-12 10:19:47', 13988, 'devs+3@digitaldetox.co.uk', 'https://vinepair.com/wp-content/uploads/2017/01/domperignon-internal.jpg', NULL);
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('4', 'ACTIVE', 1, 'INSTALLER', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Affleck', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL);
+  VALUES ('4', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Afleck', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL);
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('5', 'ACTIVE', 1, 'INSTALLER', 'devs+5@digitaldetox.co.uk', '1234567', 'Steve', 'Jobs', '2020-06-12 10:19:47', 13990, 'devs+5@digitaldetox.co.uk', 'https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg', NULL);
+  VALUES ('5', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+5@digitaldetox.co.uk', '1234567', 'Steve', 'Jobs', '2020-06-12 10:19:47', 13990, 'devs+5@digitaldetox.co.uk', 'https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg', NULL);
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
   VALUES ('6', 'ACTIVE', 1, 'INSTALLER', 'devs+6@digitaldetox.co.uk', '1234567', 'Umit', 'Davala', '2020-06-12 10:19:47', 13991, 'devs+6@digitaldetox.co.uk', 'https://www.bdfutbol.com/i/j/92223b.jpg', NULL);
@@ -436,10 +437,10 @@ INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last
 TRUNCATE TABLE address RESTART IDENTITY;
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('1', 'Blue Star House', '234-244 Stockwell Road, Brixton, London. SW9 9SP', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
+  VALUES ('1', 'Blue Star House', '234-244 Stockwell Road', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('2', 'Piazza di Trevi', NULL, 'Rome', NULL, 'Italy', '00187 Roma RM', NULL, NULL);
+  VALUES ('2', 'Piazza di Trevi', NULL, 'Roma', NULL, 'Italy', '00187 Roma RM', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('3', '328 Coldharbour Lane', 'Brixton', 'London', NULL, 'UK', 'SW9 8QH', NULL, NULL);
@@ -451,7 +452,7 @@ INSERT INTO address (id, first_line, second_line, town, region, country, postcod
   VALUES ('5', 'Praça do Príncipe Real 23 24', 'Near the Castle', 'Lisbon', NULL, 'Portugal', '1250-096 Lisboa', '(38.7170416,-9.1510413)', NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('6', '39 Old Castle Rd, Weymouth DT4 8QE', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(10.6971494,-72.2598689)', NULL);
+  VALUES ('6', '39 Old Castle Rd', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(10.6971494,-72.2598689)', NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('7', '1 Brixton Hill', 'Brixton', NULL, 'London', 'UK', 'SW2 1RW', NULL, NULL);
@@ -463,7 +464,7 @@ INSERT INTO address (id, first_line, second_line, town, region, country, postcod
   VALUES ('9', '211 Stockwell Rd', 'Brixton', NULL, 'London', 'UK', 'SW9 9SL', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('10', '103 Gaunt St', 'Lambeth', NULL, 'London', 'UK', 'London SE1 6DP', NULL, NULL);
+  VALUES ('10', '103 Gaunt St', 'Lambeth', NULL, 'London', 'UK', 'SE1 6DP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('11', '12 Alice Mansions', 'Soho', NULL, 'London', 'UK', 'UK W1A', NULL, NULL);
@@ -478,7 +479,7 @@ INSERT INTO address (id, first_line, second_line, town, region, country, postcod
   VALUES ('14', '4 Oxford Street', NULL, NULL, 'London', 'UK', 'W1B 5LP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('15', 'Next to Bluestar House', '234-244 Stockwell Road, Brixton, London. SW9 9SP', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
+  VALUES ('15', 'Next to Bluestar House', '234-244 Stockwell Road', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('16', '4 Oxford Street', NULL, NULL, 'London', 'UK', 'W1B 5LP', NULL, NULL);
@@ -516,7 +517,7 @@ INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
   VALUES ('10', 13991, 'PITCHED', 'BMI Pitched Roof Technology Certification (12 months)', '2021-05-28 12:00:00');
 
 INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
-  VALUES ('11', 13994, 'Other', 'BMI Contractor Health & Safety Certification (12 months)', '2023-12-18 12:00:00');
+  VALUES ('11', 13994, 'OTHER', 'BMI Contractor Health & Safety Certification (12 months)', '2023-12-18 12:00:00');
 
 INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
   VALUES ('12', 13998, 'FLAT', 'BMI Flat Roof Technology Certification (12 months)', '2022-01-01 12:00:00');
@@ -533,13 +534,13 @@ INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
 TRUNCATE TABLE company RESTART IDENTITY;
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', '142214', 'Integrated Solutions Inc', '63323-463', '843-985-4588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '0093-7392', 'https://favpng.com/png_view/the-railcar-wikimedia-commonssnowman-buttons-cliparts-creative-commons-license-share-alike-escape-artistry-png/G2phAUt6', NULL, NULL, NULL);
+  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', '142214', 'Integrated Solutions Inc', '63323-463', '843-985-4588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '0093-7392', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1280px-Smiley.svg.png', NULL, NULL, NULL);
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('2', 1, 2, 5, 'Liam Gallagher', 'liam@test.com', '234234', 'CONTRACTOR', 'T4', 'ACTIVE', 'mbrosch1@go.com', '2020-11-20 12:00:00', '52355', 'Pathfinder Construction Ltd', '0378-4094', '757-208-9959', 'We build really hard things that support everything else', 'ssnipe1@pen.io', 'https://oracle.com', 'https://www.facebook.com/europeanparliament', 'https://www.linkedin.com/company/eu', '64772-300', 'https://favpng.com/png_view/file-ussr-star-wikimedia-commons-russia-soviet-union-red-star-png/WEtg4eiw', NULL, NULL, NULL);
+  VALUES ('2', 1, 2, 5, 'Liam Gallagher', 'liam@test.com', '234234', 'CONTRACTOR', 'T4', 'ACTIVE', 'mbrosch1@go.com', '2020-11-20 12:00:00', '52355', 'Pathfinder Construction Ltd', '0378-4094', '757-208-9959', 'We build really hard things that support everything else', 'ssnipe1@pen.io', 'https://oracle.com', 'https://www.facebook.com/europeanparliament', 'https://www.linkedin.com/company/eu', '64772-300', 'https://upload.wikimedia.org/wikipedia/commons/7/7d/A_Red_Star.png', NULL, NULL, NULL);
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('3', 1, 3, 6, 'Charlotte Church', 'charlotte@test.com', '345345', 'CONTRACTOR', 'T3', 'DEACTIVATED', 'dhechlin2@amazon.com', '2020-9-20 12:00:00', '4666', 'dXB Roofing PLC', '49738-530', '843-584-2619', 'We build stuff that looks great', 'liacovielli2@discovery.com', 'https://utexas.edu', 'https://www.facebook.com/Sony/', 'https://in.linkedin.com/company/sony', '0179-0110', 'https://favpng.com/png_view/lotus-wikimedia-commons-clip-art-png/10vQG4nP', NULL, NULL, NULL);
+  VALUES ('3', 1, 3, 6, 'Charlotte Church', 'charlotte@test.com', '345345', 'CONTRACTOR', 'T3', 'DEACTIVATED', 'dhechlin2@amazon.com', '2020-9-20 12:00:00', '4666', 'dXB Roofing PLC', '49738-530', '843-584-2619', 'We build stuff that looks great', 'liacovielli2@discovery.com', 'https://utexas.edu', 'https://www.facebook.com/Sony/', 'https://in.linkedin.com/company/sony', '0179-0110', 'https://upload.wikimedia.org/wikipedia/commons/3/33/StubMetal.png', NULL, NULL, NULL);
 
 TRUNCATE TABLE company_document RESTART IDENTITY;
 
@@ -594,52 +595,64 @@ INSERT INTO company_operation (id, company, operation)
 
 TRUNCATE TABLE evidence_item RESTART IDENTITY;
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('1', NULL, 1, 'PROOF_OF_PURCHASE', 'stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg', 'https://image.shutterstock.com/z/stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('1', NULL, 1, 1, 'PROOF_OF_PURCHASE', 'stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg', 'https://image.shutterstock.com/z/stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('2', NULL, 2, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('2', NULL, 1, 2, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('3', NULL, 3, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('3', NULL, 3, 3, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('4', '3ka17lbEy4ENxBKQC4CY4V', 3, 'CUSTOM', 'gargoyle-images-manchester-600w-71247169.jpg', 'https://c7.alamy.com/comp/FK32Y4/st-matthews-church-in-brixton-hill-south-london-FK32Y4.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('4', '3ka17lbEy4ENxBKQC4CY4V', 3, 3, 'CUSTOM', 'gargoyle-images-manchester-600w-71247169.jpg', 'https://c7.alamy.com/comp/FK32Y4/st-matthews-church-in-brixton-hill-south-london-FK32Y4.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('5', '3ka17lbEy4ENxBKQC4CY4V', 3, 'CUSTOM', 'gargoyle-fountain-detail-close-600w-499048789.jpg', 'https://image.shutterstock.com/image-photo/gargoyle-fountain-detail-close-600w-499048789.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('5', '3ka17lbEy4ENxBKQC4CY4V', 3, 3, 'CUSTOM', 'gargoyle-fountain-detail-close-600w-499048789.jpg', 'https://image.shutterstock.com/image-photo/gargoyle-fountain-detail-close-600w-499048789.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('6', '7j0FaWCBSVanXJqaZrDyvP', 3, 'CUSTOM', 'dancing-friends-600w-717409222.jpg', 'https://image.shutterstock.com/image-photo/dancing-friends-600w-717409222.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('6', '7j0FaWCBSVanXJqaZrDyvP', 3, 3, 'CUSTOM', 'dancing-friends-600w-717409222.jpg', 'https://image.shutterstock.com/image-photo/dancing-friends-600w-717409222.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('7', '5FbxiRcMYuY6txgoVAnWJm', 3, 'CUSTOM', 'Army_Photography_Contest_-_2007_-_FMWRC_-_Arts_and_Crafts_-_A_Plumpish_Proportion_%284930276154%29.jpg', 'https://image.shutterstock.com/image-photo/dramatic-picture-frozen-medieval-dragon-600w-131654306.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('7', '5FbxiRcMYuY6txgoVAnWJm', 3, 3, 'CUSTOM', 'Army_Photography_Contest_-_2007_-_FMWRC_-_Arts_and_Crafts_-_A_Plumpish_Proportion_%284930276154%29.jpg', 'https://image.shutterstock.com/image-photo/dramatic-picture-frozen-medieval-dragon-600w-131654306.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('8', '3ka17lbEy4ENxBKQC4CY4V', 4, 'CUSTOM', 'ministry-of-sound-24-1.jpg', 'https://paradise.london/wp-content/uploads/2019/08/ministry-of-sound-24-1.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('8', '3ka17lbEy4ENxBKQC4CY4V', NULL, 4, 'CUSTOM', 'ministry-of-sound-24-1.jpg', 'https://paradise.london/wp-content/uploads/2019/08/ministry-of-sound-24-1.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('9', '3ka17lbEy4ENxBKQC4CY4V', 4, 'CUSTOM', 'prague-czech-republic-august-172019-600w-1722304249.jpg', 'https://image.shutterstock.com/image-photo/prague-czech-republic-august-172019-600w-1722304249.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('9', '3ka17lbEy4ENxBKQC4CY4V', 4, 4, 'CUSTOM', 'prague-czech-republic-august-172019-600w-1722304249.jpg', 'https://image.shutterstock.com/image-photo/prague-czech-republic-august-172019-600w-1722304249.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('10', '7j0FaWCBSVanXJqaZrDyvP', 4, 'CUSTOM', 'rooftop-party.html', 'https://depositphotos.com/stock-photos/rooftop-party.html');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('10', '7j0FaWCBSVanXJqaZrDyvP', 4, 4, 'CUSTOM', 'rooftop-party.html', 'https://depositphotos.com/stock-photos/rooftop-party.html');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('11', '5FbxiRcMYuY6txgoVAnWJm', 4, 'CUSTOM', 'Ceiling-leak.jpg', 'https://rennisonroofing.com/wp-content/uploads/2020/04/Ceiling-leak.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('11', '5FbxiRcMYuY6txgoVAnWJm', 4, 4, 'CUSTOM', 'Ceiling-leak.jpg', 'https://rennisonroofing.com/wp-content/uploads/2020/04/Ceiling-leak.jpg');
+
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('12', NULL, 4, NULL, 'MISCELLANEOUS', '2880px-Dunvegan_Castle_in_the_mist01editcrop_2007-08-22.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Dunvegan_Castle_in_the_mist01editcrop_2007-08-22.jpg/2880px-Dunvegan_Castle_in_the_mist01editcrop_2007-08-22.jpg');
+
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('13', NULL, 4, NULL, 'MISCELLANEOUS', '1920px-Eichenberg_01.JPG', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Eichenberg_01.JPG/1920px-Eichenberg_01.JPG');
+
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('14', NULL, 2, NULL, 'MISCELLANEOUS', '1024px-Convento_Cristo_December_2008-2a.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Convento_Cristo_December_2008-2a.jpg/1024px-Convento_Cristo_December_2008-2a.jpg');
+
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('15', NULL, 2, NULL, 'MISCELLANEOUS', '1920px-02.Trinidad_%2859%29.JPG', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/02.Trinidad_%2859%29.JPG/1920px-02.Trinidad_%2859%29.JPG');
 
 TRUNCATE TABLE guarantee RESTART IDENTITY;
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('1', 'http://www.africau.edu/images/default/sample.pdf', 3, NULL, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'P1', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2061-04-20 12:00:00', 'C1P1G1');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('1', 'http://www.africau.edu/images/default/sample.pdf', 3, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'P1', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2061-04-20 12:00:00', 'C1P1G1');
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('2', 'http://www.africau.edu/images/default/sample.pdf', 3, NULL, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'P3', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2051-04-20 12:00:00', 'C1P2G2');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('2', 'http://www.africau.edu/images/default/sample.pdf', 3, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'P3', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2051-04-20 12:00:00', 'C1P2G2');
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('3', 'http://www.africau.edu/images/default/sample.pdf', 7, 7, 3, '54S9J770q5T2jPYxptah89', 'S3', NULL, NULL, '2cH694AWInJSZIdKHDKfJO', 'REJECTED', NULL, NULL, 'C2P3G3');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('3', 'http://www.africau.edu/images/default/sample.pdf', 7, 3, '54S9J770q5T2jPYxptah89', 'S3', NULL, NULL, '2cH694AWInJSZIdKHDKfJO', 'REJECTED', NULL, NULL, 'C2P3G3');
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('4', 'http://www.africau.edu/images/default/sample.pdf', 13, NULL, 4, '54S9J770q5T2jPYxptah89', 'S3', NULL, 1, '2cH694AWInJSZIdKHDKfJO', 'APPROVED', '2020-12-29 12:00:00', '2050-12-29 12:00:00', 'C3P4G4');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('4', 'http://www.africau.edu/images/default/sample.pdf', 13, 4, '54S9J770q5T2jPYxptah89', 'S3', NULL, 1, '2cH694AWInJSZIdKHDKfJO', 'APPROVED', '2020-12-29 12:00:00', '2050-12-29 12:00:00', 'C3P4G4');
 
 TRUNCATE TABLE invitation RESTART IDENTITY;
 
@@ -726,35 +739,35 @@ INSERT INTO project (id, company_id, site_address_id, building_owner_address_id,
 
 TRUNCATE TABLE project_member RESTART IDENTITY;
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('1', 1, 3);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('1', 1, 3, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('2', 1, 4);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('2', 1, 4, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('3', 1, 5);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('3', 1, 5, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('4', 2, 3);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('4', 2, 3, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('5', 2, 5);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('5', 2, 5, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('6', 2, 6);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('6', 2, 6, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('7', 3, 7);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('7', 3, 7, TRUE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('8', 3, 8);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('8', 3, 8, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('9', 3, 9);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('9', 3, 9, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('10', 4, 10);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('10', 4, 10, FALSE);
 
 TRUNCATE TABLE SYSTEM RESTART IDENTITY;
 
@@ -792,6 +805,9 @@ ALTER TABLE account
 
 ALTER TABLE account
   ADD UNIQUE (docebo_user_id);
+
+ALTER TABLE company_member
+  ADD UNIQUE (market_id, account_id, company_id);
 
 ALTER TABLE market
   ADD UNIQUE (DOMAIN);
@@ -859,6 +875,11 @@ ALTER TABLE company_operation
 CREATE INDEX ON company_operation (company);
 
 ALTER TABLE evidence_item
+  ADD FOREIGN KEY (project_id) REFERENCES project (id) ON DELETE CASCADE;
+
+CREATE INDEX ON evidence_item (project_id);
+
+ALTER TABLE evidence_item
   ADD FOREIGN KEY (guarantee_id) REFERENCES guarantee (id) ON DELETE CASCADE;
 
 CREATE INDEX ON evidence_item (guarantee_id);
@@ -867,11 +888,6 @@ ALTER TABLE guarantee
   ADD FOREIGN KEY (requestor_account_id) REFERENCES account (id) ON DELETE CASCADE;
 
 CREATE INDEX ON guarantee (requestor_account_id);
-
-ALTER TABLE guarantee
-  ADD FOREIGN KEY (responsible_installer_account_id) REFERENCES account (id) ON DELETE CASCADE;
-
-CREATE INDEX ON guarantee (responsible_installer_account_id);
 
 ALTER TABLE guarantee
   ADD FOREIGN KEY (project_id) REFERENCES project (id) ON DELETE CASCADE;
@@ -1055,7 +1071,7 @@ COMMENT ON COLUMN company.name IS 'The registered name of the Company';
 
 COMMENT ON COLUMN company.tax_number IS 'The Tax number in that Market, such as the VAT number';
 
-COMMENT ON COLUMN company.phone IS 'They Company public phone number';
+COMMENT ON COLUMN company.phone IS 'The Company public phone number';
 
 COMMENT ON COLUMN company.about_us IS 'A descirption of the Company intended for Find a Roofer';
 
@@ -1109,6 +1125,8 @@ COMMENT ON COLUMN evidence_item.id IS 'Primary key';
 
 COMMENT ON COLUMN evidence_item.custom_evidence_category_id IS 'a reference to the evidenceCategory sys id in Contentful';
 
+COMMENT ON COLUMN evidence_item.project_id IS 'fk';
+
 COMMENT ON COLUMN evidence_item.guarantee_id IS 'fk';
 
 COMMENT ON COLUMN evidence_item.evidence_category_type IS 'ek';
@@ -1124,8 +1142,6 @@ COMMENT ON COLUMN guarantee.id IS 'Primary key - starts at 6100';
 COMMENT ON COLUMN guarantee.file_storage_id IS 'The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand';
 
 COMMENT ON COLUMN guarantee.requestor_account_id IS 'fk';
-
-COMMENT ON COLUMN guarantee.responsible_installer_account_id IS 'fk';
 
 COMMENT ON COLUMN guarantee.project_id IS 'fk';
 
@@ -1274,6 +1290,8 @@ COMMENT ON COLUMN project_member.id IS 'Primary key';
 COMMENT ON COLUMN project_member.project_id IS 'fk';
 
 COMMENT ON COLUMN project_member.account_id IS 'fk';
+
+COMMENT ON COLUMN project_member.is_responsible_installer IS 'The responsible installer';
 
 COMMENT ON TABLE SYSTEM IS 'A collection of products that can be guaranteed as a system';
 
@@ -1506,7 +1524,15 @@ CREATE TRIGGER set_system_updated_at
 
 CREATE INDEX account_email_idx ON account USING btree (email);
 
+CREATE INDEX certification_technology_idx ON certification USING btree (technology);
+
+CREATE INDEX certification_expiry_date_idx ON certification USING btree (expiry_date);
+
+CREATE INDEX invitation_status_idx ON invitation USING btree (status);
+
 CREATE INDEX invitation_invitee_idx ON invitation USING btree (invitee);
 
 CREATE INDEX market_domain_idx ON market USING btree (DOMAIN);
+
+CREATE INDEX project_member_is_responsible_installer_idx ON project_member USING btree (is_responsible_installer);
 

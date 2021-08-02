@@ -8,7 +8,7 @@ To know more about BMI InTouch, see the related [Confluence documents](https://b
 
 - First, follow the monoropo instructions (root directory README). You should have installed all the necessary dependencies.
 
-- open your `/etc/hosts` and add the following line: `127.0.0.1 intouch.local`
+- open your `/etc/hosts` and add the following line: `127.0.0.1 local.intouch`
 
 - run `yarn workspace @bmi/intouch-frontend dev` from the monorepo root directory
 
@@ -28,6 +28,7 @@ If you set `AUTH0_COOKIE_DOMAIN=local.intouch` and you add these domain in yout 
 127.0.0.1       de.local.intouch
 127.0.0.1       us.local.intouch
 127.0.0.1       es.local.intouch
+127.0.0.1       no.local.intouch
 ```
 
 you will be able to run the app in multimarket in all the above domains.
@@ -49,23 +50,6 @@ Example: `yarn workspace @bmi/intouch-frontend add @bmi/button@0.0.0`
 We use the [GraphQL code generator](https://www.graphql-code-generator.com/) tools to create the TypeScript types in our frontend.
 
 See [graphql-code-generator README](https://github.com/dotansimha/graphql-code-generator#readme).
-
-### Config
-
-To pass configuration to GraphQL Codegen, We use a `codegen.yml`.
-
-```
-schema:
-  - http://localhost:4000/graphql:
-      headers:
-        Authorization: "<Authorization Token>"
-...
-...
-```
-
-Replace the `<Authorization Token>` with your access_token from Auth0.
-
-- run `yarn workspace @bmi/intouch-frontend codegen` from the monorepo root directory
 
 ## Some Gotcha's
 

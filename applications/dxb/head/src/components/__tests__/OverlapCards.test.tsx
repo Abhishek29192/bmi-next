@@ -59,13 +59,13 @@ const data: Data = [
           width: 948,
           height: 720
         },
-        resize: {
-          src: "//images.asset.jpg"
-        },
         file: {
           fileName: "Lorem ipsum",
           url: "//images.asset.jpg"
         }
+      },
+      thumbnail: {
+        src: "//images.asset.jpg"
       }
     },
     featuredVideo: null
@@ -102,13 +102,13 @@ const data: Data = [
           width: 948,
           height: 720
         },
-        resize: {
-          src: "//images.asset.jpg"
-        },
         file: {
           fileName: "Lorem ipsum",
           url: "//images.asset.jpg"
         }
+      },
+      thumbnail: {
+        src: "//images.asset.jpg"
       }
     },
     featuredVideo: null
@@ -145,13 +145,13 @@ const data: Data = [
           width: 948,
           height: 720
         },
-        resize: {
-          src: "//images.asset.jpg"
-        },
         file: {
           fileName: "Lorem ipsum",
           url: "//images.asset.jpg"
         }
+      },
+      thumbnail: {
+        src: "//images.asset.jpg"
       }
     },
     featuredVideo: {
@@ -186,9 +186,6 @@ const data: Data = [
             backgroundColor: "#484848",
             width: 948,
             height: 720
-          },
-          resize: {
-            src: "//images.asset.jpg"
           },
           file: {
             fileName: "Lorem ipsum",

@@ -11,12 +11,15 @@
     "gcp-build": "tsc",
     "migrate-db": "node scripts/init-db.js",
     "prettify-schema": "onchange \"schema.graphql\" -- prettier --write schema.graphql",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "test": "jest --reporters=default --reporters=jest-junit",
+    "coverage": "yarn test --coverage"
   },
   "dependencies": {
-    "@bmi-digital/logger": "0.0.1",
+    "@bmi-digital/logger": "0.0.3",
     "@google-cloud/pubsub": "^2.10.0",
     "@google-cloud/secret-manager": "^3.7.1",
+    "@google-cloud/storage": "^5.7.0",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",
     "@graphql-tools/utils": "^7.10.0",
@@ -30,15 +33,16 @@
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
     "fast-csv": "^4.3.6",
-    "graphile-utils": "^4.10.0",
+    "graphile-utils": "^4.12.1",
     "graphql": "^15.5.0",
     "graphql-upload": "^12.0.0",
     "jwks-rsa": "^1.12.3",
     "lodash.camelcase": "^4.3.0",
     "pg": "^8.5.1",
     "pg-format": "^1.0.4",
-    "postgraphile": "^4.11.0",
+    "postgraphile": "^4.12.3",
     "postgraphile-apollo-server": "0.1.1",
+    "postgraphile-plugin-connection-filter": "^2.2.1",
     "typescript": "^3.9.3"
   },
   "devDependencies": {

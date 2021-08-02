@@ -1,0 +1,24 @@
+@import "@bmi/styles";
+
+.main {
+  max-width: 100%;
+  width: 780px;
+  padding: 2rem;
+
+  p {
+    margin-bottom: 0.75em;
+  }
+}
+
+.title {
+  margin-bottom: 28px !important;
+
+  p + & {
+    margin-top: 28px !important;
+  }
+}
+
+.link {
+  color: $color-cyan-500;
+  text-decoration: underline;
+}

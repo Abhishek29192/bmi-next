@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "title": "Complete the registration",
+    "form": {
+      "firstName": "First name",
+      "lastName": "Last name"
+    }
+  }
+}

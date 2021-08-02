@@ -4,12 +4,17 @@ import styles from "./styles.module.scss";
 
 export type TableContainerProps = {
   title: string;
+  testid?: string;
   children?: React.ReactNode | React.ReactNode[];
 };
 
-export const TableContainer = ({ title, children }: TableContainerProps) => {
+export const TableContainer = ({
+  title,
+  children,
+  testid
+}: TableContainerProps) => {
   return (
-    <div className={styles.main}>
+    <div data-testid={testid} className={styles.main}>
       <Typography variant="h4" style={{ fontSize: "1.25rem" }} hasUnderline>
         {title}
       </Typography>

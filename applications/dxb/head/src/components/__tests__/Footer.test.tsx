@@ -51,7 +51,8 @@ describe("Footer component", () => {
                     linkedPage: null,
                     type: null,
                     parameters: null,
-                    dialogContent: null
+                    dialogContent: null,
+                    hubSpotCTAID: null
                   }
                 ]
               },
@@ -72,7 +73,8 @@ describe("Footer component", () => {
                     },
                     type: null,
                     parameters: null,
-                    dialogContent: null
+                    dialogContent: null,
+                    hubSpotCTAID: null
                   }
                 ]
               }
@@ -95,7 +97,8 @@ describe("Footer component", () => {
                 },
                 type: null,
                 parameters: null,
-                dialogContent: null
+                dialogContent: null,
+                hubSpotCTAID: null
               }
             ]
           }}

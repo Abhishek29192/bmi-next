@@ -1,5 +1,7 @@
 test_intouch_frontend:
   stage: test
+  needs:
+    - install
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
@@ -37,21 +39,22 @@ build_intouch_frontend_dev:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/frontend/cloudbuild.yaml --substitutions _NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
+    - gcloud builds submit . --config=applications/intouch/frontend/cloudbuild.yaml --substitutions _NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
 
 deploy_intouch_frontend_dev_to_cloudrun:
-  needs: [build_intouch_frontend_dev]
-  image: google/cloud-sdk
   stage: deploy
+  needs:
+    - build_intouch_frontend_dev
+    - test_intouch_frontend
+  image: google/cloud-sdk
   services:
     - docker:dind
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
-        # execute on master, but only if changing intouch frontend (i.e. not all other monorepo changes)
         - applications/intouch/frontend/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud run deploy tf-frontend --image=eu.gcr.io/automated-style-303709/intouch-frontend --platform=managed --region=europe-west2 --project=automated-style-303709
+    - gcloud run deploy tf-frontend --image=eu.gcr.io/automated-style-303709/intouch-frontend:$CI_COMMIT_SHORT_SHA --platform=managed --region=europe-west2 --project=automated-style-303709

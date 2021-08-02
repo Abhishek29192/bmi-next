@@ -1,8 +1,13 @@
+import { Logger } from "winston";
 import axios, { AxiosInstance } from "axios";
 import { createToken } from "../util/JwtUtil";
 import { Course } from "../types/course";
 
-import { IUserCreateInput } from "../type";
+import { IUserCreateInput, IUserUpdateInput } from "../type";
+
+type ClientContext = {
+  logger: (module: string) => Logger;
+};
 
 type CourseFilteredData = {
   courses: Course[];
@@ -13,8 +18,10 @@ const { DOCEBO_API_URL } = process.env;
 
 export default class DoceboClient {
   private client: AxiosInstance;
+  private logger: Logger;
 
-  private constructor(accessToken: String) {
+  private constructor(accessToken: String, context: ClientContext) {
+    this.logger = context.logger("docebo");
     this.client = axios.create({
       baseURL: DOCEBO_API_URL,
       headers: {
@@ -23,9 +30,9 @@ export default class DoceboClient {
     });
   }
 
-  public static async create(): Promise<DoceboClient> {
+  public static async create(context: ClientContext): Promise<DoceboClient> {
     const { access_token } = await this.getSuperAdminApiToken();
-    return new DoceboClient(access_token);
+    return new DoceboClient(access_token, context);
   }
 
   async getCourses(
@@ -103,6 +110,32 @@ export default class DoceboClient {
     return data;
   }
 
+  public async userByEmail(email: string) {
+    const encodedEmail = encodeURIComponent(email);
+
+    const queryParams = { match_type: "full", search_text: encodedEmail };
+    const queryString = new URLSearchParams(queryParams).toString();
+
+    const {
+      data: { data }
+    } = await this.client.get(`/manage/v1/user?${queryString}`);
+
+    return data.items[0];
+  }
+
+  public async checkUserValidatiy(userId?: string, email?: string) {
+    const mapQuery = [];
+    if (userId) mapQuery.push({ name: "userid", value: userId });
+    if (email) mapQuery.push({ name: "email", value: email });
+
+    const query = `${mapQuery.map((e) => `${e.name}=${e.value}`).join("&")}`;
+
+    const { data } = await this.client.get(
+      `/manage/v1/user/check_validity?${query}`
+    );
+    return data;
+  }
+
   async createUser(input: IUserCreateInput) {
     const select_orgchart = input.select_orgchart
       ? { [`${input.select_orgchart.branch_id}`]: 1 }
@@ -112,9 +145,35 @@ export default class DoceboClient {
       password_retype: input.password,
       select_orgchart
     };
-    const { data } = await this.client.post(`/manage/v1/user`, body);
 
-    return data;
+    try {
+      const { data } = await this.client.post(`/manage/v1/user`, body);
+
+      return data;
+    } catch (error) {
+      this.logger.error("Error creating docebo account", error.response.data);
+      throw error;
+    }
+  }
+
+  async updateUser(input: IUserUpdateInput) {
+    const select_orgchart = input.select_orgchart
+      ? { [`${input.select_orgchart.branch_id}`]: 1 }
+      : {};
+    const body = {
+      ...input,
+      select_orgchart: select_orgchart
+    };
+
+    const { userid, ...rest } = body;
+
+    try {
+      const { data } = await this.client.put(`/manage/v1/user/${userid}`, rest);
+      return data;
+    } catch (error) {
+      this.logger.error("Error updating docebo account", error.response.data);
+      throw error;
+    }
   }
 
   private async isCoursePromoted(courseId: Number) {

@@ -1,19 +1,60 @@
 import React from "react";
+import { gql } from "@apollo/client";
 import Head from "next/head";
 import Icon from "@bmi/icon";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { BMI } from "@bmi/logo";
 import { Sidebar } from "../Sidebar";
 import { Header } from "../Header";
-import { Footer } from "../Footer";
+import { Footer, Props as FooterProps } from "../Footer";
+import { GetGlobalDataQuery } from "../../graphql/generated/operations";
 import styles from "./styles.module.scss";
 
 export type LayoutProps = {
   children: React.ReactNode | React.ReactNode[];
   title: string;
+  pageData?: GetGlobalDataQuery;
 };
 
-export const Layout = ({ children, title }: LayoutProps) => {
+export const GET_PAGE_DATA = gql`
+  query GetGlobalData {
+    # Only one Market Content is expected to be available for user
+    marketContentCollection(limit: 1) {
+      items {
+        footerLinksCollection {
+          items {
+            title
+            relativePath
+          }
+        }
+        # Top bar - Contact us link
+        contactUsPage {
+          title
+          relativePath
+        }
+        # Top bar - global external link
+        externalLinkUrl
+        externalLinkLabel
+      }
+    }
+  }
+`;
+
+const mapFooterLinks = (pageData: GetGlobalDataQuery): FooterProps["links"] => {
+  return pageData.marketContentCollection?.items[0]?.footerLinksCollection.items.map(
+    ({ title, relativePath }) => {
+      return {
+        label: title,
+        href: relativePath
+      };
+    }
+  );
+};
+
+export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
+  const footerLinks = pageData ? mapFooterLinks(pageData) : [];
+  const marketContent = pageData.marketContentCollection?.items[0];
+
   return (
     <BmiThemeProvider>
       <div>
@@ -38,9 +79,23 @@ export const Layout = ({ children, title }: LayoutProps) => {
           </div>
 
           <div className={styles.appMain}>
-            <Header title={title} />
+            <Header
+              title={title}
+              contactUsLink={
+                marketContent?.contactUsPage && {
+                  href: marketContent.contactUsPage.relativePath,
+                  label: marketContent.contactUsPage.title
+                }
+              }
+              globalExternalLink={
+                marketContent && {
+                  href: marketContent.externalLinkUrl,
+                  label: marketContent.externalLinkLabel
+                }
+              }
+            />
             <div className={styles.appContent}>{children}</div>
-            <Footer />
+            <Footer links={footerLinks} />
           </div>
         </div>
       </div>

@@ -11,7 +11,6 @@ module.exports = {
     "!**/*.config.js",
     "!.*.js",
     "!**/.*.js",
-    "!libraries/visualiser-library/src/Visualiser/Functions/(ThreeJs|ThreeJsUtils)/**",
     "!coverage/**",
     "!jest/**",
     "!libraries/fetch-mocks/**",
@@ -25,7 +24,7 @@ module.exports = {
     "<rootDir>/applications",
     "<rootDir>/functions"
   ],
-  testMatch: ["**/__tests__/*.+(test).(ts|tsx|js)"],
+  testMatch: ["**/__tests__/**/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
     "\\.(jpg|png)$": require.resolve("./jest/src/ImageImport.ts"),
@@ -34,16 +33,24 @@ module.exports = {
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
     "\\.(woff2|ttf)$": require.resolve("./jest/src/FontImport.ts"),
     "^@bmi/(?!styles)(.*)$": "<rootDir>/node_modules/@bmi/$1/src",
-    "^@bmi/styles$": require.resolve("./jest/src/CSSModuleImport.ts"),
-    "react-pdf-maker": "<rootDir>/node_modules/react-pdf-maker/src"
+    "^@bmi/styles$": require.resolve("./jest/src/CSSModuleImport.ts")
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
     "^.+\\.(js|jsx)$": "babel-jest"
   },
+  transformIgnorePatterns: ["node_modules/(?!(three)/)"],
   setupFiles: [
     "<rootDir>/jest/src/setEnvVars.ts",
     "<rootDir>/jest/src/setupTests.ts"
   ],
-  setupFilesAfterEnv: ["jest-mock-console/dist/setupTestFramework.js"]
+  setupFilesAfterEnv: ["jest-mock-console/dist/setupTestFramework.js"],
+  coverageThreshold: {
+    global: {
+      statements: "100",
+      branches: "100",
+      functions: "100",
+      lines: "100"
+    }
+  }
 };

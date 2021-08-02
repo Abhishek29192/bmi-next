@@ -3,6 +3,7 @@ import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Tabs from "@bmi/tabs";
+import { ProjectMember } from "@bmi/intouch-api-types";
 import GridStyles from "../../styles/Grid.module.scss";
 import { Projects } from "../SidePanel/index.stories";
 import { NoProjectsCard } from "../Cards/NoProjects";
@@ -95,9 +96,7 @@ export const Team = ({ title }: LayoutProps) => (
         <Grid item xs={12}>
           <Tabs initialValue="one">
             <Tabs.TabPanel heading="Team" index="one">
-              <TabCard>
-                <TeamTab />
-              </TabCard>
+              <TabCard></TabCard>
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Guarantee" index="two">
               <TabCard>
@@ -106,7 +105,7 @@ export const Team = ({ title }: LayoutProps) => (
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Uploads" index="three">
               <TabCard>
-                <UploadsTab />
+                <UploadsTab projectId={1} uploads={uploadedFiles} />
               </TabCard>
             </Tabs.TabPanel>
           </Tabs>
@@ -119,3 +118,75 @@ export const Team = ({ title }: LayoutProps) => (
 Team.args = {
   title: "Projects"
 };
+
+const uploadedFiles = new Map<string, string[]>([
+  [
+    "Ventilation systems",
+    [
+      `Ut enim ad minim veniam, quis nostrud exercitation ullamco
+  laboris nisi ut aliquip ex ea commodo consequat.`
+    ]
+  ],
+  [
+    "Roof corners",
+    [
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+      eget.`
+    ]
+  ],
+  [
+    "Chimney",
+    [
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.`
+    ]
+  ],
+  [
+    "Receipt of purchase",
+    [
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.`
+    ]
+  ],
+  [
+    "Supporting files",
+    [
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.`
+    ]
+  ]
+]);
+
+const teamMembers = [
+  {
+    nodeId: "1",
+    id: 1,
+    createdAt: "01/01/01",
+    updatedAt: "01/01/01",
+    account: {
+      nodeId: "1",
+      id: 1,
+      firstName: "Lucy",
+      lastName: "Walsh",
+      role: "INSTALLER",
+      certificationsByDoceboUserId: {
+        nodes: [
+          {
+            nodeId: "1",
+            id: 1,
+            technology: "PITCHED",
+            createdAt: "01/01/01",
+            updatedAt: "01/01/01"
+          }
+        ]
+      }
+    }
+  }
+] as ProjectMember[];

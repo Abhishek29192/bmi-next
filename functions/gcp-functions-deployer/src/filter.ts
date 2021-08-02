@@ -4,7 +4,7 @@ import { FunctionMetadata } from "./types";
 export function filterFunctionMetadata(
   content: DownloadResponse,
   sourceName: string
-): FunctionMetadata[] {
+): FunctionMetadata[] | null {
   // eslint-disable-next-line no-console
   console.log(`sourceName:${sourceName}`);
   if (!content || !content[0].length) {
@@ -12,7 +12,7 @@ export function filterFunctionMetadata(
   }
   const allFunctionMetadata = JSON.parse(content[0].toString());
   const curerntFunctionsMetadata: FunctionMetadata[] =
-    allFunctionMetadata.filter(function (el) {
+    allFunctionMetadata.filter(function (el: FunctionMetadata) {
       return el.source_archive_object === sourceName;
     });
 

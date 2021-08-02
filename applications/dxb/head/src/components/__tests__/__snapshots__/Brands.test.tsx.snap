@@ -35,8 +35,12 @@ exports[`Brands component renders correctly 1`] = `
               Uh-oh.  He don't look happy. He's been using brand X
             </h6>
             <a
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
               href="/smilex"
+              role="button"
+              tabindex="0"
             >
               <span
                 class="MuiButton-label"

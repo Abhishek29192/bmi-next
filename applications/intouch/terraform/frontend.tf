@@ -7,6 +7,7 @@ resource "google_cloud_run_service" "default" {
   template {
     metadata {
       annotations = {
+        "autoscaling.knative.dev/minScale" = "1"
         "autoscaling.knative.dev/maxScale" = "10"
       }
 
@@ -35,7 +36,11 @@ resource "google_cloud_run_service" "default" {
         }
         env {
           name  = "AUTH0_COOKIE_DOMAIN"
-          value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
+          value = "intouch.dddev.io"
+        }
+        env {
+          name  = "FRONTEND_DOMAIN"
+          value = "intouch.dddev.io"
         }
         env {
           name  = "GRAPHQL_URL"
@@ -48,6 +53,10 @@ resource "google_cloud_run_service" "default" {
         env {
           name  = "NPM_AUTH_READ_TOKEN"
           value = ""
+        }
+        env {
+          name  = "NODE_ENV"
+          value = "production"
         }
       }
     }

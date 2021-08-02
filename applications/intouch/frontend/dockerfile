@@ -1,5 +1,5 @@
 # re-build
-FROM node:12-alpine as build
+FROM node:14-alpine as build
 
 WORKDIR /usr/src/app
 
@@ -30,10 +30,12 @@ RUN rm -f ./npmrc
 
 WORKDIR /usr/src/app/applications/intouch/frontend
 
+ARG AUTH0_COOKIE_DOMAIN
+
 RUN yarn run build
 
 
-FROM node:12-alpine
+FROM node:14-alpine
 
 ENV NODE_ENV production
 
@@ -65,7 +67,7 @@ RUN ls -l && \
   yarn install --pure-lockfile --non-interactive --ignore-optional --production --cache-folder ./ycache && \
   rm -rf ./ycache
 
-RUN rm -f ./npmrc
+RUN rm -f ../../../.npmrc
 
 WORKDIR /usr/src/app/applications/intouch/frontend
 

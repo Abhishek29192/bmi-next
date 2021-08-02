@@ -14,6 +14,9 @@ import withGTM from "../utils/google-tag-manager";
 import { SiteContext } from "./Site";
 import FormInputs, { Data as FormInputsData } from "./FormInputs";
 import RichText, { RichTextData } from "./RichText";
+import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
+
+import styles from "./styles/InputBanner.module.scss";
 
 export type Data = {
   title: string;
@@ -100,7 +103,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
-    <>
+    <div className={styles["InputBanner"]}>
       {additionalInputs && (
         <Dialog open={dialogOpen} onCloseClick={() => setDialogOpen(false)}>
           <Dialog.Title hasUnderline>{title}</Dialog.Title>
@@ -193,6 +196,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         description={description.description}
         inputLabel={inputLabel}
         inputCallToAction={submitButtonLabel}
+        inputGroupSuffix={<RecaptchaPrivacyLinks />}
         buttonComponent={(props: ButtonProps) => (
           <GTMButton
             gtm={{
@@ -215,7 +219,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
           setSecondDialogOpen(true);
         }}
       />
-    </>
+    </div>
   );
 };
 

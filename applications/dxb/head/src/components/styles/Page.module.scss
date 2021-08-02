@@ -2,3 +2,7 @@
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+:global(.grecaptcha-badge) {
+  visibility: hidden;
+}

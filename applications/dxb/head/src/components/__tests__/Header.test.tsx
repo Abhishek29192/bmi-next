@@ -33,7 +33,8 @@ describe("Header component", () => {
                   linkedPage: null,
                   type: "External",
                   parameters: null,
-                  dialogContent: null
+                  dialogContent: null,
+                  hubSpotCTAID: null
                 }
               ]
             },
@@ -54,7 +55,8 @@ describe("Header component", () => {
                   },
                   type: "Internal",
                   parameters: null,
-                  dialogContent: null
+                  dialogContent: null,
+                  hubSpotCTAID: null
                 }
               ]
             }
@@ -77,7 +79,8 @@ describe("Header component", () => {
               },
               type: "Internal",
               parameters: null,
-              dialogContent: null
+              dialogContent: null,
+              hubSpotCTAID: null
             }
           ]
         }}

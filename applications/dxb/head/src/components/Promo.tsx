@@ -13,14 +13,20 @@ export type Data = {
   body: RichTextData | null;
   brandLogo: string | null;
   tags: TagData[] | null;
-  featuredMedia: ImageData | null;
+  featuredMedia:
+    | (ImageData & {
+        thumbnail: {
+          src: string;
+        };
+      })
+    | null;
   cta: LinkData | null;
   featuredVideo: VideoData | null;
   backgroundColor: "White" | "Alabaster" | null;
 };
 
 export const promoQuery = graphql`
-  fragment PromoFragment on ContentfulPromo {
+  fragment BasePromoFragment on ContentfulPromo {
     __typename
     id
     title
@@ -33,9 +39,6 @@ export const promoQuery = graphql`
       title
       type
     }
-    featuredMedia {
-      ...ImageFragment
-    }
     cta {
       ...LinkFragment
     }
@@ -43,5 +46,23 @@ export const promoQuery = graphql`
       ...VideoFragment
     }
     backgroundColor
+  }
+  fragment PromoFragment on ContentfulPromo {
+    ...BasePromoFragment
+    featuredMedia {
+      ...ImageFragment
+    }
+  }
+  fragment PromoCardFragment on ContentfulPromo {
+    ...BasePromoFragment
+    featuredMedia {
+      ...ImageCardFragment
+    }
+  }
+  fragment PromoSlideFragment on ContentfulPromo {
+    ...BasePromoFragment
+    featuredMedia {
+      ...ImageSlideFragment
+    }
   }
 `;

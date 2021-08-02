@@ -210,6 +210,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The introudction block for this page."
   leadBlock: ContentfulLeadBlockSection @link(from: "leadBlock___NODE")
 
+  "The date for the page entry."
+  date: String
+
   "The sections for this page."
   sections: [ContentfulSection] @link(from: "sections___NODE")
 
@@ -317,7 +320,7 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
 
-  "This field will always return null."
+  "The brand logo for this page."
   brandLogo: String
 
   "This field will always return null."
@@ -409,9 +412,6 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   "This field will always return null."
   brandLogo: String
 
-  "The PIM category this page is attached to."
-  categoryCode: String!
-
   "The description for this category."
   content: ContentfulRichText
 
@@ -441,6 +441,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
+
+  "The PIM categories this page is attached to."
+  categoryCodes: [String!]
 }
 
 """
@@ -551,6 +554,9 @@ type ContentfulCardCollectionSection implements Node {
 
   "The section should be centered."
   justifyCenter: Boolean
+
+  "The order in which the cards should be sorted."
+  sortOrder: String
 }
 
 """
@@ -952,6 +958,13 @@ type ContentfulResources implements Node {
   pdpShareWidget: ContentfulShareWidgetSection
     @link(from: "pdpShareWidget___NODE")
 
+  "The share widget for the system details page for these resources."
+  sdpShareWidget: ContentfulShareWidgetSection
+    @link(from: "sdpShareWidget___NODE")
+
+  "The lead block cta for the system details page for these resources."
+  sdpLeadBlockCta: ContentfulLink @link(from: "sdpLeadBlockCta___NODE")
+
   "The input banner for the product details page for these resources."
   pdpInputBanner: ContentfulInputBanner @link(from: "pdpInputBanner___NODE")
 
@@ -1149,6 +1162,9 @@ type ContentfulLink implements Node {
 
   "The content of the dialog opened by a link."
   dialogContent: ContentfulSection @link(from: "dialogContent___NODE")
+
+  "The ID of a HubSpot CTA if present."
+  hubSpotCTAID: String
 }
 
 """
@@ -1591,6 +1607,9 @@ type ContentfulIframe implements Node {
 
   "The label for the video"
   title: String
+
+  "The summary for the video"
+  summary: ContentfulRichText
 
   "URL for iframe source"
   url: String!

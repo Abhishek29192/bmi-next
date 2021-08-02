@@ -1,0 +1,22 @@
+@import "@bmi/styles";
+
+.certificationsItemList {
+  display: flex;
+  flex-direction: row;
+}
+
+.certificationsItem:not(:first-child) {
+  margin-left: 60px;
+}
+.certificationsItem {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.certificationsItemIcon {
+  width: 48px;
+  height: 48px;
+  color: $color-charcoal;
+}

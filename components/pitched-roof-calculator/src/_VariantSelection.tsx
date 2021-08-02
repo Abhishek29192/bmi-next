@@ -3,7 +3,7 @@ import CardRadioGroup from "@bmi/card-radio-group";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import validateRangesAgainstPitchValues from "./helpers/validateRangesAgainstPitchValues";
 import getPitchValues from "./helpers/getPitchValues";
-import { RangeValue } from "./types";
+import { MainTile, MainTileVariant, RangeValue } from "./types";
 import { DimensionsValues } from "./types/roof";
 import { AnalyticsContext } from "./helpers/analytics";
 
@@ -12,9 +12,9 @@ type VariantSelectionRowProps = {
   dimensions: DimensionsValues;
   // TODO: Type when importing from Contentful
   select: (tile: object) => void;
-  selected?: any;
+  selected?: MainTileVariant;
   options: ReadonlyArray<any>;
-  tile: any;
+  tile: MainTile;
 };
 
 type TileForValidation = {

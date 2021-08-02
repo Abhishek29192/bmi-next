@@ -1,11 +1,11 @@
 {
-  "name": "react-pdf-maker",
+  "name": "@bmi/react-pdf-maker",
   "version": "0.0.0",
   "private": false,
   "license": "BMI-DXB",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "tsc",
     "watch": "tsc -w"
   },
   "dependencies": {

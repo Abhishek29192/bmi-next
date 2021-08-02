@@ -137,6 +137,7 @@ describe("Sections component", () => {
         groupCards: false,
         cardLabel: "Card Label",
         cardType: "Story Card",
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "00000000-0000-0000-0000-000000000000",
@@ -149,7 +150,8 @@ describe("Sections component", () => {
           },
           type: null,
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         },
         cards: [
           {
@@ -173,7 +175,8 @@ describe("Sections component", () => {
               },
               type: null,
               parameters: null,
-              dialogContent: null
+              dialogContent: null,
+              hubSpotCTAID: null
             },
             id: "00000000-0000-0000-0000-000000000000",
             backgroundColor: null
@@ -189,6 +192,7 @@ describe("Sections component", () => {
         cardLabel: "Go to {{title}}",
         cardType: "Highlight Card",
         link: null,
+        sortOrder: null,
         cards: [
           {
             __typename: "ContentfulSimplePage",
@@ -199,6 +203,7 @@ describe("Sections component", () => {
             title: "page title",
             brandLogo: null,
             subtitle: "page subtitle",
+            date: null,
             featuredMedia: {
               type: null,
               altText: "Lorem ipsum",
@@ -227,13 +232,13 @@ describe("Sections component", () => {
                   width: 948,
                   height: 720
                 },
-                resize: {
-                  src: "//images.asset.jpg"
-                },
                 file: {
                   fileName: "Lorem ipsum",
                   url: "//images.asset.jpg"
                 }
+              },
+              thumbnail: {
+                src: "//images.asset.jpg"
               }
             },
             featuredVideo: null
@@ -259,7 +264,8 @@ describe("Sections component", () => {
           linkedPage: null,
           type: "Internal",
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         },
         featuredVideo: {
           title: "Video",
@@ -283,10 +289,28 @@ describe("Sections component", () => {
         featuredMedia: {
           altText: null,
           type: null,
-          // @ts-ignore Doesn't get this
           image: {
-            resize: {
-              src: "image.png"
+            gatsbyImageData: {
+              images: {
+                sources: [
+                  {
+                    srcSet:
+                      "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
+                    sizes: "(min-width: 948px) 948px, 100vw",
+                    type: "image/webp"
+                  }
+                ],
+                fallback: {
+                  src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
+                  srcSet:
+                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
+                  sizes: "(min-width: 948px) 948px, 100vw"
+                }
+              },
+              layout: "constrained",
+              backgroundColor: "#484848",
+              width: 948,
+              height: 720
             },
             file: {
               fileName: "image",
@@ -294,7 +318,10 @@ describe("Sections component", () => {
             }
           },
           caption: null,
-          focalPoint: null
+          focalPoint: null,
+          thumbnail: {
+            src: "//images.asset.jpg"
+          }
         },
         cta: null,
         featuredVideo: null,
@@ -337,9 +364,6 @@ describe("Sections component", () => {
                 backgroundColor: "#484848",
                 width: 948,
                 height: 720
-              },
-              resize: {
-                src: "//images.asset.jpg"
               },
               file: {
                 fileName: "Lorem ipsum",
@@ -421,16 +445,281 @@ describe("Sections component", () => {
             linkedPage: null,
             type: "Internal",
             parameters: null,
-            dialogContent: null
+            dialogContent: null,
+            hubSpotCTAID: null
           }
         ]
+      },
+      {
+        __typename: "ContentfulFormSection",
+
+        title: "Form section",
+        showTitle: true,
+        description: null,
+        recipients: "test@example.com",
+        inputs: [
+          {
+            label: "First name",
+            name: "first-name",
+            options: null,
+            type: "text",
+            required: true,
+            width: "half",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label: "Second name",
+            name: "second-names",
+            options: null,
+            type: "text",
+            required: true,
+            width: "half",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label: "Email address",
+            name: "email",
+            options: null,
+            type: "email",
+            required: true,
+            width: "half",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label: "Company name(if Applicable)",
+            name: "company",
+            options: null,
+            type: "text",
+            required: false,
+            width: "half",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label: "Telephone",
+            name: "telephone",
+            options: null,
+            type: "phone",
+            required: false,
+            width: "half",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label: "Type of query",
+            name: "recipients",
+            options:
+              "General enquiry, Product return/Damaged goods=vijay.parsa@bmigroup.com, Question about a product, Request for technical information, Warranty information, Complaint, Order placement, Request for case references, Help with large tenders, Directions to locations where customers can buy BMI products, Request a brochure, Report a damaged product",
+            type: "select",
+            required: true,
+            width: "half",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label: "Attach Files (optional)",
+            name: "files",
+            options: null,
+            type: "upload",
+            required: false,
+            width: "full",
+            accept: ".pdf, .jpg, .jpeg, .png",
+            maxSize: 5
+          },
+          {
+            label: "Your message",
+            name: "message",
+            options: null,
+            type: "textarea",
+            required: true,
+            width: "full",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label: "Send a copy of this message to my email address",
+            name: "send-copy",
+            options: null,
+            type: "checkbox",
+            required: false,
+            width: "full",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label: "Sign up for BMI newsletter",
+            name: "sign-up",
+            options: null,
+            type: "checkbox",
+            required: false,
+            width: "full",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label:
+              "I agree with BMI's [Data Protection Policy](https://google.co.uk)",
+            name: "data-protection",
+            options: null,
+            type: "checkbox",
+            required: true,
+            width: "full",
+            accept: null,
+            maxSize: null
+          },
+          {
+            label:
+              "I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time.",
+            name: "gdpr",
+            options: null,
+            type: "checkbox",
+            required: true,
+            width: "full",
+            accept: null,
+            maxSize: null
+          }
+        ],
+        submitText: "Submit",
+        successRedirect: {
+          __typename: "ContentfulLink",
+          id: "ce304ce0-35f7-5738-9472-50beb3624ea8",
+          label: "Thank you",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          type: "Internal",
+          linkedPage: {
+            path: "thank-you/"
+          },
+          asset: null,
+          parameters: null,
+          dialogContent: null,
+          hubSpotCTAID: null
+        },
+        source: "Contentful",
+        hubSpotFormGuid: null
       },
       {
         // @ts-ignore
         __typename: "InvalidTypename",
         title: "Invalid type test"
-      }
+      },
+      // @ts-ignore For test coverage
+      {}
     ];
+
+    const { container } = render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
+    expect(container.children).toMatchSnapshot();
+  });
+
+  it("renders correctly when incomplete", () => {
+    const data = [
+      {
+        __typename: "ContentfulTabsOrAccordionSection",
+        description: { description: "string" },
+        items: [
+          {
+            __typename: "ContentfulTitleWithContent",
+            title: "hello",
+            content: {
+              raw: contentMock,
+              references: []
+            }
+          }
+        ],
+        title: "string",
+        type: "Accordion"
+      },
+      {
+        __typename: "ContentfulTabsOrAccordionSection",
+        description: { description: "string" },
+        items: [
+          {
+            __typename: "ContentfulTitleWithContent",
+            title: "hello",
+            content: {
+              raw: contentMock,
+              references: []
+            }
+          }
+        ],
+        title: "string",
+        type: "Tabs"
+      },
+      {
+        __typename: "ContentfulSyndicateSection"
+      }
+    ] as Data;
+
+    const { container } = render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
+    expect(container.children).toMatchSnapshot();
+  });
+
+  it("renders correctly with 1 villain", () => {
+    const data = [
+      {
+        __typename: "ContentfulTabsOrAccordionSection",
+        description: { description: "string" },
+        items: [
+          {
+            __typename: "ContentfulTitleWithContent",
+            title: "hello",
+            content: {
+              raw: contentMock,
+              references: []
+            }
+          }
+        ],
+        title: "string",
+        type: "Accordion"
+      },
+      {
+        __typename: "ContentfulTabsOrAccordionSection",
+        description: { description: "string" },
+        items: [
+          {
+            __typename: "ContentfulTitleWithContent",
+            title: "hello",
+            content: {
+              raw: contentMock,
+              references: []
+            }
+          }
+        ],
+        title: "string",
+        type: "Tabs"
+      },
+      {
+        __typename: "ContentfulSyndicateSection",
+        title: "Title",
+        villains: [
+          {
+            __typename: "ContentfulPromo",
+            id: "1234",
+            title: "Villain 1",
+            brandLogo: null,
+            tags: null,
+            subtitle: null,
+            body: null,
+            featuredMedia: null,
+            cta: null,
+            featuredVideo: null
+          }
+        ],
+        isReversed: false
+      }
+    ] as Data;
 
     const { container } = render(
       <MockSiteContext>

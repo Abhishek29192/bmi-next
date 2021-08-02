@@ -34,7 +34,7 @@ describe("When called with valid content and source matches only one function", 
     const value = filterFunctionMetadata([buffer], "sources/somefunction1.zip");
 
     expect(value).toHaveLength(1);
-    expect(value[0]).toStrictEqual(jsonObject);
+    expect(value![0]).toStrictEqual(jsonObject);
   });
 });
 
@@ -65,7 +65,7 @@ describe("When called with valid content and source matches multiple functions",
     const values = filterFunctionMetadata([buffer], "sources/upload.zip");
 
     expect(values).toHaveLength(2);
-    expect(values[0]).toStrictEqual(jsonObjectFunc1);
-    expect(values[1]).toStrictEqual(jsonObjectFunc2);
+    expect(values![0]).toStrictEqual(jsonObjectFunc1);
+    expect(values![1]).toStrictEqual(jsonObjectFunc2);
   });
 });

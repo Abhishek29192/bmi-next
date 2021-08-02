@@ -1,13 +1,18 @@
 import postGraphileOpts from "../postGraphileOpts";
 
+jest.mock("../../db", () => ({
+  getDbPool: () => "pgRootPool"
+}));
 describe("Postgraphile", () => {
   it("the context should have the user object", async () => {
     const req: any = {
       user: {
-        intouchUserId: "123",
+        id: "123",
         role: "installer",
         email: "email"
-      }
+      },
+      logger: "logger",
+      pubSub: "pubSub"
     };
     const context = await postGraphileOpts.additionalGraphQLContextFromRequest(
       req,
@@ -16,17 +21,20 @@ describe("Postgraphile", () => {
 
     expect(context).toEqual({
       user: {
-        intouchUserId: "123",
+        id: "123",
         role: "installer",
         email: "email"
-      }
+      },
+      logger: "logger",
+      pubSub: "pubSub",
+      pgRootPool: "pgRootPool"
     });
   });
 
   it("pgSetting should set the role and user id", async () => {
     const req: any = {
       user: {
-        intouchUserId: "123",
+        id: "123",
         role: "installer",
         email: "email"
       }
@@ -46,7 +54,7 @@ describe("Postgraphile", () => {
   it("pgSetting should set role installer if role not in whitelist", async () => {
     const req: any = {
       user: {
-        intouchUserId: "123",
+        id: "123",
         role: "postgres",
         email: "email"
       }

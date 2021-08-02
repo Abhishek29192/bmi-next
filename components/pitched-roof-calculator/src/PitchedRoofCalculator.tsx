@@ -3,6 +3,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import ContainerDialog from "@bmi/container-dialog";
 import { AnalyticsContext, OnAnalyticsEvent } from "./helpers/analytics";
 import styles from "./PitchedRoofCalculator.module.scss";
+import { EmailFormValues } from "./types/EmailFormValues";
+import { Data } from "./types";
 
 const PitchedRoofCalculatorSteps = React.lazy(
   () => import("./_PitchedRoofCalculatorSteps")
@@ -12,14 +14,18 @@ type PitchedRoofCalculatorProps = {
   isOpen?: boolean;
   onClose: () => void;
   isDebugging?: boolean;
+  data?: Data; // undefied shows loading progress
   onAnalyticsEvent?: OnAnalyticsEvent;
+  sendEmailAddress: (values: EmailFormValues) => Promise<void>;
 };
 
 const PitchedRoofCalculator = ({
   isOpen,
   onClose,
   isDebugging,
-  onAnalyticsEvent = () => {}
+  data,
+  onAnalyticsEvent = () => {},
+  sendEmailAddress
 }: PitchedRoofCalculatorProps) => {
   const pushEvent: OnAnalyticsEvent = useCallback(
     (event) => {
@@ -53,6 +59,12 @@ const PitchedRoofCalculator = ({
 
   const isSSR = typeof window === "undefined";
 
+  const loading = (
+    <div className={styles["spinnerContainer"]}>
+      <CircularProgress className={styles["spinner"]} />
+    </div>
+  );
+
   return (
     <AnalyticsContext.Provider value={pushEvent}>
       <ContainerDialog
@@ -72,16 +84,20 @@ const PitchedRoofCalculator = ({
       >
         <div className={styles["PitchedRoofCalculator"]}>
           {!isSSR ? (
-            <Suspense
-              fallback={
-                <div className={styles["spinnerContainer"]}>
-                  <CircularProgress className={styles["spinner"]} />
-                </div>
-              }
-            >
-              <PitchedRoofCalculatorSteps
-                {...{ isDebugging, selected, setSelected }}
-              />
+            <Suspense fallback={loading}>
+              {data ? (
+                <PitchedRoofCalculatorSteps
+                  {...{
+                    isDebugging,
+                    selected,
+                    setSelected,
+                    sendEmailAddress,
+                    data
+                  }}
+                />
+              ) : (
+                loading
+              )}
             </Suspense>
           ) : null}
         </div>

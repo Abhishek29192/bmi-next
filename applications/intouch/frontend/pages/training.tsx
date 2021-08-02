@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Course } from "@bmi/intouch-api-types";
 import Grid from "@bmi/grid";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
@@ -7,15 +8,15 @@ import { gql } from "@apollo/client";
 import { TrainingCover } from "../components/Cards/TrainingCover";
 import { TrainingSidePanel } from "../components/SidePanel/TrainingSidePanel";
 import GridStyles from "../styles/Grid.module.scss";
-import { getAuth0Instance } from "../lib/auth0";
-import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
+import { withPage } from "../lib/middleware/withPage";
 import {
   getServerPageDoceboCatalogIdByMarketDomain,
   getServerPageTraining
 } from "../graphql/generated/page";
+import { GetGlobalDataQuery } from "../graphql/generated/operations";
 import { Layout } from "../components/Layout";
-import { parseAccount } from "../lib/account";
+import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 
 type PageProps = {
   trainingData: {
@@ -24,18 +25,20 @@ type PageProps = {
       message: string;
     };
   };
-  username?: string;
+  globalPageData: GetGlobalDataQuery;
 };
 
 const DOCEBO_SSO_URL = "/api/docebo-sso";
 
-const TrainingPage = ({ trainingData }: PageProps) => {
+const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
 
+  const [activeCourse, setActiveCourse] = useState<Course>(null);
+
   if (error)
     return (
-      <Layout title={t("Training")}>
+      <Layout title={t("Training")} pageData={globalPageData}>
         <div>Oops... {error.message}</div>
       </Layout>
     );
@@ -44,10 +47,17 @@ const TrainingPage = ({ trainingData }: PageProps) => {
 
   if (!trainingContentCollection.items.length)
     return (
-      <Layout title={t("Training")}>
+      <Layout title={t("Training")} pageData={globalPageData}>
         <div></div>
       </Layout>
     );
+
+  const sidePanelHandler = (courseId: number) => {
+    const activeCourse = courseCatalogues.nodes.find(
+      ({ course }) => course.courseId === courseId
+    )?.course as Course;
+    setActiveCourse(activeCourse);
+  };
 
   //Translate course status
   courseCatalogues?.nodes?.forEach(({ course }) => {
@@ -57,9 +67,13 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   });
 
   return (
-    <Layout title={t("Training")}>
+    <Layout title={t("Training")} pageData={globalPageData}>
       <div style={{ display: "flex" }}>
-        <TrainingSidePanel courseCatalog={courseCatalogues} />
+        <TrainingSidePanel
+          courseCatalog={courseCatalogues}
+          onCourseSelected={sidePanelHandler}
+          onFilterChange={() => setActiveCourse(null)}
+        />
         <Grid
           container
           spacing={2}
@@ -67,10 +81,17 @@ const TrainingPage = ({ trainingData }: PageProps) => {
           alignItems="stretch"
         >
           <Grid item>
-            <TrainingCover
-              trainingContentCollection={trainingContentCollection}
-              lmsUrl={DOCEBO_SSO_URL}
-            />
+            {!activeCourse ? (
+              <TrainingCover
+                trainingContentCollection={trainingContentCollection}
+                lmsUrl={DOCEBO_SSO_URL}
+              />
+            ) : (
+              <TrainingCourseDetail
+                course={activeCourse}
+                lmsUrl={DOCEBO_SSO_URL}
+              />
+            )}
           </Grid>
         </Grid>
       </div>
@@ -78,65 +99,62 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
-  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
+export const getServerSideProps = withPage(
+  async ({ apolloClient, account, globalPageData, locale }) => {
+    const {
+      doceboId,
+      market: { domain }
+    } = account;
 
-  return auth0.withPageAuthRequired({
-    async getServerSideProps({ locale, ...ctx }) {
-      const apolloClient = await initializeApollo(null, { ...ctx, locale });
-
-      const { user } = await auth0.getSession(ctx.req);
-      const { doceboId, marketCode } = parseAccount(user);
-
-      let trainingData = {};
-      try {
-        const {
-          props: {
-            data: { marketByDomain = {} }
+    let trainingData = {};
+    try {
+      const {
+        props: {
+          data: { marketByDomain = {} }
+        }
+      } = await getServerPageDoceboCatalogIdByMarketDomain(
+        {
+          variables: {
+            domain: domain
           }
-        } = await getServerPageDoceboCatalogIdByMarketDomain(
-          {
-            variables: {
-              domain: marketCode
-            }
-          },
-          apolloClient
-        );
+        },
+        apolloClient
+      );
 
-        const pageQuery = await getServerPageTraining(
-          {
-            variables: {
-              catalogueId: marketByDomain?.doceboCatalogueId || null,
-              userId: doceboId
-            }
-          },
-          apolloClient
-        );
-
-        trainingData = pageQuery.props;
-      } catch (error) {
-        trainingData = {
-          data: null,
-          error: {
-            message: error.message
+      const pageQuery = await getServerPageTraining(
+        {
+          variables: {
+            catalogueId: marketByDomain?.doceboCatalogueId || null,
+            userId: doceboId
           }
-        };
-      }
+        },
+        apolloClient
+      );
 
-      const props = {
-        trainingData,
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "footer",
-          "training-page"
-        ]))
+      trainingData = pageQuery.props;
+    } catch (error) {
+      trainingData = {
+        data: null,
+        error: {
+          message: error.message
+        }
       };
-
-      return { props };
     }
-  })(ctx);
-};
+
+    const props = {
+      trainingData,
+      globalPageData,
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "sidebar",
+        "footer",
+        "training-page"
+      ]))
+    };
+
+    return { props };
+  }
+);
 export default withPageAuthRequired(TrainingPage);
 
 // export doesn't matter for codegen

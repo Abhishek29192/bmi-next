@@ -103,6 +103,9 @@ export default gql`
   type ContentfulGuaranteeTemplatesCollection {
     items: [ContentfulGuaranteeTemplate]
   }
+  type ContentfulEvidenceCategoryCollection {
+    items: [ContentfulEvidenceCategory]
+  }
 
   type ContentfulGuaranteeType {
     displayName: String
@@ -113,19 +116,34 @@ export default gql`
     maximumValidityYears: Int
     tiersAvailable: ContentfulTiers
     ranking: Int
-    evidenceCategories: ContentfulEvidenceCategory
+    evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
     guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
   }
 
   type PublishOutput {
     messageId: String
   }
+  extend type Company {
+    certifications: [Technology]
+  }
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType
+  }
+  extend type EvidenceItem {
+    customEvidenceCategory: ContentfulEvidenceCategory
+  }
+  extend type Account {
+    formattedRole: String
+    signedPhotoUrl: String
   }
 
   extend input AccountInput {
     marketCode: String
+  }
+  scalar Upload
+
+  extend input AccountPatch {
+    photoUpload: Upload
   }
 
   input PublishInput {
@@ -136,17 +154,15 @@ export default gql`
   }
 
   input InviteInput {
-    email: String!
-    firstName: String!
-    lastName: String!
-    role: Role!
+    emails: [String!]!
+    firstName: String
+    lastName: String
+    personalNote: String
   }
 
   input InvitationComplete {
     company_id: String
   }
-
-  scalar Upload
 
   type File {
     filename: String!
@@ -166,10 +182,14 @@ export default gql`
     productsToInsert: [Product]
   }
 
+  extend input EvidenceItemInput {
+    attachmentUpload: Upload
+  }
+
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
-    invite(input: InviteInput!): Invitation
+    invite(input: InviteInput!): [Invitation]
     completeInvitation(companyId: Int!): Account
     bulkImport(input: BulkImportInput!): ImportPayload
   }

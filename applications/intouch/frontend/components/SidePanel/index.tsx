@@ -1,15 +1,20 @@
 import React from "react";
+import { useTranslation } from "next-i18next";
+import Typography from "@bmi/typography";
+
 import { FilterInput } from "../FilterInput";
 import { FilterButton } from "../FilterButton";
 import styles from "./styles.module.scss";
 
 export type SidePanelProps = {
   searchLabel?: string;
+  noResultLabel?: string;
   filters?: Record<string, any>;
   filterClick?: (filter) => void;
   showSearchFilter?: boolean;
   onSearchFilterChange?: (value: string) => void;
   children: React.ReactNode | React.ReactNode[];
+  renderFooter?: () => React.ReactNode | React.ReactNode[];
 };
 
 export const SidePanel = ({
@@ -18,8 +23,11 @@ export const SidePanel = ({
   filterClick,
   showSearchFilter = true,
   onSearchFilterChange,
-  children
+  children,
+  noResultLabel,
+  renderFooter
 }: SidePanelProps) => {
+  const { t } = useTranslation();
   const handleButtonClick = (filter) => {
     filterClick && filterClick(filter);
   };
@@ -35,7 +43,6 @@ export const SidePanel = ({
       onClick={() => handleButtonClick(filter)}
     />
   ));
-
   return (
     <div className={styles.main}>
       <div className={styles.sidePanel}>
@@ -44,22 +51,24 @@ export const SidePanel = ({
             <FilterInput label={searchLabel} onChange={handleInputOnChange} />
           )}
 
-          <div className={styles.filterButtons}>
-            <span
-              style={{
-                fontWeight: "bold",
-                display: "inline-block",
-                marginRight: "0.5em",
-                paddingBottom: "0.5em"
-              }}
-            >
-              Show Me:
-            </span>
+          {filterButtons.length > 0 && (
+            <div className={styles.filterButtons}>
+              <span>Show Me:</span>
 
-            {filterButtons}
-          </div>
+              {filterButtons}
+            </div>
+          )}
         </div>
-        <div className={styles.results}>{children}</div>
+        {React.Children.count(children) ? (
+          <div className={styles.results}>{children}</div>
+        ) : (
+          <Typography className={styles.noResult} variant="h5">
+            {noResultLabel || t("No result found")}
+          </Typography>
+        )}
+        {renderFooter && (
+          <div className={styles.footerBtn}>{renderFooter()}</div>
+        )}
       </div>
     </div>
   );

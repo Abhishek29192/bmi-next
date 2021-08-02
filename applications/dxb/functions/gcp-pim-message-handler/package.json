@@ -6,11 +6,11 @@
   "scripts": {
     "build": "tsc",
     "dev": "yarn build && functions-framework --source=dist --target=handleRequest --port=9056",
-    "deploy": "yarn build && gcloud functions deploy pim-message-handler --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=handleRequest --env-vars-file=env.yaml"
+    "deploy": "yarn build && gcloud functions deploy pim-message-handler --trigger-http --runtime=nodejs14 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=handleRequest --env-vars-file=env.yaml"
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.5.0",
-    "@google-cloud/secret-manager": "^3.4.0",
+    "@google-cloud/secret-manager": "^3.7.1",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1"
   },

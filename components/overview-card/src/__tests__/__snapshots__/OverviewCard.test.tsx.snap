@@ -121,7 +121,55 @@ exports[`OverviewCard component renders correctly without optional props 1`] = `
 </div>
 `;
 
-exports[`OverviewCard component renders width deprecated imageSource 1`] = `
+exports[`OverviewCard component renders with a string brandImageSource prop 1`] = `
+<div
+  class="OverviewCard"
+>
+  <div
+    class="header-picture"
+    style="background-image: url(path-to-image);"
+  />
+  <div
+    class="body"
+  >
+    <img
+      alt=""
+      class="brand-logo brand-logo--negative"
+      src="image/source.jpg"
+    />
+    <h4
+      class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children"
+    >
+      We do the things
+    </div>
+    <div
+      class="footer"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Go to this
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`OverviewCard component renders with deprecated imageSource 1`] = `
 <div
   class="OverviewCard"
 >

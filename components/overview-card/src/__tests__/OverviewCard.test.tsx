@@ -21,7 +21,22 @@ describe("OverviewCard component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders width deprecated imageSource", () => {
+  it("renders with a string brandImageSource prop", () => {
+    const { container } = render(
+      <OverviewCard
+        title="Heading"
+        titleVariant="h4"
+        imageSource={mockImage}
+        brandImageSource={"image/source.jpg"}
+        hasTitleUnderline
+        footer={<Button variant="outlined">Go to this</Button>}
+      >
+        We do the things
+      </OverviewCard>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders with deprecated imageSource", () => {
     const { container } = render(
       <OverviewCard
         title="Heading"

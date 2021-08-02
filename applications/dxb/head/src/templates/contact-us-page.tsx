@@ -109,15 +109,17 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
           </div>
         </Section>
       )}
-      <TabsOrAccordionSection
-        data={{
-          __typename: "ContentfulTabsOrAccordionSection",
-          title: otherAreasTitle,
-          description: null,
-          items: otherAreas,
-          type: "Accordion"
-        }}
-      />
+      {otherAreas && (
+        <TabsOrAccordionSection
+          data={{
+            __typename: "ContentfulTabsOrAccordionSection",
+            title: otherAreasTitle,
+            description: null,
+            items: otherAreas,
+            type: "Accordion"
+          }}
+        />
+      )}
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs data={breadcrumbs} />
       </Section>

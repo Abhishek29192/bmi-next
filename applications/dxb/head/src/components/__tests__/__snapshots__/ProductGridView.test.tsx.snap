@@ -36,6 +36,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
       >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1\\"}"
           href="/undefined/test1"
         >
           <span>

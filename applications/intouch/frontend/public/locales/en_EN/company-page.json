@@ -4,5 +4,34 @@
   "Registered Details": "Registered Details",
   "Registered Name": "Registered Name",
   "Registered Address": "Registered Address",
-  "Main office address": "Main office address"
+  "Main office address": "Main office address",
+  "Phone": "Phone",
+  "support.title": "Roofpro Support",
+  "company.incomplete_profile": {
+    "warning": "In order to take part of the BMI Contract Locator please provide the required information listed below.",
+    "phone": "Phone",
+    "email": "Email",
+    "description": "Description",
+    "address": "Main office address",
+    "logo": "Logo",
+    "closeAlertAccessibilityLabel": "Close Alert"
+  },
+  "business_type": {
+    "contractor": "Contractor",
+    "architect": "Architect",
+    "merchant": "Merchant",
+    "corp_developer": "Developer",
+    "company_admin": "Company administrator"
+  },
+  "company.operations": "Operation Type",
+  "company.operations_suffix": "roofing",
+  "operation_types": {
+    "flat": "flat",
+    "pitched": "pitched",
+    "solar": "solar",
+    "bitumen": "bitumen",
+    "tile": "tile",
+    "coater": "coater",
+    "green": "green"
+  }
 }

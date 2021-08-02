@@ -1,0 +1,8 @@
+node_modules
+.next
+.env
+gcp.json
+.git
+**/dist
+**/build
+npm-debug.log

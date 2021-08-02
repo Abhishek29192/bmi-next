@@ -14,6 +14,10 @@
 
 .bannerImage {
   background-color: #dedede;
+  img {
+    width: 100%;
+    display: block;
+  }
 }
 
 .metadata {

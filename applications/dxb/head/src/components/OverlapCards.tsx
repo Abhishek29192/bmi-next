@@ -71,7 +71,7 @@ export default IntegratedOverlapCards;
 
 export const query = graphql`
   fragment OverlapCardFragment on ContentfulPromoOrPage {
-    ...PromoFragment
-    ...PageInfoFragment
+    ...PromoCardFragment
+    ...PageInfoCardFragment
   }
 `;

@@ -22,6 +22,33 @@ See the `intouch/frontend/README.md` file to setup the frontend
 
 See the `intouch/api/README.md` to setup the graphql-gateway and the services.
 
+#### Working with the GraphQL playground UI
+
+The easiest way to access the GraphQL Playground and try requesting data to the InTouch API is to:
+
+- run the frontend: `yarn workspace @bmi/intouch-frontend dev`
+- authenticate as a user
+- go to http://localhost:3000/api/graphql
+- try your queries/mutations
+
+Under the hood, the next.js app is making a request with an Authorization header to the GraphQL Gateway.
+
+#### Working with changes to Data Model and/or to Mock Data (Dev phase only)
+
+This workflow is applicable for the development phase only before going live. Once the project is closer to going live, this flow will be managed via DB migrations.
+
+Once the datamodel spreadsheet and or the mock data in it is updated, follow these steps.
+
+- Run the datamodel migration scripts:
+  - See the README in `applications/intouch/migrate-datamodel/README.md`.
+  - Setup Google Cloud CLI and authenticate to your Google Cloud Account.
+  - run the scripts in `@bmi/intouch-migrate-datamodel` as per instructions.
+  - move over the generated sql files to the sql file location in the respective service folder location (e.g. `mv applications/intouch/migrate-datamodel/data/company.sql applications/intouch/api/services/companies/src/data/company.sql`)
+  - check you are using local env vars on the service (use Keybase for reference)
+  - run the migration script - **with local env vars** - for the respective service (companies or training), e.g. `@bmi/intouch-api-service-companies migrate-db`.
+  - submit an MR with the changes to the schema/mock data.
+  - run the same migrate-db script with the dev db env vars (see Keybase) to re-deploy the DB on dev.
+
 ## Contentful
 
 ### Querying Contentful directly
@@ -35,7 +62,7 @@ If you want to read content via API:
 - access the content from this link:
   https://graphql.contentful.com/content/v1/spaces/{SPACE_ID}/environments/{ENVIRONMENT}/explore?access_token={YOUR_ACCESS_TOKEN}
 
-### API Keys & Env vars
+### Contentful API Keys & Env vars
 
 If you want to create content via API, or run migrations:
 
@@ -50,26 +77,10 @@ Read `{dxb_root_folder}/README.md` `{dxb_root_folder}/libraries/migrate/README.m
 - Content Migrations
 - Adding roles
 
-### Mock data
+### Contentful Mock data
 
 Mock data should be added directly in Contentful. We can save a particular snapshot of the trial space, by running this script:
 
 `yarn workspace @bmi/migrate content-download`
 
 Make sure you have appropriately configured the env vars.
-
-### Working with the GraphQL playground UI
-
-The easiest way to access the GraphQL Playground and try requesting data to the InTouch API is to:
-
-- run the frontend: `yarn workspace @bmi/intouch-frontend dev`
-- authenticate as a user
-- go to http://localhost:3000/api/graphql
-- try your queries/mutations
-
-Under the hood, the next.js app is making a request with an Authorization header to the GraphQL Gateway.
-
-In order to impersonate users/roles/memberships, from the Auth0 dev tenant dashboard you can:
-
-- change your `intouch_role`
-- change your `intouch_user_id`

@@ -1,0 +1,41 @@
+{
+  "Projects": "Projects",
+  "MISCELLANEOUS": "Supporting files",
+  "PROOF_OF_PURCHASE": "Proof of purchase",
+  "CUSTOM": "Custom Files",
+  "teamTab": {
+    "header": "Add team member",
+    "table": {
+      "responsibleInstaller": "Responsible Installer",
+      "teamMember": "Team Member",
+      "role": "Role",
+      "certification": "Certification",
+      "remove": "Remove"
+    },
+    "add_team_member_modal": {
+      "title": "Add an installer",
+      "caption": "Choose the installers who will be working on this project.",
+      "table": {
+        "name": "Name",
+        "email": "Email",
+        "certification": "Certification"
+      },
+      "confirm_label": "Add Members",
+      "cancel_label": "Cancel"
+    }
+  },
+  "upload_tab": {
+    "header": "Upload file",
+    "add_evidence_modal": {
+      "title": "Evidence Upload",
+      "button_label": "Upload Files",
+      "microcopy": {
+        "drop": "Drop",
+        "browse": "Browse"
+      },
+      "instruction": "You can add files",
+      "confirm_label": "Add Evidences",
+      "cancel_label": "Cancel"
+    }
+  }
+}

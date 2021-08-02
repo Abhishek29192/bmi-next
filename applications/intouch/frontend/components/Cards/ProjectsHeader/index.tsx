@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
 import { InfoPair } from "../../InfoPair";
+import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 
 export type ProjectsHeaderProps = {
@@ -30,7 +31,7 @@ export const ProjectsHeader = ({
   const { t } = useTranslation("sidebar");
 
   return (
-    <div className={styles.main}>
+    <SimpleCard>
       <Typography variant="h4" hasUnderline>
         {title}
       </Typography>
@@ -46,6 +47,6 @@ export const ProjectsHeader = ({
         <InfoPair title={t("Guarantee")}>{guarantee}</InfoPair>
         <InfoPair title={t("Guarantee status")}>{guaranteeStatus}</InfoPair>
       </div>
-    </div>
+    </SimpleCard>
   );
 };

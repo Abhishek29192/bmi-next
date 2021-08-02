@@ -1,6 +1,13 @@
-import { createAccount, invite } from "../";
+import { completeInvitation, createAccount, invite, updateAccount } from "../";
+import * as eventsSrv from "../../../services/events";
+import * as mailerSrv from "../../../services/mailer";
+import * as trainingSrv from "../../../services/training";
+import { transaction, getDbPool } from "../../../test-utils/db";
+import { company } from "../../../fixtures";
 
+const mockPubSub = jest.fn();
 const mockQuery = jest.fn();
+const mockRootQuery = jest.fn();
 const mockResolve = jest.fn();
 const mockAuth0Update = jest.fn();
 const mockAuth0GetUserByEmail = jest.fn();
@@ -8,135 +15,568 @@ const mockAuth0CreateUser = jest.fn();
 const mockCreateResetPasswordTicket = jest.fn();
 
 jest.mock("../../../services/events");
+jest.mock("../../../services/mailer");
+jest.mock("../../../services/training");
 
-jest.mock("crypto", () => ({
-  randomBytes: () => "Password"
-}));
+jest.mock("crypto", () => {
+  const original = jest.requireActual("crypto");
+  return {
+    createHash: original.createHash,
+    randomBytes: () => "Password"
+  };
+});
+
+let logger = () => ({
+  error: () => {},
+  info: () => {}
+});
 
 describe("Account", () => {
+  let args;
+  let pool;
+  let resolveInfo;
+  const userCanMock = jest.fn();
   const auth0 = {
     updateUser: mockAuth0Update,
     createResetPasswordTicket: mockCreateResetPasswordTicket,
     getUserByEmail: mockAuth0GetUserByEmail,
     createUser: mockAuth0CreateUser
   };
-  let contextMock = {
+  let queryBuilder = () => ({
+    where: () => {}
+  });
+  let build = {
+    pgSql: {
+      fragment: (args) => queryBuilder,
+      value: (args) => {}
+    }
+  };
+  let contextMock: any = {
     user: {
       sub: "user-sub",
-      intouchUserId: null,
-      companyId: null
+      id: null,
+      can: userCanMock
     },
+    pubSub: mockPubSub,
     pgClient: { query: mockQuery },
-    logger: () => ({
-      error: () => {},
-      info: () => {}
-    })
+    pgRootPool: { query: mockRootQuery },
+    logger
   };
+
+  beforeAll(async () => {
+    pool = await getDbPool();
+  });
+  afterAll(async () => {
+    await pool.end();
+  });
 
   beforeEach(() => {
     jest.clearAllMocks();
     jest.resetAllMocks();
+    args = {
+      input: {
+        account: { role: "COMPANY_ADMIN" },
+        marketCode: "en"
+      }
+    };
+    resolveInfo = {
+      graphile: {
+        selectGraphQLResultFromTable: jest.fn(),
+        build
+      }
+    };
   });
 
-  describe("Registration", () => {
-    it("Should be able to register", async () => {
-      const args = {
-        input: {
-          account: { role: "COMPANY_ADMIN" },
-          marketCode: "en"
-        }
-      };
+  describe("Update", () => {
+    describe("Role", () => {
+      it("should throw an error if an installer try to update the role", async () => {
+        const {
+          rows: [installer]
+        } = await transaction(
+          pool,
+          {
+            role: "super_admin",
+            accountUuid: -1,
+            accountEmail: ""
+          },
+          "insert into account (role) VALUES($1) RETURNING *",
+          ["INSTALLER"]
+        );
+        await transaction(
+          pool,
+          {
+            role: "super_admin",
+            accountUuid: -1,
+            accountEmail: ""
+          },
+          "insert into account (role) VALUES($1) RETURNING *",
+          ["COMPANY_ADMIN"]
+        );
 
-      mockResolve.mockResolvedValueOnce({
-        data: { $account_id: 1, $role: args.input.account.role, $market_id: 1 }
+        try {
+          await transaction(
+            pool,
+            {
+              role: "installer",
+              accountUuid: installer.id,
+              accountEmail: installer.email
+            },
+            "update account set role=$1",
+            ["INSTALLER"]
+          );
+        } catch (error) {
+          expect(error.message).toEqual("permission denied for table account");
+        }
       });
 
-      mockQuery
-        .mockResolvedValueOnce({})
-        .mockResolvedValueOnce({})
-        .mockResolvedValueOnce({
-          rows: []
-        })
-        .mockResolvedValueOnce({
-          rows: [{ status: "NEW" }]
-        })
-        .mockResolvedValueOnce({
-          rows: [{ id: "id", domain: "en" }]
+      it("should resolve if a company admin promote a installer", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "COMPANY_ADMIN"
+            }
+          }
+        };
+
+        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "INSTALLER" }]
+          }));
+
+        mockResolve.mockResolvedValueOnce({
+          data: {
+            $first_name: "Name",
+            $email: "email@email.co.uk",
+            $docebo_user_id: 123456
+          }
         });
 
-      await createAccount(mockResolve, null, args, contextMock, null, auth0);
+        await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
 
-      expect(mockQuery.mock.calls).toEqual([
-        [`SAVEPOINT graphql_mutation`],
-        [`SELECT set_config('app.current_account_id', $1, true);`, [1]],
-        [`SELECT * FROM company`, []],
-        [`SELECT * FROM create_company()`, []],
-        ["select * from market where id = $1", [1]],
-        ["RELEASE SAVEPOINT graphql_mutation"]
-      ]);
+        expect(mockResolve).toBeCalled();
+        expect(trainingSrv.updateUser).toBeCalledWith({
+          userid: "123456",
+          level: 4
+        });
+        expect(mailerSrv.sendChangeRoleEmail).toBeCalledWith(mockPubSub, {
+          email: "email@email.co.uk",
+          role: "company admin",
+          firstname: "Name"
+        });
+      });
 
-      expect(mockAuth0Update).toBeCalledWith("user-sub", {
-        app_metadata: {
-          intouch_market_code: args.input.marketCode,
-          intouch_role: args.input.account.role,
-          registration_to_complete: true,
-          intouch_user_id: 1
+      it("should resolve if a company admin downgrade an installer", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "INSTALLER"
+            }
+          }
+        };
+
+        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [
+              { id: 2, role: "COMPANY_ADMIN" },
+              { id: 2, role: "COMPANY_ADMIN" }
+            ]
+          }));
+
+        mockResolve.mockResolvedValueOnce({
+          data: {
+            $first_name: "Name",
+            $email: "email@email.co.uk",
+            $docebo_user_id: 123456
+          }
+        });
+
+        await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
+
+        expect(mockResolve).toBeCalled();
+        expect(trainingSrv.updateUser).toBeCalledWith({
+          userid: "123456",
+          level: 6
+        });
+        expect(mailerSrv.sendChangeRoleEmail).toBeCalledWith(mockPubSub, {
+          email: "email@email.co.uk",
+          role: "installer",
+          firstname: "Name"
+        });
+      });
+
+      it("should trown an error if last admin", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "INSTALLER"
+            }
+          }
+        };
+
+        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "COMPANY_ADMIN" }]
+          }));
+
+        mockResolve.mockResolvedValueOnce({
+          data: {
+            $first_name: "Name",
+            $email: "email@email.co.uk",
+            $docebo_user_id: 123456
+          }
+        });
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo
+          );
+        } catch (error) {
+          expect(error.message).toEqual("last_company_admin");
         }
       });
     });
   });
 
+  describe("Registration", () => {
+    beforeEach(() => {
+      contextMock = {
+        user: {
+          sub: "user-sub",
+          id: null,
+          can: () => true
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger
+      };
+    });
+
+    it("Should be able to register as company_admin", async () => {
+      mockResolve.mockResolvedValueOnce({
+        data: { $account_id: 1 }
+      });
+
+      resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
+        {}
+      ]);
+
+      mockQuery
+        .mockResolvedValueOnce({}) // savepoint
+        .mockResolvedValueOnce({}) // set user
+        .mockResolvedValueOnce({ rows: [] }); // get company
+
+      await createAccount(mockResolve, null, args, contextMock, resolveInfo);
+
+      expect(mockResolve.mock.calls).toMatchSnapshot();
+    });
+    it("Should be able to register as installer", async () => {
+      args.input.account.role = "INSTALLER";
+      mockResolve.mockResolvedValueOnce({
+        data: { $account_id: 1 }
+      });
+
+      resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
+        {}
+      ]);
+
+      mockQuery
+        .mockResolvedValueOnce({}) // savepoint
+        .mockResolvedValueOnce({}) // set user
+        .mockResolvedValueOnce({ rows: [] }); // get company
+
+      await createAccount(mockResolve, null, args, contextMock, resolveInfo);
+
+      expect(mockResolve.mock.calls).toMatchSnapshot();
+    });
+  });
+
   describe("Invitation", () => {
-    it("should invite a user", async () => {
-      const args = {
+    let args;
+    let contextMock;
+    let resolveInfo;
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+      jest.resetAllMocks();
+
+      args = {
         input: {
-          email: "email",
+          emails: ["email"],
           firstName: "firstName",
           lastName: "lastName",
-          role: "COMPANY_ADMIN",
-          note: "note"
+          role: "INSTALLER",
+          personalNote: "personalNote"
         }
       };
+
+      contextMock = {
+        user: {
+          sub: "user-sub",
+          id: null,
+          role: "INSTALLER",
+          email: "email@email.com",
+          marketDomain: "en",
+          company: {
+            ...company
+          },
+          can: userCanMock
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger
+      };
+
+      resolveInfo = {
+        graphile: {
+          selectGraphQLResultFromTable: jest.fn(),
+          build
+        }
+      };
+    });
+
+    it("shouldn't be able to invite a user if installer", async () => {
+      userCanMock.mockImplementationOnce(() => false);
+      try {
+        await invite(null, args, contextMock, resolveInfo, auth0);
+      } catch (error) {
+        expect(error.message).toEqual(
+          "you must be an admin to invite other users"
+        );
+      }
+    });
+
+    it("should invite a user sending a change password email if not exists", async () => {
+      contextMock.user.can = () => true;
 
       mockAuth0CreateUser.mockResolvedValueOnce({
         user_id: "auth0|user-id"
       });
       mockAuth0GetUserByEmail.mockResolvedValueOnce(null);
       mockCreateResetPasswordTicket.mockResolvedValueOnce({
-        tiket: "my-ticket"
+        ticket: "my-ticket"
       });
 
-      mockQuery.mockResolvedValueOnce({}).mockResolvedValueOnce({
-        rows: [
-          {
-            id: 1
-          }
-        ]
-      });
+      const spy = jest.spyOn(eventsSrv, "publish");
 
-      await invite(null, args, contextMock, null, auth0);
+      mockRootQuery
+        // get user
+        .mockResolvedValueOnce({ rows: [] });
 
-      expect(mockAuth0GetUserByEmail).toBeCalledWith(args.input.email);
+      mockQuery
+        // insert invitation
+        .mockResolvedValueOnce({ rows: [{ id: 1 }] });
+
+      await invite(null, args, contextMock, resolveInfo, auth0);
+
+      expect(mockAuth0GetUserByEmail).toBeCalledWith(args.input.emails[0]);
       expect(mockAuth0CreateUser).toBeCalledWith({
-        email: args.input.email,
+        email: args.input.emails[0],
         connection: "Username-Password-Authentication",
         email_verified: false,
         password: "Gj$1Password",
         verify_email: false,
         user_metadata: {
-          type: args.input.role.toLocaleLowerCase(),
-          email: args.input.email,
-          firstname: args.input.firstName,
-          lastname: args.input.lastName
-        }
-      });
-      expect(mockAuth0Update).toBeCalledWith("auth0|user-id", {
-        app_metadata: {
           intouch_role: args.input.role,
-          intouch_invited: true,
-          registration_to_complete: false
+          market: contextMock.user.marketDomain,
+          first_name: args.input.firstName,
+          last_name: args.input.lastName
         }
       });
+      expect(mockQuery.mock.calls).toMatchSnapshot();
+      expect(spy.mock.calls).toMatchSnapshot();
+    });
+
+    it("should invite a user sending complete invitation email if exists", async () => {
+      contextMock.user.can = () => true;
+      mockAuth0GetUserByEmail.mockResolvedValueOnce({
+        email: "email@email.co.uk"
+      });
+
+      const spy = jest.spyOn(eventsSrv, "publish");
+
+      mockRootQuery
+        // get user
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              id: 1,
+              role: "INSTALLER"
+            }
+          ]
+        })
+        // get company_member
+        .mockResolvedValueOnce({ rows: [] });
+
+      await invite(null, args, contextMock, resolveInfo, auth0);
+
+      expect(mockAuth0GetUserByEmail).toBeCalledWith(args.input.emails[0]);
+      expect(mockCreateResetPasswordTicket).toHaveBeenCalledTimes(0);
+      expect(mockQuery.mock.calls).toMatchSnapshot();
+      expect(spy.mock.calls).toMatchSnapshot();
+    });
+
+    it("should receive an error if the invetee is part of a company", async () => {
+      contextMock.user.can = () => true;
+
+      mockAuth0GetUserByEmail.mockResolvedValueOnce({
+        email: "email@email.co.uk"
+      });
+
+      mockRootQuery
+        // get user
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              id: 1,
+              role: "INSTALLER"
+            }
+          ]
+        })
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              id: 1
+            }
+          ]
+        });
+
+      try {
+        await invite(null, args, contextMock, resolveInfo, auth0);
+      } catch (error) {
+        expect(error.message).toEqual(
+          "The user is already a member of another company"
+        );
+      }
+    });
+
+    it("should complete an invitation", async () => {
+      const args = {
+        companyId: 1
+      };
+
+      contextMock = {
+        user: {
+          email: "email@email.com"
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger
+      };
+
+      resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
+        {}
+      ]);
+
+      mockAuth0GetUserByEmail.mockImplementationOnce(() => ({
+        user_metadata: {
+          first_name: "Name",
+          last_name: "Name",
+          intouch_role: "installer"
+        }
+      }));
+
+      mockRootQuery
+        // invitation
+        .mockResolvedValueOnce({
+          rows: [{ id: 1, market_id: 1, company_id: 1 }]
+        });
+
+      mockQuery
+        .mockResolvedValueOnce({ rows: [] }) // savepoint
+        .mockResolvedValueOnce({ rows: [{ id: 1, market_id: 1 }] }) // account
+        .mockResolvedValueOnce({ rows: [] }) // config
+        .mockResolvedValueOnce({
+          rows: [{ id: 2, account_id: 1, market_id: 1, company_id: 1 }]
+        }); // company_member
+
+      await completeInvitation(
+        null,
+        args,
+        contextMock,
+        resolveInfo,
+        auth0,
+        build
+      );
+
+      expect(mockQuery.mock.calls).toMatchSnapshot();
+    });
+
+    it("should rollback an invitation if a query throw an error", async () => {
+      const args = {
+        companyId: 1
+      };
+
+      contextMock = {
+        ...contextMock,
+        user: {
+          email: "email@email.com"
+        }
+      };
+
+      mockRootQuery
+        // invitation
+        .mockResolvedValueOnce({
+          rows: [{ id: 1, market_id: 1, company_id: 1 }]
+        });
+
+      mockAuth0GetUserByEmail.mockImplementationOnce(() => ({
+        user_metadata: {
+          first_name: "Name",
+          last_name: "Name",
+          intouch_role: "installer"
+        }
+      }));
+
+      mockQuery
+        .mockResolvedValueOnce({ rows: [] }) // savepoint
+        .mockRejectedValueOnce({}); // invitation
+
+      try {
+        await completeInvitation(
+          null,
+          args,
+          contextMock,
+          resolveInfo,
+          auth0,
+          build
+        );
+      } catch (error) {
+        expect(mockQuery.mock.calls).toMatchSnapshot();
+      }
     });
   });
 });

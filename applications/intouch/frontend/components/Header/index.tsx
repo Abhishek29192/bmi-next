@@ -1,20 +1,32 @@
 import React from "react";
-import Link from "next/link";
 import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
 import { BMI } from "@bmi/logo";
 import { Notifications, Menu, Close } from "@material-ui/icons";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
+import { Link } from "../Link";
 import UserMenu from "../UserMenu";
 import { NotificationsPanel } from "../NotificationsPanel";
 import styles from "./styles.module.scss";
 
-export type HeaderProps = {
-  title: string;
+type HeaderLink = {
+  href: string;
+  label: string;
+  isExternal?: boolean;
 };
 
-export const Header = ({ title }: HeaderProps) => {
+export type HeaderProps = {
+  title: string;
+  contactUsLink?: HeaderLink;
+  globalExternalLink?: HeaderLink;
+};
+
+export const Header = ({
+  title,
+  contactUsLink,
+  globalExternalLink
+}: HeaderProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const toggle = () => {
@@ -26,8 +38,23 @@ export const Header = ({ title }: HeaderProps) => {
       <div className={styles.header}>
         <div className={styles.upperHeader}>
           <nav>
-            <Link href="/">Contact</Link>
-            <Link href="/">BMI Merits</Link>
+            {contactUsLink ? (
+              <Link
+                href={contactUsLink.href}
+                isExternal={contactUsLink.isExternal}
+              >
+                {contactUsLink.label}
+              </Link>
+            ) : null}
+
+            {globalExternalLink ? (
+              <Link
+                href={globalExternalLink.href}
+                isExternal={globalExternalLink.isExternal}
+              >
+                {globalExternalLink.label}
+              </Link>
+            ) : null}
           </nav>
         </div>
 

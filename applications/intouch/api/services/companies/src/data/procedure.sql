@@ -44,7 +44,7 @@ CREATE OR REPLACE FUNCTION invited_by_companies ()
   FROM
     invitation
   WHERE
-    invitee = current_account_email ()
+    invitee = current_account_email () AND status = 'NEW'
 $$
 LANGUAGE sql
 STABLE
@@ -116,8 +116,8 @@ BEGIN
   WHERE
     domain = market_code INTO market_id;
   IF FOUND THEN
-    INSERT INTO account ("email", "first_name", "last_name", "market_id", "role")
-      VALUES (account.email, account.first_name, account.last_name, market_id, account.role)
+    INSERT INTO account ("email", "first_name", "last_name", "market_id", "role", "status")
+      VALUES (account.email, account.first_name, account.last_name, market_id, account.role, 'ACTIVE')
     ON CONFLICT (email)
       DO UPDATE SET
         first_name = EXCLUDED.first_name, last_name = EXCLUDED.last_name, ROLE = EXCLUDED.role
@@ -169,3 +169,43 @@ LANGUAGE 'plpgsql'
 VOLATILE
 SECURITY DEFINER;
 
+-- This custom function bypasses RLS
+-- We want to preserve RLS for companies (an installer/company_admin can see their company's certifications, but not other companies/markets certifications)
+-- But we want to bypass RLS for user certifications (an installer can see company certifications, but not other users' certifications)
+-- In order to preserve Company RLS, we omit this function from postgraphile (see postgraphile.tags.json5)
+CREATE OR REPLACE FUNCTION get_company_certifications (input_company_id int)
+    RETURNS setof text
+    AS $$
+    SELECT DISTINCT
+      technology
+    FROM
+        certification
+        JOIN account ON certification.docebo_user_id = account.docebo_user_id
+        JOIN company_member ON account.id = company_member.account_id
+    WHERE
+        company_member.company_id = input_company_id
+        AND certification.expiry_date > now();
+$$
+LANGUAGE sql
+STABLE
+SECURITY DEFINER;
+
+-- Function to bulk insert project_member 
+CREATE OR REPLACE FUNCTION project_members_add(members project_member[])
+  RETURNS setof project_member
+  AS $$
+ 
+  insert into project_member(project_id,account_id)
+    select m.project_id,m.account_id from unnest(members) as m
+     RETURNING *;
+$$ LANGUAGE sql STRICT VOLATILE;
+
+-- Function to bulk insert evidence_items 
+CREATE OR REPLACE FUNCTION evidence_items_add(evidences evidence_item[])
+  RETURNS setof evidence_item
+  AS $$
+ 
+  insert into evidence_item(custom_evidence_category_id,project_id,guarantee_id,evidence_category_type,name,attachment)
+    select e.custom_evidence_category_id,e.project_id,e.guarantee_id,e.evidence_category_type,e.name,e.attachment from unnest(evidences) as e
+     RETURNING *;
+$$ LANGUAGE sql STRICT VOLATILE;

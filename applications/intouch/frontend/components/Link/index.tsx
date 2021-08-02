@@ -1,21 +1,22 @@
 import React from "react";
-import Link from "next/link";
-import Icon from "@bmi/icon";
-import styles from "../Sidebar/styles.module.scss";
+import { default as NextLink } from "next/link";
 
-export type SideBarLinkProps = {
-  href?: string;
-  icon: SVGImport;
-  label: string;
-};
+interface LinkProps extends React.AnchorHTMLAttributes<any> {
+  isExternal?: boolean;
+  children: React.ReactNode;
+}
 
-export const SideBarLink = ({ href, icon, label }: SideBarLinkProps) => {
-  return (
-    <Link href={href}>
-      <a className={styles.sidebarLink}>
-        <Icon source={icon} color="primary" style={{ fontSize: 24 }} />
-        {label}
+export const Link = ({ children, href, isExternal, ...rest }: LinkProps) => {
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+        {children}
       </a>
-    </Link>
+    );
+  }
+  return (
+    <NextLink href={href} {...rest}>
+      {children}
+    </NextLink>
   );
 };

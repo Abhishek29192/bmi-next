@@ -1,21 +1,23 @@
-# File: cloudbuild.yaml
+# build the container image
 steps:
-  # build the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
         "build",
         ".",
         "-t",
-        "eu.gcr.io/$PROJECT_ID/intouch-frontend",
+        "eu.gcr.io/$PROJECT_ID/intouch-frontend:${_CI_COMMIT_SHORT_SHA}",
         "-f",
         "applications/intouch/frontend/dockerfile",
         "--build-arg",
-        "NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}"
+        "NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}",
+        "--build-arg",
+        "AUTH0_COOKIE_DOMAIN=intouch.dddev.io"
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "eu.gcr.io/$PROJECT_ID/intouch-frontend"]
+    args:
+      ["push", "eu.gcr.io/$PROJECT_ID/intouch-frontend:${_CI_COMMIT_SHORT_SHA}"]
 
 timeout: 3600s
 

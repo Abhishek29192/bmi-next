@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import { useTranslation } from "next-i18next";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
@@ -8,7 +9,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { KeyboardArrowDown, Person } from "@material-ui/icons";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import { useUser } from "@auth0/nextjs-auth0";
 import Icon from "@bmi/icon";
 import styles from "./styles.module.scss";
 
@@ -24,10 +24,10 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function MenuListComposition() {
+  const { t } = useTranslation("common");
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
-  const { user } = useUser();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -74,9 +74,7 @@ export default function MenuListComposition() {
             <div className={styles.avatar}>
               <Icon source={Person} style={{ width: 20, color: "#eeeeee" }} />
             </div>
-            <div className={styles.userName}>
-              {user ? user.nickname : "User Name"}
-            </div>
+            <div className={styles.userName}>{t("Account")}</div>
             <Icon source={KeyboardArrowDown} color="action" />
           </div>
         </Button>
@@ -102,9 +100,11 @@ export default function MenuListComposition() {
                     id="menu-list-grow"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                    <MenuItem href="/profile" onClick={handleClose}>
+                      {t("Profile")}
+                    </MenuItem>
                     <MenuItem component="a" href="/api/auth/logout">
-                      Logout
+                      {t("Logout")}
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>

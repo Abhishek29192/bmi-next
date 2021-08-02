@@ -1,0 +1,44 @@
+{
+  "sidePanel": {
+    "search": {
+      "label": "Search for a user",
+      "noResult": "Member not found"
+    },
+    "inviteLabel": "+ Invite team members"
+  },
+  "table": {
+    "title": "Certification(s)",
+    "type": "Type",
+    "certification": "Certification",
+    "validity": "Validity"
+  },
+  "invitation": {
+    "dialog": {
+      "title": "Invite members",
+      "emails": {
+        "label": "Recipient’s email address",
+        "helperText": "Add multiple members by separating each email address with a comma"
+      },
+      "personalNote": {
+        "label": "Your message (optional)"
+      },
+      "cancel": "Cancel",
+      "send": "Send email",
+      "success": "The invitation it's been sent"
+    }
+  },
+  "user_card": {
+    "add_admin": "Assign as Company Admin",
+    "remove_admin": "Remove as Company Admin",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "role_dialog": {
+      "title": "Change role",
+      "text": "Do you want to Change the role?"
+    },
+    "remove_user_dialog": {
+      "title": "Remove company member",
+      "text": "Do you want to remove this company member?"
+    }
+  }
+}

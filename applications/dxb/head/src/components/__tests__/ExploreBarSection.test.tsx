@@ -18,7 +18,8 @@ describe("ExploreBarSection component", () => {
           linkedPage: null,
           type: "Internal",
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         },
         {
           __typename: "ContentfulLink",
@@ -30,7 +31,8 @@ describe("ExploreBarSection component", () => {
           linkedPage: null,
           type: "Internal",
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         },
         // @ts-ignore This is how a nested Navigation comes through from Contentful
         {}

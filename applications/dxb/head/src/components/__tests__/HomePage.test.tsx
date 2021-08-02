@@ -57,13 +57,13 @@ describe("HomePage template", () => {
             width: 948,
             height: 720
           },
-          resize: {
-            src: "//images.asset.jpg"
-          },
           file: {
             fileName: "Lorem ipsum",
             url: "//images.asset.jpg"
           }
+        },
+        thumbnail: {
+          src: "//images.asset.jpg"
         }
       },
       cta: null,
@@ -106,13 +106,13 @@ describe("HomePage template", () => {
             width: 948,
             height: 720
           },
-          resize: {
-            src: "//images.asset.jpg"
-          },
           file: {
             fileName: "Lorem ipsum",
             url: "//images.asset.jpg"
           }
+        },
+        thumbnail: {
+          src: "//images.asset.jpg"
         }
       },
       cta: null,
@@ -129,6 +129,7 @@ describe("HomePage template", () => {
       slug: "slug",
       path: "path",
       tags: null,
+      date: null,
       featuredMedia: {
         type: null,
         altText: "Lorem ipsum",
@@ -157,13 +158,13 @@ describe("HomePage template", () => {
             width: 948,
             height: 720
           },
-          resize: {
-            src: "//images.asset.jpg"
-          },
           file: {
             fileName: "Lorem ipsum",
             url: "//images.asset.jpg"
           }
+        },
+        thumbnail: {
+          src: "//images.asset.jpg"
         }
       },
       featuredVideo: null
@@ -194,7 +195,8 @@ describe("HomePage template", () => {
           linkedPage: null,
           type: "External",
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         }
       ]
     };

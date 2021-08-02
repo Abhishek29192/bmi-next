@@ -1,24 +1,60 @@
-# TODO: include in the pipeline, we still need to figure out how to connect to gcp
-# build_intouch_db:
-#   stage: build
-#   rules:
-#     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-#       # changes:
-#       #   - applications/intouch/api/companies/src/data/*
-#   needs: [install]
-#   variables:
-#     PG_SCHEMA: public
-#     PG_USER: postgres
-#     PG_DATABASE: companies-db
-#     PG_PORT: 5432
-#     GCP_SECRET_PROJECT: 734962646925
-#     GOOGLE_APPLICATION_CREDENTIALS: /builds/bmi-digital/dxb/gcloud-service-key.json
-#   script:
-#     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
-#     - yarn workspace @bmi/intouch-api-service-companies migrate-db
+services:
+  - postgres
+
+test_intouch_companies:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+        - libraries/**/*
+        - package.json
+        - "**/package.json"
+  needs:
+    - install
+  variables:
+    PG_HOST: postgres
+    PG_USER: postgres
+    PG_SCHEMA: public
+    PG_DATABASE: custom_db
+    PG_PASSWORD: custom_pass
+    PG_PORT: 5432
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/intouch-api-service-companies migrate-db
+    - yarn workspace @bmi/intouch-api-service-companies coverage
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - applications/intouch/api/services/companies/junit.xml
+
+build_intouch_api_companies_dev:
+  stage: build
+  needs: []
+  image: google/cloud-sdk
+  services:
+    - docker:dind
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+        - libraries/**/*
+        - package.json
+        - "**/package.json"
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gcloud builds submit . --config=applications/intouch/api/services/companies/cloudbuild.build.yaml --substitutions _NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
 
 deploy_intouch_api_companies_dev:
   stage: deploy
+  needs:
+    - build_intouch_api_companies_dev
+    - test_intouch_companies
   image: google/cloud-sdk
   services:
     - docker:dind
@@ -26,9 +62,8 @@ deploy_intouch_api_companies_dev:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/api/services/companies/**/*
-  needs: []
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/api/services/companies/cloudbuild.yaml --substitutions _NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
+    - gcloud builds submit . --config=applications/intouch/api/services/companies/cloudbuild.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA

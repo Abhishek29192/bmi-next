@@ -6,6 +6,7 @@ import React from "react";
 import Header from "../";
 
 const productsLabel = "Products";
+const roofLabel = "Roof";
 
 const utilities = [
   {
@@ -27,10 +28,12 @@ const navigation = [
     label: productsLabel,
     menu: [
       { label: "Products by type", isHeading: true },
+      { label: "This is a paragraph", isParagraph: true },
       {
-        label: "Roof",
+        label: roofLabel,
         menu: [
           { label: "Roof", isHeading: true },
+          { label: "Some image", image: "http://some/image.png" },
           {
             label: "Tiles",
             menu: [
@@ -52,6 +55,19 @@ const navigation = [
         action: {
           model: "routerLink" as "routerLink",
           to: "/documentation/",
+          linkComponent: Clickable
+        }
+      }
+    ]
+  },
+  {
+    label: "Tiles",
+    menu: [
+      {
+        label: "Clay",
+        action: {
+          model: "routerLink" as "routerLink",
+          to: "/clay/",
           linkComponent: Clickable
         }
       }
@@ -82,6 +98,22 @@ describe("Header component", () => {
 
     const menuButton = getAllByText(productsLabel)[0];
     menuButton.click();
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("opens menu two deep", () => {
+    const { container, getAllByText } = render(
+      <Header
+        utilities={utilities}
+        navigation={navigation}
+        languages={languages}
+      />
+    );
+
+    const menuButton = getAllByText(productsLabel)[0];
+    const nestedMenuButton = getAllByText(roofLabel)[0];
+    menuButton.click();
+    nestedMenuButton.click();
     expect(container.firstChild).toMatchSnapshot();
   });
 

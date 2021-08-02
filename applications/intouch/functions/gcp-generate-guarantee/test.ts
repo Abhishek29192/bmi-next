@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { resolve } from "path";
 import { mockGuarantee } from "./mocks/guarantee";
 import GuaranteePdf from "./src/GuaranteePdf";
-import { sendGuaranteePdf } from ".";
+import { sendGuaranteePdf } from "./src";
 
 export const pdfCreate = async () => {
   const guaranteePdf = new GuaranteePdf(mockGuarantee);

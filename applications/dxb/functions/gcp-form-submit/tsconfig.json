@@ -3,5 +3,7 @@
   "compilerOptions": {
     "noEmit": false,
     "outDir": "dist"
-  }
+  },
+  "strict": true,
+  "strictNullChecks": true
 }

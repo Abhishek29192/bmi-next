@@ -1,13 +1,10 @@
+import { Session } from "@auth0/nextjs-auth0";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
-import {
-  createAccount,
-  createDoceboUser,
-  getAccount,
-  parseAccount
-} from "../../../lib/account";
-import { REDIRECT_MAP } from "../../../lib/config";
-import { withLoggerApi } from "../../../lib/logger/withLogger";
+import { initializeApollo } from "../../../lib/apolloClient";
+import Account from "../../../lib/account";
+import { redirectMap } from "../../../lib/config/redirects";
+import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
 interface Request extends NextApiRequest {
   logger: any;
@@ -16,38 +13,41 @@ interface Request extends NextApiRequest {
 export const afterCallback = async (
   req: Request,
   res: NextApiResponse,
-  session,
+  session: Session,
   state
 ) => {
-  const { user } = session;
-  const { invited, intouchUserId, doceboId } = parseAccount(user);
+  const apolloClient = await initializeApollo(null, { res, req, session });
 
-  // If the user is invited return the session as the return url
+  const accountSrv = new Account(req.logger, apolloClient, session);
+
+  // Fetch the account
+  let account = await accountSrv.getAccount(session);
+
+  // If the user has a valid invitation return the session as the return url
   // in the reset password email will redirect him to /api/invitation
-  if (invited) {
-    return session;
+  if (!account?.id) {
+    const invitation = await accountSrv.getInvitation(session);
+    if (invitation) {
+      return session;
+    }
   }
 
-  // The jwt token does not have the intouc_id property, let's create
-  // a new user and the docebo user
-  if (!intouchUserId && state.prompt !== "none") {
-    const {
-      createAccount: { account }
-    } = await createAccount(req, session);
+  // If the user do not exists create it and create docebo user
+  if (!account?.id && state.prompt !== "none") {
+    account = await accountSrv.createAccount(session);
 
-    await createDoceboUser(req, session, account);
+    await accountSrv.createDoceboUser(account);
 
     state.returnTo = "/api/silent-login";
     return session;
   }
 
-  // The user already have an inotuch_user_id but it doesn't have a docebo
-  // user id, so we create a docebo user
-  if (!doceboId && state.prompt !== "none") {
-    const { data } = await getAccount(req, session);
+  // If the user do not exists create it and create docebo user
+  if (!account?.doceboUserId && state.prompt !== "none") {
+    await accountSrv.createDoceboUser(account);
 
-    await createDoceboUser(req, session, data);
     state.returnTo = "/api/silent-login";
+    return session;
   }
 
   return session;
@@ -60,10 +60,10 @@ export const getMarketFromReq = (req, res) => {
   if (host.indexOf(":") !== -1) {
     host = host.split(":")[0];
 
-    return REDIRECT_MAP[`${host}`];
+    return redirectMap[`${host}`];
   }
 
-  return REDIRECT_MAP[`${host}`];
+  return redirectMap[`${host}`];
 };
 
 export const loginHandler = async (req, res, auth0, logger) => {

@@ -70,6 +70,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: AccountCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AccountFilter
   ): AccountsConnection
 
   """
@@ -111,6 +116,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: AddressCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AddressFilter
   ): AddressesConnection
 
   """
@@ -152,6 +162,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CertificationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CertificationFilter
   ): CertificationsConnection
 
   """
@@ -193,6 +208,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyFilter
   ): CompaniesConnection
 
   """
@@ -234,6 +254,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyDocumentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyDocumentFilter
   ): CompanyDocumentsConnection
 
   """
@@ -275,6 +300,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyMemberFilter
   ): CompanyMembersConnection
 
   """
@@ -316,6 +346,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyOperationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyOperationFilter
   ): CompanyOperationsConnection
 
   """
@@ -357,6 +392,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: EvidenceItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
   ): EvidenceItemsConnection
 
   """
@@ -398,6 +438,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection
 
   """
@@ -439,6 +484,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: InvitationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: InvitationFilter
   ): InvitationsConnection
 
   """
@@ -480,6 +530,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: MarketCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MarketFilter
   ): MarketsConnection
 
   """
@@ -521,6 +576,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NoteCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NoteFilter
   ): NotesConnection
 
   """
@@ -562,6 +622,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NotificationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NotificationFilter
   ): NotificationsConnection
 
   """
@@ -603,6 +668,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProductCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProductFilter
   ): ProductsConnection
 
   """
@@ -644,6 +714,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
   ): ProjectsConnection
 
   """
@@ -685,6 +760,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectMemberFilter
   ): ProjectMembersConnection
 
   """
@@ -726,6 +806,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemFilter
   ): SystemsConnection
 
   """
@@ -767,6 +852,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemMemberFilter
   ): SystemMembersConnection
   account(id: Int!): Account
   accountByEmail(email: String!): Account
@@ -776,6 +866,11 @@ type Query implements Node {
   company(id: Int!): Company
   companyDocument(id: Int!): CompanyDocument
   companyMember(id: Int!): CompanyMember
+  companyMemberByMarketIdAndAccountIdAndCompanyId(
+    marketId: Int!
+    accountId: Int!
+    companyId: Int!
+  ): CompanyMember
   companyOperation(id: Int!): CompanyOperation
   evidenceItem(id: Int!): EvidenceItem
   guarantee(id: Int!): Guarantee
@@ -792,6 +887,10 @@ type Query implements Node {
   system(id: Int!): System
   systemByBmiRef(bmiRef: String!): System
   systemMember(id: Int!): SystemMember
+  systemMemberBySystemBmiRefAndProductBmiRef(
+    systemBmiRef: String!
+    productBmiRef: String!
+  ): SystemMember
   currentAccountEmail: String
   currentAccountId: Int
   currentCompany: Int
@@ -822,6 +921,11 @@ type Query implements Node {
     Read all values in the set after (below) this cursor.
     """
     after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: IntFilter
   ): InvitedByCompaniesConnection
   isPartOfProject(
     """
@@ -849,6 +953,11 @@ type Query implements Node {
     Read all values in the set after (below) this cursor.
     """
     after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: IntFilter
   ): IsPartOfProjectConnection
   isProjectEnabledByMarket: Boolean
 
@@ -1202,6 +1311,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CertificationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CertificationFilter
   ): CertificationsConnection!
 
   """
@@ -1243,6 +1357,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyMemberFilter
   ): CompanyMembersConnection!
 
   """
@@ -1284,47 +1403,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
-  ): GuaranteesConnection!
-
-  """
-  Reads and enables pagination through a set of `Guarantee`.
-  """
-  guaranteesByResponsibleInstallerAccountId(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
 
     """
-    Only read the last `n` values of the set.
+    A filter to be used in determining which values should be returned by the collection.
     """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Guarantee`.
-    """
-    orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: GuaranteeCondition
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -1366,6 +1449,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -1407,6 +1495,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: InvitationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: InvitationFilter
   ): InvitationsConnection!
 
   """
@@ -1448,6 +1541,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NoteCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NoteFilter
   ): NotesConnection!
 
   """
@@ -1489,6 +1587,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NotificationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NotificationFilter
   ): NotificationsConnection!
 
   """
@@ -1530,7 +1633,14 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectMemberFilter
   ): ProjectMembersConnection!
+  formattedRole: String
+  signedPhotoUrl: String
 }
 
 enum AccountStatus {
@@ -1672,6 +1782,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: AccountCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AccountFilter
   ): AccountsConnection!
 
   """
@@ -1713,6 +1828,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyFilter
   ): CompaniesConnection!
 
   """
@@ -1754,6 +1874,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyMemberFilter
   ): CompanyMembersConnection!
 
   """
@@ -1795,6 +1920,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProductCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProductFilter
   ): ProductsConnection!
 
   """
@@ -1836,6 +1966,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemFilter
   ): SystemsConnection!
 }
 
@@ -1899,6 +2034,296 @@ input AccountCondition {
   Checks for equality with the object’s `doceboUserId` field.
   """
   doceboUserId: Int
+}
+
+"""
+A filter to be used against `Account` object types. All fields are combined with a logical ‘and.’
+"""
+input AccountFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `email` field.
+  """
+  email: StringFilter
+
+  """
+  Filter by the object’s `doceboUserId` field.
+  """
+  doceboUserId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [AccountFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [AccountFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: AccountFilter
+}
+
+"""
+A filter to be used against Int fields. All fields are combined with a logical ‘and.’
+"""
+input IntFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: Int
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: Int
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Int
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: Int
+
+  """
+  Included in the specified list.
+  """
+  in: [Int!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [Int!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: Int
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: Int
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: Int
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: Int
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: String
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: String
+
+  """
+  Included in the specified list.
+  """
+  in: [String!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [String!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: String
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: String
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: String
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: String
+
+  """
+  Contains the specified string (case-sensitive).
+  """
+  includes: String
+
+  """
+  Does not contain the specified string (case-sensitive).
+  """
+  notIncludes: String
+
+  """
+  Contains the specified string (case-insensitive).
+  """
+  includesInsensitive: String
+
+  """
+  Does not contain the specified string (case-insensitive).
+  """
+  notIncludesInsensitive: String
+
+  """
+  Starts with the specified string (case-sensitive).
+  """
+  startsWith: String
+
+  """
+  Does not start with the specified string (case-sensitive).
+  """
+  notStartsWith: String
+
+  """
+  Starts with the specified string (case-insensitive).
+  """
+  startsWithInsensitive: String
+
+  """
+  Does not start with the specified string (case-insensitive).
+  """
+  notStartsWithInsensitive: String
+
+  """
+  Ends with the specified string (case-sensitive).
+  """
+  endsWith: String
+
+  """
+  Does not end with the specified string (case-sensitive).
+  """
+  notEndsWith: String
+
+  """
+  Ends with the specified string (case-insensitive).
+  """
+  endsWithInsensitive: String
+
+  """
+  Does not end with the specified string (case-insensitive).
+  """
+  notEndsWithInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLike: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLikeInsensitive: String
+
+  """
+  Equal to the specified value (case-insensitive).
+  """
+  equalToInsensitive: String
+
+  """
+  Not equal to the specified value (case-insensitive).
+  """
+  notEqualToInsensitive: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  distinctFromInsensitive: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  notDistinctFromInsensitive: String
+
+  """
+  Included in the specified list (case-insensitive).
+  """
+  inInsensitive: [String!]
+
+  """
+  Not included in the specified list (case-insensitive).
+  """
+  notInInsensitive: [String!]
+
+  """
+  Less than the specified value (case-insensitive).
+  """
+  lessThanInsensitive: String
+
+  """
+  Less than or equal to the specified value (case-insensitive).
+  """
+  lessThanOrEqualToInsensitive: String
+
+  """
+  Greater than the specified value (case-insensitive).
+  """
+  greaterThanInsensitive: String
+
+  """
+  Greater than or equal to the specified value (case-insensitive).
+  """
+  greaterThanOrEqualToInsensitive: String
 }
 
 """
@@ -2011,7 +2436,7 @@ type Company implements Node {
   taxNumber: String
 
   """
-  They Company public phone number
+  The Company public phone number
   """
   phone: String
 
@@ -2121,6 +2546,11 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyDocumentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyDocumentFilter
   ): CompanyDocumentsConnection!
 
   """
@@ -2162,6 +2592,11 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyMemberFilter
   ): CompanyMembersConnection!
 
   """
@@ -2203,6 +2638,11 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyOperationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyOperationFilter
   ): CompanyOperationsConnection!
 
   """
@@ -2244,6 +2684,11 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: InvitationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: InvitationFilter
   ): InvitationsConnection!
 
   """
@@ -2285,7 +2730,13 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
   ): ProjectsConnection!
+  certifications: [Technology]
 }
 
 enum BusinessType {
@@ -2403,6 +2854,11 @@ type Address implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyFilter
   ): CompaniesConnection!
 
   """
@@ -2444,6 +2900,11 @@ type Address implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyFilter
   ): CompaniesConnection!
 
   """
@@ -2485,6 +2946,11 @@ type Address implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
   ): ProjectsConnection!
 
   """
@@ -2526,6 +2992,11 @@ type Address implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
   ): ProjectsConnection!
 }
 
@@ -2574,6 +3045,46 @@ input CompanyCondition {
   Checks for equality with the object’s `tradingAddressId` field.
   """
   tradingAddressId: Int
+}
+
+"""
+A filter to be used against `Company` object types. All fields are combined with a logical ‘and.’
+"""
+input CompanyFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `registeredAddressId` field.
+  """
+  registeredAddressId: IntFilter
+
+  """
+  Filter by the object’s `tradingAddressId` field.
+  """
+  tradingAddressId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CompanyFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CompanyFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CompanyFilter
 }
 
 """
@@ -2703,6 +3214,52 @@ type Project implements Node {
   buildingOwnerAddress: Address
 
   """
+  Reads and enables pagination through a set of `EvidenceItem`.
+  """
+  evidenceItems(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `EvidenceItem`.
+    """
+    orderBy: [EvidenceItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: EvidenceItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
+  ): EvidenceItemsConnection!
+
+  """
   Reads and enables pagination through a set of `Guarantee`.
   """
   guarantees(
@@ -2741,6 +3298,11 @@ type Project implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -2782,6 +3344,11 @@ type Project implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NoteCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NoteFilter
   ): NotesConnection!
 
   """
@@ -2823,6 +3390,11 @@ type Project implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectMemberFilter
   ): ProjectMembersConnection!
 }
 
@@ -2833,18 +3405,18 @@ enum Technology {
 }
 
 """
-A connection to a list of `Guarantee` values.
+A connection to a list of `EvidenceItem` values.
 """
-type GuaranteesConnection {
+type EvidenceItemsConnection {
   """
-  A list of `Guarantee` objects.
+  A list of `EvidenceItem` objects.
   """
-  nodes: [Guarantee!]!
+  nodes: [EvidenceItem!]!
 
   """
-  A list of edges which contains the `Guarantee` and cursor to aid in pagination.
+  A list of edges which contains the `EvidenceItem` and cursor to aid in pagination.
   """
-  edges: [GuaranteesEdge!]!
+  edges: [EvidenceItemsEdge!]!
 
   """
   Information to aid in pagination.
@@ -2852,9 +3424,73 @@ type GuaranteesConnection {
   pageInfo: PageInfo!
 
   """
-  The count of *all* `Guarantee` you could get from the connection.
+  The count of *all* `EvidenceItem` you could get from the connection.
   """
   totalCount: Int!
+}
+
+"""
+A file uploaded to a project, usually as evidence to support a guarantee
+"""
+type EvidenceItem implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  a reference to the evidenceCategory sys id in Contentful
+  """
+  customEvidenceCategoryId: String
+
+  """
+  fk
+  """
+  projectId: Int
+
+  """
+  fk
+  """
+  guaranteeId: Int
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
+
+  """
+  Short name for the item of evidence
+  """
+  name: String
+
+  """
+  File reference or the file itself. Photo of the evidence
+  """
+  attachment: String
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
+  Reads a single `Guarantee` that is related to this `EvidenceItem`.
+  """
+  guarantee: Guarantee
+  customEvidenceCategory: ContentfulEvidenceCategory
+}
+
+enum EvidenceCategoryType {
+  PROOF_OF_PURCHASE
+  MISCELLANEOUS
+  CUSTOM
 }
 
 """
@@ -2880,11 +3516,6 @@ type Guarantee implements Node {
   fk
   """
   requestorAccountId: Int
-
-  """
-  fk
-  """
-  responsibleInstallerAccountId: Int
 
   """
   fk
@@ -2942,11 +3573,6 @@ type Guarantee implements Node {
   Reads a single `Account` that is related to this `Guarantee`.
   """
   requestorAccount: Account
-
-  """
-  Reads a single `Account` that is related to this `Guarantee`.
-  """
-  responsibleInstallerAccount: Account
 
   """
   Reads a single `Project` that is related to this `Guarantee`.
@@ -3007,6 +3633,11 @@ type Guarantee implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: EvidenceItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
   ): EvidenceItemsConnection!
   guaranteeType: ContentfulGuaranteeType
 }
@@ -3114,6 +3745,11 @@ type System implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -3155,7 +3791,77 @@ type System implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemMemberFilter
   ): SystemMembersConnection!
+}
+
+"""
+A connection to a list of `Guarantee` values.
+"""
+type GuaranteesConnection {
+  """
+  A list of `Guarantee` objects.
+  """
+  nodes: [Guarantee!]!
+
+  """
+  A list of edges which contains the `Guarantee` and cursor to aid in pagination.
+  """
+  edges: [GuaranteesEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `Guarantee` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `Guarantee` edge in the connection.
+"""
+type GuaranteesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `Guarantee` at the end of the edge.
+  """
+  node: Guarantee!
+}
+
+"""
+Information about pagination in a connection.
+"""
+type PageInfo {
+  """
+  When paginating forwards, are there more items?
+  """
+  hasNextPage: Boolean!
+
+  """
+  When paginating backwards, are there more items?
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  When paginating backwards, the cursor to continue.
+  """
+  startCursor: Cursor
+
+  """
+  When paginating forwards, the cursor to continue.
+  """
+  endCursor: Cursor
 }
 
 """
@@ -3167,8 +3873,6 @@ enum GuaranteesOrderBy {
   ID_DESC
   REQUESTOR_ACCOUNT_ID_ASC
   REQUESTOR_ACCOUNT_ID_DESC
-  RESPONSIBLE_INSTALLER_ACCOUNT_ID_ASC
-  RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC
   PROJECT_ID_ASC
   PROJECT_ID_DESC
   SYSTEM_BMI_REF_ASC
@@ -3197,11 +3901,6 @@ input GuaranteeCondition {
   requestorAccountId: Int
 
   """
-  Checks for equality with the object’s `responsibleInstallerAccountId` field.
-  """
-  responsibleInstallerAccountId: Int
-
-  """
   Checks for equality with the object’s `projectId` field.
   """
   projectId: Int
@@ -3220,6 +3919,56 @@ input GuaranteeCondition {
   Checks for equality with the object’s `reviewerAccountId` field.
   """
   reviewerAccountId: Int
+}
+
+"""
+A filter to be used against `Guarantee` object types. All fields are combined with a logical ‘and.’
+"""
+input GuaranteeFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `requestorAccountId` field.
+  """
+  requestorAccountId: IntFilter
+
+  """
+  Filter by the object’s `projectId` field.
+  """
+  projectId: IntFilter
+
+  """
+  Filter by the object’s `systemBmiRef` field.
+  """
+  systemBmiRef: StringFilter
+
+  """
+  Filter by the object’s `productBmiRef` field.
+  """
+  productBmiRef: StringFilter
+
+  """
+  Filter by the object’s `reviewerAccountId` field.
+  """
+  reviewerAccountId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [GuaranteeFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [GuaranteeFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: GuaranteeFilter
 }
 
 """
@@ -3389,6 +4138,11 @@ type Product implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -3430,6 +4184,11 @@ type Product implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemMemberFilter
   ): SystemMembersConnection!
 }
 
@@ -3470,6 +4229,41 @@ input SystemMemberCondition {
 }
 
 """
+A filter to be used against `SystemMember` object types. All fields are combined with a logical ‘and.’
+"""
+input SystemMemberFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `systemBmiRef` field.
+  """
+  systemBmiRef: StringFilter
+
+  """
+  Filter by the object’s `productBmiRef` field.
+  """
+  productBmiRef: StringFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [SystemMemberFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [SystemMemberFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: SystemMemberFilter
+}
+
+"""
 A `SystemMember` edge in the connection.
 """
 type SystemMembersEdge {
@@ -3485,130 +4279,14 @@ type SystemMembersEdge {
 }
 
 """
-Information about pagination in a connection.
-"""
-type PageInfo {
-  """
-  When paginating forwards, are there more items?
-  """
-  hasNextPage: Boolean!
-
-  """
-  When paginating backwards, are there more items?
-  """
-  hasPreviousPage: Boolean!
-
-  """
-  When paginating backwards, the cursor to continue.
-  """
-  startCursor: Cursor
-
-  """
-  When paginating forwards, the cursor to continue.
-  """
-  endCursor: Cursor
-}
-
-"""
-A connection to a list of `EvidenceItem` values.
-"""
-type EvidenceItemsConnection {
-  """
-  A list of `EvidenceItem` objects.
-  """
-  nodes: [EvidenceItem!]!
-
-  """
-  A list of edges which contains the `EvidenceItem` and cursor to aid in pagination.
-  """
-  edges: [EvidenceItemsEdge!]!
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  The count of *all* `EvidenceItem` you could get from the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-A file uploaded to a project, usually as evidence to support a guarantee
-"""
-type EvidenceItem implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-
-  """
-  Primary key
-  """
-  id: Int!
-
-  """
-  a reference to the evidenceCategory sys id in Contentful
-  """
-  customEvidenceCategoryId: String
-
-  """
-  fk
-  """
-  guaranteeId: Int
-
-  """
-  ek
-  """
-  evidenceCategoryType: EvidenceCategoryType
-
-  """
-  Short name for the item of evidence
-  """
-  name: String
-
-  """
-  File reference or the file itself. Photo of the evidence
-  """
-  attachment: String
-  createdAt: Datetime!
-  updatedAt: Datetime!
-
-  """
-  Reads a single `Guarantee` that is related to this `EvidenceItem`.
-  """
-  guarantee: Guarantee
-}
-
-enum EvidenceCategoryType {
-  PROOF_OF_PURCHASE
-  MISCELLANEOUS
-  CUSTOM
-}
-
-"""
-A `EvidenceItem` edge in the connection.
-"""
-type EvidenceItemsEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: Cursor
-
-  """
-  The `EvidenceItem` at the end of the edge.
-  """
-  node: EvidenceItem!
-}
-
-"""
 Methods to use when ordering `EvidenceItem`.
 """
 enum EvidenceItemsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
   GUARANTEE_ID_ASC
   GUARANTEE_ID_DESC
   PRIMARY_KEY_ASC
@@ -3626,9 +4304,49 @@ input EvidenceItemCondition {
   id: Int
 
   """
+  Checks for equality with the object’s `projectId` field.
+  """
+  projectId: Int
+
+  """
   Checks for equality with the object’s `guaranteeId` field.
   """
   guaranteeId: Int
+}
+
+"""
+A filter to be used against `EvidenceItem` object types. All fields are combined with a logical ‘and.’
+"""
+input EvidenceItemFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `projectId` field.
+  """
+  projectId: IntFilter
+
+  """
+  Filter by the object’s `guaranteeId` field.
+  """
+  guaranteeId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [EvidenceItemFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [EvidenceItemFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: EvidenceItemFilter
 }
 
 type ContentfulGuaranteeType {
@@ -3640,7 +4358,7 @@ type ContentfulGuaranteeType {
   maximumValidityYears: Int
   tiersAvailable: ContentfulTiers
   ranking: Int
-  evidenceCategories: ContentfulEvidenceCategory
+  evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
   guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
 }
 
@@ -3669,6 +4387,10 @@ enum ContentfulTiers {
   T2
   T3
   T4
+}
+
+type ContentfulEvidenceCategoryCollection {
+  items: [ContentfulEvidenceCategory]
 }
 
 type ContentfulEvidenceCategory {
@@ -3742,18 +4464,18 @@ enum ContentfulMessageFormat {
 }
 
 """
-A `Guarantee` edge in the connection.
+A `EvidenceItem` edge in the connection.
 """
-type GuaranteesEdge {
+type EvidenceItemsEdge {
   """
   A cursor for use in pagination.
   """
   cursor: Cursor
 
   """
-  The `Guarantee` at the end of the edge.
+  The `EvidenceItem` at the end of the edge.
   """
-  node: Guarantee!
+  node: EvidenceItem!
 }
 
 """
@@ -3874,6 +4596,41 @@ input NoteCondition {
 }
 
 """
+A filter to be used against `Note` object types. All fields are combined with a logical ‘and.’
+"""
+input NoteFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `authorId` field.
+  """
+  authorId: IntFilter
+
+  """
+  Filter by the object’s `projectId` field.
+  """
+  projectId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [NoteFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [NoteFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: NoteFilter
+}
+
+"""
 A connection to a list of `ProjectMember` values.
 """
 type ProjectMembersConnection {
@@ -3921,6 +4678,11 @@ type ProjectMember implements Node {
   fk
   """
   accountId: Int
+
+  """
+  The responsible installer
+  """
+  isResponsibleInstaller: Boolean
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -3961,6 +4723,8 @@ enum ProjectMembersOrderBy {
   PROJECT_ID_DESC
   ACCOUNT_ID_ASC
   ACCOUNT_ID_DESC
+  IS_RESPONSIBLE_INSTALLER_ASC
+  IS_RESPONSIBLE_INSTALLER_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -3984,6 +4748,111 @@ input ProjectMemberCondition {
   Checks for equality with the object’s `accountId` field.
   """
   accountId: Int
+
+  """
+  Checks for equality with the object’s `isResponsibleInstaller` field.
+  """
+  isResponsibleInstaller: Boolean
+}
+
+"""
+A filter to be used against `ProjectMember` object types. All fields are combined with a logical ‘and.’
+"""
+input ProjectMemberFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `projectId` field.
+  """
+  projectId: IntFilter
+
+  """
+  Filter by the object’s `accountId` field.
+  """
+  accountId: IntFilter
+
+  """
+  Filter by the object’s `isResponsibleInstaller` field.
+  """
+  isResponsibleInstaller: BooleanFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [ProjectMemberFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [ProjectMemberFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: ProjectMemberFilter
+}
+
+"""
+A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’
+"""
+input BooleanFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: Boolean
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: Boolean
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Boolean
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: Boolean
+
+  """
+  Included in the specified list.
+  """
+  in: [Boolean!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [Boolean!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: Boolean
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: Boolean
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: Boolean
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: Boolean
 }
 
 """
@@ -4041,6 +4910,46 @@ input ProjectCondition {
   Checks for equality with the object’s `buildingOwnerAddressId` field.
   """
   buildingOwnerAddressId: Int
+}
+
+"""
+A filter to be used against `Project` object types. All fields are combined with a logical ‘and.’
+"""
+input ProjectFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Filter by the object’s `siteAddressId` field.
+  """
+  siteAddressId: IntFilter
+
+  """
+  Filter by the object’s `buildingOwnerAddressId` field.
+  """
+  buildingOwnerAddressId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [ProjectFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [ProjectFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: ProjectFilter
 }
 
 """
@@ -4142,6 +5051,36 @@ input CompanyDocumentCondition {
   Checks for equality with the object’s `companyId` field.
   """
   companyId: Int
+}
+
+"""
+A filter to be used against `CompanyDocument` object types. All fields are combined with a logical ‘and.’
+"""
+input CompanyDocumentFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CompanyDocumentFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CompanyDocumentFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CompanyDocumentFilter
 }
 
 """
@@ -4275,6 +5214,46 @@ input CompanyMemberCondition {
 }
 
 """
+A filter to be used against `CompanyMember` object types. All fields are combined with a logical ‘and.’
+"""
+input CompanyMemberFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `accountId` field.
+  """
+  accountId: IntFilter
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CompanyMemberFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CompanyMemberFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CompanyMemberFilter
+}
+
+"""
 A connection to a list of `CompanyOperation` values.
 """
 type CompanyOperationsConnection {
@@ -4383,6 +5362,36 @@ input CompanyOperationCondition {
   Checks for equality with the object’s `company` field.
   """
   company: Int
+}
+
+"""
+A filter to be used against `CompanyOperation` object types. All fields are combined with a logical ‘and.’
+"""
+input CompanyOperationFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `company` field.
+  """
+  company: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CompanyOperationFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CompanyOperationFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CompanyOperationFilter
 }
 
 """
@@ -4534,6 +5543,111 @@ input InvitationCondition {
 }
 
 """
+A filter to be used against `Invitation` object types. All fields are combined with a logical ‘and.’
+"""
+input InvitationFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `senderAccountId` field.
+  """
+  senderAccountId: IntFilter
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Filter by the object’s `status` field.
+  """
+  status: InvitationStatusFilter
+
+  """
+  Filter by the object’s `invitee` field.
+  """
+  invitee: StringFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [InvitationFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [InvitationFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: InvitationFilter
+}
+
+"""
+A filter to be used against InvitationStatus fields. All fields are combined with a logical ‘and.’
+"""
+input InvitationStatusFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: InvitationStatus
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: InvitationStatus
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: InvitationStatus
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: InvitationStatus
+
+  """
+  Included in the specified list.
+  """
+  in: [InvitationStatus!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [InvitationStatus!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: InvitationStatus
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: InvitationStatus
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: InvitationStatus
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: InvitationStatus
+}
+
+"""
 A `Company` edge in the connection.
 """
 type CompaniesEdge {
@@ -4624,6 +5738,41 @@ input ProductCondition {
 }
 
 """
+A filter to be used against `Product` object types. All fields are combined with a logical ‘and.’
+"""
+input ProductFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `bmiRef` field.
+  """
+  bmiRef: StringFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [ProductFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [ProductFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: ProductFilter
+}
+
+"""
 A connection to a list of `System` values.
 """
 type SystemsConnection {
@@ -4696,6 +5845,41 @@ input SystemCondition {
   Checks for equality with the object’s `bmiRef` field.
   """
   bmiRef: String
+}
+
+"""
+A filter to be used against `System` object types. All fields are combined with a logical ‘and.’
+"""
+input SystemFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `bmiRef` field.
+  """
+  bmiRef: StringFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [SystemFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [SystemFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: SystemFilter
 }
 
 """
@@ -4789,6 +5973,10 @@ enum CertificationsOrderBy {
   ID_DESC
   DOCEBO_USER_ID_ASC
   DOCEBO_USER_ID_DESC
+  TECHNOLOGY_ASC
+  TECHNOLOGY_DESC
+  EXPIRY_DATE_ASC
+  EXPIRY_DATE_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -4807,6 +5995,116 @@ input CertificationCondition {
   Checks for equality with the object’s `doceboUserId` field.
   """
   doceboUserId: Int
+
+  """
+  Checks for equality with the object’s `technology` field.
+  """
+  technology: String
+
+  """
+  Checks for equality with the object’s `expiryDate` field.
+  """
+  expiryDate: Datetime
+}
+
+"""
+A filter to be used against `Certification` object types. All fields are combined with a logical ‘and.’
+"""
+input CertificationFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `doceboUserId` field.
+  """
+  doceboUserId: IntFilter
+
+  """
+  Filter by the object’s `technology` field.
+  """
+  technology: StringFilter
+
+  """
+  Filter by the object’s `expiryDate` field.
+  """
+  expiryDate: DatetimeFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CertificationFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CertificationFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CertificationFilter
+}
+
+"""
+A filter to be used against Datetime fields. All fields are combined with a logical ‘and.’
+"""
+input DatetimeFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: Datetime
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: Datetime
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Datetime
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: Datetime
+
+  """
+  Included in the specified list.
+  """
+  in: [Datetime!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [Datetime!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: Datetime
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: Datetime
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: Datetime
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: Datetime
 }
 
 """
@@ -4921,6 +6219,36 @@ input NotificationCondition {
 }
 
 """
+A filter to be used against `Notification` object types. All fields are combined with a logical ‘and.’
+"""
+input NotificationFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `accountId` field.
+  """
+  accountId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [NotificationFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [NotificationFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: NotificationFilter
+}
+
+"""
 A `Account` edge in the connection.
 """
 type AccountsEdge {
@@ -4997,6 +6325,31 @@ input AddressCondition {
 }
 
 """
+A filter to be used against `Address` object types. All fields are combined with a logical ‘and.’
+"""
+input AddressFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [AddressFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [AddressFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: AddressFilter
+}
+
+"""
 A connection to a list of `Market` values.
 """
 type MarketsConnection {
@@ -5069,6 +6422,41 @@ input MarketCondition {
   Checks for equality with the object’s `doceboCatalogueId` field.
   """
   doceboCatalogueId: Int
+}
+
+"""
+A filter to be used against `Market` object types. All fields are combined with a logical ‘and.’
+"""
+input MarketFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `domain` field.
+  """
+  domain: StringFilter
+
+  """
+  Filter by the object’s `doceboCatalogueId` field.
+  """
+  doceboCatalogueId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [MarketFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [MarketFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: MarketFilter
 }
 
 """
@@ -5150,11 +6538,11 @@ union _Entity =
   | Company
   | Address
   | Project
+  | EvidenceItem
   | Guarantee
   | System
   | SystemMember
   | Product
-  | EvidenceItem
   | Note
   | ProjectMember
   | CompanyDocument
@@ -5473,6 +6861,16 @@ type Mutation {
   ): UpdateCompanyMemberPayload
 
   """
+  Updates a single `CompanyMember` using a unique key and a patch.
+  """
+  updateCompanyMemberByMarketIdAndAccountIdAndCompanyId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput!
+  ): UpdateCompanyMemberPayload
+
+  """
   Updates a single `CompanyOperation` using its globally unique id and a patch.
   """
   updateCompanyOperationByNodeId(
@@ -5753,6 +7151,16 @@ type Mutation {
   ): UpdateSystemMemberPayload
 
   """
+  Updates a single `SystemMember` using a unique key and a patch.
+  """
+  updateSystemMemberBySystemBmiRefAndProductBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput!
+  ): UpdateSystemMemberPayload
+
+  """
   Deletes a single `Account` using its globally unique id.
   """
   deleteAccountByNodeId(
@@ -5890,6 +7298,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteCompanyMemberInput!
+  ): DeleteCompanyMemberPayload
+
+  """
+  Deletes a single `CompanyMember` using a unique key.
+  """
+  deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput!
   ): DeleteCompanyMemberPayload
 
   """
@@ -6171,6 +7589,16 @@ type Mutation {
     """
     input: DeleteSystemMemberInput!
   ): DeleteSystemMemberPayload
+
+  """
+  Deletes a single `SystemMember` using a unique key.
+  """
+  deleteSystemMemberBySystemBmiRefAndProductBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput!
+  ): DeleteSystemMemberPayload
   createAccount(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -6183,12 +7611,24 @@ type Mutation {
     """
     input: CreateCompanyInput!
   ): CreateCompanyPayload
+  evidenceItemsAdd(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: EvidenceItemsAddInput!
+  ): EvidenceItemsAddPayload
   linkAccountToCompany(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: LinkAccountToCompanyInput!
   ): LinkAccountToCompanyPayload
+  projectMembersAdd(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: ProjectMembersAddInput!
+  ): ProjectMembersAddPayload
   publishMessage(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -6201,7 +7641,7 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: InviteInput!
-  ): Invitation
+  ): [Invitation]
   completeInvitation(companyId: Int!): Account
   bulkImport(
     """
@@ -6657,6 +8097,11 @@ type CreateEvidenceItemPayload {
   query: Query
 
   """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
@@ -6705,6 +8150,11 @@ input EvidenceItemInput {
   """
   fk
   """
+  projectId: Int
+
+  """
+  fk
+  """
   guaranteeId: Int
 
   """
@@ -6723,7 +8173,13 @@ input EvidenceItemInput {
   attachment: String
   createdAt: Datetime
   updatedAt: Datetime
+  attachmentUpload: Upload
 }
+
+"""
+The `Upload` scalar type represents a file upload.
+"""
+scalar Upload
 
 """
 The output of our create `Guarantee` mutation.
@@ -6749,11 +8205,6 @@ type CreateGuaranteePayload {
   Reads a single `Account` that is related to this `Guarantee`.
   """
   requestorAccount: Account
-
-  """
-  Reads a single `Account` that is related to this `Guarantee`.
-  """
-  responsibleInstallerAccount: Account
 
   """
   Reads a single `Project` that is related to this `Guarantee`.
@@ -6820,11 +8271,6 @@ input GuaranteeInput {
   fk
   """
   requestorAccountId: Int
-
-  """
-  fk
-  """
-  responsibleInstallerAccountId: Int
 
   """
   fk
@@ -7499,6 +8945,11 @@ input ProjectMemberInput {
   fk
   """
   accountId: Int
+
+  """
+  The responsible installer
+  """
+  isResponsibleInstaller: Boolean
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -7808,6 +9259,7 @@ input AccountPatch {
   migrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  photoUpload: Upload
 }
 
 """
@@ -8255,7 +9707,7 @@ input CompanyPatch {
   taxNumber: String
 
   """
-  They Company public phone number
+  The Company public phone number
   """
   phone: String
 
@@ -8549,6 +10001,37 @@ input UpdateCompanyMemberInput {
 }
 
 """
+All input for the `updateCompanyMemberByMarketIdAndAccountIdAndCompanyId` mutation.
+"""
+input UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `CompanyMember` being updated.
+  """
+  patch: CompanyMemberPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
+
+  """
+  fk
+  """
+  accountId: Int!
+
+  """
+  fk
+  """
+  companyId: Int!
+}
+
+"""
 The output of our update `CompanyOperation` mutation.
 """
 type UpdateCompanyOperationPayload {
@@ -8669,6 +10152,11 @@ type UpdateEvidenceItemPayload {
   query: Query
 
   """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
@@ -8718,6 +10206,11 @@ input EvidenceItemPatch {
   a reference to the evidenceCategory sys id in Contentful
   """
   customEvidenceCategoryId: String
+
+  """
+  fk
+  """
+  projectId: Int
 
   """
   fk
@@ -8789,11 +10282,6 @@ type UpdateGuaranteePayload {
   requestorAccount: Account
 
   """
-  Reads a single `Account` that is related to this `Guarantee`.
-  """
-  responsibleInstallerAccount: Account
-
-  """
   Reads a single `Project` that is related to this `Guarantee`.
   """
   project: Project
@@ -8863,11 +10351,6 @@ input GuaranteePatch {
   fk
   """
   requestorAccountId: Int
-
-  """
-  fk
-  """
-  responsibleInstallerAccountId: Int
 
   """
   fk
@@ -9881,6 +11364,11 @@ input ProjectMemberPatch {
   fk
   """
   accountId: Int
+
+  """
+  The responsible installer
+  """
+  isResponsibleInstaller: Boolean
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -10155,6 +11643,32 @@ input UpdateSystemMemberInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+"""
+input UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `SystemMember` being updated.
+  """
+  patch: SystemMemberPatch!
+
+  """
+  fk
+  """
+  systemBmiRef: String!
+
+  """
+  fk
+  """
+  productBmiRef: String!
 }
 
 """
@@ -10619,6 +12133,32 @@ input DeleteCompanyMemberInput {
 }
 
 """
+All input for the `deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId` mutation.
+"""
+input DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  fk
+  """
+  marketId: Int!
+
+  """
+  fk
+  """
+  accountId: Int!
+
+  """
+  fk
+  """
+  companyId: Int!
+}
+
+"""
 The output of our delete `CompanyOperation` mutation.
 """
 type DeleteCompanyOperationPayload {
@@ -10709,6 +12249,11 @@ type DeleteEvidenceItemPayload {
   query: Query
 
   """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
@@ -10781,11 +12326,6 @@ type DeleteGuaranteePayload {
   Reads a single `Account` that is related to this `Guarantee`.
   """
   requestorAccount: Account
-
-  """
-  Reads a single `Account` that is related to this `Guarantee`.
-  """
-  responsibleInstallerAccount: Account
 
   """
   Reads a single `Project` that is related to this `Guarantee`.
@@ -11561,6 +13101,27 @@ input DeleteSystemMemberInput {
 }
 
 """
+All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+"""
+input DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  fk
+  """
+  systemBmiRef: String!
+
+  """
+  fk
+  """
+  productBmiRef: String!
+}
+
+"""
 The output of our `createAccount` mutation.
 """
 type CreateAccountPayload {
@@ -11732,6 +13293,35 @@ input CreateCompanyInput {
 }
 
 """
+The output of our `evidenceItemsAdd` mutation.
+"""
+type EvidenceItemsAddPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  evidenceItems: [EvidenceItem!]
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `evidenceItemsAdd` mutation.
+"""
+input EvidenceItemsAddInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  evidences: [EvidenceItemInput]!
+}
+
+"""
 The output of our `linkAccountToCompany` mutation.
 """
 type LinkAccountToCompanyPayload {
@@ -11786,6 +13376,35 @@ input LinkAccountToCompanyInput {
   companyId: Int
 }
 
+"""
+The output of our `projectMembersAdd` mutation.
+"""
+type ProjectMembersAddPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  projectMembers: [ProjectMember!]
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `projectMembersAdd` mutation.
+"""
+input ProjectMembersAddInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  members: [ProjectMemberInput]!
+}
+
 type Publish {
   title: String
   text: String
@@ -11805,10 +13424,10 @@ type PublishOutput {
 }
 
 input InviteInput {
-  email: String!
-  firstName: String!
-  lastName: String!
-  role: Role!
+  emails: [String!]!
+  firstName: String
+  lastName: String
+  personalNote: String
 }
 
 type ImportPayload {
@@ -11822,11 +13441,6 @@ input BulkImportInput {
   files: [Upload!]!
   dryRun: Boolean
 }
-
-"""
-The `Upload` scalar type represents a file upload.
-"""
-scalar Upload
 
 """
 Used to represent a set of fields. Grammatically, a field set is a

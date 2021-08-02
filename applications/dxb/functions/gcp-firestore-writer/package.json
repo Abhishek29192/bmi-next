@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "yarn build && functions-framework --source=dist --target=handleMessage",
-    "deploy": "yarn build && gcloud functions deploy firestore-writer --trigger-topic=dxb-pim-transitional --runtime=nodejs10 --max-instances=5 --region=europe-west3 --entry-point=handleMessage --env-vars-file=env.yaml"
+    "deploy": "yarn build && gcloud functions deploy firestore-writer --trigger-topic=dxb-pim-transitional --runtime=nodejs14 --max-instances=5 --region=europe-west3 --entry-point=handleMessage --env-vars-file=env.yaml"
   },
   "dependencies": {
     "@firebase/app-types": "^0.6.1",

@@ -7,7 +7,6 @@ import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
-// import Search from "@bmi/search";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -96,14 +95,13 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     >
       <SiteContext.Consumer>
         {(context) => {
-          // const { getMicroCopy } = context;
           const heroItems = getHeroItemsWithContext(context, slides);
           const firstSlide: HeroItem = {
             title: <BrandLogo brandName={brandLogo} />,
             children: description?.description,
-            imageSource: featuredVideo
+            media: featuredVideo
               ? renderVideo(featuredVideo)
-              : featuredMedia?.image?.resize.src,
+              : renderImage(featuredMedia, { size: "cover" }),
             hasUnderline: false
           };
 

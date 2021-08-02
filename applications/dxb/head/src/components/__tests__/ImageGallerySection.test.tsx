@@ -40,9 +40,6 @@ describe("ImageGallerySection component", () => {
               width: 948,
               height: 720
             },
-            resize: {
-              src: "//images.asset.jpg"
-            },
             file: {
               fileName: "Lorem ipsum",
               url: "//images.asset.jpg"

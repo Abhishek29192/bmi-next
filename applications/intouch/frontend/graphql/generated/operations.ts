@@ -1,22 +1,74 @@
 import type * as SchemaTypes from "@bmi/intouch-api-types";
 
-export type CompanyDetailsFragmentFragment = {
+export type AddressLinesFragmentFragment = {
+  readonly __typename?: "Address";
+} & Pick<
+  SchemaTypes.Address,
+  "firstLine" | "secondLine" | "town" | "region" | "country" | "postcode"
+>;
+
+export type CompanyCertificationsFragment = {
+  readonly __typename?: "Company";
+} & Pick<SchemaTypes.Company, "certifications">;
+
+export type CompanyHeaderDetailsFragmentFragment = {
   readonly __typename?: "Company";
 } & Pick<
   SchemaTypes.Company,
-  "id" | "name" | "phone" | "website" | "aboutUs" | "publicEmail"
+  | "businessType"
+  | "logo"
+  | "aboutUs"
+  | "ownerFullname"
+  | "ownerPhone"
+  | "ownerEmail"
+  | "phone"
+  | "publicEmail"
+  | "website"
+  | "facebook"
+  | "linkedIn"
 > & {
-    readonly companyMembers: {
-      readonly __typename?: "CompanyMembersConnection";
+    readonly tradingAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & {
+        readonly coordinates?: SchemaTypes.Maybe<
+          { readonly __typename?: "Point" } & Pick<SchemaTypes.Point, "x" | "y">
+        >;
+      } & AddressLinesFragmentFragment
+    >;
+  };
+
+export type CompanyRegisteredDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<
+  SchemaTypes.Company,
+  "name" | "referenceNumber" | "taxNumber" | "tier"
+> & {
+    readonly registeredAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
+    >;
+    readonly companyOperationsByCompany: {
+      readonly __typename?: "CompanyOperationsConnection";
     } & {
       readonly nodes: ReadonlyArray<
-        { readonly __typename?: "CompanyMember" } & Pick<
-          SchemaTypes.CompanyMember,
-          "id"
+        { readonly __typename?: "CompanyOperation" } & Pick<
+          SchemaTypes.CompanyOperation,
+          "operation"
         >
       >;
     };
   };
+
+export type ContactDetailsCollectionFragmentFragment = {
+  readonly __typename?: "ContactDetailsCollection";
+} & {
+  readonly items: ReadonlyArray<
+    SchemaTypes.Maybe<
+      { readonly __typename?: "ContactDetails" } & Pick<
+        SchemaTypes.ContactDetails,
+        "fullName" | "subHeading" | "email" | "phoneNumber"
+      >
+    >
+  >;
+};
 
 export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
@@ -29,6 +81,583 @@ export type UpdateCompanyDetailsMutation = {
     { readonly __typename?: "UpdateCompanyPayload" } & {
       readonly company?: SchemaTypes.Maybe<
         { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
+      >;
+    }
+  >;
+};
+
+export type GetGlobalDataQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetGlobalDataQuery = { readonly __typename?: "Query" } & {
+  readonly marketContentCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketContentCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "MarketContent" } & Pick<
+            SchemaTypes.MarketContent,
+            "externalLinkUrl" | "externalLinkLabel"
+          > & {
+              readonly footerLinksCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "MarketContentFooterLinksCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "ContentArticle" } & Pick<
+                        SchemaTypes.ContentArticle,
+                        "title" | "relativePath"
+                      >
+                    >
+                  >;
+                }
+              >;
+              readonly contactUsPage?: SchemaTypes.Maybe<
+                { readonly __typename?: "ContentArticle" } & Pick<
+                  SchemaTypes.ContentArticle,
+                  "title" | "relativePath"
+                >
+              >;
+            }
+        >
+      >;
+    }
+  >;
+};
+
+export type CompanyAdminsFragmentFragment = {
+  readonly __typename?: "Company";
+} & {
+  readonly companyMembers: {
+    readonly __typename?: "CompanyMembersConnection";
+  } & {
+    readonly nodes: ReadonlyArray<
+      { readonly __typename?: "CompanyMember" } & {
+        readonly account?: SchemaTypes.Maybe<
+          { readonly __typename?: "Account" } & Pick<
+            SchemaTypes.Account,
+            | "role"
+            | "id"
+            | "firstName"
+            | "lastName"
+            | "phone"
+            | "email"
+            | "photo"
+          >
+        >;
+      }
+    >;
+  };
+};
+
+export type InviteMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.InviteInput;
+}>;
+
+export type InviteMutation = { readonly __typename?: "Mutation" } & {
+  readonly invite?: SchemaTypes.Maybe<
+    ReadonlyArray<
+      SchemaTypes.Maybe<
+        { readonly __typename?: "Invitation" } & Pick<
+          SchemaTypes.Invitation,
+          "id" | "invitee"
+        > & {
+            readonly senderAccount?: SchemaTypes.Maybe<
+              { readonly __typename?: "Account" } & Pick<
+                SchemaTypes.Account,
+                "email"
+              >
+            >;
+          }
+      >
+    >
+  >;
+};
+
+export type DeleteCompanyMemberMutationVariables = SchemaTypes.Exact<{
+  id: SchemaTypes.Scalars["Int"];
+}>;
+
+export type DeleteCompanyMemberMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly deleteCompanyMember?: SchemaTypes.Maybe<
+    { readonly __typename?: "DeleteCompanyMemberPayload" } & Pick<
+      SchemaTypes.DeleteCompanyMemberPayload,
+      "clientMutationId"
+    >
+  >;
+};
+
+export type GetProjectQueryVariables = SchemaTypes.Exact<{
+  projectId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type GetProjectQuery = { readonly __typename?: "Query" } & {
+  readonly project?: SchemaTypes.Maybe<
+    { readonly __typename?: "Project" } & Pick<
+      SchemaTypes.Project,
+      | "id"
+      | "name"
+      | "technology"
+      | "roofArea"
+      | "startDate"
+      | "endDate"
+      | "description"
+      | "buildingOwnerFirstname"
+      | "buildingOwnerLastname"
+      | "buildingOwnerCompany"
+      | "buildingOwnerMail"
+    > & {
+        readonly siteAddress?: SchemaTypes.Maybe<
+          { readonly __typename?: "Address" } & Pick<
+            SchemaTypes.Address,
+            "firstLine" | "secondLine" | "town" | "region" | "postcode"
+          >
+        >;
+        readonly buildingOwnerAddress?: SchemaTypes.Maybe<
+          { readonly __typename?: "Address" } & Pick<
+            SchemaTypes.Address,
+            "firstLine" | "secondLine" | "town" | "region" | "postcode"
+          >
+        >;
+        readonly guarantees: {
+          readonly __typename?: "GuaranteesConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "Guarantee" } & Pick<
+              SchemaTypes.Guarantee,
+              "id" | "guaranteeTypeId"
+            > & {
+                readonly guaranteeType?: SchemaTypes.Maybe<
+                  { readonly __typename?: "ContentfulGuaranteeType" } & Pick<
+                    SchemaTypes.ContentfulGuaranteeType,
+                    "name"
+                  > & {
+                      readonly evidenceCategoriesCollection?: SchemaTypes.Maybe<
+                        {
+                          readonly __typename?: "ContentfulEvidenceCategoryCollection";
+                        } & {
+                          readonly items?: SchemaTypes.Maybe<
+                            ReadonlyArray<
+                              SchemaTypes.Maybe<
+                                {
+                                  readonly __typename?: "ContentfulEvidenceCategory";
+                                } & Pick<
+                                  SchemaTypes.ContentfulEvidenceCategory,
+                                  "name" | "minimumUploads"
+                                >
+                              >
+                            >
+                          >;
+                        }
+                      >;
+                    }
+                >;
+              }
+          >;
+        };
+        readonly evidenceItems: {
+          readonly __typename?: "EvidenceItemsConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "EvidenceItem" } & Pick<
+              SchemaTypes.EvidenceItem,
+              | "id"
+              | "name"
+              | "guaranteeId"
+              | "evidenceCategoryType"
+              | "customEvidenceCategoryId"
+            > & {
+                readonly customEvidenceCategory?: SchemaTypes.Maybe<
+                  { readonly __typename?: "ContentfulEvidenceCategory" } & Pick<
+                    SchemaTypes.ContentfulEvidenceCategory,
+                    "name" | "minimumUploads"
+                  >
+                >;
+              }
+          >;
+        };
+        readonly notes: { readonly __typename?: "NotesConnection" } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "Note" } & Pick<
+              SchemaTypes.Note,
+              "id" | "body" | "createdAt"
+            >
+          >;
+        };
+        readonly projectMembers: {
+          readonly __typename?: "ProjectMembersConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "ProjectMember" } & Pick<
+              SchemaTypes.ProjectMember,
+              "id" | "accountId"
+            > & {
+                readonly account?: SchemaTypes.Maybe<
+                  { readonly __typename?: "Account" } & Pick<
+                    SchemaTypes.Account,
+                    "firstName" | "lastName" | "role"
+                  > & {
+                      readonly certificationsByDoceboUserId: {
+                        readonly __typename?: "CertificationsConnection";
+                      } & {
+                        readonly nodes: ReadonlyArray<
+                          { readonly __typename?: "Certification" } & Pick<
+                            SchemaTypes.Certification,
+                            "name" | "technology"
+                          >
+                        >;
+                      };
+                    }
+                >;
+              }
+          >;
+        };
+      }
+  >;
+};
+
+export type DeleteProjectMemberMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.DeleteProjectMemberInput;
+}>;
+
+export type DeleteProjectMemberMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly deleteProjectMember?: SchemaTypes.Maybe<
+    { readonly __typename?: "DeleteProjectMemberPayload" } & {
+      readonly account?: SchemaTypes.Maybe<
+        { readonly __typename?: "Account" } & Pick<
+          SchemaTypes.Account,
+          "id" | "firstName" | "lastName"
+        >
+      >;
+    }
+  >;
+};
+
+export type GetProjectCompanyMembersQueryVariables = SchemaTypes.Exact<{
+  existAccounts?: SchemaTypes.Maybe<
+    ReadonlyArray<SchemaTypes.Scalars["Int"]> | SchemaTypes.Scalars["Int"]
+  >;
+}>;
+
+export type GetProjectCompanyMembersQuery = {
+  readonly __typename?: "Query";
+} & {
+  readonly companyMembers?: SchemaTypes.Maybe<
+    { readonly __typename?: "CompanyMembersConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyMember" } & Pick<
+          SchemaTypes.CompanyMember,
+          "id" | "accountId"
+        > & {
+            readonly account?: SchemaTypes.Maybe<
+              { readonly __typename?: "Account" } & Pick<
+                SchemaTypes.Account,
+                "id" | "firstName" | "lastName" | "email"
+              > & {
+                  readonly certificationsByDoceboUserId: {
+                    readonly __typename?: "CertificationsConnection";
+                  } & {
+                    readonly nodes: ReadonlyArray<
+                      { readonly __typename?: "Certification" } & Pick<
+                        SchemaTypes.Certification,
+                        "technology"
+                      >
+                    >;
+                  };
+                }
+            >;
+          }
+      >;
+    }
+  >;
+};
+
+export type CreateProjectMemberMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateProjectMemberInput;
+}>;
+
+export type CreateProjectMemberMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly createProjectMember?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateProjectMemberPayload" } & {
+      readonly projectMember?: SchemaTypes.Maybe<
+        { readonly __typename?: "ProjectMember" } & Pick<
+          SchemaTypes.ProjectMember,
+          "id" | "accountId"
+        > & {
+            readonly account?: SchemaTypes.Maybe<
+              { readonly __typename?: "Account" } & Pick<
+                SchemaTypes.Account,
+                "id" | "firstName" | "lastName" | "role"
+              > & {
+                  readonly certificationsByDoceboUserId: {
+                    readonly __typename?: "CertificationsConnection";
+                  } & {
+                    readonly nodes: ReadonlyArray<
+                      { readonly __typename?: "Certification" } & Pick<
+                        SchemaTypes.Certification,
+                        "technology"
+                      >
+                    >;
+                  };
+                }
+            >;
+          }
+      >;
+    }
+  >;
+};
+
+export type AddProjectsMemberMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.ProjectMembersAddInput;
+}>;
+
+export type AddProjectsMemberMutation = { readonly __typename?: "Mutation" } & {
+  readonly projectMembersAdd?: SchemaTypes.Maybe<
+    { readonly __typename?: "ProjectMembersAddPayload" } & {
+      readonly projectMembers?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          { readonly __typename?: "ProjectMember" } & Pick<
+            SchemaTypes.ProjectMember,
+            "projectId" | "accountId"
+          >
+        >
+      >;
+    }
+  >;
+};
+
+export type AddEvidencesMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.EvidenceItemsAddInput;
+}>;
+
+export type AddEvidencesMutation = { readonly __typename?: "Mutation" } & {
+  readonly evidenceItemsAdd?: SchemaTypes.Maybe<
+    { readonly __typename?: "EvidenceItemsAddPayload" } & {
+      readonly evidenceItems?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          { readonly __typename?: "EvidenceItem" } & Pick<
+            SchemaTypes.EvidenceItem,
+            "id" | "name"
+          >
+        >
+      >;
+    }
+  >;
+};
+
+export type AccountByEmailQueryVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
+  readonly accountByEmail?: SchemaTypes.Maybe<
+    { readonly __typename?: "Account" } & Pick<
+      SchemaTypes.Account,
+      | "id"
+      | "role"
+      | "marketId"
+      | "firstName"
+      | "lastName"
+      | "email"
+      | "doceboUserId"
+    > & {
+        readonly market?: SchemaTypes.Maybe<
+          { readonly __typename?: "Market" } & Pick<
+            SchemaTypes.Market,
+            | "domain"
+            | "language"
+            | "doceboCompanyAdminBranchId"
+            | "doceboInstallersBranchId"
+            | "projectsEnabled"
+          >
+        >;
+        readonly companyMembers: {
+          readonly __typename?: "CompanyMembersConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "CompanyMember" } & {
+              readonly company?: SchemaTypes.Maybe<
+                { readonly __typename?: "Company" } & Pick<
+                  SchemaTypes.Company,
+                  "id" | "status" | "name" | "tier"
+                >
+              >;
+            }
+          >;
+        };
+        readonly projectMembers: {
+          readonly __typename?: "ProjectMembersConnection";
+        } & Pick<SchemaTypes.ProjectMembersConnection, "totalCount">;
+      }
+  >;
+};
+
+export type CreateAccountMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateAccountInput;
+}>;
+
+export type CreateAccountMutation = { readonly __typename?: "Mutation" } & {
+  readonly createAccount?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateAccountPayload" } & {
+      readonly account?: SchemaTypes.Maybe<
+        { readonly __typename?: "Account" } & Pick<
+          SchemaTypes.Account,
+          "id" | "role" | "email" | "firstName" | "lastName" | "marketId"
+        > & {
+            readonly market?: SchemaTypes.Maybe<
+              { readonly __typename?: "Market" } & Pick<
+                SchemaTypes.Market,
+                | "language"
+                | "doceboCompanyAdminBranchId"
+                | "doceboInstallersBranchId"
+              >
+            >;
+            readonly companyMembers: {
+              readonly __typename?: "CompanyMembersConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyMember" } & {
+                  readonly company?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Company" } & Pick<
+                      SchemaTypes.Company,
+                      "id" | "status"
+                    >
+                  >;
+                }
+              >;
+            };
+          }
+      >;
+    }
+  >;
+};
+
+export type CreateDoceboUserMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UserCreateInput;
+}>;
+
+export type CreateDoceboUserMutation = { readonly __typename?: "Mutation" } & {
+  readonly createDoceboUser?: SchemaTypes.Maybe<
+    { readonly __typename?: "UserCreateResponse" } & Pick<
+      SchemaTypes.UserCreateResponse,
+      "success" | "user_id"
+    >
+  >;
+};
+
+export type UpdateAccountMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateAccountInput;
+}>;
+
+export type UpdateAccountMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateAccount?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateAccountPayload" } & {
+      readonly account?: SchemaTypes.Maybe<
+        { readonly __typename?: "Account" } & Pick<
+          SchemaTypes.Account,
+          "id" | "doceboUserId"
+        >
+      >;
+    }
+  >;
+};
+
+export type UserByEmailQueryVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type UserByEmailQuery = { readonly __typename?: "Query" } & {
+  readonly userByEmail?: SchemaTypes.Maybe<
+    { readonly __typename?: "UserData" } & Pick<SchemaTypes.UserData, "user_id">
+  >;
+};
+
+export type InvitationsQueryVariables = SchemaTypes.Exact<{
+  invitee: SchemaTypes.Scalars["String"];
+}>;
+
+export type InvitationsQuery = { readonly __typename?: "Query" } & {
+  readonly invitations?: SchemaTypes.Maybe<
+    { readonly __typename?: "InvitationsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Invitation" } & Pick<
+          SchemaTypes.Invitation,
+          "id" | "status" | "invitee" | "senderAccountId"
+        >
+      >;
+    }
+  >;
+};
+
+export type CompleteInvitationMutationVariables = SchemaTypes.Exact<{
+  companyId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type CompleteInvitationMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly completeInvitation?: SchemaTypes.Maybe<
+    { readonly __typename?: "Account" } & Pick<
+      SchemaTypes.Account,
+      "id" | "role" | "email" | "firstName" | "lastName" | "marketId"
+    > & {
+        readonly market?: SchemaTypes.Maybe<
+          { readonly __typename?: "Market" } & Pick<
+            SchemaTypes.Market,
+            | "language"
+            | "domain"
+            | "doceboCompanyAdminBranchId"
+            | "doceboInstallersBranchId"
+          >
+        >;
+      }
+  >;
+};
+
+export type CreateSsoUrlMutationVariables = SchemaTypes.Exact<{
+  username: SchemaTypes.Scalars["String"];
+  path?: SchemaTypes.Maybe<SchemaTypes.Scalars["String"]>;
+}>;
+
+export type CreateSsoUrlMutation = { readonly __typename?: "Mutation" } & {
+  readonly createSSOUrl?: SchemaTypes.Maybe<
+    { readonly __typename?: "SSOUrlOutput" } & Pick<
+      SchemaTypes.SsoUrlOutput,
+      "url"
+    >
+  >;
+};
+
+export type GetContentArticleContentQueryVariables = SchemaTypes.Exact<{
+  relativePath: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetContentArticleContentQuery = {
+  readonly __typename?: "Query";
+} & {
+  readonly contentArticleCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "ContentArticleCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "ContentArticle" } & Pick<
+            SchemaTypes.ContentArticle,
+            "title"
+          > & {
+              readonly body?: SchemaTypes.Maybe<
+                { readonly __typename?: "ContentArticleBody" } & Pick<
+                  SchemaTypes.ContentArticleBody,
+                  "json"
+                >
+              >;
+            }
+        >
       >;
     }
   >;
@@ -185,6 +814,159 @@ export type GetCompanyQueryVariables = SchemaTypes.Exact<{
 export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
     { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
+  >;
+  readonly contactDetailsCollection?: SchemaTypes.Maybe<
+    {
+      readonly __typename?: "ContactDetailsCollection";
+    } & ContactDetailsCollectionFragmentFragment
+  >;
+};
+
+export type CompanyDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<SchemaTypes.Company, "id"> &
+  CompanyHeaderDetailsFragmentFragment &
+  CompanyRegisteredDetailsFragmentFragment &
+  CompanyAdminsFragmentFragment &
+  CompanyCertificationsFragment;
+
+export type ImageFragmentFragment = { readonly __typename?: "Asset" } & Pick<
+  SchemaTypes.Asset,
+  | "title"
+  | "description"
+  | "contentType"
+  | "fileName"
+  | "size"
+  | "url"
+  | "width"
+  | "height"
+>;
+
+export type GetPartnerBrandsQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
+  readonly marketContentCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketContentCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "MarketContent" } & {
+            readonly partnerBrandsCollection?: SchemaTypes.Maybe<
+              {
+                readonly __typename?: "MarketContentPartnerBrandsCollection";
+              } & {
+                readonly items: ReadonlyArray<
+                  SchemaTypes.Maybe<
+                    { readonly __typename?: "PartnerBrand" } & Pick<
+                      SchemaTypes.PartnerBrand,
+                      "name" | "shortDescription"
+                    > & {
+                        readonly image?: SchemaTypes.Maybe<
+                          {
+                            readonly __typename?: "Asset";
+                          } & ImageFragmentFragment
+                        >;
+                        readonly logo?: SchemaTypes.Maybe<
+                          {
+                            readonly __typename?: "Asset";
+                          } & ImageFragmentFragment
+                        >;
+                      }
+                  >
+                >;
+              }
+            >;
+          }
+        >
+      >;
+    }
+  >;
+};
+
+export type GetProjectsQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetProjectsQuery = { readonly __typename?: "Query" } & {
+  readonly projects?: SchemaTypes.Maybe<
+    { readonly __typename?: "ProjectsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Project" } & Pick<
+          SchemaTypes.Project,
+          "id" | "name" | "technology" | "startDate" | "endDate"
+        > & {
+            readonly siteAddress?: SchemaTypes.Maybe<
+              { readonly __typename?: "Address" } & Pick<
+                SchemaTypes.Address,
+                "town" | "postcode"
+              >
+            >;
+          }
+      >;
+    }
+  >;
+};
+
+export type CompanyMembersQueryVariables = SchemaTypes.Exact<{
+  expiryDate?: SchemaTypes.Maybe<SchemaTypes.Scalars["Datetime"]>;
+}>;
+
+export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
+  readonly companyMembers?: SchemaTypes.Maybe<
+    { readonly __typename?: "CompanyMembersConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyMember" } & Pick<
+          SchemaTypes.CompanyMember,
+          "id"
+        > & {
+            readonly company?: SchemaTypes.Maybe<
+              { readonly __typename?: "Company" } & Pick<
+                SchemaTypes.Company,
+                "name"
+              >
+            >;
+            readonly account?: SchemaTypes.Maybe<
+              { readonly __typename?: "Account" } & Pick<
+                SchemaTypes.Account,
+                | "id"
+                | "role"
+                | "email"
+                | "phone"
+                | "photo"
+                | "lastName"
+                | "firstName"
+                | "formattedRole"
+              > & {
+                  readonly certificationsByDoceboUserId: {
+                    readonly __typename?: "CertificationsConnection";
+                  } & {
+                    readonly nodes: ReadonlyArray<
+                      { readonly __typename?: "Certification" } & Pick<
+                        SchemaTypes.Certification,
+                        "id" | "name" | "technology" | "expiryDate"
+                      >
+                    >;
+                  };
+                }
+            >;
+          }
+      >;
+    }
+  >;
+};
+
+export type UpdateRoleAccountMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateAccountInput;
+}>;
+
+export type UpdateRoleAccountMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateAccount?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateAccountPayload" } & {
+      readonly account?: SchemaTypes.Maybe<
+        { readonly __typename?: "Account" } & Pick<SchemaTypes.Account, "id">
+      >;
+    }
   >;
 };
 

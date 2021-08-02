@@ -1,11 +1,13 @@
 import { Request, Response } from "express";
 import { PostGraphileOptions } from "postgraphile";
+import ConnectionFilterPlugin from "postgraphile-plugin-connection-filter";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import { TagsFilePlugin } from "postgraphile/plugins";
 import { Role } from "@bmi/intouch-api-types";
 import config from "../config";
 import { Account } from "../types/index";
+import { getDbPool } from "../db";
 import { ExtendPlugin, WrapPlugin } from "./plugins";
 import handleErrors from "./handleErrors";
 
@@ -23,6 +25,7 @@ const availableRoles: Role[] = [
 const postGraphileOpts: PostGraphileOptions<Request, Response> = {
   ...config.postgraphile,
   appendPlugins: [
+    ConnectionFilterPlugin,
     pgSimplifyInflector,
     FederationPlugin,
     TagsFilePlugin,
@@ -30,11 +33,16 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     WrapPlugin
   ],
   handleErrors,
-  additionalGraphQLContextFromRequest: async (req: Request, res: Response) => ({
-    user: req.user,
-    logger: req.logger,
-    pubSub: req.pubSub
-  }),
+  additionalGraphQLContextFromRequest: async (req: Request, res: Response) => {
+    const dbPool = getDbPool();
+
+    return {
+      user: req.user,
+      logger: req.logger,
+      pubSub: req.pubSub,
+      pgRootPool: dbPool
+    };
+  },
   pgSettings: async ({ user }: Props) => {
     let role = user?.role;
     if (!availableRoles.includes(user?.role)) {
@@ -42,7 +50,7 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     }
 
     return {
-      "app.current_account_id": user?.intouchUserId,
+      "app.current_account_id": user?.id,
       "app.current_account_email": user?.email,
       role: role.toLocaleLowerCase()
     };

@@ -138,15 +138,15 @@
             <span class="divider"></span>
           </div>
           <form onsubmit="return false;" method="post">
-            <div class="text" data-i18n="registration_type">
+            <div class="text" data-i18n="intouch_role">
               Please select your registration type:
             </div>
             <div class="form-group type">
               <input
                 type="radio"
                 id="check-installer"
-                name="registrationType"
-                value="installer"
+                name="intouch_role"
+                value="INSTALLER"
                 checked
               />
               <label for="check-installer" data-i18n="installer"
@@ -157,8 +157,8 @@
               <input
                 type="radio"
                 id="check-company"
-                name="registrationType"
-                value="company"
+                name="intouch_role"
+                value="COMPANY_ADMIN"
               />
               <label for="check-company" data-i18n="company">Company</label>
             </div>
@@ -272,14 +272,6 @@
             >
               Not registered?
             </button>
-            <!-- <hr />
-            <button
-              type="button"
-              id="btn-google"
-              class="btn btn-default btn-danger btn-block"
-            >
-              Log In with Google
-            </button> -->
           </form>
         </div>
 
@@ -340,7 +332,7 @@
           en: {
             intouch_title: "In Touch - Login/Registration",
             signup_welcome: "Welcome",
-            registration_type: "Please select your registration type:",
+            intouch_role: "Please select your registration type:",
             installer: "Installer",
             company: "Company",
             first_name: "First Name",
@@ -362,7 +354,7 @@
           it: {
             intouch_title: "In Touch - Login/Registrazione",
             signup_welcome: "Benvenuto",
-            registration_type: "Seleziona il tuo tipo di registrazione:",
+            intouch_role: "Seleziona il tuo tipo di registrazione:",
             installer: "Installatore",
             company: "Azienda",
             first_name: "Nome",
@@ -442,7 +434,7 @@
         function signup() {
           // Get the form
           const form = document.querySelectorAll("#signup-form form")[0];
-          const radios = form.elements["registrationType"];
+          const radios = form.elements["intouch_role"];
 
           var button = this;
           var email = document.getElementById("signup-email").value;
@@ -458,7 +450,7 @@
               password: password,
               captcha: captcha.getValue(),
               user_metadata: {
-                registration_type: radios.value,
+                intouch_role: radios.value,
                 first_name,
                 last_name,
                 market: config.extraParams.market

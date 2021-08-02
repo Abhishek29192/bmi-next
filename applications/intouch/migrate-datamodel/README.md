@@ -31,4 +31,4 @@ After following the quickstart setup instructions, run `yarn start` to get the t
 To update the Database:
 
 - create `config.json` file (see `config.json.example`)
-- run `yarn migrate`
+- run `yarn migrate`. This script will generate files in the `data` folder.

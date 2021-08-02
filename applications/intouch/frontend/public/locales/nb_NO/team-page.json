@@ -1,0 +1,30 @@
+{
+  "sidePanel": {
+    "search": {
+      "label": "Norway - Search for a user",
+      "noResult": "Norway - Member not found"
+    },
+    "inviteLabel": "Norway - + Invite team members"
+  },
+  "table": {
+    "title": "Norway - Certification(s)",
+    "type": "Norway - Type",
+    "certification": "Norway - Certification",
+    "validity": "Norway - Validity"
+  },
+  "invitation": {
+    "dialog": {
+      "title": "Norway - Invite members",
+      "emails": {
+        "label": "Norway - Recipient’s email address",
+        "helperText": "Norway - Add multiple members by separating each email address with a comma"
+      },
+      "personalNote": {
+        "label": "Norway - Your message (optional)"
+      },
+      "cancel": "Norway - Cancel",
+      "send": "Norway - Send email",
+      "success": "Norway - The invitation it's been sent"
+    }
+  }
+}

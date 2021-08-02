@@ -1,5 +1,6 @@
 import { graphql } from "gatsby";
 import { Data as AssetTypeData } from "./AssetType";
+import { Data as ImageData } from "./Image";
 import { RichTextData } from "./RichText";
 
 export type Data = {
@@ -7,11 +8,7 @@ export type Data = {
   id: string;
   title: string;
   assetType: AssetTypeData;
-  image: {
-    resize: {
-      src: string;
-    };
-  } | null;
+  featuredMedia: ImageData | null;
   asset: {
     file: {
       url: string;
@@ -21,7 +18,7 @@ export type Data = {
         size: number;
       };
     };
-  };
+  } | null;
   // TODO: add validations for this Rich Text field in CMS
   description: RichTextData | null;
   brand: string;
@@ -35,10 +32,8 @@ export const query = graphql`
     assetType {
       ...AssetTypeFragment
     }
-    image {
-      resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
-        src
-      }
+    featuredMedia {
+      ...ImageDocumentFragment
     }
     asset {
       file {

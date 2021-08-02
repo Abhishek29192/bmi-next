@@ -1,38 +1,40 @@
-import { REDIRECT_MAP } from "../config";
-import { parseAccount } from "../account";
+import { Request } from "express";
+import { Account } from "@bmi/intouch-api-types";
+import { redirectMapInverse } from "../config/redirects";
 
-export const marketRedirect = (req, res, user = {}) => {
-  const { AUTH0_COOKIE_DOMAIN, NODE_ENV } = process.env;
+export const marketRedirect = (req: Request, account: Account) => {
+  const { AUTH0_COOKIE_DOMAIN } = process.env;
 
-  // We don't have subdomain yet
-  if (NODE_ENV === "production") {
-    return;
+  // Disable market-redirects for Demo!!
+  if (AUTH0_COOKIE_DOMAIN === "intouch.dddev.io") {
+    return null;
   }
-
+  // for multi-market & redirects set the domain to local.intouch (see README)
   if (AUTH0_COOKIE_DOMAIN === "localhost") {
-    return;
+    return null;
   }
 
   const [host, port] = req.headers.host.split(":");
   const [code] = host.split(".");
   const protocol = req.headers["x-forwarded-proto"] || "http";
 
-  const { marketCode } = parseAccount(user);
+  const {
+    market: { domain }
+  } = account;
 
-  const redirectMapInverse = {};
-  Object.keys(REDIRECT_MAP).forEach((key) => {
-    redirectMapInverse[REDIRECT_MAP[key]] = key;
-  });
-
-  if (marketCode && marketCode !== code) {
-    let returnTo = `${protocol}://${redirectMapInverse[marketCode]}`;
+  if (domain && domain !== code) {
+    let returnTo = `${protocol}://${redirectMapInverse[`${domain}`]}`;
     if (port) {
       returnTo = `${returnTo}:${port}`;
     }
 
-    res.writeHead(302, {
-      Location: returnTo
-    });
-    return res.end();
+    return {
+      redirect: {
+        permanent: false,
+        destination: returnTo
+      }
+    };
   }
+
+  return null;
 };

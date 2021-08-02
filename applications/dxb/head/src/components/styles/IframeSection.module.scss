@@ -1,0 +1,14 @@
+@import "@bmi/styles";
+
+.IframeSection {
+  .title,
+  .summary {
+    margin-bottom: 32px;
+  }
+
+  .iFrame {
+    background-color: $color-white;
+    border: 1px solid $color-storm;
+    border-width: 1px 0;
+  }
+}

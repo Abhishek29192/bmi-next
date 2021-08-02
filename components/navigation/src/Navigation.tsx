@@ -11,7 +11,7 @@ export type LinkList = {
   hasSeparator?: boolean;
   action?: ClickableAction;
   icon?: SVGImport;
-  image?: string;
+  image?: string | React.ReactElement;
   isHeading?: boolean;
   isLabelHidden?: boolean;
   isParagraph?: boolean;
@@ -193,7 +193,8 @@ const NavigationList = ({
             },
             key
           ) => [
-            subMenu ? (
+            subMenu &&
+            (subMenu.length > 1 || "menu" in subMenu[0] || depth !== 0) ? (
               <li key={`menu-${depth}-item-${key}`}>
                 <NavigationListButton
                   component={Button}
@@ -242,7 +243,9 @@ const NavigationList = ({
                       </Typography>
                     );
                   } else if (image) {
-                    return (
+                    return React.isValidElement(image) ? (
+                      image
+                    ) : (
                       <img
                         alt={label}
                         className={styles["Image"]}
@@ -250,10 +253,16 @@ const NavigationList = ({
                       />
                     );
                   } else {
+                    let clickableAction = action;
+
+                    if (subMenu && subMenu.length === 1 && subMenu[0].action) {
+                      clickableAction = subMenu[0].action;
+                    }
+
                     return (
                       <NavigationListButton
                         component={Button}
-                        action={action}
+                        action={clickableAction}
                         accessibilityLabel={label}
                         startIcon={
                           icon &&
