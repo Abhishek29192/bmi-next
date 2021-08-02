@@ -362,6 +362,51 @@ describe("ServiceLocatorSection component", () => {
     expect(wrapper.container.parentElement).toMatchSnapshot();
   });
 
+  it("sets current location", () => {
+    Object.defineProperty(global.navigator, "geolocation", {
+      value: {
+        getCurrentPosition: jest.fn().mockImplementation((success) =>
+          act(() =>
+            success({
+              coords: {
+                latitude: 60,
+                longitude: 20
+              }
+            })
+          )
+        )
+      },
+      configurable: true
+    });
+
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [createService({ name: "roofer 1" })]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+
+    const geolocationButton = wrapper.getByRole("button", {
+      name: `MC: findARoofer.geolocationButton`
+    });
+
+    fireEvent.click(geolocationButton);
+
+    expect(wrapper.container.parentElement).toMatchSnapshot();
+
+    Object.defineProperty(global.navigator, "geolocation", {
+      value: undefined,
+      configurable: true
+    });
+  });
+
   it("selects service", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
