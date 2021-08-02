@@ -17,151 +17,154 @@
 @include textfield.core-styles;
 // @include button.core-styles;
 
-@import 'base/reset';
+@import "base/reset";
 
 body {
-    font-family: Effra-Regular, sans-serif;
-    color: #3b3b3b;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: Effra-Regular, sans-serif;
+  color: #3b3b3b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-
 a {
-    color: #007bbd;
-    text-decoration: underline;
+  color: #007bbd;
+  text-decoration: underline;
 }
 
 .link-button {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
-    color: #007bbd;
-    text-decoration: underline;
-    cursor: pointer;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  color: #007bbd;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .mdc-text-field {
-    @include textfield.outlined-height(50px);
-    width: 100%;
-    background-color: #ffffff;
-    font-family: Effra-Regular, sans-serif;
+  @include textfield.outlined-height(50px);
+  width: 100%;
+  background-color: #ffffff;
+  font-family: Effra-Regular, sans-serif;
 
-    & + & {
-        margin-top: 1rem;
-    }
+  & + & {
+    margin-top: 1rem;
+  }
 }
 
 .mdc-form-field {
-    label {
-        font-family: Effra-Regular, sans-serif;
-    }
+  label {
+    font-family: Effra-Regular, sans-serif;
+  }
 }
 
 .mdc-floating-label {
-    font-family: Effra-Regular, sans-serif;
+  font-family: Effra-Regular, sans-serif;
 }
 
 .mdc-button {
-    width: 100%;
-    text-transform: none;
-    height: 50px;
-    margin-top: .5rem;
-    font-family: Effra-Regular, sans-serif;
-    font-size: 16px;
-    letter-spacing: 0;
+  width: 100%;
+  text-transform: none;
+  height: 50px;
+  margin-top: 0.5rem;
+  font-family: Effra-Regular, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0;
 
-    &__underlined {
-        text-decoration: underline;
-    }
+  &__underlined {
+    text-decoration: underline;
+  }
 }
 
 .login-screen {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../images/bmi_roofpro_intouch.jpg");
-    background-size: cover;
-    background-position: center center;
+  background-size: cover;
+  background-position: center center;
 }
 
 .login-box {
-    width: 600px;
-    box-sizing: border-box;
-    padding: 1.5rem;
-    background-color: #f0f0f0;
-    border-radius: 2px;
+  width: 600px;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  background-color: #f0f0f0;
+  border-radius: 2px;
 
-    @media (max-width: 768px) {
-        padding-top: 3rem;
-        background-color: #ffffff;
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-    }
-    
+  @media (max-width: 768px) {
+    padding-top: 3rem;
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .password-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 1.5rem;
 }
 
 .forgot-password-box {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .underlined-heading {
-    font-family: Effra-Bold, sans-serif;
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
-    position: relative;
+  font-family: Effra-Bold, sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
 
-    &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0;
-        bottom: -0.75rem;
-        width: 80px;
-        height: 3px;
-        background-color: #009fe3;
-    }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -0.75rem;
+    width: 80px;
+    height: 3px;
+    background-color: #009fe3;
+  }
 }
 
 .button-container {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 
-    @media (max-width: 768px) {
-        margin-top: auto;
-    }
+  @media (max-width: 768px) {
+    margin-top: auto;
+  }
 }
 
 .role-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
 
-    p {
-        margin-bottom: 0.5rem;
-    }
+  p {
+    margin-bottom: 0.5rem;
+  }
 }
 
 p {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.captcha-container {
+  position: absolute;
+  bottom: 15px;
 }
