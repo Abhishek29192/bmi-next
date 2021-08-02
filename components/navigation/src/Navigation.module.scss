@@ -82,6 +82,17 @@
       max-width: 100%;
       padding: 0 10px;
     }
+
+    .LanguageButtonContent {
+      display: flex;
+      justify-content: center;
+      font-weight: 500;
+    }
+
+    .LanguageIcon {
+      margin-right: 10px;
+      width: 20px;
+    }
   }
 
   & > .NavigationList {

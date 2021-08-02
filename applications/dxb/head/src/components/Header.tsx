@@ -223,7 +223,11 @@ const Header = ({
               gtm={{
                 id: "nav-main-menu",
                 // @ts-ignore This is getting messy
-                action: props.action ? props.action.to : undefined
+                action: props.action?.to,
+                label:
+                  typeof props.children !== "string"
+                    ? props.accessibilityLabel
+                    : undefined
               }}
               {...props}
             />

@@ -37,6 +37,34 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                   />
                 </a>
               </li>
+              <li
+                class="nav-item"
+              >
+                <button
+                  aria-label="MC: menu.language"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <img
+                      class="language-icon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    UK
+                    <span
+                      class="down-arrow"
+                    >
+                      ▾
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -117,10 +145,10 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                 <h6
                   class="MuiTypography-root heading Typography MuiTypography-h6"
                 >
-                  Global
+                  Europe
                 </h6>
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                  class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -128,7 +156,61 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/"
+                      href="/al"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/al.svg"
+                          />
+                        </span>
+                        Albania
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/at"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/at.svg"
+                          />
+                        </span>
+                        Österreich
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/uk"
                       tabindex="0"
                     >
                       <span
@@ -142,61 +224,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                             src="/icons/flags/uk.svg"
                           />
                         </span>
-                        English
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/de-de"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/de.svg"
-                          />
-                        </span>
-                        Deutsch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/fr-fr"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/fr.svg"
-                          />
-                        </span>
-                        Français
+                        United Kingdom
                       </span>
                       <span
                         class="MuiTouchRipple-root"
@@ -422,14 +450,22 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
               <li>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
                     class="MuiButton-label"
                   >
-                    MC: menu.language
+                    <span
+                      class="LanguageButtonContent"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/uk.svg"
+                      />
+                      UK
+                    </span>
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
@@ -1084,6 +1120,34 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   />
                 </a>
               </li>
+              <li
+                class="nav-item"
+              >
+                <button
+                  aria-label="MC: menu.language"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <img
+                      class="language-icon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    UK
+                    <span
+                      class="down-arrow"
+                    >
+                      ▾
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -1164,10 +1228,10 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 <h6
                   class="MuiTypography-root heading Typography MuiTypography-h6"
                 >
-                  Global
+                  Europe
                 </h6>
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                  class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -1175,7 +1239,61 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/"
+                      href="/al"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/al.svg"
+                          />
+                        </span>
+                        Albania
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/at"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/at.svg"
+                          />
+                        </span>
+                        Österreich
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/uk"
                       tabindex="0"
                     >
                       <span
@@ -1189,61 +1307,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                             src="/icons/flags/uk.svg"
                           />
                         </span>
-                        English
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/de-de"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/de.svg"
-                          />
-                        </span>
-                        Deutsch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/fr-fr"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/fr.svg"
-                          />
-                        </span>
-                        Français
+                        United Kingdom
                       </span>
                       <span
                         class="MuiTouchRipple-root"
@@ -1469,14 +1533,22 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               <li>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
                     class="MuiButton-label"
                   >
-                    MC: menu.language
+                    <span
+                      class="LanguageButtonContent"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/uk.svg"
+                      />
+                      UK
+                    </span>
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
@@ -2126,6 +2198,34 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   />
                 </a>
               </li>
+              <li
+                class="nav-item"
+              >
+                <button
+                  aria-label="MC: menu.language"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <img
+                      class="language-icon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    UK
+                    <span
+                      class="down-arrow"
+                    >
+                      ▾
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -2206,10 +2306,10 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 <h6
                   class="MuiTypography-root heading Typography MuiTypography-h6"
                 >
-                  Global
+                  Europe
                 </h6>
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                  class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -2217,7 +2317,61 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/"
+                      href="/al"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/al.svg"
+                          />
+                        </span>
+                        Albania
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/at"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/at.svg"
+                          />
+                        </span>
+                        Österreich
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/uk"
                       tabindex="0"
                     >
                       <span
@@ -2231,61 +2385,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                             src="/icons/flags/uk.svg"
                           />
                         </span>
-                        English
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/de-de"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/de.svg"
-                          />
-                        </span>
-                        Deutsch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/fr-fr"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/fr.svg"
-                          />
-                        </span>
-                        Français
+                        United Kingdom
                       </span>
                       <span
                         class="MuiTouchRipple-root"
@@ -2511,14 +2611,22 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               <li>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
                     class="MuiButton-label"
                   >
-                    MC: menu.language
+                    <span
+                      class="LanguageButtonContent"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/uk.svg"
+                      />
+                      UK
+                    </span>
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
@@ -3170,6 +3278,31 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   </span>
                 </a>
               </li>
+              <li
+                class="nav-item"
+              >
+                <button
+                  aria-label="MC: menu.language"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <img
+                      class="language-icon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    UK
+                    <span
+                      class="down-arrow"
+                    >
+                      ▾
+                    </span>
+                  </span>
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -3244,10 +3377,10 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 <h6
                   class="MuiTypography-root heading Typography MuiTypography-h6"
                 >
-                  Global
+                  Europe
                 </h6>
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                  class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -3255,7 +3388,55 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/"
+                      href="/al"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/al.svg"
+                          />
+                        </span>
+                        Albania
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/at"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/at.svg"
+                          />
+                        </span>
+                        Österreich
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/uk"
                       tabindex="0"
                     >
                       <span
@@ -3269,55 +3450,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                             src="/icons/flags/uk.svg"
                           />
                         </span>
-                        English
-                      </span>
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/de-de"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/de.svg"
-                          />
-                        </span>
-                        Deutsch
-                      </span>
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/fr-fr"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/fr.svg"
-                          />
-                        </span>
-                        Français
+                        United Kingdom
                       </span>
                     </a>
                   </div>
@@ -3518,14 +3651,22 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               <li>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
                     class="MuiButton-label"
                   >
-                    MC: menu.language
+                    <span
+                      class="LanguageButtonContent"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/uk.svg"
+                      />
+                      UK
+                    </span>
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
@@ -4375,6 +4516,31 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   </span>
                 </a>
               </li>
+              <li
+                class="nav-item"
+              >
+                <button
+                  aria-label="MC: menu.language"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <img
+                      class="language-icon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    UK
+                    <span
+                      class="down-arrow"
+                    >
+                      ▾
+                    </span>
+                  </span>
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -4449,10 +4615,10 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 <h6
                   class="MuiTypography-root heading Typography MuiTypography-h6"
                 >
-                  Global
+                  Europe
                 </h6>
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                  class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -4460,7 +4626,55 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/"
+                      href="/al"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/al.svg"
+                          />
+                        </span>
+                        Albania
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/at"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/at.svg"
+                          />
+                        </span>
+                        Österreich
+                      </span>
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/uk"
                       tabindex="0"
                     >
                       <span
@@ -4474,55 +4688,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                             src="/icons/flags/uk.svg"
                           />
                         </span>
-                        English
-                      </span>
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/de-de"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/de.svg"
-                          />
-                        </span>
-                        Deutsch
-                      </span>
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/fr-fr"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/fr.svg"
-                          />
-                        </span>
-                        Français
+                        United Kingdom
                       </span>
                     </a>
                   </div>
@@ -4723,14 +4889,22 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               <li>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
                     class="MuiButton-label"
                   >
-                    MC: menu.language
+                    <span
+                      class="LanguageButtonContent"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/uk.svg"
+                      />
+                      UK
+                    </span>
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
@@ -5556,6 +5730,34 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   />
                 </a>
               </li>
+              <li
+                class="nav-item"
+              >
+                <button
+                  aria-label="MC: menu.language"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <img
+                      class="language-icon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    UK
+                    <span
+                      class="down-arrow"
+                    >
+                      ▾
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -5636,10 +5838,10 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 <h6
                   class="MuiTypography-root heading Typography MuiTypography-h6"
                 >
-                  Global
+                  Europe
                 </h6>
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                  class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -5647,7 +5849,61 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/"
+                      href="/al"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/al.svg"
+                          />
+                        </span>
+                        Albania
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/at"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/at.svg"
+                          />
+                        </span>
+                        Österreich
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/uk"
                       tabindex="0"
                     >
                       <span
@@ -5661,61 +5917,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                             src="/icons/flags/uk.svg"
                           />
                         </span>
-                        English
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/de-de"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/de.svg"
-                          />
-                        </span>
-                        Deutsch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/fr-fr"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/fr.svg"
-                          />
-                        </span>
-                        Français
+                        United Kingdom
                       </span>
                       <span
                         class="MuiTouchRipple-root"
@@ -5941,14 +6143,22 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               <li>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
                     class="MuiButton-label"
                   >
-                    MC: menu.language
+                    <span
+                      class="LanguageButtonContent"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/uk.svg"
+                      />
+                      UK
+                    </span>
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
@@ -6807,6 +7017,34 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                   />
                 </a>
               </li>
+              <li
+                class="nav-item"
+              >
+                <button
+                  aria-label="MC: menu.language"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <img
+                      class="language-icon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    UK
+                    <span
+                      class="down-arrow"
+                    >
+                      ▾
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -6887,10 +7125,10 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                 <h6
                   class="MuiTypography-root heading Typography MuiTypography-h6"
                 >
-                  Global
+                  Europe
                 </h6>
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                  class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -6898,7 +7136,61 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/"
+                      href="/al"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/al.svg"
+                          />
+                        </span>
+                        Albania
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/at"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/at.svg"
+                          />
+                        </span>
+                        Österreich
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/uk"
                       tabindex="0"
                     >
                       <span
@@ -6912,61 +7204,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                             src="/icons/flags/uk.svg"
                           />
                         </span>
-                        English
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/de-de"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/de.svg"
-                          />
-                        </span>
-                        Deutsch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/fr-fr"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/fr.svg"
-                          />
-                        </span>
-                        Français
+                        United Kingdom
                       </span>
                       <span
                         class="MuiTouchRipple-root"
@@ -7192,14 +7430,22 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
               <li>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
                     class="MuiButton-label"
                   >
-                    MC: menu.language
+                    <span
+                      class="LanguageButtonContent"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/uk.svg"
+                      />
+                      UK
+                    </span>
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
@@ -7790,6 +8036,34 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                   />
                 </a>
               </li>
+              <li
+                class="nav-item"
+              >
+                <button
+                  aria-label="MC: menu.language"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <img
+                      class="language-icon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    UK
+                    <span
+                      class="down-arrow"
+                    >
+                      ▾
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -7870,10 +8144,10 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                 <h6
                   class="MuiTypography-root heading Typography MuiTypography-h6"
                 >
-                  Global
+                  Europe
                 </h6>
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                  class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -7881,7 +8155,61 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/"
+                      href="/al"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/al.svg"
+                          />
+                        </span>
+                        Albania
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/at"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/at.svg"
+                          />
+                        </span>
+                        Österreich
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/uk"
                       tabindex="0"
                     >
                       <span
@@ -7895,61 +8223,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                             src="/icons/flags/uk.svg"
                           />
                         </span>
-                        English
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/de-de"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/de.svg"
-                          />
-                        </span>
-                        Deutsch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/fr-fr"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/fr.svg"
-                          />
-                        </span>
-                        Français
+                        United Kingdom
                       </span>
                       <span
                         class="MuiTouchRipple-root"
@@ -8175,14 +8449,22 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
               <li>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
                     class="MuiButton-label"
                   >
-                    MC: menu.language
+                    <span
+                      class="LanguageButtonContent"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/uk.svg"
+                      />
+                      UK
+                    </span>
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
@@ -8773,6 +9055,34 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   />
                 </a>
               </li>
+              <li
+                class="nav-item"
+              >
+                <button
+                  aria-label="MC: menu.language"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <img
+                      class="language-icon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    UK
+                    <span
+                      class="down-arrow"
+                    >
+                      ▾
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -8853,10 +9163,10 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 <h6
                   class="MuiTypography-root heading Typography MuiTypography-h6"
                 >
-                  Global
+                  Europe
                 </h6>
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                  class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -8864,7 +9174,61 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/"
+                      href="/al"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/al.svg"
+                          />
+                        </span>
+                        Albania
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/at"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <img
+                            class="LanguageIcon"
+                            src="/icons/flags/at.svg"
+                          />
+                        </span>
+                        Österreich
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      href="/uk"
                       tabindex="0"
                     >
                       <span
@@ -8878,61 +9242,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                             src="/icons/flags/uk.svg"
                           />
                         </span>
-                        English
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/de-de"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/de.svg"
-                          />
-                        </span>
-                        Deutsch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                  >
-                    <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                      href="/fr-fr"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                        >
-                          <img
-                            class="LanguageIcon"
-                            src="/icons/flags/fr.svg"
-                          />
-                        </span>
-                        Français
+                        United Kingdom
                       </span>
                       <span
                         class="MuiTouchRipple-root"
@@ -9158,14 +9468,22 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               <li>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
                     class="MuiButton-label"
                   >
-                    MC: menu.language
+                    <span
+                      class="LanguageButtonContent"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/uk.svg"
+                      />
+                      UK
+                    </span>
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >

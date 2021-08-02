@@ -1,6 +1,7 @@
 import DefaultButton, { ButtonProps, ClickableAction } from "@bmi/button";
 import Icon from "@bmi/icon";
 import Typography from "@bmi/typography";
+import type { LanguageSelectionItem } from "@bmi/language-selection";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";
@@ -33,7 +34,7 @@ type NavigationProps = {
   utilities: readonly LinkList[];
   mainMenuTitleLabel?: string;
   mainMenuDefaultLabel?: string;
-  languageLabel?: string;
+  language?: LanguageSelectionItem;
   sizes?: string[];
 };
 
@@ -46,7 +47,7 @@ const Navigation = ({
   setRootValue,
   toggleLanguageSelection,
   utilities,
-  languageLabel,
+  language,
   mainMenuTitleLabel,
   mainMenuDefaultLabel,
   sizes
@@ -79,7 +80,7 @@ const Navigation = ({
         utilities={utilities}
         mainMenuTitleLabel={mainMenuTitleLabel}
         mainMenuDefaultLabel={mainMenuDefaultLabel}
-        languageLabel={languageLabel}
+        language={language}
       />
     </nav>
   );
@@ -103,7 +104,7 @@ type NavigationListProps = {
   utilities?: readonly LinkList[];
   mainMenuTitleLabel?: string;
   mainMenuDefaultLabel?: string;
-  languageLabel?: string;
+  language?: LanguageSelectionItem;
 };
 
 const NavigationList = ({
@@ -124,7 +125,7 @@ const NavigationList = ({
   utilities,
   mainMenuTitleLabel = "BMI Group",
   mainMenuDefaultLabel = "Main menu",
-  languageLabel
+  language
 }: NavigationListProps) => {
   const [value, setValue] = React.useState<number | boolean>(initialValue);
 
@@ -313,14 +314,29 @@ const NavigationList = ({
             ))}
           </ul>
         )}
-        {isRoot && !!languageLabel && (
+        {isRoot && !!language && (
           <li>
             <NavigationListButton
               component={Button}
               endIcon={<ChevronRight className={styles["chevronRight"]} />}
               onClick={toggleLanguageSelection}
+              accessibilityLabel={language.code.toUpperCase()}
             >
-              {languageLabel}
+              <span className={styles["LanguageButtonContent"]}>
+                {language.icon &&
+                  (typeof language.icon === "string" ? (
+                    <img
+                      className={styles["LanguageIcon"]}
+                      src={language.icon}
+                    />
+                  ) : (
+                    <Icon
+                      source={language.icon}
+                      className={styles["LanguageIcon"]}
+                    />
+                  ))}
+                {language.code.toUpperCase()}
+              </span>
             </NavigationListButton>
           </li>
         )}
