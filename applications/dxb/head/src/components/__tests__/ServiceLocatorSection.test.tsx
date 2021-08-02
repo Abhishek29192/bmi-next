@@ -315,7 +315,10 @@ describe("ServiceLocatorSection component", () => {
       position: 1,
       centre: null,
       zoom: 8,
-      services: [createService({ name: "roofer 1" })]
+      services: [
+        createService({ name: "roofer 1" }),
+        createService({ name: "some other name" })
+      ]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
@@ -323,7 +326,19 @@ describe("ServiceLocatorSection component", () => {
 
     fireEvent.change(nameInput, { target: { value: "roofer" } });
 
-    expect(wrapper.container.parentElement).toMatchSnapshot();
+    expect(wrapper.container.parentElement).toMatchSnapshot(
+      "Filtered option list"
+    );
+
+    const option0 = wrapper.container.parentElement.querySelector(
+      "#company-autocomplete-option-0"
+    );
+
+    fireEvent.click(option0);
+
+    expect(wrapper.container.parentElement).toMatchSnapshot(
+      "Filtered main list"
+    );
   });
 
   it("doesn't search on entring the first letter", () => {
