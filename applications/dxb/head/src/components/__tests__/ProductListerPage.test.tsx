@@ -432,11 +432,13 @@ describe("ProductListerPage template", () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.contentfulProductListerPage.heroType = "Level 1";
 
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const { container } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
-        await waitFor(() => expect(findByText("Hero--lvl-1")).not.toBeNull());
+        await waitFor(() =>
+          expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(1)
+        );
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });
