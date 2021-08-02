@@ -15,14 +15,6 @@ export type CompanyHeaderProps = {
   company: GetCompanyQuery["company"];
 };
 
-const businessTypeLabelMap = {
-  [BUSINESS_TYPES.CONTRACTOR]: "company-page:business_type.contractor",
-  [BUSINESS_TYPES.ARCHITECT]: "company-page:business_type.architect",
-  [BUSINESS_TYPES.MERCHANT]: "company-page:business_type.merchant",
-  [BUSINESS_TYPES.CORP_DEVELOPER]: "company-page:business_type.corp_developer",
-  [BUSINESS_TYPES.COMPANY_ADMIN]: "company-page:business_type.company_admin)"
-};
-
 export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
   const { t } = useTranslation(["common", "company-page"]);
   return (
@@ -32,7 +24,7 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
       </Typography>
 
       <Typography className={styles.businessType} variant="h5">
-        {t(businessTypeLabelMap[company.businessType])}
+        {t(`company-page:business_type.${company.businessType}`)}
       </Typography>
 
       <div className={styles.body}>

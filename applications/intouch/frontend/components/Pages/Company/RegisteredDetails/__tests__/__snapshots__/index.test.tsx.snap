@@ -127,7 +127,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
       >
-        Operation_types.pitched and operation_types.flat company.operations_suffix
+        Operation_types.pitched and operation_types.FLAT company.operations_suffix
       </div>
     </div>
   </div>

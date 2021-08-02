@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import capitalize from "lodash.capitalize";
 import { gql } from "@apollo/client";
+import { Operation } from "@bmi/intouch-api-types";
 import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
-import { OPERATION_TYPES } from "../../../../lib/constants";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
 import styles from "./styles.module.scss";
@@ -13,20 +13,11 @@ export type CompanyRegisteredDetailsProps = {
   company: GetCompanyQuery["company"];
 };
 
-const operationsLabelMap = {
-  [OPERATION_TYPES.FLAT]: "company-page:operation_types.flat",
-  [OPERATION_TYPES.PITCHED]: "company-page:operation_types.pitched",
-  [OPERATION_TYPES.SOLAR]: "company-page:operation_types.flat",
-  [OPERATION_TYPES.BITUMEN]: "company-page:operation_types.bitumen",
-  [OPERATION_TYPES.TILE]: "company-page:operation_types.tile",
-  [OPERATION_TYPES.COATER]: "company-page:operation_types.coater",
-  [OPERATION_TYPES.GREEN]: "company-page:operation_types.green"
-};
+export const formatCompanyOperations = (t, operations: Operation[]) => {
+  const operationLabels = operations.map((operation) =>
+    t(`company-page:operation_types.${operation}`)
+  );
 
-export const formatCompanyOperations = (
-  operationLabels: string[],
-  suffix: string
-): string => {
   const operationsText = operationLabels.reduce((str, o, idx) => {
     if (idx === 0) {
       return capitalize(o);
@@ -36,6 +27,8 @@ export const formatCompanyOperations = (
     }
     return `${str}, ${o}`;
   }, "");
+
+  const suffix = t("company-page:company.operations_suffix");
 
   return operationLabels.length > 0 ? `${operationsText} ${suffix}` : "";
 };
@@ -51,12 +44,9 @@ export const CompanyRegisteredDetails = ({
   }
 }: CompanyRegisteredDetailsProps) => {
   const { t } = useTranslation(["common", "company-page"]);
-  const operationLabels = useMemo(
-    () =>
-      companyOperationsByCompany.nodes.map(({ operation }) =>
-        t(operationsLabelMap[operation])
-      ),
-    [t, companyOperationsByCompany.nodes]
+
+  const operations = companyOperationsByCompany.nodes.map(
+    (node) => node.operation
   );
 
   return (
@@ -80,12 +70,9 @@ export const CompanyRegisteredDetails = ({
 
         <InfoPair title={t("Tier")}>{tier}</InfoPair>
 
-        {operationLabels.length > 0 ? (
+        {operations.length > 0 ? (
           <InfoPair title={t("company-page:company.operations")}>
-            {formatCompanyOperations(
-              operationLabels,
-              t("company-page:company.operations_suffix")
-            )}
+            {formatCompanyOperations(t, operations)}
           </InfoPair>
         ) : null}
       </div>

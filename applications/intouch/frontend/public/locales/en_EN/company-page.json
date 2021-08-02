@@ -17,21 +17,34 @@
     "closeAlertAccessibilityLabel": "Close Alert"
   },
   "business_type": {
-    "contractor": "Contractor",
-    "architect": "Architect",
-    "merchant": "Merchant",
-    "corp_developer": "Developer",
-    "company_admin": "Company administrator"
+    "CONTRACTOR": "Contractor",
+    "ARCHITECT": "Architect",
+    "MERCHANT": "Merchant",
+    "CORP_DEVELOPER": "Developer"
   },
   "company.operations": "Operation Type",
   "company.operations_suffix": "roofing",
   "operation_types": {
-    "flat": "flat",
-    "pitched": "pitched",
-    "solar": "solar",
-    "bitumen": "bitumen",
-    "tile": "tile",
-    "coater": "coater",
-    "green": "green"
+    "FLAT": "flat",
+    "PITCHED": "pitched",
+    "SOLAR": "solar",
+    "BITUMEN": "bitumen",
+    "TILE": "tile",
+    "COATER": "coater",
+    "GREEN": "green"
+  },
+  "edit_dialog": {
+    "title": "Edit Company Details",
+    "form": {
+      "fields": {
+        "name": {
+          "label": "Company Name",
+          "placeholder": "COMPANY NAME PLACEHOLDER"
+        }
+      },
+      "actions": {
+        "submit": "Save & Close"
+      }
+    }
   }
 }

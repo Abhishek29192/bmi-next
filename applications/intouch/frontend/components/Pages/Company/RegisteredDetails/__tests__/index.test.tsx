@@ -1,33 +1,48 @@
 import React from "react";
+import { Operation } from "@bmi/intouch-api-types";
 import { mockCompany } from "../../../../../fixtures/company";
 import { renderWithI18NProvider, screen } from "../../../../../lib/tests/utils";
+import { OPERATION_TYPES } from "../../../../../lib/constants";
 import { formatCompanyOperations, CompanyRegisteredDetails } from "..";
 
-const suffix = "operations";
+const t = jest.fn().mockImplementation((key) => {
+  // "Company-page:operation_types.FLAT" --> "flat"
+  return key.replace(/.+\./, "").toLowerCase();
+});
 
 describe("formatCompanyOperations", () => {
   it("should add suffix", () => {
-    expect(formatCompanyOperations(["flat", "pitched"], suffix)).toMatch(
-      / operations$/
-    );
+    expect(
+      formatCompanyOperations(t, [
+        OPERATION_TYPES.FLAT,
+        OPERATION_TYPES.PITCHED
+      ] as Operation[])
+    ).toMatchInlineSnapshot(`"Flat and pitched operations_suffix"`);
   });
 
   it("should handle single operation", () => {
-    expect(formatCompanyOperations(["flat"], suffix)).toMatch(
-      /^flat operations$/i
-    );
+    expect(
+      formatCompanyOperations(t, [OPERATION_TYPES.FLAT] as Operation[])
+    ).toMatchInlineSnapshot(`"Flat operations_suffix"`);
   });
 
   it("should handle 2 operations", () => {
-    expect(formatCompanyOperations(["flat", "pitched"], suffix)).toMatch(
-      /^flat and pitched operations$/i
-    );
+    expect(
+      formatCompanyOperations(t, [
+        OPERATION_TYPES.FLAT,
+        OPERATION_TYPES.PITCHED
+      ] as Operation[])
+    ).toMatchInlineSnapshot(`"Flat and pitched operations_suffix"`);
   });
 
   it("should handle > 2 operations", () => {
     expect(
-      formatCompanyOperations(["flat", "pitched", "solar"], suffix)
-    ).toMatch(/^flat, pitched and solar operations$/i);
+      formatCompanyOperations(t, [
+        OPERATION_TYPES.FLAT,
+        OPERATION_TYPES.PITCHED,
+        OPERATION_TYPES.SOLAR
+      ] as Operation[])
+    ).toMatchInlineSnapshot(`"Flat, pitched and solar operations_suffix"`);
   });
 });
 
