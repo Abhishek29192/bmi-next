@@ -5029,6 +5029,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                       >
                         MC: plp.filters.clearAll
                       </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
                     </button>
                   </div>
                   <div
@@ -5075,6 +5078,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                                 />
                               </svg>
                             </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
                           </div>
                         </div>
                         <div
@@ -5305,6 +5311,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                           type="button"
                         >
                           1
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
                         </button>
                       </li>
                       <li>
@@ -5501,6 +5510,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
             />
           </svg>
         </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </button>
     </div>
   </div>
@@ -8689,6 +8701,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   >
                     string
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </a>
               </li>
             </ul>
@@ -8697,7 +8712,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       </nav>
       <div
         class="drawer language-drawer"
-        style="visibility: hidden;"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
@@ -8719,6 +8734,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               />
             </svg>
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
         <div
           class="back-navigation"
@@ -8747,6 +8765,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               </span>
               MC: menu.mainDefault
             </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
           </button>
           <hr
             class="separator"
@@ -8792,6 +8813,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         </span>
                         English
                       </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
                     </a>
                   </div>
                   <div
@@ -8816,6 +8840,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         </span>
                         Deutsch
                       </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
                     </a>
                   </div>
                   <div
@@ -8840,6 +8867,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         </span>
                         Français
                       </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
                     </a>
                   </div>
                 </div>
@@ -8883,7 +8913,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   />
                   <div
                     class="MuiTabs-scroller MuiTabs-scrollable"
-                    style="overflow: hidden;"
+                    style="margin-bottom: 0px;"
                   >
                     <div
                       class="MuiTabs-flexContainer"
@@ -8903,8 +8933,15 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         >
                           string
                         </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
                       </a>
                     </div>
+                    <span
+                      class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
                   </div>
                 </div>
               </nav>
@@ -8932,6 +8969,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     />
                   </svg>
                 </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
               </button>
               <button
                 aria-label="MC: menu.open"
@@ -8953,6 +8993,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     />
                   </svg>
                 </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
               </button>
             </div>
           </div>
@@ -8965,7 +9008,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       />
       <div
         class="drawer nav-drawer"
-        style="visibility: hidden;"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
@@ -8987,6 +9030,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               />
             </svg>
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
         <nav
           class="Navigation Navigation--small Navigation--medium Navigation--large"
@@ -9015,6 +9061,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   >
                     string
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </a>
               </li>
               <ul
@@ -9033,6 +9082,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     >
                       string
                     </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
               </ul>
@@ -9062,6 +9114,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       </svg>
                     </span>
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </li>
             </ul>
@@ -9070,7 +9125,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       </div>
       <div
         class="search-drawer-container"
-        style="visibility: hidden;"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
           class="drawer search-drawer"
@@ -9095,6 +9150,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 />
               </svg>
             </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
           </button>
           <h4
             class="MuiTypography-root Typography MuiTypography-h4"
@@ -9161,6 +9219,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                           Home page title
                         </span>
                       </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
                     </a>
                   </li>
                 </ol>
@@ -9372,6 +9433,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                           </a>
                         </div>
                       </div>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
                     </a>
                   </div>
                 </div>
@@ -9414,6 +9478,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                           type="button"
                         >
                           1
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
                         </button>
                       </li>
                       <li>
@@ -9494,6 +9561,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         Home page title
                       </span>
                     </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
               </ol>
@@ -9555,6 +9625,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     >
                       string
                     </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
                 <li
@@ -9573,6 +9646,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     >
                       MC: global.sitemap
                     </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
               </ul>
@@ -9610,6 +9686,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             />
           </svg>
         </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </button>
     </div>
   </div>
