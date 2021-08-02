@@ -17,10 +17,12 @@ import {
 import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
 import { withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
+import { SimpleCard } from "../components/Cards/SimpleCard";
 import { Link } from "../components/Link";
 import logger from "../lib/logger";
 import { findAccountCompany, findAccountTier } from "../lib/account";
 import { useAccountContext } from "../context/AccountContext";
+import styles from "../styles/Homepage.module.scss";
 
 type HomePageProps = {
   marketContentCollection: GetPartnerBrandsQuery["marketContentCollection"];
@@ -193,6 +195,29 @@ const Homepage = ({
           </Section>
         </>
       ) : null}
+
+      <div className={styles.feedholder}>
+        <SimpleCard>
+          <Typography variant="h4" hasUnderline>
+            LinkedIn
+          </Typography>
+
+          <p>{marketContentCollection.items[0].newsItemUrl}</p>
+          <iframe
+            src="https://www.linkedin.com/embed/feed/update/urn:li:share:6706847282253430785"
+            height="400px"
+            width="100%"
+            frameBorder="0"
+            className={styles.embed}
+          />
+          <Button variant="outlined">Read more on LinkedIn</Button>
+        </SimpleCard>
+        <SimpleCard>
+          <Typography variant="h4" hasUnderline>
+            Tier Benefits
+          </Typography>
+        </SimpleCard>
+      </div>
     </Layout>
   );
 };
@@ -225,6 +250,7 @@ export const GET_PARTNER_BRANDS = gql`
             }
           }
         }
+        newsItemUrl
       }
     }
     carouselCollection(where: { audienceRole: $role }, limit: 1) {
