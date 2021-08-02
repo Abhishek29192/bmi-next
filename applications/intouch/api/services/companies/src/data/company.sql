@@ -534,7 +534,7 @@ INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
 TRUNCATE TABLE company RESTART IDENTITY;
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', '142214', 'Integrated Solutions Inc', '63323-463', '843-985-4588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '0093-7392', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1280px-Smiley.svg.png', NULL, NULL, NULL);
+  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', '142214', 'Integrated Solutions Inc', '63323-463', '843-985-4588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '0093-7392', 'https://upload.wikimedia.org/wikipedia/commons/6/63/Integrated_Engineering_Solutions.png', NULL, NULL, NULL);
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
   VALUES ('2', 1, 2, 5, 'Liam Gallagher', 'liam@test.com', '234234', 'CONTRACTOR', 'T4', 'ACTIVE', 'mbrosch1@go.com', '2020-11-20 12:00:00', '52355', 'Pathfinder Construction Ltd', '0378-4094', '757-208-9959', 'We build really hard things that support everything else', 'ssnipe1@pen.io', 'https://oracle.com', 'https://www.facebook.com/europeanparliament', 'https://www.linkedin.com/company/eu', '64772-300', 'https://upload.wikimedia.org/wikipedia/commons/7/7d/A_Red_Star.png', NULL, NULL, NULL);
@@ -666,11 +666,11 @@ TRUNCATE TABLE market RESTART IDENTITY;
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
-  VALUES ('1', 'en', 'en', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'mapleland@intouch.bmigroup.com', '41', '41', 345, 'tbc2', TRUE, 'tbc1', '42.7684,-78.8871');
+  VALUES ('1', 'en', 'en', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'intouch@bmigroup.en', '41', '41', 345, 'https://italy.bmiroofpromerch.com/', TRUE, 'tbc1', '42.7684,-78.8871');
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
-  VALUES ('2', 'en', 'tra', 'opay6t6wwmup', 'Transatlantia', 'BMI Intouch Mapleland', 'transatlantia@intouch.bmigroup.com', '41', '41', 123, 'tbc2', TRUE, 'tbc1', '27.9139,-82.7157');
+  VALUES ('2', 'no', 'no', 'opay6t6wwmup', 'Transatlantia', 'BMI Intouch Mapleland', 'intouch@bmigroup.no', '41', '41', 123, 'https://italy.bmiroofpromerch.com/', TRUE, 'tbc1', '27.9139,-82.7157');
 
 TRUNCATE TABLE note RESTART IDENTITY;
 

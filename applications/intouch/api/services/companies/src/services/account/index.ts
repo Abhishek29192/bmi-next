@@ -3,7 +3,7 @@ import { InviteInput, Role } from "@bmi/intouch-api-types";
 import { FileUpload } from "graphql-upload";
 import { UpdateAccountInput } from "@bmi/intouch-api-types";
 import { publish, TOPICS } from "../../services/events";
-import { sendChangeRoleEmail } from "../../services/mailer";
+import { sendEmailWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
 import StorageClient from "../storage-client";
 import { Account } from "../../types";
@@ -79,7 +79,7 @@ export const updateAccount = async (
 ) => {
   const { GCP_BUCKET_NAME } = process.env;
 
-  const { pgClient, user, logger: Logger, pubSub } = context;
+  const { pgClient, user, logger: Logger } = context;
   const { photoUpload, role } = args.input.patch;
 
   const logger = Logger("service:account");
@@ -139,7 +139,7 @@ export const updateAccount = async (
           level
         });
 
-        await sendChangeRoleEmail(pubSub, {
+        await sendEmailWithTemplate(context, "ROLE_ASSIGNED", {
           email: result.data.$email,
           firstname: result.data.$first_name,
           role: role?.toLowerCase().replace("_", " ")
@@ -185,7 +185,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
   const logger = context.logger("service:account");
 
   const user: Account = context.user;
-  const { pubSub, pgClient, pgRootPool } = context;
+  const { pgClient, pgRootPool } = context;
 
   const {
     emails,
@@ -225,7 +225,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         verify_email: false,
         user_metadata: {
           intouch_role: INSTALLER,
-          market: user.marketDomain,
+          market: user.market.domain,
           first_name: firstName,
           last_name: lastName
         }
@@ -275,7 +275,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         });
 
         // Send the email with the link to reset the password to the user
-        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
+        await publish(context, TOPICS.TRANSACTIONAL_EMAIL, {
           title: `You have been invited by ${user.company.id}`,
           text: `
             You are invited by company ${user.company.id}.
@@ -297,7 +297,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         logger.info("Reset password email sent");
       } else {
         // Send the email with the invitation link
-        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
+        await publish(context, TOPICS.TRANSACTIONAL_EMAIL, {
           title: `You have been invited by ${user.company.id}`,
           text: `
             You are invited by company ${user.company.id}.

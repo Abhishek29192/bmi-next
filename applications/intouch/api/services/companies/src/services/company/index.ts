@@ -16,7 +16,7 @@ export const deleteCompanyMember = async (
   context,
   resolveInfo
 ) => {
-  const { pgClient, pubSub } = context;
+  const { pgClient } = context;
   const { id }: DeleteCompanyMemberInput = args.input;
 
   const logger = context.logger("delete:companyMember");
@@ -50,7 +50,7 @@ export const deleteCompanyMember = async (
 
     const result = await resolve(source, args, context, resolveInfo);
 
-    await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
+    await publish(context, TOPICS.TRANSACTIONAL_EMAIL, {
       title: `You have been removed from the company ${userToRemove.company_id}`,
       text: `
         You have been removed from the company ${userToRemove.company_id}
