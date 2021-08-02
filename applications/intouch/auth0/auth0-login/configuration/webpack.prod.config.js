@@ -11,6 +11,11 @@ const webpackConfiguration = require("../webpack.config");
 module.exports = merge(webpackConfiguration, {
   mode: "production",
 
+  output: {
+    ...webpackConfiguration.output,
+    publicPath: "https://storage.googleapis.com/intouch-public-assets/auth0"
+  },
+
   /* Manage source maps generation process. Refer to https://webpack.js.org/configuration/devtool/#production */
   devtool: false,
 
