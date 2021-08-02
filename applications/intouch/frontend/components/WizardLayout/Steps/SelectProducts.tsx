@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { Product, Technology } from "@bmi/intouch-api-types";
-import { useSearchProductsLazyQuery } from "../../../../graphql/generated/hooks";
+import { useSearchProductsLazyQuery } from "../../../graphql/generated/hooks";
 import {
   WizardAutoComplete,
   WizardAutoCompleteOptions,
   WizardAutoCompleteItem
-} from "../../../../components/WizardLayout/WizardAutoComplete";
-import { useWizardContext } from "../../../../context/WizardContext";
-import { WizardProductDetailCard } from "../../../../components/WizardLayout/WizardProductDetailCard";
+} from "../WizardAutoComplete";
+import { useWizardContext } from "../WizardContext";
+import { WizardProductDetailCard } from "../WizardProductDetailCard";
 
 export const SelectProducts = () => {
   const { data, setData } = useWizardContext();
@@ -72,7 +72,7 @@ export const SelectProducts = () => {
           description={data.product.description}
           brand={data.product.brand}
           family={data.product.family}
-          onClick={() => {
+          onDeleteClick={() => {
             handleChange(null);
           }}
         />

@@ -2,8 +2,8 @@ import React from "react";
 import Tooltip from "@bmi/tooltip";
 import { GuaranteeType } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
-import { ActionTile } from "../../../../components/ActionTile";
-import { useWizardContext } from "../../../../context/WizardContext";
+import { ActionTile } from "../../../components/ActionTile";
+import { useWizardContext } from "../WizardContext";
 
 export type SelectGuaranteeType = {
   guaranteeType: GuaranteeType;

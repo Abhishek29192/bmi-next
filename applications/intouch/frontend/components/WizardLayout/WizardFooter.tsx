@@ -1,11 +1,13 @@
 import React from "react";
 import Button from "@bmi/button";
 import { ArrowBack } from "@material-ui/icons";
-import { useWizardContext } from "../../context/WizardContext";
+import { useWizardContext } from "./WizardContext";
 import styles from "./styles.module.scss";
 
 export const WizardFooter = () => {
-  const { activeStep, setStep } = useWizardContext();
+  const { gotoNext, gotoBack, isNextStepAvailable, isBackStepAvailable } =
+    useWizardContext();
+
   return (
     <div className={styles.footer}>
       <div className={styles.footer__inner}>
@@ -13,18 +15,13 @@ export const WizardFooter = () => {
           startIcon={<ArrowBack />}
           variant="outlined"
           size="large"
-          onClick={() => {
-            setStep(activeStep - 1);
-          }}
+          onClick={gotoBack}
+          disabled={!isBackStepAvailable}
         >
           Go back
         </Button>
-        <Button
-          size="large"
-          onClick={() => {
-            setStep(activeStep + 1);
-          }}
-        >
+
+        <Button size="large" onClick={gotoNext} disabled={!isNextStepAvailable}>
           Next
         </Button>
       </div>

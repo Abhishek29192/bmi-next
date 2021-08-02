@@ -294,155 +294,6 @@ export type CompanyRegisteredDetailsFragmentFragment = {
     };
   };
 
-export type BulkImportMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.BulkImportInput;
-}>;
-
-export type BulkImportMutation = { readonly __typename?: "Mutation" } & {
-  readonly bulkImport?: SchemaTypes.Maybe<
-    { readonly __typename?: "ImportOutput" } & {
-      readonly systemsToInsert?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          { readonly __typename?: "System" } & Pick<
-            SchemaTypes.System,
-            "bmiRef"
-          >
-        >
-      >;
-      readonly systemsToUpdate?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          { readonly __typename?: "System" } & Pick<
-            SchemaTypes.System,
-            "bmiRef"
-          >
-        >
-      >;
-      readonly productsToInsert?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          { readonly __typename?: "Product" } & Pick<
-            SchemaTypes.Product,
-            "bmiRef"
-          >
-        >
-      >;
-      readonly productsToUpdate?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          { readonly __typename?: "Product" } & Pick<
-            SchemaTypes.Product,
-            "bmiRef"
-          >
-        >
-      >;
-      readonly errorSystemsToUpdate?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          { readonly __typename?: "ImportError" } & Pick<
-            SchemaTypes.ImportError,
-            "ref" | "message"
-          >
-        >
-      >;
-      readonly errorSystemsToInsert?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          { readonly __typename?: "ImportError" } & Pick<
-            SchemaTypes.ImportError,
-            "ref" | "message"
-          >
-        >
-      >;
-      readonly errorProductsToUpdate?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          { readonly __typename?: "ImportError" } & Pick<
-            SchemaTypes.ImportError,
-            "ref" | "message"
-          >
-        >
-      >;
-      readonly errorProductsToInsert?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          { readonly __typename?: "ImportError" } & Pick<
-            SchemaTypes.ImportError,
-            "ref" | "message"
-          >
-        >
-      >;
-      readonly errorSystemMembersInsert?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          { readonly __typename?: "ImportError" } & Pick<
-            SchemaTypes.ImportError,
-            "ref" | "message"
-          >
-        >
-      >;
-    }
-  >;
-};
-
-export type UpdateProductMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.UpdateProductInput;
-}>;
-
-export type UpdateProductMutation = { readonly __typename?: "Mutation" } & {
-  readonly updateProduct?: SchemaTypes.Maybe<
-    { readonly __typename?: "UpdateProductPayload" } & {
-      readonly query?: SchemaTypes.Maybe<
-        { readonly __typename?: "Query" } & {
-          readonly products?: SchemaTypes.Maybe<
-            { readonly __typename?: "ProductsConnection" } & {
-              readonly nodes: ReadonlyArray<
-                { readonly __typename?: "Product" } & Pick<
-                  SchemaTypes.Product,
-                  | "id"
-                  | "name"
-                  | "brand"
-                  | "family"
-                  | "bmiRef"
-                  | "updatedAt"
-                  | "published"
-                  | "technology"
-                  | "description"
-                  | "maximumValidityYears"
-                >
-              >;
-            }
-          >;
-        }
-      >;
-    }
-  >;
-};
-
-export type UpdateSystemMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.UpdateSystemInput;
-}>;
-
-export type UpdateSystemMutation = { readonly __typename?: "Mutation" } & {
-  readonly updateSystem?: SchemaTypes.Maybe<
-    { readonly __typename?: "UpdateSystemPayload" } & {
-      readonly query?: SchemaTypes.Maybe<
-        { readonly __typename?: "Query" } & {
-          readonly systems?: SchemaTypes.Maybe<
-            { readonly __typename?: "SystemsConnection" } & {
-              readonly nodes: ReadonlyArray<
-                { readonly __typename?: "System" } & Pick<
-                  SchemaTypes.System,
-                  | "id"
-                  | "name"
-                  | "bmiRef"
-                  | "updatedAt"
-                  | "published"
-                  | "technology"
-                  | "description"
-                  | "maximumValidityYears"
-                >
-              >;
-            }
-          >;
-        }
-      >;
-    }
-  >;
-};
-
 export type UpdateAccountProfileMutationVariables = SchemaTypes.Exact<{
   updateAccountInput: SchemaTypes.UpdateAccountInput;
 }>;
@@ -770,78 +621,6 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
-export type GetProductGuaranteeTypesQueryVariables = SchemaTypes.Exact<{
-  tecnology?: SchemaTypes.Maybe<SchemaTypes.Scalars["String"]>;
-}>;
-
-export type GetProductGuaranteeTypesQuery = {
-  readonly __typename?: "Query";
-} & {
-  readonly guaranteeTypeCollection?: SchemaTypes.Maybe<
-    { readonly __typename?: "GuaranteeTypeCollection" } & {
-      readonly items: ReadonlyArray<
-        SchemaTypes.Maybe<
-          { readonly __typename?: "GuaranteeType" } & Pick<
-            SchemaTypes.GuaranteeType,
-            | "name"
-            | "displayName"
-            | "technology"
-            | "coverage"
-            | "ranking"
-            | "tiersAvailable"
-          > & {
-              readonly sys: { readonly __typename?: "Sys" } & Pick<
-                SchemaTypes.Sys,
-                "id"
-              >;
-              readonly guaranteeTemplatesCollection?: SchemaTypes.Maybe<
-                {
-                  readonly __typename?: "GuaranteeTypeGuaranteeTemplatesCollection";
-                } & {
-                  readonly items: ReadonlyArray<
-                    SchemaTypes.Maybe<
-                      { readonly __typename?: "GuaranteeTemplate" } & Pick<
-                        SchemaTypes.GuaranteeTemplate,
-                        "displayName"
-                      >
-                    >
-                  >;
-                }
-              >;
-            }
-        >
-      >;
-    }
-  >;
-};
-
-export type SearchProductsQueryVariables = SchemaTypes.Exact<{
-  query: SchemaTypes.Scalars["String"];
-  technology: SchemaTypes.Technology;
-}>;
-
-export type SearchProductsQuery = { readonly __typename?: "Query" } & {
-  readonly searchProducts?: SchemaTypes.Maybe<
-    { readonly __typename?: "ProductsConnection" } & Pick<
-      SchemaTypes.ProductsConnection,
-      "totalCount"
-    > & {
-        readonly nodes: ReadonlyArray<
-          { readonly __typename?: "Product" } & Pick<
-            SchemaTypes.Product,
-            | "id"
-            | "technology"
-            | "name"
-            | "description"
-            | "published"
-            | "brand"
-            | "family"
-          >
-        >;
-      }
-  >;
-};
-
 export type DeleteProjectMemberMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.DeleteProjectMemberInput;
 }>;
@@ -993,6 +772,83 @@ export type ContentfulEvidenceCategoriesQuery = {
               readonly sys: { readonly __typename?: "Sys" } & Pick<
                 SchemaTypes.Sys,
                 "id"
+              >;
+            }
+        >
+      >;
+    }
+  >;
+};
+
+export type SearchProductsQueryVariables = SchemaTypes.Exact<{
+  query: SchemaTypes.Scalars["String"];
+  technology: SchemaTypes.Technology;
+}>;
+
+export type SearchProductsQuery = { readonly __typename?: "Query" } & {
+  readonly searchProducts?: SchemaTypes.Maybe<
+    { readonly __typename?: "ProductsConnection" } & Pick<
+      SchemaTypes.ProductsConnection,
+      "totalCount"
+    > & {
+        readonly nodes: ReadonlyArray<
+          { readonly __typename?: "Product" } & Pick<
+            SchemaTypes.Product,
+            | "id"
+            | "technology"
+            | "name"
+            | "description"
+            | "published"
+            | "brand"
+            | "family"
+          >
+        >;
+      }
+  >;
+};
+
+export type GetProductGuaranteeTypesQueryVariables = SchemaTypes.Exact<{
+  technology?: SchemaTypes.Maybe<SchemaTypes.Scalars["String"]>;
+}>;
+
+export type GetProductGuaranteeTypesQuery = {
+  readonly __typename?: "Query";
+} & {
+  readonly guaranteeTypeCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "GuaranteeTypeCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "GuaranteeType" } & Pick<
+            SchemaTypes.GuaranteeType,
+            | "name"
+            | "displayName"
+            | "technology"
+            | "coverage"
+            | "ranking"
+            | "tiersAvailable"
+          > & {
+              readonly sys: { readonly __typename?: "Sys" } & Pick<
+                SchemaTypes.Sys,
+                "id"
+              >;
+              readonly guaranteeTemplatesCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "GuaranteeTypeGuaranteeTemplatesCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "GuaranteeTemplate" } & Pick<
+                        SchemaTypes.GuaranteeTemplate,
+                        "displayName"
+                      > & {
+                          readonly sys: { readonly __typename?: "Sys" } & Pick<
+                            SchemaTypes.Sys,
+                            "id"
+                          >;
+                        }
+                    >
+                  >;
+                }
               >;
             }
         >

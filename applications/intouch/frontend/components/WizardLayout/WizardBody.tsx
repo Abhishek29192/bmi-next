@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@bmi/typography";
-import { useWizardContext } from "../../context/WizardContext";
+import { useWizardContext } from "./WizardContext";
 import styles from "./styles.module.scss";
 
 export type WizardBodyProps = {

@@ -369,215 +369,6 @@ export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
 >;
-export const BulkImportDocument = gql`
-  mutation bulkImport($input: BulkImportInput!) {
-    bulkImport(input: $input) {
-      systemsToInsert {
-        bmiRef
-      }
-      systemsToUpdate {
-        bmiRef
-      }
-      productsToInsert {
-        bmiRef
-      }
-      productsToUpdate {
-        bmiRef
-      }
-      errorSystemsToUpdate {
-        ref
-        message
-      }
-      errorSystemsToInsert {
-        ref
-        message
-      }
-      errorProductsToUpdate {
-        ref
-        message
-      }
-      errorProductsToInsert {
-        ref
-        message
-      }
-      errorSystemMembersInsert {
-        ref
-        message
-      }
-    }
-  }
-`;
-export type BulkImportMutationFn = Apollo.MutationFunction<
-  OperationTypes.BulkImportMutation,
-  OperationTypes.BulkImportMutationVariables
->;
-
-/**
- * __useBulkImportMutation__
- *
- * To run a mutation, you first call `useBulkImportMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useBulkImportMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [bulkImportMutation, { data, loading, error }] = useBulkImportMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useBulkImportMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.BulkImportMutation,
-    OperationTypes.BulkImportMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.BulkImportMutation,
-    OperationTypes.BulkImportMutationVariables
-  >(BulkImportDocument, options);
-}
-export type BulkImportMutationHookResult = ReturnType<
-  typeof useBulkImportMutation
->;
-export type BulkImportMutationResult =
-  Apollo.MutationResult<OperationTypes.BulkImportMutation>;
-export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.BulkImportMutation,
-  OperationTypes.BulkImportMutationVariables
->;
-export const UpdateProductDocument = gql`
-  mutation updateProduct($input: UpdateProductInput!) {
-    updateProduct(input: $input) {
-      query {
-        products {
-          nodes {
-            id
-            name
-            brand
-            family
-            bmiRef
-            updatedAt
-            published
-            technology
-            description
-            maximumValidityYears
-          }
-        }
-      }
-    }
-  }
-`;
-export type UpdateProductMutationFn = Apollo.MutationFunction<
-  OperationTypes.UpdateProductMutation,
-  OperationTypes.UpdateProductMutationVariables
->;
-
-/**
- * __useUpdateProductMutation__
- *
- * To run a mutation, you first call `useUpdateProductMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpdateProductMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [updateProductMutation, { data, loading, error }] = useUpdateProductMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUpdateProductMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.UpdateProductMutation,
-    OperationTypes.UpdateProductMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.UpdateProductMutation,
-    OperationTypes.UpdateProductMutationVariables
-  >(UpdateProductDocument, options);
-}
-export type UpdateProductMutationHookResult = ReturnType<
-  typeof useUpdateProductMutation
->;
-export type UpdateProductMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
-export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.UpdateProductMutation,
-  OperationTypes.UpdateProductMutationVariables
->;
-export const UpdateSystemDocument = gql`
-  mutation updateSystem($input: UpdateSystemInput!) {
-    updateSystem(input: $input) {
-      query {
-        systems {
-          nodes {
-            id
-            name
-            bmiRef
-            updatedAt
-            published
-            technology
-            description
-            maximumValidityYears
-          }
-        }
-      }
-    }
-  }
-`;
-export type UpdateSystemMutationFn = Apollo.MutationFunction<
-  OperationTypes.UpdateSystemMutation,
-  OperationTypes.UpdateSystemMutationVariables
->;
-
-/**
- * __useUpdateSystemMutation__
- *
- * To run a mutation, you first call `useUpdateSystemMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpdateSystemMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [updateSystemMutation, { data, loading, error }] = useUpdateSystemMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUpdateSystemMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.UpdateSystemMutation,
-    OperationTypes.UpdateSystemMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.UpdateSystemMutation,
-    OperationTypes.UpdateSystemMutationVariables
-  >(UpdateSystemDocument, options);
-}
-export type UpdateSystemMutationHookResult = ReturnType<
-  typeof useUpdateSystemMutation
->;
-export type UpdateSystemMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
-export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.UpdateSystemMutation,
-  OperationTypes.UpdateSystemMutationVariables
->;
 export const UpdateAccountProfileDocument = gql`
   mutation updateAccountProfile($updateAccountInput: UpdateAccountInput!) {
     updateAccount(input: $updateAccountInput) {
@@ -933,150 +724,6 @@ export type GetProjectLazyQueryHookResult = ReturnType<
 export type GetProjectQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectQuery,
   OperationTypes.GetProjectQueryVariables
->;
-export const GetProductGuaranteeTypesDocument = gql`
-  query getProductGuaranteeTypes($tecnology: String) {
-    guaranteeTypeCollection(
-      order: ranking_ASC
-      where: { technology: $tecnology }
-    ) {
-      items {
-        sys {
-          id
-        }
-        name
-        displayName
-        technology
-        coverage
-        ranking
-        tiersAvailable
-        guaranteeTemplatesCollection {
-          items {
-            displayName
-          }
-        }
-      }
-    }
-  }
-`;
-
-/**
- * __useGetProductGuaranteeTypesQuery__
- *
- * To run a query within a React component, call `useGetProductGuaranteeTypesQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetProductGuaranteeTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetProductGuaranteeTypesQuery({
- *   variables: {
- *      tecnology: // value for 'tecnology'
- *   },
- * });
- */
-export function useGetProductGuaranteeTypesQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.GetProductGuaranteeTypesQuery,
-    OperationTypes.GetProductGuaranteeTypesQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.GetProductGuaranteeTypesQuery,
-    OperationTypes.GetProductGuaranteeTypesQueryVariables
-  >(GetProductGuaranteeTypesDocument, options);
-}
-export function useGetProductGuaranteeTypesLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.GetProductGuaranteeTypesQuery,
-    OperationTypes.GetProductGuaranteeTypesQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.GetProductGuaranteeTypesQuery,
-    OperationTypes.GetProductGuaranteeTypesQueryVariables
-  >(GetProductGuaranteeTypesDocument, options);
-}
-export type GetProductGuaranteeTypesQueryHookResult = ReturnType<
-  typeof useGetProductGuaranteeTypesQuery
->;
-export type GetProductGuaranteeTypesLazyQueryHookResult = ReturnType<
-  typeof useGetProductGuaranteeTypesLazyQuery
->;
-export type GetProductGuaranteeTypesQueryResult = Apollo.QueryResult<
-  OperationTypes.GetProductGuaranteeTypesQuery,
-  OperationTypes.GetProductGuaranteeTypesQueryVariables
->;
-export const SearchProductsDocument = gql`
-  query searchProducts($query: String!, $technology: Technology!) {
-    searchProducts(query: $query, technology: $technology, first: 20) {
-      totalCount
-      nodes {
-        id
-        technology
-        name
-        description
-        published
-        brand
-        family
-      }
-    }
-  }
-`;
-
-/**
- * __useSearchProductsQuery__
- *
- * To run a query within a React component, call `useSearchProductsQuery` and pass it any options that fit your needs.
- * When your component renders, `useSearchProductsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useSearchProductsQuery({
- *   variables: {
- *      query: // value for 'query'
- *      technology: // value for 'technology'
- *   },
- * });
- */
-export function useSearchProductsQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    OperationTypes.SearchProductsQuery,
-    OperationTypes.SearchProductsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.SearchProductsQuery,
-    OperationTypes.SearchProductsQueryVariables
-  >(SearchProductsDocument, options);
-}
-export function useSearchProductsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.SearchProductsQuery,
-    OperationTypes.SearchProductsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.SearchProductsQuery,
-    OperationTypes.SearchProductsQueryVariables
-  >(SearchProductsDocument, options);
-}
-export type SearchProductsQueryHookResult = ReturnType<
-  typeof useSearchProductsQuery
->;
-export type SearchProductsLazyQueryHookResult = ReturnType<
-  typeof useSearchProductsLazyQuery
->;
-export type SearchProductsQueryResult = Apollo.QueryResult<
-  OperationTypes.SearchProductsQuery,
-  OperationTypes.SearchProductsQueryVariables
 >;
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
@@ -1435,6 +1082,154 @@ export type ContentfulEvidenceCategoriesLazyQueryHookResult = ReturnType<
 export type ContentfulEvidenceCategoriesQueryResult = Apollo.QueryResult<
   OperationTypes.ContentfulEvidenceCategoriesQuery,
   OperationTypes.ContentfulEvidenceCategoriesQueryVariables
+>;
+export const SearchProductsDocument = gql`
+  query searchProducts($query: String!, $technology: Technology!) {
+    searchProducts(query: $query, technology: $technology, first: 20) {
+      totalCount
+      nodes {
+        id
+        technology
+        name
+        description
+        published
+        brand
+        family
+      }
+    }
+  }
+`;
+
+/**
+ * __useSearchProductsQuery__
+ *
+ * To run a query within a React component, call `useSearchProductsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSearchProductsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSearchProductsQuery({
+ *   variables: {
+ *      query: // value for 'query'
+ *      technology: // value for 'technology'
+ *   },
+ * });
+ */
+export function useSearchProductsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >(SearchProductsDocument, options);
+}
+export function useSearchProductsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >(SearchProductsDocument, options);
+}
+export type SearchProductsQueryHookResult = ReturnType<
+  typeof useSearchProductsQuery
+>;
+export type SearchProductsLazyQueryHookResult = ReturnType<
+  typeof useSearchProductsLazyQuery
+>;
+export type SearchProductsQueryResult = Apollo.QueryResult<
+  OperationTypes.SearchProductsQuery,
+  OperationTypes.SearchProductsQueryVariables
+>;
+export const GetProductGuaranteeTypesDocument = gql`
+  query getProductGuaranteeTypes($technology: String) {
+    guaranteeTypeCollection(
+      order: ranking_ASC
+      where: { technology: $technology }
+      limit: 10
+    ) {
+      items {
+        sys {
+          id
+        }
+        name
+        displayName
+        technology
+        coverage
+        ranking
+        tiersAvailable
+        guaranteeTemplatesCollection {
+          items {
+            sys {
+              id
+            }
+            displayName
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetProductGuaranteeTypesQuery__
+ *
+ * To run a query within a React component, call `useGetProductGuaranteeTypesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductGuaranteeTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductGuaranteeTypesQuery({
+ *   variables: {
+ *      technology: // value for 'technology'
+ *   },
+ * });
+ */
+export function useGetProductGuaranteeTypesQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >(GetProductGuaranteeTypesDocument, options);
+}
+export function useGetProductGuaranteeTypesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >(GetProductGuaranteeTypesDocument, options);
+}
+export type GetProductGuaranteeTypesQueryHookResult = ReturnType<
+  typeof useGetProductGuaranteeTypesQuery
+>;
+export type GetProductGuaranteeTypesLazyQueryHookResult = ReturnType<
+  typeof useGetProductGuaranteeTypesLazyQuery
+>;
+export type GetProductGuaranteeTypesQueryResult = Apollo.QueryResult<
+  OperationTypes.GetProductGuaranteeTypesQuery,
+  OperationTypes.GetProductGuaranteeTypesQueryVariables
 >;
 export const AccountByEmailDocument = gql`
   query accountByEmail($email: String!) {

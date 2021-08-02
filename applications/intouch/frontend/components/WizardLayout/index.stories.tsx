@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@bmi/typography";
 import TextField from "@bmi/text-field";
 import { Search } from "@material-ui/icons";
-import { Wizard } from ".";
+import { Wizard } from "./Wizard";
 
 export default {
   title: "Wizard Layout",
