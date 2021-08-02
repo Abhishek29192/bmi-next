@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { gql } from "@apollo/client";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
@@ -9,13 +9,18 @@ import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../../IconLink";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
 import { EditCompanyButton } from "../EditCompany/Button";
+import { OnCompanyUpdate } from "../EditCompany/Dialog";
 import styles from "./styles.module.scss";
 
 export type CompanyHeaderProps = {
   company: GetCompanyQuery["company"];
+  onCompanyUpdate: OnCompanyUpdate;
 };
 
-export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
+export const CompanyHeader = ({
+  company,
+  onCompanyUpdate
+}: CompanyHeaderProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
   return (
@@ -25,7 +30,7 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
       </Typography>
 
       <Typography className={styles.businessType} variant="h5">
-        {t(`company-page:business_type.${company.businessType}`)}
+        {t(`company-page:businessType.${company.businessType}`)}
       </Typography>
 
       <div className={styles.body}>
@@ -92,7 +97,10 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
                 </div>
               </Grid>
 
-              <EditCompanyButton company={company} />
+              <EditCompanyButton
+                company={company}
+                onCompanyUpdate={onCompanyUpdate}
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -107,6 +115,7 @@ export const CompanyHeaderDetailsFragment = gql`
     logo
     aboutUs
     tradingAddress {
+      id
       ...AddressLinesFragment
       # These are required for the Alert banner
       coordinates {

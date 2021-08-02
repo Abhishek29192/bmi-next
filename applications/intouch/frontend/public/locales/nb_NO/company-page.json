@@ -16,7 +16,7 @@
     "logo": "Norway - Logo",
     "closeAlertAccessibilityLabel": "Norway - Close Alert"
   },
-  "business_type": {
+  "businessType": {
     "CONTRACTOR": "Norway - Contractor",
     "ARCHITECT": "Norway - Architect",
     "MERCHANT": "Norway - Merchant",
@@ -24,7 +24,7 @@
   },
   "company.operations": "Norway - Operation Type",
   "company.operations_suffix": "Norway - roofing",
-  "operation_types": {
+  "operationTypes": {
     "FLAT": "Norway - flat",
     "PITCHED": "Norway - pitched",
     "SOLAR": "Norway - solar",

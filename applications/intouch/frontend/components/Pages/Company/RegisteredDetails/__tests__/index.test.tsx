@@ -6,7 +6,7 @@ import { OPERATION_TYPES } from "../../../../../lib/constants";
 import { formatCompanyOperations, CompanyRegisteredDetails } from "..";
 
 const t = jest.fn().mockImplementation((key) => {
-  // "Company-page:operation_types.FLAT" --> "flat"
+  // "Company-page:operationTypes.FLAT" --> "flat"
   return key.replace(/.+\./, "").toLowerCase();
 });
 

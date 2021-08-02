@@ -7,16 +7,18 @@ import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
-import styles from "./styles.module.scss";
 import { EditCompanyButton } from "../EditCompany/Button";
+import { OnCompanyUpdate } from "../EditCompany/Dialog";
+import styles from "./styles.module.scss";
 
 export type CompanyRegisteredDetailsProps = {
   company: GetCompanyQuery["company"];
+  onCompanyUpdate: OnCompanyUpdate;
 };
 
 export const formatCompanyOperations = (t, operations: Operation[]) => {
   const operationLabels = operations.map((operation) =>
-    t(`company-page:operation_types.${operation}`)
+    t(`company-page:operationTypes.${operation}`)
   );
 
   const operationsText = operationLabels.reduce((str, o, idx) => {
@@ -35,7 +37,8 @@ export const formatCompanyOperations = (t, operations: Operation[]) => {
 };
 
 export const CompanyRegisteredDetails = ({
-  company
+  company,
+  onCompanyUpdate
 }: CompanyRegisteredDetailsProps) => {
   const { t } = useTranslation(["common", "company-page"]);
   const {
@@ -83,7 +86,10 @@ export const CompanyRegisteredDetails = ({
           </InfoPair>
         ) : null}
 
-        <EditCompanyButton company={company} />
+        <EditCompanyButton
+          company={company}
+          onCompanyUpdate={onCompanyUpdate}
+        />
       </div>
     </div>
   );
@@ -94,6 +100,7 @@ export const CompanyRegisteredDetailsFragment = gql`
     name
     referenceNumber
     registeredAddress {
+      id
       ...AddressLinesFragment
     }
     taxNumber

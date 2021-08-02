@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Grid from "@bmi/grid";
+import { useCallback } from "react";
 import { Layout } from "../components/Layout";
 import GridStyles from "../styles/Grid.module.scss";
 import { CompanyIncompleteProfileAlert } from "../components/Pages/Company/IncompleteProfileAlert";
@@ -30,19 +31,27 @@ import { withPage } from "../lib/middleware/withPage";
 import { validateCompanyProfile } from "../lib/validations/company";
 
 type CompanyPageProps = {
-  company: GetCompanyQuery["company"];
+  companySSR: GetCompanyQuery["company"];
   contactDetailsCollection: GetCompanyQuery["contactDetailsCollection"];
   globalPageData: GetGlobalDataQuery;
 };
 
 const CompanyPage = ({
-  company,
+  companySSR,
   contactDetailsCollection,
   globalPageData
 }: CompanyPageProps) => {
   const { t } = useTranslation("company-page");
+  const [company, setCompany] = useState(companySSR);
   const { missingFields: companyProfileMissingFields } =
     validateCompanyProfile(company);
+
+  const onCompanyUpdate = useCallback(
+    (updatedCompany: GetCompanyQuery["company"]) => {
+      setCompany(updatedCompany);
+    },
+    [setCompany]
+  );
 
   return (
     <Layout title={t("Company")} pageData={globalPageData}>
@@ -58,11 +67,14 @@ const CompanyPage = ({
         alignItems="stretch"
       >
         <Grid item xs={12} lg={7} xl={8}>
-          <CompanyHeader company={company} />
+          <CompanyHeader company={company} onCompanyUpdate={onCompanyUpdate} />
         </Grid>
 
         <Grid item xs={12} lg={5} xl={4}>
-          <CompanyRegisteredDetails company={company} />
+          <CompanyRegisteredDetails
+            company={company}
+            onCompanyUpdate={onCompanyUpdate}
+          />
         </Grid>
 
         <Grid item xs={12} lg={7} xl={8}>
@@ -141,7 +153,7 @@ export const getServerSideProps = withPage(
     );
     return {
       props: {
-        company,
+        companySSR: company,
         contactDetailsCollection,
         account,
         globalPageData,

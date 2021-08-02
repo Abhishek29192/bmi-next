@@ -1,44 +1,152 @@
-import React from "react";
+import get from "lodash.get";
+import set from "lodash.set";
+import React, { useCallback } from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
+import {
+  UpdateCompanyInput,
+  CompanyRegisteredAddressIdFkeyInput,
+  CompanyTradingAddressIdFkeyInput
+} from "@bmi/intouch-api-types";
 import Grid from "@bmi/grid";
 import Form from "@bmi/form";
 import Dialog from "@bmi/dialog";
 import Typography from "@bmi/typography";
 import TextField from "@bmi/text-field";
 import Select, { MenuItem } from "@bmi/select";
-import { useUpdateCompanyDetailsMutation } from "../../../../graphql/generated/hooks";
+import { useUpdateCompanyDetailsMutation } from "../../../../../graphql/generated/hooks";
+import {
+  validateEmailInput,
+  validatePhoneNumberInput,
+  validateUrlInput
+} from "../../../../../lib/validations/utils";
+import log from "../../../../../lib/logger";
 import { GetCompanyQuery } from "../../../../../graphql/generated/operations";
 import { BUSINESS_TYPES } from "../../../../../lib/constants";
 import { InfoPair } from "../../../../InfoPair";
 import { formatCompanyOperations } from "../../RegisteredDetails";
 import styles from "./styles.module.scss";
 
-export const EditCompanyDialog = ({
-  company,
-  isOpen,
-  onCloseClick
-}: {
+export type OnCompanyUpdate = (company: GetCompanyQuery["company"]) => void;
+
+export type EditCompanyDialogProps = {
   company: GetCompanyQuery["company"];
   isOpen: boolean;
   onCloseClick: () => void;
-}) => {
-  const { t } = useTranslation(["common", "company-page"]);
-  const [updateCompany] = useUpdateCompanyDetailsMutation();
+  onCompanyUpdate: OnCompanyUpdate;
+};
 
-  // TODO: form event or MouseEvent
-  const handleSave = (event, values) => {
-    event.preventDefault();
-    updateCompany({
-      variables: {
-        input: {
-          id: company.id,
-          patch: values
+export const EditCompanyDialog = ({
+  company,
+  isOpen,
+  onCloseClick,
+  onCompanyUpdateSuccess
+}: EditCompanyDialogProps) => {
+  const { t } = useTranslation(["common", "company-page"]);
+
+  const [updateCompany] = useUpdateCompanyDetailsMutation({
+    onError: (error) => {
+      log({
+        severity: "ERROR",
+        message: `There was an error updating the company: ${error.toString()}`
+      });
+      // TODO: show some visual error
+    },
+    onCompleted: ({ updateCompany: { company } }) => {
+      log({
+        severity: "INFO",
+        message: `Updated company - id: ${company.id}`
+      });
+      onCompanyUpdateSuccess && onCompanyUpdateSuccess(company);
+      onCloseClick && onCloseClick();
+    }
+  });
+
+  const handleSave = useCallback(
+    (event, values) => {
+      // we need to account for nested objects (e.g. registered address)
+      const valuesWithAddresses = Object.entries(values).reduce(
+        (obj, [key, value]) => {
+          const parsedValue =
+            value && key.includes("coordinates")
+              ? parseFloat(value as string)
+              : value;
+          return set(obj, key, parsedValue);
+        },
+        {}
+      );
+
+      const patchWithoutAddresses: Omit<
+        UpdateCompanyInput["patch"],
+        "registeredAddress" | "tradingAddress"
+      > = Object.entries(valuesWithAddresses)
+        .filter(
+          ([key]) => !["registeredAddress", "tradingAddress"].includes(key)
+        )
+        .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+
+      const addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput =
+        // address already exists?
+        company.registeredAddress.id
+          ? {
+              // updates the address (already linked to the company)
+              updateById: {
+                id: company.registeredAddress.id,
+                patch: valuesWithAddresses.registeredAddress
+              }
+            }
+          : {
+              // creates the address and links it to the company
+              create: valuesWithAddresses.registeredAddress
+            };
+
+      const addressToTradingAddressId: CompanyTradingAddressIdFkeyInput =
+        // address already exists?
+        company.tradingAddress.id
+          ? {
+              // updates the address (already linked to the company)
+              updateById: {
+                id: company.tradingAddress.id,
+                patch: valuesWithAddresses.tradingAddress
+              }
+            }
+          : {
+              // creates the address and links it to the company
+              create: valuesWithAddresses.tradingAddress
+            };
+
+      event.preventDefault();
+      updateCompany({
+        variables: {
+          input: {
+            id: company.id,
+            patch: {
+              ...patchWithoutAddresses,
+              addressToTradingAddressId,
+              addressToRegisteredAddressId
+            }
+          }
         }
-      }
-    });
-    onCloseClick();
-  };
+      });
+    },
+    [company.id, updateCompany]
+  );
+
+  const getFieldProps = useCallback(
+    (fieldName: string) => ({
+      className: styles.input,
+      name: fieldName,
+      label: t(`company-page:edit_dialog.form.fields.${fieldName}`),
+      defaultValue: get(company, fieldName),
+      fullWidth: true,
+      fieldIsRequiredError: t("common:error_messages.required")
+    }),
+    [company]
+  );
+
+  const validateUrl = useCallback(validateUrlInput(t), [t]);
+  const validateEmail = useCallback(validateEmailInput(t), [t]);
+  const validatePhoneNumber = useCallback(validatePhoneNumberInput(t), [t]);
 
   return (
     <Dialog className={styles.dialog} open={isOpen} onCloseClick={onCloseClick}>
@@ -53,88 +161,39 @@ export const EditCompanyDialog = ({
           </Typography>
           <Grid container xs={12} alignContent="stretch" spacing={3}>
             <Grid item xs={12} lg={6} spacing={0}>
+              <TextField {...getFieldProps("name")} />
               <TextField
-                className={styles.input}
-                name="name"
+                {...getFieldProps("registeredAddress.firstLine")}
                 isRequired
-                label={t("company-page:edit_dialog.form.fields.name")}
-                fullWidth
               />
-
+              <TextField {...getFieldProps("registeredAddress.secondLine")} />
               <TextField
-                className={styles.input}
-                name="registeredAddress.addressLine1"
+                {...getFieldProps("registeredAddress.town")}
                 isRequired
-                label={t("company-page:edit_dialog.form.fields.address_line_1")}
-                fullWidth
               />
               <TextField
-                className={styles.input}
-                name="registeredAddress.addressLine2"
+                {...getFieldProps("registeredAddress.postcode")}
                 isRequired
-                label={t("company-page:edit_dialog.form.fields.address_line_2")}
-                fullWidth
               />
-
-              <TextField
-                className={styles.input}
-                name="registeredAddress.town"
-                isRequired
-                label={t("company-page:edit_dialog.form.fields.town")}
-                fullWidth
-              />
-
-              <TextField
-                className={styles.input}
-                name="registeredAddress.postCode"
-                isRequired
-                label={t("company-page:edit_dialog.form.fields.post_code")}
-                fullWidth
-              />
-
-              <TextField
-                className={styles.input}
-                name="registeredAddress.region"
-                isRequired
-                label={t("company-page:edit_dialog.form.fields.region")}
-                fullWidth
-              />
+              <TextField {...getFieldProps("registeredAddress.region")} />
             </Grid>
-
             <Grid item xs={12} lg={6} spacing={0}>
               <TextField
-                className={styles.input}
-                name="registeredAddress.country"
+                {...getFieldProps("registeredAddress.country")}
                 isRequired
-                label={t("company-page:edit_dialog.form.fields.country")}
-                fullWidth
               />
+              <TextField {...getFieldProps("taxNumber")} isRequired />
 
-              <TextField
-                className={styles.input}
-                name="registeredAddress.taxCode"
-                isRequired
-                label={t("company-page:edit_dialog.form.fields.tax_number")}
-                fullWidth
-              />
-
-              <Select
-                className={styles.input}
-                isRequired
-                label={t("company-page:edit_dialog.form.fields.business_type")}
-                name="businessType"
-              >
+              <Select {...getFieldProps("businessType")} isRequired>
                 {Object.entries(BUSINESS_TYPES).map(([key, businessType]) => (
                   <MenuItem key={key} value={businessType}>
-                    {t(`company-page:business_type.${businessType}`)}
+                    {t(`company-page:businessType.${businessType}`)}
                   </MenuItem>
                 ))}
               </Select>
 
               <InfoPair
-                title={t(
-                  "company-page:edit_dialog.form.fields.operation_types"
-                )}
+                title={t("company-page:edit_dialog.form.fields.operationTypes")}
               >
                 {formatCompanyOperations(
                   t,
@@ -152,15 +211,8 @@ export const EditCompanyDialog = ({
             </Grid>
           </Grid>
 
-          <TextField
-            className={styles.input}
-            name="aboutUs"
-            isRequired
-            label={t("company-page:edit_dialog.form.fields.description")}
-            fullWidth
-            isTextArea
-            rows={6}
-          />
+          <TextField {...getFieldProps("aboutUs")} isTextArea rows={6} />
+
           <Form.Row>
             <Typography variant="h6" className={styles.sectionText}>
               {t("company-page:edit_dialog.sections.trading_address")}
@@ -173,6 +225,23 @@ export const EditCompanyDialog = ({
             </Typography>
           </Form.Row>
 
+          <Grid container xs={12} alignContent="stretch" spacing={3}>
+            {/* TODO: auto-complete address/location https://bmigroup.atlassian.net/browse/IRP-417 */}
+            <Grid item xs={12} lg={6} spacing={0}>
+              <TextField {...getFieldProps("tradingAddress.firstLine")} />
+              <TextField {...getFieldProps("tradingAddress.secondLine")} />
+              <TextField {...getFieldProps("tradingAddress.town")} />
+              <TextField {...getFieldProps("tradingAddress.postcode")} />
+            </Grid>
+
+            <Grid item xs={12} lg={6} spacing={0}>
+              <TextField {...getFieldProps("tradingAddress.region")} />
+              <TextField {...getFieldProps("tradingAddress.country")} />
+              <TextField {...getFieldProps("tradingAddress.coordinates.x")} />
+              <TextField {...getFieldProps("tradingAddress.coordinates.y")} />
+            </Grid>
+          </Grid>
+
           <Typography variant="h6" className={styles.sectionText}>
             {t("company-page:edit_dialog.sections.contact_details")}
           </Typography>
@@ -180,38 +249,27 @@ export const EditCompanyDialog = ({
           <Grid container xs={12} alignContent="stretch" spacing={3}>
             <Grid item xs={12} lg={6} spacing={0}>
               <TextField
-                className={styles.input}
-                name="phone"
-                // TODO: country flag
-                label="Phone (optional)"
-                fullWidth
+                {...getFieldProps("phone")}
+                getValidationError={validatePhoneNumber}
               />
               <TextField
-                className={styles.input}
-                name="website"
-                label={t("company-page:edit_dialog.form.fields.website")}
-                fullWidth
+                {...getFieldProps("website")}
+                getValidationError={validateUrl}
               />
               <TextField
-                className={styles.input}
-                name="facebook"
-                label={t("company-page:edit_dialog.form.fields.facebook")}
-                fullWidth
+                {...getFieldProps("facebook")}
+                getValidationError={validateUrl}
               />
             </Grid>
 
             <Grid item xs={12} lg={6} spacing={0}>
               <TextField
-                className={styles.input}
-                name="email"
-                label={t("company-page:edit_dialog.form.fields.email")}
-                fullWidth
+                {...getFieldProps("publicEmail")}
+                getValidationError={validateEmail}
               />
               <TextField
-                className={styles.input}
-                name="linkedin"
-                label={t("company-page:edit_dialog.form.fields.linkedin")}
-                fullWidth
+                {...getFieldProps("linkedIn")}
+                getValidationError={validateUrl}
               />
             </Grid>
           </Grid>
@@ -219,24 +277,20 @@ export const EditCompanyDialog = ({
           <Typography variant="h6" className={styles.sectionText}>
             {t("company-page:edit_dialog.sections.owner_details")}
           </Typography>
+          <Grid container xs={12} alignContent="stretch" spacing={3}>
+            <Grid item xs={12} lg={6} spacing={0}>
+              <TextField
+                {...getFieldProps("ownerPhone")}
+                getValidationError={validatePhoneNumber}
+              />
+            </Grid>
 
-          <Grid item xs={12} lg={6} spacing={0}>
-            <TextField
-              className={styles.input}
-              name="phone"
-              // TODO: country flag
-              label="Phone (optional)"
-              fullWidth
-            />
-          </Grid>
-
-          <Grid item xs={12} lg={6} spacing={0}>
-            <TextField
-              className={styles.input}
-              name="ownerEmail"
-              label={t("company-page:edit_dialog.form.fields.email")}
-              fullWidth
-            />
+            <Grid item xs={12} lg={6} spacing={0}>
+              <TextField
+                {...getFieldProps("ownerEmail")}
+                getValidationError={validateEmail}
+              />
+            </Grid>
           </Grid>
 
           <Form.ButtonWrapper>

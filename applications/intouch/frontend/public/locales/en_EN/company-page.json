@@ -16,7 +16,7 @@
     "logo": "Logo",
     "closeAlertAccessibilityLabel": "Close Alert"
   },
-  "business_type": {
+  "businessType": {
     "CONTRACTOR": "Contractor",
     "ARCHITECT": "Architect",
     "MERCHANT": "Merchant",
@@ -24,7 +24,7 @@
   },
   "company.operations": "Operation Type",
   "company.operations_suffix": "roofing",
-  "operation_types": {
+  "operationTypes": {
     "FLAT": "flat",
     "PITCHED": "pitched",
     "SOLAR": "solar",
@@ -45,21 +45,38 @@
     "form": {
       "fields": {
         "name": "Registered Name",
-        "address_line_1": "Address line 1",
-        "address_line_2": "Address line 2",
-        "town": "Town",
-        "post_code": "Postcode",
-        "region": "Region",
-        "country": "Country",
-        "tax_number": "Tax number",
-        "business_type": "Business Type",
-        "operation_types": "Operation Types",
+        "registeredAddress": {
+          "firstLine": "Address line 1",
+          "secondLine": "Address line 2",
+          "town": "Town",
+          "postcode": "Postcode",
+          "region": "Region",
+          "country": "Country"
+        },
+        "tradingAddress": {
+          "firstLine": "Address line 1",
+          "secondLine": "Address line 2",
+          "town": "Town",
+          "postcode": "Postcode",
+          "region": "Region",
+          "country": "Country",
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          }
+        },
+        "taxNumber": "Tax number",
+        "businessType": "Business Type",
+        "operationTypes": "Operation Types",
         "tier": "Tier",
-        "description": "Company description (optional)",
+        "aboutUs": "Company description (optional)",
+        "phone": "Phone (optional)",
         "website": "Company website (optional)",
         "facebook": "Facebook profile (optional)",
-        "email": "E-mail address (optional)",
-        "linkedin": "Linkedin profile (optional)"
+        "publicEmail": "E-mail address (optional)",
+        "linkedIn": "LinkedIn profile (optional)",
+        "ownerPhone": "Phone (optional)",
+        "ownerEmail": "E-mail address (optional)"
       },
       "actions": {
         "submit": "Save & Close"
