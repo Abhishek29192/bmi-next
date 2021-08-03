@@ -43,8 +43,7 @@ const columnsString = columns.map(({ label }) => label).join(", ");
 
 const parsers = {
   string: (v) => v,
-  number: (v) => parseFloat(v),
-  boolean: (v) => v === "TRUE"
+  number: (v) => parseFloat(v)
 };
 
 const parseValue = (type, value) => parsers[type](value.trim());
