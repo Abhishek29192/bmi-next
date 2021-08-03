@@ -7,6 +7,31 @@ import ServiceLocatorSection, {
 import { serviceTypes } from "../Service";
 import createService from "../../__tests__/ServiceHelper";
 
+let callMarkerOnClick;
+
+jest.mock("@bmi/google-map", () => {
+  const GoogleMap = jest
+    .fn()
+    .mockImplementation(({ children, onMarkerClick }) => {
+      callMarkerOnClick = onMarkerClick;
+      return (
+        <div className="GoogleMap">
+          <div className="map"></div>
+          {children && <div className="popup">{children}</div>}
+        </div>
+      );
+    });
+
+  return {
+    __esModule: true,
+    default: GoogleMap
+  };
+});
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 describe("ServiceLocatorSection component", () => {
   it("renders correctly with NO service", () => {
     const data: serviceLocatorDataType = {
@@ -405,6 +430,31 @@ describe("ServiceLocatorSection component", () => {
       value: undefined,
       configurable: true
     });
+  });
+
+  it("changes selected service with marker click", () => {
+    const roofer1 = createService({ name: "roofer 1" });
+    const roofer2 = createService({ name: "roofer 2" });
+
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [roofer1, roofer2]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+
+    act(() => {
+      callMarkerOnClick(roofer2);
+    });
+
+    expect(wrapper.container.parentElement).toMatchSnapshot();
   });
 
   it("selects service", () => {
