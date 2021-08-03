@@ -4,7 +4,8 @@
   "private": true,
   "license": "BMI-DXB",
   "scripts": {
-    "upload-merchants": "scripts/merchants.js"
+    "upload-merchants": "scripts/merchants.js",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "contentful-management": "^6.1.2",
