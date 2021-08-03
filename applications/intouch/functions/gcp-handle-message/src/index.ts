@@ -30,12 +30,17 @@ export async function emailSender(event, context) {
   }
 
   sgMail.setApiKey(value.payload.data.toString());
-  await sgMail.send({
-    replyTo,
-    from: parsedPayload.sendMailbox || process.env.MAIL_FROM,
-    to: parsedPayload.email,
-    subject: parsedPayload.title,
-    text: parsedPayload.text,
-    html: parsedPayload.html
-  });
+  try {
+    await sgMail.send({
+      replyTo,
+      from: parsedPayload.sendMailbox || process.env.MAIL_FROM,
+      to: parsedPayload.email,
+      subject: parsedPayload.title,
+      text: parsedPayload.text,
+      html: parsedPayload.html
+    });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("Error sending email:", error);
+  }
 }
