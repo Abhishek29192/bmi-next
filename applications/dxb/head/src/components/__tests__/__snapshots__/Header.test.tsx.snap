@@ -150,7 +150,7 @@ exports[`Header component renders correctly 1`] = `
               class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -177,7 +177,7 @@ exports[`Header component renders correctly 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -204,7 +204,7 @@ exports[`Header component renders correctly 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -877,7 +877,7 @@ exports[`Header component toggles search 1`] = `
               class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -904,7 +904,7 @@ exports[`Header component toggles search 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -931,7 +931,7 @@ exports[`Header component toggles search 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
