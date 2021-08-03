@@ -39,7 +39,7 @@ grant select, insert, update, delete on market to super_admin;
 
 -- company
 grant select, insert on company to installer;
-grant update (owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook,linked_in) on company to company_admin;
+grant update (registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook,linked_in, logo) on company to company_admin;
 
 -- company_member
 grant select, insert, delete on company_member to installer;
