@@ -41,7 +41,7 @@
   }
 
   &:global(.MuiButton-contained.Mui-disabled) {
-    background: rgba($color-theme-inter, 0.38);
+    background: rgba($color-theme-inter-rgb, 0.38);
     color: $color-white;
   }
 
@@ -112,7 +112,7 @@
   }
 
   &--disabled:global(.MuiIconButton-root) {
-    background-color: rgba($color-theme-inter, 0.35);
+    background-color: rgba($color-theme-inter-rgb, 0.35);
   }
 
   &--text:global(.MuiIconButton-root) {
