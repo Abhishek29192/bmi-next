@@ -2,6 +2,7 @@ import React from "react";
 import Icon from "@bmi/icon";
 import { BMI } from "@bmi/logo";
 import Button from "@bmi/button";
+import { Project } from "@bmi/intouch-api-types";
 import CloseIcon from "@material-ui/icons/Close";
 import Link from "next/link";
 import WizardContextWrapper from "./WizardContext";
@@ -11,12 +12,13 @@ import { WizardFooter } from "./WizardFooter";
 
 export type WizardProps = {
   children: React.ReactNode | React.ReactNode[];
+  project: Project;
   onCloseClick?: () => void;
 };
 
-export const Wizard = ({ children, onCloseClick }: WizardProps) => {
+export const Wizard = ({ children, project, onCloseClick }: WizardProps) => {
   return (
-    <WizardContextWrapper step={0}>
+    <WizardContextWrapper project={project}>
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.header__inner}>

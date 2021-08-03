@@ -8,12 +8,19 @@ export type WizardBodyProps = {
 };
 export const WizardBody = ({ children }: WizardBodyProps) => {
   const steps: React.ReactNode[] = children as React.ReactNode[];
-  const { activeStep, title, subTitle } = useWizardContext();
+  const { activeStep, header } = useWizardContext();
   return (
     <div className={styles.body}>
-      <div style={{ textAlign: "center" }}>
-        <Typography variant="h4">{title}</Typography>
-        <Typography variant={"body3"}>{subTitle}</Typography>
+      <div
+        style={{
+          textAlign: "center",
+          margin: "10px"
+        }}
+      >
+        <Typography variant="h4" style={{ textTransform: "capitalize" }}>
+          {header?.title}
+        </Typography>
+        <Typography variant={"body3"}>{header?.subTitle}</Typography>
       </div>
       {steps[+activeStep]}
     </div>

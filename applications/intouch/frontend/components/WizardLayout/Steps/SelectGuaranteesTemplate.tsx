@@ -6,7 +6,7 @@ export const SelectGuaranteesTemplate = () => {
   const { data, setData } = useWizardContext();
 
   const templates = data.guaranteeType?.guaranteeTemplatesCollection?.items;
-  const selectedTemplate = data.guaranteeTemplateId;
+  const selectedTemplate = data.guaranteeTemplateId || "";
 
   return (
     <div>
@@ -14,7 +14,7 @@ export const SelectGuaranteesTemplate = () => {
         name="template"
         label="Language"
         isRequired
-        style={{ margin: "20px" }}
+        style={{ margin: "10px" }}
         onChange={(value) => {
           setData({ ...data, guaranteeTemplateId: value });
         }}

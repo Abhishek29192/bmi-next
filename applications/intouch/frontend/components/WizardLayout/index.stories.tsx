@@ -11,7 +11,7 @@ export default {
 
 export const Basic = () => {
   return (
-    <Wizard>
+    <Wizard project={null}>
       <div style={{ textAlign: "center" }}>
         <Typography variant="h3" style={{ marginBottom: "0.5rem" }}>
           System details

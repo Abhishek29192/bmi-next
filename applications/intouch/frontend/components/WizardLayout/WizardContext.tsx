@@ -1,51 +1,93 @@
-import { GuaranteeType, Product } from "@bmi/intouch-api-types";
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
+import {
+  GuaranteeType,
+  Product,
+  Project,
+  System
+} from "@bmi/intouch-api-types";
 
 type GuaranteeWizardData = {
   guaranteeType: GuaranteeType;
   guaranteeTemplateId: string;
   product: Product;
+  system: System;
+  evidences: File[];
+};
+
+type GuaranteeHeader = {
+  title: string;
+  subTitle: string;
 };
 
 type ContextProps = {
   activeStep: number;
   data?: GuaranteeWizardData;
   setData?: (data: GuaranteeWizardData) => Promise<void>;
-  title?: string;
-  subTitle?: string;
+  header?: GuaranteeHeader;
   gotoNext?: () => void;
   gotoBack?: () => void;
   isNextStepAvailable: boolean;
   isBackStepAvailable: boolean;
+  project?: Project;
 };
 
 type ContextWrapperProps = {
   children?: React.ReactNode;
-  step: number;
+  project: Project;
 };
 
 export const WizardContext = createContext<ContextProps | null>(null);
 export const useWizardContext = () => React.useContext(WizardContext);
 
-const WizardContextWrapper = ({ step, children }: ContextWrapperProps) => {
-  const [currentStep, setCurrentStep] = useState<number>(step);
+const WizardContextWrapper = ({ project, children }: ContextWrapperProps) => {
+  const [currentStep, setCurrentStep] = useState<number>(0);
   const [currentData, setCurrentData] = useState<GuaranteeWizardData>();
-  const title = "Register for a guarantee";
 
-  const getSubTitle = () => {
+  const getGuaranteeType = (): string => {
+    return ["SYSTEM", "SOLUTION"].includes(currentData.guaranteeType.coverage)
+      ? "system"
+      : "product";
+  };
+
+  const getHeader = (): GuaranteeHeader => {
     //TODO:Refactor
     switch (currentStep) {
       case 0:
-        return "Select required level of guarantee";
+        return {
+          title: "Register for a guarantee",
+          subTitle: "Select required level of guarantee"
+        };
       case 1:
-        return "Select the preferrred language for the guarantee documentation";
+        return {
+          title: "Register for a guarantee",
+          subTitle:
+            "Select the preferrred language for the guarantee documentation"
+        };
+
       case 2:
-        return "Select the product for the guarantee documentation";
+        return {
+          title: `${currentData.guaranteeType.coverage.toLowerCase()} Guarantee`,
+          subTitle: `Select the ${getGuaranteeType()} for the guarantee documentation`
+        };
+
+      case 3:
+        return {
+          title: "Receipt details",
+          subTitle:
+            "Please upload a copy of the receipt for the product(s) you would like to guarantee"
+        };
+
+      case 4:
+        return {
+          title: "Review",
+          subTitle:
+            "Please review the information that you have provided, before submitting your application."
+        };
+
       default:
-        return "";
+        return null;
     }
   };
-
   const nextStepAvailable = () => {
     //TODO:Refactor
     if (currentStep === 0) {
@@ -55,15 +97,10 @@ const WizardContextWrapper = ({ step, children }: ContextWrapperProps) => {
       return currentData?.guaranteeTemplateId ? true : false;
     }
     if (currentStep === 2) {
-      return currentData?.product ? true : false;
+      return currentData?.product || currentData.system ? true : false;
     }
-    return currentStep < 5;
+    return currentStep < 4;
   };
-
-  useEffect(() => {
-    setCurrentStep(step);
-  }, [step]);
-
   return (
     <WizardContext.Provider
       value={{
@@ -72,8 +109,8 @@ const WizardContextWrapper = ({ step, children }: ContextWrapperProps) => {
           setCurrentData(data);
         },
         data: currentData,
-        title,
-        subTitle: getSubTitle(),
+        project: project,
+        header: getHeader(),
         gotoNext: () => {
           setCurrentStep(currentStep + 1);
         },
