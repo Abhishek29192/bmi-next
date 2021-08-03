@@ -19,9 +19,7 @@ It’s important to double check the field ids, and the content-type ids (e.g. r
 
 ### .env
 
-Environment variables. Needs to be copied from `.env.example` modified to have the correct value.
-
-Locale defaults to `en-US` if not provided in the env vars.
+Environment variables. Needs to be copied from `.env.example` and modified to have the correct value.
 
 ### merchants.tsv
 

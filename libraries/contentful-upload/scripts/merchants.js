@@ -20,7 +20,7 @@ const readFile = promisify(fs.readFile);
 
 const SEPARATOR = "\t";
 
-const LOCALE = process.env.LOCALE || "en-US";
+const LOCALE = process.env.LOCALE;
 
 const CONTENT_TYPE_ID = "roofer";
 
@@ -155,7 +155,8 @@ const main = async (file) => {
     ![
       process.env.MANAGEMENT_ACCESS_TOKEN,
       process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT
+      process.env.CONTENTFUL_ENVIRONMENT,
+      process.env.LOCALE
     ].every(Boolean)
   ) {
     throw new Error("Missing Env vars");
