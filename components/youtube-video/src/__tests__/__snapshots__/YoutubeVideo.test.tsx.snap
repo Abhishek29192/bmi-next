@@ -3,8 +3,12 @@
 exports[`YoutubeVideo component renders in dialog layout correctly 1`] = `
 <div
   class="YoutubeVideo"
-  style="background-image: url(https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg);"
 >
+  <img
+    alt="test video"
+    class="preview-image"
+    src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+  />
   <span
     class="AlternativeContent"
   >
