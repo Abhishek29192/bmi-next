@@ -32,9 +32,21 @@ const LanguageSelection = ({
         <Typography className={styles["heading"]} variant="h6">
           {label}
         </Typography>
-        <Grid container spacing={2}>
+        <Grid
+          container
+          spacing={0}
+          alignItems="center"
+          className={styles["container"]}
+        >
           {subMenu.map(({ label, icon, code }, key) => (
-            <Grid item key={`language-${key}`} xs={12} lg={3} xl={2}>
+            <Grid
+              item
+              key={`language-${key}`}
+              xs={12}
+              lg={3}
+              xl={2}
+              className={styles["item"]}
+            >
               <NavigationListButton
                 className={styles["link"]}
                 startIcon={

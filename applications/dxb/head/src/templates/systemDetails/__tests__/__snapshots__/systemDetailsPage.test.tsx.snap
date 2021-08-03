@@ -109,6 +109,34 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 />
               </a>
             </li>
+            <li
+              class="nav-item"
+            >
+              <button
+                aria-label="MC: menu.language"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  <img
+                    class="language-icon"
+                    src="/icons/flags/uk.svg"
+                  />
+                  EN
+                  <span
+                    class="down-arrow"
+                  >
+                    ▾
+                  </span>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
           </ul>
         </div>
       </div>
@@ -189,10 +217,10 @@ exports[`SystemDetailsPage template component should render 1`] = `
               <h6
                 class="MuiTypography-root heading Typography MuiTypography-h6"
               >
-                Global
+                Europe
               </h6>
               <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
               >
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -200,7 +228,88 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                    href="/"
+                    href="/al"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      >
+                        <img
+                          class="LanguageIcon"
+                          src="/icons/flags/al.svg"
+                        />
+                      </span>
+                      Albania
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                    href="/at"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      >
+                        <img
+                          class="LanguageIcon"
+                          src="/icons/flags/at.svg"
+                        />
+                      </span>
+                      Österreich
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                    href="/uk"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      >
+                        <img
+                          class="LanguageIcon"
+                          src="/icons/flags/uk.svg"
+                        />
+                      </span>
+                      United Kingdom
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                    href="/en"
                     tabindex="0"
                   >
                     <span
@@ -215,60 +324,6 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         />
                       </span>
                       English
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </div>
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                    href="/de-de"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageIcon"
-                          src="/icons/flags/de.svg"
-                        />
-                      </span>
-                      Deutsch
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </div>
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                    href="/fr-fr"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageIcon"
-                          src="/icons/flags/fr.svg"
-                        />
-                      </span>
-                      Français
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -1240,7 +1295,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"null\\"}"
+                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\"}"
                       href="#"
                       tabindex="0"
                     >
@@ -1264,7 +1319,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"null\\"}"
+                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\"}"
                       href="#"
                       tabindex="0"
                     >
@@ -1288,7 +1343,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"null\\"}"
+                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Monier\\"}"
                       href="#"
                       tabindex="0"
                     >
@@ -1312,7 +1367,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"null\\"}"
+                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\"}"
                       href="#"
                       tabindex="0"
                     >
@@ -2488,14 +2543,22 @@ exports[`SystemDetailsPage template component should render 1`] = `
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
                   class="MuiButton-label"
                 >
-                  MC: menu.language
+                  <span
+                    class="LanguageButtonContent"
+                  >
+                    <img
+                      class="LanguageIcon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    EN
+                  </span>
                   <span
                     class="MuiButton-endIcon MuiButton-iconSizeMedium"
                   >
@@ -3550,6 +3613,34 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 />
               </a>
             </li>
+            <li
+              class="nav-item"
+            >
+              <button
+                aria-label="MC: menu.language"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  <img
+                    class="language-icon"
+                    src="/icons/flags/uk.svg"
+                  />
+                  EN
+                  <span
+                    class="down-arrow"
+                  >
+                    ▾
+                  </span>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
           </ul>
         </div>
       </div>
@@ -3630,10 +3721,10 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               <h6
                 class="MuiTypography-root heading Typography MuiTypography-h6"
               >
-                Global
+                Europe
               </h6>
               <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+                class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
               >
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
@@ -3641,7 +3732,88 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                    href="/"
+                    href="/al"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      >
+                        <img
+                          class="LanguageIcon"
+                          src="/icons/flags/al.svg"
+                        />
+                      </span>
+                      Albania
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                    href="/at"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      >
+                        <img
+                          class="LanguageIcon"
+                          src="/icons/flags/at.svg"
+                        />
+                      </span>
+                      Österreich
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                    href="/uk"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      >
+                        <img
+                          class="LanguageIcon"
+                          src="/icons/flags/uk.svg"
+                        />
+                      </span>
+                      United Kingdom
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                    href="/en"
                     tabindex="0"
                   >
                     <span
@@ -3656,60 +3828,6 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         />
                       </span>
                       English
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </div>
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                    href="/de-de"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageIcon"
-                          src="/icons/flags/de.svg"
-                        />
-                      </span>
-                      Deutsch
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </div>
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-                >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                    href="/fr-fr"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageIcon"
-                          src="/icons/flags/fr.svg"
-                        />
-                      </span>
-                      Français
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -4681,7 +4799,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"null\\"}"
+                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\"}"
                       href="#"
                       tabindex="0"
                     >
@@ -4705,7 +4823,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"null\\"}"
+                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\"}"
                       href="#"
                       tabindex="0"
                     >
@@ -4729,7 +4847,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"null\\"}"
+                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Monier\\"}"
                       href="#"
                       tabindex="0"
                     >
@@ -4753,7 +4871,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"null\\"}"
+                      data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\"}"
                       href="#"
                       tabindex="0"
                     >
@@ -5929,14 +6047,22 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             <li>
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
                   class="MuiButton-label"
                 >
-                  MC: menu.language
+                  <span
+                    class="LanguageButtonContent"
+                  >
+                    <img
+                      class="LanguageIcon"
+                      src="/icons/flags/uk.svg"
+                    />
+                    EN
+                  </span>
                   <span
                     class="MuiButton-endIcon MuiButton-iconSizeMedium"
                   >

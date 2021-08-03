@@ -1306,5 +1306,15 @@ export const createMockSiteData = (): SiteData =>
     scriptOnetrust: null,
     scriptHotJar: null,
     scriptGOptLoad: null,
-    regions: regions.slice(-1)
+    regions: [
+      {
+        label: "Europe",
+        menu: [
+          { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+          { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+          { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" },
+          { code: "en", label: "English", icon: "/icons/flags/uk.svg" }
+        ]
+      }
+    ]
   } as SiteData);

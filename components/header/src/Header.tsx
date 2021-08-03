@@ -408,7 +408,7 @@ const Header = ({
             setRootValue={setValue}
             mainMenuTitleLabel={mainMenuTitleLabel}
             mainMenuDefaultLabel={mainMenuDefaultLabel}
-            languageLabel={languageLabel}
+            language={language}
             sizes={sizes}
           />
         </div>
