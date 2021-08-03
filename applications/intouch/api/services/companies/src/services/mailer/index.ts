@@ -1,8 +1,9 @@
-import { PubSub } from "@google-cloud/pubsub";
 import { publish, TOPICS } from "../events";
-import { messageTemplate } from "../contentful";
+import { messageTemplate, EventMessage } from "../contentful";
+import { PostGraphileContext } from "../../types";
 
 type ChangeRoleEmailProps = {
+  market?: string;
   email: string;
   firstname: string;
   role: string;
@@ -14,29 +15,27 @@ const replaceData = (template, data) => {
   return template.replace(pattern, (_, token) => data[`${token}`] || "");
 };
 
-export const tempalteFactory = async (id: string, body: any) => {
-  const { data } = await messageTemplate(id);
-
-  return {
-    subject: replaceData(data.messageTemplate.subject, body),
-    emailBody: replaceData(data.messageTemplate.emailBody, body),
-    htmlEmailBody: replaceData(data.messageTemplate.emailBody, body)?.replace(
-      /(?:\r\n|\r|\n)/g,
-      "<br>"
-    )
-  };
-};
-
-export const sendChangeRoleEmail = async (
-  pubSub: PubSub,
+export const sendEmailWithTemplate = async (
+  context: PostGraphileContext,
+  event: EventMessage,
   body: ChangeRoleEmailProps
 ) => {
-  const template = await tempalteFactory("6AOfsimVd1dyPzpceKCA7V", body);
+  const { data } = await messageTemplate(event);
+  const { messageTemplateCollection } = data;
 
-  await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-    title: template.subject,
-    text: template.emailBody,
-    html: template.htmlEmailBody,
+  if (!messageTemplateCollection.items.length) {
+    throw new Error("template_not_found");
+  }
+
+  const [template] = messageTemplateCollection.items;
+
+  await publish(context, TOPICS.TRANSACTIONAL_EMAIL, {
+    title: replaceData(template.subject, body),
+    text: replaceData(template.emailBody, body),
+    html: replaceData(template.emailBody, body)?.replace(
+      /(?:\r\n|\r|\n)/g,
+      "<br>"
+    ),
     email: body.email
   });
 };

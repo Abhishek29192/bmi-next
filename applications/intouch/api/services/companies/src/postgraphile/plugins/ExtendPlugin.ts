@@ -85,21 +85,19 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         },
         publishMessage: async (_query, args, context, resolveInfo) => {
           const { input } = args;
-          const { pubSub } = context;
 
-          await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, input);
+          await publish(context, TOPICS.TRANSACTIONAL_EMAIL, input);
 
           return input;
         },
         createGuaranteePdf: async (_query, args, context, resolverInfo) => {
-          const { pubSub } = context;
           const data = await guaranteeResolver({
             graphql,
             args,
             context,
             resolverInfo
           });
-          const messageId = await publish(pubSub, TOPICS.GUARANTEE_PDF, data);
+          const messageId = await publish(context, TOPICS.GUARANTEE_PDF, data);
 
           return { messageId };
         },

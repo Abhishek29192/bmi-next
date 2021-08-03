@@ -143,7 +143,9 @@ describe("Account", () => {
           }
         };
 
-        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+        (mailerSrv.sendEmailWithTemplate as jest.Mock).mockResolvedValueOnce(
+          {}
+        );
 
         mockQuery
           .mockImplementationOnce(() => ({
@@ -168,11 +170,15 @@ describe("Account", () => {
           userid: "123456",
           level: 4
         });
-        expect(mailerSrv.sendChangeRoleEmail).toBeCalledWith(mockPubSub, {
-          email: "email@email.co.uk",
-          role: "company admin",
-          firstname: "Name"
-        });
+        expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+          contextMock,
+          "ROLE_ASSIGNED",
+          {
+            email: "email@email.co.uk",
+            role: "company admin",
+            firstname: "Name"
+          }
+        );
       });
 
       it("should resolve if a company admin downgrade an installer", async () => {
@@ -189,7 +195,9 @@ describe("Account", () => {
           }
         };
 
-        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+        (mailerSrv.sendEmailWithTemplate as jest.Mock).mockResolvedValueOnce(
+          {}
+        );
 
         mockQuery
           .mockImplementationOnce(() => ({
@@ -217,11 +225,15 @@ describe("Account", () => {
           userid: "123456",
           level: 6
         });
-        expect(mailerSrv.sendChangeRoleEmail).toBeCalledWith(mockPubSub, {
-          email: "email@email.co.uk",
-          role: "installer",
-          firstname: "Name"
-        });
+        expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+          contextMock,
+          "ROLE_ASSIGNED",
+          {
+            email: "email@email.co.uk",
+            role: "installer",
+            firstname: "Name"
+          }
+        );
       });
 
       it("should trown an error if last admin", async () => {
@@ -238,7 +250,9 @@ describe("Account", () => {
           }
         };
 
-        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+        (mailerSrv.sendEmailWithTemplate as jest.Mock).mockResolvedValueOnce(
+          {}
+        );
 
         mockQuery
           .mockImplementationOnce(() => ({
@@ -349,7 +363,7 @@ describe("Account", () => {
           id: null,
           role: "INSTALLER",
           email: "email@email.com",
-          marketDomain: "en",
+          market: { domain: "en" },
           company: {
             ...company
           },
@@ -411,7 +425,7 @@ describe("Account", () => {
         verify_email: false,
         user_metadata: {
           intouch_role: args.input.role,
-          market: contextMock.user.marketDomain,
+          market: contextMock.user.market.domain,
           first_name: args.input.firstName,
           last_name: args.input.lastName
         }
