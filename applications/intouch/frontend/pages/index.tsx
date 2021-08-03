@@ -18,6 +18,7 @@ import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
 import { withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
 import { SimpleCard } from "../components/Cards/SimpleCard";
+import { RichText } from "../components/RichText";
 import { Link } from "../components/Link";
 import logger from "../lib/logger";
 import { findAccountCompany, findAccountTier } from "../lib/account";
@@ -27,6 +28,7 @@ import styles from "../styles/Homepage.module.scss";
 type HomePageProps = {
   marketContentCollection: GetPartnerBrandsQuery["marketContentCollection"];
   carouselCollection: GetPartnerBrandsQuery["carouselCollection"];
+  tierBenefitCollection: GetPartnerBrandsQuery["tierBenefitCollection"];
   globalPageData: GetGlobalDataQuery;
 };
 
@@ -104,6 +106,7 @@ const mapHeroCarouselItems = (
 const Homepage = ({
   marketContentCollection,
   carouselCollection,
+  tierBenefitCollection,
   globalPageData
 }: HomePageProps) => {
   const { t } = useTranslation("common");
@@ -199,23 +202,31 @@ const Homepage = ({
       <div className={styles.feedholder}>
         <SimpleCard>
           <Typography variant="h4" hasUnderline>
-            LinkedIn
+            {marketContentCollection.items[0].newsItemHeading}
           </Typography>
-
-          <p>{marketContentCollection.items[0].newsItemUrl}</p>
           <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:share:6706847282253430785"
+            src={marketContentCollection.items[0].newsItemUrl}
             height="400px"
             width="100%"
             frameBorder="0"
             className={styles.embed}
           />
-          <Button variant="outlined">Read more on LinkedIn</Button>
+          <Button
+            variant="outlined"
+            href={marketContentCollection.items[0].newsItemCta}
+          >
+            Read more on LinkedIn
+          </Button>
         </SimpleCard>
         <SimpleCard>
           <Typography variant="h4" hasUnderline>
-            Tier Benefits
+            {tierBenefitCollection.items[0].name}
           </Typography>
+          <div className={styles.tierBenefits}>
+            <RichText
+              content={tierBenefitCollection.items[0].description.json}
+            />
+          </div>
         </SimpleCard>
       </div>
     </Layout>
@@ -234,7 +245,7 @@ export const GET_PARTNER_BRANDS = gql`
     height
   }
 
-  query GetPartnerBrands($role: String!) {
+  query GetPartnerBrands($role: String!, $tier: String!) {
     # Only one relevant market content entry expected, without "limit" we hit query complexity limits
     marketContentCollection(limit: 1) {
       items {
@@ -251,6 +262,8 @@ export const GET_PARTNER_BRANDS = gql`
           }
         }
         newsItemUrl
+        newsItemCta
+        newsItemHeading
       }
     }
     carouselCollection(where: { audienceRole: $role }, limit: 1) {
@@ -273,6 +286,14 @@ export const GET_PARTNER_BRANDS = gql`
         }
       }
     }
+    tierBenefitCollection(where: { tier: $tier }, limit: 1) {
+      items {
+        name
+        description {
+          json
+        }
+      }
+    }
   }
 `;
 
@@ -280,10 +301,14 @@ export const getServerSideProps = withPage(
   async ({ apolloClient, locale, globalPageData, account }) => {
     const {
       props: {
-        data: { marketContentCollection, carouselCollection }
+        data: {
+          marketContentCollection,
+          carouselCollection,
+          tierBenefitCollection
+        }
       }
     } = await getServerPageGetPartnerBrands(
-      { variables: { role: account.role } },
+      { variables: { role: account.role, tier: findAccountTier(account) } },
       apolloClient
     );
 
@@ -292,6 +317,7 @@ export const getServerSideProps = withPage(
         globalPageData,
         marketContentCollection,
         carouselCollection,
+        tierBenefitCollection,
         account,
         ...(await serverSideTranslations(locale, [
           "common",

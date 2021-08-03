@@ -1779,7 +1779,7 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQueryVariables
 >;
 export const GetPartnerBrandsDocument = gql`
-  query GetPartnerBrands($role: String!) {
+  query GetPartnerBrands($role: String!, $tier: String!) {
     marketContentCollection(limit: 1) {
       items {
         partnerBrandsCollection {
@@ -1794,6 +1794,9 @@ export const GetPartnerBrandsDocument = gql`
             }
           }
         }
+        newsItemUrl
+        newsItemCta
+        newsItemHeading
       }
     }
     carouselCollection(where: { audienceRole: $role }, limit: 1) {
@@ -1816,6 +1819,14 @@ export const GetPartnerBrandsDocument = gql`
         }
       }
     }
+    tierBenefitCollection(where: { tier: $tier }, limit: 1) {
+      items {
+        name
+        description {
+          json
+        }
+      }
+    }
   }
   ${ImageFragmentFragmentDoc}
 `;
@@ -1833,6 +1844,7 @@ export const GetPartnerBrandsDocument = gql`
  * const { data, loading, error } = useGetPartnerBrandsQuery({
  *   variables: {
  *      role: // value for 'role'
+ *      tier: // value for 'tier'
  *   },
  * });
  */
