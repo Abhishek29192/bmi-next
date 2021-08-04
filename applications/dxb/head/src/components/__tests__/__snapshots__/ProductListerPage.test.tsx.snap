@@ -753,7 +753,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
         </div>
       </div>
       <div
-        class="Section Section--pearl"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
           class="Container"
@@ -1836,7 +1836,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
         </div>
       </div>
       <div
-        class="Section Section--pearl"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
           class="Container"
@@ -2914,7 +2914,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
         </div>
       </div>
       <div
-        class="Section Section--pearl"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
           class="Container"
@@ -3945,7 +3945,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
         </div>
       </div>
       <div
-        class="Section Section--pearl"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
           class="Container"
@@ -5162,7 +5162,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
         </div>
       </div>
       <div
-        class="Section Section--pearl"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
           class="Container"
@@ -6425,7 +6425,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
         </div>
       </div>
       <div
-        class="Section Section--pearl"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
           class="Container"
@@ -7733,7 +7733,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
         </div>
       </div>
       <div
-        class="Section Section--pearl"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
           class="Container"
@@ -8752,7 +8752,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
         </div>
       </div>
       <div
-        class="Section Section--pearl"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
           class="Container"
@@ -9750,7 +9750,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
         </div>
       </div>
       <div
-        class="Section Section--pearl"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
           class="Container"
