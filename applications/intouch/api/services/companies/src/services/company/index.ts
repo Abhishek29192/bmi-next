@@ -1,5 +1,6 @@
 import { DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
 import { publish, TOPICS } from "../../services/events";
+import { sendEmailWithTemplate } from "../mailer";
 
 export const updateCompany = async (
   resolve,
@@ -9,7 +10,7 @@ export const updateCompany = async (
   resolveInfo
 ) => {
   const result = await resolve(source, args, context, resolveInfo);
-  const { pgClient } = context;
+  const { pgClient, user } = context;
   const {
     data: {
       $name,
@@ -38,6 +39,13 @@ export const updateCompany = async (
     )
   ) {
     await pgClient.query("SELECT * FROM activate_company($1)", [args.input.id]);
+
+    // send email for registration
+    await sendEmailWithTemplate(context, "COMPANY_REGISTERED", {
+      email: user.email,
+      firstname: user.firstName,
+      companyname: user.company.name
+    });
   }
 
   return result;
