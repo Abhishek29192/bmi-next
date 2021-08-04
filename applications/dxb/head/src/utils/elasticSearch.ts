@@ -80,7 +80,7 @@ const searchTerms = {
   productFamily: "allCategories.code.keyword",
   productLine: "allCategories.code.keyword",
   brand: "allCategories.code.keyword",
-  plpBaseCategory: "plpCategories.code.keyword"
+  plpBaseCategory: "allCategories.code.keyword"
 };
 
 export const compileElasticSearchQuery = (
