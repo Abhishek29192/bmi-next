@@ -410,7 +410,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   </LeadBlock.Card>
                 </LeadBlock>
               </Section>
-              <Section backgroundColor="pearl">
+              <Section backgroundColor="pearl" overflowVisible>
                 {categoryName && (
                   <Section.Title hasUnderline>{categoryName}</Section.Title>
                 )}
