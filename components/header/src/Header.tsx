@@ -272,6 +272,7 @@ const Header = ({
               <LanguageSelection
                 introduction={languageIntroduction}
                 languages={languages}
+                forceMobile={!sizes.length}
               />
             </Container>
           </div>
