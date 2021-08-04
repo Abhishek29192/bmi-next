@@ -35,6 +35,13 @@ const NextBestActions = ({ data }: { data: Data }) => {
           const ClickableButtonBase =
             withClickable<ButtonBaseProps>(ButtonBase);
 
+          const buttonComponent =
+            cta && cta.action
+              ? (props) => (
+                  <ClickableButtonBase {...props} action={cta.action} />
+                )
+              : undefined;
+
           return (
             <Grid item xs={12} md={4} lg={3} key={`nba-${index}`}>
               <NBACard
@@ -49,13 +56,8 @@ const NextBestActions = ({ data }: { data: Data }) => {
                     </div>
                   ) : undefined
                 }
-                buttonComponent={
-                  cta && cta.action
-                    ? (props) => (
-                        <ClickableButtonBase {...props} action={cta.action} />
-                      )
-                    : "div"
-                }
+                buttonComponent={buttonComponent}
+                isClickable={!!buttonComponent}
               >
                 {subtitle}
               </NBACard>
