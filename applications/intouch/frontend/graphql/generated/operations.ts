@@ -904,6 +904,7 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
     { readonly __typename?: "Company" } & Pick<
       SchemaTypes.Company,
+      | "status"
       | "id"
       | "businessType"
       | "logo"

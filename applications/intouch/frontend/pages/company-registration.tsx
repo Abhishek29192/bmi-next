@@ -5,6 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
 import { getServerPageGetCompany } from "../graphql/generated/page";
 import { GetCompanyQuery } from "../graphql/generated/operations";
+import { ErrorStatusCode, generatePageError } from "../lib/error";
 import { withPage } from "../lib/middleware/withPage";
 import { EditCompanyDialog } from "../components/Pages/Company/EditCompany/Dialog";
 
@@ -35,13 +36,19 @@ const GET_CURRENT_COMPANY = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account }) => {
+  async ({ apolloClient, locale, account, globalPageData, res }) => {
     const {
       data: { currentCompany }
     } = await apolloClient.query({
       query: GET_CURRENT_COMPANY,
       variables: {}
     });
+
+    if (!currentCompany) {
+      const statusCode = ErrorStatusCode.UNAUTHORISED;
+      res.statusCode = statusCode;
+      return generatePageError(statusCode, {}, { globalPageData });
+    }
 
     const {
       props: {
@@ -52,6 +59,14 @@ export const getServerSideProps = withPage(
       apolloClient
     );
 
+    if (company.status !== "NEW") {
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/company"
+        }
+      };
+    }
     return {
       props: {
         company,

@@ -1671,6 +1671,7 @@ export const GetCompanyDocument = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
       ...CompanyDetailsFragment
+      status
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment

@@ -115,6 +115,7 @@ export const GET_COMPANY_PAGE = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
       ...CompanyDetailsFragment
+      status
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
