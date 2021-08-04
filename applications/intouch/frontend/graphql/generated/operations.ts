@@ -878,20 +878,6 @@ export type UpdateSystemMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
-export type CreateCompanyMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.UpdateCompanyInput;
-}>;
-
-export type CreateCompanyMutation = { readonly __typename?: "Mutation" } & {
-  readonly updateCompany?: SchemaTypes.Maybe<
-    { readonly __typename?: "UpdateCompanyPayload" } & {
-      readonly company?: SchemaTypes.Maybe<
-        { readonly __typename?: "Company" } & Pick<SchemaTypes.Company, "name">
-      >;
-    }
-  >;
-};
-
 export type CurrentCompanyQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;

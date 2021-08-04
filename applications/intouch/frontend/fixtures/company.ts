@@ -3,11 +3,13 @@ import { GetCompanyQuery } from "../graphql/generated/operations";
 export const mockCompany: GetCompanyQuery["company"] = {
   __typename: "Company",
   id: 1,
+  status: "ACTIVE",
   businessType: "CONTRACTOR",
   logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1280px-Smiley.svg.png",
   aboutUs: "We put stuff together really quickly without any fuss",
   tradingAddress: {
     __typename: "Address",
+    id: 4,
     coordinates: { __typename: "Point", x: 51.4632583, y: -0.1194107 },
     firstLine: "Nursery Rd",
     secondLine: "Brixton",
@@ -28,6 +30,7 @@ export const mockCompany: GetCompanyQuery["company"] = {
   referenceNumber: "0093-7392",
   registeredAddress: {
     __typename: "Address",
+    id: 1,
     firstLine: "Blue Star House",
     secondLine: "234-244 Stockwell Road",
     town: "Brixton",

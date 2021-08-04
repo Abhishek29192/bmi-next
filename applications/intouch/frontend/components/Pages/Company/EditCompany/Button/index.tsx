@@ -4,17 +4,17 @@ import EditIcon from "@material-ui/icons/Edit";
 import Button from "@bmi/button";
 import { GetCompanyQuery } from "../../../../../graphql/generated/operations";
 import AccessControl from "../../../../../lib/permissions/AccessControl";
-import { EditCompanyDialog, OnCompanyUpdate } from "../Dialog";
+import { EditCompanyDialog, OnCompanyUpdateSuccess } from "../Dialog";
 import styles from "./styles.module.scss";
 
 type EditCompanyButtonProps = {
   company: GetCompanyQuery["company"];
-  onCompanyUpdate: OnCompanyUpdate;
+  onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
 };
 
 export const EditCompanyButton = ({
   company,
-  onCompanyUpdate
+  onCompanyUpdateSuccess
 }: EditCompanyButtonProps) => {
   const { t } = useTranslation(["common", "company-page"]);
   const [isEditDialogOpen, setEditDialogOpen] = useState(false);
@@ -44,7 +44,7 @@ export const EditCompanyButton = ({
         company={company}
         isOpen={isEditDialogOpen}
         onCloseClick={() => setEditDialogOpen(false)}
-        onCompanyUpdate={onCompanyUpdate}
+        onCompanyUpdateSuccess={onCompanyUpdateSuccess}
       />
     </div>
   );

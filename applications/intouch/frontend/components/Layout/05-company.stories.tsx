@@ -20,9 +20,19 @@ export const CompanyPage = ({ title }: LayoutProps) => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ThreeColumnGrid>
         <div style={{ flex: 2, minWidth: "400px" }}>
-          <CompanyHeader company={mockCompany} />
+          <CompanyHeader
+            company={mockCompany}
+            onCompanyUpdateSuccess={() => {
+              window.alert("success");
+            }}
+          />
         </div>
-        <CompanyRegisteredDetails company={mockCompany} />
+        <CompanyRegisteredDetails
+          company={mockCompany}
+          onCompanyUpdateSuccess={() => {
+            window.alert("success");
+          }}
+        />
       </ThreeColumnGrid>
 
       <ThreeColumnGrid>
@@ -55,7 +65,12 @@ export const CompanyPage = ({ title }: LayoutProps) => (
             />
           </FiftyFiftyGrid>
         </div>
-        <CompanyRegisteredDetails company={mockCompany} />
+        <CompanyRegisteredDetails
+          company={mockCompany}
+          onCompanyUpdateSuccess={() => {
+            window.alert("success");
+          }}
+        />
       </ThreeColumnGrid>
     </div>
   </Layout>

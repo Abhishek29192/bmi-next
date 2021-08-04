@@ -8,12 +8,12 @@ import { GetCompanyQuery } from "../../../../graphql/generated/operations";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
 import { EditCompanyButton } from "../EditCompany/Button";
-import { OnCompanyUpdate } from "../EditCompany/Dialog";
+import { OnCompanyUpdateSuccess } from "../EditCompany/Dialog";
 import styles from "./styles.module.scss";
 
 export type CompanyRegisteredDetailsProps = {
   company: GetCompanyQuery["company"];
-  onCompanyUpdate: OnCompanyUpdate;
+  onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
 };
 
 export const formatCompanyOperations = (t, operations: Operation[]) => {
@@ -38,7 +38,7 @@ export const formatCompanyOperations = (t, operations: Operation[]) => {
 
 export const CompanyRegisteredDetails = ({
   company,
-  onCompanyUpdate
+  onCompanyUpdateSuccess
 }: CompanyRegisteredDetailsProps) => {
   const { t } = useTranslation(["common", "company-page"]);
   const {
@@ -88,7 +88,7 @@ export const CompanyRegisteredDetails = ({
 
         <EditCompanyButton
           company={company}
-          onCompanyUpdate={onCompanyUpdate}
+          onCompanyUpdateSuccess={onCompanyUpdateSuccess}
         />
       </div>
     </div>

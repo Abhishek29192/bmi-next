@@ -9,17 +9,17 @@ import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../../IconLink";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
 import { EditCompanyButton } from "../EditCompany/Button";
-import { OnCompanyUpdate } from "../EditCompany/Dialog";
+import { OnCompanyUpdateSuccess } from "../EditCompany/Dialog";
 import styles from "./styles.module.scss";
 
 export type CompanyHeaderProps = {
   company: GetCompanyQuery["company"];
-  onCompanyUpdate: OnCompanyUpdate;
+  onCompanyUpdateSuccess: OnCompanyUpdateSuccess;
 };
 
 export const CompanyHeader = ({
   company,
-  onCompanyUpdate
+  onCompanyUpdateSuccess
 }: CompanyHeaderProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
@@ -99,7 +99,7 @@ export const CompanyHeader = ({
 
               <EditCompanyButton
                 company={company}
-                onCompanyUpdate={onCompanyUpdate}
+                onCompanyUpdateSuccess={onCompanyUpdateSuccess}
               />
             </Grid>
           </Grid>

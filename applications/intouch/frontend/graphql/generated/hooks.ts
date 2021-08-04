@@ -1557,58 +1557,6 @@ export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateSystemMutation,
   OperationTypes.UpdateSystemMutationVariables
 >;
-export const CreateCompanyDocument = gql`
-  mutation createCompany($input: UpdateCompanyInput!) {
-    updateCompany(input: $input) {
-      company {
-        name
-      }
-    }
-  }
-`;
-export type CreateCompanyMutationFn = Apollo.MutationFunction<
-  OperationTypes.CreateCompanyMutation,
-  OperationTypes.CreateCompanyMutationVariables
->;
-
-/**
- * __useCreateCompanyMutation__
- *
- * To run a mutation, you first call `useCreateCompanyMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateCompanyMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createCompanyMutation, { data, loading, error }] = useCreateCompanyMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useCreateCompanyMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.CreateCompanyMutation,
-    OperationTypes.CreateCompanyMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.CreateCompanyMutation,
-    OperationTypes.CreateCompanyMutationVariables
-  >(CreateCompanyDocument, options);
-}
-export type CreateCompanyMutationHookResult = ReturnType<
-  typeof useCreateCompanyMutation
->;
-export type CreateCompanyMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
-export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.CreateCompanyMutation,
-  OperationTypes.CreateCompanyMutationVariables
->;
 export const CurrentCompanyDocument = gql`
   query currentCompany {
     currentCompany

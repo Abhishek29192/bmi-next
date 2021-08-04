@@ -4,9 +4,10 @@ import React, { useCallback } from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
 import {
-  UpdateCompanyInput,
+  CompanyOperation,
   CompanyRegisteredAddressIdFkeyInput,
-  CompanyTradingAddressIdFkeyInput
+  CompanyTradingAddressIdFkeyInput,
+  UpdateCompanyInput
 } from "@bmi/intouch-api-types";
 import Grid from "@bmi/grid";
 import Form from "@bmi/form";
@@ -27,13 +28,15 @@ import { InfoPair } from "../../../../InfoPair";
 import { formatCompanyOperations } from "../../RegisteredDetails";
 import styles from "./styles.module.scss";
 
-export type OnCompanyUpdate = (company: GetCompanyQuery["company"]) => void;
+export type OnCompanyUpdateSuccess = (
+  company: GetCompanyQuery["company"]
+) => void;
 
 export type EditCompanyDialogProps = {
   company: GetCompanyQuery["company"];
   isOpen: boolean;
-  onCloseClick: () => void;
-  onCompanyUpdate: OnCompanyUpdate;
+  onCloseClick?: () => void;
+  onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
 };
 
 export const EditCompanyDialog = ({
@@ -87,7 +90,7 @@ export const EditCompanyDialog = ({
 
       const addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput =
         // address already exists?
-        company.registeredAddress.id
+        company.registeredAddress?.id
           ? {
               // updates the address (already linked to the company)
               updateById: {
@@ -102,7 +105,7 @@ export const EditCompanyDialog = ({
 
       const addressToTradingAddressId: CompanyTradingAddressIdFkeyInput =
         // address already exists?
-        company.tradingAddress.id
+        company.tradingAddress?.id
           ? {
               // updates the address (already linked to the company)
               updateById: {
@@ -148,6 +151,9 @@ export const EditCompanyDialog = ({
   const validateEmail = useCallback(validateEmailInput(t), [t]);
   const validatePhoneNumber = useCallback(validatePhoneNumberInput(t), [t]);
 
+  const operations = (get(company, "companyOperationsByCompany.nodes") ||
+    []) as CompanyOperation[];
+
   return (
     <Dialog className={styles.dialog} open={isOpen} onCloseClick={onCloseClick}>
       <Dialog.Title hasUnderline>
@@ -161,7 +167,7 @@ export const EditCompanyDialog = ({
           </Typography>
           <Grid container xs={12} alignContent="stretch" spacing={3}>
             <Grid item xs={12} lg={6} spacing={0}>
-              <TextField {...getFieldProps("name")} />
+              <TextField {...getFieldProps("name")} isRequired />
               <TextField
                 {...getFieldProps("registeredAddress.firstLine")}
                 isRequired
@@ -192,22 +198,27 @@ export const EditCompanyDialog = ({
                 ))}
               </Select>
 
-              <InfoPair
-                title={t("company-page:edit_dialog.form.fields.operationTypes")}
-              >
-                {formatCompanyOperations(
-                  t,
-                  company.companyOperationsByCompany.nodes.map(
-                    (node) => node.operation
-                  )
-                )}
-              </InfoPair>
-              {/* TODO: check that only market admin & super admin can change company operations */}
+              {operations.length > 0 ? (
+                <InfoPair
+                  title={t(
+                    "company-page:edit_dialog.form.fields.operationTypes"
+                  )}
+                >
+                  {formatCompanyOperations(
+                    t,
+                    operations.map((node) => node.operation)
+                  )}
+                </InfoPair>
+              ) : null}
 
-              <InfoPair title={t("company-page:edit_dialog.form.fields.tier")}>
-                {t(`common:tier.${company.tier}`)}
-              </InfoPair>
-              {/* TODO: check that only market admin & super admin can change company tier */}
+              {/* read-only values not shown for company registration */}
+              {company.tier ? (
+                <InfoPair
+                  title={t("company-page:edit_dialog.form.fields.tier")}
+                >
+                  {t(`common:tier.${company.tier}`)}
+                </InfoPair>
+              ) : null}
             </Grid>
           </Grid>
 

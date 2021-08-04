@@ -1,7 +1,10 @@
 import React from "react";
 import { Operation } from "@bmi/intouch-api-types";
 import { mockCompany } from "../../../../../fixtures/company";
-import { renderWithI18NProvider, screen } from "../../../../../lib/tests/utils";
+import { render, screen } from "../../../../../lib/tests/utils";
+import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
+import AccountContextWrapper from "../../../../../lib/tests/fixtures/account";
+import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
 import { OPERATION_TYPES } from "../../../../../lib/constants";
 import { formatCompanyOperations, CompanyRegisteredDetails } from "..";
 
@@ -48,7 +51,15 @@ describe("formatCompanyOperations", () => {
 
 describe("CompanyRegisteredDetails", () => {
   beforeEach(() => {
-    renderWithI18NProvider(<CompanyRegisteredDetails company={mockCompany} />);
+    render(
+      <ApolloProvider>
+        <I18nProvider>
+          <AccountContextWrapper>
+            <CompanyRegisteredDetails company={mockCompany} />
+          </AccountContextWrapper>
+        </I18nProvider>
+      </ApolloProvider>
+    );
   });
 
   it("renders company name", () => {
@@ -74,12 +85,18 @@ describe("CompanyRegisteredDetails", () => {
   });
 
   it("renders company tier", () => {
-    expect(screen.getByText("T2")).toBeInTheDocument();
+    expect(screen.getByText("tier.T2")).toBeInTheDocument();
   });
 
   it("matches snapshot", () => {
-    const { container } = renderWithI18NProvider(
-      <CompanyRegisteredDetails company={mockCompany} />
+    const { container } = render(
+      <ApolloProvider>
+        <I18nProvider>
+          <AccountContextWrapper>
+            <CompanyRegisteredDetails company={mockCompany} />
+          </AccountContextWrapper>
+        </I18nProvider>
+      </ApolloProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });

@@ -46,7 +46,7 @@ const CompanyPage = ({
   const { missingFields: companyProfileMissingFields } =
     validateCompanyProfile(company);
 
-  const onCompanyUpdate = useCallback(
+  const onCompanyUpdateSuccess = useCallback(
     (updatedCompany: GetCompanyQuery["company"]) => {
       setCompany(updatedCompany);
     },
@@ -67,13 +67,16 @@ const CompanyPage = ({
         alignItems="stretch"
       >
         <Grid item xs={12} lg={7} xl={8}>
-          <CompanyHeader company={company} onCompanyUpdate={onCompanyUpdate} />
+          <CompanyHeader
+            company={company}
+            onCompanyUpdateSuccess={onCompanyUpdateSuccess}
+          />
         </Grid>
 
         <Grid item xs={12} lg={5} xl={4}>
           <CompanyRegisteredDetails
             company={company}
-            onCompanyUpdate={onCompanyUpdate}
+            onCompanyUpdateSuccess={onCompanyUpdateSuccess}
           />
         </Grid>
 

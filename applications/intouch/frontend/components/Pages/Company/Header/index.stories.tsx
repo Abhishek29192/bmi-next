@@ -19,6 +19,11 @@ export const Basic = () => (
       }
     })}
   >
-    <CompanyHeader company={mockCompany} />
+    <CompanyHeader
+      company={mockCompany}
+      onCompanyUpdateSuccess={() => {
+        window.alert("success");
+      }}
+    />
   </AccountContextWrapper>
 );
