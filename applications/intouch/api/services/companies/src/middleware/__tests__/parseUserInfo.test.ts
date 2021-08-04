@@ -111,6 +111,7 @@ describe("ParseUserInfo", () => {
         role: "role",
         firstName: "first_name",
         lastName: "last_name",
+        marketId: "market_id",
         market: {
           id: "market_id",
           domain: "market_domain",

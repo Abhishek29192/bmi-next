@@ -1,6 +1,7 @@
 import crypto from "crypto";
-import { InviteInput, Role } from "@bmi/intouch-api-types";
+import camelcaseKeys from "camelcase-keys";
 import { FileUpload } from "graphql-upload";
+import { InviteInput, Role } from "@bmi/intouch-api-types";
 import { UpdateAccountInput } from "@bmi/intouch-api-types";
 import { publish, TOPICS } from "../../services/events";
 import { sendEmailWithTemplate } from "../../services/mailer";
@@ -48,6 +49,30 @@ export const createAccount = async (
     if (rows.length === 0 && args.input.account.role === COMPANY_ADMIN) {
       await pgClient.query(`SELECT * FROM create_company()`, []);
     }
+
+    const { rows: markets } = await pgClient.query(
+      `SELECT * FROM market WHERE id = $1`,
+      [result.data.$market_id]
+    );
+
+    // When the request started the user wasn't in the db so the parseUSer middleware didn't
+    // append any information to the request object
+    const updatedContext = {
+      ...context,
+      user: {
+        ...context.user,
+        id: result.data.$account_id,
+        market: {
+          sendMailbox: markets[0].send_mailbox
+        }
+      }
+    };
+
+    await sendEmailWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+      email: result.data.$email,
+      firstname: result.data.$first_name,
+      marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`
+    });
 
     // Query the requested value
     const [row] = await resolveInfo.graphile.selectGraphQLResultFromTable(
@@ -271,7 +296,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         // Creating a passsword reset ticket
         const ticket = await auth0.createResetPasswordTicket({
           user_id: auth0User?.user_id,
-          result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
+          result_url: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
         });
 
         // Send the email with the link to reset the password to the user
@@ -302,14 +327,14 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
           text: `
             You are invited by company ${user.company.id}.
             Please follow this link to set your password:
-            ${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
+            https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
             <br/>
             ${personalNote}
           `,
           html: `
             You are invited by company ${user.company.id}.
             Please follow this link to set your password:
-            ${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
+            https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
             <br/>
             ${personalNote}
           `,
@@ -387,7 +412,31 @@ export const completeInvitation = async (
         [rows[0].id]
       );
 
-      user = rows[0];
+      user = camelcaseKeys(rows[0]);
+
+      const { rows: markets } = await pgClient.query(
+        `SELECT * FROM market WHERE id = $1`,
+        [user.marketId]
+      );
+
+      // When the request started the user wasn't in the db so the parseUSer middleware didn't
+      // append any information to the request object
+      const updatedContext = {
+        ...context,
+        user: {
+          ...context.user,
+          id: user.id,
+          market: {
+            sendMailbox: markets[0].send_mailbox
+          }
+        }
+      };
+
+      await sendEmailWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+        email: user.email,
+        firstname: user.firstName,
+        marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`
+      });
     }
 
     // Add the user to the company
