@@ -21,6 +21,7 @@ export type Account = {
   doceboUserId: string;
   doceboUsername: string;
   migrationId: string;
+  marketId: string;
   company: Company;
   can: (permissions: string | string[]) => boolean;
 };

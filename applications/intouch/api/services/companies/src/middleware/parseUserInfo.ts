@@ -56,6 +56,7 @@ export default async (req, res, next) => {
         doceboUserId: users[0].docebo_user_id,
         doceboUsername: users[0].docebo_username,
         migrationId: users[0].migration_id,
+        marketId: users[0].market_id,
         market: camelcaseKeys({
           id: users[0].market_id,
           domain: users[0].domain,

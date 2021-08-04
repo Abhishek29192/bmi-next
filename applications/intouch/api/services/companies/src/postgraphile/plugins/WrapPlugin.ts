@@ -8,7 +8,11 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
     Mutation: {
       createAccount: {
         requires: {
-          childColumns: [{ column: "id", alias: "$account_id" }]
+          childColumns: [
+            { column: "email", alias: "$email" },
+            { column: "id", alias: "$account_id" },
+            { column: "market_id", alias: "$market_id" }
+          ]
         },
         async resolve(resolve: any, source, args, context: any, resolveInfo) {
           return createAccount(resolve, source, args, context, resolveInfo);

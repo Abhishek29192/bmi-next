@@ -22,14 +22,6 @@ export const publish = async (
     throw new Error(errorMEssage);
   }
 
-  // If I'm sending an email I need to send it based on the market
-  // if a sendMailbox is sent we use that email, otherwise we use the default email
-  // for the particular market
-
-  if (topicName === TOPICS.TRANSACTIONAL_EMAIL && !payload.sendMailbox) {
-    payload.sendMailbox = context.user.market.sendMailbox;
-  }
-
   try {
     const data = Buffer.from(JSON.stringify(payload), "utf8");
     const result = await pubSub.topic(topicName).publish(data);

@@ -31,6 +31,8 @@ let logger = () => ({
   info: () => {}
 });
 
+process.env.FRONTEND_URL = "intouch.dddev.io";
+
 describe("Account", () => {
   let args;
   let pool;
@@ -301,7 +303,12 @@ describe("Account", () => {
 
     it("Should be able to register as company_admin", async () => {
       mockResolve.mockResolvedValueOnce({
-        data: { $account_id: 1 }
+        data: {
+          $account_id: 1,
+          $market_id: 1,
+          $email: "email",
+          $first_name: "first_name"
+        }
       });
 
       resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
@@ -311,10 +318,35 @@ describe("Account", () => {
       mockQuery
         .mockResolvedValueOnce({}) // savepoint
         .mockResolvedValueOnce({}) // set user
-        .mockResolvedValueOnce({ rows: [] }); // get company
+        .mockResolvedValueOnce({ rows: [] }) // get company
+        .mockResolvedValueOnce({ rows: [] }) // create company
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              send_mailbox: "send_mailbox",
+              domain: "domain"
+            }
+          ]
+        }); // get market
 
       await createAccount(mockResolve, null, args, contextMock, resolveInfo);
 
+      expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+        {
+          ...contextMock,
+          user: {
+            ...contextMock.user,
+            market: { sendMailbox: "send_mailbox" },
+            id: 1
+          }
+        },
+        "ACCOUNT_ACTIVATED",
+        {
+          email: "email",
+          firstname: "first_name",
+          marketUrl: `https://domain.intouch.dddev.io`
+        }
+      );
       expect(mockResolve.mock.calls).toMatchSnapshot();
     });
     it("Should be able to register as installer", async () => {
@@ -330,7 +362,15 @@ describe("Account", () => {
       mockQuery
         .mockResolvedValueOnce({}) // savepoint
         .mockResolvedValueOnce({}) // set user
-        .mockResolvedValueOnce({ rows: [] }); // get company
+        .mockResolvedValueOnce({ rows: [] }) // get company
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              send_mailbox: "send_mailbox",
+              domain: "domain"
+            }
+          ]
+        }); // get market
 
       await createAccount(mockResolve, null, args, contextMock, resolveInfo);
 
@@ -526,13 +566,31 @@ describe("Account", () => {
       mockRootQuery
         // invitation
         .mockResolvedValueOnce({
-          rows: [{ id: 1, market_id: 1, company_id: 1 }]
+          rows: [
+            {
+              id: 1,
+              market_id: 1,
+              company_id: 1
+            }
+          ]
         });
 
       mockQuery
         .mockResolvedValueOnce({ rows: [] }) // savepoint
-        .mockResolvedValueOnce({ rows: [{ id: 1, market_id: 1 }] }) // account
+        .mockResolvedValueOnce({
+          rows: [
+            { id: 1, market_id: 1, email: "email", first_name: "first_name" }
+          ]
+        }) // account
         .mockResolvedValueOnce({ rows: [] }) // config
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              send_mailbox: "send_mailbox",
+              domain: "domain"
+            }
+          ]
+        }) // market
         .mockResolvedValueOnce({
           rows: [{ id: 2, account_id: 1, market_id: 1, company_id: 1 }]
         }); // company_member
@@ -544,6 +602,23 @@ describe("Account", () => {
         resolveInfo,
         auth0,
         build
+      );
+
+      expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+        {
+          ...contextMock,
+          user: {
+            ...contextMock.user,
+            market: { sendMailbox: "send_mailbox" },
+            id: 1
+          }
+        },
+        "ACCOUNT_ACTIVATED",
+        {
+          email: "email",
+          firstname: "first_name",
+          marketUrl: `https://domain.intouch.dddev.io`
+        }
       );
 
       expect(mockQuery.mock.calls).toMatchSnapshot();
