@@ -7,7 +7,41 @@ export const updateCompany = async (
   args,
   context,
   resolveInfo
-) => await resolve(source, args, context, resolveInfo);
+) => {
+  const result = await resolve(source, args, context, resolveInfo);
+  const { pgClient } = context;
+  const {
+    data: {
+      $name,
+      $business_type,
+      $tax_number,
+      $status,
+      $registered_address_id
+    }
+  } = result;
+
+  const {
+    rows: [registeredAddress]
+  } = await pgClient.query(
+    "select address.* from address where address.id = $1",
+    [$registered_address_id]
+  );
+
+  if (
+    $status === "NEW" &&
+    // mandatory fields to activate company
+    $name &&
+    $business_type &&
+    $tax_number &&
+    ["first_line", "town", "postcode", "country"].every(
+      (line) => registeredAddress[line]
+    )
+  ) {
+    await pgClient.query("SELECT * FROM activate_company($1)", [args.input.id]);
+  }
+
+  return result;
+};
 
 export const deleteCompanyMember = async (
   resolve,
