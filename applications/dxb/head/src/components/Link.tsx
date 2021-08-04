@@ -57,6 +57,20 @@ export const getClickableActionFromUrl = (
     };
   }
 
+  if (type === "Dialog") {
+    const dataGtm = { id: "cta-click1", action: type, label };
+
+    return {
+      model: "default",
+      onClick: (...args) => {
+        onClick && onClick(...args);
+        pushToDataLayer(dataGtm);
+      },
+      // @ts-ignore data-gtm is not defined but a general html attribute
+      "data-gtm": JSON.stringify(dataGtm)
+    };
+  }
+
   if (assetUrl) {
     const dataGtm = { id: "cta-click1", action: assetUrl, label };
 
@@ -202,6 +216,27 @@ export type NavigationData = {
   links: (NavigationData | NavigationItem | Data)[];
 };
 
+export const renderDialog = (
+  data: Data,
+  dialogIsOpen: boolean,
+  handleDialogCloseClick: () => void
+) => {
+  if (!data?.dialogContent) {
+    return;
+  }
+
+  const sectionId = `dialog-section-${new Date().getTime()}`;
+  const Component: React.ElementType =
+    sectionsMap[data.dialogContent.__typename];
+
+  return (
+    <Dialog open={dialogIsOpen} onCloseClick={handleDialogCloseClick}>
+      <div className={styles["Link--dialog"]}>
+        <Component data={data.dialogContent} id={sectionId} />
+      </div>
+    </Dialog>
+  );
+};
 export const Link = ({
   children,
   component: Component = Clickable,
@@ -227,9 +262,7 @@ export const Link = ({
         openVisualiser(data?.parameters);
       } else if (data?.type === "Calculator" && openCalculator) {
         openCalculator(data?.parameters);
-      }
-
-      if (data?.type === "Dialog") {
+      } else if (data?.type === "Dialog") {
         setDialogIsOpen(true);
       }
     },
@@ -254,30 +287,17 @@ export const Link = ({
     setDialogIsOpen(false);
   }, []);
 
-  const renderDialog = useMemo(() => {
-    if (!data?.dialogContent) {
-      return;
-    }
-
-    const sectionId = `dialog-section-${new Date().getTime()}`;
-    const Component: React.ElementType =
-      sectionsMap[data.dialogContent.__typename];
-
-    return (
-      <Dialog open={dialogIsOpen} onCloseClick={handleDialogCloseClick}>
-        <div className={styles["Link--dialog"]}>
-          <Component data={data.dialogContent} id={sectionId} />
-        </div>
-      </Dialog>
-    );
-  }, [data?.dialogContent, dialogIsOpen]);
+  const memoedRenderDialog = useMemo(
+    () => renderDialog(data, dialogIsOpen, handleDialogCloseClick),
+    [data?.dialogContent, dialogIsOpen]
+  );
 
   return (
     <>
       <Component action={action} onClick={handleOnClick} {...rest}>
         {children}
       </Component>
-      {data?.type === "Dialog" && data?.dialogContent && renderDialog}
+      {data?.type === "Dialog" && data?.dialogContent && memoedRenderDialog}
     </>
   );
 };
