@@ -12,7 +12,10 @@ import { WizardSystemDetailCard } from "../WizardSystemDetailCard";
 
 export const SelectSystem = () => {
   const { data, setData } = useWizardContext();
-  const [options, setOptions] = useState<WizardAutoCompleteOptions>();
+  const [options, setOptions] = useState<WizardAutoCompleteOptions>({
+    totalCount: 0,
+    items: []
+  });
   const [systems, setSystems] = useState<System[]>();
 
   const [systemsSearch] = useSearchSystemsLazyQuery({
@@ -43,7 +46,10 @@ export const SelectSystem = () => {
     setValue(value);
   };
   const handleInput = async (input: string) => {
-    setOptions(null);
+    setOptions({
+      totalCount: 0,
+      items: []
+    });
     if (input.length > 0) {
       systemsSearch({
         variables: {

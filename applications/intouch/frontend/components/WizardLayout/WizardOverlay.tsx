@@ -10,15 +10,21 @@ import {
   SelectGuaranteesTemplate
 } from "./Steps";
 import { SelectProductOrSystem } from "./Steps/SelectProductOrSystem";
+import { GuaranteeWizardData } from "./WizardContext";
 
 type WizardOverlayProps = {
   project: GetProjectQuery["project"];
   onClose?: () => void;
+  onSubmit?: (data: GuaranteeWizardData) => void;
 };
 
-const WizardOverlay = ({ project, onClose }: WizardOverlayProps) => {
+const WizardOverlay = ({ project, onClose, onSubmit }: WizardOverlayProps) => {
   return (
-    <Wizard onCloseClick={onClose} project={project as Project}>
+    <Wizard
+      onCloseClick={onClose}
+      onSubmitClick={onSubmit}
+      project={project as Project}
+    >
       <SelectGuarantee />
       <SelectGuaranteesTemplate />
       <SelectProductOrSystem />

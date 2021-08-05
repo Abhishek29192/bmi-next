@@ -16,7 +16,15 @@ export const ApplyGuaranteeDialog = ({
   return (
     isOpen && (
       <Dialog fullScreen open={isOpen} onClose={onCloseClick}>
-        <WizardOverlay project={project} onClose={onCloseClick} />
+        <WizardOverlay
+          project={project}
+          onClose={onCloseClick}
+          onSubmit={(data) => {
+            //TODO:Create guarantee..
+            // eslint-disable-next-line no-console
+            console.log("data: ", { data });
+          }}
+        />
       </Dialog>
     )
   );

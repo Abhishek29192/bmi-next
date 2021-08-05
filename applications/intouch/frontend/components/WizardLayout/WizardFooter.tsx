@@ -1,12 +1,20 @@
 import React from "react";
+import { useTranslation } from "next-i18next";
 import Button from "@bmi/button";
 import { ArrowBack } from "@material-ui/icons";
 import { useWizardContext } from "./WizardContext";
 import styles from "./styles.module.scss";
 
 export const WizardFooter = () => {
-  const { gotoNext, gotoBack, isNextStepAvailable, isBackStepAvailable } =
-    useWizardContext();
+  const { t } = useTranslation("project-page");
+  const {
+    gotoNext,
+    gotoBack,
+    submit,
+    isNextStepAvailable,
+    isBackStepAvailable,
+    isLastStep
+  } = useWizardContext();
 
   return (
     <div className={styles.footer}>
@@ -18,12 +26,22 @@ export const WizardFooter = () => {
           onClick={gotoBack}
           disabled={!isBackStepAvailable}
         >
-          Go back
+          {t("guarantee_tab.apply_guarantee.wizard.footer.goBack")}
         </Button>
 
-        <Button size="large" onClick={gotoNext} disabled={!isNextStepAvailable}>
-          Next
-        </Button>
+        {!isLastStep ? (
+          <Button
+            size="large"
+            onClick={gotoNext}
+            disabled={!isNextStepAvailable}
+          >
+            {t("guarantee_tab.apply_guarantee.wizard.footer.next")}
+          </Button>
+        ) : (
+          <Button size="large" onClick={submit}>
+            {t("guarantee_tab.apply_guarantee.wizard.footer.submit")}
+          </Button>
+        )}
       </div>
     </div>
   );

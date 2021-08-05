@@ -5,6 +5,8 @@ $wrapper-width: 1395px;
 .main {
   background-color: $color-pearl;
   min-height: 100vh;
+  max-height: 100%;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
 }
@@ -35,6 +37,10 @@ $wrapper-width: 1395px;
   width: 700px;
   padding: 3rem 1rem;
   margin: 0 auto;
+  &__title {
+    text-align: center;
+    margin: 10px;
+  }
 }
 
 .footer {
@@ -50,4 +56,9 @@ $wrapper-width: 1395px;
     align-items: center;
     padding: 1rem 0 2rem;
   }
+}
+
+.logo {
+  width: 60px;
+  display: block;
 }

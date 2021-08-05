@@ -45,7 +45,7 @@ export const SelectGuarantee = () => {
     setData({
       ...data,
       guaranteeType: guaranteeType,
-      guaranteeTemplateId: null,
+      guaranteeTemplate: null,
       product: null,
       system: null
     });

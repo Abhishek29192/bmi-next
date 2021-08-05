@@ -3,12 +3,13 @@ import {
   GuaranteeType,
   Product,
   Project,
-  System
+  System,
+  GuaranteeTemplate
 } from "@bmi/intouch-api-types";
 
-type GuaranteeWizardData = {
+export type GuaranteeWizardData = {
   guaranteeType: GuaranteeType;
-  guaranteeTemplateId: string;
+  guaranteeTemplate: GuaranteeTemplate;
   product: Product;
   system: System;
   evidences: File[];
@@ -26,20 +27,27 @@ type ContextProps = {
   header?: GuaranteeHeader;
   gotoNext?: () => void;
   gotoBack?: () => void;
+  submit?: () => void;
   isNextStepAvailable: boolean;
   isBackStepAvailable: boolean;
+  isLastStep: boolean;
   project?: Project;
 };
 
 type ContextWrapperProps = {
   children?: React.ReactNode;
   project: Project;
+  onSubmit?: (data: GuaranteeWizardData) => void;
 };
 
 export const WizardContext = createContext<ContextProps | null>(null);
 export const useWizardContext = () => React.useContext(WizardContext);
 
-const WizardContextWrapper = ({ project, children }: ContextWrapperProps) => {
+const WizardContextWrapper = ({
+  project,
+  onSubmit,
+  children
+}: ContextWrapperProps) => {
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [currentData, setCurrentData] = useState<GuaranteeWizardData>();
 
@@ -94,7 +102,7 @@ const WizardContextWrapper = ({ project, children }: ContextWrapperProps) => {
       return currentData?.guaranteeType ? true : false;
     }
     if (currentStep === 1) {
-      return currentData?.guaranteeTemplateId ? true : false;
+      return currentData?.guaranteeTemplate ? true : false;
     }
     if (currentStep === 2) {
       return currentData?.product || currentData.system ? true : false;
@@ -117,8 +125,12 @@ const WizardContextWrapper = ({ project, children }: ContextWrapperProps) => {
         gotoBack: () => {
           setCurrentStep(currentStep - 1);
         },
+        submit: () => {
+          onSubmit(currentData);
+        },
         isNextStepAvailable: nextStepAvailable(),
-        isBackStepAvailable: currentStep > 0
+        isBackStepAvailable: currentStep > 0,
+        isLastStep: currentStep === 4
       }}
     >
       {children}

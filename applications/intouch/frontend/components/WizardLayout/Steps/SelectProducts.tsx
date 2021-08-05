@@ -18,7 +18,10 @@ export const SelectProducts = () => {
   const [products, setProducts] = useState<Product[]>();
 
   const [productOptions, setProductOptions] =
-    useState<WizardAutoCompleteOptions>();
+    useState<WizardAutoCompleteOptions>({
+      totalCount: 0,
+      items: []
+    });
   const [productsSearch] = useSearchProductsLazyQuery({
     onCompleted: ({ searchProducts: { totalCount, nodes } }) => {
       setProducts(nodes as Product[]);
@@ -47,7 +50,10 @@ export const SelectProducts = () => {
     setValue(value);
   };
   const handleInput = async (input: string) => {
-    setProductOptions(null);
+    setProductOptions({
+      totalCount: 0,
+      items: []
+    });
     if (input.length > 0) {
       productsSearch({
         variables: {

@@ -5,7 +5,7 @@ import Button from "@bmi/button";
 import { Project } from "@bmi/intouch-api-types";
 import CloseIcon from "@material-ui/icons/Close";
 import Link from "next/link";
-import WizardContextWrapper from "./WizardContext";
+import WizardContextWrapper, { GuaranteeWizardData } from "./WizardContext";
 import styles from "./styles.module.scss";
 import { WizardBody } from "./WizardBody";
 import { WizardFooter } from "./WizardFooter";
@@ -14,20 +14,22 @@ export type WizardProps = {
   children: React.ReactNode | React.ReactNode[];
   project: Project;
   onCloseClick?: () => void;
+  onSubmitClick?: (data: GuaranteeWizardData) => void;
 };
 
-export const Wizard = ({ children, project, onCloseClick }: WizardProps) => {
+export const Wizard = ({
+  children,
+  project,
+  onCloseClick,
+  onSubmitClick
+}: WizardProps) => {
   return (
-    <WizardContextWrapper project={project}>
+    <WizardContextWrapper project={project} onSubmit={onSubmitClick}>
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.header__inner}>
             <Link href="/">
-              <Icon
-                source={BMI}
-                className={styles.logo}
-                style={{ width: 80, display: "block" }}
-              />
+              <Icon source={BMI} className={styles.logo} />
             </Link>
 
             <Button variant="text" isIconButton onClick={onCloseClick}>
