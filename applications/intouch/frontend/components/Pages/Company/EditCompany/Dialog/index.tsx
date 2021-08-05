@@ -6,8 +6,7 @@ import { gql } from "@apollo/client";
 import {
   CompanyOperation,
   CompanyRegisteredAddressIdFkeyInput,
-  CompanyTradingAddressIdFkeyInput,
-  UpdateCompanyInput
+  CompanyTradingAddressIdFkeyInput
 } from "@bmi/intouch-api-types";
 import Grid from "@bmi/grid";
 import Form from "@bmi/form";
@@ -79,14 +78,8 @@ export const EditCompanyDialog = ({
         {}
       );
 
-      const patchWithoutAddresses: Omit<
-        UpdateCompanyInput["patch"],
-        "registeredAddress" | "tradingAddress"
-      > = Object.entries(valuesWithAddresses)
-        .filter(
-          ([key]) => !["registeredAddress", "tradingAddress"].includes(key)
-        )
-        .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+      const { registeredAddress, tradingAddress, ...patch } =
+        valuesWithAddresses;
 
       const addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput =
         // address already exists?
@@ -124,7 +117,7 @@ export const EditCompanyDialog = ({
           input: {
             id: company.id,
             patch: {
-              ...patchWithoutAddresses,
+              ...patch,
               addressToTradingAddressId,
               addressToRegisteredAddressId
             }

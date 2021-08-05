@@ -37,14 +37,9 @@ const GET_CURRENT_COMPANY = gql`
 
 export const getServerSideProps = withPage(
   async ({ apolloClient, locale, account, globalPageData, res }) => {
-    const {
-      data: { currentCompany }
-    } = await apolloClient.query({
-      query: GET_CURRENT_COMPANY,
-      variables: {}
-    });
+    const companyId = account.company.id;
 
-    if (!currentCompany) {
+    if (!companyId) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
       return generatePageError(statusCode, {}, { globalPageData });
@@ -55,7 +50,7 @@ export const getServerSideProps = withPage(
         data: { company }
       }
     } = await getServerPageGetCompany(
-      { variables: { companyId: currentCompany } },
+      { variables: { companyId } },
       apolloClient
     );
 
