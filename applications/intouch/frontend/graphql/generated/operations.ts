@@ -294,6 +294,82 @@ export type CompanyRegisteredDetailsFragmentFragment = {
     };
   };
 
+export type UpdateAccountProfileMutationVariables = SchemaTypes.Exact<{
+  updateAccountInput: SchemaTypes.UpdateAccountInput;
+}>;
+
+export type UpdateAccountProfileMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly updateAccount?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateAccountPayload" } & {
+      readonly account?: SchemaTypes.Maybe<
+        { readonly __typename?: "Account" } & Pick<
+          SchemaTypes.Account,
+          "id" | "firstName" | "lastName" | "role" | "email" | "phone" | "photo"
+        > & {
+            readonly companyMembers: {
+              readonly __typename?: "CompanyMembersConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyMember" } & {
+                  readonly company?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Company" } & Pick<
+                      SchemaTypes.Company,
+                      | "id"
+                      | "name"
+                      | "businessType"
+                      | "logo"
+                      | "aboutUs"
+                      | "ownerFullname"
+                      | "ownerPhone"
+                      | "ownerEmail"
+                      | "phone"
+                      | "publicEmail"
+                      | "website"
+                      | "facebook"
+                      | "linkedIn"
+                    > & {
+                        readonly tradingAddress?: SchemaTypes.Maybe<
+                          { readonly __typename?: "Address" } & Pick<
+                            SchemaTypes.Address,
+                            | "id"
+                            | "firstLine"
+                            | "secondLine"
+                            | "town"
+                            | "region"
+                            | "country"
+                            | "postcode"
+                          > & {
+                              readonly coordinates?: SchemaTypes.Maybe<
+                                { readonly __typename?: "Point" } & Pick<
+                                  SchemaTypes.Point,
+                                  "x" | "y"
+                                >
+                              >;
+                            }
+                        >;
+                      }
+                  >;
+                }
+              >;
+            };
+            readonly certificationsByDoceboUserId: {
+              readonly __typename?: "CertificationsConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "Certification" } & Pick<
+                  SchemaTypes.Certification,
+                  "id" | "technology" | "expiryDate" | "name"
+                >
+              >;
+            };
+          }
+      >;
+    }
+  >;
+};
+
 export type LeaveCompanyMutationVariables = SchemaTypes.Exact<{
   accountId: SchemaTypes.Scalars["Int"];
   companyId: SchemaTypes.Scalars["Int"];

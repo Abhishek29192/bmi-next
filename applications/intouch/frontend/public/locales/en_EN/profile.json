@@ -6,14 +6,18 @@
       "changePassword": "Change password"
     }
   },
-  "editModal": {
+  "editDialog": {
     "title": "About me",
     "fileTypesMessage": "You can upload jpg, gif or png files.",
     "fileSizeMessage": "Max file size of 3mb.",
-    "labels": {
-      "contactDetails": "Contact details",
-      "email": "Email",
-      "phone": "Phone"
+    "form": {
+      "fields": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "phone": "Phone",
+        "photo": "Profile picture"
+      }
     },
     "buttons": {
       "uploadProfilePicture": "Upload new photo",

@@ -368,6 +368,59 @@ export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
 >;
+export const UpdateAccountProfileDocument = gql`
+  mutation updateAccountProfile($updateAccountInput: UpdateAccountInput!) {
+    updateAccount(input: $updateAccountInput) {
+      account {
+        ...AccountPageDetailsFragment
+      }
+    }
+  }
+  ${AccountPageDetailsFragmentFragmentDoc}
+`;
+export type UpdateAccountProfileMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateAccountProfileMutation,
+  OperationTypes.UpdateAccountProfileMutationVariables
+>;
+
+/**
+ * __useUpdateAccountProfileMutation__
+ *
+ * To run a mutation, you first call `useUpdateAccountProfileMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAccountProfileMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAccountProfileMutation, { data, loading, error }] = useUpdateAccountProfileMutation({
+ *   variables: {
+ *      updateAccountInput: // value for 'updateAccountInput'
+ *   },
+ * });
+ */
+export function useUpdateAccountProfileMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateAccountProfileMutation,
+    OperationTypes.UpdateAccountProfileMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateAccountProfileMutation,
+    OperationTypes.UpdateAccountProfileMutationVariables
+  >(UpdateAccountProfileDocument, options);
+}
+export type UpdateAccountProfileMutationHookResult = ReturnType<
+  typeof useUpdateAccountProfileMutation
+>;
+export type UpdateAccountProfileMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateAccountProfileMutation>;
+export type UpdateAccountProfileMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateAccountProfileMutation,
+  OperationTypes.UpdateAccountProfileMutationVariables
+>;
 export const LeaveCompanyDocument = gql`
   mutation leaveCompany($accountId: Int!, $companyId: Int!, $marketId: Int!) {
     deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId(

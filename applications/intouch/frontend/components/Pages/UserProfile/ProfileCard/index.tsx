@@ -9,9 +9,7 @@ import styles from "./styles.module.scss";
 
 type UserProfileCardProps = {
   account: GetUserProfileQuery["account"];
-  onProfileUpdateSuccess: (
-    account: Partial<GetUserProfileQuery["account"]>
-  ) => any;
+  onProfileUpdateSuccess: (account: GetUserProfileQuery["account"]) => any;
 };
 
 export const UserProfileCard = ({

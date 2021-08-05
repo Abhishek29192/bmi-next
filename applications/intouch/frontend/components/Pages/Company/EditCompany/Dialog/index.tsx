@@ -64,8 +64,10 @@ export const EditCompanyDialog = ({
     }
   });
 
-  const handleSave = useCallback(
+  const handleSubmit = useCallback(
     (event, values) => {
+      event.preventDefault();
+
       // we need to account for nested objects (e.g. registered address)
       const valuesWithAddresses = Object.entries(values).reduce(
         (obj, [key, value]) => {
@@ -116,7 +118,6 @@ export const EditCompanyDialog = ({
               create: valuesWithAddresses.tradingAddress
             };
 
-      event.preventDefault();
       updateCompany({
         variables: {
           input: {
@@ -159,7 +160,7 @@ export const EditCompanyDialog = ({
       </Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
-        <Form className={styles.form} onSubmit={handleSave} rightAlignButton>
+        <Form className={styles.form} onSubmit={handleSubmit} rightAlignButton>
           <Typography variant="h6" className={styles.sectionText}>
             {t("company-page:edit_dialog.sections.registered_details")}
           </Typography>

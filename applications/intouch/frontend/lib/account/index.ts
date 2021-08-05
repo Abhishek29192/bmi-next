@@ -140,6 +140,14 @@ export const findAccountCompany = (account: Account) => {
   return account?.companyMembers?.nodes?.[0]?.company;
 };
 
+// Couldn't find a way to use findAccountCompany
+// to accept both Account and GetUserProfileQuery["account"]
+export const findAccountCompanyFromAccountQuery = (
+  account: GetUserProfileQuery["account"]
+) => {
+  return account?.companyMembers?.nodes?.[0]?.company;
+};
+
 // Account inherits tier from company.
 // if not assigned to a company, fallback to T1.
 export const findAccountTier = (account: Account): Tier => {

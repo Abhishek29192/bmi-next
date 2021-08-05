@@ -27,7 +27,7 @@ const UserProfilePage = ({
       title={[account.firstName, account.lastName].filter(Boolean).join(" ")}
       pageData={globalPageData}
     >
-      <UserProfilePageContent account={account} />
+      <UserProfilePageContent accountSSR={account} />
     </Layout>
   );
 };

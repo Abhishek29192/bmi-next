@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
 import Button from "@bmi/button";
 import Dialog from "@bmi/dialog";
@@ -12,7 +12,7 @@ import styles from "./styles.module.scss";
 
 export type LeaveCompanyButtonProps = {
   onLeaveCurrentCompanySuccess: (
-    account: Partial<GetUserProfileQuery["account"]>
+    account: GetUserProfileQuery["account"]
   ) => void;
 };
 
@@ -31,14 +31,16 @@ export const LeaveCompanyButton = ({
       });
     },
     onCompleted: ({
-      deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId: { account }
+      deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId: {
+        account: updatedAccount
+      }
     }) => {
       setIsLeaveDialogOpen(false);
-      onLeaveCurrentCompanySuccess(account);
+      onLeaveCurrentCompanySuccess(updatedAccount);
     }
   });
 
-  const handleLeaveCompany = () => {
+  const handleLeaveCompany = useCallback(() => {
     leaveCurrentCompany({
       variables: {
         accountId: account.id,
@@ -46,7 +48,7 @@ export const LeaveCompanyButton = ({
         marketId: account.marketId
       }
     });
-  };
+  }, [leaveCurrentCompany, account]);
 
   return (
     <div className={styles.cardFooter}>

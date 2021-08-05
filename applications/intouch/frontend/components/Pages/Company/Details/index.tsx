@@ -11,22 +11,7 @@ import { Address } from "../../../Address";
 import styles from "./styles.module.scss";
 
 export type CompanyHeaderProps = {
-  company: Pick<
-    GetCompanyQuery["company"],
-    | "name"
-    | "businessType"
-    | "logo"
-    | "aboutUs"
-    | "tradingAddress"
-    | "ownerFullname"
-    | "ownerPhone"
-    | "ownerEmail"
-    | "phone"
-    | "publicEmail"
-    | "website"
-    | "facebook"
-    | "linkedIn"
-  >;
+  company: Partial<GetCompanyQuery["company"]>;
   actions: JSX.Element;
   showName?: boolean;
   showBusinessType?: boolean;

@@ -1,25 +1,79 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useTranslation } from "next-i18next";
+import { gql } from "@apollo/client";
 import Avatar from "@material-ui/core/Avatar";
+import Form from "@bmi/form";
 import Dialog from "@bmi/dialog";
 import TextField from "@bmi/text-field";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
+import log from "../../../../lib/logger";
+import { validatePhoneNumberInput } from "../../../../lib/validations/utils";
 import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
+import { useUpdateAccountProfileMutation } from "../../../../graphql/generated/hooks";
 import styles from "./styles.module.scss";
 
 type EditUserProfileDialogProps = {
   account: GetUserProfileQuery["account"];
   isOpen: boolean;
   onCloseClick: () => any;
+  onProfileUpdateSuccess: (account: GetUserProfileQuery["account"]) => any;
 };
 
 export const EditUserProfileDialog = ({
   account,
   isOpen,
-  onCloseClick
+  onCloseClick,
+  onProfileUpdateSuccess
 }: EditUserProfileDialogProps) => {
-  const { t } = useTranslation("profile");
+  const { t } = useTranslation(["common", "profile"]);
+
+  const [updateAccountProfile] = useUpdateAccountProfileMutation({
+    onError: (error) => {
+      log({
+        severity: "ERROR",
+        message: `There was an error updating the company: ${error.toString()}`
+      });
+      // TODO: show some visual error
+    },
+    onCompleted: ({ updateAccount: { account } }) => {
+      log({
+        severity: "INFO",
+        message: `Updated account - id: ${account.id}`
+      });
+      onProfileUpdateSuccess && onProfileUpdateSuccess(account);
+      onCloseClick && onCloseClick();
+    }
+  });
+
+  const handleSubmit = useCallback(
+    (event, values) => {
+      event.preventDefault();
+
+      updateAccountProfile({
+        variables: {
+          updateAccountInput: {
+            id: account.id,
+            patch: values
+          }
+        }
+      });
+    },
+    [updateAccountProfile, account]
+  );
+
+  const getFieldProps = useCallback(
+    (fieldName: string) => ({
+      name: fieldName,
+      label: t(`profile:editDialog.form.fields.${fieldName}`),
+      defaultValue: account[fieldName],
+      fieldIsRequiredError: t("common:error_messages.required"),
+      fullWidth: true
+    }),
+    [account]
+  );
+
+  const validatePhoneNumber = useCallback(validatePhoneNumberInput(t), [t]);
 
   return (
     <Dialog
@@ -30,12 +84,19 @@ export const EditUserProfileDialog = ({
       }}
       className={styles.dialog}
     >
-      <Dialog.Title hasUnderline>{t("editModal.title")}</Dialog.Title>
+      <Dialog.Title hasUnderline>{t("profile:editDialog.title")}</Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
-        <div className={styles.editForm}>
+        <Form
+          className={styles.editForm}
+          onSubmit={handleSubmit}
+          rightAlignButton
+        >
           <div className={styles.editAvatar}>
-            <h3 className={styles.editAvatarTitle}>Profile picture</h3>
+            <h3 className={styles.editAvatarTitle}>
+              {t("profile:editDialog.form.fields.photo")}
+            </h3>
+
             <div className={styles.avatarBox}>
               <Avatar
                 alt={[account.firstName, account.lastName]
@@ -45,51 +106,57 @@ export const EditUserProfileDialog = ({
                 className={styles.avatar}
               />
             </div>
+
             <div>
               <div className={styles.avatarButtons}>
-                <Button>{t("editModal.buttons.uploadProfilePicture")}</Button>
+                <Button>
+                  {t("profile:editDialog.buttons.uploadProfilePicture")}
+                </Button>
                 <Button variant="outlined">
-                  {t("editModal.buttons.removeProfilePicture")}
+                  {t("profile:editDialog.buttons.removeProfilePicture")}
                 </Button>
               </div>
+
               <Typography variant="default">
-                {t("editModal.fileTypesMessage")}
+                {t("profile:editDialog.fileTypesMessage")}
               </Typography>
+
               <Typography variant="default">
                 {" "}
-                {t("editModal.fileSizeMessage")}
+                {t("profile:editDialog.fileSizeMessage")}
               </Typography>
             </div>
           </div>
 
           <Typography variant="h5" className={styles.editFormSubtitle}>
-            {t("editModal.labels.contactDetails")}
+            {t("profile:editDialog.contactDetailsHeading")}
           </Typography>
+
           <div className={styles.inputFields}>
+            <TextField {...getFieldProps("firstName")} isRequired />
+            <TextField {...getFieldProps("lastName")} isRequired />
             <TextField
-              id="email"
-              name="Email"
-              label={t("editModal.labels.email")}
-              variant="outlined"
-              defaultValue={account.email}
-            />
-            <TextField
-              id="phone"
-              name="phone"
-              label={t("editModal.labels.phone")}
-              variant="outlined"
-              defaultValue={account.phone}
+              {...getFieldProps("phone")}
+              getValidationError={validatePhoneNumber}
             />
           </div>
-        </div>
-
-        <Dialog.Actions
-          className={styles.dialogClose}
-          confirmLabel={t("editModal.buttons.saveAndClose")}
-          // TODO: actually perform the change
-          onConfirmClick={onCloseClick}
-        />
+          <Form.ButtonWrapper>
+            <Form.SubmitButton className={styles.submitButton}>
+              {t("profile:editDialog.buttons.saveAndClose")}
+            </Form.SubmitButton>
+          </Form.ButtonWrapper>
+        </Form>
       </Dialog.Content>
     </Dialog>
   );
 };
+
+export const UPDATE_ACCOUNT_PROFILE = gql`
+  mutation updateAccountProfile($updateAccountInput: UpdateAccountInput!) {
+    updateAccount(input: $updateAccountInput) {
+      account {
+        ...AccountPageDetailsFragment
+      }
+    }
+  }
+`;
