@@ -87,7 +87,7 @@ export const findMasterImageUrl = (images): string => {
 export const findProductBrandLogoCode = (product: Product) => {
   return result<string>(
     find(product.categories, {
-      parentCategoryCode: "BMI_Brands"
+      categoryType: "Brands"
     }),
     "code"
   );
