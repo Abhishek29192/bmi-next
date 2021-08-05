@@ -113,6 +113,64 @@ export const ImageFragmentFragmentDoc = gql`
     height
   }
 `;
+export const LeaveCompanyDocument = gql`
+  mutation leaveCompany($accountId: Int!, $companyId: Int!, $marketId: Int!) {
+    deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId(
+      input: {
+        accountId: $accountId
+        companyId: $companyId
+        marketId: $marketId
+      }
+    ) {
+      clientMutationId
+    }
+  }
+`;
+export type LeaveCompanyMutationFn = Apollo.MutationFunction<
+  OperationTypes.LeaveCompanyMutation,
+  OperationTypes.LeaveCompanyMutationVariables
+>;
+
+/**
+ * __useLeaveCompanyMutation__
+ *
+ * To run a mutation, you first call `useLeaveCompanyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useLeaveCompanyMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [leaveCompanyMutation, { data, loading, error }] = useLeaveCompanyMutation({
+ *   variables: {
+ *      accountId: // value for 'accountId'
+ *      companyId: // value for 'companyId'
+ *      marketId: // value for 'marketId'
+ *   },
+ * });
+ */
+export function useLeaveCompanyMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.LeaveCompanyMutation,
+    OperationTypes.LeaveCompanyMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.LeaveCompanyMutation,
+    OperationTypes.LeaveCompanyMutationVariables
+  >(LeaveCompanyDocument, options);
+}
+export type LeaveCompanyMutationHookResult = ReturnType<
+  typeof useLeaveCompanyMutation
+>;
+export type LeaveCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.LeaveCompanyMutation>;
+export type LeaveCompanyMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.LeaveCompanyMutation,
+  OperationTypes.LeaveCompanyMutationVariables
+>;
 export const GetGlobalDataDocument = gql`
   query GetGlobalData {
     marketContentCollection(limit: 1) {
