@@ -3,7 +3,6 @@ import camelcaseKeys from "camelcase-keys";
 import { FileUpload } from "graphql-upload";
 import { InviteInput, Role } from "@bmi/intouch-api-types";
 import { UpdateAccountInput } from "@bmi/intouch-api-types";
-import { publish, TOPICS } from "../../services/events";
 import { sendEmailWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
 import StorageClient from "../storage-client";
@@ -292,52 +291,36 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         invitations
       );
 
+      // When the request started the user wasn't in the db so the parseUSer middleware didn't
+      // append any information to the request object
+      const updatedContext = {
+        ...context,
+        user: {
+          ...context.user,
+          market: {
+            sendMailbox: user.market.sendMailbox
+          }
+        }
+      };
+
       if (invetees.length === 0) {
         // Creating a passsword reset ticket
         const ticket = await auth0.createResetPasswordTicket({
           user_id: auth0User?.user_id,
           result_url: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
         });
-
-        // Send the email with the link to reset the password to the user
-        await publish(context, TOPICS.TRANSACTIONAL_EMAIL, {
-          title: `You have been invited by ${user.company.id}`,
-          text: `
-            You are invited by company ${user.company.id}.
-            Please follow this link to set your password:
-            ${ticket.ticket}
-            <br/>
-            ${personalNote}
-          `,
-          html: `
-            You are invited by company ${user.company.id}.
-            Please follow this link to set your password:
-            ${ticket.ticket}
-            <br/>
-            ${personalNote}
-          `,
+        await sendEmailWithTemplate(updatedContext, "NEWUSER_INVITED", {
+          firstname: invetee,
+          company: user.company.name,
+          registerlink: ticket.ticket,
           email: invetee
         });
-
         logger.info("Reset password email sent");
       } else {
-        // Send the email with the invitation link
-        await publish(context, TOPICS.TRANSACTIONAL_EMAIL, {
-          title: `You have been invited by ${user.company.id}`,
-          text: `
-            You are invited by company ${user.company.id}.
-            Please follow this link to set your password:
-            https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
-            <br/>
-            ${personalNote}
-          `,
-          html: `
-            You are invited by company ${user.company.id}.
-            Please follow this link to set your password:
-            https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
-            <br/>
-            ${personalNote}
-          `,
+        await sendEmailWithTemplate(updatedContext, "NEWUSER_INVITED", {
+          firstname: invetees[0].first_name,
+          company: user.company.name,
+          registerlink: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
           email: invetee
         });
         logger.info("Invitation email sent");
