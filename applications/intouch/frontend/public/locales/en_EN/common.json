@@ -22,5 +22,11 @@
     "T2": "Partner",
     "T3": "Expert",
     "T4": "Elite"
+  },
+  "error_messages": {
+    "required": "Required",
+    "url_format": "Invalid URL",
+    "email_format": "Invalid email address",
+    "phone_number_format": "Invalid phone number"
   }
 }

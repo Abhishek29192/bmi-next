@@ -113,7 +113,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
       >
-        T2
+        tier.T2
       </div>
     </div>
     <div
@@ -127,9 +127,12 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
       >
-        Operation_types.pitched and operation_types.flat company.operations_suffix
+        Operationtypes.pitched and operationTypes.FLAT company.operations_suffix
       </div>
     </div>
+    <div
+      class="editButtonContainer"
+    />
   </div>
 </div>
 `;

@@ -37,6 +37,18 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
         }
       },
       updateCompany: {
+        requires: {
+          childColumns: [
+            { column: "name", alias: "$name" },
+            {
+              column: "registered_address_id",
+              alias: "$registered_address_id"
+            },
+            { column: "business_type", alias: "$business_type" },
+            { column: "tax_number", alias: "$tax_number" },
+            { column: "status", alias: "$status" }
+          ]
+        },
         async resolve(resolve: any, source, args, context: any, resolveInfo) {
           return updateCompany(resolve, source, args, context, resolveInfo);
         }

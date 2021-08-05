@@ -16,22 +16,71 @@
     "logo": "Logo",
     "closeAlertAccessibilityLabel": "Close Alert"
   },
-  "business_type": {
-    "contractor": "Contractor",
-    "architect": "Architect",
-    "merchant": "Merchant",
-    "corp_developer": "Developer",
-    "company_admin": "Company administrator"
+  "businessType": {
+    "CONTRACTOR": "Contractor",
+    "ARCHITECT": "Architect",
+    "MERCHANT": "Merchant",
+    "CORP_DEVELOPER": "Developer"
   },
   "company.operations": "Operation Type",
   "company.operations_suffix": "roofing",
-  "operation_types": {
-    "flat": "flat",
-    "pitched": "pitched",
-    "solar": "solar",
-    "bitumen": "bitumen",
-    "tile": "tile",
-    "coater": "coater",
-    "green": "green"
+  "operationTypes": {
+    "FLAT": "flat",
+    "PITCHED": "pitched",
+    "SOLAR": "solar",
+    "BITUMEN": "bitumen",
+    "TILE": "tile",
+    "COATER": "coater",
+    "GREEN": "green"
+  },
+  "edit_dialog": {
+    "title": "Company Details",
+    "sections": {
+      "registered_details": "Registered details",
+      "trading_address": "Trading address",
+      "trading_address_description": "Please provide your trading address to appear on BMIGroup.com 'Find a Roofer' locator for building owners to contact you about your services",
+      "contact_details": "Contact details",
+      "owner_details": "Company owner details"
+    },
+    "form": {
+      "fields": {
+        "name": "Registered Name",
+        "registeredAddress": {
+          "firstLine": "Address line 1",
+          "secondLine": "Address line 2",
+          "town": "Town",
+          "postcode": "Postcode",
+          "region": "Region",
+          "country": "Country"
+        },
+        "tradingAddress": {
+          "firstLine": "Address line 1",
+          "secondLine": "Address line 2",
+          "town": "Town",
+          "postcode": "Postcode",
+          "region": "Region",
+          "country": "Country",
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          }
+        },
+        "taxNumber": "Tax number",
+        "businessType": "Business Type",
+        "operationTypes": "Operation Types",
+        "tier": "Tier",
+        "aboutUs": "Company description (optional)",
+        "phone": "Phone (optional)",
+        "website": "Company website (optional)",
+        "facebook": "Facebook profile (optional)",
+        "publicEmail": "E-mail address (optional)",
+        "linkedIn": "LinkedIn profile (optional)",
+        "ownerPhone": "Phone (optional)",
+        "ownerEmail": "E-mail address (optional)"
+      },
+      "actions": {
+        "submit": "Save & Close"
+      }
+    }
   }
 }

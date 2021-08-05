@@ -16,22 +16,21 @@
     "logo": "Norway - Logo",
     "closeAlertAccessibilityLabel": "Norway - Close Alert"
   },
-  "business_type": {
-    "contractor": "Norway - Contractor",
-    "architect": "Norway - Architect",
-    "merchant": "Norway - Merchant",
-    "corp_developer": "Norway - Developer",
-    "company_admin": "Norway - Company administrator"
+  "businessType": {
+    "CONTRACTOR": "Norway - Contractor",
+    "ARCHITECT": "Norway - Architect",
+    "MERCHANT": "Norway - Merchant",
+    "CORP_DEVELOPER": "Norway - Developer"
   },
   "company.operations": "Norway - Operation Type",
   "company.operations_suffix": "Norway - roofing",
-  "operation_types": {
-    "flat": "Norway - flat",
-    "pitched": "Norway - pitched",
-    "solar": "Norway - solar",
-    "bitumen": "Norway - bitumen",
-    "tile": "Norway - tile",
-    "coater": "Norway - coater",
-    "green": "Norway - green"
+  "operationTypes": {
+    "FLAT": "Norway - flat",
+    "PITCHED": "Norway - pitched",
+    "SOLAR": "Norway - solar",
+    "BITUMEN": "Norway - bitumen",
+    "TILE": "Norway - tile",
+    "COATER": "Norway - coater",
+    "GREEN": "Norway - green"
   }
 }

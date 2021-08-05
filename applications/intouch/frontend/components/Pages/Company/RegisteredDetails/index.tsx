@@ -4,30 +4,23 @@ import { gql } from "@apollo/client";
 import { Operation } from "@bmi/intouch-api-types";
 import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
-import { GetCompanyQuery } from "../../../graphql/generated/operations";
-import { OPERATION_TYPES } from "../../../lib/constants";
-import { InfoPair } from "../../InfoPair";
-import { Address } from "../../Address";
+import { GetCompanyQuery } from "../../../../graphql/generated/operations";
+import { InfoPair } from "../../../InfoPair";
+import { Address } from "../../../Address";
+import { EditCompanyButton } from "../EditCompany/Button";
+import { OnCompanyUpdateSuccess } from "../EditCompany/Dialog";
 import styles from "./styles.module.scss";
 
 export type CompanyRegisteredDetailsProps = {
   company: GetCompanyQuery["company"];
+  onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
 };
 
-const operationsLabelMap = {
-  [OPERATION_TYPES.FLAT]: "company-page:operation_types.flat",
-  [OPERATION_TYPES.PITCHED]: "company-page:operation_types.pitched",
-  [OPERATION_TYPES.SOLAR]: "company-page:operation_types.flat",
-  [OPERATION_TYPES.BITUMEN]: "company-page:operation_types.bitumen",
-  [OPERATION_TYPES.TILE]: "company-page:operation_types.tile",
-  [OPERATION_TYPES.COATER]: "company-page:operation_types.coater",
-  [OPERATION_TYPES.GREEN]: "company-page:operation_types.green"
-};
+export const formatCompanyOperations = (t, operations: Operation[]) => {
+  const operationLabels = operations.map((operation) =>
+    t(`company-page:operationTypes.${operation}`)
+  );
 
-export const formatCompanyOperations = (
-  operationLabels: string[],
-  suffix: string
-): string => {
   const operationsText = operationLabels.reduce((str, o, idx) => {
     if (idx === 0) {
       return capitalize(o);
@@ -38,26 +31,26 @@ export const formatCompanyOperations = (
     return `${str}, ${o}`;
   }, "");
 
+  const suffix = t("company-page:company.operations_suffix");
+
   return operationLabels.length > 0 ? `${operationsText} ${suffix}` : "";
 };
 
 export const CompanyRegisteredDetails = ({
-  company: {
+  company,
+  onCompanyUpdateSuccess
+}: CompanyRegisteredDetailsProps) => {
+  const { t } = useTranslation(["common", "company-page"]);
+  const {
     companyOperationsByCompany,
     name,
     referenceNumber,
     registeredAddress,
     taxNumber,
     tier
-  }
-}: CompanyRegisteredDetailsProps) => {
-  const { t } = useTranslation(["common", "company-page"]);
-  const operationLabels = useMemo(
-    () =>
-      companyOperationsByCompany.nodes.map(({ operation }) =>
-        t(operationsLabelMap[operation])
-      ),
-    [t, companyOperationsByCompany.nodes]
+  } = company;
+  const operations = companyOperationsByCompany.nodes.map(
+    (node) => node.operation
   );
 
   return (
@@ -69,7 +62,9 @@ export const CompanyRegisteredDetails = ({
       <div className={styles.body}>
         <InfoPair title={t("Registered name")}>{name}</InfoPair>
 
-        <InfoPair title={t("Membership number")}>{referenceNumber}</InfoPair>
+        {referenceNumber ? (
+          <InfoPair title={t("Membership number")}>{referenceNumber}</InfoPair>
+        ) : null}
 
         {registeredAddress ? (
           <InfoPair title={t("Registered address")}>
@@ -77,18 +72,24 @@ export const CompanyRegisteredDetails = ({
           </InfoPair>
         ) : null}
 
-        <InfoPair title={t("Company VAT number")}>{taxNumber}</InfoPair>
+        {taxNumber ? (
+          <InfoPair title={t("Company VAT number")}>{taxNumber}</InfoPair>
+        ) : null}
 
-        <InfoPair title={t("Tier")}>{tier}</InfoPair>
+        {tier ? (
+          <InfoPair title={t("Tier")}>{t(`common:tier.${tier}`)}</InfoPair>
+        ) : null}
 
-        {operationLabels.length > 0 ? (
+        {operations.length > 0 ? (
           <InfoPair title={t("company-page:company.operations")}>
-            {formatCompanyOperations(
-              operationLabels,
-              t("company-page:company.operations_suffix")
-            )}
+            {formatCompanyOperations(t, operations)}
           </InfoPair>
         ) : null}
+
+        <EditCompanyButton
+          company={company}
+          onCompanyUpdateSuccess={onCompanyUpdateSuccess}
+        />
       </div>
     </div>
   );
@@ -99,6 +100,7 @@ export const CompanyRegisteredDetailsFragment = gql`
     name
     referenceNumber
     registeredAddress {
+      id
       ...AddressLinesFragment
     }
     taxNumber

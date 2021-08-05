@@ -18148,7 +18148,7 @@ graphile-build-pg@4.11.2:
     lru-cache ">=4 <5"
     pg-sql2 "4.11.0"
 
-graphile-build-pg@4.12.1:
+graphile-build-pg@4.12.1, graphile-build-pg@^4.11.2:
   version "4.12.1"
   resolved "https://registry.yarnpkg.com/graphile-build-pg/-/graphile-build-pg-4.12.1.tgz#f6102a60968076beedfefeb102e8558255e65921"
   integrity sha512-Rd9QBtbyLJ425VUeHggFCvh3s3oKR58mUU6JYK0sQTRjYbxrE/eWDNAQZQLuWeemfSHvgS5W0EzppkHjkoiWiQ==
@@ -22415,7 +22415,7 @@ lodash.reduce@^4.6.0:
 
 lodash.set@^4.0.0, lodash.set@^4.3.2:
   version "4.3.2"
-  resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
+  resolved "https://registry.npmjs.org/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
   integrity sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=
 
 lodash.snakecase@^4.1.1:
@@ -26796,6 +26796,13 @@ postgraphile-plugin-connection-filter@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/postgraphile-plugin-connection-filter/-/postgraphile-plugin-connection-filter-2.2.1.tgz#36b0d699edde67b2bc4ac92578bda339009aa666"
   integrity sha512-afnINc5+7WVHL/8+nllVIyotWsUTd8m7sxp2QbtuVvC1+Kn7vteHM6//O3HIbDBU4w1gQ+/SGYRhSa2bSOQmmg==
+
+postgraphile-plugin-nested-mutations@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/postgraphile-plugin-nested-mutations/-/postgraphile-plugin-nested-mutations-1.1.0.tgz#01a0eca381abba4b88158d3ad8b11be5da173ce4"
+  integrity sha512-zG2OICwWWN6qWeM+9tErE7IjhvaGg+40GU/dgEk/nKE1aG9hoKaSw5q7H51/1XVKwEvSgLo3ERMfUA/agIXzdg==
+  dependencies:
+    graphile-build-pg "^4.11.2"
 
 postgraphile@^4.11.0:
   version "4.11.0"
@@ -32938,6 +32945,11 @@ validate-npm-package-name@^3.0.0, validate-npm-package-name@~3.0.0:
   integrity sha1-X6kS2B630MdK/BQN5zF/DKffQ34=
   dependencies:
     builtins "^1.0.3"
+
+validator@^13.6.0:
+  version "13.6.0"
+  resolved "https://registry.npmjs.org/validator/-/validator-13.6.0.tgz#1e71899c14cdc7b2068463cb24c1cc16f6ec7059"
+  integrity sha512-gVgKbdbHgtxpRyR8K0O6oFZPhhB5tT1jeEHZR0Znr9Svg03U0+r9DXWMrnRAB+HtCStDQKlaIZm42tVsVjqtjg==
 
 value-or-promise@1.0.10:
   version "1.0.10"
