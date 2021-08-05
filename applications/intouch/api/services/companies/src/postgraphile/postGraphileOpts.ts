@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { PostGraphileOptions } from "postgraphile";
 import ConnectionFilterPlugin from "postgraphile-plugin-connection-filter";
+import PostGraphileNestedMutations from "postgraphile-plugin-nested-mutations";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import { TagsFilePlugin } from "postgraphile/plugins";
@@ -29,6 +30,7 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     pgSimplifyInflector,
     FederationPlugin,
     TagsFilePlugin,
+    PostGraphileNestedMutations,
     ExtendPlugin,
     WrapPlugin
   ],

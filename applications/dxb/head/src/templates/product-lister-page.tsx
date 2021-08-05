@@ -26,6 +26,7 @@ import ResultsPagination from "../components/ResultsPagination";
 import withGTM from "../utils/google-tag-manager";
 import {
   URLProductFilter,
+  clearFilterValues,
   convertToURLFilters,
   updateFilterValue
 } from "../utils/filters";
@@ -182,6 +183,26 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     fetchProducts(filters, pageContext.categoryCodes[0], page - 1, PAGE_SIZE);
   };
 
+  const onFiltersChange = async (newFilters) => {
+    // NOTE: If filters change, we reset pagination to first page
+    const result = await fetchProducts(
+      newFilters,
+      pageContext.categoryCodes[0],
+      0,
+      PAGE_SIZE
+    );
+
+    if (result && result.aggregations) {
+      setFilters(
+        disableFiltersFromAggregations(newFilters, result.aggregations)
+      );
+
+      return;
+    }
+
+    setFilters(newFilters);
+  };
+
   const handleFiltersChange = (filterName, filterValue, checked) => {
     const newFilters = updateFilterValue(
       filters,
@@ -191,15 +212,23 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     );
     const URLFilters = convertToURLFilters(newFilters);
 
-    navigate(
-      `?${queryString.stringify({
+    history.replaceState(
+      null,
+      null,
+      `${location.pathname}?${queryString.stringify({
         filters: JSON.stringify(URLFilters)
       })}`
     );
+
+    onFiltersChange(newFilters);
   };
 
   // Resets all selected filter values to nothing
-  const handleClearFilters = () => navigate(location.pathname);
+  const handleClearFilters = () => {
+    history.replaceState(null, null, location.pathname);
+    const newFilters = clearFilterValues(filters);
+    onFiltersChange(newFilters);
+  };
 
   const fetchProducts = async (filters, categoryCode, page, pageSize) => {
     if (isLoading) {
@@ -381,7 +410,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   </LeadBlock.Card>
                 </LeadBlock>
               </Section>
-              <Section backgroundColor="pearl">
+              <Section backgroundColor="pearl" overflowVisible>
                 {categoryName && (
                   <Section.Title hasUnderline>{categoryName}</Section.Title>
                 )}

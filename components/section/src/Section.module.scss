@@ -5,6 +5,10 @@
   background-color: transparent;
   overflow: hidden;
 
+  &--overflow-visible {
+    overflow: visible;
+  }
+
   &--alabaster {
     background-color: $color-alabaster;
   }

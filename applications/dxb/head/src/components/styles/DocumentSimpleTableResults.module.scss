@@ -22,7 +22,7 @@
       // Hack for position relative for tr
       // See https://github.com/w3c/csswg-drafts/issues/1899
       transform: scale(1);
-      background-color: rgba($color-theme-accent, 0.1);
+      background-color: rgba($color-theme-accent-rgb, 0.1);
       border: 1px solid $color-theme-accent;
     }
 

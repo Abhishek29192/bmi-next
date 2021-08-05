@@ -1,36 +1,28 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { gql } from "@apollo/client";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import { Facebook, LinkedIn } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
-import { GetCompanyQuery } from "../../../graphql/generated/operations";
-import { BUSINESS_TYPES } from "../../../lib/constants";
-import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../IconLink";
-import { InfoPair } from "../../InfoPair";
-import { Address } from "../../Address";
+import { GetCompanyQuery } from "../../../../graphql/generated/operations";
+import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../../IconLink";
+import { InfoPair } from "../../../InfoPair";
+import { Address } from "../../../Address";
+import { EditCompanyButton } from "../EditCompany/Button";
+import { OnCompanyUpdateSuccess } from "../EditCompany/Dialog";
 import styles from "./styles.module.scss";
 
 export type CompanyHeaderProps = {
   company: GetCompanyQuery["company"];
+  onCompanyUpdateSuccess: OnCompanyUpdateSuccess;
 };
 
-const businessTypeLabelMap = (t): { [key: string]: string } => ({
-  [BUSINESS_TYPES.CONTRACTOR]: t("company-page:business_type.contractor"),
-  [BUSINESS_TYPES.ARCHITECT]: t("company-page:business_type.architect"),
-  [BUSINESS_TYPES.MERCHANT]: t("company-page:business_type.merchant"),
-  [BUSINESS_TYPES.CORP_DEVELOPER]: t(
-    "company-page:business_type.corp_developer"
-  ),
-  [BUSINESS_TYPES.COMPANY_ADMIN]: t("company-page:business_type.company_admin)")
-});
-
-export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
+export const CompanyHeader = ({
+  company,
+  onCompanyUpdateSuccess
+}: CompanyHeaderProps) => {
   const { t } = useTranslation(["common", "company-page"]);
-  const businessTypeLabel = useMemo(
-    () => businessTypeLabelMap(t)[company.businessType],
-    [company.businessType, t, businessTypeLabelMap]
-  );
+
   return (
     <div className={styles.main}>
       <Typography variant="h4" hasUnderline>
@@ -38,7 +30,7 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
       </Typography>
 
       <Typography className={styles.businessType} variant="h5">
-        {businessTypeLabel}
+        {t(`company-page:businessType.${company.businessType}`)}
       </Typography>
 
       <div className={styles.body}>
@@ -104,6 +96,11 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
                   </InfoPair>
                 </div>
               </Grid>
+
+              <EditCompanyButton
+                company={company}
+                onCompanyUpdateSuccess={onCompanyUpdateSuccess}
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -118,6 +115,7 @@ export const CompanyHeaderDetailsFragment = gql`
     logo
     aboutUs
     tradingAddress {
+      id
       ...AddressLinesFragment
       # These are required for the Alert banner
       coordinates {

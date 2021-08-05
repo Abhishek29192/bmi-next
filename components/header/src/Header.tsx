@@ -272,6 +272,7 @@ const Header = ({
               <LanguageSelection
                 introduction={languageIntroduction}
                 languages={languages}
+                forceMobile={!sizes.length}
               />
             </Container>
           </div>
@@ -408,7 +409,7 @@ const Header = ({
             setRootValue={setValue}
             mainMenuTitleLabel={mainMenuTitleLabel}
             mainMenuDefaultLabel={mainMenuDefaultLabel}
-            languageLabel={languageLabel}
+            language={language}
             sizes={sizes}
           />
         </div>

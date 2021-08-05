@@ -124,7 +124,6 @@ $chevron-margin-left-lg: 3px;
   .close-button {
     background-color: $color-white;
     color: $color-slate;
-    margin: 7px;
     position: absolute;
     right: 0;
     top: 0;
@@ -193,9 +192,7 @@ $chevron-margin-left-lg: 3px;
     }
 
     .back-navigation {
-      @media (min-width: $breakpoint-lg) {
-        display: none;
-      }
+      display: block;
     }
 
     .back-button {
@@ -384,6 +381,10 @@ $chevron-margin-left-lg: 3px;
       height: calc(100vh - 52px); // Nav height md
       width: 100%;
       position: absolute;
+
+      .back-navigation {
+        display: none;
+      }
     }
 
     .utilities-bar {

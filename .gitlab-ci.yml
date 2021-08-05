@@ -29,6 +29,7 @@ include:
   - local: "/applications/intouch/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"
+  - local: "/libraries/.gitlab-ci.yml"
 
 default:
   cache:

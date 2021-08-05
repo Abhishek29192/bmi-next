@@ -14,10 +14,10 @@ exports[`LanguageSelection component accepts a url to the icon 1`] = `
       Europe
     </h6>
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+      class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
       >
         <a
           aria-disabled="false"
@@ -44,7 +44,7 @@ exports[`LanguageSelection component accepts a url to the icon 1`] = `
         </a>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
       >
         <a
           aria-disabled="false"
@@ -89,10 +89,10 @@ exports[`LanguageSelection component accepts introduction text 1`] = `
       Europe
     </h6>
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+      class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
       >
         <a
           aria-disabled="false"
@@ -118,7 +118,7 @@ exports[`LanguageSelection component accepts introduction text 1`] = `
         </a>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
       >
         <a
           aria-disabled="false"
@@ -159,10 +159,10 @@ exports[`LanguageSelection component renders correctly 1`] = `
       Europe
     </h6>
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+      class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
       >
         <a
           aria-disabled="false"
@@ -188,7 +188,7 @@ exports[`LanguageSelection component renders correctly 1`] = `
         </a>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
       >
         <a
           aria-disabled="false"

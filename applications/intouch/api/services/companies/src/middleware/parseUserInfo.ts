@@ -1,4 +1,5 @@
 import { Buffer } from "buffer";
+import camelcaseKeys from "camelcase-keys";
 import { getDbPool } from "../db";
 import { Account } from "../types";
 import rolePermissions from "../permissions";
@@ -40,7 +41,7 @@ export default async (req, res, next) => {
     };
 
     const { rows: users } = await dbPool.query(
-      "SELECT account.*, market.domain FROM account JOIN market on account.market_id = market.id WHERE email = $1",
+      "SELECT account.*, market.domain, market.send_mailbox FROM account JOIN market on account.market_id = market.id WHERE email = $1",
       [req.user.email]
     );
 
@@ -51,12 +52,16 @@ export default async (req, res, next) => {
         role: users[0].role,
         firstName: users[0].first_name,
         lastName: users[0].last_name,
-        marketId: users[0].market_id,
-        marketDomain: users[0].market_domain,
         status: users[0].status,
         doceboUserId: users[0].docebo_user_id,
         doceboUsername: users[0].docebo_username,
-        migrationId: users[0].migration_id
+        migrationId: users[0].migration_id,
+        marketId: users[0].market_id,
+        market: camelcaseKeys({
+          id: users[0].market_id,
+          domain: users[0].domain,
+          send_mailbox: users[0].send_mailbox
+        })
       };
     }
 
@@ -68,7 +73,7 @@ export default async (req, res, next) => {
     if (companies.length) {
       req.user = {
         ...req.user,
-        company: companies[0]
+        company: camelcaseKeys(companies[0])
       };
     }
 

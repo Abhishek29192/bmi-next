@@ -13,3 +13,10 @@
 .businessType {
   margin-top: 1rem !important;
 }
+
+.editContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+}

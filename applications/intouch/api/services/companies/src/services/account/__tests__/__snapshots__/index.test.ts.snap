@@ -23,6 +23,12 @@ Array [
     ],
   ],
   Array [
+    "SELECT * FROM market WHERE id = $1",
+    Array [
+      1,
+    ],
+  ],
+  Array [
     "select * from link_account_to_company ($1, $2)",
     Array [
       1,
@@ -122,6 +128,12 @@ Array [
               Array [],
             ],
             Array [
+              "SELECT * FROM market WHERE id = $1",
+              Array [
+                1,
+              ],
+            ],
+            Array [
               "RELEASE SAVEPOINT graphql_mutation",
             ],
           ],
@@ -140,7 +152,11 @@ Array [
             },
             Object {
               "type": "return",
-              "value": undefined,
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
             },
             Object {
               "type": "return",
@@ -217,10 +233,20 @@ Array [
               Array [],
             ],
             Array [
+              "SELECT * FROM market WHERE id = $1",
+              Array [
+                undefined,
+              ],
+            ],
+            Array [
               "RELEASE SAVEPOINT graphql_mutation",
             ],
           ],
           "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
             Object {
               "type": "return",
               "value": Promise {},

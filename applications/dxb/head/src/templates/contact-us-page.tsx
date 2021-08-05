@@ -91,7 +91,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         {...heroProps}
         breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
       />
-      <Section backgroundColor="pearl">
+      <Section backgroundColor="pearl" overflowVisible>
         <Section.Title>{queriesTitle}</Section.Title>
         <Typography variant="h4" component="p">
           {queriesSubtitle}

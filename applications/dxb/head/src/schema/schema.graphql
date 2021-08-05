@@ -755,6 +755,9 @@ type ContentfulDocumentDownloadSection implements Node {
 Represents a section of downloadable document assets.
 """
 type ContentfulServiceLocatorSection implements Node {
+  "Type of services to be displayed (Roofer, Branch, or Merchant)"
+  type: String
+
   "The title for this section."
   title: String
 
@@ -764,8 +767,8 @@ type ContentfulServiceLocatorSection implements Node {
   "The body for this section."
   body: ContentfulRichText
 
-  "The roofers for this section."
-  roofers: [ContentfulRoofer] @link(from: "roofers___NODE")
+  "The services for this section."
+  services: [ContentfulService] @link(from: "services___NODE")
 
   "The map centre for this section"
   centre: Location
@@ -1470,36 +1473,42 @@ type ContentfulTable implements Node {
 }
 
 """
-Represents the company details of a roofer.
+Represents the details of a service.
 """
-type ContentfulRoofer implements Node {
+type ContentfulService implements Node {
   id: ID!
 
-  "The name for this roofer."
+  "Defines the type of the entry (Roofer, Branch, or Merchant)"
+  entryType: String
+
+  "The name for this service."
   name: String
 
-  "The location for this roofer."
+  "The location for this service."
   location: Location
 
-  "The address for this roofer."
+  "The address for this service."
   address: String
 
-  "The phone number for this roofer."
+  "The phone number for this service."
   phone: String
 
-  "The email address for this roofer."
+  "The email address for this service."
   email: String
 
-  "The URL for the website of this roofer."
+  "The URL for the website of this service."
   website: String
 
-  "The type of this roofer."
+  "The fax for the website of this service."
+  fax: String
+
+  "The type of this service."
   type: [String]
 
-  "The certification level of this roofer."
+  "The certification level of this service."
   certification: String
 
-  "The summary of this roofer."
+  "The summary of this service."
   summary: String
 }
 

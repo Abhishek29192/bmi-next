@@ -153,6 +153,21 @@ LANGUAGE 'plpgsql'
 VOLATILE
 SECURITY DEFINER;
 
+-- updating Tier & status cannot be done by company_admin
+-- need to do this automatically when first editing company details with mandatory info
+CREATE OR REPLACE FUNCTION activate_company (input_company_id int)
+  RETURNS company
+  AS $$
+    UPDATE company
+    SET tier = 'T1', status = 'ACTIVE'
+      WHERE
+        company.id = input_company_id
+      RETURNING company.*;
+  $$
+LANGUAGE sql
+VOLATILE
+SECURITY DEFINER;
+
 -- Function link an account to a company
 CREATE OR REPLACE FUNCTION link_account_to_company (account_id int, company_id int)
   RETURNS company_member

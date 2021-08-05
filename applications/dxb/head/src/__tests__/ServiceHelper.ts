@@ -1,7 +1,8 @@
-import { Roofer } from "../components/ServiceLocatorSection";
+import { Service } from "../components/ServiceLocatorSection";
 
-const createRoofer = (roofer?: Partial<Roofer>): Roofer => ({
-  __typename: "ContentfulRoofer",
+const createRoofer = (service?: Partial<Service>): Service => ({
+  __typename: "ContentfulService",
+  entryType: "Roofer",
   id: "roofer_id",
   name: "roofer 1",
   location: {
@@ -12,11 +13,12 @@ const createRoofer = (roofer?: Partial<Roofer>): Roofer => ({
   phone: "phone 1",
   email: "test@test.com",
   website: "www.test.com",
+  fax: "fax 1",
   type: null,
   certification: null,
   summary: "roofer summary",
   distance: 10,
-  ...roofer
+  ...service
 });
 
 export default createRoofer;

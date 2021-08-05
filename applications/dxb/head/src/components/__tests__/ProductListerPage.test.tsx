@@ -137,7 +137,16 @@ const siteData: SiteData = {
   menuUtilities: mockNavigation,
   resources: null,
   scriptGOptLoad: null,
-  regions: regions.slice(-1)
+  regions: [
+    {
+      label: "Europe",
+      menu: [
+        { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+        { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+        { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
+      ]
+    }
+  ]
 };
 
 const pageData = {
@@ -432,11 +441,13 @@ describe("ProductListerPage template", () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.contentfulProductListerPage.heroType = "Level 1";
 
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const { container } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
-        await waitFor(() => expect(findByText("Hero--lvl-1")).not.toBeNull());
+        await waitFor(() =>
+          expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(1)
+        );
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });

@@ -185,10 +185,10 @@ exports[`Header component closes menu on same tab click 1`] = `
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -214,7 +214,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -865,7 +865,14 @@ exports[`Header component closes menu on same tab click 1`] = `
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -1116,10 +1123,10 @@ exports[`Header component opens menu two deep 1`] = `
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -1145,7 +1152,7 @@ exports[`Header component opens menu two deep 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -1796,7 +1803,14 @@ exports[`Header component opens menu two deep 1`] = `
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -2047,10 +2061,10 @@ exports[`Header component opens menu when clicked 1`] = `
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -2076,7 +2090,7 @@ exports[`Header component opens menu when clicked 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -2727,7 +2741,14 @@ exports[`Header component opens menu when clicked 1`] = `
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -2978,10 +2999,10 @@ exports[`Header component renders correctly 1`] = `
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -3007,7 +3028,7 @@ exports[`Header component renders correctly 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -3664,7 +3685,14 @@ exports[`Header component renders correctly 1`] = `
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -3915,10 +3943,10 @@ exports[`Header component toggle menu with buttons 1`] = `
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -3944,7 +3972,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -4595,7 +4623,14 @@ exports[`Header component toggle menu with buttons 1`] = `
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -4846,10 +4881,10 @@ exports[`Header component toggle menu with buttons 2`] = `
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -4875,7 +4910,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -5526,7 +5561,14 @@ exports[`Header component toggle menu with buttons 2`] = `
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -5777,10 +5819,10 @@ exports[`Header component toggle search 1`] = `
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -5806,7 +5848,7 @@ exports[`Header component toggle search 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -6463,7 +6505,14 @@ exports[`Header component toggle search 1`] = `
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -6767,10 +6816,10 @@ exports[`Header component toggle search 2`] = `
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -6796,7 +6845,7 @@ exports[`Header component toggle search 2`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -7453,7 +7502,14 @@ exports[`Header component toggle search 2`] = `
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -7704,10 +7760,10 @@ exports[`Header component toggles language selection: Language selection closed 
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -7733,7 +7789,7 @@ exports[`Header component toggles language selection: Language selection closed 
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -8390,7 +8446,14 @@ exports[`Header component toggles language selection: Language selection closed 
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -8641,10 +8704,10 @@ exports[`Header component toggles language selection: Language selection open 1`
               Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -8670,7 +8733,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -9327,7 +9390,14 @@ exports[`Header component toggles language selection: Language selection open 1`
               <span
                 class="MuiButton-label"
               >
-                Language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <svg
+                    class="LanguageIcon"
+                  />
+                  AL
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
