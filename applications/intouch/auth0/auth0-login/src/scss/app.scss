@@ -168,3 +168,26 @@ p {
   position: absolute;
   bottom: 15px;
 }
+
+.error-message {
+  border-radius: 4px;
+  background-color: #ffc72d;
+  padding: 12px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.success-message {
+  border-radius: 4px;
+  background-color: #009a44;
+  color: white;
+  padding: 12px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
