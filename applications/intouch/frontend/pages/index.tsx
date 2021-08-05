@@ -109,7 +109,7 @@ const Homepage = ({
   tierBenefitCollection,
   globalPageData
 }: HomePageProps) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("home-page");
   const { account } = useAccountContext();
 
   logger({
@@ -185,7 +185,7 @@ const Homepage = ({
                     href="/partner-brands"
                     footer={
                       <Button component={"span"} variant="outlined">
-                        {t("Read more")}
+                        {t("partnerBrands.ctaLabel")}
                       </Button>
                     }
                   >
@@ -215,7 +215,7 @@ const Homepage = ({
             variant="outlined"
             href={marketContentCollection.items[0].newsItemCta}
           >
-            Read more on LinkedIn
+            {t("linkedin.ctaLabel")}
           </Button>
         </SimpleCard>
         <SimpleCard>
