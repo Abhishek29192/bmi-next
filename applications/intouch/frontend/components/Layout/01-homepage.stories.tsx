@@ -58,67 +58,6 @@ export const CompanyHome = ({ title }: LayoutProps) => (
         </Grid>
       </Grid>
     </Section>
-    <Section backgroundColor="alabaster" isSlim>
-      <Carousel
-        slidesPerPage={{
-          xs: 1,
-          md: 2,
-          lg: 3
-        }}
-        scroll="finite"
-        hasGutter
-      >
-        <Carousel.Slide>
-          <BrandCard
-            title="SIXT"
-            content="Quicker and easier to lay than single pantiles, this concrete double pantile interlocking tile provides roofscapes of gentle flowing lines."
-            link="#"
-            logo="https://source.unsplash.com/WLUHO9A_xik/810x360"
-            bannerImage="https://source.unsplash.com/WLUHO9A_xik/810x360"
-          />
-        </Carousel.Slide>
-
-        <Carousel.Slide>
-          <BrandCard
-            title="DJI"
-            content="A flat roof tile for modern architecture that provides a roof with clean lines and functional character."
-            link="#"
-            logo="https://source.unsplash.com/WLUHO9A_xik/810x360"
-            bannerImage="https://source.unsplash.com/WLUHO9A_xik/810x360"
-          />
-        </Carousel.Slide>
-        <Carousel.Slide>
-          <BrandCard
-            title="FLIR"
-            content="A flat roof tile for modern architecture that provides a roof with clean lines and functional character."
-            link="#"
-            logo="https://source.unsplash.com/WLUHO9A_xik/810x360"
-            bannerImage="https://source.unsplash.com/WLUHO9A_xik/810x360"
-          />
-        </Carousel.Slide>
-        <Carousel.Slide>
-          <BrandCard
-            title="SIXT"
-            content="Quicker and easier to lay than single pantiles, this concrete double pantile interlocking tile provides roofscapes of gentle flowing lines."
-            link="#"
-            logo="https://source.unsplash.com/WLUHO9A_xik/810x360"
-            bannerImage="https://source.unsplash.com/WLUHO9A_xik/810x360"
-          />
-        </Carousel.Slide>
-
-        <Carousel.Slide>
-          <BrandCard
-            title="DJI"
-            content="A flat roof tile for modern architecture that provides a roof with clean lines and functional character."
-            link="#"
-            logo="https://source.unsplash.com/WLUHO9A_xik/810x360"
-            bannerImage="https://source.unsplash.com/WLUHO9A_xik/810x360"
-          />
-        </Carousel.Slide>
-
-        <Carousel.Controls type="arrows" />
-      </Carousel>
-    </Section>
   </Layout>
 );
 

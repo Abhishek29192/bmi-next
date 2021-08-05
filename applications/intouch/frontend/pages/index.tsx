@@ -253,6 +253,10 @@ export const GET_PARTNER_BRANDS = gql`
           items {
             name
             shortDescription
+            websiteUrl
+            description {
+              json
+            }
             image {
               ...ImageFragment
             }
