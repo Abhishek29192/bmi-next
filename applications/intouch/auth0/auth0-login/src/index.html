@@ -45,7 +45,7 @@
 
 <div class="login-screen" x-data="{step: 'login'}">
 
-  <form id="signup-form" onsubmit="return false;" method="post">
+  <form onsubmit="return false;" method="post">
     <div class="login-box" x-show="step == 'login'">
       <h1 class="underlined-heading" x-text="$t('signup_welcome')">Welcome</h1>
       <label class="mdc-text-field mdc-text-field--outlined">
@@ -89,12 +89,15 @@
             <span class="mdc-button__touch"></span>
           </button>
         </div>
+
+        <div class="mdc-touch-target-wrapper">
+          <div id="login-form-error-message" class="error-message"></div>
+        </div>
       </div>
-      <div id="error-message"></div>
     </div>
   </form>
 
-  <form onsubmit="return false;" method="post">
+  <form id="signup-form" onsubmit="return false;" method="post">
     <div class="login-box" x-show="step == 'register'" x-cloak>
       <h1 class="underlined-heading" x-text="$t('signup_welcome')">Welcome</h1>
 
@@ -184,8 +187,11 @@
             <span class="mdc-button__touch"></span>
           </button>
         </div>
+
+        <div class="mdc-touch-target-wrapper">
+          <div id="form-signup-error-message" class="error-message"></div>
+        </div>
       </div>
-      <div id="error-message"></div>
     </div>
   </form>
 
@@ -220,8 +226,14 @@
             <span class="mdc-button__touch"></span>
           </button>
         </div>
+
+        <div class="mdc-touch-target-wrapper">
+          <div id="reset-password-error-message" class="error-message"></div>
+        </div>
+        <div class="mdc-touch-target-wrapper">
+          <div id="reset-password-success-message" class="success-message"></div>
+        </div>
       </div>
-      <div id="error-message"></div>
     </div>
   </form>
   <div class="captcha-container form-group"></div>
@@ -274,7 +286,12 @@
           new_password_text:
             "Please enter your email address and we will send you a link for a password reset",
           reset_password: "Reset Password",
-          back_to_login: "Back to Log In"
+          back_to_login: "Back to Log In",
+          reset_password_success: "Check your inbox",
+          email_missing: "Please insert your email",
+          generic_error: "Please check your credential, if the problem persists contact use",
+          name_surname_missing: "First and last name missing",
+          email_password_missing: "Email and password missing"
         },
         it: {
           intouch_title: "In Touch - Login/Registrazione",
@@ -296,7 +313,12 @@
           new_password_text:
             "Inserisci il tuo indirizzo email e ti invieremo un link per la reimpostazione della password",
           reset_password: "Reset password",
-          back_to_login: "Torna all'accesso"
+          back_to_login: "Torna all'accesso",
+          reset_password_success: "Controlla la tua mail",
+          email_missing: "Inserisci la mail",
+          generic_error: "Please check your credential, if the problem persists contact use",
+          name_surname_missing: "Nome e Cognome mancanti",
+          email_password_missing: "Email e password mancanti",
         }
       };
 
@@ -308,13 +330,9 @@
       window.addEventListener("load", function () {
 
         var hash = location.hash.substr(1);
-        // var config = JSON.parse(
-        //   decodeURIComponent(escape(window.atob(hash || "@@config@@")))
-        // );
         var config = JSON.parse(
-          decodeURIComponent(escape(window.atob(hash || "eyJhc3NldHNVcmwiOiIiLCJhdXRoMERvbWFpbiI6ImludG91Y2gtZGV2LmV1LmF1dGgwLmNvbSIsImF1dGgwVGVuYW50IjoiaW50b3VjaC1kZXYiLCJjbGllbnRDb25maWd1cmF0aW9uQmFzZVVybCI6Imh0dHBzOi8vY2RuLmV1LmF1dGgwLmNvbS8iLCJjYWxsYmFja09uTG9jYXRpb25IYXNoIjpmYWxzZSwiY2FsbGJhY2tVUkwiOiJodHRwOi8vbG9jYWxob3N0OjMwMDAvYXBpL2F1dGgvY2FsbGJhY2siLCJjZG4iOiJodHRwczovL2Nkbi5hdXRoMC5jb20vIiwiY2xpZW50SUQiOiJXNGdIMllhZ0RPQmRNcEVVRVNvQzR4WmhzWmJjM1cxUyIsImRpY3QiOnsic2lnbmluIjp7InRpdGxlIjoiTmV4dGpzIn19LCJleHRyYVBhcmFtcyI6eyJwcm90b2NvbCI6Im9hdXRoMiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJyZXNwb25zZV90eXBlIjoiY29kZSIsImF1ZGllbmNlIjoiaHR0cHM6Ly9kZXYtYXBpLmludG91Y2guZGV2IiwibWFya2V0IjoiZW4iLCJub25jZSI6IkFMWjlGWWhON3NBT3NBMUtVZXU3TkNJa3dEMnFPdmtnbWFCN1BNOUNRS2MiLCJjb2RlX2NoYWxsZW5nZSI6InhIYnpEa3FraW9VU0Y1N3JyTTZJOGl2ZkpqS0gzaWNwZWtlQzNucDVoTjQiLCJjb2RlX2NoYWxsZW5nZV9tZXRob2QiOiJTMjU2IiwiX2NzcmYiOiJKMjZUWHNFUC01WXVCTkpFYUR1WkdVWkFRSVZFcE5VX3QzZnMiLCJfaW50c3RhdGUiOiJkZXByZWNhdGVkIiwic3RhdGUiOiJoS0ZvMlNBM2NsWnJVMlpDT1VOeWREQnlYMmQ2WVRkUFRESm1jekphUm1Vd0xYUjZSYUZ1cFd4dloybHVvM1JwWk5rZ1dHOVpWV0p0YURkbFNUQXdMVTVoV1c4dFpsVlRhRGxGWWtaNU9ETnBXbG1qWTJsazJTQlhOR2RJTWxsaFowUlBRbVJOY0VWVlJWTnZRelI0V21oeldtSmpNMWN4VXcifSwiaW50ZXJuYWxPcHRpb25zIjp7InByb3RvY29sIjoib2F1dGgyIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInJlc3BvbnNlX3R5cGUiOiJjb2RlIiwiYXVkaWVuY2UiOiJodHRwczovL2Rldi1hcGkuaW50b3VjaC5kZXYiLCJtYXJrZXQiOiJlbiIsIm5vbmNlIjoiQUxaOUZZaE43c0FPc0ExS1VldTdOQ0lrd0QycU92a2dtYUI3UE05Q1FLYyIsImNvZGVfY2hhbGxlbmdlIjoieEhiekRrcWtpb1VTRjU3cnJNNkk4aXZmSmpLSDNpY3Bla2VDM25wNWhONCIsImNvZGVfY2hhbGxlbmdlX21ldGhvZCI6IlMyNTYiLCJfY3NyZiI6IkoyNlRYc0VQLTVZdUJOSkVhRHVaR1VaQVFJVkVwTlVfdDNmcyIsIl9pbnRzdGF0ZSI6ImRlcHJlY2F0ZWQiLCJzdGF0ZSI6ImhLRm8yU0EzY2xaclUyWkNPVU55ZERCeVgyZDZZVGRQVERKbWN6SmFSbVV3TFhSNlJhRnVwV3h2WjJsdW8zUnBaTmtnV0c5WlZXSnRhRGRsU1RBd0xVNWhXVzh0WmxWVGFEbEZZa1o1T0ROcFdsbWpZMmxrMlNCWE5HZElNbGxoWjBSUFFtUk5jRVZWUlZOdlF6UjRXbWh6V21Kak0xY3hVdyJ9LCJ3aWRnZXRVcmwiOiJodHRwczovL2Nkbi5hdXRoMC5jb20vdzIvYXV0aDAtd2lkZ2V0LTUuMS5taW4uanMiLCJpc1RoaXJkUGFydHlDbGllbnQiOmZhbHNlLCJhdXRob3JpemF0aW9uU2VydmVyIjp7InVybCI6Imh0dHBzOi8vaW50b3VjaC1kZXYuZXUuYXV0aDAuY29tIiwiaXNzdWVyIjoiaHR0cHM6Ly9pbnRvdWNoLWRldi5ldS5hdXRoMC5jb20vIn0sImNvbG9ycyI6eyJwYWdlX2JhY2tncm91bmQiOiIjMDAwMDAwIiwicHJpbWFyeSI6IiNlYTUzMjMifX0=")))
+          decodeURIComponent(escape(window.atob(hash || "@@config@@")))
         );
-
         var leeway = config.internalOptions.leeway;
         if (leeway) {
           var convertedLeeway = parseInt(leeway);
@@ -346,19 +364,33 @@
           document.querySelector(".captcha-container")
         );
 
-        function displayError(err) {
+        function displayError(err, type) {
           captcha.reload();
-          var errorMessage = document.getElementById("error-message");
-          errorMessage.innerHTML = err.description;
+          var errorMessage = document.getElementById(type + "-error-message");
+          errorMessage.innerHTML = err.description || AlpineI18n.t('generic_error');
+          errorMessage.style.display = "block";
+        }
+
+        function displaySuccess(message, type) {
+          var errorMessage = document.getElementById(type + "-success-message");
+          errorMessage.innerHTML = message;
           errorMessage.style.display = "block";
         }
 
         function login(e) {
           e.preventDefault();
           var button = this;
+          button.disabled = true;
           var username = document.getElementById("login-email").value;
           var password = document.getElementById("login-password").value;
-          button.disabled = true;
+
+          if(!username || !password) {
+            button.disabled = false;
+            displayError({ description: AlpineI18n.t('email_password_missing') }, "login-form");
+            return;
+          }
+
+
           webAuth.login(
             {
               realm: databaseConnection,
@@ -367,8 +399,8 @@
               captcha: captcha.getValue()
             },
             function (err) {
-              if (err) displayError(err);
               button.disabled = false;
+              if (err) displayError(err, "login-form");
             }
           );
         }
@@ -379,12 +411,18 @@
           const radios = form.elements["intouch_role"];
 
           var button = this;
+          button.disabled = true;
           var email = document.getElementById("signup-email").value;
           var password = document.getElementById("signup-password").value;
           var first_name = document.getElementById("signup-firstname").value;
           var last_name = document.getElementById("signup-lastname").value;
 
-          button.disabled = true;
+          if(!first_name || !last_name) {
+            button.disabled = false;
+            displayError({ description: AlpineI18n.t('name_surname_missing') }, "form-signup");
+            return;
+          }
+
           webAuth.redirect.signupAndLogin(
             {
               connection: databaseConnection,
@@ -399,17 +437,22 @@
               }
             },
             function (err) {
-              if (err) displayError(err);
               button.disabled = false;
+              if (err) displayError(err, "form-signup");
             }
           );
         }
 
         function resetPassword(e) {
           e.preventDefault();
+
+          var button = this;
+          button.disabled = true;
+
           var email = document.getElementById("email").value;
           if (!email) {
-            alert("Please enter your email.");
+            button.disabled = false;
+            displayError({ description: AlpineI18n.t('email_missing') }, "reset-password")
             return;
           }
           webAuth.changePassword(
@@ -418,12 +461,12 @@
               email: email
             },
             function (err, resp) {
+              console.log('button', button);
+              button.disabled = false;
               if (err) {
-                console.log(err.message);
-                alert(err.message);
+                displayError(error, "reset-password")
               } else {
-                console.log(resp);
-                alert(resp);
+                displaySuccess(AlpineI18n.t('reset_password_success'), "reset-password");
               }
             }
           );
