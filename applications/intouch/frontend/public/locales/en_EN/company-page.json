@@ -1,19 +1,28 @@
 {
-  "Company description": "Company Description",
-  "About Us": "About Us",
-  "Registered Details": "Registered Details",
-  "Registered Name": "Registered Name",
-  "Registered Address": "Registered Address",
-  "Main office address": "Main office address",
-  "Phone": "Phone",
-  "support.title": "Roofpro Support",
-  "company.incomplete_profile": {
+  "title": "Company",
+  "details": {
+    "title": "Company Details",
+    "name": "Company name",
+    "aboutUs": "Company description",
+    "tradingAddress": "Main office address",
+    "owner": "Company Owner",
+    "contactDetails": "Contact information",
+    "registeredDetails": "Registered Details",
+    "referenceNumber": "Membership number",
+    "registeredAddress": "Registered Address",
+    "taxNumber": "Company VAT number",
+    "phone": "Phone"
+  },
+  "supportTitle": "Roofpro Support",
+  "incompleteProfile": {
+    "fields": {
+      "phone": "Phone",
+      "publicEmail": "Email",
+      "aboutUs": "Description",
+      "tradingAddress": "Main office address",
+      "logo": "Logo"
+    },
     "warning": "In order to take part of the BMI Contract Locator please provide the required information listed below.",
-    "phone": "Phone",
-    "email": "Email",
-    "description": "Description",
-    "address": "Main office address",
-    "logo": "Logo",
     "closeAlertAccessibilityLabel": "Close Alert"
   },
   "businessType": {
@@ -22,8 +31,8 @@
     "MERCHANT": "Merchant",
     "CORP_DEVELOPER": "Developer"
   },
-  "company.operations": "Operation Type",
-  "company.operations_suffix": "roofing",
+  "companyOperations": "Operation Type",
+  "companyOperationsSuffix": "roofing",
   "operationTypes": {
     "FLAT": "flat",
     "PITCHED": "pitched",

@@ -1,39 +1,15 @@
 @import "@bmi/styles";
 
-.layout {
-  display: flex;
-  flex-direction: column-reverse;
-
-  @media (min-width: $breakpoint-md) {
-    padding: 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    grid-template-rows: 1fr;
-    gap: 0px 1.5rem;
-    align-items: start;
-  }
-}
-
-.cardChildren {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 1.5rem;
-  margin: -15px;
-  background-color: $color-white;
-  margin-top: 0;
-}
-
-.modal {
+.dialog {
   background: $color-alabaster;
 }
 
-.modalContent {
+.dialogContent {
   background: $color-white;
   margin: 0 30px;
 }
 
-.modalClose {
+.dialogClose {
   padding: 0 !important;
   margin: 0 !important;
   margin-bottom: 1rem !important;
@@ -42,22 +18,6 @@
 
 .editForm {
   margin-top: 1.5rem;
-}
-
-.inputFields {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: calc(1rem - 8px);
-
-  & > * + * {
-    margin-top: 1.5rem;
-  }
-}
-
-.editFormSubtitle {
-  border-bottom: 1px solid $color-storm;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .editAvatar {
@@ -75,12 +35,6 @@
   margin-top: 0.5rem;
 }
 
-.avatarBox {
-  display: flex;
-  height: 100%;
-  padding-top: 0.5rem;
-}
-
 .editAvatarTitle {
   position: absolute;
   top: 0;
@@ -95,6 +49,12 @@
   margin: 0;
 }
 
+.avatarBox {
+  display: flex;
+  height: 100%;
+  padding-top: 0.5rem;
+}
+
 .avatar {
   width: 120px !important;
   height: 120px !important;
@@ -106,5 +66,21 @@
 
   & > * {
     margin: 0.5rem;
+  }
+}
+
+.editFormSubtitle {
+  border-bottom: 1px solid $color-storm;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.inputFields {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: calc(1rem - 8px);
+
+  & > * + * {
+    margin-top: 1.5rem;
   }
 }

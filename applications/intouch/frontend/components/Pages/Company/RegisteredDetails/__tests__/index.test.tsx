@@ -20,13 +20,15 @@ describe("formatCompanyOperations", () => {
         OPERATION_TYPES.FLAT,
         OPERATION_TYPES.PITCHED
       ] as Operation[])
-    ).toMatchInlineSnapshot(`"Flat and pitched operations_suffix"`);
+    ).toMatchInlineSnapshot(
+      `"Flat and pitched company-page:companyoperationssuffix"`
+    );
   });
 
   it("should handle single operation", () => {
     expect(
       formatCompanyOperations(t, [OPERATION_TYPES.FLAT] as Operation[])
-    ).toMatchInlineSnapshot(`"Flat operations_suffix"`);
+    ).toMatchInlineSnapshot(`"Flat company-page:companyoperationssuffix"`);
   });
 
   it("should handle 2 operations", () => {
@@ -35,7 +37,9 @@ describe("formatCompanyOperations", () => {
         OPERATION_TYPES.FLAT,
         OPERATION_TYPES.PITCHED
       ] as Operation[])
-    ).toMatchInlineSnapshot(`"Flat and pitched operations_suffix"`);
+    ).toMatchInlineSnapshot(
+      `"Flat and pitched company-page:companyoperationssuffix"`
+    );
   });
 
   it("should handle > 2 operations", () => {
@@ -45,7 +49,9 @@ describe("formatCompanyOperations", () => {
         OPERATION_TYPES.PITCHED,
         OPERATION_TYPES.SOLAR
       ] as Operation[])
-    ).toMatchInlineSnapshot(`"Flat, pitched and solar operations_suffix"`);
+    ).toMatchInlineSnapshot(
+      `"Flat, pitched and solar company-page:companyoperationssuffix"`
+    );
   });
 });
 

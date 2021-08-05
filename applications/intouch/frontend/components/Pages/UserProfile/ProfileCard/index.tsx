@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 import ProfileCard from "@bmi/profile-card";
 import Button from "@bmi/button";
-import { Account } from "@bmi/intouch-api-types";
 import { Email, Phone, Edit } from "@material-ui/icons";
 import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
 import { EditUserProfileDialog } from "../EditUserDialog";
@@ -10,7 +9,9 @@ import styles from "./styles.module.scss";
 
 type UserProfileCardProps = {
   account: GetUserProfileQuery["account"];
-  onProfileUpdateSuccess: (account: Account) => any;
+  onProfileUpdateSuccess: (
+    account: Partial<GetUserProfileQuery["account"]>
+  ) => any;
 };
 
 export const UserProfileCard = ({
@@ -36,7 +37,7 @@ export const UserProfileCard = ({
         {phone && <ProfileCard.Row icon={Phone}>{phone}</ProfileCard.Row>}
         {email && (
           <ProfileCard.Row
-            action={{ model: "htmlLink", href: "mailto:" + email }}
+            action={{ model: "htmlLink", href: `mailto:${email}` }}
             icon={Email}
           >
             {email}

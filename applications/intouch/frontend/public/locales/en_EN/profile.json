@@ -1,12 +1,6 @@
 {
   "profileCard": {
-    "role": {
-      "CONTRACTOR": "Contractor",
-      "ARCHITECT": "Architect",
-      "MERCHANT": "Merchant",
-      "CORP_DEVELOPER": "Developer",
-      "COMPANY_ADMIN": "Company administrator"
-    },
+    "certificationsHeading": "Certifications",
     "buttons": {
       "editProfile": "Edit",
       "changePassword": "Change password"
@@ -14,16 +8,16 @@
   },
   "editModal": {
     "title": "About me",
-    "fileTypes": "You can upload jpg, gif or png files.",
-    "fileSize": "Max file size of 3mb.",
+    "fileTypesMessage": "You can upload jpg, gif or png files.",
+    "fileSizeMessage": "Max file size of 3mb.",
     "labels": {
       "contactDetails": "Contact details",
       "email": "Email",
       "phone": "Phone"
     },
     "buttons": {
-      "uploadNewPhoto": "Upload new photo",
-      "removePhoto": "Remove",
+      "uploadProfilePicture": "Upload new photo",
+      "removeProfilePicture": "Remove",
       "saveAndClose": "Save & close"
     }
   },

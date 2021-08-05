@@ -1,6 +1,7 @@
 import { Logger } from "winston";
 import { Account, Tier } from "@bmi/intouch-api-types";
 import { ApolloClient, NormalizedCacheObject, gql } from "@apollo/client";
+import { GetUserProfileQuery } from "../../graphql/generated/operations";
 import { randomPassword } from "../utils/account";
 
 const { AUTH0_NAMESPACE } = process.env;

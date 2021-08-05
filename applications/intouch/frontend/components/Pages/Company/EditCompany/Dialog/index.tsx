@@ -317,7 +317,7 @@ export const UPDATE_COMPANY = gql`
   mutation updateCompanyDetails($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
       company {
-        ...CompanyDetailsFragment
+        ...CompanyPageDetailsFragment
       }
     }
   }
