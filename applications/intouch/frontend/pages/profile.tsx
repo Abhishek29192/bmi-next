@@ -101,12 +101,17 @@ const UserCertifications = ({
 };
 
 type UserProfilePageProps = {
-  account: GetUserProfileQuery["account"];
+  pageAccount: GetUserProfileQuery["account"];
   globalPageData: GetGlobalDataQuery;
 };
 
-const UserProfilePage = ({ account, globalPageData }: UserProfilePageProps) => {
+const UserProfilePage = ({
+  pageAccount,
+  globalPageData
+}: UserProfilePageProps) => {
   const { t } = useTranslation("common");
+  const account = pageAccount;
+
 
   return (
     <Layout
@@ -167,7 +172,8 @@ export const getServerSideProps = withPage(
     return {
       props: {
         globalPageData,
-        account: data.account,
+        account,
+        pageAccount: data.account,
         ...(await serverSideTranslations(locale, [
           "common",
           "sidebar",
