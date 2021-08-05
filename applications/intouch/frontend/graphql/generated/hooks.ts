@@ -1557,61 +1557,6 @@ export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateSystemMutation,
   OperationTypes.UpdateSystemMutationVariables
 >;
-export const CurrentCompanyDocument = gql`
-  query currentCompany {
-    currentCompany
-  }
-`;
-
-/**
- * __useCurrentCompanyQuery__
- *
- * To run a query within a React component, call `useCurrentCompanyQuery` and pass it any options that fit your needs.
- * When your component renders, `useCurrentCompanyQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useCurrentCompanyQuery({
- *   variables: {
- *   },
- * });
- */
-export function useCurrentCompanyQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >(CurrentCompanyDocument, options);
-}
-export function useCurrentCompanyLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >(CurrentCompanyDocument, options);
-}
-export type CurrentCompanyQueryHookResult = ReturnType<
-  typeof useCurrentCompanyQuery
->;
-export type CurrentCompanyLazyQueryHookResult = ReturnType<
-  typeof useCurrentCompanyLazyQuery
->;
-export type CurrentCompanyQueryResult = Apollo.QueryResult<
-  OperationTypes.CurrentCompanyQuery,
-  OperationTypes.CurrentCompanyQueryVariables
->;
 export const GetCurrentCompanyDocument = gql`
   query GetCurrentCompany {
     currentCompany

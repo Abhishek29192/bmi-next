@@ -878,15 +878,6 @@ export type UpdateSystemMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
-export type CurrentCompanyQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
-}>;
-
-export type CurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
-  SchemaTypes.Query,
-  "currentCompany"
->;
-
 export type GetCurrentCompanyQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;
