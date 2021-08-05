@@ -21,6 +21,7 @@ import {
   getServerPageGetCompany,
   getServerPageGetCurrentCompany
 } from "../graphql/generated/page";
+import { findAccountCompany } from "../lib/account";
 import { ROLES } from "../lib/constants";
 import {
   ErrorStatusCode,
@@ -135,24 +136,18 @@ export const CompanyDetailsFragment = gql`
 
 export const getServerSideProps = withPage(
   async ({ locale, apolloClient, globalPageData, res, account }) => {
-    const {
-      props: {
-        data: { currentCompany }
-      }
-    } = await getServerPageGetCurrentCompany({}, apolloClient);
-
-    if (!currentCompany) {
+    const companyId = findAccountCompany(account)?.id;
+    if (!companyId) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
       return generatePageError(statusCode, {}, { globalPageData });
     }
-
     const {
       props: {
         data: { company, contactDetailsCollection }
       }
     } = await getServerPageGetCompany(
-      { variables: { companyId: currentCompany } },
+      { variables: { companyId } },
       apolloClient
     );
     return {

@@ -2,9 +2,9 @@ import React from "react";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { gql } from "@apollo/client";
 import { getServerPageGetCompany } from "../graphql/generated/page";
 import { GetCompanyQuery } from "../graphql/generated/operations";
+import { findAccountCompany } from "../lib/account";
 import { ErrorStatusCode, generatePageError } from "../lib/error";
 import { withPage } from "../lib/middleware/withPage";
 import { EditCompanyDialog } from "../components/Pages/Company/EditCompany/Dialog";
@@ -29,22 +29,14 @@ const Company = ({ company }: { company: GetCompanyQuery["company"] }) => {
   );
 };
 
-const GET_CURRENT_COMPANY = gql`
-  query currentCompany {
-    currentCompany
-  }
-`;
-
 export const getServerSideProps = withPage(
   async ({ apolloClient, locale, account, globalPageData, res }) => {
-    const companyId = account.company.id;
-
+    const companyId = findAccountCompany(account)?.id;
     if (!companyId) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
       return generatePageError(statusCode, {}, { globalPageData });
     }
-
     const {
       props: {
         data: { company }
@@ -53,7 +45,6 @@ export const getServerSideProps = withPage(
       { variables: { companyId } },
       apolloClient
     );
-
     if (company.status !== "NEW") {
       return {
         redirect: {
