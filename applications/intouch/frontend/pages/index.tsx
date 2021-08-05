@@ -17,14 +17,18 @@ import {
 import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
 import { withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
+import { SimpleCard } from "../components/Cards/SimpleCard";
+import { RichText } from "../components/RichText";
 import { Link } from "../components/Link";
 import logger from "../lib/logger";
 import { findAccountCompany, findAccountTier } from "../lib/account";
 import { useAccountContext } from "../context/AccountContext";
+import styles from "../styles/Homepage.module.scss";
 
 type HomePageProps = {
   marketContentCollection: GetPartnerBrandsQuery["marketContentCollection"];
   carouselCollection: GetPartnerBrandsQuery["carouselCollection"];
+  tierBenefitCollection: GetPartnerBrandsQuery["tierBenefitCollection"];
   globalPageData: GetGlobalDataQuery;
 };
 
@@ -102,9 +106,10 @@ const mapHeroCarouselItems = (
 const Homepage = ({
   marketContentCollection,
   carouselCollection,
+  tierBenefitCollection,
   globalPageData
 }: HomePageProps) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("home-page");
   const { account } = useAccountContext();
 
   logger({
@@ -180,7 +185,7 @@ const Homepage = ({
                     href="/partner-brands"
                     footer={
                       <Button component={"span"} variant="outlined">
-                        {t("Read more")}
+                        {t("partnerBrands.ctaLabel")}
                       </Button>
                     }
                   >
@@ -193,6 +198,37 @@ const Homepage = ({
           </Section>
         </>
       ) : null}
+
+      <div className={styles.feedholder}>
+        <SimpleCard>
+          <Typography variant="h4" hasUnderline>
+            {marketContentCollection.items[0].newsItemHeading}
+          </Typography>
+          <iframe
+            src={marketContentCollection.items[0].newsItemUrl}
+            height="400px"
+            width="100%"
+            frameBorder="0"
+            className={styles.embed}
+          />
+          <Button
+            variant="outlined"
+            href={marketContentCollection.items[0].newsItemCta}
+          >
+            {t("linkedin.ctaLabel")}
+          </Button>
+        </SimpleCard>
+        <SimpleCard>
+          <Typography variant="h4" hasUnderline>
+            {tierBenefitCollection.items[0].name}
+          </Typography>
+          <div className={styles.tierBenefits}>
+            <RichText
+              content={tierBenefitCollection.items[0].description.json}
+            />
+          </div>
+        </SimpleCard>
+      </div>
     </Layout>
   );
 };
@@ -209,7 +245,7 @@ export const GET_PARTNER_BRANDS = gql`
     height
   }
 
-  query GetPartnerBrands($role: String!) {
+  query GetPartnerBrands($role: String!, $tier: String!) {
     # Only one relevant market content entry expected, without "limit" we hit query complexity limits
     marketContentCollection(limit: 1) {
       items {
@@ -225,6 +261,9 @@ export const GET_PARTNER_BRANDS = gql`
             }
           }
         }
+        newsItemUrl
+        newsItemCta
+        newsItemHeading
       }
     }
     carouselCollection(where: { audienceRole: $role }, limit: 1) {
@@ -247,6 +286,14 @@ export const GET_PARTNER_BRANDS = gql`
         }
       }
     }
+    tierBenefitCollection(where: { tier: $tier }, limit: 1) {
+      items {
+        name
+        description {
+          json
+        }
+      }
+    }
   }
 `;
 
@@ -254,10 +301,14 @@ export const getServerSideProps = withPage(
   async ({ apolloClient, locale, globalPageData, account }) => {
     const {
       props: {
-        data: { marketContentCollection, carouselCollection }
+        data: {
+          marketContentCollection,
+          carouselCollection,
+          tierBenefitCollection
+        }
       }
     } = await getServerPageGetPartnerBrands(
-      { variables: { role: account.role } },
+      { variables: { role: account.role, tier: findAccountTier(account) } },
       apolloClient
     );
 
@@ -266,6 +317,7 @@ export const getServerSideProps = withPage(
         globalPageData,
         marketContentCollection,
         carouselCollection,
+        tierBenefitCollection,
         account,
         ...(await serverSideTranslations(locale, [
           "common",

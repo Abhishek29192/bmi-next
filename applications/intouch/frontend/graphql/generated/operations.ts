@@ -1090,6 +1090,7 @@ export type ImageFragmentFragment = { readonly __typename?: "Asset" } & Pick<
 
 export type GetPartnerBrandsQueryVariables = SchemaTypes.Exact<{
   role: SchemaTypes.Scalars["String"];
+  tier: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
@@ -1097,49 +1098,52 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
     { readonly __typename?: "MarketContentCollection" } & {
       readonly items: ReadonlyArray<
         SchemaTypes.Maybe<
-          { readonly __typename?: "MarketContent" } & {
-            readonly partnerBrandsCollection?: SchemaTypes.Maybe<
-              {
-                readonly __typename?: "MarketContentPartnerBrandsCollection";
-              } & {
-                readonly items: ReadonlyArray<
-                  SchemaTypes.Maybe<
-                    { readonly __typename?: "PartnerBrand" } & Pick<
-                      SchemaTypes.PartnerBrand,
-                      "name" | "shortDescription"
-                    > & {
-                        readonly image?: SchemaTypes.Maybe<
-                          { readonly __typename?: "Asset" } & Pick<
-                            SchemaTypes.Asset,
-                            | "title"
-                            | "description"
-                            | "contentType"
-                            | "fileName"
-                            | "size"
-                            | "url"
-                            | "width"
-                            | "height"
-                          >
-                        >;
-                        readonly logo?: SchemaTypes.Maybe<
-                          { readonly __typename?: "Asset" } & Pick<
-                            SchemaTypes.Asset,
-                            | "title"
-                            | "description"
-                            | "contentType"
-                            | "fileName"
-                            | "size"
-                            | "url"
-                            | "width"
-                            | "height"
-                          >
-                        >;
-                      }
-                  >
-                >;
-              }
-            >;
-          }
+          { readonly __typename?: "MarketContent" } & Pick<
+            SchemaTypes.MarketContent,
+            "newsItemUrl" | "newsItemCta" | "newsItemHeading"
+          > & {
+              readonly partnerBrandsCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "MarketContentPartnerBrandsCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "PartnerBrand" } & Pick<
+                        SchemaTypes.PartnerBrand,
+                        "name" | "shortDescription"
+                      > & {
+                          readonly image?: SchemaTypes.Maybe<
+                            { readonly __typename?: "Asset" } & Pick<
+                              SchemaTypes.Asset,
+                              | "title"
+                              | "description"
+                              | "contentType"
+                              | "fileName"
+                              | "size"
+                              | "url"
+                              | "width"
+                              | "height"
+                            >
+                          >;
+                          readonly logo?: SchemaTypes.Maybe<
+                            { readonly __typename?: "Asset" } & Pick<
+                              SchemaTypes.Asset,
+                              | "title"
+                              | "description"
+                              | "contentType"
+                              | "fileName"
+                              | "size"
+                              | "url"
+                              | "width"
+                              | "height"
+                            >
+                          >;
+                        }
+                    >
+                  >;
+                }
+              >;
+            }
         >
       >;
     }
@@ -1181,6 +1185,25 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
           >
         >;
       }
+  >;
+  readonly tierBenefitCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "TierBenefitCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "TierBenefit" } & Pick<
+            SchemaTypes.TierBenefit,
+            "name"
+          > & {
+              readonly description?: SchemaTypes.Maybe<
+                { readonly __typename?: "TierBenefitDescription" } & Pick<
+                  SchemaTypes.TierBenefitDescription,
+                  "json"
+                >
+              >;
+            }
+        >
+      >;
+    }
   >;
 };
 
