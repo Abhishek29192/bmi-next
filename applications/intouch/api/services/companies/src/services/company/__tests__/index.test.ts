@@ -1,8 +1,8 @@
 import { deleteCompanyMember } from "..";
-import { publish } from "../../../services/events";
+import { sendEmailWithTemplate } from "../../../services/mailer";
 
-jest.mock("../../../services/events", () => ({
-  publish: jest.fn()
+jest.mock("../../../services/mailer", () => ({
+  sendEmailWithTemplate: jest.fn()
 }));
 
 describe("Company", () => {
@@ -80,11 +80,26 @@ describe("Company", () => {
       await deleteCompanyMember(resolve, source, args, context, resolveInfo);
 
       expect(resolve).toBeCalledTimes(1);
-      expect(publish).toBeCalledTimes(1);
+      expect(sendEmailWithTemplate).toBeCalledTimes(1);
       expect(query.mock.calls).toMatchInlineSnapshot(`
         Array [
           Array [
-            "SELECT account.id, account.role, account.email, company_member.company_id AS company_id FROM account JOIN company_member ON account.id = company_member.account_id WHERE company_member.id = $1",
+            "
+            SELECT
+              account.id,
+              account.role,
+              account.first_name,
+              account.last_name,
+              account.email,
+              company_member.company_id AS company_id,
+              company.name
+            FROM
+              account
+              JOIN company_member ON account.id = company_member.account_id
+              JOIN company ON company.id = company_member.company_id
+            WHERE
+              company_member.id = $1
+            ",
             Array [
               1,
             ],

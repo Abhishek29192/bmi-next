@@ -1,5 +1,4 @@
 import { completeInvitation, createAccount, invite, updateAccount } from "../";
-import * as eventsSrv from "../../../services/events";
 import * as mailerSrv from "../../../services/mailer";
 import * as trainingSrv from "../../../services/training";
 import { transaction, getDbPool } from "../../../test-utils/db";
@@ -444,7 +443,7 @@ describe("Account", () => {
         ticket: "my-ticket"
       });
 
-      const spy = jest.spyOn(eventsSrv, "publish");
+      const spy = jest.spyOn(mailerSrv, "sendEmailWithTemplate");
 
       mockRootQuery
         // get user
@@ -480,7 +479,7 @@ describe("Account", () => {
         email: "email@email.co.uk"
       });
 
-      const spy = jest.spyOn(eventsSrv, "publish");
+      const spy = jest.spyOn(mailerSrv, "sendEmailWithTemplate");
 
       mockRootQuery
         // get user

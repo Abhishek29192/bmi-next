@@ -1,6 +1,5 @@
 import { DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
-import { publish, TOPICS } from "../../services/events";
-import { sendEmailWithTemplate } from "../mailer";
+import { sendEmailWithTemplate } from "../../services/mailer";
 
 export const updateCompany = async (
   resolve,
@@ -64,7 +63,22 @@ export const deleteCompanyMember = async (
   const logger = context.logger("delete:companyMember");
 
   const { rows } = await pgClient.query(
-    "SELECT account.id, account.role, account.email, company_member.company_id AS company_id FROM account JOIN company_member ON account.id = company_member.account_id WHERE company_member.id = $1",
+    `
+    SELECT
+      account.id,
+      account.role,
+      account.first_name,
+      account.last_name,
+      account.email,
+      company_member.company_id AS company_id,
+      company.name
+    FROM
+      account
+      JOIN company_member ON account.id = company_member.account_id
+      JOIN company ON company.id = company_member.company_id
+    WHERE
+      company_member.id = $1
+    `,
     [id]
   );
 
@@ -92,14 +106,10 @@ export const deleteCompanyMember = async (
 
     const result = await resolve(source, args, context, resolveInfo);
 
-    await publish(context, TOPICS.TRANSACTIONAL_EMAIL, {
-      title: `You have been removed from the company ${userToRemove.company_id}`,
-      text: `
-        You have been removed from the company ${userToRemove.company_id}
-      `,
-      html: `
-        You have been removed from the company <b>${userToRemove.company_id}</b>
-      `,
+    await sendEmailWithTemplate(context, "COMPANY_MEMBER_REMOVED", {
+      account: userToRemove.email,
+      firstName: userToRemove.first_name,
+      company: userToRemove.name,
       email: userToRemove.email
     });
     logger.info(`Email sent to the user ${userToRemove.id}`);
