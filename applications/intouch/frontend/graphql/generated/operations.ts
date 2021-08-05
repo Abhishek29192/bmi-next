@@ -807,6 +807,45 @@ export type SearchProductsQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type SearchSystemsQueryVariables = SchemaTypes.Exact<{
+  query: SchemaTypes.Scalars["String"];
+  technology: SchemaTypes.Technology;
+}>;
+
+export type SearchSystemsQuery = { readonly __typename?: "Query" } & {
+  readonly searchSystems?: SchemaTypes.Maybe<
+    { readonly __typename?: "SystemsConnection" } & Pick<
+      SchemaTypes.SystemsConnection,
+      "totalCount"
+    > & {
+        readonly nodes: ReadonlyArray<
+          { readonly __typename?: "System" } & Pick<
+            SchemaTypes.System,
+            "id" | "technology" | "name" | "description"
+          > & {
+              readonly systemMembersBySystemBmiRef: {
+                readonly __typename?: "SystemMembersConnection";
+              } & {
+                readonly nodes: ReadonlyArray<
+                  { readonly __typename?: "SystemMember" } & Pick<
+                    SchemaTypes.SystemMember,
+                    "id"
+                  > & {
+                      readonly productByProductBmiRef?: SchemaTypes.Maybe<
+                        { readonly __typename?: "Product" } & Pick<
+                          SchemaTypes.Product,
+                          "id" | "name" | "family" | "brand"
+                        >
+                      >;
+                    }
+                >;
+              };
+            }
+        >;
+      }
+  >;
+};
+
 export type GetProductGuaranteeTypesQueryVariables = SchemaTypes.Exact<{
   technology?: SchemaTypes.Maybe<SchemaTypes.Scalars["String"]>;
 }>;

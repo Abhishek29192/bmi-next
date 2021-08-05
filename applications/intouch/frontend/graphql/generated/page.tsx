@@ -226,6 +226,49 @@ export const ssrSearchProducts = {
 
   usePage: useSearchProducts
 };
+export async function getServerPageSearchSystems(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.SearchSystemsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.SearchSystemsQuery>({
+    ...options,
+    query: Operations.SearchSystemsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useSearchSystems = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.SearchSystemsQuery,
+    OperationTypes.SearchSystemsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.SearchSystemsDocument, options);
+};
+export type PageSearchSystemsComp = React.FC<{
+  data?: OperationTypes.SearchSystemsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrSearchSystems = {
+  getServerPage: getServerPageSearchSystems,
+
+  usePage: useSearchSystems
+};
 export async function getServerPageGetProductGuaranteeTypes(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetProductGuaranteeTypesQueryVariables>,
