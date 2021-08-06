@@ -15,7 +15,7 @@ async function main() {
   const { PG_USER, PG_DATABASE, PG_PASSWORD, PG_HOST, PG_PORT } = process.env;
 
   console.log(`Connecting to '${PG_HOST}:${PG_PORT}' host:port as '${PG_USER}' user to '${PG_DATABASE}' database using '************' password...`);
-  
+
   const client = new Client({
     host: PG_HOST,
     port: parseInt(PG_PORT),
