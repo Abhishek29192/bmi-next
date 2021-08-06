@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
 import Avatar from "@material-ui/core/Avatar";
@@ -28,6 +28,16 @@ export const EditUserProfileDialog = ({
 }: EditUserProfileDialogProps) => {
   const { t } = useTranslation(["common", "profile"]);
 
+  const profilePictureUrl = account.signedPhotoUrl || account.photo;
+
+  const [uploadedPhoto, setUploadedPhoto] = useState();
+  const [uploadedPhotoUrl, setUploadedPhotoUrl] = useState(profilePictureUrl);
+
+  const removePhoto = useCallback(() => {
+    setUploadedPhoto(undefined);
+    setUploadedPhotoUrl(undefined);
+  }, [setUploadedPhoto, setUploadedPhotoUrl]);
+
   const [updateAccountProfile] = useUpdateAccountProfileMutation({
     onError: (error) => {
       log({
@@ -54,12 +64,16 @@ export const EditUserProfileDialog = ({
         variables: {
           updateAccountInput: {
             id: account.id,
-            patch: values
+
+            patch: {
+              ...values,
+              photoUpload: uploadedPhoto
+            }
           }
         }
       });
     },
-    [updateAccountProfile, account]
+    [updateAccountProfile, account, uploadedPhoto]
   );
 
   const getFieldProps = useCallback(
@@ -102,17 +116,36 @@ export const EditUserProfileDialog = ({
                 alt={[account.firstName, account.lastName]
                   .filter(Boolean)
                   .join(" ")}
-                src={account.photo}
+                src={uploadedPhotoUrl}
                 className={styles.avatar}
               />
             </div>
 
             <div>
               <div className={styles.avatarButtons}>
-                <Button>
+                <Button variant="contained" component="label">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    name="photoUpload"
+                    hidden
+                    onChange={({ target }) => {
+                      const [file] = Array.from(target.files);
+                      if (file) {
+                        setUploadedPhoto(file);
+
+                        const fileReader = new FileReader();
+                        fileReader.readAsDataURL(file);
+
+                        fileReader.onload = (e) => {
+                          setUploadedPhotoUrl(e.target.result);
+                        };
+                      }
+                    }}
+                  />
                   {t("profile:editDialog.buttons.uploadProfilePicture")}
                 </Button>
-                <Button variant="outlined">
+                <Button variant="outlined" onClick={removePhoto}>
                   {t("profile:editDialog.buttons.removeProfilePicture")}
                 </Button>
               </div>

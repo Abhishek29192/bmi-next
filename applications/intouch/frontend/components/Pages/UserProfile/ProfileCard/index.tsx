@@ -16,7 +16,8 @@ export const UserProfileCard = ({
   account,
   onProfileUpdateSuccess
 }: UserProfileCardProps) => {
-  const { firstName, lastName, email, phone, photo, role } = account;
+  const { firstName, lastName, email, phone, photo, role, signedPhotoUrl } =
+    account;
   const { t } = useTranslation(["common", "profile"]);
   const [isEditProfileDialogOpen, setIsEditProfileDialogOpen] =
     React.useState(false);
@@ -24,7 +25,7 @@ export const UserProfileCard = ({
   return (
     <div style={{ marginBottom: "1.5rem" }}>
       <ProfileCard
-        imageSource={photo}
+        imageSource={signedPhotoUrl || photo}
         body={
           <ProfileCard.Body
             name={[firstName, lastName].filter(Boolean).join(" ")}
