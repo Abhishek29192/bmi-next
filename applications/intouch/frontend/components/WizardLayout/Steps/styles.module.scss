@@ -1,0 +1,14 @@
+@import "@bmi/styles";
+
+.main {
+  h4 {
+    font-size: 1.2rem;
+    padding-bottom: 0.6rem;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
