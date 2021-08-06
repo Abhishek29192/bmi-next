@@ -15,7 +15,7 @@ steps:
     entrypoint: sh
     args:
       - "-c"
-      - "(./cloud_sql_proxy -dir=/cloudsql -instances='${_InTouch_PostgresGCPConnectionString}' & sleep 2) && export NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN} && yarn install && export PG_USER=${_PG_USER} && export PG_DATABASE=${_PG_DATABASE} && export PG_PORT=${_PG_PORT} && export PG_HOST=${_PG_HOST} &&  export PG_PASSWORD=${_PG_PASSWORD} && yarn workspace ${_DATABASE_SERVICE} migrate-db"
+      - "(./cloud_sql_proxy -dir=/cloudsql -instances='${_InTouch_Postgres_GCPConnectionString}' & sleep 2) && export NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN} && yarn install && export PG_USER=${_PG_USER} && export PG_DATABASE=${_PG_DATABASE} && export PG_PORT=${_PG_PORT} && export PG_HOST=${_PG_HOST} &&  export PG_PASSWORD=${_PG_PASSWORD} && yarn workspace ${_DATABASE_SERVICE} migrate-db"
     timeout: "1200s"
     waitFor: ["proxy-install"]
 
