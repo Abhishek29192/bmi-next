@@ -45,7 +45,7 @@ export const UserProfileCard = ({
 
         <div className={styles.cardChildren}>
           <Button
-            variant="link"
+            variant="text"
             startIcon={<Edit />}
             onClick={() => setIsEditProfileDialogOpen(true)}
           >

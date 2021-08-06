@@ -1,16 +1,15 @@
 import React, { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
-import Avatar from "@material-ui/core/Avatar";
 import Form from "@bmi/form";
 import Dialog from "@bmi/dialog";
 import TextField from "@bmi/text-field";
 import Typography from "@bmi/typography";
-import Button from "@bmi/button";
 import log from "../../../../lib/logger";
 import { validatePhoneNumberInput } from "../../../../lib/validations/utils";
 import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
 import { useUpdateAccountProfileMutation } from "../../../../graphql/generated/hooks";
+import { ProfilePictureUpload } from "../../../ProfilePictureUpload";
 import styles from "./styles.module.scss";
 
 type EditUserProfileDialogProps = {
@@ -29,14 +28,8 @@ export const EditUserProfileDialog = ({
   const { t } = useTranslation(["common", "profile"]);
 
   const profilePictureUrl = account.signedPhotoUrl || account.photo;
-
-  const [uploadedPhoto, setUploadedPhoto] = useState();
-  const [uploadedPhotoUrl, setUploadedPhotoUrl] = useState(profilePictureUrl);
-
-  const removePhoto = useCallback(() => {
-    setUploadedPhoto(undefined);
-    setUploadedPhotoUrl(undefined);
-  }, [setUploadedPhoto, setUploadedPhotoUrl]);
+  const [uploadedPhoto, setUploadedPhoto] = useState(undefined);
+  const [shouldRemovePhoto, setShouldRemovePhoto] = useState(false);
 
   const [updateAccountProfile] = useUpdateAccountProfileMutation({
     onError: (error) => {
@@ -67,13 +60,14 @@ export const EditUserProfileDialog = ({
 
             patch: {
               ...values,
-              photoUpload: uploadedPhoto
+              photoUpload: uploadedPhoto,
+              shouldRemovePhoto
             }
           }
         }
       });
     },
-    [updateAccountProfile, account, uploadedPhoto]
+    [updateAccountProfile, account, uploadedPhoto, shouldRemovePhoto]
   );
 
   const getFieldProps = useCallback(
@@ -88,6 +82,11 @@ export const EditUserProfileDialog = ({
   );
 
   const validatePhoneNumber = useCallback(validatePhoneNumberInput(t), [t]);
+
+  const onProfilePictureChange = (file) => {
+    setShouldRemovePhoto(!file);
+    setUploadedPhoto(file);
+  };
 
   return (
     <Dialog
@@ -106,60 +105,22 @@ export const EditUserProfileDialog = ({
           onSubmit={handleSubmit}
           rightAlignButton
         >
-          <div className={styles.editAvatar}>
-            <h3 className={styles.editAvatarTitle}>
-              {t("profile:editDialog.form.fields.photo")}
-            </h3>
-
-            <div className={styles.avatarBox}>
-              <Avatar
-                alt={[account.firstName, account.lastName]
-                  .filter(Boolean)
-                  .join(" ")}
-                src={uploadedPhotoUrl}
-                className={styles.avatar}
-              />
-            </div>
-
-            <div>
-              <div className={styles.avatarButtons}>
-                <Button variant="contained" component="label">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    name="photoUpload"
-                    hidden
-                    onChange={({ target }) => {
-                      const [file] = Array.from(target.files);
-                      if (file) {
-                        setUploadedPhoto(file);
-
-                        const fileReader = new FileReader();
-                        fileReader.readAsDataURL(file);
-
-                        fileReader.onload = (e) => {
-                          setUploadedPhotoUrl(e.target.result);
-                        };
-                      }
-                    }}
-                  />
-                  {t("profile:editDialog.buttons.uploadProfilePicture")}
-                </Button>
-                <Button variant="outlined" onClick={removePhoto}>
-                  {t("profile:editDialog.buttons.removeProfilePicture")}
-                </Button>
-              </div>
-
-              <Typography variant="default">
-                {t("profile:editDialog.fileTypesMessage")}
-              </Typography>
-
-              <Typography variant="default">
-                {" "}
-                {t("profile:editDialog.fileSizeMessage")}
-              </Typography>
-            </div>
-          </div>
+          <ProfilePictureUpload
+            title={t("profile:editDialog.form.fields.photo")}
+            uploadPictureLabel={t(
+              "profile:editDialog.buttons.uploadProfilePicture"
+            )}
+            removePictureLabel={t(
+              "profile:editDialog.buttons.removeProfilePicture"
+            )}
+            altText={[account.firstName, account.lastName]
+              .filter(Boolean)
+              .join(" ")}
+            initialPictureUrl={profilePictureUrl}
+            onChange={onProfilePictureChange}
+            fileTypesMessage={t("profile:editDialog.fileTypesMessage")}
+            fileSizeMessage={t("profile:editDialog.fileSizeMessage")}
+          />
 
           <Typography variant="h5" className={styles.editFormSubtitle}>
             {t("profile:editDialog.contactDetailsHeading")}

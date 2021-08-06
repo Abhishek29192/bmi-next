@@ -3096,8 +3096,6 @@ enum CompaniesOrderBy {
   REGISTERED_ADDRESS_ID_DESC
   TRADING_ADDRESS_ID_ASC
   TRADING_ADDRESS_ID_DESC
-  REFERENCE_NUMBER_ASC
-  REFERENCE_NUMBER_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -3125,11 +3123,6 @@ input CompanyCondition {
   Checks for equality with the object’s `tradingAddressId` field.
   """
   tradingAddressId: Int
-
-  """
-  Checks for equality with the object’s `referenceNumber` field.
-  """
-  referenceNumber: String
 }
 
 """
@@ -3155,11 +3148,6 @@ input CompanyFilter {
   Filter by the object’s `tradingAddressId` field.
   """
   tradingAddressId: IntFilter
-
-  """
-  Filter by the object’s `referenceNumber` field.
-  """
-  referenceNumber: StringFilter
 
   """
   Checks for all expressions in this list.
@@ -8571,6 +8559,7 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -10691,6 +10680,7 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -10976,6 +10966,7 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -11875,6 +11866,7 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -12210,6 +12202,7 @@ input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -14778,6 +14771,7 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -15492,6 +15486,7 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -16343,6 +16338,7 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -16633,6 +16629,7 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -16917,6 +16914,7 @@ input AccountPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """

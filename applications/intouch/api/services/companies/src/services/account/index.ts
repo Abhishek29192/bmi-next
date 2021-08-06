@@ -107,7 +107,7 @@ export const updateAccount = async (
   const { GCP_BUCKET_NAME } = process.env;
 
   const { pgClient, user, logger: Logger } = context;
-  const { photoUpload, role } = args.input.patch;
+  const { photoUpload, role, shouldRemovePhoto } = args.input.patch;
 
   const logger = Logger("service:account");
 
@@ -176,18 +176,8 @@ export const updateAccount = async (
       }
     }
 
-    // if no picture is uploaded, check if user already has one
-    // if so, then the user wants to remove the picture
-    if (!photoUpload) {
-      const {
-        rows: [account]
-      } = await pgClient.query(`select photo from account WHERE id = $1`, [
-        args.input.id
-      ]);
-      if (account.photo) {
-        // Then remove the photo as no photo is uploaded it's a removal
-        args.input.patch.photo = null;
-      }
+    if (!photoUpload && shouldRemovePhoto) {
+      args.input.patch.photo = null;
     }
 
     if (photoUpload) {
