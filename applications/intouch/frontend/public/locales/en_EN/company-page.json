@@ -42,6 +42,9 @@
     "COATER": "coater",
     "GREEN": "green"
   },
+  "register_dialog": {
+    "title": "Register a company"
+  },
   "edit_dialog": {
     "title": "Company Details",
     "sections": {
