@@ -1740,6 +1740,10 @@ export const GetPartnerBrandsDocument = gql`
           items {
             name
             shortDescription
+            websiteUrl
+            description {
+              json
+            }
             image {
               ...ImageFragment
             }

@@ -1125,8 +1125,16 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
                     SchemaTypes.Maybe<
                       { readonly __typename?: "PartnerBrand" } & Pick<
                         SchemaTypes.PartnerBrand,
-                        "name" | "shortDescription"
+                        "name" | "shortDescription" | "websiteUrl"
                       > & {
+                          readonly description?: SchemaTypes.Maybe<
+                            {
+                              readonly __typename?: "PartnerBrandDescription";
+                            } & Pick<
+                              SchemaTypes.PartnerBrandDescription,
+                              "json"
+                            >
+                          >;
                           readonly image?: SchemaTypes.Maybe<
                             { readonly __typename?: "Asset" } & Pick<
                               SchemaTypes.Asset,
