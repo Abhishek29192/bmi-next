@@ -79,6 +79,7 @@ const VariantSelectionRow = ({
             imageSource={tile.image}
             onClick={() => {
               pushEvent({
+                event: "dxb.button_click",
                 id: "rc-select-tile-colour",
                 label: tile.color,
                 action: "selected"

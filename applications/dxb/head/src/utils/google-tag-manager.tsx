@@ -7,6 +7,7 @@ type GTM = {
     "data-gtm"?: string;
   };
   gtm?: {
+    event?: string;
     id: string;
     label?: string;
     action?: string;

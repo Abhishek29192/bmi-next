@@ -58,6 +58,7 @@ const TileSelectionRow = ({
             imageSource={tile.variants.slice().sort(byName)[0].image}
             onClick={() => {
               pushEvent({
+                event: "dxb.button_click",
                 id: "rc-select-tile",
                 label: tile.name,
                 action: "selected"

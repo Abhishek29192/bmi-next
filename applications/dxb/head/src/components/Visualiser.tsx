@@ -118,6 +118,7 @@ const VisualiserProvider = ({
         : undefined;
 
     pushToDataLayer({
+      event: "dxb.button_click",
       id: GtmEventsMap[type],
       label,
       action: productPath ? productPath : calculatePathFromData(params)

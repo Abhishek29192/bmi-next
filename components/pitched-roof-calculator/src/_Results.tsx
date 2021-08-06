@@ -62,6 +62,7 @@ const EmailAddressCollection = ({
         }
 
         pushEvent({
+          event: "dxb.button_click",
           id: "rc-solution",
           label: getMicroCopy(copy, "results.downloadPdfLabel"),
           action: "selected"
