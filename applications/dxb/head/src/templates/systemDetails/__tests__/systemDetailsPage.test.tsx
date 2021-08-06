@@ -16,6 +16,7 @@ describe("SystemDetailsPage template component", () => {
   beforeEach(() => {
     jest.resetModules(); // Most important - it clears the cache
     process.env = { ...OLD_ENV }; // Make a copy
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true"; // same as CI
   });
 
   afterAll(() => {
@@ -23,7 +24,6 @@ describe("SystemDetailsPage template component", () => {
   });
 
   it("should render", () => {
-    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
     const { container } = renderWithRouter(
       <SystemDetailsPage
         data={{
@@ -42,6 +42,7 @@ describe("SystemDetailsPage template component", () => {
   });
 
   it("should render without BrandProvider", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = null;
     const { container } = renderWithRouter(
       <SystemDetailsPage
         data={{
