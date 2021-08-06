@@ -1,41 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`YoutubeVideo component opens dialog on click 1`] = `
+<div
+  class="YoutubeVideo"
+>
+  <button
+    aria-label="test video"
+    class="thumbnail"
+    type="button"
+  >
+    <img
+      alt="test video"
+      class="preview-image"
+      src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+    />
+    <span
+      class="AlternativeContent"
+    >
+      test video
+    </span>
+    <div
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained play-button"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </button>
+</div>
+`;
+
 exports[`YoutubeVideo component renders in dialog layout correctly 1`] = `
 <div
   class="YoutubeVideo"
 >
-  <img
-    alt="test video"
-    class="preview-image"
-    src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
-  />
-  <span
-    class="AlternativeContent"
-  >
-    test video
-  </span>
   <button
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained play-button"
-    tabindex="0"
+    aria-label="test video"
+    class="thumbnail"
     type="button"
   >
-    <span
-      class="MuiIconButton-label"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M8 5v14l11-7z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
+    <img
+      alt="test video"
+      class="preview-image"
+      src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
     />
+    <span
+      class="AlternativeContent"
+    >
+      test video
+    </span>
+    <div
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained play-button"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
   </button>
 </div>
 `;

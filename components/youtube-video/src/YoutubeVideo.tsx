@@ -1,5 +1,6 @@
 import AlternativeContent from "@bmi/alternative-content";
 import Button from "@bmi/button";
+import Clickable from "@bmi/clickable";
 import ContainerDialog from "@bmi/container-dialog";
 import Icon, { iconMap } from "@bmi/icon";
 import Typography from "@bmi/typography";
@@ -107,17 +108,19 @@ const DialogVideo = ({
   const validImageComponent = getValidPrevieImage(previewImageSource, label);
   return (
     <div className={classnames(styles["YoutubeVideo"], className)}>
-      {validImageComponent}
-      <AlternativeContent>{label}</AlternativeContent>
-      <Button
-        isIconButton
-        onClick={(e: any) => {
+      <Clickable
+        className={styles["thumbnail"]}
+        aria-label={label}
+        onClick={(_) => {
           setDialogOpen(true);
         }}
-        className={styles["play-button"]}
       >
-        <Icon source={iconMap.PlayArrow} />
-      </Button>
+        {validImageComponent}
+        <AlternativeContent>{label}</AlternativeContent>
+        <Button isIconButton className={styles["play-button"]} component="div">
+          <Icon source={iconMap.PlayArrow} />
+        </Button>
+      </Clickable>
       <ContainerDialog
         maxWidth={"xl"}
         open={isDialogOpen}
