@@ -16,7 +16,6 @@ describe("SystemDetailsPage template component", () => {
   beforeEach(() => {
     jest.resetModules(); // Most important - it clears the cache
     process.env = { ...OLD_ENV }; // Make a copy
-    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true"; // same as CI
   });
 
   afterAll(() => {
