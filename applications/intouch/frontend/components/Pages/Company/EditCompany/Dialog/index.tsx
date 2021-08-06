@@ -69,11 +69,16 @@ export const EditCompanyDialog = ({
       // we need to account for nested objects (e.g. registered address)
       const valuesWithAddresses = Object.entries(values).reduce(
         (obj, [key, value]) => {
-          const parsedValue =
-            value && key.includes("coordinates")
+          if (value === undefined) {
+            return obj;
+          }
+          return set(
+            obj,
+            key,
+            key.includes("coordinates") && !isNaN(parseFloat(value as string))
               ? parseFloat(value as string)
-              : value;
-          return set(obj, key, parsedValue);
+              : value
+          );
         },
         {}
       );
