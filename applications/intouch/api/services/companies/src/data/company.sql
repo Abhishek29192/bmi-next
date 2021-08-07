@@ -831,6 +831,9 @@ ALTER TABLE SYSTEM
 ALTER TABLE system_member
   ADD UNIQUE (system_bmi_ref, product_bmi_ref, market_id);
 
+ALTER TABLE guarantee
+  ADD UNIQUE (bmi_reference_id);  
+
 ALTER TABLE account
   ADD FOREIGN KEY (market_id) REFERENCES market (id) ON DELETE CASCADE;
 

@@ -99,6 +99,7 @@ export const GET_GUARANTEE_PRODUCTS = gql`
         published
         brand
         family
+        bmiRef
       }
     }
   }

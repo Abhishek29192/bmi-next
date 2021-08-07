@@ -95,6 +95,7 @@ export const GET_GUARANTEE_SYSTEM = gql`
         technology
         name
         description
+        bmiRef
         systemMembersBySystemBmiRef {
           nodes {
             id

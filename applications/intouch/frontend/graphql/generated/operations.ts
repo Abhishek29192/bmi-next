@@ -621,6 +621,23 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type CreateGuaranteeMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateGuaranteeInput;
+}>;
+
+export type CreateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
+  readonly createGuarantee?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateGuaranteePayload" } & {
+      readonly guarantee?: SchemaTypes.Maybe<
+        { readonly __typename?: "Guarantee" } & Pick<
+          SchemaTypes.Guarantee,
+          "id"
+        >
+      >;
+    }
+  >;
+};
+
 export type DeleteProjectMemberMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.DeleteProjectMemberInput;
 }>;
@@ -801,6 +818,7 @@ export type SearchProductsQuery = { readonly __typename?: "Query" } & {
             | "published"
             | "brand"
             | "family"
+            | "bmiRef"
           >
         >;
       }
@@ -821,7 +839,7 @@ export type SearchSystemsQuery = { readonly __typename?: "Query" } & {
         readonly nodes: ReadonlyArray<
           { readonly __typename?: "System" } & Pick<
             SchemaTypes.System,
-            "id" | "technology" | "name" | "description"
+            "id" | "technology" | "name" | "description" | "bmiRef"
           > & {
               readonly systemMembersBySystemBmiRef: {
                 readonly __typename?: "SystemMembersConnection";

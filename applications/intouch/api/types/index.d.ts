@@ -6479,6 +6479,17 @@ export type DeleteEvidenceItemPayloadEvidenceItemEdgeArgs = {
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
 };
 
+/** All input for the `deleteGuaranteeByBmiReferenceId` mutation. */
+export type DeleteGuaranteeByBmiReferenceIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId: Scalars["String"];
+};
+
 /** All input for the `deleteGuaranteeByNodeId` mutation. */
 export type DeleteGuaranteeByNodeIdInput = {
   /**
@@ -7310,13 +7321,19 @@ export type EvidenceItemGuaranteeIdFkeyInput = {
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectById?: Maybe<GuaranteeGuaranteePkeyConnect>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByBmiReferenceId?: Maybe<GuaranteeGuaranteeBmiReferenceIdKeyConnect>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectByNodeId?: Maybe<GuaranteeNodeIdConnect>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteById?: Maybe<GuaranteeGuaranteePkeyDelete>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByBmiReferenceId?: Maybe<GuaranteeGuaranteeBmiReferenceIdKeyDelete>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteByNodeId?: Maybe<GuaranteeNodeIdDelete>;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateById?: Maybe<GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByBmiReferenceId?: Maybe<GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate>;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateByNodeId?: Maybe<EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate>;
   /** A `GuaranteeInput` object that will be created and connected to this object. */
@@ -7680,6 +7697,8 @@ export type GuaranteeCondition = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `reviewerAccountId` field. */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `bmiReferenceId` field. */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
 };
 
 /** A filter to be used against `Guarantee` object types. All fields are combined with a logical ‘and.’ */
@@ -7696,12 +7715,26 @@ export type GuaranteeFilter = {
   productBmiRef?: Maybe<StringFilter>;
   /** Filter by the object’s `reviewerAccountId` field. */
   reviewerAccountId?: Maybe<IntFilter>;
+  /** Filter by the object’s `bmiReferenceId` field. */
+  bmiReferenceId?: Maybe<StringFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<GuaranteeFilter>>;
   /** Checks for any expressions in this list. */
   or?: Maybe<Array<GuaranteeFilter>>;
   /** Negates the expression. */
   not?: Maybe<GuaranteeFilter>;
+};
+
+/** The fields on `guarantee` to look up the row to connect. */
+export type GuaranteeGuaranteeBmiReferenceIdKeyConnect = {
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId: Scalars["String"];
+};
+
+/** The fields on `guarantee` to look up the row to delete. */
+export type GuaranteeGuaranteeBmiReferenceIdKeyDelete = {
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId: Scalars["String"];
 };
 
 /** The fields on `guarantee` to look up the row to connect. */
@@ -7776,6 +7809,15 @@ export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate =
   };
 
 /** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId: Scalars["String"];
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
 export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate =
   {
     /** An object where the defined keys will be set on the `guarantee` being updated. */
@@ -7791,6 +7833,15 @@ export type GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyNodeIdUpdate = {
   /** An object where the defined keys will be set on the `product` being updated. */
   patch: ProductPatch;
 };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId: Scalars["String"];
+  };
 
 /** The fields on `guarantee` to look up the row to update. */
 export type GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteePkeyUpdate =
@@ -7810,6 +7861,15 @@ export type GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId: Scalars["String"];
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
 export type GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteePkeyUpdate =
   {
     /** An object where the defined keys will be set on the `guarantee` being updated. */
@@ -7825,6 +7885,15 @@ export type GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate =
     nodeId: Scalars["ID"];
     /** An object where the defined keys will be set on the `account` being updated. */
     patch: AccountPatch;
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId: Scalars["String"];
   };
 
 /** The fields on `guarantee` to look up the row to update. */
@@ -7846,6 +7915,15 @@ export type GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate =
   };
 
 /** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId: Scalars["String"];
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
 export type GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate =
   {
     /** An object where the defined keys will be set on the `guarantee` being updated. */
@@ -7861,6 +7939,15 @@ export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyNodeIdUpdate = {
   /** An object where the defined keys will be set on the `system` being updated. */
   patch: SystemPatch;
 };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId: Scalars["String"];
+  };
 
 /** The fields on `guarantee` to look up the row to update. */
 export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteePkeyUpdate =
@@ -7976,14 +8063,26 @@ export type GuaranteeProductBmiRefFkeyInverseInput = {
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyConnect>
+  >;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyDelete>
+  >;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateById?: Maybe<
     Array<GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByBmiReferenceId?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate>
   >;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -8083,14 +8182,26 @@ export type GuaranteeProjectIdFkeyInverseInput = {
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyConnect>
+  >;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyDelete>
+  >;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateById?: Maybe<
     Array<GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByBmiReferenceId?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate>
   >;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -8214,14 +8325,26 @@ export type GuaranteeRequestorAccountIdFkeyInverseInput = {
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyConnect>
+  >;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyDelete>
+  >;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateById?: Maybe<
     Array<GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByBmiReferenceId?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate>
   >;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -8302,14 +8425,26 @@ export type GuaranteeReviewerAccountIdFkeyInverseInput = {
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyConnect>
+  >;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyDelete>
+  >;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateById?: Maybe<
     Array<GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByBmiReferenceId?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate>
   >;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -8386,14 +8521,26 @@ export type GuaranteeSystemBmiRefFkeyInverseInput = {
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyConnect>
+  >;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByBmiReferenceId?: Maybe<
+    Array<GuaranteeGuaranteeBmiReferenceIdKeyDelete>
+  >;
   /** The primary key(s) for `guarantee` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateById?: Maybe<
     Array<GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByBmiReferenceId?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate>
   >;
   /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -9134,6 +9281,8 @@ export type GuaranteesOrderBy =
   | "PRODUCT_BMI_REF_DESC"
   | "REVIEWER_ACCOUNT_ID_ASC"
   | "REVIEWER_ACCOUNT_ID_DESC"
+  | "BMI_REFERENCE_ID_ASC"
+  | "BMI_REFERENCE_ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
@@ -10967,6 +11116,8 @@ export type Mutation = {
   deleteEvidenceItemByNodeId?: Maybe<DeleteEvidenceItemPayload>;
   /** Deletes a single `Guarantee` using a unique key. */
   deleteGuarantee?: Maybe<DeleteGuaranteePayload>;
+  /** Deletes a single `Guarantee` using a unique key. */
+  deleteGuaranteeByBmiReferenceId?: Maybe<DeleteGuaranteePayload>;
   /** Deletes a single `Guarantee` using its globally unique id. */
   deleteGuaranteeByNodeId?: Maybe<DeleteGuaranteePayload>;
   /** Deletes a single `Invitation` using a unique key. */
@@ -11102,6 +11253,8 @@ export type Mutation = {
   updateEvidenceItemByNodeId?: Maybe<UpdateEvidenceItemPayload>;
   /** Updates a single `Guarantee` using a unique key and a patch. */
   updateGuarantee?: Maybe<UpdateGuaranteePayload>;
+  /** Updates a single `Guarantee` using a unique key and a patch. */
+  updateGuaranteeByBmiReferenceId?: Maybe<UpdateGuaranteePayload>;
   /** Updates a single `Guarantee` using its globally unique id and a patch. */
   updateGuaranteeByNodeId?: Maybe<UpdateGuaranteePayload>;
   /** Updates a single `Invitation` using a unique key and a patch. */
@@ -11531,6 +11684,11 @@ export type MutationDeleteGuaranteeArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteGuaranteeByBmiReferenceIdArgs = {
+  input: DeleteGuaranteeByBmiReferenceIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteGuaranteeByNodeIdArgs = {
   input: DeleteGuaranteeByNodeIdInput;
 };
@@ -11880,6 +12038,11 @@ export type MutationUpdateEvidenceItemByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateGuaranteeArgs = {
   input: UpdateGuaranteeInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateGuaranteeByBmiReferenceIdArgs = {
+  input: UpdateGuaranteeByBmiReferenceIdInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -14382,6 +14545,7 @@ export type Query = Node & {
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems?: Maybe<EvidenceItemsConnection>;
   guarantee?: Maybe<Guarantee>;
+  guaranteeByBmiReferenceId?: Maybe<Guarantee>;
   /** Reads a single `Guarantee` using its globally unique `ID`. */
   guaranteeByNodeId?: Maybe<Guarantee>;
   guaranteeTemplate?: Maybe<GuaranteeTemplate>;
@@ -14975,6 +15139,11 @@ export type QueryEvidenceItemsArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryGuaranteeArgs = {
   id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryGuaranteeByBmiReferenceIdArgs = {
+  bmiReferenceId: Scalars["String"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -17857,6 +18026,19 @@ export type UpdateEvidenceItemPayload = {
 /** The output of our update `EvidenceItem` mutation. */
 export type UpdateEvidenceItemPayloadEvidenceItemEdgeArgs = {
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
+};
+
+/** All input for the `updateGuaranteeByBmiReferenceId` mutation. */
+export type UpdateGuaranteeByBmiReferenceIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Guarantee` being updated. */
+  patch: GuaranteePatch;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId: Scalars["String"];
 };
 
 /** All input for the `updateGuaranteeByNodeId` mutation. */

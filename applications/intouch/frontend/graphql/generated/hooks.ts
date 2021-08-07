@@ -725,6 +725,58 @@ export type GetProjectQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectQuery,
   OperationTypes.GetProjectQueryVariables
 >;
+export const CreateGuaranteeDocument = gql`
+  mutation createGuarantee($input: CreateGuaranteeInput!) {
+    createGuarantee(input: $input) {
+      guarantee {
+        id
+      }
+    }
+  }
+`;
+export type CreateGuaranteeMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateGuaranteeMutation,
+  OperationTypes.CreateGuaranteeMutationVariables
+>;
+
+/**
+ * __useCreateGuaranteeMutation__
+ *
+ * To run a mutation, you first call `useCreateGuaranteeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateGuaranteeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createGuaranteeMutation, { data, loading, error }] = useCreateGuaranteeMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateGuaranteeMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateGuaranteeMutation,
+    OperationTypes.CreateGuaranteeMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateGuaranteeMutation,
+    OperationTypes.CreateGuaranteeMutationVariables
+  >(CreateGuaranteeDocument, options);
+}
+export type CreateGuaranteeMutationHookResult = ReturnType<
+  typeof useCreateGuaranteeMutation
+>;
+export type CreateGuaranteeMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateGuaranteeMutation>;
+export type CreateGuaranteeMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateGuaranteeMutation,
+  OperationTypes.CreateGuaranteeMutationVariables
+>;
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {
@@ -1095,6 +1147,7 @@ export const SearchProductsDocument = gql`
         published
         brand
         family
+        bmiRef
       }
     }
   }
@@ -1160,6 +1213,7 @@ export const SearchSystemsDocument = gql`
         technology
         name
         description
+        bmiRef
         systemMembersBySystemBmiRef {
           nodes {
             id

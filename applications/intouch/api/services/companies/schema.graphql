@@ -876,6 +876,7 @@ type Query implements Node {
   companyOperation(id: Int!): CompanyOperation
   evidenceItem(id: Int!): EvidenceItem
   guarantee(id: Int!): Guarantee
+  guaranteeByBmiReferenceId(bmiReferenceId: String!): Guarantee
   invitation(id: Int!): Invitation
   market(id: Int!): Market
   marketByDomain(domain: String!): Market
@@ -4032,6 +4033,8 @@ enum GuaranteesOrderBy {
   PRODUCT_BMI_REF_DESC
   REVIEWER_ACCOUNT_ID_ASC
   REVIEWER_ACCOUNT_ID_DESC
+  BMI_REFERENCE_ID_ASC
+  BMI_REFERENCE_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -4070,6 +4073,11 @@ input GuaranteeCondition {
   Checks for equality with the object’s `reviewerAccountId` field.
   """
   reviewerAccountId: Int
+
+  """
+  Checks for equality with the object’s `bmiReferenceId` field.
+  """
+  bmiReferenceId: String
 }
 
 """
@@ -4105,6 +4113,11 @@ input GuaranteeFilter {
   Filter by the object’s `reviewerAccountId` field.
   """
   reviewerAccountId: IntFilter
+
+  """
+  Filter by the object’s `bmiReferenceId` field.
+  """
+  bmiReferenceId: StringFilter
 
   """
   Checks for all expressions in this list.
@@ -7124,6 +7137,16 @@ type Mutation {
   ): UpdateGuaranteePayload
 
   """
+  Updates a single `Guarantee` using a unique key and a patch.
+  """
+  updateGuaranteeByBmiReferenceId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateGuaranteeByBmiReferenceIdInput!
+  ): UpdateGuaranteePayload
+
+  """
   Updates a single `Invitation` using its globally unique id and a patch.
   """
   updateInvitationByNodeId(
@@ -7581,6 +7604,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteGuaranteeInput!
+  ): DeleteGuaranteePayload
+
+  """
+  Deletes a single `Guarantee` using a unique key.
+  """
+  deleteGuaranteeByBmiReferenceId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteGuaranteeByBmiReferenceIdInput!
   ): DeleteGuaranteePayload
 
   """
@@ -12289,6 +12322,11 @@ input GuaranteeRequestorAccountIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -12299,12 +12337,22 @@ input GuaranteeRequestorAccountIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -12328,6 +12376,16 @@ input GuaranteeGuaranteePkeyConnect {
 }
 
 """
+The fields on `guarantee` to look up the row to connect.
+"""
+input GuaranteeGuaranteeBmiReferenceIdKeyConnect {
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""
 The globally unique `ID` look up for the row to connect.
 """
 input GuaranteeNodeIdConnect {
@@ -12345,6 +12403,16 @@ input GuaranteeGuaranteePkeyDelete {
   Primary key - starts at 6100
   """
   id: Int!
+}
+
+"""
+The fields on `guarantee` to look up the row to delete.
+"""
+input GuaranteeGuaranteeBmiReferenceIdKeyDelete {
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -12625,6 +12693,11 @@ input GuaranteeReviewerAccountIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -12635,12 +12708,22 @@ input GuaranteeReviewerAccountIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -13678,6 +13761,11 @@ input GuaranteeProjectIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -13688,12 +13776,22 @@ input GuaranteeProjectIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -14637,6 +14735,11 @@ input GuaranteeSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -14647,12 +14750,22 @@ input GuaranteeSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -14900,6 +15013,11 @@ input GuaranteeProductBmiRefFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -14910,12 +15028,22 @@ input GuaranteeProductBmiRefFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -18271,6 +18399,11 @@ input EvidenceItemGuaranteeIdFkeyInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyConnect
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: GuaranteeNodeIdConnect
 
   """
@@ -18281,12 +18414,22 @@ input EvidenceItemGuaranteeIdFkeyInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyDelete
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: GuaranteeNodeIdDelete
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -18390,6 +18533,21 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -18660,6 +18818,21 @@ input EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput {
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
   attachmentUpload: Upload
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -20355,6 +20528,21 @@ input GuaranteeProductBmiRefFkeyProductCreateInput {
 }
 
 """
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyNodeIdUpdate {
@@ -20939,6 +21127,21 @@ input GuaranteeSystemBmiRefFkeySystemCreateInput {
 }
 
 """
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input ProjectOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate {
@@ -21460,6 +21663,21 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
 }
 
 """
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate {
@@ -21590,6 +21808,21 @@ input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate {
   An object where the defined keys will be set on the `account` being updated.
   """
   patch: AccountPatch!
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -25509,6 +25742,27 @@ input UpdateGuaranteeInput {
 }
 
 """
+All input for the `updateGuaranteeByBmiReferenceId` mutation.
+"""
+input UpdateGuaranteeByBmiReferenceIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Guarantee` being updated.
+  """
+  patch: GuaranteePatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""
 The output of our update `Invitation` mutation.
 """
 type UpdateInvitationPayload {
@@ -27104,6 +27358,22 @@ input DeleteGuaranteeInput {
   Primary key - starts at 6100
   """
   id: Int!
+}
+
+"""
+All input for the `deleteGuaranteeByBmiReferenceId` mutation.
+"""
+input DeleteGuaranteeByBmiReferenceIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """

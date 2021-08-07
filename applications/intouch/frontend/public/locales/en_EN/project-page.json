@@ -86,6 +86,11 @@
           "description": "Once the guarantee has been approved, the building owner will receive the guarantee documentation automatically, to the email address provided."
         }
       }
+    },
+    "dialog": {
+      "title": "Your guarantee has been processed",
+      "description": "A certificate for your guarantee will be available to view on the Projects page.",
+      "confirm_label": "Close"
     }
   },
   "building_owner": {
