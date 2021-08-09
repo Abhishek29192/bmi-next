@@ -24,10 +24,17 @@ const BrandIntroCard = ({
 
   return (
     <Card className={styles["BrandIntroCard"]}>
-      <BrandLogo
-        preserveAspectRatio="xMinYMin"
-        className={styles["brand-logo"]}
-      />
+      <Button
+        action={action}
+        variant="text"
+        disableRipple
+        style={{ backgroundColor: "transparent" }}
+      >
+        <BrandLogo
+          preserveAspectRatio="xMinYMin"
+          className={styles["brand-logo"]}
+        />
+      </Button>
       <Typography className={styles["description"]} variant="subtitle1">
         {description}
       </Typography>
