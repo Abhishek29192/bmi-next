@@ -195,6 +195,23 @@ export const updateAccount = async (
       );
     }
 
+    // if the user wants to remove the image OR a new photo has been uploaded
+    if ((!photoUpload && shouldRemovePhoto) || photoUpload) {
+      const {
+        rows: [{ photo: currentPhoto }]
+      } = await pgClient.query(
+        "select account.photo from account where id = $1",
+        [user.id]
+      );
+
+      // delete the previous image if it exists & is hosted on GCP Cloud storage
+      // if the current image is externally hosted (i.e. starts with https://) it is probably mock data
+      if (currentPhoto && !/^http(s):\/\//.test(currentPhoto)) {
+        const storageClient = new StorageClient();
+        await storageClient.deleteFile(GCP_BUCKET_NAME, currentPhoto);
+      }
+    }
+
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
     logger.error("Error updating a user", e);
