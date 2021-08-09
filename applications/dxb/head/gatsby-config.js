@@ -397,13 +397,17 @@ module.exports = {
         disable: process.env.NODE_ENV !== "development"
       }
     },
-    {
-      resolve: "gatsby-plugin-sitemap",
-      options: {
-        output: `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`,
-        sitemapSize: 50000
-      }
-    },
+    ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
+      ? [
+          {
+            resolve: "gatsby-plugin-sitemap",
+            options: {
+              output: `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`,
+              sitemapSize: 50000
+            }
+          }
+        ]
+      : []),
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
       ? [
           {
