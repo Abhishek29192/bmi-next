@@ -104,7 +104,7 @@ export const updateAccount = async (
   context,
   resolveInfo
 ) => {
-  const { GCP_BUCKET_NAME } = process.env;
+  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
 
   const { pgClient, user, logger: Logger } = context;
   const { photoUpload, role, shouldRemovePhoto } = args.input.patch;
@@ -189,7 +189,7 @@ export const updateAccount = async (
 
       const storageClient = new StorageClient();
       await storageClient.uploadFileByStream(
-        GCP_BUCKET_NAME,
+        GCP_PRIVATE_BUCKET_NAME,
         newFileName,
         uploadedFile
       );
@@ -208,7 +208,7 @@ export const updateAccount = async (
       // if the current image is externally hosted (i.e. starts with https://) it is probably mock data
       if (currentPhoto && !/^http(s):\/\//.test(currentPhoto)) {
         const storageClient = new StorageClient();
-        await storageClient.deleteFile(GCP_BUCKET_NAME, currentPhoto);
+        await storageClient.deleteFile(GCP_PRIVATE_BUCKET_NAME, currentPhoto);
       }
     }
 
@@ -478,7 +478,7 @@ export const completeInvitation = async (
 };
 
 export const getAccountSignedPhotoUrl = async (photoName: string) => {
-  const { GCP_BUCKET_NAME } = process.env;
+  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
   if (!photoName) {
     return "";
   }
@@ -488,7 +488,7 @@ export const getAccountSignedPhotoUrl = async (photoName: string) => {
 
   const storageClient = new StorageClient();
   return await storageClient.getFileSignedUrl(
-    GCP_BUCKET_NAME,
+    GCP_PRIVATE_BUCKET_NAME,
     photoName,
     expireDate
   );
