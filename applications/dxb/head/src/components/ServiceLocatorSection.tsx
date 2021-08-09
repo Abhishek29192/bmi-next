@@ -29,20 +29,13 @@ import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import CloseIcon from "@material-ui/icons/Close";
 import { graphql } from "gatsby";
-import React, {
-  useContext,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef,
-  useState
-} from "react";
+import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { camelCase, intersectionWith } from "lodash";
 import { devLog } from "../utils/devLog";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { Data as ServiceData, ServiceType, serviceTypes } from "./Service";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 
 export const QUERY_CHIP_FILTER_KEY = "chip";
@@ -148,7 +141,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const [uniqueRoofTypeByData, setUniqueRoofTypeByData] = useState([]);
   const [isUserAction, setUserAction] = useState(false);
 
-  const { getMicroCopy, countryCode } = useContext(SiteContext);
+  const { getMicroCopy, countryCode } = useSiteContext();
   const [googleApi, setgoogleApi] = useState<Google>(null);
   const [selectedRoofer, setSelectedRoofer] = useState<Service>(null);
   const [centre, setCentre] = useState<GoogleLatLngLiteral>();

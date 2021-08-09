@@ -5,7 +5,7 @@ import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as SiteData, SiteContext } from "../components/Site";
+import { Data as SiteData, useSiteContext } from "../components/Site";
 import ProductOverview, {
   Data as ProductOverviewData
 } from "../components/ProductOverview";
@@ -25,6 +25,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { Product } from "../components/types/ProductBaseTypes";
+import { getBimIframeUrl } from "../components/BimIframe";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -58,6 +59,7 @@ const transformImages = (images) => {
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
+  const { getMicroCopy } = useSiteContext();
 
   // Which variant (including base) are we looking at
   // TODO: Merge data here!
@@ -97,9 +99,13 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     seo: null
   };
 
-  const bimAssetUrl = product.assets?.find(
-    (asset) => asset.assetType === "BIM"
-  )?.url;
+  const bimIframeUrl = getBimIframeUrl(product.assets);
+
+  const variantCodeToPathMap: VariantCodeToPathMap =
+    product.variantOptions.reduce(
+      (carry, { code, path }) => ({ ...carry, [code]: path }),
+      {}
+    );
 
   return (
     <Page
@@ -116,47 +122,35 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
         </Section>
       )}
       <Container>
-        <SiteContext.Consumer>
-          {({ getMicroCopy }) => {
-            const variantCodeToPathMap: VariantCodeToPathMap =
-              product.variantOptions.reduce(
-                (carry, { code, path }) => ({ ...carry, [code]: path }),
-                {}
-              );
-            const sizeMicrocopy = getMicroCopy("pdp.overview.size");
-            return (
-              <ProductOverview
-                data={{
-                  name: product.name,
-                  brandName: brandCode || "",
-                  nobb: selfProduct.externalProductCode || null,
-                  images: transformImages(
-                    mapGalleryImages([
-                      ...(selfProduct.images || []),
-                      ...(product.images || [])
-                    ])
-                  ),
-                  attributes: getProductAttributes(
-                    productClassifications,
-                    selfProduct,
-                    pageContext.countryCode,
-                    {
-                      size: sizeMicrocopy
-                    },
-                    variantCodeToPathMap
-                  )
-                }}
-              >
-                {resources?.pdpShareWidget && (
-                  <ShareWidgetSection
-                    data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
-                    hasNoPadding={true}
-                  />
-                )}
-              </ProductOverview>
-            );
+        <ProductOverview
+          data={{
+            name: product.name,
+            brandName: brandCode || "",
+            nobb: selfProduct.externalProductCode || null,
+            images: transformImages(
+              mapGalleryImages([
+                ...(selfProduct.images || []),
+                ...(product.images || [])
+              ])
+            ),
+            attributes: getProductAttributes(
+              productClassifications,
+              selfProduct,
+              pageContext.countryCode,
+              {
+                size: getMicroCopy("pdp.overview.size")
+              },
+              variantCodeToPathMap
+            )
           }}
-        </SiteContext.Consumer>
+        >
+          {resources?.pdpShareWidget && (
+            <ShareWidgetSection
+              data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
+              hasNoPadding={true}
+            />
+          )}
+        </ProductOverview>
       </Container>
       <Section backgroundColor="white">
         <ProductLeadBlock
@@ -177,7 +171,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           classificationNamespace={
             pageContext.pimClassificationCatalogueNamespace
           }
-          bimAssetUrl={bimAssetUrl}
+          bimIframeUrl={bimIframeUrl}
         />
       </Section>
       <RelatedProducts

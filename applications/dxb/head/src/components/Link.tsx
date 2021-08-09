@@ -12,7 +12,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
 import { Data as PromoData } from "./Promo";
 import { SectionData, sectionsMap } from "./Sections";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import styles from "./styles/Link.module.scss";
 import { VisualiserContext } from "./Visualiser";
 
@@ -255,7 +255,7 @@ export const Link = ({
   onClick?: (...args: any) => void;
 }) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
 

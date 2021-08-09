@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import InfoIcon from "@material-ui/icons/Info";
 import Icon from "@bmi/icon";
@@ -11,7 +11,7 @@ import {
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
 import RichText from "./RichText";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 
 const AssetHeader = ({
@@ -22,7 +22,7 @@ const AssetHeader = ({
   const { name, code, description } = assetType;
   const [isTooltipActive, setIsTooltipActive] = useState<boolean>(false);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   return (
     <>

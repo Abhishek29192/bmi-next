@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "@bmi/button";
 import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Grid from "@bmi/grid";
 import withGTM from "../utils/google-tag-manager";
 import { Data as DocumentData } from "./Document";
 import RichText from "./RichText";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import { iconMap } from "./Icon";
 import { renderImage } from "./Image";
 
@@ -21,7 +20,7 @@ export const getCount = (documents: Props["documents"]) => {
 };
 
 const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const paginatedDocuments = documents.slice(
     (page - 1) * documentsPerPage,
     page * documentsPerPage

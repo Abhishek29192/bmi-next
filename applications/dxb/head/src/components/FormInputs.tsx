@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Checkbox from "@bmi/checkbox";
 import Grid from "@bmi/grid";
@@ -8,7 +8,7 @@ import Upload from "@bmi/upload";
 import AnchorLink from "@bmi/anchor-link";
 import matchAll from "string.prototype.matchall";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 const InputTypes = [
   "text",
@@ -72,7 +72,7 @@ const Input = ({
   type,
   required
 }: Omit<InputType, "width">) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const mapValue = ({ name, type }, upload) => ({

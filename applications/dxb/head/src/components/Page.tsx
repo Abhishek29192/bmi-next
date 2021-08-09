@@ -14,7 +14,7 @@ import InputBanner, {
 import getJpgImage from "../utils/images";
 import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import BrandProvider from "./BrandProvider";
-import { SiteContext, Data as SiteData } from "./Site";
+import { SiteContextProvider, Data as SiteData } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
 import ErrorFallback from "./ErrorFallback";
@@ -177,7 +177,7 @@ const Page = ({
         )}
       </Helmet>
 
-      <SiteContext.Provider
+      <SiteContextProvider
         value={{
           node_locale,
           countryCode,
@@ -253,7 +253,7 @@ const Page = ({
             </BmiThemeProvider>
           </GoogleReCaptchaProvider>
         </MicroCopy.Provider>
-      </SiteContext.Provider>
+      </SiteContextProvider>
     </>
   );
 };

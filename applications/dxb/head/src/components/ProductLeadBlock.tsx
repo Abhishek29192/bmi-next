@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import LeadBlock from "@bmi/lead-block";
 import Icon from "@bmi/icon";
 import IconList from "@bmi/icon-list";
@@ -10,7 +10,7 @@ import DownloadList from "@bmi/download-list";
 import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import DocumentResultsFooter, {
   handleDownloadClick
@@ -18,6 +18,7 @@ import DocumentResultsFooter, {
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { Classification } from "./types/ProductBaseTypes";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
+import BimIframe from "./BimIframe";
 
 const BlueCheckIcon = (
   <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
@@ -29,7 +30,7 @@ type GuaranteesAndAwardsAsset = {
 };
 
 type Props = {
-  bimAssetUrl?: string;
+  bimIframeUrl?: string;
   description?: string;
   keyFeatures?: readonly string[];
   sidebarItems?: {
@@ -48,7 +49,7 @@ const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
   +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
 const ProductLeadBlock = ({
-  bimAssetUrl,
+  bimIframeUrl,
   description,
   keyFeatures,
   sidebarItems,
@@ -58,7 +59,7 @@ const ProductLeadBlock = ({
   validClassifications,
   classificationNamespace
 }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const [page, setPage] = useState(1);
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -225,12 +226,12 @@ const ProductLeadBlock = ({
             </DownloadList>
           </div>
         </Tabs.TabPanel>
-        {Boolean(bimAssetUrl) && (
+        {Boolean(bimIframeUrl) && (
           <Tabs.TabPanel
             heading={getMicroCopy("pdp.leadBlock.bim")}
             index="four"
           >
-            <iframe className={styles["bimIframe"]} src={bimAssetUrl} />
+            <BimIframe url={bimIframeUrl} />
           </Tabs.TabPanel>
         )}
       </Tabs>

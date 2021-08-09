@@ -1,6 +1,5 @@
-import React, { useContext, useMemo } from "react";
+import React, { useMemo } from "react";
 import { graphql, Link, withPrefix } from "gatsby";
-import { getSrc } from "gatsby-plugin-image";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
@@ -16,7 +15,7 @@ import {
   NavigationItem,
   getCTA
 } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import RichText, { RichTextData } from "./RichText";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
@@ -181,7 +180,7 @@ const Header = ({
     return null;
   }
 
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const utilities = parseNavigation(
     utilitiesData.links,
     countryCode,

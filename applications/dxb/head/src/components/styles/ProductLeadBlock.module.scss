@@ -1,5 +1,3 @@
-@import "@bmi/styles";
-
 .ProductLeadBlock {
   :global {
     .MuiBox-root {
@@ -15,17 +13,5 @@
   }
   .document-library {
     padding-top: 32px;
-  }
-}
-
-.bimIframe {
-  width: 100%;
-  height: 500px;
-  border: none;
-  margin-top: 32px;
-  margin-bottom: 48px;
-
-  @media (min-width: $breakpoint-lg) {
-      height: 600px;
   }
 }

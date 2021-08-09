@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
@@ -10,7 +10,7 @@ import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import { Data as PromoData } from "../components/Promo";
 import { Data as PageInfoData } from "../components/PageInfo";
 import { getCTA } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 export type Data = (PromoData | PageInfoData)[];
 
@@ -22,7 +22,7 @@ const indexToBackgroundMap: Colors[] = [
 ];
 
 const NextBestActions = ({ data }: { data: Data }) => {
-  const { getMicroCopy, countryCode } = useContext(SiteContext);
+  const { getMicroCopy, countryCode } = useSiteContext();
 
   return (
     <Section backgroundColor="alabaster">

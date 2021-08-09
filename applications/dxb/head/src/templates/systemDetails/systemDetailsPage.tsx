@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Section from "@bmi/section";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../components/ShareWidgetSection";
 
+import { getBimIframeUrl } from "../../components/BimIframe";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import { SystemDetails, Assets } from "./types";
@@ -35,6 +35,7 @@ const SystemDetailsPage = ({ data }: Props) => {
   const awardsAndCertificates: Assets[] = assets.filter(
     ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
   );
+  const bimIframeUrl = getBimIframeUrl(assets);
 
   return (
     <Page
@@ -45,20 +46,22 @@ const SystemDetailsPage = ({ data }: Props) => {
       {resources?.sdpShareWidget && (
         <ShareWidgetSection data={resources.sdpShareWidget} />
       )}
+
       <LeadBlockSection
         name={name}
         categories={categories}
         classifications={classifications}
         cta={resources?.sdpLeadBlockCta}
       />
+
       <ImageGallerySection images={images || []} />
-      <Section backgroundColor="white">
-        <TabLeadBlock
-          longDescription={longDescription}
-          guaranteesAndWarranties={guaranteesAndWarranties}
-          awardsAndCertificates={awardsAndCertificates}
-        />
-      </Section>
+
+      <TabLeadBlock
+        longDescription={longDescription}
+        guaranteesAndWarranties={guaranteesAndWarranties}
+        awardsAndCertificates={awardsAndCertificates}
+        bimIframeUrl={bimIframeUrl}
+      />
     </Page>
   );
 };

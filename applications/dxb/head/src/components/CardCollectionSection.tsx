@@ -15,7 +15,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import Link, { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
@@ -208,7 +208,7 @@ const CardCollectionSection = ({
   const groupKeys = moveRestKeyLast(allKeysGrouped.map((c) => c.title));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const [showMoreIterator, setShowMoreIterator] = useState(1);
-  const { getMicroCopy, countryCode, node_locale } = useContext(SiteContext);
+  const { getMicroCopy, countryCode, node_locale } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
 

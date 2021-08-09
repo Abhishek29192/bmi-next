@@ -1,8 +1,8 @@
 import { graphql } from "gatsby";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Grid from "@bmi/grid";
 import Button from "@bmi/button";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import styles from "./styles/Locations.module.scss";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 
@@ -11,7 +11,7 @@ export type Data = ContactDetailsData[];
 const LOCATIONS_PER_PAGE = 6;
 
 const Locations = ({ data }: { data: Data }) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const showMoreText = getMicroCopy("global.showMore");
   const [numberVisible, setNumberVisible] = useState(LOCATIONS_PER_PAGE);
 

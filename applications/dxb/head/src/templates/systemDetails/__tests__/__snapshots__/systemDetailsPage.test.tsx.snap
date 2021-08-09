@@ -553,7 +553,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-84 PrivateTabIndicator-colorSecondary-86 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-85 PrivateTabIndicator-colorSecondary-87 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -3164,6 +3164,25 @@ exports[`SystemDetailsPage template component should render 1`] = `
                             class="MuiTouchRipple-root"
                           />
                         </button>
+                        <button
+                          aria-controls="tabpanel-four"
+                          aria-selected="false"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                          data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.tabs.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
+                          id="tab-four"
+                          role="tab"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            MC: sdp.tabs.bim
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
                       </div>
                       <span
                         class="PrivateTabIndicator-root-53 PrivateTabIndicator-colorPrimary-54 MuiTabs-indicator"
@@ -3243,6 +3262,23 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 </div>
               </div>
             </div>
+            <div
+              aria-labelledby="tab-four"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="MC: sdp.tabs.bim"
+              hidden=""
+              id="tabpanel-four"
+              role="tabpanel"
+            >
+              <div
+                class="MuiBox-root MuiBox-root-58 TabPanelBox"
+              >
+                <iframe
+                  class="bimIframe"
+                  src="https://www.bimobject.com/fr/bmi_siplast_fr/product/spl010108"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3289,7 +3325,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Story\\",\\"action\\":\\"#\\"}"
                       href="#"
                       rel="noopener noreferrer"
@@ -3297,7 +3333,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       target="_blank"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         Our Story
                       </span>
@@ -3311,7 +3347,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Brands\\",\\"action\\":\\"#\\"}"
                       href="#"
                       rel="noopener noreferrer"
@@ -3319,7 +3355,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       target="_blank"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         Our Brands
                       </span>
@@ -3332,13 +3368,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="list-item"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Values\\"}"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         Our Values
                       </span>
@@ -3352,7 +3388,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Sustainability\\",\\"action\\":\\"#\\"}"
                       href="#"
                       rel="noopener noreferrer"
@@ -3360,7 +3396,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       target="_blank"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         Sustainability
                       </span>
@@ -3388,13 +3424,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="list-item"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"BMI RoofPro\\"}"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         BMI RoofPro
                       </span>
@@ -3407,13 +3443,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="list-item"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Team Icopal\\"}"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         Team Icopal
                       </span>
@@ -3427,7 +3463,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Training\\",\\"action\\":\\"#\\"}"
                       href="#"
                       rel="noopener noreferrer"
@@ -3435,7 +3471,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       target="_blank"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         Training
                       </span>
@@ -3449,7 +3485,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Mediabank\\",\\"action\\":\\"#\\"}"
                       href="#"
                       rel="noopener noreferrer"
@@ -3457,7 +3493,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       target="_blank"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         Mediabank
                       </span>
@@ -3486,14 +3522,14 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Diversity\\",\\"action\\":\\"/en/mangfold/\\"}"
                       href="/en/mangfold/"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         Diversity
                       </span>
@@ -3507,7 +3543,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"BMI Job Board\\",\\"action\\":\\"https://bmi.jobboard.io/\\"}"
                       href="https://bmi.jobboard.io/"
                       rel="noopener noreferrer"
@@ -3515,7 +3551,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       target="_blank"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-62"
+                        class="MuiButton-label buttonStyles-label-63"
                       >
                         BMI Job Board
                       </span>
@@ -3544,14 +3580,14 @@ exports[`SystemDetailsPage template component should render 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Cookies\\",\\"action\\":\\"/en/bruk-av-informasjonskapsler/\\"}"
                   href="/en/bruk-av-informasjonskapsler/"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-62"
+                    class="MuiButton-label buttonStyles-label-63"
                   >
                     Cookies
                   </span>
@@ -3564,13 +3600,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Sitemap\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-62"
+                    class="MuiButton-label buttonStyles-label-63"
                   >
                     Sitemap
                   </span>
@@ -3584,14 +3620,14 @@ exports[`SystemDetailsPage template component should render 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-60 buttonStyles-textDarkBg-71 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-text buttonStyles-text-61 buttonStyles-textDarkBg-72 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
                   href="/en/sitemap"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-62"
+                    class="MuiButton-label buttonStyles-label-63"
                   >
                     MC: global.sitemap
                   </span>
@@ -3617,12 +3653,12 @@ exports[`SystemDetailsPage template component should render 1`] = `
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-contained buttonStyles-contained-61 button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-59 MuiButton-contained buttonStyles-contained-62 button MuiButton-containedPrimary"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-62"
+        class="MuiButton-label buttonStyles-label-63"
       >
         <svg
           aria-hidden="true"

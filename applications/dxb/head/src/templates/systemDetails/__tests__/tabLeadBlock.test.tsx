@@ -4,6 +4,7 @@ import Component from "../tabLeadBlock";
 import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
 import { Assets } from "../types";
+import { renderWithRouter } from "../../../test/renderWithRouter";
 
 const guaranteesAndWarranties = dataJson.assets.filter(
   ({ assetType }) => assetType === "WARRANTIES"
@@ -31,5 +32,29 @@ describe("TabLeadBlock tests", () => {
 
     expect(container).toMatchSnapshot();
     expect(aboutTabButton).toBeInTheDocument();
+  });
+
+  it("should render the bimIframe tab", () => {
+    const { container } = renderWithRouter(
+      <Component
+        longDescription={dataJson.longDescription}
+        guaranteesAndWarranties={guaranteesAndWarranties}
+        awardsAndCertificates={awardsAndCertificates}
+        bimIframeUrl="https://google.com"
+      />
+    );
+    expect(container.querySelector("#tabpanel-four")).toMatchSnapshot();
+  });
+
+  it("should not render the bimIframe tab", () => {
+    const { container } = renderWithRouter(
+      <Component
+        longDescription={dataJson.longDescription}
+        guaranteesAndWarranties={guaranteesAndWarranties}
+        awardsAndCertificates={awardsAndCertificates}
+        bimIframeUrl={null}
+      />
+    );
+    expect(container.querySelector("#tabpanel-four")).toBe(null);
   });
 });
