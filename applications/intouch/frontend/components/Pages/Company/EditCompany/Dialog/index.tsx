@@ -64,16 +64,23 @@ export const EditCompanyDialog = ({
     }
   });
 
-  const handleSave = useCallback(
+  const handleSubmit = useCallback(
     (event, values) => {
+      event.preventDefault();
+
       // we need to account for nested objects (e.g. registered address)
       const valuesWithAddresses = Object.entries(values).reduce(
         (obj, [key, value]) => {
-          const parsedValue =
-            value && key.includes("coordinates")
+          if (value === undefined) {
+            return obj;
+          }
+          return set(
+            obj,
+            key,
+            key.includes("coordinates") && !isNaN(parseFloat(value as string))
               ? parseFloat(value as string)
-              : value;
-          return set(obj, key, parsedValue);
+              : value
+          );
         },
         {}
       );
@@ -111,7 +118,6 @@ export const EditCompanyDialog = ({
               create: valuesWithAddresses.tradingAddress
             };
 
-      event.preventDefault();
       updateCompany({
         variables: {
           input: {
@@ -154,7 +160,7 @@ export const EditCompanyDialog = ({
       </Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
-        <Form className={styles.form} onSubmit={handleSave} rightAlignButton>
+        <Form className={styles.form} onSubmit={handleSubmit} rightAlignButton>
           <Typography variant="h6" className={styles.sectionText}>
             {t("company-page:edit_dialog.sections.registered_details")}
           </Typography>
@@ -312,7 +318,7 @@ export const UPDATE_COMPANY = gql`
   mutation updateCompanyDetails($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
       company {
-        ...CompanyDetailsFragment
+        ...CompanyPageDetailsFragment
       }
     }
   }

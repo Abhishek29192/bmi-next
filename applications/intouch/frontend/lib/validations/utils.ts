@@ -34,7 +34,7 @@ export const validateEmailInput =
     return isValid ? null : t("common:error_messages.email_format");
   };
 
-const PHONE_NUMBER_MIN_LENGTH = 8;
+const PHONE_NUMBER_MIN_LENGTH = 6;
 const PHONE_NUMBER_MAX_LENGTH = 16;
 
 export const validatePhoneNumberInput =

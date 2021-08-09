@@ -1,6 +1,6 @@
 @import "@bmi/styles";
 
-.layout {
+.contentContainer {
   display: flex;
   flex-direction: column-reverse;
 
@@ -14,12 +14,13 @@
   }
 }
 
-.cardChildren {
+.companyDetailsContainer {
+  margin-top: 1.5rem;
+}
+
+.leaveButtonContainer {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 1.5rem;
-  margin: -15px;
-  background-color: $color-white;
-  margin-top: 0;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
 }

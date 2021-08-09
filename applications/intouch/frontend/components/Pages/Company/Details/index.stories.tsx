@@ -3,11 +3,12 @@ import { mockCompany } from "../../../../fixtures/company";
 import { ROLES } from "../../../../lib/constants";
 import { generateAccount } from "../../../../lib/tests/factories/account";
 import AccountContextWrapper from "../../../../lib/tests/fixtures/account";
-import { CompanyHeader } from ".";
+import { EditCompanyButton } from "../EditCompany/Button";
+import { CompanyDetails } from ".";
 
 export default {
   title: "Company Page/Company Header",
-  component: CompanyHeader
+  component: CompanyDetails
 };
 
 export const Basic = () => (
@@ -19,11 +20,16 @@ export const Basic = () => (
       }
     })}
   >
-    <CompanyHeader
+    <CompanyDetails
       company={mockCompany}
-      onCompanyUpdateSuccess={() => {
-        window.alert("success");
-      }}
+      actions={
+        <EditCompanyButton
+          company={mockCompany}
+          onCompanyUpdateSuccess={() => {
+            window.alert("success");
+          }}
+        />
+      }
     />
   </AccountContextWrapper>
 );
