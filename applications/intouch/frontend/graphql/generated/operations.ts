@@ -491,6 +491,15 @@ export type LeaveCompanyMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
+export type ResetPasswordMutationVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type ResetPasswordMutation = { readonly __typename?: "Mutation" } & Pick<
+  SchemaTypes.Mutation,
+  "resetPassword"
+>;
+
 export type GetProjectQueryVariables = SchemaTypes.Exact<{
   projectId: SchemaTypes.Scalars["Int"];
 }>;

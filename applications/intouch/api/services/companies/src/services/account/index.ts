@@ -493,3 +493,22 @@ export const getAccountSignedPhotoUrl = async (photoName: string) => {
     expireDate
   );
 };
+
+export const resetPassword = async (
+  _query,
+  args,
+  context,
+  resolveInfo,
+  auth0
+) => {
+  const { user } = context;
+  const logger = context.logger("service:reset-password");
+
+  try {
+    await auth0.changePassword(user.email);
+    return "ok";
+  } catch (error) {
+    logger.error("Email not sent", error);
+    return "fail";
+  }
+};
