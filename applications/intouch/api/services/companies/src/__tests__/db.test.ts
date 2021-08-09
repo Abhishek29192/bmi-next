@@ -1,10 +1,4 @@
-import { resolve } from "path";
-import { config } from "dotenv";
 import { transaction, getDbPool } from "../test-utils/db";
-
-config({
-  path: resolve(__dirname, "../../.env")
-});
 
 const PERMISSION_DENIED = (table) => `permission denied for table ${table}`;
 const RLS_ERROR = (table) =>

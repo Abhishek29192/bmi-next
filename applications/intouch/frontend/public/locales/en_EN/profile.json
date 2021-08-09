@@ -35,5 +35,10 @@
         "confirm": "Continue"
       }
     }
+  },
+  "registerCompany": {
+    "heading": "Register your company",
+    "body": "You can register your company here.",
+    "cta": "Register"
   }
 }

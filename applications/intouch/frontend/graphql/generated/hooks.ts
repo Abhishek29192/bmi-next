@@ -266,6 +266,110 @@ export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
 >;
+export const CreateCompanyDocument = gql`
+  mutation createCompany($input: CreateCompanyInput!) {
+    createCompany(input: $input) {
+      company {
+        id
+      }
+    }
+  }
+`;
+export type CreateCompanyMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateCompanyMutation,
+  OperationTypes.CreateCompanyMutationVariables
+>;
+
+/**
+ * __useCreateCompanyMutation__
+ *
+ * To run a mutation, you first call `useCreateCompanyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateCompanyMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createCompanyMutation, { data, loading, error }] = useCreateCompanyMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateCompanyMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateCompanyMutation,
+    OperationTypes.CreateCompanyMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateCompanyMutation,
+    OperationTypes.CreateCompanyMutationVariables
+  >(CreateCompanyDocument, options);
+}
+export type CreateCompanyMutationHookResult = ReturnType<
+  typeof useCreateCompanyMutation
+>;
+export type CreateCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
+export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateCompanyMutation,
+  OperationTypes.CreateCompanyMutationVariables
+>;
+export const CreateAddressDocument = gql`
+  mutation createAddress($input: CreateAddressInput!) {
+    createAddress(input: $input) {
+      address {
+        id
+      }
+    }
+  }
+`;
+export type CreateAddressMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateAddressMutation,
+  OperationTypes.CreateAddressMutationVariables
+>;
+
+/**
+ * __useCreateAddressMutation__
+ *
+ * To run a mutation, you first call `useCreateAddressMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateAddressMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createAddressMutation, { data, loading, error }] = useCreateAddressMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateAddressMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateAddressMutation,
+    OperationTypes.CreateAddressMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateAddressMutation,
+    OperationTypes.CreateAddressMutationVariables
+  >(CreateAddressDocument, options);
+}
+export type CreateAddressMutationHookResult = ReturnType<
+  typeof useCreateAddressMutation
+>;
+export type CreateAddressMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateAddressMutation>;
+export type CreateAddressMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateAddressMutation,
+  OperationTypes.CreateAddressMutationVariables
+>;
 export const InviteDocument = gql`
   mutation invite($input: InviteInput!) {
     invite(input: $input) {

@@ -4,6 +4,7 @@ import { GetUserProfileQuery } from "../../../graphql/generated/operations";
 import { findAccountCompanyFromAccountQuery } from "../../../lib/account";
 import { TableContainer } from "../../../components/TableContainer";
 import { CompanyDetails } from "../Company/Details";
+import RegisterCompanyCard from "../../Cards/RegisterCompanyCard";
 import { UserProfileCard } from "./ProfileCard";
 import { UserCertifications } from "./UserCertifications";
 import styles from "./styles.module.scss";
@@ -48,7 +49,9 @@ export const UserProfilePageContent = ({
               showCompanyOwner={false}
             />
           </div>
-        ) : null}
+        ) : (
+          <RegisterCompanyCard />
+        )}
       </div>
 
       <UserProfileCard account={account} onProfileUpdateSuccess={setAccount} />
