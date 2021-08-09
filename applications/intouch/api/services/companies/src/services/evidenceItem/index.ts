@@ -1,6 +1,5 @@
 import { EvidenceItemsAddInput } from "@bmi/intouch-api-types";
 import { FileUpload } from "graphql-upload";
-import StorageClient from "../storage-client";
 
 export const evidenceItemsAdd = async (
   resolve,
@@ -10,7 +9,7 @@ export const evidenceItemsAdd = async (
   resolveInfo
 ) => {
   const { GCP_PRIVATE_BUCKET_NAME } = process.env;
-  const { pgClient, logger: Logger } = context;
+  const { pgClient, logger: Logger, storageClient } = context;
 
   const logger = Logger("service:evidence");
 
@@ -18,7 +17,6 @@ export const evidenceItemsAdd = async (
 
   try {
     if (args.input.evidences.length > 0) {
-      const storageClient = new StorageClient();
       for (const evidence of args.input.evidences) {
         const newFileName = `evidence/${evidence.projectId}/${
           evidence.evidenceCategoryType

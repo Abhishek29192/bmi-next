@@ -125,6 +125,7 @@ export default gql`
   }
   extend type Company {
     certifications: [Technology]
+    logoSignedUrl: String
   }
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType
@@ -145,6 +146,12 @@ export default gql`
   extend input AccountPatch {
     photoUpload: Upload
     shouldRemovePhoto: Boolean
+  }
+
+  # TODO: also extend CompanyCreateInput
+  extend input CompanyPatch {
+    logoUpload: Upload
+    shouldRemoveLogo: Boolean
   }
 
   input PublishInput {

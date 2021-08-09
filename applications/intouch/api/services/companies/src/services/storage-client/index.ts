@@ -42,10 +42,10 @@ export default class StorageClient {
   async getFileSignedUrl(
     bucketName: string,
     fileName: string,
-    expireDate: Date
+    expiryDate?: Date
   ) {
-    // if we try to sign an externally hosted image we would get
-    // a confusing permission error: "The caller does not have permission"
+    // if we try to sign an externally hosted image
+    // Cloud Storage wouldn't find the image
     if (
       !fileName ||
       // externally-hosted or null images should not be signed
@@ -53,13 +53,34 @@ export default class StorageClient {
     ) {
       return fileName;
     }
+    if (!expiryDate) {
+      expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 1);
+    }
+
     const [url] = await this.storage
       .bucket(bucketName)
       .file(fileName)
       .getSignedUrl({
-        expires: expireDate,
+        expires: expiryDate,
         action: "read"
       });
     return url;
+  }
+
+  async getPrivateAssetSignedUrl(fileName: string, expiryDate?: Date) {
+    return this.getFileSignedUrl(
+      process.env.GCP_PRIVATE_BUCKET_NAME,
+      fileName,
+      expiryDate
+    );
+  }
+
+  async getPublicAssetSignedUrl(fileName: string, expiryDate?: Date) {
+    return this.getFileSignedUrl(
+      process.env.GCP_PUBLIC_BUCKET_NAME,
+      fileName,
+      expiryDate
+    );
   }
 }

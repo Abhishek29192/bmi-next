@@ -2863,6 +2863,7 @@ type Company implements Node {
     filter: ProjectFilter
   ): ProjectsConnection!
   certifications: [Technology]
+  logoSignedUrl: String
 }
 
 enum BusinessType {
@@ -8208,6 +8209,8 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -9077,6 +9080,8 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -9438,6 +9443,8 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -9943,6 +9950,8 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -10271,6 +10280,8 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -11478,6 +11489,8 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -11806,6 +11819,8 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -15304,6 +15319,8 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -17853,6 +17870,8 @@ input CompanyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """

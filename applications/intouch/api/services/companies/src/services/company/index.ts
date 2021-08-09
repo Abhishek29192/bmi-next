@@ -1,5 +1,6 @@
-import { DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
+import { CompanyPatch, DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
 import { sendEmailWithTemplate } from "../../services/mailer";
+import { uploadCompanyLogo } from "./uploadCompanyLogo";
 
 export const updateCompany = async (
   resolve,
@@ -8,8 +9,37 @@ export const updateCompany = async (
   context,
   resolveInfo
 ) => {
+  const { GCP_PUBLIC_BUCKET_NAME } = process.env;
+  const { pgClient, storageClient, user } = context;
+  const { logoUpload, shouldRemoveLogo }: CompanyPatch = args.input.patch;
+
+  if (!logoUpload && shouldRemoveLogo) {
+    args.input.patch.logo = null;
+  }
+
+  if (logoUpload) {
+    const fileName = await uploadCompanyLogo(args.input.id, logoUpload);
+
+    args.input.patch.logo = fileName;
+  }
+
+  // if the admin wants to remove the logo OR a new logo has been uploaded
+  if ((!logoUpload && shouldRemoveLogo) || logoUpload) {
+    const {
+      rows: [{ logo: currentLogo }]
+    } = await pgClient.query("select company.logo from company where id = $1", [
+      user.company.id
+    ]);
+
+    // delete the previous image if it exists & is hosted on GCP Cloud storage
+    // if the current image is externally hosted (i.e. starts with https://) it is probably mock data
+    if (currentLogo && !/^http(s):\/\//.test(currentLogo)) {
+      await storageClient.deleteFile(GCP_PUBLIC_BUCKET_NAME, currentLogo);
+    }
+  }
+
   const result = await resolve(source, args, context, resolveInfo);
-  const { pgClient, user } = context;
+
   const {
     data: {
       $name,

@@ -1,10 +1,6 @@
 import { GraphQLUpload } from "graphql-upload";
 import { makeExtendSchemaPlugin } from "graphile-utils";
-import {
-  invite,
-  completeInvitation,
-  getAccountSignedPhotoUrl
-} from "../../services/account";
+import { invite, completeInvitation } from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
 import { getGuarantee, getEvidenceCategory } from "../../services/contentful";
 import {
@@ -26,6 +22,9 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
     resolvers: {
       Upload: GraphQLUpload,
       Company: {
+        logoSignedUrl: async (parent, _args, context) => {
+          return context.storageClient.getPublicAssetSignedUrl(parent.logo);
+        },
         certifications: async (parent, args, context, info) => {
           return getCompanyCertifications(parent, args, context);
         }
@@ -54,9 +53,8 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         }
       },
       Account: {
-        signedPhotoUrl: async (parent, args, context) => {
-          const { photo } = parent;
-          return getAccountSignedPhotoUrl(photo);
+        signedPhotoUrl: async (parent, _args, context) => {
+          return context.storageClient.getPrivateAssetSignedUrl(parent.photo);
         },
         formattedRole: async (parent, args, context) => {
           const formattedRoles = {
