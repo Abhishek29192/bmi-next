@@ -1,6 +1,6 @@
 import get from "lodash.get";
 import set from "lodash.set";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
 import {
@@ -24,6 +24,7 @@ import log from "../../../../../lib/logger";
 import { GetCompanyQuery } from "../../../../../graphql/generated/operations";
 import { BUSINESS_TYPES } from "../../../../../lib/constants";
 import { InfoPair } from "../../../../InfoPair";
+import { ProfilePictureUpload } from "../../../../ProfilePictureUpload";
 import { formatCompanyOperations } from "../../RegisteredDetails";
 import styles from "./styles.module.scss";
 
@@ -45,6 +46,16 @@ export const EditCompanyDialog = ({
   onCompanyUpdateSuccess
 }: EditCompanyDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
+
+  const [shouldRemoveLogo, setShouldRemoveLogo] = useState(false);
+  const [logoUpload, setLogoUpload] = useState(undefined);
+
+  const onProfilePictureChange = (file) => {
+    setShouldRemoveLogo(!file);
+    setLogoUpload(file);
+  };
+
+  const initialPictureUrl = company.logoSignedUrl || company.logo;
 
   const [updateCompany] = useUpdateCompanyDetailsMutation({
     onError: (error) => {
@@ -125,13 +136,15 @@ export const EditCompanyDialog = ({
             patch: {
               ...patch,
               addressToTradingAddressId,
-              addressToRegisteredAddressId
+              addressToRegisteredAddressId,
+              logoUpload,
+              shouldRemoveLogo
             }
           }
         }
       });
     },
-    [company.id, updateCompany]
+    [company, updateCompany, logoUpload, shouldRemoveLogo]
   );
 
   const getFieldProps = useCallback(
@@ -220,6 +233,28 @@ export const EditCompanyDialog = ({
               ) : null}
             </Grid>
           </Grid>
+
+          <ProfilePictureUpload
+            variant="square"
+            title={t("company-page:edit_dialog.form.fields.logo.label")}
+            uploadPictureLabel={t(
+              "company-page:edit_dialog.form.fields.logo.buttons.upload"
+            )}
+            removePictureLabel={t(
+              "company-page:edit_dialog.form.fields.logo.buttons.remove"
+            )}
+            altText={"company-page:edit_dialog.form.fields.logo.alt_text"}
+            initialPictureUrl={initialPictureUrl as string | undefined}
+            onChange={(file) => {
+              onProfilePictureChange(file);
+            }}
+            fileTypesMessage={t(
+              "company-page:edit_dialog.form.fields.logo.fileTypesMessage"
+            )}
+            fileSizeMessage={t(
+              "company-page:edit_dialog.form.fields.logo.fileSizeMessage"
+            )}
+          />
 
           <TextField {...getFieldProps("aboutUs")} isTextArea rows={6} />
 

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
+import Avatar, { AvatarProps } from "@material-ui/core/Avatar";
 import Button from "@bmi/button";
 import Typography from "@bmi/typography";
 import styles from "./styles.module.scss";
@@ -7,6 +7,7 @@ import styles from "./styles.module.scss";
 type ProfilePictureUploadProps = {
   initialPictureUrl?: string | ArrayBuffer;
   onChange: (file?: File) => any;
+  variant?: AvatarProps["variant"];
   altText: string;
   title: string;
   uploadPictureLabel: string;
@@ -15,16 +16,16 @@ type ProfilePictureUploadProps = {
   fileSizeMessage: string;
 };
 
-// TODO: account for square or round variants
 export const ProfilePictureUpload = ({
+  initialPictureUrl,
+  onChange,
+  variant,
   altText,
   title,
   uploadPictureLabel,
   removePictureLabel,
-  initialPictureUrl,
   fileTypesMessage,
-  fileSizeMessage,
-  onChange
+  fileSizeMessage
 }: ProfilePictureUploadProps) => {
   const [uploadedPhotoUrl, setUploadedPhotoUrl] = useState(initialPictureUrl);
 
@@ -41,7 +42,12 @@ export const ProfilePictureUpload = ({
         <Avatar
           alt={altText}
           src={uploadedPhotoUrl as string}
-          className={styles.avatar}
+          className={
+            uploadedPhotoUrl && (!variant || variant === "square")
+              ? `${styles.avatar} ${styles.square}`
+              : styles.avatar
+          }
+          variant={variant}
         />
       </div>
       <div className={styles.avatarButtons}>
@@ -60,7 +66,6 @@ export const ProfilePictureUpload = ({
                 fileReader.onload = (e) => {
                   const newPictureUrl = e.target.result;
                   setUploadedPhotoUrl(newPictureUrl);
-
                   onChange(file);
                 };
               }

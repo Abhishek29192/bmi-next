@@ -28,6 +28,7 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
     name
     businessType
     logo
+    logoSignedUrl
     aboutUs
     tradingAddress {
       id
