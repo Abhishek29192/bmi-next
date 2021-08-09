@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import ProfileCard from "@bmi/profile-card";
 import Button from "@bmi/button";
 import { Email, Phone, Edit } from "@material-ui/icons";
 import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
+import { useResetPasswordMutation } from "../../../../graphql/generated/hooks";
 import { EditUserProfileDialog } from "../EditUserDialog";
+import CompletedDialog, { DialogProps } from "./Dialog";
 import styles from "./styles.module.scss";
 
 type UserProfileCardProps = {
   account: GetUserProfileQuery["account"];
   onProfileUpdateSuccess: (account: GetUserProfileQuery["account"]) => any;
 };
+
+export const RESET_PASSWORD = gql`
+  mutation resetPassword {
+    resetPassword
+  }
+`;
 
 export const UserProfileCard = ({
   account,
@@ -19,8 +28,33 @@ export const UserProfileCard = ({
   const { firstName, lastName, email, phone, photo, role, signedPhotoUrl } =
     account;
   const { t } = useTranslation(["common", "profile"]);
-  const [isEditProfileDialogOpen, setIsEditProfileDialogOpen] =
-    React.useState(false);
+  const [isEditProfileDialogOpen, setIsEditProfileDialogOpen] = useState(false);
+
+  const [dialogState, setDialogState] = useState<DialogProps>({
+    open: false,
+    title: "",
+    text: ""
+  });
+
+  const [resetPassword] = useResetPasswordMutation({
+    onCompleted: ({ resetPassword }) => {
+      if (resetPassword === "ok") {
+        setDialogState((prevState) => ({
+          ...prevState,
+          open: true,
+          title: "profile:passwordReset.dialog.title",
+          text: "profile:passwordReset.dialog.success"
+        }));
+      } else {
+        setDialogState((prevState) => ({
+          ...prevState,
+          open: true,
+          title: "profile:passwordReset.dialog.title",
+          text: "profile:passwordReset.dialog.error"
+        }));
+      }
+    }
+  });
 
   return (
     <div style={{ marginBottom: "1.5rem" }}>
@@ -58,7 +92,15 @@ export const UserProfileCard = ({
             onCloseClick={() => setIsEditProfileDialogOpen(false)}
             onProfileUpdateSuccess={onProfileUpdateSuccess}
           />
-          <Button>{t("profile:profileCard.buttons.changePassword")}</Button>
+          <Button onClick={resetPassword}>
+            {t("profile:profileCard.buttons.changePassword")}
+          </Button>
+          <CompletedDialog
+            dialogState={dialogState}
+            onCancel={() =>
+              setDialogState((prev) => ({ ...prev, open: false }))
+            }
+          />
         </div>
       </ProfileCard>
     </div>

@@ -188,6 +188,7 @@ export default gql`
   }
 
   extend type Mutation {
+    resetPassword: String
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
     invite(input: InviteInput!): [Invitation]

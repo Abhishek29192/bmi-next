@@ -261,8 +261,7 @@ export function useUpdateCompanyDetailsMutation(
 export type UpdateCompanyDetailsMutationHookResult = ReturnType<
   typeof useUpdateCompanyDetailsMutation
 >;
-export type UpdateCompanyDetailsMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
+export type UpdateCompanyDetailsMutationResult = Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
 export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
@@ -417,8 +416,7 @@ export function useInviteMutation(
   >(InviteDocument, options);
 }
 export type InviteMutationHookResult = ReturnType<typeof useInviteMutation>;
-export type InviteMutationResult =
-  Apollo.MutationResult<OperationTypes.InviteMutation>;
+export type InviteMutationResult = Apollo.MutationResult<OperationTypes.InviteMutation>;
 export type InviteMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.InviteMutation,
   OperationTypes.InviteMutationVariables
@@ -467,8 +465,7 @@ export function useDeleteCompanyMemberMutation(
 export type DeleteCompanyMemberMutationHookResult = ReturnType<
   typeof useDeleteCompanyMemberMutation
 >;
-export type DeleteCompanyMemberMutationResult =
-  Apollo.MutationResult<OperationTypes.DeleteCompanyMemberMutation>;
+export type DeleteCompanyMemberMutationResult = Apollo.MutationResult<OperationTypes.DeleteCompanyMemberMutation>;
 export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
@@ -520,8 +517,7 @@ export function useUpdateAccountProfileMutation(
 export type UpdateAccountProfileMutationHookResult = ReturnType<
   typeof useUpdateAccountProfileMutation
 >;
-export type UpdateAccountProfileMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateAccountProfileMutation>;
+export type UpdateAccountProfileMutationResult = Apollo.MutationResult<OperationTypes.UpdateAccountProfileMutation>;
 export type UpdateAccountProfileMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateAccountProfileMutation,
   OperationTypes.UpdateAccountProfileMutationVariables
@@ -582,11 +578,56 @@ export function useLeaveCompanyMutation(
 export type LeaveCompanyMutationHookResult = ReturnType<
   typeof useLeaveCompanyMutation
 >;
-export type LeaveCompanyMutationResult =
-  Apollo.MutationResult<OperationTypes.LeaveCompanyMutation>;
+export type LeaveCompanyMutationResult = Apollo.MutationResult<OperationTypes.LeaveCompanyMutation>;
 export type LeaveCompanyMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.LeaveCompanyMutation,
   OperationTypes.LeaveCompanyMutationVariables
+>;
+export const ResetPasswordDocument = gql`
+  mutation resetPassword {
+    resetPassword
+  }
+`;
+export type ResetPasswordMutationFn = Apollo.MutationFunction<
+  OperationTypes.ResetPasswordMutation,
+  OperationTypes.ResetPasswordMutationVariables
+>;
+
+/**
+ * __useResetPasswordMutation__
+ *
+ * To run a mutation, you first call `useResetPasswordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useResetPasswordMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [resetPasswordMutation, { data, loading, error }] = useResetPasswordMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useResetPasswordMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.ResetPasswordMutation,
+    OperationTypes.ResetPasswordMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.ResetPasswordMutation,
+    OperationTypes.ResetPasswordMutationVariables
+  >(ResetPasswordDocument, options);
+}
+export type ResetPasswordMutationHookResult = ReturnType<
+  typeof useResetPasswordMutation
+>;
+export type ResetPasswordMutationResult = Apollo.MutationResult<OperationTypes.ResetPasswordMutation>;
+export type ResetPasswordMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.ResetPasswordMutation,
+  OperationTypes.ResetPasswordMutationVariables
 >;
 export const GetProjectDocument = gql`
   query GetProject($projectId: Int!) {
@@ -768,8 +809,7 @@ export function useDeleteProjectMemberMutation(
 export type DeleteProjectMemberMutationHookResult = ReturnType<
   typeof useDeleteProjectMemberMutation
 >;
-export type DeleteProjectMemberMutationResult =
-  Apollo.MutationResult<OperationTypes.DeleteProjectMemberMutation>;
+export type DeleteProjectMemberMutationResult = Apollo.MutationResult<OperationTypes.DeleteProjectMemberMutation>;
 export type DeleteProjectMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteProjectMemberMutation,
   OperationTypes.DeleteProjectMemberMutationVariables
@@ -904,8 +944,7 @@ export function useCreateProjectMemberMutation(
 export type CreateProjectMemberMutationHookResult = ReturnType<
   typeof useCreateProjectMemberMutation
 >;
-export type CreateProjectMemberMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateProjectMemberMutation>;
+export type CreateProjectMemberMutationResult = Apollo.MutationResult<OperationTypes.CreateProjectMemberMutation>;
 export type CreateProjectMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateProjectMemberMutation,
   OperationTypes.CreateProjectMemberMutationVariables
@@ -957,8 +996,7 @@ export function useAddProjectsMemberMutation(
 export type AddProjectsMemberMutationHookResult = ReturnType<
   typeof useAddProjectsMemberMutation
 >;
-export type AddProjectsMemberMutationResult =
-  Apollo.MutationResult<OperationTypes.AddProjectsMemberMutation>;
+export type AddProjectsMemberMutationResult = Apollo.MutationResult<OperationTypes.AddProjectsMemberMutation>;
 export type AddProjectsMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.AddProjectsMemberMutation,
   OperationTypes.AddProjectsMemberMutationVariables
@@ -1010,8 +1048,7 @@ export function useAddEvidencesMutation(
 export type AddEvidencesMutationHookResult = ReturnType<
   typeof useAddEvidencesMutation
 >;
-export type AddEvidencesMutationResult =
-  Apollo.MutationResult<OperationTypes.AddEvidencesMutation>;
+export type AddEvidencesMutationResult = Apollo.MutationResult<OperationTypes.AddEvidencesMutation>;
 export type AddEvidencesMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.AddEvidencesMutation,
   OperationTypes.AddEvidencesMutationVariables
@@ -1165,8 +1202,7 @@ export function useCreateAccountMutation(
 export type CreateAccountMutationHookResult = ReturnType<
   typeof useCreateAccountMutation
 >;
-export type CreateAccountMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateAccountMutation>;
+export type CreateAccountMutationResult = Apollo.MutationResult<OperationTypes.CreateAccountMutation>;
 export type CreateAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateAccountMutation,
   OperationTypes.CreateAccountMutationVariables
@@ -1216,8 +1252,7 @@ export function useCreateDoceboUserMutation(
 export type CreateDoceboUserMutationHookResult = ReturnType<
   typeof useCreateDoceboUserMutation
 >;
-export type CreateDoceboUserMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateDoceboUserMutation>;
+export type CreateDoceboUserMutationResult = Apollo.MutationResult<OperationTypes.CreateDoceboUserMutation>;
 export type CreateDoceboUserMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateDoceboUserMutation,
   OperationTypes.CreateDoceboUserMutationVariables
@@ -1269,8 +1304,7 @@ export function useUpdateAccountMutation(
 export type UpdateAccountMutationHookResult = ReturnType<
   typeof useUpdateAccountMutation
 >;
-export type UpdateAccountMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateAccountMutation>;
+export type UpdateAccountMutationResult = Apollo.MutationResult<OperationTypes.UpdateAccountMutation>;
 export type UpdateAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateAccountMutation,
   OperationTypes.UpdateAccountMutationVariables
@@ -1447,8 +1481,7 @@ export function useCompleteInvitationMutation(
 export type CompleteInvitationMutationHookResult = ReturnType<
   typeof useCompleteInvitationMutation
 >;
-export type CompleteInvitationMutationResult =
-  Apollo.MutationResult<OperationTypes.CompleteInvitationMutation>;
+export type CompleteInvitationMutationResult = Apollo.MutationResult<OperationTypes.CompleteInvitationMutation>;
 export type CompleteInvitationMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CompleteInvitationMutation,
   OperationTypes.CompleteInvitationMutationVariables
@@ -1498,8 +1531,7 @@ export function useCreateSsoUrlMutation(
 export type CreateSsoUrlMutationHookResult = ReturnType<
   typeof useCreateSsoUrlMutation
 >;
-export type CreateSsoUrlMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateSsoUrlMutation>;
+export type CreateSsoUrlMutationResult = Apollo.MutationResult<OperationTypes.CreateSsoUrlMutation>;
 export type CreateSsoUrlMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateSsoUrlMutation,
   OperationTypes.CreateSsoUrlMutationVariables
@@ -1697,8 +1729,7 @@ export function useBulkImportMutation(
 export type BulkImportMutationHookResult = ReturnType<
   typeof useBulkImportMutation
 >;
-export type BulkImportMutationResult =
-  Apollo.MutationResult<OperationTypes.BulkImportMutation>;
+export type BulkImportMutationResult = Apollo.MutationResult<OperationTypes.BulkImportMutation>;
 export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.BulkImportMutation,
   OperationTypes.BulkImportMutationVariables
@@ -1749,8 +1780,7 @@ export function useUpdateProductMutation(
 export type UpdateProductMutationHookResult = ReturnType<
   typeof useUpdateProductMutation
 >;
-export type UpdateProductMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
+export type UpdateProductMutationResult = Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
 export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProductMutation,
   OperationTypes.UpdateProductMutationVariables
@@ -1801,8 +1831,7 @@ export function useUpdateSystemMutation(
 export type UpdateSystemMutationHookResult = ReturnType<
   typeof useUpdateSystemMutation
 >;
-export type UpdateSystemMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
+export type UpdateSystemMutationResult = Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
 export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateSystemMutation,
   OperationTypes.UpdateSystemMutationVariables
@@ -2284,8 +2313,7 @@ export function useUpdateRoleAccountMutation(
 export type UpdateRoleAccountMutationHookResult = ReturnType<
   typeof useUpdateRoleAccountMutation
 >;
-export type UpdateRoleAccountMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateRoleAccountMutation>;
+export type UpdateRoleAccountMutationResult = Apollo.MutationResult<OperationTypes.UpdateRoleAccountMutation>;
 export type UpdateRoleAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateRoleAccountMutation,
   OperationTypes.UpdateRoleAccountMutationVariables

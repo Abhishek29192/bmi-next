@@ -7707,6 +7707,7 @@ type Mutation {
     """
     input: ProjectMembersAddInput!
   ): ProjectMembersAddPayload
+  resetPassword: String
   publishMessage(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
