@@ -7,14 +7,26 @@
   justify-content: space-between;
   height: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  max-width: 620px;
+  margin: 0 auto;
+
+  & + & {
+    margin-top: 2rem;
+  }
+}
+
+.banner {
+  height: 180px;
 }
 
 .header {
   position: relative;
 
   img {
-    max-width: 100%;
+    width: 100%;
     display: block;
+    height: 180px;
+    object-fit: cover;
   }
 }
 
@@ -41,14 +53,32 @@
 }
 
 .body {
-  padding: 3rem 1.5rem 1.5rem 1.5rem;
+  padding: 3rem 1.5rem 0 1.5rem;
 }
 
 .content {
-  margin: 1.5rem 0;
+  padding-top: 1rem;
+
+  ul {
+    background-color: $color-pearl;
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    li {
+      p {
+        font-size: 1.1rem !important;
+      }
+    }
+  }
 }
 
 .footer {
-  margin-top: auto;
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem;
 }

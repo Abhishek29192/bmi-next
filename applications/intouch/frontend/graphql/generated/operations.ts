@@ -24,6 +24,21 @@ export type ContactDetailsCollectionFragmentFragment = {
   >;
 };
 
+export type LeaveCompanyMutationVariables = SchemaTypes.Exact<{
+  accountId: SchemaTypes.Scalars["Int"];
+  companyId: SchemaTypes.Scalars["Int"];
+  marketId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type LeaveCompanyMutation = { readonly __typename?: "Mutation" } & {
+  readonly deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId?: SchemaTypes.Maybe<
+    { readonly __typename?: "DeleteCompanyMemberPayload" } & Pick<
+      SchemaTypes.DeleteCompanyMemberPayload,
+      "clientMutationId"
+    >
+  >;
+};
+
 export type GetGlobalDataQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;
@@ -1110,8 +1125,16 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
                     SchemaTypes.Maybe<
                       { readonly __typename?: "PartnerBrand" } & Pick<
                         SchemaTypes.PartnerBrand,
-                        "name" | "shortDescription"
+                        "name" | "shortDescription" | "websiteUrl"
                       > & {
+                          readonly description?: SchemaTypes.Maybe<
+                            {
+                              readonly __typename?: "PartnerBrandDescription";
+                            } & Pick<
+                              SchemaTypes.PartnerBrandDescription,
+                              "json"
+                            >
+                          >;
                           readonly image?: SchemaTypes.Maybe<
                             { readonly __typename?: "Asset" } & Pick<
                               SchemaTypes.Asset,

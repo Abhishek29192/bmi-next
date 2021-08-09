@@ -2,6 +2,7 @@ import React from "react";
 import ProfileCard from "@bmi/profile-card";
 import Button from "@bmi/button";
 import Table from "@bmi/table";
+import { Account } from "@bmi/intouch-api-types";
 import { Email, Phone, Edit } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
@@ -17,6 +18,7 @@ import {
 } from "../graphql/generated/operations";
 import { getServerPageGetUserProfile } from "../graphql/generated/page";
 import { withPage } from "../lib/middleware/withPage";
+import { findAccountCompany } from "../lib/account";
 import { Layout } from "../components/Layout";
 import UserProfile from "../styles/UserProfile.module.scss";
 
@@ -101,12 +103,19 @@ const UserCertifications = ({
 };
 
 type UserProfilePageProps = {
-  account: GetUserProfileQuery["account"];
+  pageAccount: GetUserProfileQuery["account"];
   globalPageData: GetGlobalDataQuery;
 };
 
-const UserProfilePage = ({ account, globalPageData }: UserProfilePageProps) => {
+const UserProfilePage = ({
+  pageAccount,
+  globalPageData
+}: UserProfilePageProps) => {
   const { t } = useTranslation("common");
+  const account = pageAccount;
+
+  // TODO: types don't match exactly, but this works practically
+  const currentCompany = findAccountCompany(account as Account);
 
   return (
     <Layout
@@ -120,9 +129,9 @@ const UserProfilePage = ({ account, globalPageData }: UserProfilePageProps) => {
               certifications={account.certificationsByDoceboUserId.nodes}
             />
           </TableContainer>
-          <UserCompanyDetails
-            company={account.companyMembers.nodes[0].company}
-          />
+          {currentCompany ? (
+            <UserCompanyDetails company={currentCompany} />
+          ) : null}
         </div>
         <div style={{ marginBottom: "1.5rem" }}>
           <ProfileCard
@@ -167,11 +176,13 @@ export const getServerSideProps = withPage(
     return {
       props: {
         globalPageData,
-        account: data.account,
+        account,
+        pageAccount: data.account,
         ...(await serverSideTranslations(locale, [
           "common",
           "sidebar",
-          "footer"
+          "footer",
+          "profile-page"
         ]))
       }
     };

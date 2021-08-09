@@ -1715,7 +1715,7 @@ HTMLCollection [
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      findARoofer.telephoneLabel
+                                      global.telephone
                                     </span>
                                   </dt>
                                   <dd
@@ -1723,7 +1723,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"findARoofer.telephoneLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"global.telephone\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -1751,7 +1751,7 @@ HTMLCollection [
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      findARoofer.emailLabel
+                                      global.email
                                     </span>
                                   </dt>
                                   <dd
@@ -1759,7 +1759,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"findARoofer.emailLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"global.email\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -1949,7 +1949,7 @@ HTMLCollection [
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      findARoofer.telephoneLabel
+                                      global.telephone
                                     </span>
                                   </dt>
                                   <dd
@@ -1957,7 +1957,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"findARoofer.telephoneLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"global.telephone\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -1985,7 +1985,7 @@ HTMLCollection [
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      findARoofer.emailLabel
+                                      global.email
                                     </span>
                                   </dt>
                                   <dd
@@ -1993,7 +1993,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"findARoofer.emailLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"global.email\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
