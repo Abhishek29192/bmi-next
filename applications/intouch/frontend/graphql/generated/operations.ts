@@ -907,6 +907,20 @@ export type GetProductGuaranteeTypesQuery = {
                   >;
                 }
               >;
+              readonly evidenceCategoriesCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "GuaranteeTypeEvidenceCategoriesCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "EvidenceCategory" } & Pick<
+                        SchemaTypes.EvidenceCategory,
+                        "name"
+                      >
+                    >
+                  >;
+                }
+              >;
             }
         >
       >;

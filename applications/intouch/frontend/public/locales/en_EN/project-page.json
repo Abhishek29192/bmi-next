@@ -84,6 +84,47 @@
         "alert_banner": {
           "title": "Need to know",
           "description": "Once the guarantee has been approved, the building owner will receive the guarantee documentation automatically, to the email address provided."
+        },
+        "responsible_installer": {
+          "title": "A responsible installer",
+          "description": "Please select an installer from the Project Team who is acting as the Responsible Installer. They should hold a certificate in the same technology as the Project that you want to guarantee."
+        },
+        "required": {
+          "title": "Please complete your application by providing the following:",
+          "evidence": "Provide supporting evidence"
+        }
+      },
+      "wizard": {
+        "step1": {
+          "title": "Register for a guarantee",
+          "subTitle": "Select required level of guarantee"
+        },
+        "step2": {
+          "title": "Register for a guarantee",
+          "subTitle": "Select the preferrred language for the guarantee documentation"
+        },
+        "step3": {
+          "product_title": "Product Guarantee",
+          "product_subTitle": "Select the Product for the guarantee documentation",
+          "system_title": "System Guarantee",
+          "system_subTitle": "Select the System for the guarantee documentation"
+        },
+        "step4": {
+          "title": "Receipt details",
+          "subTitle": "Please upload a copy of the receipt for the product(s) you would like to guarantee"
+        },
+        "step5": {
+          "title": "Review",
+          "subTitle": "Please review the information that you have provided, before submitting your application."
+        },
+        "stepDefault": {
+          "title": "Guarantee Application",
+          "subTitle": "Guarantee Application"
+        },
+        "footer": {
+          "goBack": "Go Back",
+          "next": "Next",
+          "submit": " Submit application"
         }
       }
     },

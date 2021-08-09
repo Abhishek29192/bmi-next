@@ -61,6 +61,11 @@ export const GET_PRODUCT_GUARANTEE_TYPES = gql`
             displayName
           }
         }
+        evidenceCategoriesCollection {
+          items {
+            name
+          }
+        }
       }
     }
   }

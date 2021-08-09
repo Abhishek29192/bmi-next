@@ -1306,6 +1306,11 @@ export const GetProductGuaranteeTypesDocument = gql`
             displayName
           }
         }
+        evidenceCategoriesCollection {
+          items {
+            name
+          }
+        }
       }
     }
   }

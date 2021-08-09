@@ -15,6 +15,7 @@ export const Review = () => {
   const responsibleInstaller = project.projectMembers?.nodes?.find(
     (node) => node.isResponsibleInstaller === true
   );
+  const evidences = data.guaranteeType.evidenceCategoriesCollection.items;
 
   return (
     <div className={styles.main}>
@@ -87,6 +88,38 @@ export const Review = () => {
           <InfoPair title={t("responsible_installer.contact_detail")}>
             {`${responsibleInstaller.account.firstName} ${responsibleInstaller.account.lastName}`}
           </InfoPair>
+        </div>
+      )}
+      {(!responsibleInstaller || evidences.length > 0) && (
+        <div className={styles.required}>
+          <Typography variant="h4" hasUnderline>
+            {t("guarantee_tab.apply_guarantee.review.required.title")}
+          </Typography>
+          {evidences.length > 0 && (
+            <InfoPair
+              title={t(
+                "guarantee_tab.apply_guarantee.review.required.evidence"
+              )}
+            >
+              <ul>
+                {evidences.map((evidence, index) => (
+                  <li key={`evidence-${index}`}>{evidence.name}</li>
+                ))}
+              </ul>
+            </InfoPair>
+          )}
+
+          {!responsibleInstaller && (
+            <InfoPair
+              title={t(
+                "guarantee_tab.apply_guarantee.review.responsible_installer.title"
+              )}
+            >
+              {t(
+                "guarantee_tab.apply_guarantee.review.responsible_installer.description"
+              )}
+            </InfoPair>
+          )}
         </div>
       )}
       <AlertBanner severity="info">

@@ -24,7 +24,7 @@ type ContextProps = {
   activeStep: number;
   data?: GuaranteeWizardData;
   setData?: (data: GuaranteeWizardData) => Promise<void>;
-  header?: GuaranteeHeader;
+  header: GuaranteeHeader;
   gotoNext?: () => void;
   gotoBack?: () => void;
   submit?: () => void;
@@ -51,10 +51,16 @@ const WizardContextWrapper = ({
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [currentData, setCurrentData] = useState<GuaranteeWizardData>();
 
-  const getGuaranteeType = (): string => {
-    return ["SYSTEM", "SOLUTION"].includes(currentData.guaranteeType.coverage)
+  const getTitle = () => {
+    const type = ["SYSTEM", "SOLUTION"].includes(
+      currentData.guaranteeType.coverage
+    )
       ? "system"
       : "product";
+    return {
+      title: `guarantee_tab.apply_guarantee.wizard.step3.${type}_title`,
+      subTitle: `guarantee_tab.apply_guarantee.wizard.step3.${type}_subTitle`
+    };
   };
 
   const getHeader = (): GuaranteeHeader => {
@@ -62,38 +68,31 @@ const WizardContextWrapper = ({
     switch (currentStep) {
       case 0:
         return {
-          title: "Register for a guarantee",
-          subTitle: "Select required level of guarantee"
+          title: "guarantee_tab.apply_guarantee.wizard.step1.title",
+          subTitle: "guarantee_tab.apply_guarantee.wizard.step1.subTitle"
         };
       case 1:
         return {
-          title: "Register for a guarantee",
-          subTitle:
-            "Select the preferrred language for the guarantee documentation"
+          title: "guarantee_tab.apply_guarantee.wizard.step2.title",
+          subTitle: "guarantee_tab.apply_guarantee.wizard.step2.subTitle"
         };
-
       case 2:
-        return {
-          title: `${currentData.guaranteeType.coverage.toLowerCase()} Guarantee`,
-          subTitle: `Select the ${getGuaranteeType()} for the guarantee documentation`
-        };
-
+        return getTitle();
       case 3:
         return {
-          title: "Receipt details",
-          subTitle:
-            "Please upload a copy of the receipt for the product(s) you would like to guarantee"
+          title: "guarantee_tab.apply_guarantee.wizard.step4.title",
+          subTitle: "guarantee_tab.apply_guarantee.wizard.step4.subTitle"
         };
-
       case 4:
         return {
-          title: "Review",
-          subTitle:
-            "Please review the information that you have provided, before submitting your application."
+          title: "guarantee_tab.apply_guarantee.wizard.step5.title",
+          subTitle: "guarantee_tab.apply_guarantee.wizard.step5.subTitle"
         };
-
       default:
-        return null;
+        return {
+          title: "guarantee_tab.apply_guarantee.wizard.stepDefault.title",
+          subTitle: "guarantee_tab.apply_guarantee.wizard.stepDefault.subTitle"
+        };
     }
   };
   const nextStepAvailable = () => {
