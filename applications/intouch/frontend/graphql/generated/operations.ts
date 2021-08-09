@@ -334,7 +334,14 @@ export type UpdateAccountProfileMutation = {
       readonly account?: SchemaTypes.Maybe<
         { readonly __typename?: "Account" } & Pick<
           SchemaTypes.Account,
-          "id" | "firstName" | "lastName" | "role" | "email" | "phone" | "photo"
+          | "id"
+          | "firstName"
+          | "lastName"
+          | "role"
+          | "email"
+          | "phone"
+          | "photo"
+          | "signedPhotoUrl"
         > & {
             readonly companyMembers: {
               readonly __typename?: "CompanyMembersConnection";
@@ -420,6 +427,7 @@ export type LeaveCompanyMutation = { readonly __typename?: "Mutation" } & {
             | "email"
             | "phone"
             | "photo"
+            | "signedPhotoUrl"
           > & {
               readonly companyMembers: {
                 readonly __typename?: "CompanyMembersConnection";
@@ -1411,7 +1419,14 @@ export type AccountPageDetailsFragmentFragment = {
   readonly __typename?: "Account";
 } & Pick<
   SchemaTypes.Account,
-  "id" | "firstName" | "lastName" | "role" | "email" | "phone" | "photo"
+  | "id"
+  | "firstName"
+  | "lastName"
+  | "role"
+  | "email"
+  | "phone"
+  | "photo"
+  | "signedPhotoUrl"
 > & {
     readonly companyMembers: {
       readonly __typename?: "CompanyMembersConnection";
@@ -1479,7 +1494,14 @@ export type GetUserProfileQuery = { readonly __typename?: "Query" } & {
   readonly account?: SchemaTypes.Maybe<
     { readonly __typename?: "Account" } & Pick<
       SchemaTypes.Account,
-      "id" | "firstName" | "lastName" | "role" | "email" | "phone" | "photo"
+      | "id"
+      | "firstName"
+      | "lastName"
+      | "role"
+      | "email"
+      | "phone"
+      | "photo"
+      | "signedPhotoUrl"
     > & {
         readonly companyMembers: {
           readonly __typename?: "CompanyMembersConnection";

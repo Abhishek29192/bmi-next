@@ -41,6 +41,7 @@ export const ACCOUNT_PAGE_DETAILS_FRAGMENT = gql`
     email
     phone
     photo
+    signedPhotoUrl
     companyMembers {
       nodes {
         company {

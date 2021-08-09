@@ -124,6 +124,7 @@ export const AccountPageDetailsFragmentFragmentDoc = gql`
     email
     phone
     photo
+    signedPhotoUrl
     companyMembers {
       nodes {
         company {

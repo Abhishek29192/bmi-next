@@ -438,12 +438,13 @@ export type AccountOnAccountForAccountMarketIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnAccountForAccountMarketIdFkeyUsingAccountDoceboUserIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnAccountForAccountMarketIdFkeyPatch;
-  /** User account in Docebo */
-  doceboUserId: Scalars["Int"];
-};
+export type AccountOnAccountForAccountMarketIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnAccountForAccountMarketIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
 
 /** The fields on `account` to look up the row to update. */
 export type AccountOnAccountForAccountMarketIdFkeyUsingAccountEmailKeyUpdate = {
@@ -462,36 +463,40 @@ export type AccountOnAccountForAccountMarketIdFkeyUsingAccountPkeyUpdate = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type AccountOnCertificationForCertificationDoceboUserIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `certification` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `certification` being updated. */
-  patch: CertificationPatch;
-};
+export type AccountOnCertificationForCertificationDoceboUserIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `certification` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `certification` being updated. */
+    patch: CertificationPatch;
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountDoceboUserIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch;
-  /** User account in Docebo */
-  doceboUserId: Scalars["Int"];
-};
+export type AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountEmailKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch;
-  /** The email address associated with the account */
-  email: Scalars["String"];
-};
+export type AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountPkeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyNodeIdUpdate = {
@@ -502,28 +507,31 @@ export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
-  /** User account in Docebo */
-  doceboUserId: Scalars["Int"];
-};
+export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountEmailKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
-  /** The email address associated with the account */
-  email: Scalars["String"];
-};
+export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountPkeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate = {
@@ -534,28 +542,31 @@ export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
-  /** User account in Docebo */
-  doceboUserId: Scalars["Int"];
-};
+export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountEmailKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
-  /** The email address associated with the account */
-  email: Scalars["String"];
-};
+export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountPkeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate = {
@@ -566,28 +577,31 @@ export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
-  /** User account in Docebo */
-  doceboUserId: Scalars["Int"];
-};
+export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountEmailKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
-  /** The email address associated with the account */
-  email: Scalars["String"];
-};
+export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountPkeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type AccountOnInvitationForInvitationSenderAccountIdFkeyNodeIdUpdate = {
@@ -598,28 +612,31 @@ export type AccountOnInvitationForInvitationSenderAccountIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch;
-  /** User account in Docebo */
-  doceboUserId: Scalars["Int"];
-};
+export type AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountEmailKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch;
-  /** The email address associated with the account */
-  email: Scalars["String"];
-};
+export type AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountPkeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type AccountOnNoteForNoteAuthorIdFkeyNodeIdUpdate = {
@@ -630,12 +647,13 @@ export type AccountOnNoteForNoteAuthorIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnNoteForNoteAuthorIdFkeyUsingAccountDoceboUserIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnNoteForNoteAuthorIdFkeyPatch;
-  /** User account in Docebo */
-  doceboUserId: Scalars["Int"];
-};
+export type AccountOnNoteForNoteAuthorIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnNoteForNoteAuthorIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
 
 /** The fields on `account` to look up the row to update. */
 export type AccountOnNoteForNoteAuthorIdFkeyUsingAccountEmailKeyUpdate = {
@@ -662,28 +680,31 @@ export type AccountOnNotificationForNotificationAccountIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnNotificationForNotificationAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch;
-  /** User account in Docebo */
-  doceboUserId: Scalars["Int"];
-};
+export type AccountOnNotificationForNotificationAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnNotificationForNotificationAccountIdFkeyUsingAccountEmailKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch;
-  /** The email address associated with the account */
-  email: Scalars["String"];
-};
+export type AccountOnNotificationForNotificationAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnNotificationForNotificationAccountIdFkeyUsingAccountPkeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AccountOnNotificationForNotificationAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type AccountOnProjectMemberForProjectMemberAccountIdFkeyNodeIdUpdate = {
@@ -694,28 +715,31 @@ export type AccountOnProjectMemberForProjectMemberAccountIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
-  /** User account in Docebo */
-  doceboUserId: Scalars["Int"];
-};
+export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountEmailKeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
-  /** The email address associated with the account */
-  email: Scalars["String"];
-};
+export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
 
 /** The fields on `account` to look up the row to update. */
-export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountPkeyUpdate = {
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Account`. Fields that are set will be updated. */
 export type AccountPatch = {
@@ -757,6 +781,7 @@ export type AccountPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 export type AccountStatus = "NEW" | "ACTIVE" | "SUSPENDED";
@@ -959,12 +984,13 @@ export type AddressOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `address` to look up the row to update. */
-export type AddressOnCompanyForCompanyRegisteredAddressIdFkeyUsingAddressPkeyUpdate = {
-  /** An object where the defined keys will be set on the `address` being updated. */
-  patch: UpdateAddressOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AddressOnCompanyForCompanyRegisteredAddressIdFkeyUsingAddressPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `address` being updated. */
+    patch: UpdateAddressOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type AddressOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate = {
@@ -975,12 +1001,13 @@ export type AddressOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `address` to look up the row to update. */
-export type AddressOnCompanyForCompanyTradingAddressIdFkeyUsingAddressPkeyUpdate = {
-  /** An object where the defined keys will be set on the `address` being updated. */
-  patch: UpdateAddressOnCompanyForCompanyTradingAddressIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AddressOnCompanyForCompanyTradingAddressIdFkeyUsingAddressPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `address` being updated. */
+    patch: UpdateAddressOnCompanyForCompanyTradingAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type AddressOnProjectForProjectBuildingOwnerAddressIdFkeyNodeIdUpdate = {
@@ -991,12 +1018,13 @@ export type AddressOnProjectForProjectBuildingOwnerAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `address` to look up the row to update. */
-export type AddressOnProjectForProjectBuildingOwnerAddressIdFkeyUsingAddressPkeyUpdate = {
-  /** An object where the defined keys will be set on the `address` being updated. */
-  patch: UpdateAddressOnProjectForProjectBuildingOwnerAddressIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AddressOnProjectForProjectBuildingOwnerAddressIdFkeyUsingAddressPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `address` being updated. */
+    patch: UpdateAddressOnProjectForProjectBuildingOwnerAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type AddressOnProjectForProjectSiteAddressIdFkeyNodeIdUpdate = {
@@ -1007,12 +1035,13 @@ export type AddressOnProjectForProjectSiteAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `address` to look up the row to update. */
-export type AddressOnProjectForProjectSiteAddressIdFkeyUsingAddressPkeyUpdate = {
-  /** An object where the defined keys will be set on the `address` being updated. */
-  patch: UpdateAddressOnProjectForProjectSiteAddressIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type AddressOnProjectForProjectSiteAddressIdFkeyUsingAddressPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `address` being updated. */
+    patch: UpdateAddressOnProjectForProjectSiteAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Address`. Fields that are set will be updated. */
 export type AddressPatch = {
@@ -1674,20 +1703,22 @@ export type CertificationNodeIdDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type CertificationOnCertificationForCertificationDoceboUserIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `account` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: AccountPatch;
-};
+export type CertificationOnCertificationForCertificationDoceboUserIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
 
 /** The fields on `certification` to look up the row to update. */
-export type CertificationOnCertificationForCertificationDoceboUserIdFkeyUsingCertificationPkeyUpdate = {
-  /** An object where the defined keys will be set on the `certification` being updated. */
-  patch: UpdateCertificationOnCertificationForCertificationDoceboUserIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CertificationOnCertificationForCertificationDoceboUserIdFkeyUsingCertificationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `certification` being updated. */
+    patch: UpdateCertificationOnCertificationForCertificationDoceboUserIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Certification`. Fields that are set will be updated. */
 export type CertificationPatch = {
@@ -1780,8 +1811,6 @@ export type CompaniesOrderBy =
   | "REGISTERED_ADDRESS_ID_DESC"
   | "TRADING_ADDRESS_ID_ASC"
   | "TRADING_ADDRESS_ID_DESC"
-  | "REFERENCE_NUMBER_ASC"
-  | "REFERENCE_NUMBER_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
@@ -1945,8 +1974,6 @@ export type CompanyCondition = {
   registeredAddressId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `tradingAddressId` field. */
   tradingAddressId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `referenceNumber` field. */
-  referenceNumber?: Maybe<Scalars["String"]>;
 };
 
 /** A document uploaded by the Company to InTouch that appears on their Company Profile, for example an insurance certificate */
@@ -2080,20 +2107,22 @@ export type CompanyDocumentNodeIdDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type CompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `company` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: CompanyPatch;
-};
+export type CompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `company` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: CompanyPatch;
+  };
 
 /** The fields on `companyDocument` to look up the row to update. */
-export type CompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyDocumentPkeyUpdate = {
-  /** An object where the defined keys will be set on the `companyDocument` being updated. */
-  patch: UpdateCompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyDocumentPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyDocument` being updated. */
+    patch: UpdateCompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `CompanyDocument`. Fields that are set will be updated. */
 export type CompanyDocumentPatch = {
@@ -2150,8 +2179,6 @@ export type CompanyFilter = {
   registeredAddressId?: Maybe<IntFilter>;
   /** Filter by the object’s `tradingAddressId` field. */
   tradingAddressId?: Maybe<IntFilter>;
-  /** Filter by the object’s `referenceNumber` field. */
-  referenceNumber?: Maybe<StringFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<CompanyFilter>>;
   /** Checks for any expressions in this list. */
@@ -2635,88 +2662,97 @@ export type CompanyMemberNodeIdDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `account` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: AccountPatch;
-};
+export type CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
 
 /** The fields on `companyMember` to look up the row to update. */
-export type CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `companyMember` being updated. */
-  patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
-  /** fk */
-  marketId: Scalars["Int"];
-  /** fk */
-  accountId: Scalars["Int"];
-  /** fk */
-  companyId: Scalars["Int"];
-};
+export type CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
+    /** fk */
+    accountId: Scalars["Int"];
+    /** fk */
+    companyId: Scalars["Int"];
+  };
 
 /** The fields on `companyMember` to look up the row to update. */
-export type CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyUsingCompanyMemberPkeyUpdate = {
-  /** An object where the defined keys will be set on the `companyMember` being updated. */
-  patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyUsingCompanyMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
-export type CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `company` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: CompanyPatch;
-};
+export type CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `company` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: CompanyPatch;
+  };
 
 /** The fields on `companyMember` to look up the row to update. */
-export type CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `companyMember` being updated. */
-  patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
-  /** fk */
-  marketId: Scalars["Int"];
-  /** fk */
-  accountId: Scalars["Int"];
-  /** fk */
-  companyId: Scalars["Int"];
-};
+export type CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
+    /** fk */
+    accountId: Scalars["Int"];
+    /** fk */
+    companyId: Scalars["Int"];
+  };
 
 /** The fields on `companyMember` to look up the row to update. */
-export type CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMemberPkeyUpdate = {
-  /** An object where the defined keys will be set on the `companyMember` being updated. */
-  patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
-export type CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `market` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `market` being updated. */
-  patch: MarketPatch;
-};
+export type CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `market` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: MarketPatch;
+  };
 
 /** The fields on `companyMember` to look up the row to update. */
-export type CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `companyMember` being updated. */
-  patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
-  /** fk */
-  marketId: Scalars["Int"];
-  /** fk */
-  accountId: Scalars["Int"];
-  /** fk */
-  companyId: Scalars["Int"];
-};
+export type CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
+    /** fk */
+    accountId: Scalars["Int"];
+    /** fk */
+    companyId: Scalars["Int"];
+  };
 
 /** The fields on `companyMember` to look up the row to update. */
-export type CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyUsingCompanyMemberPkeyUpdate = {
-  /** An object where the defined keys will be set on the `companyMember` being updated. */
-  patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyUsingCompanyMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `CompanyMember`. Fields that are set will be updated. */
 export type CompanyMemberPatch = {
@@ -2784,20 +2820,22 @@ export type CompanyNodeIdDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `companyDocument` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `companyDocument` being updated. */
-  patch: CompanyDocumentPatch;
-};
+export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `companyDocument` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `companyDocument` being updated. */
+    patch: CompanyDocumentPatch;
+  };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate = {
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnCompanyForCompanyMarketIdFkeyNodeIdUpdate = {
@@ -2824,12 +2862,13 @@ export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate = {
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate = {
@@ -2840,12 +2879,13 @@ export type CompanyOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate = {
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate = {
@@ -2856,28 +2896,31 @@ export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate = {
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
-export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `companyOperation` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `companyOperation` being updated. */
-  patch: CompanyOperationPatch;
-};
+export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `companyOperation` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `companyOperation` being updated. */
+    patch: CompanyOperationPatch;
+  };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate = {
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate = {
@@ -2888,12 +2931,13 @@ export type CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate = {
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnProjectForProjectCompanyIdFkeyNodeIdUpdate = {
@@ -3042,20 +3086,22 @@ export type CompanyOperationNodeIdDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `company` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: CompanyPatch;
-};
+export type CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `company` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: CompanyPatch;
+  };
 
 /** The fields on `companyOperation` to look up the row to update. */
-export type CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyOperationPkeyUpdate = {
-  /** An object where the defined keys will be set on the `companyOperation` being updated. */
-  patch: UpdateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyOperationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyOperation` being updated. */
+    patch: UpdateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `CompanyOperation`. Fields that are set will be updated. */
 export type CompanyOperationPatch = {
@@ -4935,9 +4981,10 @@ export type CreateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our create `CourseSyncConfiguration` mutation. */
-export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the create `CourseTemp` mutation. */
 export type CreateCourseTempInput = {
@@ -6032,9 +6079,10 @@ export type DeleteCourseSyncConfigurationPayload = {
 };
 
 /** The output of our delete `CourseSyncConfiguration` mutation. */
-export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the `deleteCourseTempByNodeId` mutation. */
 export type DeleteCourseTempByNodeIdInput = {
@@ -7028,36 +7076,40 @@ export type EvidenceItemNodeIdDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `guarantee` being updated. */
-  patch: GuaranteePatch;
-};
+export type EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: GuaranteePatch;
+  };
 
 /** The fields on `evidenceItem` to look up the row to update. */
-export type EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingEvidenceItemPkeyUpdate = {
-  /** An object where the defined keys will be set on the `evidenceItem` being updated. */
-  patch: UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingEvidenceItemPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `evidenceItem` being updated. */
+    patch: UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
-export type EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `project` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `project` being updated. */
-  patch: ProjectPatch;
-};
+export type EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `project` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: ProjectPatch;
+  };
 
 /** The fields on `evidenceItem` to look up the row to update. */
-export type EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyUsingEvidenceItemPkeyUpdate = {
-  /** An object where the defined keys will be set on the `evidenceItem` being updated. */
-  patch: UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyUsingEvidenceItemPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `evidenceItem` being updated. */
+    patch: UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `EvidenceItem`. Fields that are set will be updated. */
 export type EvidenceItemPatch = {
@@ -7408,20 +7460,22 @@ export type GuaranteeNodeIdDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `evidenceItem` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `evidenceItem` being updated. */
-  patch: EvidenceItemPatch;
-};
+export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `evidenceItem` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `evidenceItem` being updated. */
+    patch: EvidenceItemPatch;
+  };
 
 /** The fields on `guarantee` to look up the row to update. */
-export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate = {
-  /** An object where the defined keys will be set on the `guarantee` being updated. */
-  patch: UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch;
-  /** Primary key - starts at 6100 */
-  id: Scalars["Int"];
-};
+export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyNodeIdUpdate = {
@@ -7432,12 +7486,13 @@ export type GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyNodeIdUpdate = {
 };
 
 /** The fields on `guarantee` to look up the row to update. */
-export type GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteePkeyUpdate = {
-  /** An object where the defined keys will be set on the `guarantee` being updated. */
-  patch: UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
-  /** Primary key - starts at 6100 */
-  id: Scalars["Int"];
-};
+export type GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate = {
@@ -7448,44 +7503,49 @@ export type GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `guarantee` to look up the row to update. */
-export type GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteePkeyUpdate = {
-  /** An object where the defined keys will be set on the `guarantee` being updated. */
-  patch: UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch;
-  /** Primary key - starts at 6100 */
-  id: Scalars["Int"];
-};
+export type GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
-export type GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `account` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: AccountPatch;
-};
+export type GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
 
 /** The fields on `guarantee` to look up the row to update. */
-export type GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate = {
-  /** An object where the defined keys will be set on the `guarantee` being updated. */
-  patch: UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
-  /** Primary key - starts at 6100 */
-  id: Scalars["Int"];
-};
+export type GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
-export type GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `account` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: AccountPatch;
-};
+export type GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
 
 /** The fields on `guarantee` to look up the row to update. */
-export type GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate = {
-  /** An object where the defined keys will be set on the `guarantee` being updated. */
-  patch: UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
-  /** Primary key - starts at 6100 */
-  id: Scalars["Int"];
-};
+export type GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyNodeIdUpdate = {
@@ -7496,12 +7556,13 @@ export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyNodeIdUpdate = {
 };
 
 /** The fields on `guarantee` to look up the row to update. */
-export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteePkeyUpdate = {
-  /** An object where the defined keys will be set on the `guarantee` being updated. */
-  patch: UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
-  /** Primary key - starts at 6100 */
-  id: Scalars["Int"];
-};
+export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Guarantee`. Fields that are set will be updated. */
 export type GuaranteePatch = {
@@ -9012,28 +9073,31 @@ export type InvitationOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `invitation` to look up the row to update. */
-export type InvitationOnInvitationForInvitationCompanyIdFkeyUsingInvitationPkeyUpdate = {
-  /** An object where the defined keys will be set on the `invitation` being updated. */
-  patch: UpdateInvitationOnInvitationForInvitationCompanyIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type InvitationOnInvitationForInvitationCompanyIdFkeyUsingInvitationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `invitation` being updated. */
+    patch: UpdateInvitationOnInvitationForInvitationCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
-export type InvitationOnInvitationForInvitationSenderAccountIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `account` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: AccountPatch;
-};
+export type InvitationOnInvitationForInvitationSenderAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
 
 /** The fields on `invitation` to look up the row to update. */
-export type InvitationOnInvitationForInvitationSenderAccountIdFkeyUsingInvitationPkeyUpdate = {
-  /** An object where the defined keys will be set on the `invitation` being updated. */
-  patch: UpdateInvitationOnInvitationForInvitationSenderAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type InvitationOnInvitationForInvitationSenderAccountIdFkeyUsingInvitationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `invitation` being updated. */
+    patch: UpdateInvitationOnInvitationForInvitationSenderAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Invitation`. Fields that are set will be updated. */
 export type InvitationPatch = {
@@ -9734,12 +9798,13 @@ export type MarketOnAccountForAccountMarketIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `market` to look up the row to update. */
-export type MarketOnAccountForAccountMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `market` being updated. */
-  patch: UpdateMarketOnAccountForAccountMarketIdFkeyPatch;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
-  doceboCatalogueId: Scalars["Int"];
-};
+export type MarketOnAccountForAccountMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnAccountForAccountMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
 
 /** The fields on `market` to look up the row to update. */
 export type MarketOnAccountForAccountMarketIdFkeyUsingMarketDomainKeyUpdate = {
@@ -9766,12 +9831,13 @@ export type MarketOnCompanyForCompanyMarketIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `market` to look up the row to update. */
-export type MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `market` being updated. */
-  patch: UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
-  doceboCatalogueId: Scalars["Int"];
-};
+export type MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
 
 /** The fields on `market` to look up the row to update. */
 export type MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDomainKeyUpdate = {
@@ -9798,28 +9864,31 @@ export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `market` to look up the row to update. */
-export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `market` being updated. */
-  patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
-  doceboCatalogueId: Scalars["Int"];
-};
+export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
 
 /** The fields on `market` to look up the row to update. */
-export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDomainKeyUpdate = {
-  /** An object where the defined keys will be set on the `market` being updated. */
-  patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
-  /** the country code used for example as the subdomain */
-  domain: Scalars["String"];
-};
+export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDomainKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** the country code used for example as the subdomain */
+    domain: Scalars["String"];
+  };
 
 /** The fields on `market` to look up the row to update. */
-export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketPkeyUpdate = {
-  /** An object where the defined keys will be set on the `market` being updated. */
-  patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type MarketOnProductForProductMarketIdFkeyNodeIdUpdate = {
@@ -9830,12 +9899,13 @@ export type MarketOnProductForProductMarketIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `market` to look up the row to update. */
-export type MarketOnProductForProductMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `market` being updated. */
-  patch: UpdateMarketOnProductForProductMarketIdFkeyPatch;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
-  doceboCatalogueId: Scalars["Int"];
-};
+export type MarketOnProductForProductMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnProductForProductMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
 
 /** The fields on `market` to look up the row to update. */
 export type MarketOnProductForProductMarketIdFkeyUsingMarketDomainKeyUpdate = {
@@ -9862,12 +9932,13 @@ export type MarketOnSystemForSystemMarketIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `market` to look up the row to update. */
-export type MarketOnSystemForSystemMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate = {
-  /** An object where the defined keys will be set on the `market` being updated. */
-  patch: UpdateMarketOnSystemForSystemMarketIdFkeyPatch;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
-  doceboCatalogueId: Scalars["Int"];
-};
+export type MarketOnSystemForSystemMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnSystemForSystemMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
 
 /** The fields on `market` to look up the row to update. */
 export type MarketOnSystemForSystemMarketIdFkeyUsingMarketDomainKeyUpdate = {
@@ -10932,9 +11003,10 @@ export type MutationDeleteCompanyMemberArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs = {
-  input: DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
-};
+export type MutationDeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs =
+  {
+    input: DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
+  };
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteCompanyMemberByNodeIdArgs = {
@@ -11267,9 +11339,10 @@ export type MutationUpdateCompanyMemberArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs = {
-  input: UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
-};
+export type MutationUpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs =
+  {
+    input: UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
+  };
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateCompanyMemberByNodeIdArgs = {
@@ -12008,20 +12081,22 @@ export type NotificationNotificationPkeyDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type NotificationOnNotificationForNotificationAccountIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `account` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: AccountPatch;
-};
+export type NotificationOnNotificationForNotificationAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
 
 /** The fields on `notification` to look up the row to update. */
-export type NotificationOnNotificationForNotificationAccountIdFkeyUsingNotificationPkeyUpdate = {
-  /** An object where the defined keys will be set on the `notification` being updated. */
-  patch: UpdateNotificationOnNotificationForNotificationAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type NotificationOnNotificationForNotificationAccountIdFkeyUsingNotificationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `notification` being updated. */
+    patch: UpdateNotificationOnNotificationForNotificationAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Notification`. Fields that are set will be updated. */
 export type NotificationPatch = {
@@ -12519,20 +12594,22 @@ export type ProductOnGuaranteeForGuaranteeProductBmiRefFkeyNodeIdUpdate = {
 };
 
 /** The fields on `product` to look up the row to update. */
-export type ProductOnGuaranteeForGuaranteeProductBmiRefFkeyUsingProductBmiRefKeyUpdate = {
-  /** An object where the defined keys will be set on the `product` being updated. */
-  patch: UpdateProductOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
-  /** A unique reference for the product known to BMI */
-  bmiRef: Scalars["String"];
-};
+export type ProductOnGuaranteeForGuaranteeProductBmiRefFkeyUsingProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
+    /** A unique reference for the product known to BMI */
+    bmiRef: Scalars["String"];
+  };
 
 /** The fields on `product` to look up the row to update. */
-export type ProductOnGuaranteeForGuaranteeProductBmiRefFkeyUsingProductPkeyUpdate = {
-  /** An object where the defined keys will be set on the `product` being updated. */
-  patch: UpdateProductOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type ProductOnGuaranteeForGuaranteeProductBmiRefFkeyUsingProductPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type ProductOnProductForProductMarketIdFkeyNodeIdUpdate = {
@@ -12543,12 +12620,13 @@ export type ProductOnProductForProductMarketIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `product` to look up the row to update. */
-export type ProductOnProductForProductMarketIdFkeyUsingProductBmiRefKeyUpdate = {
-  /** An object where the defined keys will be set on the `product` being updated. */
-  patch: UpdateProductOnProductForProductMarketIdFkeyPatch;
-  /** A unique reference for the product known to BMI */
-  bmiRef: Scalars["String"];
-};
+export type ProductOnProductForProductMarketIdFkeyUsingProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnProductForProductMarketIdFkeyPatch;
+    /** A unique reference for the product known to BMI */
+    bmiRef: Scalars["String"];
+  };
 
 /** The fields on `product` to look up the row to update. */
 export type ProductOnProductForProductMarketIdFkeyUsingProductPkeyUpdate = {
@@ -12559,28 +12637,31 @@ export type ProductOnProductForProductMarketIdFkeyUsingProductPkeyUpdate = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type ProductOnSystemMemberForSystemMemberProductBmiRefFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `systemMember` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `systemMember` being updated. */
-  patch: SystemMemberPatch;
-};
+export type ProductOnSystemMemberForSystemMemberProductBmiRefFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `systemMember` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: SystemMemberPatch;
+  };
 
 /** The fields on `product` to look up the row to update. */
-export type ProductOnSystemMemberForSystemMemberProductBmiRefFkeyUsingProductBmiRefKeyUpdate = {
-  /** An object where the defined keys will be set on the `product` being updated. */
-  patch: UpdateProductOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
-  /** A unique reference for the product known to BMI */
-  bmiRef: Scalars["String"];
-};
+export type ProductOnSystemMemberForSystemMemberProductBmiRefFkeyUsingProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
+    /** A unique reference for the product known to BMI */
+    bmiRef: Scalars["String"];
+  };
 
 /** The fields on `product` to look up the row to update. */
-export type ProductOnSystemMemberForSystemMemberProductBmiRefFkeyUsingProductPkeyUpdate = {
-  /** An object where the defined keys will be set on the `product` being updated. */
-  patch: UpdateProductOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type ProductOnSystemMemberForSystemMemberProductBmiRefFkeyUsingProductPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Product`. Fields that are set will be updated. */
 export type ProductPatch = {
@@ -13184,36 +13265,40 @@ export type ProjectMemberNodeIdDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type ProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `account` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `account` being updated. */
-  patch: AccountPatch;
-};
+export type ProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
 
 /** The fields on `projectMember` to look up the row to update. */
-export type ProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyUsingProjectMemberPkeyUpdate = {
-  /** An object where the defined keys will be set on the `projectMember` being updated. */
-  patch: UpdateProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type ProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyUsingProjectMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `projectMember` being updated. */
+    patch: UpdateProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
-export type ProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `project` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `project` being updated. */
-  patch: ProjectPatch;
-};
+export type ProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `project` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: ProjectPatch;
+  };
 
 /** The fields on `projectMember` to look up the row to update. */
-export type ProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyUsingProjectMemberPkeyUpdate = {
-  /** An object where the defined keys will be set on the `projectMember` being updated. */
-  patch: UpdateProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type ProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyUsingProjectMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `projectMember` being updated. */
+    patch: UpdateProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `ProjectMember`. Fields that are set will be updated. */
 export type ProjectMemberPatch = {
@@ -13422,12 +13507,13 @@ export type ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `project` to look up the row to update. */
-export type ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyUsingProjectPkeyUpdate = {
-  /** An object where the defined keys will be set on the `project` being updated. */
-  patch: UpdateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type ProjectOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate = {
@@ -13438,12 +13524,13 @@ export type ProjectOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `project` to look up the row to update. */
-export type ProjectOnGuaranteeForGuaranteeProjectIdFkeyUsingProjectPkeyUpdate = {
-  /** An object where the defined keys will be set on the `project` being updated. */
-  patch: UpdateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type ProjectOnGuaranteeForGuaranteeProjectIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type ProjectOnNoteForNoteProjectIdFkeyNodeIdUpdate = {
@@ -13470,12 +13557,13 @@ export type ProjectOnProjectForProjectBuildingOwnerAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `project` to look up the row to update. */
-export type ProjectOnProjectForProjectBuildingOwnerAddressIdFkeyUsingProjectPkeyUpdate = {
-  /** An object where the defined keys will be set on the `project` being updated. */
-  patch: UpdateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type ProjectOnProjectForProjectBuildingOwnerAddressIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type ProjectOnProjectForProjectCompanyIdFkeyNodeIdUpdate = {
@@ -13502,12 +13590,13 @@ export type ProjectOnProjectForProjectSiteAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `project` to look up the row to update. */
-export type ProjectOnProjectForProjectSiteAddressIdFkeyUsingProjectPkeyUpdate = {
-  /** An object where the defined keys will be set on the `project` being updated. */
-  patch: UpdateProjectOnProjectForProjectSiteAddressIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type ProjectOnProjectForProjectSiteAddressIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnProjectForProjectSiteAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type ProjectOnProjectMemberForProjectMemberProjectIdFkeyNodeIdUpdate = {
@@ -13518,12 +13607,13 @@ export type ProjectOnProjectMemberForProjectMemberProjectIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `project` to look up the row to update. */
-export type ProjectOnProjectMemberForProjectMemberProjectIdFkeyUsingProjectPkeyUpdate = {
-  /** An object where the defined keys will be set on the `project` being updated. */
-  patch: UpdateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type ProjectOnProjectMemberForProjectMemberProjectIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Project`. Fields that are set will be updated. */
 export type ProjectPatch = {
@@ -15370,56 +15460,62 @@ export type SystemMemberNodeIdDelete = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
-export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `product` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `product` being updated. */
-  patch: ProductPatch;
-};
+export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `product` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: ProductPatch;
+  };
 
 /** The fields on `systemMember` to look up the row to update. */
-export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberPkeyUpdate = {
-  /** An object where the defined keys will be set on the `systemMember` being updated. */
-  patch: UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The fields on `systemMember` to look up the row to update. */
-export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate = {
-  /** An object where the defined keys will be set on the `systemMember` being updated. */
-  patch: UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
-  /** fk */
-  systemBmiRef: Scalars["String"];
-  /** fk */
-  productBmiRef: Scalars["String"];
-};
+export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
+    /** fk */
+    systemBmiRef: Scalars["String"];
+    /** fk */
+    productBmiRef: Scalars["String"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
-export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyNodeIdUpdate = {
-  /** The globally unique `ID` which identifies a single `system` to be connected. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `system` being updated. */
-  patch: SystemPatch;
-};
+export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `system` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: SystemPatch;
+  };
 
 /** The fields on `systemMember` to look up the row to update. */
-export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberPkeyUpdate = {
-  /** An object where the defined keys will be set on the `systemMember` being updated. */
-  patch: UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The fields on `systemMember` to look up the row to update. */
-export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate = {
-  /** An object where the defined keys will be set on the `systemMember` being updated. */
-  patch: UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
-  /** fk */
-  systemBmiRef: Scalars["String"];
-  /** fk */
-  productBmiRef: Scalars["String"];
-};
+export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
+    /** fk */
+    systemBmiRef: Scalars["String"];
+    /** fk */
+    productBmiRef: Scalars["String"];
+  };
 
 /** Represents an update to a `SystemMember`. Fields that are set will be updated. */
 export type SystemMemberPatch = {
@@ -15716,20 +15812,22 @@ export type SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyNodeIdUpdate = {
 };
 
 /** The fields on `system` to look up the row to update. */
-export type SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingSystemBmiRefKeyUpdate = {
-  /** An object where the defined keys will be set on the `system` being updated. */
-  patch: UpdateSystemOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
-  /** A unique reference for the system known to BMI */
-  bmiRef: Scalars["String"];
-};
+export type SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingSystemBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: UpdateSystemOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
+    /** A unique reference for the system known to BMI */
+    bmiRef: Scalars["String"];
+  };
 
 /** The fields on `system` to look up the row to update. */
-export type SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingSystemPkeyUpdate = {
-  /** An object where the defined keys will be set on the `system` being updated. */
-  patch: UpdateSystemOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingSystemPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: UpdateSystemOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type SystemOnSystemForSystemMarketIdFkeyNodeIdUpdate = {
@@ -15764,20 +15862,22 @@ export type SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyNodeIdUpdate = {
 };
 
 /** The fields on `system` to look up the row to update. */
-export type SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemBmiRefKeyUpdate = {
-  /** An object where the defined keys will be set on the `system` being updated. */
-  patch: UpdateSystemOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
-  /** A unique reference for the system known to BMI */
-  bmiRef: Scalars["String"];
-};
+export type SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: UpdateSystemOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
+    /** A unique reference for the system known to BMI */
+    bmiRef: Scalars["String"];
+  };
 
 /** The fields on `system` to look up the row to update. */
-export type SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemPkeyUpdate = {
-  /** An object where the defined keys will be set on the `system` being updated. */
-  patch: UpdateSystemOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
+export type SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: UpdateSystemOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `System`. Fields that are set will be updated. */
 export type SystemPatch = {
@@ -16988,9 +17088,10 @@ export type UpdateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our update `CourseSyncConfiguration` mutation. */
-export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the `updateCourseTempByNodeId` mutation. */
 export type UpdateCourseTempByNodeIdInput = {
@@ -17879,47 +17980,50 @@ export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
-export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** ek */
-  status?: Maybe<AccountStatus>;
-  /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
-  /** ek */
-  role?: Maybe<Role>;
-  /** The email address associated with the account */
-  email?: Maybe<Scalars["String"]>;
-  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
-  phone?: Maybe<Scalars["String"]>;
-  /** First name */
-  firstName?: Maybe<Scalars["String"]>;
-  /** Last name */
-  lastName?: Maybe<Scalars["String"]>;
-  /** When the account was created */
-  created?: Maybe<Scalars["Datetime"]>;
-  /** Username in Docebo.  Needed to generate the SSO link */
-  doceboUsername?: Maybe<Scalars["String"]>;
-  /** File reference. A profile picture of the user */
-  photo?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  migrationId?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
-  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
-  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
-  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
-  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
-  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
-  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
-  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
-  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
-  photoUpload?: Maybe<Scalars["Upload"]>;
-};
+export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** ek */
+    status?: Maybe<AccountStatus>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** ek */
+    role?: Maybe<Role>;
+    /** The email address associated with the account */
+    email?: Maybe<Scalars["String"]>;
+    /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+    phone?: Maybe<Scalars["String"]>;
+    /** First name */
+    firstName?: Maybe<Scalars["String"]>;
+    /** Last name */
+    lastName?: Maybe<Scalars["String"]>;
+    /** When the account was created */
+    created?: Maybe<Scalars["Datetime"]>;
+    /** Username in Docebo.  Needed to generate the SSO link */
+    doceboUsername?: Maybe<Scalars["String"]>;
+    /** File reference. A profile picture of the user */
+    photo?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    migrationId?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+    certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+    companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+    guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+    guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+    invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+    notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+    notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+    projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+    photoUpload?: Maybe<Scalars["Upload"]>;
+    shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  };
 
 /** An object where the defined keys will be set on the `account` being updated. */
 export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
@@ -17961,6 +18065,7 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18003,6 +18108,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18045,6 +18151,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18087,6 +18194,7 @@ export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18129,6 +18237,7 @@ export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18171,6 +18280,7 @@ export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18213,6 +18323,7 @@ export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `address` being updated. */
@@ -18328,141 +18439,147 @@ export type UpdateAddressOnProjectForProjectSiteAddressIdFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `certification` being updated. */
-export type UpdateCertificationOnCertificationForCertificationDoceboUserIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** technology */
-  technology?: Maybe<Scalars["String"]>;
-  /** The name of the certification according to Docebo */
-  name?: Maybe<Scalars["String"]>;
-  /** The last day that this certification is valid */
-  expiryDate?: Maybe<Scalars["Datetime"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  accountToDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInput>;
-};
+export type UpdateCertificationOnCertificationForCertificationDoceboUserIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** technology */
+    technology?: Maybe<Scalars["String"]>;
+    /** The name of the certification according to Docebo */
+    name?: Maybe<Scalars["String"]>;
+    /** The last day that this certification is valid */
+    expiryDate?: Maybe<Scalars["Datetime"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    accountToDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `companyDocument` being updated. */
-export type UpdateCompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** The reference to the document */
-  document?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
-};
+export type UpdateCompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** The reference to the document */
+    document?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `companyMember` being updated. */
-export type UpdateCompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
-  accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
-  companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
-};
+export type UpdateCompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    companyId?: Maybe<Scalars["Int"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+    accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+    companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `companyMember` being updated. */
-export type UpdateCompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  accountId?: Maybe<Scalars["Int"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
-  accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
-  companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
-};
+export type UpdateCompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    accountId?: Maybe<Scalars["Int"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+    accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+    companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `companyMember` being updated. */
-export type UpdateCompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  accountId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
-  accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
-  companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
-};
+export type UpdateCompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    accountId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    companyId?: Maybe<Scalars["Int"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+    accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+    companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `company` being updated. */
-export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  registeredAddressId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  tradingAddressId?: Maybe<Scalars["Int"]>;
-  /** the name of the owner of the Company */
-  ownerFullname?: Maybe<Scalars["String"]>;
-  /** the email address to contact the owner */
-  ownerEmail?: Maybe<Scalars["String"]>;
-  /** the phone number to contact the owner */
-  ownerPhone?: Maybe<Scalars["String"]>;
-  /** ek */
-  businessType?: Maybe<BusinessType>;
-  /** ek */
-  tier?: Maybe<Tier>;
-  /** ek */
-  status?: Maybe<CompanyStatus>;
-  /** the email address of the person who filled out the company registration form */
-  registeredBy?: Maybe<Scalars["String"]>;
-  /** the date that the Company registration form was submitted */
-  registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
-  /** The registered name of the Company */
-  name?: Maybe<Scalars["String"]>;
-  /** The Tax number in that Market, such as the VAT number */
-  taxNumber?: Maybe<Scalars["String"]>;
-  /** The Company public phone number */
-  phone?: Maybe<Scalars["String"]>;
-  /** A descirption of the Company intended for Find a Roofer */
-  aboutUs?: Maybe<Scalars["String"]>;
-  /** The email address that they can be contacted with by the public assuming they are listed */
-  publicEmail?: Maybe<Scalars["String"]>;
-  /** The Company website URL */
-  website?: Maybe<Scalars["String"]>;
-  /** The Company facebook website */
-  facebook?: Maybe<Scalars["String"]>;
-  /** Their Company LinkedIn page URL */
-  linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
-  /** A reference to the logo image */
-  logo?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  migrationId?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
-  addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
-  addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
-  companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
-  companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
-  companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
-  invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
-  projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
-};
+export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    registeredAddressId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    tradingAddressId?: Maybe<Scalars["Int"]>;
+    /** the name of the owner of the Company */
+    ownerFullname?: Maybe<Scalars["String"]>;
+    /** the email address to contact the owner */
+    ownerEmail?: Maybe<Scalars["String"]>;
+    /** the phone number to contact the owner */
+    ownerPhone?: Maybe<Scalars["String"]>;
+    /** ek */
+    businessType?: Maybe<BusinessType>;
+    /** ek */
+    tier?: Maybe<Tier>;
+    /** ek */
+    status?: Maybe<CompanyStatus>;
+    /** the email address of the person who filled out the company registration form */
+    registeredBy?: Maybe<Scalars["String"]>;
+    /** the date that the Company registration form was submitted */
+    registeredDate?: Maybe<Scalars["Datetime"]>;
+    /** The Group ID of the company in Docebo */
+    doceboGroupId?: Maybe<Scalars["String"]>;
+    /** The registered name of the Company */
+    name?: Maybe<Scalars["String"]>;
+    /** The Tax number in that Market, such as the VAT number */
+    taxNumber?: Maybe<Scalars["String"]>;
+    /** The Company public phone number */
+    phone?: Maybe<Scalars["String"]>;
+    /** A descirption of the Company intended for Find a Roofer */
+    aboutUs?: Maybe<Scalars["String"]>;
+    /** The email address that they can be contacted with by the public assuming they are listed */
+    publicEmail?: Maybe<Scalars["String"]>;
+    /** The Company website URL */
+    website?: Maybe<Scalars["String"]>;
+    /** The Company facebook website */
+    facebook?: Maybe<Scalars["String"]>;
+    /** Their Company LinkedIn page URL */
+    linkedIn?: Maybe<Scalars["String"]>;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber?: Maybe<Scalars["String"]>;
+    /** A reference to the logo image */
+    logo?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    migrationId?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+    addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+    addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+    companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+    companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+    companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+    invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+    projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  };
 
 /** An object where the defined keys will be set on the `company` being updated. */
 export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
@@ -18723,70 +18840,71 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `company` being updated. */
-export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  registeredAddressId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  tradingAddressId?: Maybe<Scalars["Int"]>;
-  /** the name of the owner of the Company */
-  ownerFullname?: Maybe<Scalars["String"]>;
-  /** the email address to contact the owner */
-  ownerEmail?: Maybe<Scalars["String"]>;
-  /** the phone number to contact the owner */
-  ownerPhone?: Maybe<Scalars["String"]>;
-  /** ek */
-  businessType?: Maybe<BusinessType>;
-  /** ek */
-  tier?: Maybe<Tier>;
-  /** ek */
-  status?: Maybe<CompanyStatus>;
-  /** the email address of the person who filled out the company registration form */
-  registeredBy?: Maybe<Scalars["String"]>;
-  /** the date that the Company registration form was submitted */
-  registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
-  /** The registered name of the Company */
-  name?: Maybe<Scalars["String"]>;
-  /** The Tax number in that Market, such as the VAT number */
-  taxNumber?: Maybe<Scalars["String"]>;
-  /** The Company public phone number */
-  phone?: Maybe<Scalars["String"]>;
-  /** A descirption of the Company intended for Find a Roofer */
-  aboutUs?: Maybe<Scalars["String"]>;
-  /** The email address that they can be contacted with by the public assuming they are listed */
-  publicEmail?: Maybe<Scalars["String"]>;
-  /** The Company website URL */
-  website?: Maybe<Scalars["String"]>;
-  /** The Company facebook website */
-  facebook?: Maybe<Scalars["String"]>;
-  /** Their Company LinkedIn page URL */
-  linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
-  /** A reference to the logo image */
-  logo?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  migrationId?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
-  addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
-  addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
-  companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
-  companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
-  companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
-  invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
-  projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
-};
+export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    registeredAddressId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    tradingAddressId?: Maybe<Scalars["Int"]>;
+    /** the name of the owner of the Company */
+    ownerFullname?: Maybe<Scalars["String"]>;
+    /** the email address to contact the owner */
+    ownerEmail?: Maybe<Scalars["String"]>;
+    /** the phone number to contact the owner */
+    ownerPhone?: Maybe<Scalars["String"]>;
+    /** ek */
+    businessType?: Maybe<BusinessType>;
+    /** ek */
+    tier?: Maybe<Tier>;
+    /** ek */
+    status?: Maybe<CompanyStatus>;
+    /** the email address of the person who filled out the company registration form */
+    registeredBy?: Maybe<Scalars["String"]>;
+    /** the date that the Company registration form was submitted */
+    registeredDate?: Maybe<Scalars["Datetime"]>;
+    /** The Group ID of the company in Docebo */
+    doceboGroupId?: Maybe<Scalars["String"]>;
+    /** The registered name of the Company */
+    name?: Maybe<Scalars["String"]>;
+    /** The Tax number in that Market, such as the VAT number */
+    taxNumber?: Maybe<Scalars["String"]>;
+    /** The Company public phone number */
+    phone?: Maybe<Scalars["String"]>;
+    /** A descirption of the Company intended for Find a Roofer */
+    aboutUs?: Maybe<Scalars["String"]>;
+    /** The email address that they can be contacted with by the public assuming they are listed */
+    publicEmail?: Maybe<Scalars["String"]>;
+    /** The Company website URL */
+    website?: Maybe<Scalars["String"]>;
+    /** The Company facebook website */
+    facebook?: Maybe<Scalars["String"]>;
+    /** Their Company LinkedIn page URL */
+    linkedIn?: Maybe<Scalars["String"]>;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber?: Maybe<Scalars["String"]>;
+    /** A reference to the logo image */
+    logo?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    migrationId?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+    addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+    addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+    companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+    companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+    companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+    invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+    projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  };
 
 /** An object where the defined keys will be set on the `company` being updated. */
 export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
@@ -18921,55 +19039,58 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `companyOperation` being updated. */
-export type UpdateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** ek */
-  operation?: Maybe<Operation>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  companyToCompany?: Maybe<CompanyOperationCompanyFkeyInput>;
-};
+export type UpdateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** ek */
+    operation?: Maybe<Operation>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    companyToCompany?: Maybe<CompanyOperationCompanyFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `evidenceItem` being updated. */
-export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** a reference to the evidenceCategory sys id in Contentful */
-  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
-  /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
-  /** ek */
-  evidenceCategoryType?: Maybe<EvidenceCategoryType>;
-  /** Short name for the item of evidence */
-  name?: Maybe<Scalars["String"]>;
-  /** File reference or the file itself. Photo of the evidence */
-  attachment?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
-  guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
-};
+export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** a reference to the evidenceCategory sys id in Contentful */
+    customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+    /** fk */
+    projectId?: Maybe<Scalars["Int"]>;
+    /** ek */
+    evidenceCategoryType?: Maybe<EvidenceCategoryType>;
+    /** Short name for the item of evidence */
+    name?: Maybe<Scalars["String"]>;
+    /** File reference or the file itself. Photo of the evidence */
+    attachment?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
+    guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `evidenceItem` being updated. */
-export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** a reference to the evidenceCategory sys id in Contentful */
-  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
-  /** fk */
-  guaranteeId?: Maybe<Scalars["Int"]>;
-  /** ek */
-  evidenceCategoryType?: Maybe<EvidenceCategoryType>;
-  /** Short name for the item of evidence */
-  name?: Maybe<Scalars["String"]>;
-  /** File reference or the file itself. Photo of the evidence */
-  attachment?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
-  guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
-};
+export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** a reference to the evidenceCategory sys id in Contentful */
+    customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+    /** fk */
+    guaranteeId?: Maybe<Scalars["Int"]>;
+    /** ek */
+    evidenceCategoryType?: Maybe<EvidenceCategoryType>;
+    /** Short name for the item of evidence */
+    name?: Maybe<Scalars["String"]>;
+    /** File reference or the file itself. Photo of the evidence */
+    attachment?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
+    guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `guarantee` being updated. */
 export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
@@ -19082,40 +19203,41 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `guarantee` being updated. */
-export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
-  /** Primary key - starts at 6100 */
-  id?: Maybe<Scalars["Int"]>;
-  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
-  fileStorageId?: Maybe<Scalars["String"]>;
-  /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
-  /** fk */
-  systemBmiRef?: Maybe<Scalars["String"]>;
-  /** fk */
-  productBmiRef?: Maybe<Scalars["String"]>;
-  /** fk */
-  reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
-  /** ek */
-  status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
-  startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
-  expiryDate?: Maybe<Scalars["Datetime"]>;
-  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
-  bmiReferenceId?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
-  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
-  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
-  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
-  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
-  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
-};
+export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
+  {
+    /** Primary key - starts at 6100 */
+    id?: Maybe<Scalars["Int"]>;
+    /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+    fileStorageId?: Maybe<Scalars["String"]>;
+    /** fk */
+    projectId?: Maybe<Scalars["Int"]>;
+    /** a reference to the guaranteeType sys id in Contentful */
+    guaranteeTypeId?: Maybe<Scalars["String"]>;
+    /** fk */
+    systemBmiRef?: Maybe<Scalars["String"]>;
+    /** fk */
+    productBmiRef?: Maybe<Scalars["String"]>;
+    /** fk */
+    reviewerAccountId?: Maybe<Scalars["Int"]>;
+    /** a reference to the guaranteeType sys id in Contentful */
+    guaranteeTemplateId?: Maybe<Scalars["String"]>;
+    /** ek */
+    status?: Maybe<RequestStatus>;
+    /** The date that the Guarantee is approved either automatically or manually */
+    startDate?: Maybe<Scalars["Datetime"]>;
+    /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+    expiryDate?: Maybe<Scalars["Datetime"]>;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+    projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+    systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+    productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+    accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+    evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  };
 
 /** An object where the defined keys will be set on the `guarantee` being updated. */
 export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
@@ -19208,22 +19330,23 @@ export type UpdateInvitationOnInvitationForInvitationCompanyIdFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `invitation` being updated. */
-export type UpdateInvitationOnInvitationForInvitationSenderAccountIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
-  /** ek */
-  status?: Maybe<InvitationStatus>;
-  /** An email address */
-  invitee?: Maybe<Scalars["String"]>;
-  /** An optional note that can be included in the invitation by the sender */
-  personalNote?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  accountToSenderAccountId?: Maybe<InvitationSenderAccountIdFkeyInput>;
-  companyToCompanyId?: Maybe<InvitationCompanyIdFkeyInput>;
-};
+export type UpdateInvitationOnInvitationForInvitationSenderAccountIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    companyId?: Maybe<Scalars["Int"]>;
+    /** ek */
+    status?: Maybe<InvitationStatus>;
+    /** An email address */
+    invitee?: Maybe<Scalars["String"]>;
+    /** An optional note that can be included in the invitation by the sender */
+    personalNote?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    accountToSenderAccountId?: Maybe<InvitationSenderAccountIdFkeyInput>;
+    companyToCompanyId?: Maybe<InvitationCompanyIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `market` being updated. */
 export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
@@ -19449,19 +19572,20 @@ export type UpdateNoteOnNoteForNoteProjectIdFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `notification` being updated. */
-export type UpdateNotificationOnNotificationForNotificationAccountIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** The datetime stamp for when the message was sent */
-  sendDate?: Maybe<Scalars["Datetime"]>;
-  /** Whether the message still needs to be read */
-  unread?: Maybe<Scalars["Boolean"]>;
-  /** The body of the message */
-  body?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  accountToAccountId?: Maybe<NotificationAccountIdFkeyInput>;
-};
+export type UpdateNotificationOnNotificationForNotificationAccountIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** The datetime stamp for when the message was sent */
+    sendDate?: Maybe<Scalars["Datetime"]>;
+    /** Whether the message still needs to be read */
+    unread?: Maybe<Scalars["Boolean"]>;
+    /** The body of the message */
+    body?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    accountToAccountId?: Maybe<NotificationAccountIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `product` being updated. */
 export type UpdateProductOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
@@ -19549,32 +19673,34 @@ export type UpdateProductOnSystemMemberForSystemMemberProductBmiRefFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `projectMember` being updated. */
-export type UpdateProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
-  /** The responsible installer */
-  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
-  accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
-};
+export type UpdateProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    projectId?: Maybe<Scalars["Int"]>;
+    /** The responsible installer */
+    isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
+    accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `projectMember` being updated. */
-export type UpdateProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  accountId?: Maybe<Scalars["Int"]>;
-  /** The responsible installer */
-  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
-  accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
-};
+export type UpdateProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    accountId?: Maybe<Scalars["Int"]>;
+    /** The responsible installer */
+    isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
+    accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `project` being updated. */
 export type UpdateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch = {
@@ -19872,28 +19998,30 @@ export type UpdateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `systemMember` being updated. */
-export type UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  systemBmiRef?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
-  productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
-};
+export type UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    systemBmiRef?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+    productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `systemMember` being updated. */
-export type UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  productBmiRef?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-  systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
-  productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
-};
+export type UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    productBmiRef?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+    productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  };
 
 /** An object where the defined keys will be set on the `system` being updated. */
 export type UpdateSystemOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {

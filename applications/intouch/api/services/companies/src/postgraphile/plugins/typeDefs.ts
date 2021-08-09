@@ -144,6 +144,7 @@ export default gql`
 
   extend input AccountPatch {
     photoUpload: Upload
+    shouldRemovePhoto: Boolean
   }
 
   input PublishInput {

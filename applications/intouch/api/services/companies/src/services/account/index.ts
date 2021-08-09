@@ -107,7 +107,7 @@ export const updateAccount = async (
   const { GCP_BUCKET_NAME } = process.env;
 
   const { pgClient, user, logger: Logger } = context;
-  const { photoUpload, role } = args.input.patch;
+  const { photoUpload, role, shouldRemovePhoto } = args.input.patch;
 
   const logger = Logger("service:account");
 
@@ -176,14 +176,12 @@ export const updateAccount = async (
       }
     }
 
-    if (photoUpload) {
-      const { rows: accounts } = await pgClient.query(
-        `select photo from account WHERE id = $1`,
-        [args.input.id]
-      );
+    if (!photoUpload && shouldRemovePhoto) {
+      args.input.patch.photo = null;
+    }
 
-      const newFileName =
-        accounts[0].photo || `profile/${args.input.id}-${Date.now()}`;
+    if (photoUpload) {
+      const newFileName = `profile/${args.input.id}-${Date.now()}`;
 
       const uploadedFile: FileUpload = await photoUpload;
 
@@ -195,6 +193,23 @@ export const updateAccount = async (
         newFileName,
         uploadedFile
       );
+    }
+
+    // if the user wants to remove the image OR a new photo has been uploaded
+    if ((!photoUpload && shouldRemovePhoto) || photoUpload) {
+      const {
+        rows: [{ photo: currentPhoto }]
+      } = await pgClient.query(
+        "select account.photo from account where id = $1",
+        [user.id]
+      );
+
+      // delete the previous image if it exists & is hosted on GCP Cloud storage
+      // if the current image is externally hosted (i.e. starts with https://) it is probably mock data
+      if (currentPhoto && !/^http(s):\/\//.test(currentPhoto)) {
+        const storageClient = new StorageClient();
+        await storageClient.deleteFile(GCP_BUCKET_NAME, currentPhoto);
+      }
     }
 
     return await resolve(source, args, context, resolveInfo);
