@@ -9,7 +9,7 @@ export const evidenceItemsAdd = async (
   context,
   resolveInfo
 ) => {
-  const { GCP_BUCKET_NAME } = process.env;
+  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
   const { pgClient, logger: Logger } = context;
 
   const logger = Logger("service:evidence");
@@ -26,7 +26,7 @@ export const evidenceItemsAdd = async (
 
         const uploadedFile: FileUpload = await evidence.attachmentUpload;
         await storageClient.uploadFileByStream(
-          GCP_BUCKET_NAME,
+          GCP_PRIVATE_BUCKET_NAME,
           newFileName,
           uploadedFile
         );
