@@ -134,18 +134,28 @@ VOLATILE
 SECURITY DEFINER;
 
 -- Function to create a new company
-CREATE OR REPLACE FUNCTION create_company ()
+CREATE OR REPLACE FUNCTION create_company (owner_fullname text, owner_email text, owner_phone text, business_type business_type, tier tier, status company_status, name text, tax_number text, phone text, about_us text, public_email text, website text, facebook text, linked_in text)
   RETURNS company
   AS $$
 DECLARE
   _company company % rowtype;
+  new_code text;
 BEGIN
-  INSERT INTO company ("status", "market_id")
-    VALUES ('NEW', current_market ())
-  RETURNING
-    * INTO _company;
-  INSERT INTO company_member ("account_id", "market_id", "company_id")
-    VALUES (current_account_id (), current_market (), _company.id);
+  UPDATE account SET role = 'COMPANY_ADMIN' WHERE id = current_account_id ();
+  LOOP
+    new_code := LPAD(floor(random() * 9999999)::text, 7, '0');
+    BEGIN
+      INSERT INTO company ("market_id", "owner_fullname", "owner_email", "owner_phone", "business_type", "tier", "status", "name", "tax_number", "phone", "about_us", "public_email", "website", "facebook", "linked_in", "reference_number")
+        VALUES (current_market (), owner_fullname, owner_email, owner_phone, business_type, tier, status, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, new_code)
+      RETURNING
+        * INTO _company;
+      EXIT;
+    EXCEPTION
+      WHEN unique_violation THEN
+    END;
+  END LOOP;
+INSERT INTO company_member ("account_id", "market_id", "company_id")
+  VALUES (current_account_id (), current_market (), _company.id);
   RETURN _company;
 END
 $$

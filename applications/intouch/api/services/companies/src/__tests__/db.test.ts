@@ -179,8 +179,8 @@ describe("Database permissions", () => {
             accountUuid: company_admin_id,
             accountEmail: COMPANY_ADMIN_EMAIL
           },
-          "SELECT * FROM create_company()",
-          []
+          "SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)",
+          ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
         );
         company_id = rows[0].id;
         expect(rows.length).toEqual(1);
