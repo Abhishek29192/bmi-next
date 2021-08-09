@@ -102,6 +102,7 @@ const OverviewCard = ({
 
   const Wrapper = isFlat || clickableArea === "body" ? "div" : ClickableArea;
   const Body = !isFlat && clickableArea === "body" ? ClickableArea : "div";
+  const Title = isFlat && title ? ClickableArea : "div";
 
   return (
     <Wrapper
@@ -124,15 +125,17 @@ const OverviewCard = ({
           imageSource={imageSource}
           media={media}
         />
-        <Typography
-          variant={titleVariant}
-          className={classnames(
-            styles["title"],
-            !brandImageSource && styles["title--no-brand-logo"]
-          )}
-        >
-          {title}
-        </Typography>
+          <Typography
+            variant={titleVariant}
+            className={classnames(
+              styles["title"],
+              !brandImageSource && styles["title--no-brand-logo"]
+            )}
+            >
+            <Title className={styles["clickable"]}>
+              {title}
+            </Title>
+          </Typography>
         {subtitle && (
           <Typography variant={subtitleVariant} className={styles["text"]}>
             {subtitle}
