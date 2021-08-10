@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import classnames from "classnames";
 import Media, { AcceptedNode } from "@bmi/media";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
@@ -102,6 +102,12 @@ const OverviewCard = ({
 
   const Wrapper = isFlat || clickableArea === "body" ? "div" : ClickableArea;
   const Body = !isFlat && clickableArea === "body" ? ClickableArea : "div";
+  const Title = ({ ...rest }): JSX.Element =>
+    isFlat && title ? (
+      <ClickableArea className={styles["clickable"]} {...rest} />
+    ) : (
+      <Fragment {...rest} />
+    );
 
   return (
     <Wrapper
@@ -131,7 +137,7 @@ const OverviewCard = ({
             !brandImageSource && styles["title--no-brand-logo"]
           )}
         >
-          {title}
+          <Title>{title}</Title>
         </Typography>
         {subtitle && (
           <Typography variant={subtitleVariant} className={styles["text"]}>
