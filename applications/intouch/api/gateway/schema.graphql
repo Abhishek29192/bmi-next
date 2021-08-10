@@ -885,6 +885,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -3089,6 +3090,8 @@ enum CompaniesOrderBy {
   REGISTERED_ADDRESS_ID_DESC
   TRADING_ADDRESS_ID_ASC
   TRADING_ADDRESS_ID_DESC
+  REFERENCE_NUMBER_ASC
+  REFERENCE_NUMBER_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -3502,6 +3505,26 @@ input CompanyCompanyPkeyDelete {
 }
 
 """
+The fields on `company` to look up the row to connect.
+"""
+input CompanyCompanyReferenceNumberKeyConnect {
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
+}
+
+"""
+The fields on `company` to look up the row to delete.
+"""
+input CompanyCompanyReferenceNumberKeyDelete {
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
+}
+
+"""
 A condition to be used against `Company` object types. All fields are tested for equality and combined with a logical ‘and.’
 """
 input CompanyCondition {
@@ -3524,6 +3547,11 @@ input CompanyCondition {
   Checks for equality with the object’s `tradingAddressId` field.
   """
   tradingAddressId: Int
+
+  """
+  Checks for equality with the object’s `referenceNumber` field.
+  """
+  referenceNumber: String
 }
 
 """
@@ -3608,6 +3636,11 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -3618,12 +3651,22 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -3896,6 +3939,11 @@ input CompanyFilter {
   tradingAddressId: IntFilter
 
   """
+  Filter by the object’s `referenceNumber` field.
+  """
+  referenceNumber: StringFilter
+
+  """
   Checks for all expressions in this list.
   """
   and: [CompanyFilter!]
@@ -3998,6 +4046,11 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByReferenceNumber: [CompanyCompanyReferenceNumberKeyConnect!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: [CompanyNodeIdConnect!]
 
   """
@@ -4008,12 +4061,22 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByReferenceNumber: [CompanyCompanyReferenceNumberKeyDelete!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: [CompanyNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: [CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: [CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -4101,6 +4164,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -4337,6 +4401,11 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -4347,12 +4416,22 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -4811,6 +4890,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -5136,6 +5216,21 @@ input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpd
 }
 
 """
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input CompanyOnCompanyForCompanyMarketIdFkeyNodeIdUpdate {
@@ -5163,6 +5258,21 @@ input CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate {
   Primary key
   """
   id: Int!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyForCompanyMarketIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -5196,6 +5306,21 @@ input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate {
 }
 
 """
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input CompanyOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate {
@@ -5223,6 +5348,21 @@ input CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate {
   Primary key
   """
   id: Int!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -5256,6 +5396,21 @@ input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate 
 }
 
 """
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate {
@@ -5283,6 +5438,21 @@ input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpd
   Primary key
   """
   id: Int!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -5316,6 +5486,21 @@ input CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate {
 }
 
 """
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input CompanyOnProjectForProjectCompanyIdFkeyNodeIdUpdate {
@@ -5343,6 +5528,21 @@ input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate {
   Primary key
   """
   id: Int!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnProjectForProjectCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -5407,6 +5607,11 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -5417,12 +5622,22 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -5948,6 +6163,11 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByReferenceNumber: [CompanyCompanyReferenceNumberKeyConnect!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: [CompanyNodeIdConnect!]
 
   """
@@ -5958,12 +6178,22 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByReferenceNumber: [CompanyCompanyReferenceNumberKeyDelete!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: [CompanyNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -6090,6 +6320,11 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByReferenceNumber: [CompanyCompanyReferenceNumberKeyConnect!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: [CompanyNodeIdConnect!]
 
   """
@@ -6100,12 +6335,22 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByReferenceNumber: [CompanyCompanyReferenceNumberKeyDelete!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: [CompanyNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: [CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: [CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -9111,6 +9356,11 @@ type CreateSystemMemberPayload {
   productByProductBmiRef: Product
 
   """
+  Reads a single `Market` that is related to this `SystemMember`.
+  """
+  market: Market
+
+  """
   An edge for our `SystemMember`. May be used by Relay 1.
   """
   systemMemberEdge(
@@ -9484,6 +9734,22 @@ input DeleteCompanyByNodeIdInput {
   The globally unique `ID` which will identify a single `Company` to be deleted.
   """
   nodeId: ID!
+}
+
+"""
+All input for the `deleteCompanyByReferenceNumber` mutation.
+"""
+input DeleteCompanyByReferenceNumberInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -11103,9 +11369,9 @@ input DeleteSystemMemberByNodeIdInput {
 }
 
 """
-All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId` mutation.
 """
-input DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput {
+input DeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -11121,6 +11387,11 @@ input DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput {
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -11169,6 +11440,11 @@ type DeleteSystemMemberPayload {
   Reads a single `Product` that is related to this `SystemMember`.
   """
   productByProductBmiRef: Product
+
+  """
+  Reads a single `Market` that is related to this `SystemMember`.
+  """
+  market: Market
 
   """
   An edge for our `SystemMember`. May be used by Relay 1.
@@ -14653,6 +14929,11 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -14663,12 +14944,22 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -15623,6 +15914,52 @@ type Market implements Node {
     """
     filter: SystemFilter
   ): SystemsConnection!
+
+  """
+  Reads and enables pagination through a set of `SystemMember`.
+  """
+  systemMembers(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `SystemMember`.
+    """
+    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SystemMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemMemberFilter
+  ): SystemMembersConnection!
 }
 
 """
@@ -15932,6 +16269,7 @@ input MarketInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -16315,6 +16653,66 @@ input MarketOnSystemForSystemMarketIdFkeyUsingMarketPkeyUpdate {
 }
 
 """
+The globally unique `ID` look up for the row to update.
+"""
+input MarketOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `systemMember` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `systemMember` being updated.
+  """
+  patch: SystemMemberPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch!
+
+  """
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDomainKeyUpdate {
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch!
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketPkeyUpdate {
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch!
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
 Represents an update to a `Market`. Fields that are set will be updated.
 """
 input MarketPatch {
@@ -16394,6 +16792,7 @@ input MarketPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -17140,6 +17539,16 @@ type Mutation {
   ): DeleteCompanyPayload
 
   """
+  Deletes a single `Company` using a unique key.
+  """
+  deleteCompanyByReferenceNumber(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyByReferenceNumberInput!
+  ): DeleteCompanyPayload
+
+  """
   Deletes a single `CompanyDocument` using a unique key.
   """
   deleteCompanyDocument(
@@ -17652,11 +18061,11 @@ type Mutation {
   """
   Deletes a single `SystemMember` using a unique key.
   """
-  deleteSystemMemberBySystemBmiRefAndProductBmiRef(
+  deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput!
+    input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput!
   ): DeleteSystemMemberPayload
   evidenceItemsAdd(
     """
@@ -17788,6 +18197,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateCompanyByNodeIdInput!
+  ): UpdateCompanyPayload
+
+  """
+  Updates a single `Company` using a unique key and a patch.
+  """
+  updateCompanyByReferenceNumber(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyByReferenceNumberInput!
   ): UpdateCompanyPayload
 
   """
@@ -18309,11 +18728,11 @@ type Mutation {
   """
   Updates a single `SystemMember` using a unique key and a patch.
   """
-  updateSystemMemberBySystemBmiRefAndProductBmiRef(
+  updateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput!
+    input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput!
   ): UpdateSystemMemberPayload
   updateTraining(lastUpdateDate: String): String
 }
@@ -20020,6 +20439,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -20910,6 +21330,11 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -20920,12 +21345,22 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -22819,6 +23254,7 @@ type Query implements Node {
     """
     nodeId: ID!
   ): Company
+  companyByReferenceNumber(referenceNumber: String!): Company
   companyDocument(id: Int!): CompanyDocument
 
   """
@@ -24197,9 +24633,10 @@ type Query implements Node {
     """
     nodeId: ID!
   ): SystemMember
-  systemMemberBySystemBmiRefAndProductBmiRef(
+  systemMemberBySystemBmiRefAndProductBmiRefAndMarketId(
     systemBmiRef: String!
     productBmiRef: String!
+    marketId: Int!
   ): SystemMember
 
   """
@@ -25043,6 +25480,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -25113,6 +25551,11 @@ type SystemMember implements Node {
   fk
   """
   productBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -25125,6 +25568,11 @@ type SystemMember implements Node {
   Reads a single `Product` that is related to this `SystemMember`.
   """
   productByProductBmiRef: Product
+
+  """
+  Reads a single `Market` that is related to this `SystemMember`.
+  """
+  market: Market
 }
 
 """
@@ -25146,6 +25594,11 @@ input SystemMemberCondition {
   Checks for equality with the object’s `productBmiRef` field.
   """
   productBmiRef: String
+
+  """
+  Checks for equality with the object’s `marketId` field.
+  """
+  marketId: Int
 }
 
 """
@@ -25166,6 +25619,11 @@ input SystemMemberFilter {
   Filter by the object’s `productBmiRef` field.
   """
   productBmiRef: StringFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
 
   """
   Checks for all expressions in this list.
@@ -25201,10 +25659,254 @@ input SystemMemberInput {
   fk
   """
   productBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
+}
+
+"""
+Input for the nested mutation of `market` in the `SystemMemberInput` mutation.
+"""
+input SystemMemberMarketIdFkeyInput {
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectById: MarketMarketPkeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDomain: MarketMarketDomainKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByNodeId: MarketNodeIdConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteById: MarketMarketPkeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDomain: MarketMarketDomainKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByNodeId: MarketNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateById: MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDomain: MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDomainKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDoceboCatalogueId: MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByNodeId: SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate
+
+  """
+  A `MarketInput` object that will be created and connected to this object.
+  """
+  create: SystemMemberMarketIdFkeyMarketCreateInput
+}
+
+"""
+Input for the nested mutation of `systemMember` in the `MarketInput` mutation.
+"""
+input SystemMemberMarketIdFkeyInverseInput {
+  """
+  Flag indicating whether all other `systemMember` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  connectById: [SystemMemberSystemMemberPkeyConnect!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  connectBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  connectByNodeId: [SystemMemberNodeIdConnect!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  deleteById: [SystemMemberSystemMemberPkeyDelete!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  deleteBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  deleteByNodeId: [SystemMemberNodeIdDelete!]
+
+  """
+  The primary key(s) and patch data for `systemMember` for the far side of the relationship.
+  """
+  updateById: [SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `systemMember` for the far side of the relationship.
+  """
+  updateBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `systemMember` for the far side of the relationship.
+  """
+  updateByNodeId: [MarketOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate!]
+
+  """
+  A `SystemMemberInput` object that will be created and connected to this object.
+  """
+  create: [SystemMemberMarketIdFkeySystemMemberCreateInput!]
+}
+
+"""
+The `market` to be created by this mutation.
+"""
+input SystemMemberMarketIdFkeyMarketCreateInput {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The default branch in Docebo that installers go into
+  """
+  doceboInstallersBranchId: String
+
+  """
+  The branch in Docebo that company admins go into
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  productsUsingId: ProductMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+}
+
+"""
+The `systemMember` to be created by this mutation.
+"""
+input SystemMemberMarketIdFkeySystemMemberCreateInput {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  fk
+  """
+  systemBmiRef: String
+
+  """
+  fk
+  """
+  productBmiRef: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
+  productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -25225,6 +25927,61 @@ input SystemMemberNodeIdDelete {
   The globally unique `ID` which identifies a single `systemMember` to be deleted.
   """
   nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `market` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: MarketPatch!
+}
+
+"""
+The fields on `systemMember` to look up the row to update.
+"""
+input SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberPkeyUpdate {
+  """
+  An object where the defined keys will be set on the `systemMember` being updated.
+  """
+  patch: updateSystemMemberOnSystemMemberForSystemMemberMarketIdFkeyPatch!
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+The fields on `systemMember` to look up the row to update.
+"""
+input SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `systemMember` being updated.
+  """
+  patch: updateSystemMemberOnSystemMemberForSystemMemberMarketIdFkeyPatch!
+
+  """
+  fk
+  """
+  systemBmiRef: String!
+
+  """
+  fk
+  """
+  productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -25260,7 +26017,7 @@ input SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMembe
 """
 The fields on `systemMember` to look up the row to update.
 """
-input SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate {
+input SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate {
   """
   An object where the defined keys will be set on the `systemMember` being updated.
   """
@@ -25275,6 +26032,11 @@ input SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMembe
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -25310,7 +26072,7 @@ input SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMember
 """
 The fields on `systemMember` to look up the row to update.
 """
-input SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate {
+input SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate {
   """
   An object where the defined keys will be set on the `systemMember` being updated.
   """
@@ -25325,6 +26087,11 @@ input SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMember
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -25345,10 +26112,16 @@ input SystemMemberPatch {
   fk
   """
   productBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -25423,7 +26196,7 @@ input SystemMemberProductBmiRefFkeyInverseInput {
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
   """
-  connectBySystemBmiRefAndProductBmiRef: [SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect!]
+  connectBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect!]
 
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
@@ -25438,7 +26211,7 @@ input SystemMemberProductBmiRefFkeyInverseInput {
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
   """
-  deleteBySystemBmiRefAndProductBmiRef: [SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete!]
+  deleteBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete!]
 
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
@@ -25453,7 +26226,7 @@ input SystemMemberProductBmiRefFkeyInverseInput {
   """
   The primary key(s) and patch data for `systemMember` for the far side of the relationship.
   """
-  updateBySystemBmiRefAndProductBmiRef: [SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate!]
+  updateBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `systemMember` for the far side of the relationship.
@@ -25539,10 +26312,16 @@ input SystemMemberProductBmiRefFkeySystemMemberCreateInput {
   fk
   """
   systemBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -25617,7 +26396,7 @@ input SystemMemberSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
   """
-  connectBySystemBmiRefAndProductBmiRef: [SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect!]
+  connectBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect!]
 
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
@@ -25632,7 +26411,7 @@ input SystemMemberSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
   """
-  deleteBySystemBmiRefAndProductBmiRef: [SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete!]
+  deleteBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete!]
 
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
@@ -25647,7 +26426,7 @@ input SystemMemberSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) and patch data for `systemMember` for the far side of the relationship.
   """
-  updateBySystemBmiRefAndProductBmiRef: [SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate!]
+  updateBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `systemMember` for the far side of the relationship.
@@ -25723,10 +26502,16 @@ input SystemMemberSystemBmiRefFkeySystemMemberCreateInput {
   fk
   """
   productBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -25752,7 +26537,7 @@ input SystemMemberSystemMemberPkeyDelete {
 """
 The fields on `systemMember` to look up the row to connect.
 """
-input SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect {
+input SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect {
   """
   fk
   """
@@ -25762,12 +26547,17 @@ input SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect {
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
 The fields on `systemMember` to look up the row to delete.
 """
-input SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete {
+input SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete {
   """
   fk
   """
@@ -25777,6 +26567,11 @@ input SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete {
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -25830,6 +26625,8 @@ enum SystemMembersOrderBy {
   SYSTEM_BMI_REF_DESC
   PRODUCT_BMI_REF_ASC
   PRODUCT_BMI_REF_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -26726,6 +27523,27 @@ input UpdateCompanyByNodeIdInput {
   An object where the defined keys will be set on the `Company` being updated.
   """
   patch: CompanyPatch!
+}
+
+"""
+All input for the `updateCompanyByReferenceNumber` mutation.
+"""
+input UpdateCompanyByReferenceNumberInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Company` being updated.
+  """
+  patch: CompanyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -28580,9 +29398,9 @@ input UpdateSystemMemberByNodeIdInput {
 }
 
 """
-All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId` mutation.
 """
-input UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput {
+input UpdateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -28603,6 +29421,11 @@ input UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput {
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -28655,6 +29478,11 @@ type UpdateSystemMemberPayload {
   Reads a single `Product` that is related to this `SystemMember`.
   """
   productByProductBmiRef: Product
+
+  """
+  Reads a single `Market` that is related to this `SystemMember`.
+  """
+  market: Market
 
   """
   An edge for our `SystemMember`. May be used by Relay 1.
@@ -31805,6 +32633,7 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -31887,6 +32716,7 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -31969,6 +32799,7 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -32051,6 +32882,7 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -32133,6 +32965,90 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+}
+
+"""
+An object where the defined keys will be set on the `market` being updated.
+"""
+input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The default branch in Docebo that installers go into
+  """
+  doceboInstallersBranchId: String
+
+  """
+  The branch in Docebo that company admins go into
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  productsUsingId: ProductMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -33045,6 +33961,31 @@ input updateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch {
 """
 An object where the defined keys will be set on the `systemMember` being updated.
 """
+input updateSystemMemberOnSystemMemberForSystemMemberMarketIdFkeyPatch {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  fk
+  """
+  systemBmiRef: String
+
+  """
+  fk
+  """
+  productBmiRef: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
+  productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
+}
+
+"""
+An object where the defined keys will be set on the `systemMember` being updated.
+"""
 input updateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch {
   """
   Primary key
@@ -33055,10 +33996,16 @@ input updateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch {
   fk
   """
   systemBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -33074,10 +34021,16 @@ input updateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch {
   fk
   """
   productBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """

@@ -24,6 +24,7 @@ import {
   useCompanyMembersLazyQuery
 } from "../../../../graphql/generated/hooks";
 import AccessControl from "../../../../lib/permissions/AccessControl";
+import { formatDate } from "../../../../lib/utils";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 import Alert from "./Alert";
@@ -64,11 +65,6 @@ const getTechnologies = (account) =>
       account.certificationsByDoceboUserId.nodes.map((item) => item.technology)
     )
   );
-
-const formatDate = (date: string) =>
-  new Intl.DateTimeFormat("en-GB", {
-    dateStyle: "medium"
-  } as any).format(new Date(date?.substring(0, 10)));
 
 const certificationClass = (data: string): string => {
   const certDate: Date = new Date(new Date(data).setUTCHours(0, 0, 0, 0));
@@ -185,9 +181,10 @@ const CompanyMembers = ({ data }: PageProps) => {
     setMembers([
       ...data.companyMembers.nodes.filter(
         ({ account: { email = "", firstName = "", lastName = "" } }) =>
-          email.toLowerCase().indexOf(valueToSearch) !== -1 ||
-          firstName.toLowerCase().indexOf(valueToSearch) !== -1 ||
-          lastName.toLowerCase().indexOf(valueToSearch) !== -1
+          (email && email.toLowerCase().indexOf(valueToSearch) !== -1) ||
+          (firstName &&
+            firstName.toLowerCase().indexOf(valueToSearch) !== -1) ||
+          (lastName && lastName.toLowerCase().indexOf(valueToSearch) !== -1)
       )
     ]);
   };

@@ -1,0 +1,36 @@
+.tab {
+  > div {
+    padding: 0 !important;
+    background-color: #f7f7f7 !important;
+  }
+}
+
+.importContent {
+  background-color: #ffffff;
+  margin: 0 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem;
+
+  &:first-child {
+    margin-top: 1.5rem;
+  }
+}
+
+.editBtn {
+  margin-left: auto;
+  display: flex;
+}
+.detailPanel {
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  padding: 1.5rem;
+  margin: 1.5rem;
+  width: 100%;
+}
+
+.result {
+}
+
+.container {
+  display: flex;
+  background-color: #f7f7f7;
+}

@@ -6,40 +6,64 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../components/Layout";
 import { withPage } from "../../lib/middleware/withPage";
 import ProductImport from "../../components/Pages/ProductSystem";
+import { getServerPageProductsAndSystems } from "../../graphql/generated/page";
+import { ProductsAndSystemsQuery } from "../../graphql/generated/operations";
 
-const ProductsAndSystems = () => {
+type ProductsAndSystemsPageProps = {
+  ssrProducts: ProductsAndSystemsQuery["products"];
+  ssrSystems: ProductsAndSystemsQuery["systems"];
+};
+
+const ProductsAndSystems = ({
+  ssrProducts,
+  ssrSystems
+}: ProductsAndSystemsPageProps) => {
   const { t } = useTranslation();
 
   return (
     <Layout title={t("Product Import")}>
-      <ProductImport />
+      <ProductImport products={ssrProducts} systems={ssrSystems} />
     </Layout>
   );
 };
 
-export const getServerSideProps = withPage(async ({ locale, account }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "sidebar",
-        "footer"
-      ])),
-      account
-    }
-  };
-});
+export const getServerSideProps = withPage(
+  async ({ locale, account, apolloClient }) => {
+    const {
+      props: { data }
+    } = await getServerPageProductsAndSystems({}, apolloClient);
+
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, [
+          "admin-products-systems",
+          "common",
+          "sidebar",
+          "footer"
+        ])),
+        account,
+        ssrProducts: data.products,
+        ssrSystems: data.systems
+      }
+    };
+  }
+);
 
 // TODO: fetch product by market
-export const pageQuery = gql`
+export const GetProductsAndSystems = gql`
   query ProductsAndSystems {
     products {
       nodes {
         id
         name
+        brand
+        family
         bmiRef
+        updatedAt
         published
+        technology
         description
+        maximumValidityYears
       }
     }
     systems {
@@ -47,50 +71,16 @@ export const pageQuery = gql`
         id
         name
         bmiRef
-        description
         published
+        updatedAt
+        technology
+        description
+        maximumValidityYears
       }
     }
   }
 `;
 
-export const uploadProducts = gql`
-  mutation bulkImport($input: BulkImportInput!) {
-    bulkImport(input: $input) {
-      systemsToInsert {
-        bmiRef
-      }
-      systemsToUpdate {
-        bmiRef
-      }
-      productsToInsert {
-        bmiRef
-      }
-      productsToUpdate {
-        bmiRef
-      }
-    }
-  }
-`;
-
-export const updateProduct = gql`
-  mutation updateProduct($input: UpdateProductInput!) {
-    updateProduct(input: $input) {
-      product {
-        id
-      }
-    }
-  }
-`;
-
-export const updateSystem = gql`
-  mutation updateSystem($input: UpdateSystemInput!) {
-    updateSystem(input: $input) {
-      system {
-        id
-      }
-    }
-  }
-`;
-
-export default withPageAuthRequired(ProductsAndSystems);
+export default withPageAuthRequired<ProductsAndSystemsPageProps>(
+  ProductsAndSystems
+);

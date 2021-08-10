@@ -1,0 +1,29 @@
+{
+  "technology": "Technology",
+  "bmiRef": "BmiRef",
+  "brand": "Brand",
+  "description": "Description",
+  "family": "Family",
+  "published": "Published",
+  "maximumValidityYears": "Maximum validity years",
+  "updatedAt": "Updated at",
+  "show": "Show",
+  "edit": "Edit",
+  "submit": "Submit",
+  "bulkImport": "Bulk import",
+  "products": "Products",
+  "system": "System",
+  "sidePanel": {
+    "search": {
+      "label": "Search",
+      "noResult": "No items found"
+    }
+  },
+  "dryRun": "Dry run",
+  "confirm": "Confirm the import",
+  "importCompleted": "Import completed",
+  "productToInsert": "These product will be inserted",
+  "systemToInsert": "These systems will be inserted",
+  "systemToUpdate": "These systems will be updated",
+  "productToUpdate": "These product will be updated"
+}
