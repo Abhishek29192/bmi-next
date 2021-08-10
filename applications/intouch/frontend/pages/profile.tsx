@@ -22,12 +22,19 @@ const UserProfilePage = ({
   globalPageData
 }: UserProfilePageProps) => {
   const account = pageAccount;
+  const { contactUsPage } = globalPageData.marketContentCollection.items[0];
   return (
     <Layout
       title={[account.firstName, account.lastName].filter(Boolean).join(" ")}
       pageData={globalPageData}
     >
-      <UserProfilePageContent accountSSR={account} />
+      <UserProfilePageContent
+        accountSSR={account}
+        contactUsPage={{
+          href: contactUsPage.relativePath,
+          label: contactUsPage.title
+        }}
+      />
     </Layout>
   );
 };
@@ -77,6 +84,7 @@ export const getServerSideProps = withPage(
       { variables: { accountId: account.id } },
       apolloClient
     );
+
     return {
       props: {
         globalPageData,
