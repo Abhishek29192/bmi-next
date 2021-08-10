@@ -35,15 +35,8 @@ $hero-breakpoint-sm: 769px;
       &--truncated {
         -webkit-line-clamp: 2;
 
-        &::before {
-          background-color: $color-theme-accent;
-          content: "";
-          display: block;
-          height: 4px;
-          margin-top: 1rem;
-          width: 100px;
-          position: absolute;
-          top: 3em;
+        &::after {
+          display: none;
         }
       }
     }
@@ -106,6 +99,22 @@ $hero-breakpoint-sm: 769px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+
+    @media (min-width: $hero-breakpoint-sm) {
+      margin-top: -10px;
+
+      &::before {
+        background-color: $color-theme-accent;
+        content: "";
+        display: block;
+        height: 4px;
+        margin-top: 0.6rem;
+        width: 100px;
+        position: relative;
+        top: -10px;
+        margin-bottom: 10px;
+      }
+    }
   }
 
   .cta {
