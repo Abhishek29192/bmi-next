@@ -10,12 +10,14 @@
 @use "@material/notched-outline/mdc-notched-outline";
 @use "@material/textfield";
 @use "@material/button/styles" as button-styles;
+@use "@material/tooltip/styles" as tooltip-styles;
 @use "@material/radio/styles";
 @use "@material/form-field";
+@use "@material/checkbox";
 
+@include checkbox.core-styles;
 @include form-field.core-styles;
 @include textfield.core-styles;
-// @include button.core-styles;
 
 @import "base/reset";
 
@@ -63,6 +65,8 @@ a {
 .mdc-form-field {
   label {
     font-family: Effra-Regular, sans-serif;
+    color: #70706f;
+    font-size: 17px;
   }
 }
 
@@ -162,6 +166,8 @@ a {
 
 p {
   margin-bottom: 1rem;
+  color: #70706f;
+  font-size: 17px;
 }
 
 .captcha-container {
@@ -190,4 +196,39 @@ p {
   justify-content: center;
   align-items: center;
   display: none;
+}
+
+.registration-intro {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.tooltip-container {
+  margin-left: 4px;
+  margin-top: -3px;
+}
+
+.mdc-checkbox__background {
+  border-color: #007bbd !important;
+}
+
+.mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+.mdc-checkbox__native-control:enabled:indeterminate
+  ~ .mdc-checkbox__background {
+  border-color: #007bbd !important;
+  background-color: #007bbd !important;
+}
+
+.terms-check {
+  margin-top: 0.5rem;
+  margin-bottom: -1rem;
+
+  label {
+    color: #70706f;
+  }
+
+  a {
+    color: #70706f;
+  }
 }

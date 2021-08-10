@@ -102,7 +102,22 @@
       <h1 class="underlined-heading" x-text="$t('signup_welcome')">Welcome</h1>
 
       <div class="role-container">
-        <p x-text="$t('intouch_role')">Please select your registration type:</p>
+        <div class="registration-intro">
+          <p x-text="$t('intouch_role')">Please select your registration type</p>
+          <div class="mdc-tooltip-wrapper--rich tooltip-container">
+            <div aria-describedby="tt0">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#007bbd"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+            </div>
+            <div id="tt0" class="mdc-tooltip mdc-tooltip--rich" aria-hidden="true" role="tooltip">
+              <div class="mdc-tooltip__surface mdc-tooltip__surface-animation">
+                <p class="mdc-tooltip__content" x-text="$t('registration_tooltip')">
+                  Only select Company Account if you are sure that your company is not already registered InTouch.  Individual Accounts will get access to training and can become members of registered companies.
+                </p>
+              </div>
+            </div>  
+          </div>
+        </div>
+
 
         <div class="mdc-form-field">
           <div class="mdc-radio">
@@ -173,6 +188,25 @@
         <input id="signup-password" type="password" class="mdc-text-field__input" aria-labelledby="my-label-id" id="signup-password">
       </label>
 
+      <div class="mdc-form-field terms-check">
+        <div class="mdc-checkbox">
+          <input type="checkbox"
+                class="mdc-checkbox__native-control"
+                id="terms-and-conditions"/>
+          <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark"
+                viewBox="0 0 24 24">
+              <path class="mdc-checkbox__checkmark-path"
+                    fill="none"
+                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+            </svg>
+            <div class="mdc-checkbox__mixedmark"></div>
+          </div>
+          <div class="mdc-checkbox__ripple"></div>
+        </div>
+        <label for="terms-and-conditions">I agree to BMI's <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+      </div>
+
       <div class="button-container">
         <div class="mdc-touch-target-wrapper">
           <button id="btn-signup" class="mdc-button mdc-button--unelevated">
@@ -240,6 +274,7 @@
 </div>
 
 
+
     <!--[if IE 8]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
     <![endif]-->
@@ -261,6 +296,10 @@
           mdc.textField.MDCTextField.attachTo(el);
         }
       );
+      const MDCTooltip = mdc.tooltip.MDCTooltip;
+      const tooltips = [].map.call(document.querySelectorAll('.mdc-tooltip'), function(el) {
+        return new MDCTooltip(el);
+      });
     </script>
 
     <script>
@@ -269,7 +308,7 @@
         en: {
           intouch_title: "InTouch - Login/Registration",
           signup_welcome: "Welcome",
-          intouch_role: "Please select your registration type:",
+          intouch_role: "Please select your registration type",
           installer: "Installer",
           company: "Company",
           first_name: "First Name",
@@ -291,12 +330,13 @@
           email_missing: "Please insert your email",
           generic_error: "Please check your credential, if the problem persists contact use",
           name_surname_missing: "First and last name missing",
-          email_password_missing: "Email and password missing"
+          email_password_missing: "Email and password missing",
+          registration_tooltip: "Only select Company Account if you are sure that your company is not already registered InTouch.  Individual Accounts will get access to training and can become members of registered companies.",
         },
         it: {
           intouch_title: "In Touch - Login/Registrazione",
           signup_welcome: "Benvenuto",
-          intouch_role: "Seleziona il tuo tipo di registrazione:",
+          intouch_role: "Seleziona il tuo tipo di registrazione",
           installer: "Installatore",
           company: "Azienda",
           first_name: "Nome",
@@ -319,6 +359,7 @@
           generic_error: "Please check your credential, if the problem persists contact use",
           name_surname_missing: "Nome e Cognome mancanti",
           email_password_missing: "Email e password mancanti",
+          registration_tooltip: "Seleziona Account azienda solo se sei sicuro che la tua azienda non sia già registrata in InTouch. Gli account individuali avranno accesso alla formazione e possono diventare membri di aziende registrate.",
         }
       };
 
@@ -482,5 +523,11 @@
 
       });
     </script>
+
+    <div id="tooltip-id" class="mdc-tooltip" role="tooltip" aria-hidden="true">
+      <div class="mdc-tooltip__surface mdc-tooltip__surface-animation">
+        lorem ipsum dolor
+      </div>
+    </div>
   </body>
 </html>
