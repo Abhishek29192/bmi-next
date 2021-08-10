@@ -14798,11 +14798,22 @@ input ImageTransformOptions {
   format: ImageFormat
 }
 
-type ImportPayload {
-  systemsToUpdate: [System]
-  systemsToInsert: [System]
-  productsToUpdate: [Product]
-  productsToInsert: [Product]
+type ImportError {
+  ref: String
+  messgae: String
+}
+
+type ImportOutput {
+  systemsToUpdate: [System!]
+  systemsToInsert: [System!]
+  productsToUpdate: [Product!]
+  productsToInsert: [Product!]
+  errorSystemsToUpdate: [ImportError!]
+  errorSystemsToInsert: [ImportError!]
+  errorProductsToUpdate: [ImportError!]
+  errorProductsToInsert: [ImportError!]
+  errorSystemMembersInsert: [ImportError!]
+  errorSystemMembersUpdate: [ImportError!]
 }
 
 """
@@ -17159,7 +17170,7 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: BulkImportInput!
-  ): ImportPayload
+  ): ImportOutput
   completeInvitation(companyId: Int!): Account
   courseCatalogueUpdate(
     """
@@ -21340,7 +21351,17 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByNodeId: CompanyNodeIdConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteById: CompanyCompanyPkeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.

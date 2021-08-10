@@ -7829,7 +7829,7 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: BulkImportInput!
-  ): ImportPayload
+  ): ImportOutput
 }
 
 """
@@ -27831,11 +27831,22 @@ input InviteInput {
   personalNote: String
 }
 
-type ImportPayload {
-  systemsToUpdate: [System]
-  systemsToInsert: [System]
-  productsToUpdate: [Product]
-  productsToInsert: [Product]
+type ImportOutput {
+  systemsToUpdate: [System!]
+  systemsToInsert: [System!]
+  productsToUpdate: [Product!]
+  productsToInsert: [Product!]
+  errorSystemsToUpdate: [ImportError!]
+  errorSystemsToInsert: [ImportError!]
+  errorProductsToUpdate: [ImportError!]
+  errorProductsToInsert: [ImportError!]
+  errorSystemMembersInsert: [ImportError!]
+  errorSystemMembersUpdate: [ImportError!]
+}
+
+type ImportError {
+  ref: String
+  messgae: String
 }
 
 input BulkImportInput {

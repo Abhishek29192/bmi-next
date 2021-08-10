@@ -806,6 +806,9 @@ ALTER TABLE account
 ALTER TABLE account
   ADD UNIQUE (docebo_user_id);
 
+ALTER TABLE company
+  ADD UNIQUE (reference_number);
+
 ALTER TABLE company_member
   ADD UNIQUE (market_id, account_id, company_id);
 

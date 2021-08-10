@@ -2,6 +2,8 @@ import * as csv from "fast-csv";
 import pgFormat from "pg-format";
 import camelcaseKeys from "camelcase-keys";
 
+import { validateItems, validateProductsAndSystems } from "./validation";
+
 const PRODUCTS_FILE = "products.csv";
 const SYSTEMS_FILE = "systems.csv";
 const SYSTEM_MEMBER_FILE = "system_member.csv";
@@ -37,6 +39,7 @@ const getProducts = async (market: string, pgClient: any) => {
     []
   );
 };
+
 const getSystems = async (market: string, pgClient: any) => {
   const { rows = [] } = await pgClient.query(
     "select * from system where market_id = $1",
@@ -62,6 +65,7 @@ export const bulkImport = async (args, context) => {
   let systems = [];
   let systemMember = [];
 
+  const systemMemberToInsert = [];
   const systemsToInsert = [];
   const productsToInsert = [];
   const systemsToUpdate = [];
@@ -91,6 +95,12 @@ export const bulkImport = async (args, context) => {
 
     if (filename.indexOf(SYSTEM_MEMBER_FILE) !== -1) {
       systemMember = parsedFile.map((item) => {
+        systemMemberToInsert.push(
+          camelcaseKeys({
+            system_bmi_ref: item.system_bmi_ref,
+            product_bmi_ref: item.product_bmi_ref
+          })
+        );
         return {
           system_bmi_ref: item.system_bmi_ref,
           product_bmi_ref: item.product_bmi_ref
@@ -142,6 +152,21 @@ export const bulkImport = async (args, context) => {
     }
   }
 
+  const errorSystemsToUpdate = validateItems(systemsToUpdate);
+  const errorSystemsToInsert = validateItems(systemsToInsert);
+  const errorProductsToUpdate = validateItems(productsToUpdate);
+  const errorProductsToInsert = validateItems(productsToInsert);
+  const errorSystemMembersInsert = validateProductsAndSystems(
+    systemMemberToInsert,
+    productsToInsert,
+    systemsToInsert
+  );
+  const errorSystemMembersUpdate = validateProductsAndSystems(
+    systemMemberToInsert,
+    productsToUpdate,
+    systemsToUpdate
+  );
+
   logger.info(
     `Importing ${systems.length} systems, ${products.length} products, and ${systemMember.length} system_member`
   );
@@ -151,7 +176,13 @@ export const bulkImport = async (args, context) => {
       systemsToUpdate,
       systemsToInsert,
       productsToUpdate,
-      productsToInsert
+      productsToInsert,
+      errorSystemsToUpdate,
+      errorSystemsToInsert,
+      errorProductsToUpdate,
+      errorProductsToInsert,
+      errorSystemMembersInsert,
+      errorSystemMembersUpdate
     };
   }
 
@@ -232,9 +263,15 @@ export const bulkImport = async (args, context) => {
 
   // TODO: decide what we want to return
   return {
-    systemsToUpdate: [],
-    productsToUpdate: [],
-    productsToInsert: [],
-    systemsToInsert: []
+    systemsToUpdate,
+    systemsToInsert,
+    productsToUpdate,
+    productsToInsert,
+    errorSystemsToUpdate,
+    errorSystemsToInsert,
+    errorProductsToUpdate,
+    errorProductsToInsert,
+    errorSystemMembersInsert,
+    errorSystemMembersUpdate
   };
 };

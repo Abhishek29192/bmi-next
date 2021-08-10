@@ -36,7 +36,7 @@ const ImportTab = () => {
         const { data } = await bulkImport({
           variables: {
             input: {
-              files: (filesToUpload as unknown) as any[],
+              files: filesToUpload as unknown as any[],
               dryRun
             }
           }

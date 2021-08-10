@@ -176,11 +176,22 @@ export default gql`
     dryRun: Boolean
   }
 
-  type ImportPayload {
-    systemsToUpdate: [System]
-    systemsToInsert: [System]
-    productsToUpdate: [Product]
-    productsToInsert: [Product]
+  type ImportError {
+    ref: String
+    messgae: String
+  }
+
+  type ImportOutput {
+    systemsToUpdate: [System!]
+    systemsToInsert: [System!]
+    productsToUpdate: [Product!]
+    productsToInsert: [Product!]
+    errorSystemsToUpdate: [ImportError!]
+    errorSystemsToInsert: [ImportError!]
+    errorProductsToUpdate: [ImportError!]
+    errorProductsToInsert: [ImportError!]
+    errorSystemMembersInsert: [ImportError!]
+    errorSystemMembersUpdate: [ImportError!]
   }
 
   extend input EvidenceItemInput {
@@ -193,6 +204,6 @@ export default gql`
     createGuaranteePdf(id: Int!): PublishOutput
     invite(input: InviteInput!): [Invitation]
     completeInvitation(companyId: Int!): Account
-    bulkImport(input: BulkImportInput!): ImportPayload
+    bulkImport(input: BulkImportInput!): ImportOutput
   }
 `;

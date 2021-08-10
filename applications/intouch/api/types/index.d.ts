@@ -9085,12 +9085,24 @@ export type ImageTransformOptions = {
   format?: Maybe<ImageFormat>;
 };
 
-export type ImportPayload = {
-  __typename?: "ImportPayload";
-  systemsToUpdate?: Maybe<Array<Maybe<System>>>;
-  systemsToInsert?: Maybe<Array<Maybe<System>>>;
-  productsToUpdate?: Maybe<Array<Maybe<Product>>>;
-  productsToInsert?: Maybe<Array<Maybe<Product>>>;
+export type ImportError = {
+  __typename?: "ImportError";
+  ref?: Maybe<Scalars["String"]>;
+  messgae?: Maybe<Scalars["String"]>;
+};
+
+export type ImportOutput = {
+  __typename?: "ImportOutput";
+  systemsToUpdate?: Maybe<Array<System>>;
+  systemsToInsert?: Maybe<Array<System>>;
+  productsToUpdate?: Maybe<Array<Product>>;
+  productsToInsert?: Maybe<Array<Product>>;
+  errorSystemsToUpdate?: Maybe<Array<ImportError>>;
+  errorSystemsToInsert?: Maybe<Array<ImportError>>;
+  errorProductsToUpdate?: Maybe<Array<ImportError>>;
+  errorProductsToInsert?: Maybe<Array<ImportError>>;
+  errorSystemMembersInsert?: Maybe<Array<ImportError>>;
+  errorSystemMembersUpdate?: Maybe<Array<ImportError>>;
 };
 
 /** A filter to be used against Int fields. All fields are combined with a logical ‘and.’ */
@@ -10670,7 +10682,7 @@ export type MigrationOrder =
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: "Mutation";
-  bulkImport?: Maybe<ImportPayload>;
+  bulkImport?: Maybe<ImportOutput>;
   completeInvitation?: Maybe<Account>;
   courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
   courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
