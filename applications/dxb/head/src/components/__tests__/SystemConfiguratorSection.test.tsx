@@ -3,6 +3,12 @@ import { render, fireEvent } from "@testing-library/react";
 import { ErrorBoundary } from "react-error-boundary";
 import mockConsole from "jest-mock-console";
 import axios from "axios";
+import {
+  createHistory,
+  createMemorySource,
+  LocationProvider
+} from "@reach/router";
+import { SiteContextProvider } from "../Site";
 import SystemConfiguratorSection, {
   Data,
   NextStepData
@@ -143,40 +149,55 @@ const nextStepData: NextStepData = {
     }
   ]
 };
+const getSiteContext = (
+  countryCode: string = "no",
+  nodeLocale: string = "en-GB"
+) => ({
+  countryCode: countryCode,
+  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
+  node_locale: nodeLocale,
+  homePage: {
+    title: "Home page title"
+  }
+});
 
 describe("SystemConfiguratorSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <SystemConfiguratorSection
-        data={{
-          __typename: "ContentfulSystemConfiguratorBlock",
-          title: "System Configurator Section Title",
-          description: null,
-          label: "System Configurator Section Label",
-          type: "Section",
-          locale: "en-US",
-          question: null,
-          noResultItems: []
-        }}
-      />
+      <LocationProvider>
+        <SystemConfiguratorSection
+          data={{
+            __typename: "ContentfulSystemConfiguratorBlock",
+            title: "System Configurator Section Title",
+            description: null,
+            label: "System Configurator Section Label",
+            type: "Section",
+            locale: "en-US",
+            question: null,
+            noResultItems: []
+          }}
+        />
+      </LocationProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it("renders with description rich text", () => {
     const { container } = render(
-      <SystemConfiguratorSection
-        data={{
-          __typename: "ContentfulSystemConfiguratorBlock",
-          title: "System Configurator Section Title",
-          description: { raw: JSON.stringify(richTextRaw), references: null },
-          label: "System Configurator Section Label",
-          type: "Section",
-          locale: "en-US",
-          question: null,
-          noResultItems: []
-        }}
-      />
+      <LocationProvider>
+        <SystemConfiguratorSection
+          data={{
+            __typename: "ContentfulSystemConfiguratorBlock",
+            title: "System Configurator Section Title",
+            description: { raw: JSON.stringify(richTextRaw), references: null },
+            label: "System Configurator Section Label",
+            type: "Section",
+            locale: "en-US",
+            question: null,
+            noResultItems: []
+          }}
+        />
+      </LocationProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -184,7 +205,9 @@ describe("SystemConfiguratorSection component", () => {
 
   it("renders System Configurator Block with initial question and answer data", async () => {
     const { container, findByText } = render(
-      <SystemConfiguratorSection data={initialData} />
+      <LocationProvider>
+        <SystemConfiguratorSection data={initialData} />
+      </LocationProvider>
     );
 
     await findByText(initialData.question.title);
@@ -196,7 +219,9 @@ describe("SystemConfiguratorSection component", () => {
     mockedAxios.get.mockResolvedValue({ data: nextStepData });
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <SystemConfiguratorSection data={initialData} />
+      <LocationProvider>
+        <SystemConfiguratorSection data={initialData} />
+      </LocationProvider>
     );
 
     const label = await findByLabelText("Answer 1c title");
@@ -221,7 +246,11 @@ describe("SystemConfiguratorSection component", () => {
     });
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <SystemConfiguratorSection data={initialData} />
+      <SiteContextProvider value={getSiteContext()}>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </SiteContextProvider>
     );
 
     const label = await findByLabelText("Answer 1c title");
@@ -230,6 +259,38 @@ describe("SystemConfiguratorSection component", () => {
     await findByRole("progressbar");
 
     await findByText("Result Title");
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("stores selected system when a result system card clicked", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulSystemConfiguratorBlock",
+        title: "Result Title",
+        description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
+        recommendedSystems: ["abcd", "efgh"]
+      }
+    });
+
+    const { container, findByText, findByLabelText, findByRole } = render(
+      <SiteContextProvider value={getSiteContext()}>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </SiteContextProvider>
+    );
+
+    const label = await findByLabelText("Answer 1c title");
+    fireEvent.click(label);
+
+    await findByRole("progressbar");
+
+    await findByText("Result Title");
+
+    const label2 = await findByText((tex) => tex.startsWith("System-abcd"));
+    fireEvent.click(label2);
 
     expect(container).toMatchSnapshot();
   });
@@ -244,7 +305,9 @@ describe("SystemConfiguratorSection component", () => {
     });
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <SystemConfiguratorSection data={initialData} />
+      <LocationProvider>
+        <SystemConfiguratorSection data={initialData} />
+      </LocationProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -299,7 +362,9 @@ describe("SystemConfiguratorSection component", () => {
     });
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <SystemConfiguratorSection data={initialData} />
+      <LocationProvider>
+        <SystemConfiguratorSection data={initialData} />
+      </LocationProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -354,7 +419,9 @@ describe("SystemConfiguratorSection component", () => {
     });
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <SystemConfiguratorSection data={initialData} />
+      <LocationProvider>
+        <SystemConfiguratorSection data={initialData} />
+      </LocationProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -398,7 +465,9 @@ describe("SystemConfiguratorSection component", () => {
     });
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <SystemConfiguratorSection data={initialData} />
+      <LocationProvider>
+        <SystemConfiguratorSection data={initialData} />
+      </LocationProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -415,7 +484,11 @@ describe("SystemConfiguratorSection component", () => {
     mockedAxios.get.mockResolvedValue({ data: nextStepData });
 
     const { container, findByLabelText, findByRole, findByText, getByText } =
-      render(<SystemConfiguratorSection data={initialData} />);
+      render(
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      );
 
     const label = await findByLabelText("Answer 1c title");
     fireEvent.click(label);
@@ -453,7 +526,9 @@ describe("SystemConfiguratorSection component", () => {
     mockedAxios.get.mockResolvedValueOnce({ data: nextStepData });
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <SystemConfiguratorSection data={initialData} />
+      <LocationProvider>
+        <SystemConfiguratorSection data={initialData} />
+      </LocationProvider>
     );
 
     const label = await findByLabelText("Answer 1c title");
@@ -472,7 +547,9 @@ describe("SystemConfiguratorSection component", () => {
 
     const { container, findByLabelText, findByRole } = render(
       <ErrorBoundary fallbackRender={() => <>Something went wrong</>}>
-        <SystemConfiguratorSection data={initialData} />
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
       </ErrorBoundary>
     );
 
@@ -488,7 +565,11 @@ describe("SystemConfiguratorSection component", () => {
     mockedAxios.get.mockResolvedValueOnce({ data: nextStepData });
 
     const { container, findByLabelText, findByText, findByRole, getByRole } =
-      render(<SystemConfiguratorSection data={initialData} />);
+      render(
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      );
 
     const answerLabel = await findByLabelText("Answer 1c title");
     fireEvent.click(answerLabel);
@@ -505,5 +586,39 @@ describe("SystemConfiguratorSection component", () => {
     fireEvent.click(firstQuestion);
 
     expect(container).toMatchSnapshot();
+  });
+  describe("When returning from valid referer", () => {
+    it("removes query string from path", async () => {
+      mockedAxios.get.mockResolvedValue({
+        data: {
+          __typename: "ContentfulSystemConfiguratorBlock",
+          title: "Result Title",
+          description: { raw: JSON.stringify(richTextRaw), references: null },
+          type: "Result",
+          recommendedSystems: ["abcd", "efgh"]
+        }
+      });
+
+      const route = "/jest-test-page?referer=sys_details";
+      const history = createHistory(createMemorySource(route));
+      window.history.replaceState = jest.fn();
+      const { container, findByText, findByLabelText } = render(
+        <SiteContextProvider value={getSiteContext()}>
+          <LocationProvider history={history}>
+            <SystemConfiguratorSection data={initialData} />
+          </LocationProvider>
+        </SiteContextProvider>
+      );
+
+      const label = await findByLabelText("Answer 1c title");
+      fireEvent.click(label);
+
+      await findByText("Result Title");
+
+      await findByText((tex) => tex.startsWith("System-abcd"));
+
+      expect(window.history.replaceState).toBeCalled();
+      expect(container).toMatchSnapshot();
+    });
   });
 });
