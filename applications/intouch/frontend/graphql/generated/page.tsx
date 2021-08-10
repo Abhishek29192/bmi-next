@@ -101,9 +101,11 @@ export async function getServerPageGetProjectCompanyMembers(
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data = await apolloClient.query<OperationTypes.GetProjectCompanyMembersQuery>(
-    { ...options, query: Operations.GetProjectCompanyMembersDocument }
-  );
+  const data =
+    await apolloClient.query<OperationTypes.GetProjectCompanyMembersQuery>({
+      ...options,
+      query: Operations.GetProjectCompanyMembersDocument
+    });
 
   const apolloState = apolloClient.cache.extract();
 
@@ -275,9 +277,11 @@ export async function getServerPageGetContentArticleContent(
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data = await apolloClient.query<OperationTypes.GetContentArticleContentQuery>(
-    { ...options, query: Operations.GetContentArticleContentDocument }
-  );
+  const data =
+    await apolloClient.query<OperationTypes.GetContentArticleContentQuery>({
+      ...options,
+      query: Operations.GetContentArticleContentDocument
+    });
 
   const apolloState = apolloClient.cache.extract();
 
@@ -352,7 +356,6 @@ export const ssrProductsAndSystems = {
 
   usePage: useProductsAndSystems
 };
-
 export async function getServerPageGetCurrentCompany(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetCurrentCompanyQueryVariables>,
@@ -662,9 +665,10 @@ export async function getServerPageDoceboCatalogIdByMarketDomain(
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data = await apolloClient.query<OperationTypes.DoceboCatalogIdByMarketDomainQuery>(
-    { ...options, query: Operations.DoceboCatalogIdByMarketDomainDocument }
-  );
+  const data =
+    await apolloClient.query<OperationTypes.DoceboCatalogIdByMarketDomainQuery>(
+      { ...options, query: Operations.DoceboCatalogIdByMarketDomainDocument }
+    );
 
   const apolloState = apolloClient.cache.extract();
 

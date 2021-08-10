@@ -14800,7 +14800,7 @@ input ImageTransformOptions {
 
 type ImportError {
   ref: String
-  messgae: String
+  message: String
 }
 
 type ImportOutput {
@@ -14813,7 +14813,6 @@ type ImportOutput {
   errorProductsToUpdate: [ImportError!]
   errorProductsToInsert: [ImportError!]
   errorSystemMembersInsert: [ImportError!]
-  errorSystemMembersUpdate: [ImportError!]
 }
 
 """

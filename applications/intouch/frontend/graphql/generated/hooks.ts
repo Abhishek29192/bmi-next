@@ -144,49 +144,6 @@ export const AccountPageDetailsFragmentFragmentDoc = gql`
   }
   ${CompanyDetailsFragmentFragmentDoc}
 `;
-export type UpdateCompanyDetailsMutationFn = Apollo.MutationFunction<
-  OperationTypes.UpdateCompanyDetailsMutation,
-  OperationTypes.UpdateCompanyDetailsMutationVariables
->;
-
-/**
- * __useUpdateCompanyDetailsMutation__
- *
- * To run a mutation, you first call `useUpdateCompanyDetailsMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpdateCompanyDetailsMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [updateCompanyDetailsMutation, { data, loading, error }] = useUpdateCompanyDetailsMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUpdateCompanyDetailsMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.UpdateCompanyDetailsMutation,
-    OperationTypes.UpdateCompanyDetailsMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.UpdateCompanyDetailsMutation,
-    OperationTypes.UpdateCompanyDetailsMutationVariables
-  >(UpdateCompanyDetailsDocument, options);
-}
-export type UpdateCompanyDetailsMutationHookResult = ReturnType<
-  typeof useUpdateCompanyDetailsMutation
->;
-export type UpdateCompanyDetailsMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
-export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.UpdateCompanyDetailsMutation,
-  OperationTypes.UpdateCompanyDetailsMutationVariables
->;
 export const GetGlobalDataDocument = gql`
   query GetGlobalData {
     marketContentCollection(limit: 1) {
@@ -531,6 +488,26 @@ export const BulkImportDocument = gql`
       productsToUpdate {
         bmiRef
       }
+      errorSystemsToUpdate {
+        ref
+        message
+      }
+      errorSystemsToInsert {
+        ref
+        message
+      }
+      errorProductsToUpdate {
+        ref
+        message
+      }
+      errorProductsToInsert {
+        ref
+        message
+      }
+      errorSystemMembersInsert {
+        ref
+        message
+      }
     }
   }
 `;
@@ -646,7 +623,7 @@ export const UpdateSystemDocument = gql`
   mutation updateSystem($input: UpdateSystemInput!) {
     updateSystem(input: $input) {
       query {
-        systems {
+        products {
           nodes {
             id
             name
@@ -704,6 +681,168 @@ export type UpdateSystemMutationResult =
 export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateSystemMutation,
   OperationTypes.UpdateSystemMutationVariables
+>;
+export const UpdateAccountProfileDocument = gql`
+  mutation updateAccountProfile($updateAccountInput: UpdateAccountInput!) {
+    updateAccount(input: $updateAccountInput) {
+      account {
+        ...AccountPageDetailsFragment
+      }
+    }
+  }
+  ${AccountPageDetailsFragmentFragmentDoc}
+`;
+export type UpdateAccountProfileMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateAccountProfileMutation,
+  OperationTypes.UpdateAccountProfileMutationVariables
+>;
+
+/**
+ * __useUpdateAccountProfileMutation__
+ *
+ * To run a mutation, you first call `useUpdateAccountProfileMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAccountProfileMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAccountProfileMutation, { data, loading, error }] = useUpdateAccountProfileMutation({
+ *   variables: {
+ *      updateAccountInput: // value for 'updateAccountInput'
+ *   },
+ * });
+ */
+export function useUpdateAccountProfileMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateAccountProfileMutation,
+    OperationTypes.UpdateAccountProfileMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateAccountProfileMutation,
+    OperationTypes.UpdateAccountProfileMutationVariables
+  >(UpdateAccountProfileDocument, options);
+}
+export type UpdateAccountProfileMutationHookResult = ReturnType<
+  typeof useUpdateAccountProfileMutation
+>;
+export type UpdateAccountProfileMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateAccountProfileMutation>;
+export type UpdateAccountProfileMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateAccountProfileMutation,
+  OperationTypes.UpdateAccountProfileMutationVariables
+>;
+export const LeaveCompanyDocument = gql`
+  mutation leaveCompany($accountId: Int!, $companyId: Int!, $marketId: Int!) {
+    deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId(
+      input: {
+        accountId: $accountId
+        companyId: $companyId
+        marketId: $marketId
+      }
+    ) {
+      clientMutationId
+      account {
+        ...AccountPageDetailsFragment
+      }
+    }
+  }
+  ${AccountPageDetailsFragmentFragmentDoc}
+`;
+export type LeaveCompanyMutationFn = Apollo.MutationFunction<
+  OperationTypes.LeaveCompanyMutation,
+  OperationTypes.LeaveCompanyMutationVariables
+>;
+
+/**
+ * __useLeaveCompanyMutation__
+ *
+ * To run a mutation, you first call `useLeaveCompanyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useLeaveCompanyMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [leaveCompanyMutation, { data, loading, error }] = useLeaveCompanyMutation({
+ *   variables: {
+ *      accountId: // value for 'accountId'
+ *      companyId: // value for 'companyId'
+ *      marketId: // value for 'marketId'
+ *   },
+ * });
+ */
+export function useLeaveCompanyMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.LeaveCompanyMutation,
+    OperationTypes.LeaveCompanyMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.LeaveCompanyMutation,
+    OperationTypes.LeaveCompanyMutationVariables
+  >(LeaveCompanyDocument, options);
+}
+export type LeaveCompanyMutationHookResult = ReturnType<
+  typeof useLeaveCompanyMutation
+>;
+export type LeaveCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.LeaveCompanyMutation>;
+export type LeaveCompanyMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.LeaveCompanyMutation,
+  OperationTypes.LeaveCompanyMutationVariables
+>;
+export const ResetPasswordDocument = gql`
+  mutation resetPassword {
+    resetPassword
+  }
+`;
+export type ResetPasswordMutationFn = Apollo.MutationFunction<
+  OperationTypes.ResetPasswordMutation,
+  OperationTypes.ResetPasswordMutationVariables
+>;
+
+/**
+ * __useResetPasswordMutation__
+ *
+ * To run a mutation, you first call `useResetPasswordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useResetPasswordMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [resetPasswordMutation, { data, loading, error }] = useResetPasswordMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useResetPasswordMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.ResetPasswordMutation,
+    OperationTypes.ResetPasswordMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.ResetPasswordMutation,
+    OperationTypes.ResetPasswordMutationVariables
+  >(ResetPasswordDocument, options);
+}
+export type ResetPasswordMutationHookResult = ReturnType<
+  typeof useResetPasswordMutation
+>;
+export type ResetPasswordMutationResult =
+  Apollo.MutationResult<OperationTypes.ResetPasswordMutation>;
+export type ResetPasswordMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.ResetPasswordMutation,
+  OperationTypes.ResetPasswordMutationVariables
 >;
 export const GetProjectDocument = gql`
   query GetProject($projectId: Int!) {
@@ -1763,113 +1902,6 @@ export type ProductsAndSystemsLazyQueryHookResult = ReturnType<
 export type ProductsAndSystemsQueryResult = Apollo.QueryResult<
   OperationTypes.ProductsAndSystemsQuery,
   OperationTypes.ProductsAndSystemsQueryVariables
->;
-export const CreateCompanyDocument = gql`
-  mutation createCompany($input: UpdateCompanyInput!) {
-    updateCompany(input: $input) {
-      company {
-        name
-      }
-    }
-  }
-`;
-export type CreateCompanyMutationFn = Apollo.MutationFunction<
-  OperationTypes.CreateCompanyMutation,
-  OperationTypes.CreateCompanyMutationVariables
->;
-
-/**
- * __useCreateCompanyMutation__
- *
- * To run a mutation, you first call `useCreateCompanyMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateCompanyMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createCompanyMutation, { data, loading, error }] = useCreateCompanyMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useCreateCompanyMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.CreateCompanyMutation,
-    OperationTypes.CreateCompanyMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.CreateCompanyMutation,
-    OperationTypes.CreateCompanyMutationVariables
-  >(CreateCompanyDocument, options);
-}
-export type CreateCompanyMutationHookResult = ReturnType<
-  typeof useCreateCompanyMutation
->;
-export type CreateCompanyMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
-export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.CreateCompanyMutation,
-  OperationTypes.CreateCompanyMutationVariables
->;
-export const CurrentCompanyDocument = gql`
-  query currentCompany {
-    currentCompany
-  }
-`;
-
-/**
- * __useCurrentCompanyQuery__
- *
- * To run a query within a React component, call `useCurrentCompanyQuery` and pass it any options that fit your needs.
- * When your component renders, `useCurrentCompanyQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useCurrentCompanyQuery({
- *   variables: {
- *   },
- * });
- */
-export function useCurrentCompanyQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >(CurrentCompanyDocument, options);
-}
-export function useCurrentCompanyLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >(CurrentCompanyDocument, options);
-}
-export type CurrentCompanyQueryHookResult = ReturnType<
-  typeof useCurrentCompanyQuery
->;
-export type CurrentCompanyLazyQueryHookResult = ReturnType<
-  typeof useCurrentCompanyLazyQuery
->;
-export type CurrentCompanyQueryResult = Apollo.QueryResult<
-  OperationTypes.CurrentCompanyQuery,
-  OperationTypes.CurrentCompanyQueryVariables
 >;
 export const GetCurrentCompanyDocument = gql`
   query GetCurrentCompany {

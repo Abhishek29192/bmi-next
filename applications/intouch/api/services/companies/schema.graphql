@@ -27841,12 +27841,11 @@ type ImportOutput {
   errorProductsToUpdate: [ImportError!]
   errorProductsToInsert: [ImportError!]
   errorSystemMembersInsert: [ImportError!]
-  errorSystemMembersUpdate: [ImportError!]
 }
 
 type ImportError {
   ref: String
-  messgae: String
+  message: String
 }
 
 input BulkImportInput {

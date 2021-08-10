@@ -34,7 +34,7 @@ const productDetailToShow = [
   { type: "text", key: "technology" },
   { type: "text", key: "bmiRef" },
   { type: "text", key: "brand" },
-  { type: "text", key: "description" },
+  { type: "textarea", key: "description" },
   { type: "text", key: "family" },
   { type: "bool", key: "published" },
   { type: "text", key: "maximumValidityYears" },
@@ -44,7 +44,7 @@ const productDetailToShow = [
 const systemDetailToShow = [
   { type: "text", key: "technology" },
   { type: "text", key: "bmiRef" },
-  { type: "text", key: "description" },
+  { type: "textarea", key: "description" },
   { type: "bool", key: "published" },
   { type: "text", key: "maximumValidityYears" },
   { type: "date", key: "updatedAt" }
@@ -73,13 +73,13 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
     filters: projectFilters
   });
 
-  const [items, setItems] = useState<
-    ProductsAndSystemsQuery["products"] | ProductsAndSystemsQuery["systems"]
-  >(ssrItems);
+  const [items, setItems] =
+    useState<
+      ProductsAndSystemsQuery["products"] | ProductsAndSystemsQuery["systems"]
+    >(ssrItems);
 
-  const [selectedItem, setSelectedItem] = useState<
-    Partial<Product> | Partial<System>
-  >();
+  const [selectedItem, setSelectedItem] =
+    useState<Partial<Product> | Partial<System>>();
 
   const [udpateProduct] = useUpdateProductMutation({
     onCompleted: (data) => {
@@ -228,7 +228,7 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
                         hasUnderline
                         style={{ marginBottom: "15px" }}
                       >
-                        {t("form.product.edit")}
+                        {t(`form.${type}Title`)}
                       </Typography>
                     </Grid>
                     <Grid item xs={2}>
@@ -253,6 +253,8 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
+                    isTextArea
+                    rows={5}
                     name="description"
                     label={t("description")}
                     value={selectedItem.description}
@@ -349,7 +351,7 @@ export const updateProduct = gql`
 `;
 
 export const updateSystem = gql`
-  mutation updateSystem($input: UpdateSystemsInput!) {
+  mutation updateSystem($input: UpdateSystemInput!) {
     updateSystem(input: $input) {
       query {
         products {

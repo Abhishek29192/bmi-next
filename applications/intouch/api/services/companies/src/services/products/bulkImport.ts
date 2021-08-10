@@ -161,11 +161,6 @@ export const bulkImport = async (args, context) => {
     productsToInsert,
     systemsToInsert
   );
-  const errorSystemMembersUpdate = validateProductsAndSystems(
-    systemMemberToInsert,
-    productsToUpdate,
-    systemsToUpdate
-  );
 
   logger.info(
     `Importing ${systems.length} systems, ${products.length} products, and ${systemMember.length} system_member`
@@ -181,8 +176,7 @@ export const bulkImport = async (args, context) => {
       errorSystemsToInsert,
       errorProductsToUpdate,
       errorProductsToInsert,
-      errorSystemMembersInsert,
-      errorSystemMembersUpdate
+      errorSystemMembersInsert
     };
   }
 
@@ -271,7 +265,6 @@ export const bulkImport = async (args, context) => {
     errorSystemsToInsert,
     errorProductsToUpdate,
     errorProductsToInsert,
-    errorSystemMembersInsert,
-    errorSystemMembersUpdate
+    errorSystemMembersInsert
   };
 };

@@ -21,9 +21,20 @@
   },
   "dryRun": "Dry run",
   "confirm": "Confirm the import",
+  "dryRunError": "There are some error in the imported files",
   "importCompleted": "Import completed",
   "productToInsert": "These product will be inserted",
   "systemToInsert": "These systems will be inserted",
   "systemToUpdate": "These systems will be updated",
-  "productToUpdate": "These product will be updated"
+  "productToUpdate": "These product will be updated",
+  "errorSystemsToUpdate": "System to update",
+  "errorSystemsToInsert": "System to insert",
+  "errorProductsToUpdate": "Product to update",
+  "errorProductsToInsert": "Product to insert",
+  "errorSystemMembersInsert": "System member to insert",
+  "importError": "An error occurred during the import",
+  "form": {
+    "productTitle": "Edit product",
+    "systemTitle": "Edit system"
+  }
 }

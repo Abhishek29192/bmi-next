@@ -9088,7 +9088,7 @@ export type ImageTransformOptions = {
 export type ImportError = {
   __typename?: "ImportError";
   ref?: Maybe<Scalars["String"]>;
-  messgae?: Maybe<Scalars["String"]>;
+  message?: Maybe<Scalars["String"]>;
 };
 
 export type ImportOutput = {
@@ -9102,7 +9102,6 @@ export type ImportOutput = {
   errorProductsToUpdate?: Maybe<Array<ImportError>>;
   errorProductsToInsert?: Maybe<Array<ImportError>>;
   errorSystemMembersInsert?: Maybe<Array<ImportError>>;
-  errorSystemMembersUpdate?: Maybe<Array<ImportError>>;
 };
 
 /** A filter to be used against Int fields. All fields are combined with a logical ‘and.’ */

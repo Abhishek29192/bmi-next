@@ -43,6 +43,8 @@ export const validateProductsAndSystems = (
 ) => {
   const errors = [];
 
+  if (!products.length && !systems.length) return [];
+
   const productsMap = products.reduce(
     (result, current) => ({
       ...result,
@@ -58,7 +60,7 @@ export const validateProductsAndSystems = (
     {}
   );
 
-  systemMember.reduce((result: any, current: SystemMember) => {
+  systemMember.forEach((current: SystemMember) => {
     const currentProd: Product = productsMap[current.productBmiRef];
     const currentSystem: System = systemsMap[current.systemBmiRef];
 
@@ -84,7 +86,7 @@ export const validateProductsAndSystems = (
         message: "Technology mismatch"
       });
     }
-  }, {});
+  });
 
   return errors;
 };

@@ -178,7 +178,7 @@ export default gql`
 
   type ImportError {
     ref: String
-    messgae: String
+    message: String
   }
 
   type ImportOutput {
@@ -191,7 +191,6 @@ export default gql`
     errorProductsToUpdate: [ImportError!]
     errorProductsToInsert: [ImportError!]
     errorSystemMembersInsert: [ImportError!]
-    errorSystemMembersUpdate: [ImportError!]
   }
 
   extend input EvidenceItemInput {

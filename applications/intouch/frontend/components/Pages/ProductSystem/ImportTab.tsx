@@ -1,11 +1,13 @@
 import { gql } from "@apollo/client";
 import React, { useState, useCallback } from "react";
 import { useTranslation } from "next-i18next";
+import AlertBanner from "@bmi/alert-banner";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import Button from "@bmi/button";
 import { useBulkImportMutation } from "../../../graphql/generated/hooks";
 import styles from "./styles.module.scss";
+import ErrorsAlert from "./ErrorsAlert";
 
 const renderList = (label, list) =>
   list?.length > 0 && (
@@ -26,7 +28,13 @@ const ImportTab = () => {
 
   const [bulkImport] = useBulkImportMutation({
     onError: (error) => {
-      alert(error);
+      setImportResult((prev) => ({
+        ...prev,
+        message: {
+          text: t("importError"),
+          severity: "error"
+        }
+      }));
     }
   });
 
@@ -45,13 +53,28 @@ const ImportTab = () => {
         if (data) {
           setImportResult({
             ...data.bulkImport,
-            message: dryRun ? null : t("importCompleted")
+            message: dryRun
+              ? null
+              : {
+                  text: t("importCompleted"),
+                  severity: "success"
+                }
           });
         }
       }
     },
     [setImportResult, bulkImport, filesToUpload]
   );
+
+  const hasError = () => {
+    return (
+      importResult?.errorSystemsToUpdate.length ||
+      importResult?.errorSystemsToInsert.length ||
+      importResult?.errorProductsToUpdate.length ||
+      importResult?.errorProductsToInsert.length ||
+      importResult?.errorSystemMembersInsert.length
+    );
+  };
 
   return (
     <Grid spacing={0} container>
@@ -76,7 +99,7 @@ const ImportTab = () => {
           <Button onClick={() => submit(true)}>{t("dryRun")}</Button>
         </div>
       </Grid>
-      {importResult && (
+      {importResult && !hasError() && (
         <Grid className={styles.importContent} xs={12} spacing={3} container>
           <Grid item xs={6}>
             {renderList(t("productToInsert"), importResult?.productsToInsert)}
@@ -88,10 +111,6 @@ const ImportTab = () => {
             {renderList(t("systemToUpdate"), importResult?.systemsToUpdate)}
           </Grid>
 
-          {importResult?.message && (
-            <Typography>{importResult.message}</Typography>
-          )}
-
           <Grid item xs={12}>
             {importResult && (
               <Button style={{ marginTop: 15 }} onClick={() => submit(false)}>
@@ -99,8 +118,32 @@ const ImportTab = () => {
               </Button>
             )}
           </Grid>
+
+          <Grid item xs={12}>
+            {importResult?.message && (
+              <AlertBanner severity={importResult.message.severity}>
+                <AlertBanner.Title>
+                  {t(importResult.message.text)}
+                </AlertBanner.Title>
+              </AlertBanner>
+            )}
+          </Grid>
         </Grid>
       )}
+
+      {hasError() ? (
+        <Grid className={styles.importContent} xs={12} spacing={3} container>
+          <ErrorsAlert
+            {...{
+              errorSystemsToUpdate: importResult?.errorSystemsToUpdate,
+              errorSystemsToInsert: importResult?.errorSystemsToInsert,
+              errorProductsToUpdate: importResult?.errorProductsToUpdate,
+              errorProductsToInsert: importResult?.errorProductsToInsert,
+              errorSystemMembersInsert: importResult?.errorSystemMembersInsert
+            }}
+          />
+        </Grid>
+      ) : null}
     </Grid>
   );
 };
@@ -121,6 +164,26 @@ export const uploadProducts = gql`
       }
       productsToUpdate {
         bmiRef
+      }
+      errorSystemsToUpdate {
+        ref
+        message
+      }
+      errorSystemsToInsert {
+        ref
+        message
+      }
+      errorProductsToUpdate {
+        ref
+        message
+      }
+      errorProductsToInsert {
+        ref
+        message
+      }
+      errorSystemMembersInsert {
+        ref
+        message
       }
     }
   }
