@@ -1,0 +1,16 @@
+@import "@bmi/styles";
+
+.aboutLeadBlock {
+  :global {
+    .MuiBox-root {
+      padding: 0px;
+    }
+  }
+
+  .GuaranteesAndAwardsAsset {
+    .image {
+      height: 60px;
+      padding-right: 10px;
+    }
+  }
+}
