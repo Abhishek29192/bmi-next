@@ -29,6 +29,7 @@ type GuaranteesAndAwardsAsset = {
 };
 
 type Props = {
+  bimAssetUrl?: string;
   description?: string;
   keyFeatures?: readonly string[];
   sidebarItems?: {
@@ -47,6 +48,7 @@ const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
   +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
 const ProductLeadBlock = ({
+  bimAssetUrl,
   description,
   keyFeatures,
   sidebarItems,
@@ -223,6 +225,14 @@ const ProductLeadBlock = ({
             </DownloadList>
           </div>
         </Tabs.TabPanel>
+        {Boolean(bimAssetUrl) && (
+          <Tabs.TabPanel
+            heading={getMicroCopy("pdp.leadBlock.bim")}
+            index="four"
+          >
+            <iframe className={styles["bimIframe"]} src={bimAssetUrl} />
+          </Tabs.TabPanel>
+        )}
       </Tabs>
     </div>
   );
