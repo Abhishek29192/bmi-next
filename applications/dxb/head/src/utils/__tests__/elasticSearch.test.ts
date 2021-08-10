@@ -208,7 +208,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "plpCategories.code.keyword": "foo",
+                  "allCategories.code.keyword": "foo",
                 },
               },
               Object {
@@ -281,7 +281,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "term": Object {
-                  "plpCategories.code.keyword": "foo",
+                  "allCategories.code.keyword": "foo",
                 },
               },
               Object {
