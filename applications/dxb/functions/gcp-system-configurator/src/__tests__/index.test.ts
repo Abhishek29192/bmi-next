@@ -22,7 +22,7 @@ jest.mock("@google-cloud/secret-manager", () => {
   return { SecretManagerServiceClient: mSecretManagerServiceClient };
 });
 
-import { nextStep, NextStep, Answer, query, recaptchaTokenHeader } from "..";
+import { nextStep, Response, Answer, query, recaptchaTokenHeader } from "..";
 
 type Test = {
   name: string;
@@ -45,7 +45,7 @@ type Test = {
       };
   secretManagerPayload?: [{ payload?: { data: string } }];
   expectedStatus: number;
-  expectedSend: Error | NextStep | "";
+  expectedSend: Error | Response | "";
 };
 
 const { res, mockClear } = getMockRes();
@@ -493,7 +493,32 @@ describe("HTTP function:", () => {
               },
               type: "Question",
               title: "Question 2",
-              description: null,
+              description: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Question 2a rich text.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: {
+                  assets: {
+                    block: []
+                  }
+                }
+              },
               answersCollection: {
                 items: []
               },
@@ -504,16 +529,220 @@ describe("HTTP function:", () => {
       },
       expectedStatus: 200,
       expectedSend: {
-        __typename: "SystemConfiguratorBlock",
-        sys: {
-          id: "question2"
-        },
+        __typename: "ContentfulSystemConfiguratorBlock",
+        contentful_id: "question2",
+        id: "question2",
         title: "Question 2",
         type: "Question",
-        description: null,
-        answersCollection: {
-          items: []
+        description: {
+          raw: JSON.stringify({
+            data: {},
+            content: [
+              {
+                data: {},
+                marks: [],
+                content: [
+                  {
+                    data: {},
+                    marks: [],
+                    value: "Question 2a rich text.",
+                    nodeType: "text"
+                  }
+                ],
+                nodeType: "paragraph"
+              }
+            ],
+            nodeType: "document"
+          }),
+          references: []
         },
+        answers: [],
+        recommendedSystems: null
+      }
+    },
+    {
+      name: "nextStep: returns a 200 response status when answer next step is type 'Question' and has answers.",
+      reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
+        method: "GET",
+        query: {
+          answerId: "1234",
+          locale: "en-US"
+        }
+      },
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
+        data: {
+          systemConfiguratorBlock: {
+            nextStep: {
+              __typename: "SystemConfiguratorBlock",
+              sys: {
+                id: "question2"
+              },
+              type: "Question",
+              title: "Question 2",
+              description: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Question 2a rich text.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: {
+                  assets: {
+                    block: [
+                      {
+                        __typename: "Asset",
+                        sys: {
+                          id: "block1"
+                        },
+                        title: "Image title",
+                        url: "/image",
+                        contentType: "image/jpg"
+                      }
+                    ]
+                  }
+                }
+              },
+              answersCollection: {
+                items: [
+                  {
+                    __typename: "SystemConfiguratorBlock",
+                    sys: {
+                      id: "answer1"
+                    },
+                    type: "Answer",
+                    title: "Answer 1",
+                    description: {
+                      json: {
+                        data: {},
+                        content: [
+                          {
+                            data: {},
+                            marks: [],
+                            content: [
+                              {
+                                data: {},
+                                marks: [],
+                                value: "Answer 1 rich text.",
+                                nodeType: "text"
+                              }
+                            ],
+                            nodeType: "paragraph"
+                          }
+                        ],
+                        nodeType: "document"
+                      },
+                      links: {
+                        assets: {
+                          block: [
+                            {
+                              __typename: "Asset",
+                              sys: {
+                                id: "block1"
+                              },
+                              title: "Image title",
+                              url: "/image",
+                              contentType: "image/jpg"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              recommendedSystems: null
+            }
+          }
+        }
+      },
+      expectedStatus: 200,
+      expectedSend: {
+        __typename: "ContentfulSystemConfiguratorBlock",
+        contentful_id: "question2",
+        id: "question2",
+        title: "Question 2",
+        type: "Question",
+        description: {
+          raw: JSON.stringify({
+            data: {},
+            content: [
+              {
+                data: {},
+                marks: [],
+                content: [
+                  {
+                    data: {},
+                    marks: [],
+                    value: "Question 2a rich text.",
+                    nodeType: "text"
+                  }
+                ],
+                nodeType: "paragraph"
+              }
+            ],
+            nodeType: "document"
+          }),
+          references: [
+            {
+              __typename: "ContentfulAsset",
+              contentful_id: "block1",
+              id: "block1",
+              title: "Image title",
+              file: {
+                url: "/image",
+                contentType: "image/jpg"
+              }
+            }
+          ]
+        },
+        answers: [
+          {
+            __typename: "ContentfulSystemConfiguratorBlock",
+            contentful_id: "answer1",
+            id: "answer1",
+            type: "Answer",
+            title: "Answer 1",
+            description: {
+              raw: '{"data":{},"content":[{"data":{},"marks":[],"content":[{"data":{},"marks":[],"value":"Answer 1 rich text.","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
+              references: [
+                {
+                  __typename: "ContentfulAsset",
+                  contentful_id: "block1",
+                  id: "block1",
+                  title: "Image title",
+                  file: {
+                    contentType: "image/jpg",
+                    url: "/image"
+                  }
+                }
+              ]
+            },
+            answers: undefined,
+            recommendedSystems: undefined
+          }
+        ],
         recommendedSystems: null
       }
     },
@@ -543,20 +772,20 @@ describe("HTTP function:", () => {
                 id: "titleWithContent2"
               },
               __typename: "TitleWithContent",
-              title: "Title with content 2",
-              content: null
+              title: "Title with content 2"
             }
           }
         }
       },
       expectedStatus: 200,
       expectedSend: {
-        sys: {
-          id: "titleWithContent2"
-        },
-        __typename: "TitleWithContent",
+        __typename: "ContentfulTitleWithContent",
+        contentful_id: "titleWithContent2",
+        id: "titleWithContent2",
+        type: null,
         title: "Title with content 2",
-        content: null
+        answers: null,
+        recommendedSystems: null
       }
     },
     {

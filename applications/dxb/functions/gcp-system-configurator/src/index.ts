@@ -30,9 +30,16 @@ type Entry = {
   };
   title: string;
   type: string;
-  description: EntryFields.RichText | null;
-} & Question &
-  Result;
+  description: {
+    json: EntryFields.RichText;
+    links: {
+      assets: {
+        block: Asset[];
+      };
+    };
+  } | null;
+} & Partial<Question> &
+  Partial<Result>;
 
 type Result = {
   recommendedSystems: string[] | null;
@@ -50,10 +57,53 @@ type TitleWithContent = {
     id: string;
   };
   title: string;
-  content: EntryFields.RichText | null;
+};
+
+type Asset = {
+  __typename: "Asset";
+  sys: {
+    id: string;
+  };
+  title: string | null;
+  url: string | null;
+  contentType: string | null;
 };
 
 type Type = "Question" | "Result";
+
+type ResponseRichText = {
+  raw: string;
+  references: Array<{
+    __typename: "ContentfulAsset";
+    contentful_id: string;
+    id: string;
+    title: string | null;
+    file: {
+      url: string;
+      contentType: string;
+    };
+  }>;
+};
+
+export type Response = {
+  contentful_id: string;
+  id: string;
+  title: string;
+} & (
+  | {
+      __typename: `ContentfulSystemConfiguratorBlock`;
+      type: string;
+      description: ResponseRichText | null;
+      answers: Response[];
+      recommendedSystems: string[] | null;
+    }
+  | {
+      __typename: `ContentfulTitleWithContent`;
+      type: null;
+      answers: null;
+      recommendedSystems: null;
+    }
+);
 
 const nextStepMap: Record<Type, "answersCollection" | "recommendedSystems"> = {
   Question: "answersCollection",
@@ -117,6 +167,52 @@ const memoisedGetSecret = () => {
 
 const getSecret = memoisedGetSecret();
 
+const transformNextStepData = (nextStepData: NextStep): Response => {
+  const { sys, title } = nextStepData;
+
+  const data = {
+    contentful_id: sys.id,
+    id: sys.id,
+    type: null,
+    title,
+    answers: null,
+    recommendedSystems: null
+  };
+
+  if (nextStepData.__typename === "SystemConfiguratorBlock") {
+    const { type, answersCollection, recommendedSystems, description } =
+      nextStepData;
+
+    return {
+      ...data,
+      __typename: `ContentfulSystemConfiguratorBlock`,
+      description: description && {
+        raw: JSON.stringify(description.json),
+        references: description.links.assets.block.map((blockAsset) => ({
+          __typename: "ContentfulAsset",
+          contentful_id: blockAsset.sys.id,
+          id: blockAsset.sys.id,
+          title: blockAsset.title,
+          file: {
+            url: blockAsset.url,
+            contentType: blockAsset.contentType
+          }
+        }))
+      },
+      type,
+      answers:
+        answersCollection &&
+        answersCollection.items.map((answer) => transformNextStepData(answer)),
+      recommendedSystems
+    };
+  }
+
+  return {
+    __typename: `ContentfulTitleWithContent`,
+    ...data
+  };
+};
+
 const runQuery = async (
   query: string,
   variables: QueryString.ParsedQs,
@@ -177,7 +273,7 @@ query NextStep($answerId: String!, $locale: String!) {
 }
 
 fragment QuestionFragment on SystemConfiguratorBlock {
-  answersCollection {
+  answersCollection(limit: 9) {
     items {
       ...EntryFragment
     }
@@ -195,7 +291,7 @@ fragment EntryFragment on SystemConfiguratorBlock {
   }
   title
   description {
-    json
+    ...RichTextFragment
   }
   type
 }
@@ -205,8 +301,26 @@ fragment TitleWithContentFragment on TitleWithContent {
     id
   }
   title
-  content {
-    json
+}
+
+fragment AssetFragment on Asset {
+  __typename
+  sys {
+    id
+  }
+  title
+  url
+  contentType
+}
+
+fragment RichTextFragment on SystemConfiguratorBlockDescription {
+  json
+  links {
+    assets {
+      block {
+          ...AssetFragment
+      }
+    }
   }
 }
 `;
@@ -273,7 +387,7 @@ export const nextStep: HttpFunction = async (request, response) => {
     return response.status(500).send(Error("Recaptcha request failed."));
   }
 
-  let data;
+  let data: Answer;
   const { answerId, locale } = request.query;
 
   if (!answerId || !locale) {
@@ -316,7 +430,7 @@ export const nextStep: HttpFunction = async (request, response) => {
     const { type } = nextStep;
 
     if (nextStep[nextStepMap[type]]) {
-      return response.status(200).send(nextStep);
+      return response.status(200).send(transformNextStepData(nextStep));
     }
 
     return response
@@ -329,14 +443,13 @@ export const nextStep: HttpFunction = async (request, response) => {
   }
 
   if (nextStep.__typename === "TitleWithContent") {
-    return response.status(200).send(nextStep);
+    return response.status(200).send(transformNextStepData(nextStep));
   }
 
-  return response
-    .status(400)
-    .send(
-      generateError(
-        `__typename ${nextStep.__typename} is not a valid content type (SystemConfiguratorBlock or TitleWithContent)`
-      )
-    );
+  return response.status(400).send(
+    generateError(
+      // @ts-ignore: if change to CMS
+      `__typename ${nextStep.__typename} is not a valid content type (SystemConfiguratorBlock or TitleWithContent)`
+    )
+  );
 };
