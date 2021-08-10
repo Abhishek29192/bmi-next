@@ -47,6 +47,7 @@ type Result = {
 
 type Question = {
   answersCollection: {
+    total: number;
     items: Entry[];
   } | null;
 };
@@ -259,7 +260,9 @@ const generateError = (message: string) => {
   return error;
 };
 
-export const query = `
+const PAGE_SIZE = 9;
+
+export const query = (page) => `
 query NextStep($answerId: String!, $locale: String!) {
   systemConfiguratorBlock(id: $answerId, locale: $locale) {
     nextStep {
@@ -273,7 +276,8 @@ query NextStep($answerId: String!, $locale: String!) {
 }
 
 fragment QuestionFragment on SystemConfiguratorBlock {
-  answersCollection(limit: 9) {
+  answersCollection(limit: ${PAGE_SIZE}, skip: ${page * PAGE_SIZE}) {
+    total
     items {
       ...EntryFragment
     }
@@ -386,8 +390,6 @@ export const nextStep: HttpFunction = async (request, response) => {
     console.error(`Recaptcha request failed with error ${error}.`);
     return response.status(500).send(Error("Recaptcha request failed."));
   }
-
-  let data: Answer;
   const { answerId, locale } = request.query;
 
   if (!answerId || !locale) {
@@ -400,19 +402,42 @@ export const nextStep: HttpFunction = async (request, response) => {
       );
   }
 
-  try {
-    data = await runQuery(query, { answerId, locale });
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
-    return response.status(500).send(error);
-  }
+  let data: Answer;
+  let answers = [];
+  let page = 0;
 
-  if (!data) {
-    return response
-      .status(404)
-      .send(generateError(`System Configurator entry ${answerId} not found.`));
-  }
+  do {
+    try {
+      data = await runQuery(query(page), { answerId, locale });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      return response.status(500).send(error);
+    }
+
+    if (!data) {
+      return response
+        .status(404)
+        .send(
+          generateError(`System Configurator entry ${answerId} not found.`)
+        );
+    }
+
+    if (
+      data.nextStep?.__typename !== "SystemConfiguratorBlock" ||
+      !data.nextStep.answersCollection
+    ) {
+      break;
+    }
+
+    answers.push(...data.nextStep.answersCollection.items);
+    data.nextStep.answersCollection.items = answers;
+
+    page++;
+  } while (
+    data.nextStep.answersCollection.items.length <
+    data.nextStep.answersCollection.total
+  );
 
   const { nextStep } = data;
 
