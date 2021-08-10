@@ -5,8 +5,7 @@ exports[`BrandIntroCard component renders correctly 1`] = `
   class="MuiPaper-root MuiCard-root BrandIntroCard MuiPaper-elevation1 MuiPaper-rounded"
 >
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
-    style="background-color: transparent;"
+    class="MuiButtonBase-root MuiButton-root MuiButton-text Button brandLogoButton MuiButton-textPrimary"
     tabindex="0"
     type="button"
   >
@@ -14,7 +13,7 @@ exports[`BrandIntroCard component renders correctly 1`] = `
       class="MuiButton-label"
     >
       <svg
-        class="brand-logo"
+        class="brandLogo"
         preserveAspectRatio="xMinYMin"
       />
     </span>

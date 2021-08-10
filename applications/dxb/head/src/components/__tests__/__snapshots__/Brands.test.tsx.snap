@@ -27,18 +27,17 @@ exports[`Brands component renders correctly 1`] = `
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button brandLogoButton MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"[object Object]\\",\\"action\\":\\"/smilex\\"}"
               href="/smilex"
               role="button"
-              style="background-color: transparent;"
               tabindex="0"
             >
               <span
                 class="MuiButton-label"
               >
                 <svg
-                  class="brand-logo"
+                  class="brandLogo"
                   preserveAspectRatio="xMinYMin"
                 />
               </span>
