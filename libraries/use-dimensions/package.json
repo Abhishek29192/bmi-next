@@ -9,7 +9,6 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "react": "^16.13.1",
-    "typescript": "^3.9.5"
+    "react": "^16.13.1"
   }
 }

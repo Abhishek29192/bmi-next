@@ -43,7 +43,7 @@ const TabPanel = ({
 
 type TabsProps = MaterialTabsProps &
   Pick<AppBarProps, "color"> & {
-    children: React.ReactElement[];
+    children: (React.ReactElement<TabPanelProps> | React.ReactNode)[];
     initialValue?: any;
     tabComponent?: React.ComponentType<any>; // TODO
     visibleUntil?: "sm" | "md";
@@ -73,6 +73,10 @@ const Tabs = ({
     setValue(newValue);
   };
 
+  const tabs = React.Children.toArray(children).filter(
+    Boolean
+  ) as React.ReactElement[];
+
   return (
     <div
       className={classnames(
@@ -94,7 +98,7 @@ const Tabs = ({
             value={value}
             {...other}
           >
-            {children.map(({ props: { heading, index } }) => (
+            {tabs.map(({ props: { heading, index } }) => (
               <Tab
                 aria-controls={`tabpanel-${index}`}
                 id={`tab-${index}`}
@@ -106,7 +110,7 @@ const Tabs = ({
           </MaterialTabs>
         </Container>
       </div>
-      {React.Children.map(children, (child) => {
+      {tabs.map((child) => {
         const { index, ...other } = child.props;
         return React.cloneElement(child, {
           index,
