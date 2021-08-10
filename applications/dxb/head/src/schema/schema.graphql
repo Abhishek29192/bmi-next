@@ -283,14 +283,14 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The iframe content"
   iframe: ContentfulIframe @link(from: "iframe___NODE")
 
+  "The sections for this contact us page."
+  sections: [ContentfulSection] @link(from: "sections___NODE")
+
   "The topics for this page."
   contentTopics: [ContentfulContactTopic] @link(from: "contentTopics___NODE")
 
-  "The other areas title for this page."
-  otherAreasTitle: String
-
-  "The other areas for this page."
-  otherAreas: [ContentfulTitleWithContent] @link(from: "otherAreas___NODE")
+  "The next best actions for this page."
+  nextBestActions: [ContentfulPromoOrPage] @link(from: "nextBestActions___NODE")
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
@@ -442,6 +442,12 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 
+  "CTA"
+  cta: ContentfulLink @link(from: "cta___NODE")
+
+  "The type of hero to use."
+  heroType: String
+
   "The PIM categories this page is attached to."
   categoryCodes: [String!]
 }
@@ -450,6 +456,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 Represents a combination of Title, Description, Image, and Link combination.
 """
 type ContentfulPromo implements Node {
+  "The display name of this promo."
+  name: String
+
   "The title of this promo."
   title: String
 
@@ -670,13 +679,6 @@ type ContentfulLeadBlockSection implements Node {
 }
 
 """
-Represents the tabs or accordion section description field.
-"""
-type contentfulSyndicateSectionDescriptionTextNode implements Node {
-  description: String
-}
-
-"""
 Represents a syndicate section (many villains).
 Renamed from ContentfulVillainSection.
 """
@@ -685,10 +687,6 @@ type ContentfulSyndicateSection implements Node {
 
   "The title for this section."
   title: String
-
-  "The description for this section."
-  description: contentfulSyndicateSectionDescriptionTextNode
-    @link(from: "text___NODE")
 
   "The villains for this section."
   villains: [ContentfulPromoOrPage] @link(from: "villains___NODE")
@@ -723,13 +721,6 @@ type ContentfulTabsOrAccordionSection implements Node {
 }
 
 """
-Represents the image gallery description text.
-"""
-type contentfulImageGallerySectionDescriptionTextNode implements Node {
-  description: String
-}
-
-"""
 Represents a section with a image gallery.
 """
 type ContentfulImageGallerySection implements Node {
@@ -739,8 +730,7 @@ type ContentfulImageGallerySection implements Node {
   title: String
 
   "The description for this section."
-  description: contentfulImageGallerySectionDescriptionTextNode
-    @link(from: "description___NODE")
+  longDescription: ContentfulRichText
 
   "The images for this section."
   # TODO: Check if the @link is needed.
@@ -765,6 +755,9 @@ type ContentfulDocumentDownloadSection implements Node {
 Represents a section of downloadable document assets.
 """
 type ContentfulServiceLocatorSection implements Node {
+  "Type of services to be displayed (Roofer, Branch, or Merchant)"
+  type: String
+
   "The title for this section."
   title: String
 
@@ -774,8 +767,8 @@ type ContentfulServiceLocatorSection implements Node {
   "The body for this section."
   body: ContentfulRichText
 
-  "The roofers for this section."
-  roofers: [ContentfulRoofer] @link(from: "roofers___NODE")
+  "The services for this section."
+  services: [ContentfulService] @link(from: "services___NODE")
 
   "The map centre for this section"
   centre: Location
@@ -883,9 +876,6 @@ type ContentfulTeamMember implements Node {
 
   "The informational links for this memeber."
   links: [ContentfulLink] @link(from: "links___NODE")
-
-  "The category this member belongs to."
-  category: ContentfulTeamCategory @link(from: "category___NODE")
 }
 
 """
@@ -900,9 +890,8 @@ type ContentfulTeamCategory implements Node {
   "The description for this category."
   description: ContentfulRichText
 
-  # TODO: See what's wrong here.
-  # "The team memebers for this category."
-  # team_member: [ContentfulTeamMember] @link(from: "category___NODE")
+  "The team memebers for this category."
+  team_member: [ContentfulTeamMember] @link(from: "teamMembers___NODE")
 }
 
 """
@@ -943,7 +932,7 @@ type ContentfulResources implements Node {
 
   "The elements for the product details page sidebar for these resources."
   pdpSidebarItems: [ContentfulTitleWithContent]
-    @link(by: "id", from: "pdpSideBarItems___NODE")
+    @link(from: "pdpSidebarItems___NODE")
 
   "The title for the product details page cards for these resources."
   pdpCardsTitle: String
@@ -1002,6 +991,9 @@ type ContentfulResources implements Node {
   "The share widget for the visualiser for these resources."
   visualiserShareWidget: ContentfulShareWidgetSection
     @link(from: "visualiserShareWidget___NODE")
+
+  " Language selection dialog introduction"
+  countryNavigationIntroduction: ContentfulRichText
 }
 
 """
@@ -1108,6 +1100,9 @@ type ContentfulSite implements Node {
 
   "Google Optimize Load balancing ID"
   scriptGOptLoad: String
+
+  "Regions for country navigation"
+  regions: [RegionJson]! @link(from: "regions___NODE")
 }
 
 """
@@ -1478,36 +1473,42 @@ type ContentfulTable implements Node {
 }
 
 """
-Represents the company details of a roofer.
+Represents the details of a service.
 """
-type ContentfulRoofer implements Node {
+type ContentfulService implements Node {
   id: ID!
 
-  "The name for this roofer."
+  "Defines the type of the entry (Roofer, Branch, or Merchant)"
+  entryType: String
+
+  "The name for this service."
   name: String
 
-  "The location for this roofer."
+  "The location for this service."
   location: Location
 
-  "The address for this roofer."
+  "The address for this service."
   address: String
 
-  "The phone number for this roofer."
+  "The phone number for this service."
   phone: String
 
-  "The email address for this roofer."
+  "The email address for this service."
   email: String
 
-  "The URL for the website of this roofer."
+  "The URL for the website of this service."
   website: String
 
-  "The type of this roofer."
+  "The fax for the website of this service."
+  fax: String
+
+  "The type of this service."
   type: [String]
 
-  "The certification level of this roofer."
+  "The certification level of this service."
   certification: String
 
-  "The summary of this roofer."
+  "The summary of this service."
   summary: String
 }
 
@@ -1616,4 +1617,15 @@ type ContentfulIframe implements Node {
 
   "iframe height"
   height: String!
+}
+
+type CountryJSON {
+  code: String!
+  label: String!
+  icon: String
+}
+
+type RegionJson implements Node @dontInfer {
+  label: String!
+  menu: [CountryJSON]!
 }

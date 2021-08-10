@@ -60,12 +60,41 @@ describe("ImageGallery component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
   it("renders correctly with short layout", () => {
     const images = [
       {
         mainSource: mockImage,
         altText: "Demo Tiles",
         thumbnail: mockImage
+      },
+      {
+        mainSource: mockImage,
+        altText: "Demo Tiles Black"
+      },
+      {
+        mainSource: mockImage,
+        altText: "Demo house"
+      }
+    ];
+
+    const { container } = render(
+      <ImageGallery images={images} layout="short" />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders empty image gallery when no media and main source are supplied", () => {
+    const { container } = render(<ImageGallery images={[{}]} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders caption of first image when caption is present", () => {
+    const images = [
+      {
+        mainSource: mockImage,
+        altText: "Demo Tiles",
+        thumbnail: mockImage,
+        caption:
+          "test caption : renders this caption from first image as this is default active index!!"
       },
       {
         mainSource: mockImage,

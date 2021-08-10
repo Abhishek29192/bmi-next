@@ -83,4 +83,6 @@ export type VariantOption = {
   path: string;
 };
 
-export type VariantOptionWithProduct = VariantOption & { _product: Product };
+export type VariantOptionWithProduct = VariantOption & {
+  _product: Product;
+};

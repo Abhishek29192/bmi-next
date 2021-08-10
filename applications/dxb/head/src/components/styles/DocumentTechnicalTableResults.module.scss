@@ -27,7 +27,7 @@
   }
 
   .tooltip-icon {
-    color: $color-cyan-500;
+    color: $color-theme-inter;
   }
 
   .format-icon {
@@ -67,7 +67,7 @@
       justify-content: flex-end;
 
       .all-files-icon {
-        color: $color-cyan-500;
+        color: $color-theme-inter;
       }
     }
   }
@@ -80,7 +80,7 @@
   }
 
   .external-link-icon {
-    fill: $color-cyan-500;
+    fill: $color-theme-inter;
     width: 24px;
     height: 24px;
   }

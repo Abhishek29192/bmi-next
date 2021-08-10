@@ -23,12 +23,14 @@ export const AddressLinesFragmentFragmentDoc = gql`
     postcode
   }
 `;
-export const CompanyHeaderDetailsFragmentFragmentDoc = gql`
-  fragment CompanyHeaderDetailsFragment on Company {
+export const CompanyDetailsFragmentFragmentDoc = gql`
+  fragment CompanyDetailsFragment on Company {
+    name
     businessType
     logo
     aboutUs
     tradingAddress {
+      id
       ...AddressLinesFragment
       coordinates {
         x
@@ -51,6 +53,7 @@ export const CompanyRegisteredDetailsFragmentFragmentDoc = gql`
     name
     referenceNumber
     registeredAddress {
+      id
       ...AddressLinesFragment
     }
     taxNumber
@@ -86,15 +89,16 @@ export const CompanyCertificationsFragmentDoc = gql`
     certifications
   }
 `;
-export const CompanyDetailsFragmentFragmentDoc = gql`
-  fragment CompanyDetailsFragment on Company {
+export const CompanyPageDetailsFragmentFragmentDoc = gql`
+  fragment CompanyPageDetailsFragment on Company {
     id
-    ...CompanyHeaderDetailsFragment
+    ...CompanyDetailsFragment
     ...CompanyRegisteredDetailsFragment
     ...CompanyAdminsFragment
     ...CompanyCertifications
+    status
   }
-  ${CompanyHeaderDetailsFragmentFragmentDoc}
+  ${CompanyDetailsFragmentFragmentDoc}
   ${CompanyRegisteredDetailsFragmentFragmentDoc}
   ${CompanyAdminsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
@@ -111,59 +115,35 @@ export const ImageFragmentFragmentDoc = gql`
     height
   }
 `;
-export const UpdateCompanyDetailsDocument = gql`
-  mutation updateCompanyDetails($input: UpdateCompanyInput!) {
-    updateCompany(input: $input) {
-      company {
-        ...CompanyDetailsFragment
+export const AccountPageDetailsFragmentFragmentDoc = gql`
+  fragment AccountPageDetailsFragment on Account {
+    id
+    firstName
+    lastName
+    role
+    email
+    phone
+    photo
+    signedPhotoUrl
+    companyMembers {
+      nodes {
+        company {
+          id
+          ...CompanyDetailsFragment
+        }
+      }
+    }
+    certificationsByDoceboUserId {
+      nodes {
+        id
+        technology
+        expiryDate
+        name
       }
     }
   }
   ${CompanyDetailsFragmentFragmentDoc}
 `;
-export type UpdateCompanyDetailsMutationFn = Apollo.MutationFunction<
-  OperationTypes.UpdateCompanyDetailsMutation,
-  OperationTypes.UpdateCompanyDetailsMutationVariables
->;
-
-/**
- * __useUpdateCompanyDetailsMutation__
- *
- * To run a mutation, you first call `useUpdateCompanyDetailsMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpdateCompanyDetailsMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [updateCompanyDetailsMutation, { data, loading, error }] = useUpdateCompanyDetailsMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUpdateCompanyDetailsMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.UpdateCompanyDetailsMutation,
-    OperationTypes.UpdateCompanyDetailsMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.UpdateCompanyDetailsMutation,
-    OperationTypes.UpdateCompanyDetailsMutationVariables
-  >(UpdateCompanyDetailsDocument, options);
-}
-export type UpdateCompanyDetailsMutationHookResult = ReturnType<
-  typeof useUpdateCompanyDetailsMutation
->;
-export type UpdateCompanyDetailsMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
-export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.UpdateCompanyDetailsMutation,
-  OperationTypes.UpdateCompanyDetailsMutationVariables
->;
 export const GetGlobalDataDocument = gql`
   query GetGlobalData {
     marketContentCollection(limit: 1) {
@@ -234,6 +214,162 @@ export type GetGlobalDataQueryResult = Apollo.QueryResult<
   OperationTypes.GetGlobalDataQuery,
   OperationTypes.GetGlobalDataQueryVariables
 >;
+export const UpdateCompanyDetailsDocument = gql`
+  mutation updateCompanyDetails($input: UpdateCompanyInput!) {
+    updateCompany(input: $input) {
+      company {
+        ...CompanyPageDetailsFragment
+      }
+    }
+  }
+  ${CompanyPageDetailsFragmentFragmentDoc}
+`;
+export type UpdateCompanyDetailsMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateCompanyDetailsMutation,
+  OperationTypes.UpdateCompanyDetailsMutationVariables
+>;
+
+/**
+ * __useUpdateCompanyDetailsMutation__
+ *
+ * To run a mutation, you first call `useUpdateCompanyDetailsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateCompanyDetailsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateCompanyDetailsMutation, { data, loading, error }] = useUpdateCompanyDetailsMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateCompanyDetailsMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateCompanyDetailsMutation,
+    OperationTypes.UpdateCompanyDetailsMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateCompanyDetailsMutation,
+    OperationTypes.UpdateCompanyDetailsMutationVariables
+  >(UpdateCompanyDetailsDocument, options);
+}
+export type UpdateCompanyDetailsMutationHookResult = ReturnType<
+  typeof useUpdateCompanyDetailsMutation
+>;
+export type UpdateCompanyDetailsMutationResult = Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
+export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateCompanyDetailsMutation,
+  OperationTypes.UpdateCompanyDetailsMutationVariables
+>;
+export const CreateCompanyDocument = gql`
+  mutation createCompany($input: CreateCompanyInput!) {
+    createCompany(input: $input) {
+      company {
+        id
+      }
+    }
+  }
+`;
+export type CreateCompanyMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateCompanyMutation,
+  OperationTypes.CreateCompanyMutationVariables
+>;
+
+/**
+ * __useCreateCompanyMutation__
+ *
+ * To run a mutation, you first call `useCreateCompanyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateCompanyMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createCompanyMutation, { data, loading, error }] = useCreateCompanyMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateCompanyMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateCompanyMutation,
+    OperationTypes.CreateCompanyMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateCompanyMutation,
+    OperationTypes.CreateCompanyMutationVariables
+  >(CreateCompanyDocument, options);
+}
+export type CreateCompanyMutationHookResult = ReturnType<
+  typeof useCreateCompanyMutation
+>;
+export type CreateCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
+export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateCompanyMutation,
+  OperationTypes.CreateCompanyMutationVariables
+>;
+export const CreateAddressDocument = gql`
+  mutation createAddress($input: CreateAddressInput!) {
+    createAddress(input: $input) {
+      address {
+        id
+      }
+    }
+  }
+`;
+export type CreateAddressMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateAddressMutation,
+  OperationTypes.CreateAddressMutationVariables
+>;
+
+/**
+ * __useCreateAddressMutation__
+ *
+ * To run a mutation, you first call `useCreateAddressMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateAddressMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createAddressMutation, { data, loading, error }] = useCreateAddressMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateAddressMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateAddressMutation,
+    OperationTypes.CreateAddressMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateAddressMutation,
+    OperationTypes.CreateAddressMutationVariables
+  >(CreateAddressDocument, options);
+}
+export type CreateAddressMutationHookResult = ReturnType<
+  typeof useCreateAddressMutation
+>;
+export type CreateAddressMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateAddressMutation>;
+export type CreateAddressMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateAddressMutation,
+  OperationTypes.CreateAddressMutationVariables
+>;
 export const InviteDocument = gql`
   mutation invite($input: InviteInput!) {
     invite(input: $input) {
@@ -280,8 +416,7 @@ export function useInviteMutation(
   >(InviteDocument, options);
 }
 export type InviteMutationHookResult = ReturnType<typeof useInviteMutation>;
-export type InviteMutationResult =
-  Apollo.MutationResult<OperationTypes.InviteMutation>;
+export type InviteMutationResult = Apollo.MutationResult<OperationTypes.InviteMutation>;
 export type InviteMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.InviteMutation,
   OperationTypes.InviteMutationVariables
@@ -330,11 +465,169 @@ export function useDeleteCompanyMemberMutation(
 export type DeleteCompanyMemberMutationHookResult = ReturnType<
   typeof useDeleteCompanyMemberMutation
 >;
-export type DeleteCompanyMemberMutationResult =
-  Apollo.MutationResult<OperationTypes.DeleteCompanyMemberMutation>;
+export type DeleteCompanyMemberMutationResult = Apollo.MutationResult<OperationTypes.DeleteCompanyMemberMutation>;
 export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
+>;
+export const UpdateAccountProfileDocument = gql`
+  mutation updateAccountProfile($updateAccountInput: UpdateAccountInput!) {
+    updateAccount(input: $updateAccountInput) {
+      account {
+        ...AccountPageDetailsFragment
+      }
+    }
+  }
+  ${AccountPageDetailsFragmentFragmentDoc}
+`;
+export type UpdateAccountProfileMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateAccountProfileMutation,
+  OperationTypes.UpdateAccountProfileMutationVariables
+>;
+
+/**
+ * __useUpdateAccountProfileMutation__
+ *
+ * To run a mutation, you first call `useUpdateAccountProfileMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAccountProfileMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAccountProfileMutation, { data, loading, error }] = useUpdateAccountProfileMutation({
+ *   variables: {
+ *      updateAccountInput: // value for 'updateAccountInput'
+ *   },
+ * });
+ */
+export function useUpdateAccountProfileMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateAccountProfileMutation,
+    OperationTypes.UpdateAccountProfileMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateAccountProfileMutation,
+    OperationTypes.UpdateAccountProfileMutationVariables
+  >(UpdateAccountProfileDocument, options);
+}
+export type UpdateAccountProfileMutationHookResult = ReturnType<
+  typeof useUpdateAccountProfileMutation
+>;
+export type UpdateAccountProfileMutationResult = Apollo.MutationResult<OperationTypes.UpdateAccountProfileMutation>;
+export type UpdateAccountProfileMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateAccountProfileMutation,
+  OperationTypes.UpdateAccountProfileMutationVariables
+>;
+export const LeaveCompanyDocument = gql`
+  mutation leaveCompany($accountId: Int!, $companyId: Int!, $marketId: Int!) {
+    deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId(
+      input: {
+        accountId: $accountId
+        companyId: $companyId
+        marketId: $marketId
+      }
+    ) {
+      clientMutationId
+      account {
+        ...AccountPageDetailsFragment
+      }
+    }
+  }
+  ${AccountPageDetailsFragmentFragmentDoc}
+`;
+export type LeaveCompanyMutationFn = Apollo.MutationFunction<
+  OperationTypes.LeaveCompanyMutation,
+  OperationTypes.LeaveCompanyMutationVariables
+>;
+
+/**
+ * __useLeaveCompanyMutation__
+ *
+ * To run a mutation, you first call `useLeaveCompanyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useLeaveCompanyMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [leaveCompanyMutation, { data, loading, error }] = useLeaveCompanyMutation({
+ *   variables: {
+ *      accountId: // value for 'accountId'
+ *      companyId: // value for 'companyId'
+ *      marketId: // value for 'marketId'
+ *   },
+ * });
+ */
+export function useLeaveCompanyMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.LeaveCompanyMutation,
+    OperationTypes.LeaveCompanyMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.LeaveCompanyMutation,
+    OperationTypes.LeaveCompanyMutationVariables
+  >(LeaveCompanyDocument, options);
+}
+export type LeaveCompanyMutationHookResult = ReturnType<
+  typeof useLeaveCompanyMutation
+>;
+export type LeaveCompanyMutationResult = Apollo.MutationResult<OperationTypes.LeaveCompanyMutation>;
+export type LeaveCompanyMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.LeaveCompanyMutation,
+  OperationTypes.LeaveCompanyMutationVariables
+>;
+export const ResetPasswordDocument = gql`
+  mutation resetPassword {
+    resetPassword
+  }
+`;
+export type ResetPasswordMutationFn = Apollo.MutationFunction<
+  OperationTypes.ResetPasswordMutation,
+  OperationTypes.ResetPasswordMutationVariables
+>;
+
+/**
+ * __useResetPasswordMutation__
+ *
+ * To run a mutation, you first call `useResetPasswordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useResetPasswordMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [resetPasswordMutation, { data, loading, error }] = useResetPasswordMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useResetPasswordMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.ResetPasswordMutation,
+    OperationTypes.ResetPasswordMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.ResetPasswordMutation,
+    OperationTypes.ResetPasswordMutationVariables
+  >(ResetPasswordDocument, options);
+}
+export type ResetPasswordMutationHookResult = ReturnType<
+  typeof useResetPasswordMutation
+>;
+export type ResetPasswordMutationResult = Apollo.MutationResult<OperationTypes.ResetPasswordMutation>;
+export type ResetPasswordMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.ResetPasswordMutation,
+  OperationTypes.ResetPasswordMutationVariables
 >;
 export const GetProjectDocument = gql`
   query GetProject($projectId: Int!) {
@@ -516,8 +809,7 @@ export function useDeleteProjectMemberMutation(
 export type DeleteProjectMemberMutationHookResult = ReturnType<
   typeof useDeleteProjectMemberMutation
 >;
-export type DeleteProjectMemberMutationResult =
-  Apollo.MutationResult<OperationTypes.DeleteProjectMemberMutation>;
+export type DeleteProjectMemberMutationResult = Apollo.MutationResult<OperationTypes.DeleteProjectMemberMutation>;
 export type DeleteProjectMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteProjectMemberMutation,
   OperationTypes.DeleteProjectMemberMutationVariables
@@ -652,8 +944,7 @@ export function useCreateProjectMemberMutation(
 export type CreateProjectMemberMutationHookResult = ReturnType<
   typeof useCreateProjectMemberMutation
 >;
-export type CreateProjectMemberMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateProjectMemberMutation>;
+export type CreateProjectMemberMutationResult = Apollo.MutationResult<OperationTypes.CreateProjectMemberMutation>;
 export type CreateProjectMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateProjectMemberMutation,
   OperationTypes.CreateProjectMemberMutationVariables
@@ -705,8 +996,7 @@ export function useAddProjectsMemberMutation(
 export type AddProjectsMemberMutationHookResult = ReturnType<
   typeof useAddProjectsMemberMutation
 >;
-export type AddProjectsMemberMutationResult =
-  Apollo.MutationResult<OperationTypes.AddProjectsMemberMutation>;
+export type AddProjectsMemberMutationResult = Apollo.MutationResult<OperationTypes.AddProjectsMemberMutation>;
 export type AddProjectsMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.AddProjectsMemberMutation,
   OperationTypes.AddProjectsMemberMutationVariables
@@ -758,8 +1048,7 @@ export function useAddEvidencesMutation(
 export type AddEvidencesMutationHookResult = ReturnType<
   typeof useAddEvidencesMutation
 >;
-export type AddEvidencesMutationResult =
-  Apollo.MutationResult<OperationTypes.AddEvidencesMutation>;
+export type AddEvidencesMutationResult = Apollo.MutationResult<OperationTypes.AddEvidencesMutation>;
 export type AddEvidencesMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.AddEvidencesMutation,
   OperationTypes.AddEvidencesMutationVariables
@@ -779,6 +1068,7 @@ export const AccountByEmailDocument = gql`
         language
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
+        merchandisingUrl
         projectsEnabled
       }
       companyMembers {
@@ -912,8 +1202,7 @@ export function useCreateAccountMutation(
 export type CreateAccountMutationHookResult = ReturnType<
   typeof useCreateAccountMutation
 >;
-export type CreateAccountMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateAccountMutation>;
+export type CreateAccountMutationResult = Apollo.MutationResult<OperationTypes.CreateAccountMutation>;
 export type CreateAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateAccountMutation,
   OperationTypes.CreateAccountMutationVariables
@@ -963,8 +1252,7 @@ export function useCreateDoceboUserMutation(
 export type CreateDoceboUserMutationHookResult = ReturnType<
   typeof useCreateDoceboUserMutation
 >;
-export type CreateDoceboUserMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateDoceboUserMutation>;
+export type CreateDoceboUserMutationResult = Apollo.MutationResult<OperationTypes.CreateDoceboUserMutation>;
 export type CreateDoceboUserMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateDoceboUserMutation,
   OperationTypes.CreateDoceboUserMutationVariables
@@ -1016,8 +1304,7 @@ export function useUpdateAccountMutation(
 export type UpdateAccountMutationHookResult = ReturnType<
   typeof useUpdateAccountMutation
 >;
-export type UpdateAccountMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateAccountMutation>;
+export type UpdateAccountMutationResult = Apollo.MutationResult<OperationTypes.UpdateAccountMutation>;
 export type UpdateAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateAccountMutation,
   OperationTypes.UpdateAccountMutationVariables
@@ -1194,8 +1481,7 @@ export function useCompleteInvitationMutation(
 export type CompleteInvitationMutationHookResult = ReturnType<
   typeof useCompleteInvitationMutation
 >;
-export type CompleteInvitationMutationResult =
-  Apollo.MutationResult<OperationTypes.CompleteInvitationMutation>;
+export type CompleteInvitationMutationResult = Apollo.MutationResult<OperationTypes.CompleteInvitationMutation>;
 export type CompleteInvitationMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CompleteInvitationMutation,
   OperationTypes.CompleteInvitationMutationVariables
@@ -1245,8 +1531,7 @@ export function useCreateSsoUrlMutation(
 export type CreateSsoUrlMutationHookResult = ReturnType<
   typeof useCreateSsoUrlMutation
 >;
-export type CreateSsoUrlMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateSsoUrlMutation>;
+export type CreateSsoUrlMutationResult = Apollo.MutationResult<OperationTypes.CreateSsoUrlMutation>;
 export type CreateSsoUrlMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateSsoUrlMutation,
   OperationTypes.CreateSsoUrlMutationVariables
@@ -1444,8 +1729,7 @@ export function useBulkImportMutation(
 export type BulkImportMutationHookResult = ReturnType<
   typeof useBulkImportMutation
 >;
-export type BulkImportMutationResult =
-  Apollo.MutationResult<OperationTypes.BulkImportMutation>;
+export type BulkImportMutationResult = Apollo.MutationResult<OperationTypes.BulkImportMutation>;
 export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.BulkImportMutation,
   OperationTypes.BulkImportMutationVariables
@@ -1496,8 +1780,7 @@ export function useUpdateProductMutation(
 export type UpdateProductMutationHookResult = ReturnType<
   typeof useUpdateProductMutation
 >;
-export type UpdateProductMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
+export type UpdateProductMutationResult = Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
 export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProductMutation,
   OperationTypes.UpdateProductMutationVariables
@@ -1548,118 +1831,10 @@ export function useUpdateSystemMutation(
 export type UpdateSystemMutationHookResult = ReturnType<
   typeof useUpdateSystemMutation
 >;
-export type UpdateSystemMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
+export type UpdateSystemMutationResult = Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
 export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateSystemMutation,
   OperationTypes.UpdateSystemMutationVariables
->;
-export const CreateCompanyDocument = gql`
-  mutation createCompany($input: UpdateCompanyInput!) {
-    updateCompany(input: $input) {
-      company {
-        name
-      }
-    }
-  }
-`;
-export type CreateCompanyMutationFn = Apollo.MutationFunction<
-  OperationTypes.CreateCompanyMutation,
-  OperationTypes.CreateCompanyMutationVariables
->;
-
-/**
- * __useCreateCompanyMutation__
- *
- * To run a mutation, you first call `useCreateCompanyMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateCompanyMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createCompanyMutation, { data, loading, error }] = useCreateCompanyMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useCreateCompanyMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.CreateCompanyMutation,
-    OperationTypes.CreateCompanyMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.CreateCompanyMutation,
-    OperationTypes.CreateCompanyMutationVariables
-  >(CreateCompanyDocument, options);
-}
-export type CreateCompanyMutationHookResult = ReturnType<
-  typeof useCreateCompanyMutation
->;
-export type CreateCompanyMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
-export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.CreateCompanyMutation,
-  OperationTypes.CreateCompanyMutationVariables
->;
-export const CurrentCompanyDocument = gql`
-  query currentCompany {
-    currentCompany
-  }
-`;
-
-/**
- * __useCurrentCompanyQuery__
- *
- * To run a query within a React component, call `useCurrentCompanyQuery` and pass it any options that fit your needs.
- * When your component renders, `useCurrentCompanyQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useCurrentCompanyQuery({
- *   variables: {
- *   },
- * });
- */
-export function useCurrentCompanyQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >(CurrentCompanyDocument, options);
-}
-export function useCurrentCompanyLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >(CurrentCompanyDocument, options);
-}
-export type CurrentCompanyQueryHookResult = ReturnType<
-  typeof useCurrentCompanyQuery
->;
-export type CurrentCompanyLazyQueryHookResult = ReturnType<
-  typeof useCurrentCompanyLazyQuery
->;
-export type CurrentCompanyQueryResult = Apollo.QueryResult<
-  OperationTypes.CurrentCompanyQuery,
-  OperationTypes.CurrentCompanyQueryVariables
 >;
 export const GetCurrentCompanyDocument = gql`
   query GetCurrentCompany {
@@ -1719,13 +1894,13 @@ export type GetCurrentCompanyQueryResult = Apollo.QueryResult<
 export const GetCompanyDocument = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
-      ...CompanyDetailsFragment
+      ...CompanyPageDetailsFragment
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
     }
   }
-  ${CompanyDetailsFragmentFragmentDoc}
+  ${CompanyPageDetailsFragmentFragmentDoc}
   ${ContactDetailsCollectionFragmentFragmentDoc}
 `;
 
@@ -1778,13 +1953,17 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQueryVariables
 >;
 export const GetPartnerBrandsDocument = gql`
-  query GetPartnerBrands {
+  query GetPartnerBrands($role: String!, $tier: String!) {
     marketContentCollection(limit: 1) {
       items {
         partnerBrandsCollection {
           items {
             name
             shortDescription
+            websiteUrl
+            description {
+              json
+            }
             image {
               ...ImageFragment
             }
@@ -1792,6 +1971,37 @@ export const GetPartnerBrandsDocument = gql`
               ...ImageFragment
             }
           }
+        }
+        newsItemUrl
+        newsItemCta
+        newsItemHeading
+      }
+    }
+    carouselCollection(where: { audienceRole: $role }, limit: 1) {
+      total
+      items {
+        audienceRole
+        listCollection {
+          total
+          items {
+            header
+            image {
+              title
+              description
+              url
+            }
+            body
+            cta
+            audienceTiers
+          }
+        }
+      }
+    }
+    tierBenefitCollection(where: { tier: $tier }, limit: 1) {
+      items {
+        name
+        description {
+          json
         }
       }
     }
@@ -1811,11 +2021,13 @@ export const GetPartnerBrandsDocument = gql`
  * @example
  * const { data, loading, error } = useGetPartnerBrandsQuery({
  *   variables: {
+ *      role: // value for 'role'
+ *      tier: // value for 'tier'
  *   },
  * });
  */
 export function useGetPartnerBrandsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetPartnerBrandsQuery,
     OperationTypes.GetPartnerBrandsQueryVariables
   >
@@ -1847,6 +2059,65 @@ export type GetPartnerBrandsLazyQueryHookResult = ReturnType<
 export type GetPartnerBrandsQueryResult = Apollo.QueryResult<
   OperationTypes.GetPartnerBrandsQuery,
   OperationTypes.GetPartnerBrandsQueryVariables
+>;
+export const GetUserProfileDocument = gql`
+  query getUserProfile($accountId: Int!) {
+    account(id: $accountId) {
+      ...AccountPageDetailsFragment
+    }
+  }
+  ${AccountPageDetailsFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetUserProfileQuery__
+ *
+ * To run a query within a React component, call `useGetUserProfileQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserProfileQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserProfileQuery({
+ *   variables: {
+ *      accountId: // value for 'accountId'
+ *   },
+ * });
+ */
+export function useGetUserProfileQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetUserProfileQuery,
+    OperationTypes.GetUserProfileQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetUserProfileQuery,
+    OperationTypes.GetUserProfileQueryVariables
+  >(GetUserProfileDocument, options);
+}
+export function useGetUserProfileLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetUserProfileQuery,
+    OperationTypes.GetUserProfileQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetUserProfileQuery,
+    OperationTypes.GetUserProfileQueryVariables
+  >(GetUserProfileDocument, options);
+}
+export type GetUserProfileQueryHookResult = ReturnType<
+  typeof useGetUserProfileQuery
+>;
+export type GetUserProfileLazyQueryHookResult = ReturnType<
+  typeof useGetUserProfileLazyQuery
+>;
+export type GetUserProfileQueryResult = Apollo.QueryResult<
+  OperationTypes.GetUserProfileQuery,
+  OperationTypes.GetUserProfileQueryVariables
 >;
 export const GetProjectsDocument = gql`
   query GetProjects {
@@ -2042,8 +2313,7 @@ export function useUpdateRoleAccountMutation(
 export type UpdateRoleAccountMutationHookResult = ReturnType<
   typeof useUpdateRoleAccountMutation
 >;
-export type UpdateRoleAccountMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateRoleAccountMutation>;
+export type UpdateRoleAccountMutationResult = Apollo.MutationResult<OperationTypes.UpdateRoleAccountMutation>;
 export type UpdateRoleAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateRoleAccountMutation,
   OperationTypes.UpdateRoleAccountMutationVariables

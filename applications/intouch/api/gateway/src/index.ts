@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import { WinstonLogger } from "@bmi-digital/logger";
+import { graphqlUploadExpress } from "graphql-upload";
 
 dotenv.config();
 import express from "express";
@@ -14,11 +15,11 @@ const { PORT = 4000 } = process.env;
   try {
     const gateway = await gatewayService();
     const app = express();
-
     app.use(WinstonLogger);
+    app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }));
+
     const server = new ApolloServer({
       gateway,
-      playground: false,
       context: ({ req }) => {
         const { headers } = req;
 
@@ -40,6 +41,7 @@ const { PORT = 4000 } = process.env;
       ...config.apolloServer
     });
 
+    await server.start();
     server.applyMiddleware({ app });
     app.use((err, req, res, next) => {
       // TODO: better error handling and logging

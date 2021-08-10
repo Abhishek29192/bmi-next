@@ -3,8 +3,8 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
 import { SiteContext } from "../Site";
-import { rooferTypes } from "../../components/Roofer";
-import createRoofer from "../../__tests__/RooferHelper";
+import { serviceTypes } from "../Service";
+import createService from "../../__tests__/ServiceHelper";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -89,6 +89,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulPromo",
             id: "1234",
+            name: "Villain 1",
             title: "Villain 1",
             brandLogo: null,
             tags: null,
@@ -102,6 +103,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulPromo",
             id: "3456",
+            name: "Villain 2",
             title: "Villain 2",
             brandLogo: null,
             tags: null,
@@ -115,6 +117,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulPromo",
             id: "4567",
+            name: "Villain 3",
             title: "Villain 3",
             brandLogo: null,
             tags: null,
@@ -156,6 +159,7 @@ describe("Sections component", () => {
         cards: [
           {
             __typename: "ContentfulPromo",
+            name: "promo title",
             title: "promo title",
             brandLogo: "AeroDek",
             subtitle: "promo subtitle",
@@ -248,6 +252,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulPromo",
         id: "5678",
+        name: "card section title 2",
         title: "card section title 2",
         subtitle: null,
         body: null,
@@ -281,6 +286,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulPromo",
         id: "5678",
+        name: "card section title 2",
         title: "card section title 2",
         subtitle: null,
         body: null,
@@ -330,9 +336,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulImageGallerySection",
         title: "Gallery title",
-        description: {
-          description: "card section 1 description"
-        },
+        longDescription: null,
         medias: [
           {
             type: null,
@@ -384,29 +388,31 @@ describe("Sections component", () => {
       },
       {
         __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
         title: "Service Locator",
         label: "Find A Roofer",
         body: null,
-        roofers: null,
+        services: null,
         position: 0,
         centre: null,
         zoom: null
       },
       {
         __typename: "ContentfulServiceLocatorSection",
-        title: "Service Locator - with roofers",
+        type: "Roofer",
+        title: "Service Locator - with services",
         label: "Find A Roofer",
         body: null,
-        roofers: [
-          createRoofer({
+        services: [
+          createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [rooferTypes[0], rooferTypes[1]]
+            type: [serviceTypes[0], serviceTypes[1]]
           }),
-          createRoofer({
+          createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [rooferTypes[0], rooferTypes[1]]
+            type: [serviceTypes[0], serviceTypes[1]]
           })
         ],
         position: 0,
@@ -707,6 +713,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulPromo",
             id: "1234",
+            name: "Villain 1",
             title: "Villain 1",
             brandLogo: null,
             tags: null,
@@ -748,5 +755,74 @@ describe("Sections component", () => {
       </MockSiteContext>
     );
     expect(container.children).toHaveLength(0); // returns empty array
+  });
+
+  it("renders alternate backgrounds for promos", () => {
+    const data: Data = [
+      {
+        __typename: "ContentfulPromo",
+        id: "1",
+        name: "Promo 1",
+        title: "Promo 1",
+        subtitle: null,
+        body: null,
+        brandLogo: null,
+        tags: null,
+        featuredMedia: null,
+        cta: null,
+        featuredVideo: null,
+        backgroundColor: null
+      },
+      {
+        __typename: "ContentfulPromo",
+        id: "2",
+        name: "Promo 2",
+        title: "Promo 2",
+        subtitle: null,
+        body: null,
+        brandLogo: null,
+        tags: null,
+        featuredMedia: null,
+        cta: null,
+        featuredVideo: null,
+        backgroundColor: null
+      },
+      {
+        __typename: "ContentfulPromo",
+        id: "3",
+        name: "Promo 3",
+        title: "Promo 3",
+        subtitle: null,
+        body: {
+          raw: JSON.stringify({
+            nodeType: "document",
+            data: {},
+            content: [
+              {
+                nodeType: "heading-2",
+                content: [
+                  { nodeType: "text", value: "Heading 2", marks: [], data: {} }
+                ],
+                data: {}
+              }
+            ]
+          }),
+          references: []
+        },
+        brandLogo: null,
+        tags: null,
+        featuredMedia: null,
+        cta: null,
+        featuredVideo: null,
+        backgroundColor: null
+      }
+    ];
+
+    const { container } = render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
+    expect(container.children).toMatchSnapshot();
   });
 });

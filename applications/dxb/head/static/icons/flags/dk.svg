@@ -1,0 +1,28 @@
+<svg id="Denmark_Danmark" data-name="Denmark Danmark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-2.284" y1="-22.973" x2="17.716" y2="-22.973" gradientTransform="matrix(1, 0, 0, -1, 2.284, -14.973)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f84e1f"/>
+      <stop offset="0.556" stop-color="#ff501f"/>
+      <stop offset="1" stop-color="#f63405"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-2.284" y1="-22.973" x2="17.716" y2="-22.973" gradientTransform="matrix(1, 0, 0, -1, 2.284, -14.973)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eaecec"/>
+      <stop offset="0.556" stop-color="#fff"/>
+      <stop offset="1" stop-color="#d5d6d7"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="8.189" cy="-25.447" r="10.474" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M0,0H20V16H0Z" fill="url(#linear-gradient)"/>
+  <path d="M0,6.919H6.486V0H8.649V6.919H20V9.081H8.649V16H6.486V9.081H0Z" fill="url(#linear-gradient-2)"/>
+  <g clip-path="url(#clip-path)">
+    <circle cx="8.189" cy="5.5" r="10.474" fill="url(#radial-gradient)"/>
+  </g>
+  <path d="M19,1V15H1V1H18.952M20,0H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>

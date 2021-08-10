@@ -1,7 +1,10 @@
 process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 process.env.GRAPHQL_URL = "GRAPHQL_URL";
 
+import { ROLES } from "../../constants";
+import { generateAccount } from "../../tests/factories/account";
 import Account, {
+  findAccountTier,
   mutationCreateAccount,
   queryAccountByEmail,
   mutationCompleteInvitation,
@@ -196,7 +199,9 @@ describe("Account", () => {
           lastname: "Name",
           language: "en",
           level: 4,
+          valid: 1,
           email_validation_status: 1,
+          can_manage_subordinates: false,
           send_notification_email: false,
           select_orgchart: {
             branch_id: 1
@@ -204,5 +209,47 @@ describe("Account", () => {
         }
       }
     });
+  });
+
+  describe("findAccountTier", () => {
+    it("should default to T1 for users without a company", () => {
+      expect(
+        findAccountTier(
+          generateAccount({
+            hasCompany: false
+          })
+        )
+      ).toEqual("T1");
+    });
+
+    // Companies should always have a tier (created as T1 by default)
+    // but leaving this test for now
+    it("should return T1 if company has no tier", () => {
+      expect(
+        findAccountTier(
+          generateAccount({
+            role: ROLES.COMPANY_ADMIN,
+            hasCompany: true,
+            companyTier: null,
+            companyStatus: "ACTIVE"
+          })
+        )
+      ).toEqual("T1");
+    });
+
+    it("should return company tier when company has a tier", () => {
+      expect(
+        findAccountTier(
+          generateAccount({
+            role: ROLES.COMPANY_ADMIN,
+            hasCompany: true,
+            companyTier: "T3",
+            companyStatus: "ACTIVE"
+          })
+        )
+      ).toEqual("T3");
+    });
+
+    // TODO: test case for company.status = DEACTIVATED?
   });
 });

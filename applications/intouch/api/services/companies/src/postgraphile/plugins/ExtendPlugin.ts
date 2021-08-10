@@ -13,6 +13,7 @@ import {
 } from "../../services/company/customResolvers";
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
+import { resetPassword } from "../../services/account";
 import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
@@ -85,26 +86,28 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         },
         publishMessage: async (_query, args, context, resolveInfo) => {
           const { input } = args;
-          const { pubSub } = context;
 
-          await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, input);
+          await publish(context, TOPICS.TRANSACTIONAL_EMAIL, input);
 
           return input;
         },
         createGuaranteePdf: async (_query, args, context, resolverInfo) => {
-          const { pubSub } = context;
           const data = await guaranteeResolver({
             graphql,
             args,
             context,
             resolverInfo
           });
-          const messageId = await publish(pubSub, TOPICS.GUARANTEE_PDF, data);
+          const messageId = await publish(context, TOPICS.GUARANTEE_PDF, data);
 
           return { messageId };
         },
         bulkImport: async (query, args, context, resolveInfo) => {
           return bulkImport(args, context);
+        },
+        resetPassword: async (_query, args, context, resolveInfo) => {
+          const auth0 = await Auth0.init(context.logger);
+          return resetPassword(_query, args, context, resolveInfo, auth0);
         }
       }
     }

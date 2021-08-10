@@ -5,10 +5,6 @@ import { redirectMapInverse } from "../config/redirects";
 export const marketRedirect = (req: Request, account: Account) => {
   const { AUTH0_COOKIE_DOMAIN } = process.env;
 
-  // Disable market-redirects for Demo!!
-  if (AUTH0_COOKIE_DOMAIN === "intouch.dddev.io") {
-    return null;
-  }
   // for multi-market & redirects set the domain to local.intouch (see README)
   if (AUTH0_COOKIE_DOMAIN === "localhost") {
     return null;

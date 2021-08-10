@@ -13,6 +13,7 @@ type Props = {
   imageSize?: "cover" | "contain";
   thumbnailComponent?: React.ComponentType<any>; // TODO
   layout?: "default" | "short";
+  className?: string;
 };
 
 const renderMedia = (
@@ -55,7 +56,8 @@ const ImageGallery = ({
   images,
   imageSize = "contain",
   thumbnailComponent,
-  layout = "default"
+  layout = "default",
+  className
 }: Props) => {
   if (!images.length) {
     return null;
@@ -69,7 +71,7 @@ const ImageGallery = ({
   const Thumbnails = isTouchDevice ? MobileThumbnails : DesktopThumbnails;
 
   return (
-    <div className={styles["ImageGallery"]}>
+    <div className={classnames(styles["ImageGallery"], className)}>
       <div className={styles["image-wrapper"]}>
         {renderMedia(images[activeImageIndex], imageSize, layout)}
         {images[activeImageIndex].caption ? (

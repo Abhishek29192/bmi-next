@@ -3,6 +3,11 @@
 .Section {
   padding: 60px 0;
   background-color: transparent;
+  overflow: hidden;
+
+  &--overflow-visible {
+    overflow: visible;
+  }
 
   &--alabaster {
     background-color: $color-alabaster;

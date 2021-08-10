@@ -17,6 +17,43 @@ describe("RelatedProducts component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it("renders correctly with no variants", () => {
+    const prods: Product[] = [
+      {
+        code: "test1",
+        externalProductCode: "test1",
+        name: "imaproduct",
+        description: "imadescription",
+        documents: [],
+        breadcrumbs: null,
+        categories: [
+          {
+            name: "Root",
+            categoryType: "Category",
+            code: "Root",
+            parentCategoryCode: ""
+          },
+          {
+            name: "Bob",
+            categoryType: "Category",
+            code: "BOB",
+            parentCategoryCode: "Root"
+          }
+        ],
+        variantOptions: []
+      }
+    ];
+
+    const { container } = render(
+      <RelatedProducts
+        countryCode="en"
+        classificationNamespace={"bmiClassificationCatalog/1.0"}
+        products={prods}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it("renders correctly with products", () => {
     const prods: Product[] = [
       {
@@ -84,6 +121,91 @@ describe("RelatedProducts component", () => {
             approvalStatus: "approved",
             shortDescription: "blah",
             longDescription: "blah blah",
+            images: null,
+            breadcrumbs: null,
+            path: ""
+          }
+        ]
+      }
+    ];
+
+    const { container } = render(
+      <RelatedProducts
+        countryCode="en"
+        classificationNamespace={"bmiClassificationCatalog/1.0"}
+        products={prods}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders variants correctly with products without classifications or externalProductCode", () => {
+    const prods: Product[] = [
+      {
+        code: "test1",
+        externalProductCode: "test1",
+        name: "imaproduct",
+        description: "imadescription",
+        documents: [],
+        breadcrumbs: null,
+        categories: [
+          {
+            name: "Root",
+            categoryType: "Category",
+            code: "Root",
+            parentCategoryCode: ""
+          },
+          {
+            name: "Bob",
+            categoryType: "Category",
+            code: "BOB",
+            parentCategoryCode: "Root"
+          }
+        ],
+        variantOptions: [
+          {
+            code: "test1",
+            externalProductCode: "test1",
+            isSampleOrderAllowed: false,
+            approvalStatus: "approved",
+            shortDescription: "blah",
+            longDescription: "blah blah",
+            images: null,
+            breadcrumbs: null,
+            path: ""
+          }
+        ]
+      },
+      {
+        code: "test2",
+        externalProductCode: "test2",
+        name: "imaproduct2",
+        description: "imadescription2",
+        documents: [],
+        breadcrumbs: null,
+        classifications: [],
+        categories: [
+          {
+            name: "Root",
+            categoryType: "Category",
+            code: "Root",
+            parentCategoryCode: ""
+          },
+          {
+            name: "Bob",
+            categoryType: "Category",
+            code: "BOB",
+            parentCategoryCode: "Root"
+          }
+        ],
+        variantOptions: [
+          {
+            code: "test2",
+            externalProductCode: "",
+            isSampleOrderAllowed: false,
+            approvalStatus: "approved",
+            shortDescription: "blah2",
+            longDescription: "blah blah2",
             images: null,
             breadcrumbs: null,
             path: ""

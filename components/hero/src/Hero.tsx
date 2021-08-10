@@ -27,6 +27,7 @@ export type HeroItem = {
 type Props<L = undefined> = {
   breadcrumbs?: React.ReactNode;
   className?: string;
+  brand?: string;
 } & (
   | L
   | ({
@@ -57,6 +58,7 @@ const __DeprecatedImageSource = ({
 const Hero = ({
   breadcrumbs,
   className,
+  brand,
   ...levelProps
 }: Props<{
   level: 0;
@@ -73,6 +75,7 @@ const Hero = ({
       <SingleHero
         breadcrumbs={breadcrumbs}
         className={className}
+        brand={brand}
         {...levelProps}
       />
     );
@@ -90,6 +93,9 @@ const Hero = ({
         styles["Hero"],
         styles["Hero--slim"],
         styles["Hero--carousel"],
+        !!process.env.GATSBY_ENABLE_BRAND_PROVIDER &&
+          brand &&
+          styles["Hero--keyline"],
         hasSpaceBottom && styles["Hero--space-bottom"],
         className
       )}
@@ -112,6 +118,7 @@ const Hero = ({
                       <Typography
                         variant="h1"
                         hasUnderline={hasUnderline}
+                        hasDarkBackground
                         className={classnames(
                           styles["title"],
                           styles["title--truncated"]
@@ -172,12 +179,16 @@ const SingleHero = ({
   breadcrumbs,
   title,
   className,
+  brand,
   ...levelProps
 }: Props) => {
   return (
     <div
       className={classnames(
         styles["Hero"],
+        !!process.env.GATSBY_ENABLE_BRAND_PROVIDER &&
+          brand &&
+          styles["Hero--keyline"],
         levelProps.level === 3 && styles["Hero--light"],
         levelProps.level !== 1 && styles["Hero--slim"],
         !!levelProps.level && styles[`Hero--lvl-${levelProps.level}`],
@@ -188,7 +199,12 @@ const SingleHero = ({
         <div className={styles["wrapper"]}>
           {breadcrumbs}
           <div className={styles["content"]}>
-            <Typography variant="h1" hasUnderline className={styles["title"]}>
+            <Typography
+              variant="h1"
+              hasUnderline
+              hasDarkBackground={levelProps.level !== 3}
+              className={styles["title"]}
+            >
               {title}
             </Typography>
             {levelProps.level === 1 && (

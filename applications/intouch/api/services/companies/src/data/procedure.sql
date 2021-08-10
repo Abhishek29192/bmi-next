@@ -134,22 +134,47 @@ VOLATILE
 SECURITY DEFINER;
 
 -- Function to create a new company
-CREATE OR REPLACE FUNCTION create_company ()
+CREATE OR REPLACE FUNCTION create_company (owner_fullname text, owner_email text, owner_phone text, business_type business_type, tier tier, status company_status, name text, tax_number text, phone text, about_us text, public_email text, website text, facebook text, linked_in text)
   RETURNS company
   AS $$
 DECLARE
   _company company % rowtype;
+  new_code text;
 BEGIN
-  INSERT INTO company ("status", "market_id")
-    VALUES ('NEW', current_market ())
-  RETURNING
-    * INTO _company;
-  INSERT INTO company_member ("account_id", "market_id", "company_id")
-    VALUES (current_account_id (), current_market (), _company.id);
+  UPDATE account SET role = 'COMPANY_ADMIN' WHERE id = current_account_id ();
+  LOOP
+    new_code := LPAD(floor(random() * 9999999)::text, 7, '0');
+    BEGIN
+      INSERT INTO company ("market_id", "owner_fullname", "owner_email", "owner_phone", "business_type", "tier", "status", "name", "tax_number", "phone", "about_us", "public_email", "website", "facebook", "linked_in", "reference_number")
+        VALUES (current_market (), owner_fullname, owner_email, owner_phone, business_type, tier, status, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, new_code)
+      RETURNING
+        * INTO _company;
+      EXIT;
+    EXCEPTION
+      WHEN unique_violation THEN
+    END;
+  END LOOP;
+INSERT INTO company_member ("account_id", "market_id", "company_id")
+  VALUES (current_account_id (), current_market (), _company.id);
   RETURN _company;
 END
 $$
 LANGUAGE 'plpgsql'
+VOLATILE
+SECURITY DEFINER;
+
+-- updating Tier & status cannot be done by company_admin
+-- need to do this automatically when first editing company details with mandatory info
+CREATE OR REPLACE FUNCTION activate_company (input_company_id int)
+  RETURNS company
+  AS $$
+    UPDATE company
+    SET tier = 'T1', status = 'ACTIVE'
+      WHERE
+        company.id = input_company_id
+      RETURNING company.*;
+  $$
+LANGUAGE sql
 VOLATILE
 SECURITY DEFINER;
 
@@ -209,3 +234,35 @@ CREATE OR REPLACE FUNCTION evidence_items_add(evidences evidence_item[])
     select e.custom_evidence_category_id,e.project_id,e.guarantee_id,e.evidence_category_type,e.name,e.attachment from unnest(evidences) as e
      RETURNING *;
 $$ LANGUAGE sql STRICT VOLATILE;
+
+CREATE OR REPLACE FUNCTION search_products (query text,technology technology)
+    RETURNS setof product
+    AS $$
+    SELECT * from product
+    WHERE
+        product.published = true
+        AND product.market_id =current_market ()
+        and product.technology =search_products.technology
+        and 
+        (product.name ILIKE '%' || query || '%' or product.description ILIKE '%' || query || '%')
+        order by product.name
+$$
+LANGUAGE sql
+stable STRICT
+SECURITY DEFINER;
+
+CREATE OR REPLACE FUNCTION search_systems (query text,technology technology)
+    RETURNS setof system
+    AS $$
+    SELECT * from system
+    WHERE
+        system.published = true
+        AND system.market_id =current_market ()
+        and system.technology =search_systems.technology
+        and 
+        (system.name ILIKE '%' || query || '%' or system.description ILIKE '%' || query || '%')
+        order by system.name
+$$
+LANGUAGE sql
+stable STRICT
+SECURITY DEFINER;

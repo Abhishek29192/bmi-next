@@ -1,5 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Sections component renders alternate backgrounds for promos 1`] = `
+HTMLCollection [
+  <div
+    id="Promo 1"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="PromoSection PromoSection PromoSection--reversed Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <div
+                class="content"
+              >
+                <h2
+                  class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                >
+                  Promo 1
+                </h2>
+                <h3
+                  class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                >
+                  Promo 1
+                </h3>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="Promo 2"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="PromoSection PromoSection Section Section--alabaster"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <div
+                class="content"
+              >
+                <h2
+                  class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                >
+                  Promo 2
+                </h2>
+                <h3
+                  class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                >
+                  Promo 2
+                </h3>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="Promo 3"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="PromoSection PromoSection PromoSection--reversed Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <div
+                class="content"
+              >
+                <h2
+                  class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                >
+                  Promo 3
+                </h2>
+                <h3
+                  class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                >
+                  Promo 3
+                </h3>
+                <div
+                  class="RichText"
+                >
+                  <h2
+                    class="MuiTypography-root title Typography MuiTypography-h2"
+                  >
+                    Heading 2
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Sections component renders correctly 1`] = `
 HTMLCollection [
   <div
@@ -363,12 +503,12 @@ HTMLCollection [
                       preserveAspectRatio="xMinYMin"
                     />
                     <h4
-                      class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title Typography MuiTypography-h4"
                     >
                       promo title
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     >
                       promo subtitle
                     </div>
@@ -475,8 +615,13 @@ HTMLCollection [
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Go to page title\\",\\"action\\":\\"path\\"}"
+                  href="/uk/path"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained header-picture Media"
@@ -529,53 +674,40 @@ HTMLCollection [
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       page title
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     >
                       page subtitle
                     </div>
                     <div
                       class="footer"
                     >
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Go to page title\\",\\"action\\":\\"path\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/uk/path"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           Go to page title
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -588,7 +720,7 @@ HTMLCollection [
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection Section Section--null"
+      class="PromoSection PromoSection Section Section--alabaster"
     >
       <div
         class="Container"
@@ -694,7 +826,7 @@ HTMLCollection [
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection Section Section--null"
+      class="PromoSection PromoSection Section Section--alabaster"
     >
       <div
         class="Container"
@@ -797,16 +929,11 @@ HTMLCollection [
             <div
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
             >
-              <h1
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+              <h2
+                class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
               >
                 Gallery title
-              </h1>
-              <p
-                class="MuiTypography-root description Typography MuiTypography-body1"
-              >
-                card section 1 description
-              </p>
+              </h2>
             </div>
             <div
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
@@ -1215,7 +1342,7 @@ HTMLCollection [
     </div>
   </div>,
   <div
-    id="Service Locator - with roofers"
+    id="Service Locator - with services"
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
@@ -1585,18 +1712,18 @@ HTMLCollection [
                                         d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
                                       />
                                     </svg>
-                                    <p
-                                      class="MuiTypography-root label, accessibility-label Typography MuiTypography-body1"
+                                    <span
+                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      findARoofer.telephoneLabel
-                                    </p>
+                                      global.telephone
+                                    </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"findARoofer.telephoneLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"global.telephone\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -1621,18 +1748,18 @@ HTMLCollection [
                                         d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
                                       />
                                     </svg>
-                                    <p
-                                      class="MuiTypography-root label, accessibility-label Typography MuiTypography-body1"
+                                    <span
+                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      findARoofer.emailLabel
-                                    </p>
+                                      global.email
+                                    </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"findARoofer.emailLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"global.email\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -1657,11 +1784,11 @@ HTMLCollection [
                                         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
                                       />
                                     </svg>
-                                    <p
-                                      class="MuiTypography-root label, accessibility-label Typography MuiTypography-body1"
+                                    <span
+                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
                                       findARoofer.websiteLabel
-                                    </p>
+                                    </span>
                                   </dt>
                                   <dd
                                     class="description"
@@ -1686,7 +1813,7 @@ HTMLCollection [
                                     class="term"
                                   >
                                     <span
-                                      class="label"
+                                      class="MuiTypography-root label Typography MuiTypography-body1"
                                     >
                                       findARoofer.roofTypeLabel
                                     </span>
@@ -1697,35 +1824,6 @@ HTMLCollection [
                                     <b>
                                       findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
                                     </b>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="row"
-                                >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <span
-                                      class="label"
-                                    >
-                                      findARoofer.certificationLabel
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    <pre
-                                      style="color: rgb(214, 0, 28);"
-                                    >
-                                      Error: Level "
-                                      none
-                                      " does not exist
-                                    </pre>
-                                    <span
-                                      class="accessibility-label"
-                                    >
-                                      none
-                                    </span>
                                   </dd>
                                 </div>
                               </dl>
@@ -1848,18 +1946,18 @@ HTMLCollection [
                                         d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
                                       />
                                     </svg>
-                                    <p
-                                      class="MuiTypography-root label, accessibility-label Typography MuiTypography-body1"
+                                    <span
+                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      findARoofer.telephoneLabel
-                                    </p>
+                                      global.telephone
+                                    </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"findARoofer.telephoneLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"global.telephone\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -1884,18 +1982,18 @@ HTMLCollection [
                                         d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
                                       />
                                     </svg>
-                                    <p
-                                      class="MuiTypography-root label, accessibility-label Typography MuiTypography-body1"
+                                    <span
+                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      findARoofer.emailLabel
-                                    </p>
+                                      global.email
+                                    </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"findARoofer.emailLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"global.email\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -1920,11 +2018,11 @@ HTMLCollection [
                                         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
                                       />
                                     </svg>
-                                    <p
-                                      class="MuiTypography-root label, accessibility-label Typography MuiTypography-body1"
+                                    <span
+                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
                                       findARoofer.websiteLabel
-                                    </p>
+                                    </span>
                                   </dt>
                                   <dd
                                     class="description"
@@ -1949,7 +2047,7 @@ HTMLCollection [
                                     class="term"
                                   >
                                     <span
-                                      class="label"
+                                      class="MuiTypography-root label Typography MuiTypography-body1"
                                     >
                                       findARoofer.roofTypeLabel
                                     </span>
@@ -1960,35 +2058,6 @@ HTMLCollection [
                                     <b>
                                       findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
                                     </b>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="row"
-                                >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <span
-                                      class="label"
-                                    >
-                                      findARoofer.certificationLabel
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    <pre
-                                      style="color: rgb(214, 0, 28);"
-                                    >
-                                      Error: Level "
-                                      none
-                                      " does not exist
-                                    </pre>
-                                    <span
-                                      class="accessibility-label"
-                                    >
-                                      none
-                                    </span>
                                   </dd>
                                 </div>
                               </dl>
@@ -3304,7 +3373,7 @@ HTMLCollection [
             class="content"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h2"
             >
               Villain 1
             </h2>

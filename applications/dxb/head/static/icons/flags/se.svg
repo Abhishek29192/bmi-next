@@ -1,0 +1,38 @@
+<svg id="Sweden_Sverige" data-name="Sweden Sverige" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" y1="-26.047" x2="20" y2="-26.047" gradientTransform="matrix(1, 0, 0, -1, 0, -18.047)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0084ea"/>
+      <stop offset="0.522" stop-color="#008df3"/>
+      <stop offset="1" stop-color="#0070d7"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="7.5" y1="-34.047" x2="7.5" y2="-18.047" gradientTransform="matrix(1, 0, 0, -1, 0, -18.047)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe546"/>
+      <stop offset="0.427" stop-color="#fff478"/>
+      <stop offset="0.656" stop-color="#fff478"/>
+      <stop offset="1" stop-color="#f3f47f"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" y1="-26.047" x2="20" y2="-26.047" gradientTransform="matrix(1, 0, 0, -1, 0, -18.047)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#feeb5e"/>
+      <stop offset="0.226" stop-color="#fff478"/>
+      <stop offset="0.5" stop-color="#fff478"/>
+      <stop offset="1" stop-color="#fad728"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="8.209" cy="-23.561" r="10.499" gradientTransform="matrix(1, 0, 0, -1, 0, -18.047)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="20" height="16" fill="url(#linear-gradient)"/>
+  <rect x="6" width="3" height="16" fill="url(#linear-gradient-2)"/>
+  <rect y="6.5" width="20" height="3" fill="url(#linear-gradient-3)"/>
+  <g opacity="0.5">
+    <g clip-path="url(#clip-path)">
+      <circle cx="8.209" cy="5.514" r="10.499" fill="url(#radial-gradient)"/>
+    </g>
+  </g>
+  <path d="M19,1V15H1V1L19,1m1-1H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>

@@ -1,0 +1,48 @@
+<svg id="Slovakia_Slovensko" data-name="Slovakia Slovensko" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" y1="-27.946" x2="20" y2="-27.946" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0082e8"/>
+      <stop offset="0.545" stop-color="#008af0"/>
+      <stop offset="1" stop-color="#06c"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="-22.613" x2="20" y2="-22.613" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e8e8e8"/>
+      <stop offset="0.439" stop-color="#f7f7f7"/>
+      <stop offset="1" stop-color="#ccc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" y1="-33.28" x2="20" y2="-33.28" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fd5928"/>
+      <stop offset="0.522" stop-color="#ff6030"/>
+      <stop offset="1" stop-color="#f63404"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="3.304" y1="-26.648" x2="3.304" y2="-19.298" gradientTransform="matrix(1, 0, 0, -1, 2.284, -14.973)" xlink:href="#linear-gradient-3"/>
+    <linearGradient id="linear-gradient-5" x1="3.304" y1="-26.648" x2="3.304" y2="-23.686" gradientTransform="matrix(1, 0, 0, -1, 2.284, -14.973)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#06c"/>
+      <stop offset="0.545" stop-color="#008af0"/>
+      <stop offset="1" stop-color="#0082e8"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="8.189" cy="-25.447" r="10.474" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect y="5.333" width="20" height="5.333" fill="url(#linear-gradient)"/>
+  <rect width="20" height="5.333" fill="url(#linear-gradient-2)"/>
+  <rect y="10.667" width="20" height="5.333" fill="url(#linear-gradient-3)"/>
+  <g>
+    <path id="_Path_" data-name=" Path " d="M8.615,4.1H2.561l-.021.2c0,.043-.111,1.077-.111,3.349A4.068,4.068,0,0,0,3.5,10.45a6.3,6.3,0,0,0,1.99,1.424l.1.046.1-.046a6.3,6.3,0,0,0,1.99-1.424,4.068,4.068,0,0,0,1.073-2.8c0-2.272-.106-3.306-.111-3.349Z" fill="#fff"/>
+    <path d="M5.588,11.675A4.513,4.513,0,0,1,2.65,7.651c0-2.286.109-3.326.109-3.326H8.417s.109,1.04.109,3.326A4.513,4.513,0,0,1,5.588,11.675Z" fill="url(#linear-gradient-4)"/>
+    <path d="M5.847,7.051a4.675,4.675,0,0,0,1.534-.172s-.015.2-.015.441.015.44.015.44a4.934,4.934,0,0,0-1.534-.173V8.85H5.33V7.587A4.937,4.937,0,0,0,3.8,7.76s.015-.2.015-.44S3.8,6.879,3.8,6.879a4.681,4.681,0,0,0,1.535.172V6.258a3.619,3.619,0,0,0-1.214.175s.015-.2.015-.441-.015-.44-.015-.44a3.638,3.638,0,0,0,1.213.174,7.118,7.118,0,0,0-.162-1.135s.3.023.421.023.422-.023.422-.023a7.006,7.006,0,0,0-.162,1.135,3.638,3.638,0,0,0,1.213-.174s-.015.2-.015.44.015.441.015.441a3.622,3.622,0,0,0-1.214-.175v.793Z" fill="#fff"/>
+    <path d="M5.588,8.713c-.609,0-.935.844-.935.844a.748.748,0,0,0-.678-.4.954.954,0,0,0-.741.576,5.583,5.583,0,0,0,2.354,1.942A5.583,5.583,0,0,0,7.942,9.733.954.954,0,0,0,7.2,9.157a.748.748,0,0,0-.678.4s-.326-.844-.935-.844Z" fill="url(#linear-gradient-5)"/>
+  </g>
+  <g opacity="0.5">
+    <g clip-path="url(#clip-path)">
+      <circle cx="8.189" cy="5.5" r="10.474" fill="url(#radial-gradient)"/>
+    </g>
+  </g>
+  <path d="M19,1V15H1V1H18.952M20,0H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>

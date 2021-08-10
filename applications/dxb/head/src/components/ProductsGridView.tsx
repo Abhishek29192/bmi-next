@@ -1,6 +1,6 @@
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import AnchorLink from "@bmi/anchor-link";
 import Grid from "@bmi/grid";
-import OverviewCard from "@bmi/overview-card";
+import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import Typography from "@bmi/typography";
 import { Link } from "gatsby";
 import React, { useContext } from "react";
@@ -32,7 +32,7 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
     );
   }
 
-  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
     <>
@@ -61,7 +61,7 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
             md={6}
             lg={4}
           >
-            <OverviewCard
+            <GTMOverviewCard
               title={product.name}
               titleVariant="h5"
               subtitle={uniqueClassifications}
@@ -74,26 +74,24 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
               }
               imageSize="contain"
               brandImageSource={brandLogo}
+              action={{
+                model: "routerLink",
+                linkComponent: Link,
+                to: productUrl
+              }}
+              gtm={{
+                id: "cta-click1",
+                label: getMicroCopy("plp.product.viewDetails"),
+                action: productUrl
+              }}
               footer={
-                <GTMAnchorLink
-                  iconEnd
-                  action={{
-                    model: "routerLink",
-                    linkComponent: Link,
-                    to: productUrl
-                  }}
-                  gtm={{
-                    id: "cta-click1",
-                    label: getMicroCopy("plp.product.viewDetails"),
-                    action: productUrl
-                  }}
-                >
+                <AnchorLink component="span" iconEnd>
                   {getMicroCopy("plp.product.viewDetails")}
-                </GTMAnchorLink>
+                </AnchorLink>
               }
             >
               {variant.shortDescription}
-            </OverviewCard>
+            </GTMOverviewCard>
           </Grid>
         );
       })}

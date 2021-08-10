@@ -39,7 +39,7 @@ resource "google_cloud_run_service" "tf-gateway" {
     }
     spec {
       containers {
-        image = "gcr.io/automated-style-303709/intouch-api-gateway"
+        image = "gcr.io/automated-style-303709/intouch-api-gateway:latest"
         ports {
           container_port = 8080
         }

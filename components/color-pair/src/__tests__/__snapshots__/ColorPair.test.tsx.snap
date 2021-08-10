@@ -49,6 +49,10 @@ Array [
   "purple-400",
   "orange-500",
   "error",
+  "color-theme-secondary-1",
+  "color-theme-secondary-2",
+  "color-theme-secondary-3",
+  "color-theme-secondary-4",
 ]
 `;
 

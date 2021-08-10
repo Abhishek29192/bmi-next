@@ -1,22 +1,13 @@
 test_gcp-system-configurator:
-  stage: test
+  extends: .test_jest
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/dxb/functions/gcp-system-configurator/**/*
         - jest/**/*
-  needs:
-    - install
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/gcp-system-configurator coverage:jest
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
-  artifacts:
-    when: always
-    reports:
-      junit:
-        - applications/dxb/functions/gcp-system-configurator/junit.xml
+  variables:
+    WORKSPACE: "@bmi/gcp-system-configurator"
+    ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"
 
 build_gcp-system-configurator:
   stage: build

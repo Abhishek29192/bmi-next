@@ -1,0 +1,28 @@
+<svg id="Indonesia" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" y1="-23.946" x2="20" y2="-23.946" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fd5827"/>
+      <stop offset="0.584" stop-color="#ff5627"/>
+      <stop offset="1" stop-color="#f63606"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="-31.946" x2="20" y2="-31.946" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2f2f2"/>
+      <stop offset="0.522" stop-color="#fff"/>
+      <stop offset="1" stop-color="#ccc"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="8.189" cy="-25.447" r="10.474" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="20" height="8" fill="url(#linear-gradient)"/>
+  <rect y="8" width="20" height="8" fill="url(#linear-gradient-2)"/>
+  <g clip-path="url(#clip-path)">
+    <circle cx="8.189" cy="5.5" r="10.474" fill="url(#radial-gradient)"/>
+  </g>
+  <path d="M19,1V15H1V1H18.952M20,0H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>

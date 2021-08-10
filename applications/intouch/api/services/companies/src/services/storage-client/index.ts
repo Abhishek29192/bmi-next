@@ -35,6 +35,10 @@ export default class StorageClient {
     });
   }
 
+  async deleteFile(bucketName: string, fileName: string): Promise<any> {
+    return this.storage.bucket(bucketName).file(fileName).delete();
+  }
+
   async getFileSignedUrl(
     bucketName: string,
     fileName: string,

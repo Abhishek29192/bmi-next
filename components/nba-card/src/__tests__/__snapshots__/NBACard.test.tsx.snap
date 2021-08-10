@@ -1,8 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`NbaCard component accpets onClick 1`] = `
+Array [
+  Array [
+    Class {
+      "_dispatchInstances": null,
+      "_dispatchListeners": null,
+      "_targetInst": null,
+      "altKey": null,
+      "bubbles": null,
+      "button": null,
+      "buttons": null,
+      "cancelable": null,
+      "clientX": null,
+      "clientY": null,
+      "ctrlKey": null,
+      "currentTarget": [Function],
+      "defaultPrevented": null,
+      "detail": null,
+      "dispatchConfig": null,
+      "eventPhase": null,
+      "getModifierState": [Function],
+      "isDefaultPrevented": [Function],
+      "isPropagationStopped": [Function],
+      "isTrusted": null,
+      "metaKey": null,
+      "movementX": [Function],
+      "movementY": [Function],
+      "nativeEvent": null,
+      "pageX": null,
+      "pageY": null,
+      "relatedTarget": [Function],
+      "screenX": null,
+      "screenY": null,
+      "shiftKey": null,
+      "target": null,
+      "timeStamp": [Function],
+      "type": null,
+      "view": null,
+    },
+  ],
+]
+`;
+
 exports[`NbaCard component renders correctly 1`] = `
-<div
-  class="NBACard ColorPair ColorPair--blue-900"
+<button
+  class="MuiButtonBase-root NBACard ColorPair ColorPair--blue-900"
+  tabindex="0"
+  type="button"
 >
   <h4
     class="MuiTypography-root title Typography MuiTypography-h4"
@@ -16,12 +61,17 @@ exports[`NbaCard component renders correctly 1`] = `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
     </div>
   </div>
-</div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
 `;
 
 exports[`NbaCard component renders with footer 1`] = `
-<div
-  class="NBACard ColorPair ColorPair--blue-900"
+<button
+  class="MuiButtonBase-root NBACard ColorPair ColorPair--blue-900"
+  tabindex="0"
+  type="button"
 >
   <h4
     class="MuiTypography-root title Typography MuiTypography-h4"
@@ -42,5 +92,8 @@ exports[`NbaCard component renders with footer 1`] = `
       footer
     </div>
   </div>
-</div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
 `;
