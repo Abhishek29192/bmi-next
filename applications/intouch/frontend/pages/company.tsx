@@ -5,14 +5,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Grid from "@bmi/grid";
 import { useCallback } from "react";
-import { Layout } from "../components/Layout";
-import GridStyles from "../styles/Grid.module.scss";
-import { CompanyIncompleteProfileAlert } from "../components/Pages/Company/IncompleteProfileAlert";
-import { CompanyHeader } from "../components/Pages/Company/Header";
-import { CompanyRegisteredDetails } from "../components/Pages/Company/RegisteredDetails";
-import { CertificationsCard } from "../components/Cards/Certifications";
-import { SupportContactCard } from "../components/Cards/SupportContactCard";
-import { CompanyAdmins } from "../components/Pages/Company/Admins";
 import {
   GetCompanyQuery,
   GetGlobalDataQuery
@@ -30,6 +22,15 @@ import {
 } from "../lib/error";
 import { withPage } from "../lib/middleware/withPage";
 import { validateCompanyProfile } from "../lib/validations/company";
+import { Layout } from "../components/Layout";
+import { CompanyIncompleteProfileAlert } from "../components/Pages/Company/IncompleteProfileAlert";
+import { CompanyDetails } from "../components/Pages/Company/Details";
+import { CompanyRegisteredDetails } from "../components/Pages/Company/RegisteredDetails";
+import { CertificationsCard } from "../components/Cards/Certifications";
+import { SupportContactCard } from "../components/Cards/SupportContactCard";
+import { EditCompanyButton } from "../components/Pages/Company/EditCompany/Button";
+import { CompanyAdmins } from "../components/Pages/Company/Admins";
+import GridStyles from "../styles/Grid.module.scss";
 
 type CompanyPageProps = {
   companySSR: GetCompanyQuery["company"];
@@ -55,7 +56,7 @@ const CompanyPage = ({
   );
 
   return (
-    <Layout title={t("Company")} pageData={globalPageData}>
+    <Layout title={t("title")} pageData={globalPageData}>
       {companyProfileMissingFields.length > 0 && (
         <CompanyIncompleteProfileAlert
           missingFields={companyProfileMissingFields}
@@ -68,9 +69,15 @@ const CompanyPage = ({
         alignItems="stretch"
       >
         <Grid item xs={12} lg={7} xl={8}>
-          <CompanyHeader
+          <CompanyDetails
             company={company}
-            onCompanyUpdateSuccess={onCompanyUpdateSuccess}
+            showName={false}
+            actions={
+              <EditCompanyButton
+                company={company}
+                onCompanyUpdateSuccess={onCompanyUpdateSuccess}
+              />
+            }
           />
         </Grid>
 
@@ -115,8 +122,7 @@ export const GET_CURRENT_COMPANY = gql`
 export const GET_COMPANY_PAGE = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
-      ...CompanyDetailsFragment
-      status
+      ...CompanyPageDetailsFragment
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
@@ -124,13 +130,14 @@ export const GET_COMPANY_PAGE = gql`
   }
 `;
 
-export const CompanyDetailsFragment = gql`
-  fragment CompanyDetailsFragment on Company {
+export const COMPANY_DETAILS_FRAGMENT = gql`
+  fragment CompanyPageDetailsFragment on Company {
     id
-    ...CompanyHeaderDetailsFragment
+    ...CompanyDetailsFragment
     ...CompanyRegisteredDetailsFragment
     ...CompanyAdminsFragment
     ...CompanyCertifications
+    status
   }
 `;
 

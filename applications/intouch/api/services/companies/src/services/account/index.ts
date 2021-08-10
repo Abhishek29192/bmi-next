@@ -46,7 +46,10 @@ export const createAccount = async (
 
     // If row = 0 I don't have a company so I'll create one
     if (rows.length === 0 && args.input.account.role === COMPANY_ADMIN) {
-      await pgClient.query(`SELECT * FROM create_company()`, []);
+      await pgClient.query(
+        `SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`,
+        ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
+      );
     }
 
     const { rows: markets } = await pgClient.query(
@@ -101,10 +104,10 @@ export const updateAccount = async (
   context,
   resolveInfo
 ) => {
-  const { GCP_BUCKET_NAME } = process.env;
+  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
 
   const { pgClient, user, logger: Logger } = context;
-  const { photoUpload, role } = args.input.patch;
+  const { photoUpload, role, shouldRemovePhoto } = args.input.patch;
 
   const logger = Logger("service:account");
 
@@ -173,14 +176,12 @@ export const updateAccount = async (
       }
     }
 
-    if (photoUpload) {
-      const { rows: accounts } = await pgClient.query(
-        `select photo from account WHERE id = $1`,
-        [args.input.id]
-      );
+    if (!photoUpload && shouldRemovePhoto) {
+      args.input.patch.photo = null;
+    }
 
-      const newFileName =
-        accounts[0].photo || `profile/${args.input.id}-${Date.now()}`;
+    if (photoUpload) {
+      const newFileName = `profile/${args.input.id}-${Date.now()}`;
 
       const uploadedFile: FileUpload = await photoUpload;
 
@@ -188,10 +189,27 @@ export const updateAccount = async (
 
       const storageClient = new StorageClient();
       await storageClient.uploadFileByStream(
-        GCP_BUCKET_NAME,
+        GCP_PRIVATE_BUCKET_NAME,
         newFileName,
         uploadedFile
       );
+    }
+
+    // if the user wants to remove the image OR a new photo has been uploaded
+    if ((!photoUpload && shouldRemovePhoto) || photoUpload) {
+      const {
+        rows: [{ photo: currentPhoto }]
+      } = await pgClient.query(
+        "select account.photo from account where id = $1",
+        [user.id]
+      );
+
+      // delete the previous image if it exists & is hosted on GCP Cloud storage
+      // if the current image is externally hosted (i.e. starts with https://) it is probably mock data
+      if (currentPhoto && !/^http(s):\/\//.test(currentPhoto)) {
+        const storageClient = new StorageClient();
+        await storageClient.deleteFile(GCP_PRIVATE_BUCKET_NAME, currentPhoto);
+      }
     }
 
     return await resolve(source, args, context, resolveInfo);
@@ -460,7 +478,7 @@ export const completeInvitation = async (
 };
 
 export const getAccountSignedPhotoUrl = async (photoName: string) => {
-  const { GCP_BUCKET_NAME } = process.env;
+  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
   if (!photoName) {
     return "";
   }
@@ -470,8 +488,27 @@ export const getAccountSignedPhotoUrl = async (photoName: string) => {
 
   const storageClient = new StorageClient();
   return await storageClient.getFileSignedUrl(
-    GCP_BUCKET_NAME,
+    GCP_PRIVATE_BUCKET_NAME,
     photoName,
     expireDate
   );
+};
+
+export const resetPassword = async (
+  _query,
+  args,
+  context,
+  resolveInfo,
+  auth0
+) => {
+  const { user } = context;
+  const logger = context.logger("service:reset-password");
+
+  try {
+    await auth0.changePassword(user.email);
+    return "ok";
+  } catch (error) {
+    logger.error("Email not sent", error);
+    return "fail";
+  }
 };

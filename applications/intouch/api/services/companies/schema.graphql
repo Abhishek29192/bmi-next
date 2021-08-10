@@ -7707,6 +7707,7 @@ type Mutation {
     """
     input: ProjectMembersAddInput!
   ): ProjectMembersAddPayload
+  resetPassword: String
   publishMessage(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -8559,6 +8560,7 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -10679,6 +10681,7 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -10964,6 +10967,7 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -11863,6 +11867,7 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -12198,6 +12203,7 @@ input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -14766,6 +14772,7 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -15480,6 +15487,7 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -16331,6 +16339,7 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -16621,6 +16630,7 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -16905,6 +16915,7 @@ input AccountPatch {
   notificationsUsingId: NotificationAccountIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
+  shouldRemovePhoto: Boolean
 }
 
 """
@@ -26713,6 +26724,20 @@ input CreateCompanyInput {
   payload verbatim. May be used to track mutations by the client.
   """
   clientMutationId: String
+  ownerFullname: String
+  ownerEmail: String
+  ownerPhone: String
+  businessType: BusinessType
+  tier: Tier
+  status: CompanyStatus
+  name: String
+  taxNumber: String
+  phone: String
+  aboutUs: String
+  publicEmail: String
+  website: String
+  facebook: String
+  linkedIn: String
 }
 
 """

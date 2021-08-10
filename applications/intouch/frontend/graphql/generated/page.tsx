@@ -6,7 +6,6 @@ import { QueryHookOptions, useQuery } from "@apollo/client";
 import * as Apollo from "@apollo/client";
 import type React from "react";
 import type { NormalizedCacheObject } from "@apollo/client";
-
 export async function getServerPageGetGlobalData(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetGlobalDataQueryVariables>,

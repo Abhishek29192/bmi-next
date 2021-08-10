@@ -1,9 +1,10 @@
 import React from "react";
 import { SmallProfileCard } from "../Cards/SmallProfileCard";
-import { CompanyHeader } from "../Pages/Company/Header";
+import { CompanyDetails } from "../Pages/Company/Details";
 import { FiftyFiftyGrid } from "../CardHolders/FiftyFiftyGrid";
 import { ThreeColumnGrid } from "../ThreeColumnGrid";
 import { CompanyRegisteredDetails } from "../Pages/Company/RegisteredDetails";
+import { EditCompanyButton } from "../Pages/Company/EditCompany/Button";
 import { mockCompany } from "../../fixtures/company";
 import { Layout, LayoutProps } from ".";
 
@@ -20,11 +21,16 @@ export const CompanyPage = ({ title }: LayoutProps) => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ThreeColumnGrid>
         <div style={{ flex: 2, minWidth: "400px" }}>
-          <CompanyHeader
+          <CompanyDetails
             company={mockCompany}
-            onCompanyUpdateSuccess={() => {
-              window.alert("success");
-            }}
+            actions={
+              <EditCompanyButton
+                company={mockCompany}
+                onCompanyUpdateSuccess={() => {
+                  window.alert("success");
+                }}
+              />
+            }
           />
         </div>
         <CompanyRegisteredDetails

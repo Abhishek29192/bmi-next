@@ -781,6 +781,7 @@ export type AccountPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 export type AccountStatus = "NEW" | "ACTIVE" | "SUSPENDED";
@@ -1860,7 +1861,7 @@ export type Company = Node & {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -3191,7 +3192,7 @@ export type CompanyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -4674,6 +4675,20 @@ export type CreateCompanyInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  ownerFullname?: Maybe<Scalars["String"]>;
+  ownerEmail?: Maybe<Scalars["String"]>;
+  ownerPhone?: Maybe<Scalars["String"]>;
+  businessType?: Maybe<BusinessType>;
+  tier?: Maybe<Tier>;
+  status?: Maybe<CompanyStatus>;
+  name?: Maybe<Scalars["String"]>;
+  taxNumber?: Maybe<Scalars["String"]>;
+  phone?: Maybe<Scalars["String"]>;
+  aboutUs?: Maybe<Scalars["String"]>;
+  publicEmail?: Maybe<Scalars["String"]>;
+  website?: Maybe<Scalars["String"]>;
+  facebook?: Maybe<Scalars["String"]>;
+  linkedIn?: Maybe<Scalars["String"]>;
 };
 
 /** All input for the create `CompanyMember` mutation. */
@@ -10618,6 +10633,7 @@ export type Mutation = {
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
+  resetPassword?: Maybe<Scalars["String"]>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
@@ -17965,6 +17981,7 @@ export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18006,6 +18023,7 @@ export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
     notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
     projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
     photoUpload?: Maybe<Scalars["Upload"]>;
+    shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
   };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18048,6 +18066,7 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18090,6 +18109,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18132,6 +18152,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18174,6 +18195,7 @@ export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18216,6 +18238,7 @@ export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18258,6 +18281,7 @@ export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -18300,6 +18324,7 @@ export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
   notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `address` being updated. */
