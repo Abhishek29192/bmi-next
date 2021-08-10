@@ -1,5 +1,6 @@
 import React from "react";
 import { gql } from "@apollo/client";
+import Avatar from "@material-ui/core/Avatar";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import { Facebook, LinkedIn } from "@material-ui/icons";
@@ -49,8 +50,14 @@ export const CompanyDetails = ({
         <Grid container spacing={3}>
           {showLogo ? (
             <Grid item xs={12} sm={3}>
-              {/* TODO: Placeholder logo */}
-              <img src={logo} alt="" className={styles.logo} />
+              {logo ? (
+                <img src={logo} alt="" className={styles.logo} />
+              ) : (
+                <Avatar
+                  variant="square"
+                  className={`${styles.logo} ${styles.defaultLogo}`}
+                />
+              )}
             </Grid>
           ) : null}
           <Grid item xs={12} sm={9}>
