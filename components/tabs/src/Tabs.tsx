@@ -43,7 +43,9 @@ const TabPanel = ({
 
 type TabsProps = MaterialTabsProps &
   Pick<AppBarProps, "color"> & {
-    children: (React.ReactElement<TabPanelProps> | React.ReactNode)|(React.ReactElement<TabPanelProps> | React.ReactNode)[];
+    children:
+      | (React.ReactElement<TabPanelProps> | React.ReactNode)
+      | (React.ReactElement<TabPanelProps> | React.ReactNode)[];
     initialValue?: any;
     tabComponent?: React.ComponentType<any>; // TODO
     visibleUntil?: "sm" | "md";
