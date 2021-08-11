@@ -148,7 +148,6 @@ export default gql`
     shouldRemovePhoto: Boolean
   }
 
-  # TODO: also extend CompanyCreateInput
   extend input CompanyPatch {
     logoUpload: Upload
     shouldRemoveLogo: Boolean

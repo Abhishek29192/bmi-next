@@ -4,7 +4,7 @@ import { GetUserProfileQuery } from "../../../graphql/generated/operations";
 import { findAccountCompanyFromAccountQuery } from "../../../lib/account";
 import { TableContainer } from "../../../components/TableContainer";
 import { CompanyDetails } from "../Company/Details";
-import RegisterCompanyCard from "../../Cards/RegisterCompanyCard";
+import { RegisterCompanyCard } from "./RegisterCompany/Card";
 import { UserProfileCard } from "./ProfileCard";
 import { UserCertifications } from "./UserCertifications";
 import { UserContactCard } from "./UserContactCard";

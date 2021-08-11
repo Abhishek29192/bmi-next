@@ -2,49 +2,44 @@ import get from "lodash.get";
 import set from "lodash.set";
 import React, { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { gql } from "@apollo/client";
-import {
-  CompanyOperation,
-  CompanyRegisteredAddressIdFkeyInput,
-  CompanyTradingAddressIdFkeyInput
-} from "@bmi/intouch-api-types";
+import { CompanyOperation } from "@bmi/intouch-api-types";
 import Grid from "@bmi/grid";
 import Form from "@bmi/form";
 import Dialog from "@bmi/dialog";
 import Typography from "@bmi/typography";
 import TextField from "@bmi/text-field";
 import Select, { MenuItem } from "@bmi/select";
-import { useUpdateCompanyDetailsMutation } from "../../../../../graphql/generated/hooks";
 import {
   validateEmailInput,
   validatePhoneNumberInput,
   validateUrlInput
-} from "../../../../../lib/validations/utils";
-import log from "../../../../../lib/logger";
-import { GetCompanyQuery } from "../../../../../graphql/generated/operations";
-import { BUSINESS_TYPES } from "../../../../../lib/constants";
-import { InfoPair } from "../../../../InfoPair";
-import { ProfilePictureUpload } from "../../../../ProfilePictureUpload";
-import { formatCompanyOperations } from "../../RegisteredDetails";
+} from "../../lib/validations/utils";
+import { GetCompanyQuery } from "../../graphql/generated/operations";
+import { BUSINESS_TYPES } from "../../lib/constants";
+import { InfoPair } from "../InfoPair";
+import { ProfilePictureUpload } from "../ProfilePictureUpload";
+import { formatCompanyOperations } from "../Pages/Company/RegisteredDetails";
 import styles from "./styles.module.scss";
 
 export type OnCompanyUpdateSuccess = (
   company: GetCompanyQuery["company"]
 ) => void;
 
-export type EditCompanyDialogProps = {
-  company: GetCompanyQuery["company"];
+export type SetCompanyDetailsDialogProps = {
+  title: string;
+  company?: GetCompanyQuery["company"];
   isOpen: boolean;
-  onCloseClick?: () => void;
-  onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
+  onCloseClick: () => void;
+  onSubmit: (values: { [key: string]: any }) => any;
 };
 
-export const EditCompanyDialog = ({
+export const SetCompanyDetailsDialog = ({
+  title,
   company,
   isOpen,
   onCloseClick,
-  onCompanyUpdateSuccess
-}: EditCompanyDialogProps) => {
+  onSubmit
+}: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
   const [shouldRemoveLogo, setShouldRemoveLogo] = useState(false);
@@ -55,30 +50,9 @@ export const EditCompanyDialog = ({
     setLogoUpload(file);
   };
 
-  const initialPictureUrl = company.logoSignedUrl || company.logo;
-
-  const [updateCompany] = useUpdateCompanyDetailsMutation({
-    onError: (error) => {
-      log({
-        severity: "ERROR",
-        message: `There was an error updating the company: ${error.toString()}`
-      });
-      // TODO: show some visual error
-    },
-    onCompleted: ({ updateCompany: { company } }) => {
-      log({
-        severity: "INFO",
-        message: `Updated company - id: ${company.id}`
-      });
-      onCompanyUpdateSuccess && onCompanyUpdateSuccess(company);
-      onCloseClick && onCloseClick();
-    }
-  });
-
   const handleSubmit = useCallback(
     (event, values) => {
       event.preventDefault();
-
       // we need to account for nested objects (e.g. registered address)
       const valuesWithAddresses = Object.entries(values).reduce(
         (obj, [key, value]) => {
@@ -96,56 +70,16 @@ export const EditCompanyDialog = ({
         {}
       );
 
-      const { registeredAddress, tradingAddress, ...patch } =
-        valuesWithAddresses;
-
-      const addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput =
-        // address already exists?
-        company.registeredAddress?.id
-          ? {
-              // updates the address (already linked to the company)
-              updateById: {
-                id: company.registeredAddress.id,
-                patch: valuesWithAddresses.registeredAddress
-              }
-            }
-          : {
-              // creates the address and links it to the company
-              create: valuesWithAddresses.registeredAddress
-            };
-
-      const addressToTradingAddressId: CompanyTradingAddressIdFkeyInput =
-        // address already exists?
-        company.tradingAddress?.id
-          ? {
-              // updates the address (already linked to the company)
-              updateById: {
-                id: company.tradingAddress.id,
-                patch: valuesWithAddresses.tradingAddress
-              }
-            }
-          : {
-              // creates the address and links it to the company
-              create: valuesWithAddresses.tradingAddress
-            };
-
-      updateCompany({
-        variables: {
-          input: {
-            id: company.id,
-            patch: {
-              ...patch,
-              addressToTradingAddressId,
-              addressToRegisteredAddressId,
-              logoUpload,
-              shouldRemoveLogo
-            }
-          }
-        }
+      onSubmit({
+        ...valuesWithAddresses,
+        logoUpload,
+        shouldRemoveLogo
       });
     },
-    [company, updateCompany, logoUpload, shouldRemoveLogo]
+    [company, onSubmit, logoUpload, shouldRemoveLogo]
   );
+
+  const initialPictureUrl = company?.logoSignedUrl || company?.logo;
 
   const getFieldProps = useCallback(
     (fieldName: string) => ({
@@ -168,9 +102,7 @@ export const EditCompanyDialog = ({
 
   return (
     <Dialog className={styles.dialog} open={isOpen} onCloseClick={onCloseClick}>
-      <Dialog.Title hasUnderline>
-        {t("company-page:edit_dialog.title")}
-      </Dialog.Title>
+      <Dialog.Title hasUnderline>{title}</Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
         <Form className={styles.form} onSubmit={handleSubmit} rightAlignButton>
@@ -210,7 +142,7 @@ export const EditCompanyDialog = ({
                 ))}
               </Select>
 
-              {operations.length > 0 ? (
+              {operations?.length > 0 ? (
                 <InfoPair
                   title={t(
                     "company-page:edit_dialog.form.fields.operationTypes"
@@ -224,7 +156,7 @@ export const EditCompanyDialog = ({
               ) : null}
 
               {/* read-only values not shown for company registration */}
-              {company.tier ? (
+              {company?.tier ? (
                 <InfoPair
                   title={t("company-page:edit_dialog.form.fields.tier")}
                 >
@@ -348,13 +280,3 @@ export const EditCompanyDialog = ({
     </Dialog>
   );
 };
-
-export const UPDATE_COMPANY = gql`
-  mutation updateCompanyDetails($input: UpdateCompanyInput!) {
-    updateCompany(input: $input) {
-      company {
-        ...CompanyPageDetailsFragment
-      }
-    }
-  }
-`;
