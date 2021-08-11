@@ -43,7 +43,7 @@ export type Assets = {
   name: string;
   realFileName: string; // includes file extension
   url: string;
-  format: string | null;
+  format?: string;
 };
 
 export interface SystemDetails {

@@ -3,6 +3,15 @@ import { render, cleanup } from "@testing-library/react";
 import AboutLeadBlock from "../aboutLeadBlock";
 import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
+import { Assets } from "../types";
+
+const guaranteesAndWarranties = dataJson.assets.filter(
+  ({ assetType }) => assetType === "WARRANTIES"
+) as Assets[];
+
+const awardsAndCertificates = dataJson.assets.filter(
+  ({ assetType }) => assetType === "AWARDS"
+) as Assets[];
 
 describe("AboutLeadBlock tests", () => {
   afterEach(cleanup);
@@ -12,12 +21,8 @@ describe("AboutLeadBlock tests", () => {
     const { container, queryByText } = render(
       <AboutLeadBlock
         longDescription={longDescription}
-        guaranteesAndWarranties={dataJson.assets.filter(
-          ({ assetType }) => assetType === "WARRANTIES"
-        )}
-        awardsAndCertificates={dataJson.assets.filter(
-          ({ assetType }) => assetType === "AWARDS"
-        )}
+        guaranteesAndWarranties={guaranteesAndWarranties}
+        awardsAndCertificates={awardsAndCertificates}
       />
     );
     const longDescriptionText = queryByText(longDescription);
@@ -32,9 +37,7 @@ describe("AboutLeadBlock tests", () => {
         <AboutLeadBlock
           longDescription={dataJson.longDescription}
           guaranteesAndWarranties={[]}
-          awardsAndCertificates={dataJson.assets.filter(
-            ({ assetType }) => assetType === "AWARDS"
-          )}
+          awardsAndCertificates={awardsAndCertificates}
         />
       );
       const text = queryByText("sdp.leadBlock.guaranteesWarranties", {
@@ -48,9 +51,7 @@ describe("AboutLeadBlock tests", () => {
       const { container, queryByText } = render(
         <AboutLeadBlock
           longDescription={dataJson.longDescription}
-          guaranteesAndWarranties={dataJson.assets.filter(
-            ({ assetType }) => assetType === "WARRANTIES"
-          )}
+          guaranteesAndWarranties={guaranteesAndWarranties}
           awardsAndCertificates={[]}
         />
       );

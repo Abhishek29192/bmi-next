@@ -3,9 +3,15 @@ import { render, cleanup } from "@testing-library/react";
 import Component from "../tabLeadBlock";
 import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
-import { SystemDetails } from "../types";
+import { Assets } from "../types";
 
-const data = dataJson as SystemDetails;
+const guaranteesAndWarranties = dataJson.assets.filter(
+  ({ assetType }) => assetType === "WARRANTIES"
+) as Assets[];
+
+const awardsAndCertificates = dataJson.assets.filter(
+  ({ assetType }) => assetType === "AWARDS"
+) as Assets[];
 
 describe("TabLeadBlock tests", () => {
   afterEach(cleanup);
@@ -14,12 +20,8 @@ describe("TabLeadBlock tests", () => {
     const { container, getByText } = render(
       <Component
         longDescription={dataJson.longDescription}
-        guaranteesAndWarranties={dataJson.assets.filter(
-          ({ assetType }) => assetType === "WARRANTIES"
-        )}
-        awardsAndCertificates={dataJson.assets.filter(
-          ({ assetType }) => assetType === "AWARDS"
-        )}
+        guaranteesAndWarranties={guaranteesAndWarranties}
+        awardsAndCertificates={awardsAndCertificates}
       />
     );
 
