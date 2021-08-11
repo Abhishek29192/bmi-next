@@ -16,6 +16,12 @@ module.exports.up = (migration) => {
     .required(true);
 
   guaranteeTemplate
+    .createField("languageDescriptor")
+    .name("Language Descriptor")
+    .type("Symbol")
+    .required(true);
+
+  guaranteeTemplate
     .createField("approvalMessage")
     .name("Approval Message")
     .type("Link")
@@ -41,6 +47,18 @@ module.exports.up = (migration) => {
       { assetFileSize: { max: MAX_FILE_SIZES.IMAGE } }
     ])
     .linkType("Asset");
+
+  guaranteeTemplate
+    .createField("titleLine1")
+    .name("Title Line 1")
+    .type("Symbol")
+    .required(true);
+
+  guaranteeTemplate
+    .createField("titleLine2")
+    .name("Title Line 2")
+    .type("Symbol")
+    .required(true);
 
   guaranteeTemplate
     .createField("signatory")
@@ -94,6 +112,12 @@ module.exports.up = (migration) => {
     .createField("headingRoofType")
     .name("Heading Roof Type")
     .type("Symbol");
+
+  guaranteeTemplate
+    .createField("roofType")
+    .name("Roof Type")
+    .type("Symbol")
+    .required(true);
 
   guaranteeTemplate
     .createField("headingContractor")
@@ -181,25 +205,16 @@ module.exports.up = (migration) => {
     .type("Symbol")
     .required(true);
 
-  guaranteeTemplate
-    .createField("lockupLine1")
-    .name("Lockup Line 1")
-    .type("Symbol")
-    .required(true);
-
-  guaranteeTemplate
-    .createField("lockupLine2")
-    .name("Lockup Line 2")
-    .type("Symbol")
-    .required(true);
-
-  guaranteeTemplate
-    .createField("roofType")
-    .name("Roof Type")
-    .type("Symbol")
-    .required(true);
-
   guaranteeTemplate.changeFieldControl("displayName", "builtin", "singleLine");
+  guaranteeTemplate.changeFieldControl(
+    "languageDescriptor",
+    "builtin",
+    "singleLine",
+    {
+      helpText:
+        "For Company Admins to see when they select a template in Intouch"
+    }
+  );
   guaranteeTemplate.changeFieldControl(
     "approvalMessage",
     "builtin",
@@ -211,6 +226,8 @@ module.exports.up = (migration) => {
     "entryLinkEditor"
   );
   guaranteeTemplate.changeFieldControl("logo", "builtin", "assetLinkEditor");
+  guaranteeTemplate.changeFieldControl("titleLine1", "builtin", "singleLine");
+  guaranteeTemplate.changeFieldControl("titleLine2", "builtin", "singleLine");
   guaranteeTemplate.changeFieldControl("signatory", "builtin", "singleLine");
   guaranteeTemplate.changeFieldControl(
     "headingGuarantee",
@@ -248,6 +265,7 @@ module.exports.up = (migration) => {
     "builtin",
     "singleLine"
   );
+  guaranteeTemplate.changeFieldControl("roofType", "builtin", "singleLine");
   guaranteeTemplate.changeFieldControl(
     "headingContractor",
     "builtin",
@@ -301,9 +319,6 @@ module.exports.up = (migration) => {
     "builtin",
     "singleLine"
   );
-  guaranteeTemplate.changeFieldControl("lockupLine1", "builtin", "singleLine");
-  guaranteeTemplate.changeFieldControl("lockupLine2", "builtin", "singleLine");
-  guaranteeTemplate.changeFieldControl("roofType", "builtin", "singleLine");
 };
 
 module.exports.down = (migration) =>

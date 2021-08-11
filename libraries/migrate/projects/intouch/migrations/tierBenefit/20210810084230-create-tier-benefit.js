@@ -27,6 +27,12 @@ module.exports.up = (migration) => {
     ]);
 
   tierBenefit
+    .createField("guaranteeValidityOffsetYears")
+    .name("Guarantee Validity Offset Years")
+    .type("Integer")
+    .validations([{ range: { min: 0 } }]);
+
+  tierBenefit
     .createField("description")
     .name("Description")
     .type("RichText")
@@ -41,6 +47,15 @@ module.exports.up = (migration) => {
 
   tierBenefit.changeFieldControl("name", "builtin", "singleLine");
   tierBenefit.changeFieldControl("tier", "builtin", "radio");
+  tierBenefit.changeFieldControl(
+    "guaranteeValidityOffsetYears",
+    "builtin",
+    "numberEditor",
+    {
+      helpText:
+        "The Tier specific offset number in years used to calculate when a guarantee should expire"
+    }
+  );
   tierBenefit.changeFieldControl("description", "builtin", "richTextEditor");
   tierBenefit.changeFieldControl(
     "shortDescription",
