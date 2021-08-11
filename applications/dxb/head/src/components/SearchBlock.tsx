@@ -6,7 +6,7 @@ import Typography from "@bmi/typography";
 import classnames from "classnames";
 import React, { FormEvent, useState, useEffect } from "react";
 import RichText from "../components/RichText";
-import path from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import styles from "./styles/SearchBlock.module.scss";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 
@@ -59,7 +59,7 @@ const SearchPageBlock = ({
           className={classnames(styles["content"], styles["content--search"])}
         >
           <Search
-            action={path.getPathWithCountryCode(countryCode, "search")}
+            action={getPathWithCountryCode(countryCode, "search")}
             buttonText={buttonText}
             value={internalQueryState}
             fieldName={QUERY_KEY}

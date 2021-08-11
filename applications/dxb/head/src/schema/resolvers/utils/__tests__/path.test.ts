@@ -1,5 +1,5 @@
 import React from "react";
-import pathUtil from "../path";
+import { getUrlFromPath, resolvePath } from "../path";
 
 describe("Path resolver util", () => {
   it("getUrlFromPath successfully gets url from path", () => {
@@ -11,7 +11,7 @@ describe("Path resolver util", () => {
       }
     ];
 
-    const url = pathUtil.getUrlFromPath(testObject);
+    const url = getUrlFromPath(testObject);
 
     expect(url).toContain("/en/i-am-a-test/path/thingy/?q=1");
     expect(url).toMatchSnapshot();
@@ -24,7 +24,7 @@ describe("Path resolver util", () => {
       }
     ];
 
-    const url = await pathUtil.resolvePath(testObject);
+    const url = await resolvePath(testObject);
 
     expect(url).toMatchSnapshot();
   });

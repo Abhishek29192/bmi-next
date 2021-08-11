@@ -12,7 +12,7 @@ import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
 import getJpgImage from "../utils/images";
-import path from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import BrandProvider from "./BrandProvider";
 import { SiteContext, Data as SiteData } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
@@ -225,7 +225,7 @@ const Page = ({
                   />
                 )}
                 onError={() =>
-                  navigate(path.getPathWithCountryCode(countryCode, "422"))
+                  navigate(getPathWithCountryCode(countryCode, "422"))
                 }
               >
                 <VisualiserProvider
@@ -235,7 +235,7 @@ const Page = ({
                 >
                   <Calculator
                     onError={() =>
-                      navigate(path.getPathWithCountryCode(countryCode, "422"))
+                      navigate(getPathWithCountryCode(countryCode, "422"))
                     }
                   >
                     {children}

@@ -19,7 +19,7 @@ import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import withGTM from "../utils/google-tag-manager";
-import path from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 // TODO: FormInputs should be updated and used here.
 import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
@@ -307,10 +307,7 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            path.getPathWithCountryCode(
-              countryCode,
-              successRedirect.linkedPage.path
-            )
+            getPathWithCountryCode(countryCode, successRedirect.linkedPage.path)
         );
       } else {
         navigate("/");
@@ -404,10 +401,7 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            path.getPathWithCountryCode(
-              countryCode,
-              successRedirect.linkedPage.path
-            )
+            getPathWithCountryCode(countryCode, successRedirect.linkedPage.path)
         );
       } else {
         navigate("/");
