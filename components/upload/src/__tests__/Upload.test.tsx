@@ -247,4 +247,22 @@ describe("Upload component", () => {
 
     expect(onFilesChange).toHaveBeenCalledWith(files);
   });
+
+  it("render correctly with value", async () => {
+    const { getAllByTestId } = render(
+      <Upload
+        id="onFilesChange-mock-upload"
+        name="onFilesChange-mock-upload"
+        buttonLabel="Upload here"
+        mapBody={mapBody}
+        mapValue={mapValue}
+        microcopyProvider={{ test: "test" }}
+        value={[
+          new File([], "file1", { type: "image" }),
+          new File([], "file2", { type: "image" })
+        ]}
+      />
+    );
+    expect(getAllByTestId("test-file")).toHaveLength(2);
+  });
 });

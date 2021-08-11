@@ -34,6 +34,7 @@ export type Props = {
   microcopyProvider: Record<string, string>;
   defaultExpanded?: boolean;
   onFilesChange?: (file: File[]) => void;
+  value?: File[];
 };
 
 const Upload = ({
@@ -54,13 +55,24 @@ const Upload = ({
   onUploadRequest,
   microcopyProvider,
   defaultExpanded = false,
-  onFilesChange
+  onFilesChange,
+  value
 }: Props) => {
   const [files, setFiles] = useState<readonly UploadFile[]>([]);
   const [dragCounter, setDragCounter] = useState(0);
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
+  useEffect(() => {
+    if (value && value.length > 0) {
+      const defaultFiles = value.map((file) => ({
+        file,
+        value: undefined
+      }));
+      setFiles(defaultFiles);
+    }
+  }, []);
 
   useEffect(() => {
     onChange(files.map((file) => file.value));
