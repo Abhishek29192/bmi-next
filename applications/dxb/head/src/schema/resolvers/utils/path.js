@@ -1,7 +1,7 @@
 "use strict";
 
 let useCountryCode = true;
-if (process.env.GATSBY_DONT_USE_COUNTRY_CODE) {
+if (process.env.GATSBY_DONT_USE_COUNTRY_CODE === "true") {
   useCountryCode = false;
 }
 
