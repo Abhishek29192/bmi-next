@@ -623,7 +623,7 @@ export const UpdateSystemDocument = gql`
   mutation updateSystem($input: UpdateSystemInput!) {
     updateSystem(input: $input) {
       query {
-        products {
+        systems {
           nodes {
             id
             name

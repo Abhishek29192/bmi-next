@@ -36,5 +36,9 @@
   "form": {
     "productTitle": "Edit product",
     "systemTitle": "Edit system"
+  },
+  "errors": {
+    "filename_wrong_format": "The file has a wrong format",
+    "unauthorized": "Not authorized"
   }
 }

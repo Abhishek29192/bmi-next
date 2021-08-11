@@ -121,6 +121,26 @@ CREATE POLICY policy_market_admin ON product FOR ALL TO market_admin USING (curr
 CREATE POLICY policy_company_admin_select ON product FOR SELECT TO company_admin USING (current_market() = market_id);
 CREATE POLICY policy_installer_select ON product FOR SELECT TO installer USING (current_market() = market_id);
 
+ALTER TABLE system ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS policy_super_admin ON system;
+DROP POLICY IF EXISTS policy_market_admin ON system;
+DROP POLICY IF EXISTS policy_company_admin ON system;
+DROP POLICY IF EXISTS policy_installer_select ON system;
+CREATE POLICY policy_super_admin ON system FOR ALL TO super_admin USING (true) WITH CHECK (true);
+CREATE POLICY policy_market_admin ON system FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
+CREATE POLICY policy_company_admin ON system FOR SELECT TO company_admin USING (true);
+CREATE POLICY policy_installer_select ON system FOR SELECT TO installer USING (true);
+
+ALTER TABLE system_member ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS policy_super_admin ON system_member;
+DROP POLICY IF EXISTS policy_market_admin ON system_member;
+DROP POLICY IF EXISTS policy_company_admin ON system_member;
+DROP POLICY IF EXISTS policy_installer_select ON system_member;
+CREATE POLICY policy_super_admin ON system_member FOR ALL TO super_admin USING (true) WITH CHECK (true);
+CREATE POLICY policy_market_admin ON system_member FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
+CREATE POLICY policy_company_admin ON system_member FOR SELECT TO company_admin USING (true);
+CREATE POLICY policy_installer_select ON system_member FOR SELECT TO installer USING (true);
+
 ALTER TABLE notification ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS policy_super_admin ON notification;
 DROP POLICY IF EXISTS policy_market_admin ON notification;
@@ -185,28 +205,6 @@ CREATE POLICY policy_company_admin ON evidence_item FOR ALL TO company_admin
 CREATE POLICY policy_installer_select ON evidence_item FOR SELECT TO installer USING (
   current_company() = (SELECT company_id FROM project WHERE project.id = project_id)
 );
-
-
-ALTER TABLE system ENABLE ROW LEVEL SECURITY;
-DROP POLICY IF EXISTS policy_super_admin ON system;
-DROP POLICY IF EXISTS policy_market_admin ON system;
-DROP POLICY IF EXISTS policy_company_admin ON system;
-DROP POLICY IF EXISTS policy_installer_select ON system;
-CREATE POLICY policy_super_admin ON system FOR ALL TO super_admin USING (true) WITH CHECK (true);
-CREATE POLICY policy_market_admin ON system FOR ALL TO market_admin USING (true) WITH CHECK (current_market() = market_id);
-CREATE POLICY policy_company_admin ON system FOR SELECT TO company_admin USING (true);
-CREATE POLICY policy_installer_select ON system FOR SELECT TO installer USING (true);
-
-ALTER TABLE system_member ENABLE ROW LEVEL SECURITY;
-DROP POLICY IF EXISTS policy_super_admin ON system_member;
-DROP POLICY IF EXISTS policy_market_admin ON system_member;
-DROP POLICY IF EXISTS policy_company_admin ON system_member;
-DROP POLICY IF EXISTS policy_installer_select ON system_member;
-CREATE POLICY policy_super_admin ON system_member FOR ALL TO super_admin USING (true) WITH CHECK (true);
-CREATE POLICY policy_market_admin ON system_member FOR ALL TO market_admin USING (true) WITH CHECK (current_market() = (SELECT market_id FROM system WHERE id = system.id));
-CREATE POLICY policy_company_admin ON system_member FOR SELECT TO company_admin USING (true);
-CREATE POLICY policy_installer_select ON system_member FOR SELECT TO installer USING (true);
-
 
 ALTER TABLE note ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS policy_super_admin ON note;

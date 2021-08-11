@@ -1,4 +1,5 @@
 import { PoolClient } from "pg";
+
 import { Role, Company, Market } from "@bmi/intouch-api-types";
 
 export type Account = {
@@ -31,4 +32,5 @@ export type PostGraphileContext = {
   user: Account;
   logger: (modue: string) => import("winston").Logger;
   pgRootPool: PoolClient;
+  pgClient: PoolClient;
 };

@@ -1,7 +1,7 @@
 import * as csv from "fast-csv";
 import pgFormat from "pg-format";
 import camelcaseKeys from "camelcase-keys";
-
+import { PostGraphileContext } from "../../types";
 import { validateItems, validateProductsAndSystems } from "./validation";
 
 const PRODUCTS_FILE = "products.csv";
@@ -54,8 +54,8 @@ const getSystems = async (market: string, pgClient: any) => {
   );
 };
 
-export const bulkImport = async (args, context) => {
-  const { pgClient } = context;
+export const bulkImport = async (args, context: PostGraphileContext) => {
+  const { pgClient, user } = context;
   const { input } = args;
   const logger = context.logger("product:import");
 
@@ -71,13 +71,28 @@ export const bulkImport = async (args, context) => {
   const systemsToUpdate = [];
   const productsToUpdate = [];
 
+  if (
+    !user.can("import:products:market") &&
+    !user.can("import:products:markets")
+  ) {
+    throw new Error("unauthorized");
+  }
+
   for await (let file of files) {
     const { filename, ...f } = await file;
 
     const [env, marketCode, table] = filename.split("-");
 
     if (!env || !marketCode || !table) {
-      throw new Error("the filename has a wrong format");
+      throw new Error("filename_wrong_format");
+    }
+
+    if (
+      user.can("import:products:market") &&
+      !user.can("import:products:markets") &&
+      marketCode !== user.market.domain
+    ) {
+      throw new Error("unauthorized");
     }
 
     const { rows } = await pgClient.query(
@@ -86,25 +101,21 @@ export const bulkImport = async (args, context) => {
     );
 
     if (!rows.length) {
-      throw new Error("the market doesn't exists");
+      throw new Error("market_not_found");
     }
 
     const marketId = rows[0].id;
-
     const parsedFile: any[] = await singleImport({ filename, ...f });
 
     if (filename.indexOf(SYSTEM_MEMBER_FILE) !== -1) {
       systemMember = parsedFile.map((item) => {
-        systemMemberToInsert.push(
-          camelcaseKeys({
-            system_bmi_ref: item.system_bmi_ref,
-            product_bmi_ref: item.product_bmi_ref
-          })
-        );
-        return {
+        const systemMember = {
           system_bmi_ref: item.system_bmi_ref,
-          product_bmi_ref: item.product_bmi_ref
+          product_bmi_ref: item.product_bmi_ref,
+          market_id: marketId
         };
+        systemMemberToInsert.push(camelcaseKeys(systemMember));
+        return systemMember;
       });
     } else if (filename.indexOf(SYSTEMS_FILE) !== -1) {
       const currentSystems = await getSystems(marketId, pgClient);
@@ -235,8 +246,9 @@ export const bulkImport = async (args, context) => {
   try {
     const { rows } = await pgClient.query(
       pgFormat(
-        `INSERT INTO system_member (system_bmi_ref, product_bmi_ref) VALUES %L
-          ON CONFLICT (system_bmi_ref, product_bmi_ref) DO UPDATE SET
+        `INSERT INTO system_member (system_bmi_ref, product_bmi_ref, market_id) VALUES %L
+          ON CONFLICT (system_bmi_ref, product_bmi_ref, market_id) DO UPDATE SET
+          market_id = excluded.market_id,
           system_bmi_ref = excluded.system_bmi_ref,
           product_bmi_ref = excluded.product_bmi_ref RETURNING *;
         `,

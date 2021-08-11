@@ -21350,17 +21350,7 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByNodeId: CompanyNodeIdConnect
-
-  """
-  The primary key(s) for `company` for the far side of the relationship.
-  """
   deleteById: CompanyCompanyPkeyDelete
-
-  """
-  The primary key(s) for `company` for the far side of the relationship.
-  """
-  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.

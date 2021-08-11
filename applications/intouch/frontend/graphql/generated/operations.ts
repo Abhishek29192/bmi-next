@@ -448,11 +448,11 @@ export type UpdateSystemMutation = { readonly __typename?: "Mutation" } & {
     { readonly __typename?: "UpdateSystemPayload" } & {
       readonly query?: SchemaTypes.Maybe<
         { readonly __typename?: "Query" } & {
-          readonly products?: SchemaTypes.Maybe<
-            { readonly __typename?: "ProductsConnection" } & {
+          readonly systems?: SchemaTypes.Maybe<
+            { readonly __typename?: "SystemsConnection" } & {
               readonly nodes: ReadonlyArray<
-                { readonly __typename?: "Product" } & Pick<
-                  SchemaTypes.Product,
+                { readonly __typename?: "System" } & Pick<
+                  SchemaTypes.System,
                   | "id"
                   | "name"
                   | "bmiRef"

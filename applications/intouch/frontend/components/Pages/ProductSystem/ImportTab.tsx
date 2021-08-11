@@ -31,7 +31,7 @@ const ImportTab = () => {
       setImportResult((prev) => ({
         ...prev,
         message: {
-          text: t("importError"),
+          text: t(`errors.${error.message}`),
           severity: "error"
         }
       }));
@@ -54,7 +54,10 @@ const ImportTab = () => {
           setImportResult({
             ...data.bulkImport,
             message: dryRun
-              ? null
+              ? {
+                  text: t("dyRunCompleted"),
+                  severity: "success"
+                }
               : {
                   text: t("importCompleted"),
                   severity: "success"
@@ -68,11 +71,11 @@ const ImportTab = () => {
 
   const hasError = () => {
     return (
-      importResult?.errorSystemsToUpdate.length ||
-      importResult?.errorSystemsToInsert.length ||
-      importResult?.errorProductsToUpdate.length ||
-      importResult?.errorProductsToInsert.length ||
-      importResult?.errorSystemMembersInsert.length
+      importResult?.errorSystemsToUpdate?.length ||
+      importResult?.errorSystemsToInsert?.length ||
+      importResult?.errorProductsToUpdate?.length ||
+      importResult?.errorProductsToInsert?.length ||
+      importResult?.errorSystemMembersInsert?.length
     );
   };
 
@@ -99,25 +102,38 @@ const ImportTab = () => {
           <Button onClick={() => submit(true)}>{t("dryRun")}</Button>
         </div>
       </Grid>
-      {importResult && !hasError() && (
+      {importResult && (
         <Grid className={styles.importContent} xs={12} spacing={3} container>
-          <Grid item xs={6}>
-            {renderList(t("productToInsert"), importResult?.productsToInsert)}
-            {renderList(t("productToUpdate"), importResult?.productsToUpdate)}
-          </Grid>
+          {!hasError() && (
+            <>
+              <Grid item xs={6}>
+                {renderList(
+                  t("productToInsert"),
+                  importResult?.productsToInsert
+                )}
+                {renderList(
+                  t("productToUpdate"),
+                  importResult?.productsToUpdate
+                )}
+              </Grid>
 
-          <Grid item xs={6}>
-            {renderList(t("systemToInsert"), importResult?.systemsToInsert)}
-            {renderList(t("systemToUpdate"), importResult?.systemsToUpdate)}
-          </Grid>
+              <Grid item xs={6}>
+                {renderList(t("systemToInsert"), importResult?.systemsToInsert)}
+                {renderList(t("systemToUpdate"), importResult?.systemsToUpdate)}
+              </Grid>
 
-          <Grid item xs={12}>
-            {importResult && (
-              <Button style={{ marginTop: 15 }} onClick={() => submit(false)}>
-                {t("confirm")}
-              </Button>
-            )}
-          </Grid>
+              {importResult?.message?.severity !== "error" && (
+                <Grid item xs={12}>
+                  <Button
+                    style={{ marginTop: 15 }}
+                    onClick={() => submit(false)}
+                  >
+                    {t("confirm")}
+                  </Button>
+                </Grid>
+              )}
+            </>
+          )}
 
           <Grid item xs={12}>
             {importResult?.message && (

@@ -1,7 +1,7 @@
 import * as importer from "../bulkImport";
 
 describe("Bulk importer", () => {
-  let context = {
+  let context: any = {
     pgClient: {
       query: jest.fn()
     },

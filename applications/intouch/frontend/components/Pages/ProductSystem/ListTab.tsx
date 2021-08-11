@@ -158,7 +158,7 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
   useEffect(() => {
     const { searched, filters } = filterState;
 
-    const activefilters = filters
+    const activeFilters = filters
       .filter(({ isActive }) => isActive)
       .map(({ attr }) => attr?.toLowerCase());
 
@@ -169,8 +169,8 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
           let isSearched = true;
           let isFiltered = true;
 
-          if (activefilters.length > 0) {
-            isFiltered = activefilters.includes(technology?.toLowerCase());
+          if (activeFilters.length > 0) {
+            isFiltered = activeFilters.includes(technology?.toLowerCase());
           }
 
           if (filterState.searched) {
@@ -197,7 +197,7 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
         filterClick={onFilterClick}
         noResultLabel={t("sidePanel.search.noResult")}
       >
-        {items?.nodes.map((item, index) => (
+        {(items?.nodes as any)?.map((item: any, index: number) => (
           <div key={`product-${index}`} onClick={(e) => setSelectedItem(item)}>
             <FilterResult label={item.bmiRef} key={item.bmiRef}>
               <Typography>{item.name}</Typography>
@@ -354,7 +354,7 @@ export const updateSystem = gql`
   mutation updateSystem($input: UpdateSystemInput!) {
     updateSystem(input: $input) {
       query {
-        products {
+        systems {
           nodes {
             id
             name
