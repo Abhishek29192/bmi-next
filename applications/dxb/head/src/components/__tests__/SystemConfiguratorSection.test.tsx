@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { ErrorBoundary } from "react-error-boundary";
 import mockConsole from "jest-mock-console";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import SystemConfiguratorSection, {
   Data,
   NextStepData
@@ -35,11 +35,8 @@ class CancelToken {
 // @ts-ignore
 mockedAxios.CancelToken = CancelToken;
 
-const cancelToken = axios.CancelToken;
-const source = cancelToken.source();
-
 beforeAll(() => {
-  // mockConsole();
+  mockConsole();
 });
 
 beforeEach(() => {
@@ -242,7 +239,161 @@ describe("SystemConfiguratorSection component", () => {
       data: {
         __typename: "ContentfulTitleWithContent",
         title: "No Result Title",
-        description: { raw: JSON.stringify(richTextRaw), references: null }
+        content: { raw: JSON.stringify(richTextRaw), references: null }
+      }
+    });
+
+    const { container, findByLabelText, findByRole, findByText } = render(
+      <SystemConfiguratorSection data={initialData} />
+    );
+
+    const label = await findByLabelText("Answer 1b title");
+    fireEvent.click(label);
+
+    await findByRole("progressbar");
+
+    await findByText("No Result Title");
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders no result section with the correct image url", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulTitleWithContent",
+        title: "No Result Title",
+        content: {
+          raw: JSON.stringify({
+            nodeType: "document",
+            data: {},
+            content: [
+              {
+                nodeType: "embedded-asset-block",
+                content: [],
+                data: {
+                  target: {
+                    sys: {
+                      id: "abcd1",
+                      type: "Link",
+                      linkType: "Asset"
+                    }
+                  }
+                }
+              }
+            ]
+          }),
+          references: [
+            {
+              __typename: "ContentfulAsset",
+              contentful_id: "abcd1",
+              id: "abcd1",
+              title: "image 2",
+              file: {
+                url: "https:// path to image.jpg",
+                contentType: "image/jpg"
+              }
+            }
+          ]
+        }
+      }
+    });
+
+    const { container, findByLabelText, findByRole, findByText } = render(
+      <SystemConfiguratorSection data={initialData} />
+    );
+
+    const label = await findByLabelText("Answer 1b title");
+    fireEvent.click(label);
+
+    await findByRole("progressbar");
+
+    await findByText("No Result Title");
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders no result section while ignoring assets other than image", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulTitleWithContent",
+        title: "No Result Title",
+        content: {
+          raw: JSON.stringify({
+            nodeType: "document",
+            data: {},
+            content: [
+              {
+                nodeType: "embedded-asset-block",
+                content: [],
+                data: {
+                  target: {
+                    sys: {
+                      id: "abcd1",
+                      type: "Link",
+                      linkType: "Asset"
+                    }
+                  }
+                }
+              }
+            ]
+          }),
+          references: [
+            {
+              __typename: "ContentfulAsset",
+              contentful_id: "abcd1",
+              id: "abcd1",
+              title: "image 2",
+              file: {
+                url: "https:// path to image.jpg",
+                contentType: "file/not-an-image"
+              }
+            }
+          ]
+        }
+      }
+    });
+
+    const { container, findByLabelText, findByRole, findByText } = render(
+      <SystemConfiguratorSection data={initialData} />
+    );
+
+    const label = await findByLabelText("Answer 1b title");
+    fireEvent.click(label);
+
+    await findByRole("progressbar");
+
+    await findByText("No Result Title");
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders no result section while ignoring invalid asset references", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulTitleWithContent",
+        title: "No Result Title",
+        content: {
+          raw: JSON.stringify({
+            nodeType: "document",
+            data: {},
+            content: [
+              {
+                nodeType: "embedded-asset-block",
+                content: [],
+                data: {
+                  target: {
+                    sys: {
+                      id: "abcd1",
+                      type: "Link",
+                      linkType: "Asset"
+                    }
+                  }
+                }
+              }
+            ]
+          }),
+          references: []
+        }
       }
     });
 
@@ -350,7 +501,6 @@ describe("SystemConfiguratorSection component", () => {
       exact: false
     });
 
-    console.log(firstQuestion);
     fireEvent.click(firstQuestion);
     fireEvent.click(firstQuestion);
 
