@@ -3,6 +3,19 @@
   "MISCELLANEOUS": "Supporting files",
   "PROOF_OF_PURCHASE": "Proof of purchase",
   "CUSTOM": "Custom Files",
+  "search": {
+    "inputLabel": "Search for a project"
+  },
+  "filters": {
+    "labels": {
+      "ALL": "All",
+      "NOT_STARTED": "Not started",
+      "IN_PROGRESS": "In progress",
+      "COMPLETED": "Completed",
+      "FLAT": "Flat",
+      "PITCHED": "Pitched"
+    }
+  },
   "teamTab": {
     "header": "Add team member",
     "table": {
