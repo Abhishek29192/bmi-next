@@ -7,6 +7,23 @@ const isCompanyMember = (user, extraData: { companyMemberIds: number[] }) => {
   return companyMemberIds.includes(user.id);
 };
 
+const canSeeProjects = (account) => {
+  // Market config takes precedence as a feature flag effectively
+  if (!account?.market?.projectsEnabled) {
+    return false;
+  }
+
+  if (account?.role === ROLES.SUPER_ADMIN) {
+    return true;
+  }
+
+  if (account?.role === ROLES.INSTALLER) {
+    return hasProjects(account);
+  }
+
+  return true;
+};
+
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
 const gates = {
   company: {
@@ -41,26 +58,14 @@ const gates = {
       COMPANY_ADMIN: true
     }
   },
+  page: {
+    projects: canSeeProjects
+  },
   navigation: {
     // Home (Available to All authenticated users)
     home: true,
     // Projects (Available to all enabled Markets for all authenticated users except Installers who are not assigned to any Projects)
-    projects: (account) => {
-      // Market config takes precedence as a feature flag effectively
-      if (!account?.market?.projectsEnabled) {
-        return false;
-      }
-
-      if (account?.role === ROLES.SUPER_ADMIN) {
-        return true;
-      }
-
-      if (account?.role === ROLES.INSTALLER) {
-        return hasProjects(account);
-      }
-
-      return true;
-    },
+    projects: canSeeProjects,
     // Training (Available to all authenticated users, although not critical for Market Admins and Super Admins).
     training: true,
     // Team (Available to Company Admins and Market Admins)

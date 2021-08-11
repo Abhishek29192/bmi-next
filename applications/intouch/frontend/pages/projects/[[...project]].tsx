@@ -6,6 +6,12 @@ import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
+import can from "../../lib/permissions/can";
+import {
+  ErrorStatusCode,
+  generatePageError,
+  withPageError
+} from "../../lib/error";
 import { withPage } from "../../lib/middleware/withPage";
 import GridStyles from "../../styles/Grid.module.scss";
 import { ProjectSidePanel } from "../../components/ProjectSidePanel";
@@ -79,7 +85,14 @@ const Projects = ({ projects, globalPageData }: PageProps) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, globalPageData }) => {
+  async ({ apolloClient, locale, account, globalPageData, res }) => {
+    // TODO: Rename this function or reuse it at a different gate?
+    if (!can(account, "page", "projects")) {
+      const statusCode = ErrorStatusCode.UNAUTHORISED;
+      res.statusCode = statusCode;
+      return generatePageError(statusCode, {}, { globalPageData });
+    }
+
     const {
       props: {
         data: { projects }
@@ -102,7 +115,7 @@ export const getServerSideProps = withPage(
   }
 );
 
-export default withPageAuthRequired(Projects);
+export default withPageAuthRequired(withPageError<ProjectsPageProps>(Projects));
 
 export const GET_PROJECTS = gql`
   query GetProjects {
