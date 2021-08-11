@@ -68,7 +68,7 @@
     padding: 30px 24px;
 
     /* override BaseButton styles */
-    align-items: flex-start;
+    align-items: normal;
     text-align: initial;
 
     @media (min-width: $breakpoint-sm) {
@@ -92,7 +92,7 @@
 
   &--clickable {
     /* override BaseButton styles */
-    align-items: flex-start;
+    align-items: normal;
     text-align: initial;
 
     .header-picture {
