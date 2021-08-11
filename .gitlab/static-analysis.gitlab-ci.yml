@@ -25,20 +25,19 @@ semgrep-sast:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
-# Shouldn't need cache, but the codeclimate checks fail due to a potential version issue
 code_quality:
   stage: static analysis
-  needs:
-    - install
+  needs: []
+  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 secret_detection:
   stage: static analysis
   needs: []
+  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-  cache: {}
 
 eslint:
   stage: static analysis

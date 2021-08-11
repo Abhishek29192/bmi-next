@@ -62,7 +62,16 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     <h4
       class="MuiTypography-root title Typography MuiTypography-h4"
     >
-      Heading
+      <button
+        class="MuiButtonBase-root clickable"
+        tabindex="0"
+        type="button"
+      >
+        Heading
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
     </h4>
     <div
       class="children text"
@@ -90,6 +99,49 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`OverviewCard component renders as a flat card 2`] = `
+Array [
+  Array [
+    Class {
+      "_dispatchInstances": null,
+      "_dispatchListeners": null,
+      "_targetInst": null,
+      "altKey": null,
+      "bubbles": null,
+      "button": null,
+      "buttons": null,
+      "cancelable": null,
+      "clientX": null,
+      "clientY": null,
+      "ctrlKey": null,
+      "currentTarget": [Function],
+      "defaultPrevented": null,
+      "detail": null,
+      "dispatchConfig": null,
+      "eventPhase": null,
+      "getModifierState": [Function],
+      "isDefaultPrevented": [Function],
+      "isPropagationStopped": [Function],
+      "isTrusted": null,
+      "metaKey": null,
+      "movementX": [Function],
+      "movementY": [Function],
+      "nativeEvent": null,
+      "pageX": null,
+      "pageY": null,
+      "relatedTarget": [Function],
+      "screenX": null,
+      "screenY": null,
+      "shiftKey": null,
+      "target": null,
+      "timeStamp": [Function],
+      "type": null,
+      "view": null,
+    },
+  ],
+]
 `;
 
 exports[`OverviewCard component renders correctly 1`] = `

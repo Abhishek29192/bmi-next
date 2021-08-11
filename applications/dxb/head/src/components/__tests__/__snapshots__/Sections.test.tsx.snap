@@ -505,7 +505,19 @@ HTMLCollection [
                     <h4
                       class="MuiTypography-root title Typography MuiTypography-h4"
                     >
-                      promo title
+                      <a
+                        aria-disabled="false"
+                        class="MuiButtonBase-root clickable"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card Label\\",\\"action\\":\\"contact-us\\"}"
+                        href="/uk/contact-us"
+                        role="button"
+                        tabindex="0"
+                      >
+                        promo title
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </a>
                     </h4>
                     <div
                       class="children text"

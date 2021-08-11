@@ -87,7 +87,8 @@ describe("OverviewCard component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
   it("renders as a flat card", () => {
-    const { container } = render(
+    const onClick = jest.fn();
+    const { container, getByText } = render(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -99,11 +100,18 @@ describe("OverviewCard component", () => {
           </Button>
         }
         isFlat
+        onClick={onClick}
       >
         We do the things
       </OverviewCard>
     );
+
+    const title = getByText("Heading");
+
+    fireEvent.click(title);
+
     expect(container.firstChild).toMatchSnapshot();
+    expect(onClick.mock.calls).toMatchSnapshot();
   });
   it("accpets onClick", () => {
     const onClick = jest.fn();
