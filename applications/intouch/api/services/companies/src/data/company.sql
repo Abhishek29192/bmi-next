@@ -667,11 +667,11 @@ TRUNCATE TABLE market RESTART IDENTITY;
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
-  VALUES ('1', 'en', 'en', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'intouch@bmigroup.en', '41', '41', 345, 'https://italy.bmiroofpromerch.com/', TRUE, 'tbc1', '42.7684,-78.8871');
+  VALUES ('1', 'en', 'en', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'intouch@bmigroup.en', '7', '8', 37, 'https://italy.bmiroofpromerch.com/', TRUE, 'tbc1', '42.7684,-78.8871');
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
-  VALUES ('2', 'no', 'no', 'opay6t6wwmup', 'Transatlantia', 'BMI Intouch Mapleland', 'intouch@bmigroup.no', '41', '41', 123, 'https://italy.bmiroofpromerch.com/', TRUE, 'tbc1', '27.9139,-82.7157');
+  VALUES ('2', 'no', 'no', 'opay6t6wwmup', 'Transatlantia', 'BMI Intouch Mapleland', 'intouch@bmigroup.no', '7', '8', 38, 'https://italy.bmiroofpromerch.com/', TRUE, 'tbc1', '27.9139,-82.7157');
 
 TRUNCATE TABLE note RESTART IDENTITY;
 
@@ -806,6 +806,9 @@ ALTER TABLE account
 
 ALTER TABLE account
   ADD UNIQUE (docebo_user_id);
+
+ALTER TABLE company
+  ADD UNIQUE (name);
 
 ALTER TABLE company
   ADD UNIQUE (reference_number);
