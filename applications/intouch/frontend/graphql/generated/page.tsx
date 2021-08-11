@@ -356,7 +356,6 @@ export const ssrProductsAndSystems = {
 
   usePage: useProductsAndSystems
 };
-
 export async function getServerPageGetCurrentCompany(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetCurrentCompanyQueryVariables>,

@@ -89,6 +89,9 @@ const gates = {
     // Inventory (Available to Market Admins)
     inventory: (account) => {
       return [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role);
+    },
+    productsAdmin: (account) => {
+      return [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role);
     }
   }
 };

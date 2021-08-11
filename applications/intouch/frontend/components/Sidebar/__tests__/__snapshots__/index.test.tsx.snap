@@ -489,7 +489,7 @@ exports[`Sidebar component renders correctly for market admin 1`] = `
   </a>
   <a
     class="sidebarLink"
-    href="/inventory"
+    href="/admin/products"
   >
     <svg
       color="primary"
@@ -601,7 +601,7 @@ exports[`Sidebar component renders correctly for super admin 1`] = `
   </a>
   <a
     class="sidebarLink"
-    href="/inventory"
+    href="/admin/products"
   >
     <svg
       color="primary"

@@ -43,10 +43,10 @@ export const getSidebarLinks = (account: Account, t) => {
       isVisible: can(account, "navigation", "tools")
     },
     {
-      href: "/inventory",
+      href: "/admin/products",
       icon: Box,
       label: t("Inventory"),
-      isVisible: can(account, "navigation", "inventory")
+      isVisible: can(account, "navigation", "productsAdmin")
     }
   ].filter(({ isVisible }) => isVisible);
 };

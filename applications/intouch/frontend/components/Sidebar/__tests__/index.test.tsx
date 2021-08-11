@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { renderWithI18NProvider } from "../../../lib/tests/utils";
 
 import {
   Installer,
@@ -12,13 +12,13 @@ import {
 } from "../index.stories";
 
 const testStorySnapshot = (Story) => {
-  const { container } = render(<Story />);
+  const { container } = renderWithI18NProvider(<Story />);
 
   expect(container.firstChild).toMatchSnapshot();
 };
 
 const storySnapshot = (Story) => () => {
-  const { container } = render(<Story />);
+  const { container } = renderWithI18NProvider(<Story />);
 
   expect(container.firstChild).toMatchSnapshot();
 };

@@ -415,6 +415,7 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -1811,6 +1812,8 @@ export type CompaniesOrderBy =
   | "REGISTERED_ADDRESS_ID_DESC"
   | "TRADING_ADDRESS_ID_ASC"
   | "TRADING_ADDRESS_ID_DESC"
+  | "REFERENCE_NUMBER_ASC"
+  | "REFERENCE_NUMBER_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
@@ -1964,6 +1967,18 @@ export type CompanyCompanyPkeyDelete = {
   id: Scalars["Int"];
 };
 
+/** The fields on `company` to look up the row to connect. */
+export type CompanyCompanyReferenceNumberKeyConnect = {
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber: Scalars["String"];
+};
+
+/** The fields on `company` to look up the row to delete. */
+export type CompanyCompanyReferenceNumberKeyDelete = {
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber: Scalars["String"];
+};
+
 /** A condition to be used against `Company` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type CompanyCondition = {
   /** Checks for equality with the object’s `id` field. */
@@ -1974,6 +1989,8 @@ export type CompanyCondition = {
   registeredAddressId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `tradingAddressId` field. */
   tradingAddressId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `referenceNumber` field. */
+  referenceNumber?: Maybe<Scalars["String"]>;
 };
 
 /** A document uploaded by the Company to InTouch that appears on their Company Profile, for example an insurance certificate */
@@ -2021,13 +2038,19 @@ export type CompanyDocumentCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByNodeId?: Maybe<CompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate>;
 };
@@ -2179,6 +2202,8 @@ export type CompanyFilter = {
   registeredAddressId?: Maybe<IntFilter>;
   /** Filter by the object’s `tradingAddressId` field. */
   tradingAddressId?: Maybe<IntFilter>;
+  /** Filter by the object’s `referenceNumber` field. */
+  referenceNumber?: Maybe<StringFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<CompanyFilter>>;
   /** Checks for any expressions in this list. */
@@ -2224,14 +2249,26 @@ export type CompanyMarketIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: Maybe<
+    Array<CompanyCompanyReferenceNumberKeyConnect>
+  >;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<CompanyNodeIdConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: Maybe<
+    Array<CompanyCompanyReferenceNumberKeyDelete>
+  >;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<CompanyNodeIdDelete>>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<
     Array<CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: Maybe<
+    Array<CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -2276,6 +2313,7 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** A connection between a user and a company */
@@ -2400,13 +2438,19 @@ export type CompanyMemberCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByNodeId?: Maybe<CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate>;
 };
@@ -2647,6 +2691,7 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -2837,6 +2882,15 @@ export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyP
     id: Scalars["Int"];
   };
 
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["String"];
+  };
+
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnCompanyForCompanyMarketIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `market` to be connected. */
@@ -2853,6 +2907,15 @@ export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate = {
   id: Scalars["Int"];
 };
 
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["String"];
+  };
+
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `address` to be connected. */
@@ -2868,6 +2931,15 @@ export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpd
     patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
     /** Primary key */
     id: Scalars["Int"];
+  };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["String"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -2887,6 +2959,15 @@ export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate
     id: Scalars["Int"];
   };
 
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["String"];
+  };
+
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `companyMember` to be connected. */
@@ -2902,6 +2983,15 @@ export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyU
     patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
     /** Primary key */
     id: Scalars["Int"];
+  };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["String"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -2922,6 +3012,15 @@ export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyP
     id: Scalars["Int"];
   };
 
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["String"];
+  };
+
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `invitation` to be connected. */
@@ -2939,6 +3038,15 @@ export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate 
     id: Scalars["Int"];
   };
 
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["String"];
+  };
+
 /** The globally unique `ID` look up for the row to update. */
 export type CompanyOnProjectForProjectCompanyIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `project` to be connected. */
@@ -2954,6 +3062,15 @@ export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate = {
   /** Primary key */
   id: Scalars["Int"];
 };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["String"];
+  };
 
 /** The assignment of an operation type to a Company by the Market Admin.  A Company can be assigned multiple types from the allowed enums list.  The operation types that a Company has are sent to Find a Roofer. */
 export type CompanyOperation = Node & {
@@ -2988,13 +3105,19 @@ export type CompanyOperationCompanyFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByNodeId?: Maybe<CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate>;
 };
@@ -3267,14 +3390,26 @@ export type CompanyRegisteredAddressIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: Maybe<
+    Array<CompanyCompanyReferenceNumberKeyConnect>
+  >;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<CompanyNodeIdConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: Maybe<
+    Array<CompanyCompanyReferenceNumberKeyDelete>
+  >;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<CompanyNodeIdDelete>>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<
     Array<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: Maybe<
+    Array<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -3337,14 +3472,26 @@ export type CompanyTradingAddressIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: Maybe<
+    Array<CompanyCompanyReferenceNumberKeyConnect>
+  >;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<CompanyNodeIdConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: Maybe<
+    Array<CompanyCompanyReferenceNumberKeyDelete>
+  >;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<CompanyNodeIdDelete>>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<
     Array<CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: Maybe<
+    Array<CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -5344,6 +5491,8 @@ export type CreateSystemMemberPayload = {
   systemBySystemBmiRef?: Maybe<System>;
   /** Reads a single `Product` that is related to this `SystemMember`. */
   productByProductBmiRef?: Maybe<Product>;
+  /** Reads a single `Market` that is related to this `SystemMember`. */
+  market?: Maybe<Market>;
   /** An edge for our `SystemMember`. May be used by Relay 1. */
   systemMemberEdge?: Maybe<SystemMembersEdge>;
 };
@@ -5569,6 +5718,17 @@ export type DeleteCompanyByNodeIdInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The globally unique `ID` which will identify a single `Company` to be deleted. */
   nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCompanyByReferenceNumber` mutation. */
+export type DeleteCompanyByReferenceNumberInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber: Scalars["String"];
 };
 
 /** All input for the `deleteCompanyDocumentByNodeId` mutation. */
@@ -6637,8 +6797,8 @@ export type DeleteSystemMemberByNodeIdInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
-export type DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput = {
+/** All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId` mutation. */
+export type DeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -6648,6 +6808,8 @@ export type DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput = {
   systemBmiRef: Scalars["String"];
   /** fk */
   productBmiRef: Scalars["String"];
+  /** fk */
+  marketId: Scalars["Int"];
 };
 
 /** All input for the `deleteSystemMember` mutation. */
@@ -6678,6 +6840,8 @@ export type DeleteSystemMemberPayload = {
   systemBySystemBmiRef?: Maybe<System>;
   /** Reads a single `Product` that is related to this `SystemMember`. */
   productByProductBmiRef?: Maybe<Product>;
+  /** Reads a single `Market` that is related to this `SystemMember`. */
+  market?: Maybe<Market>;
   /** An edge for our `SystemMember`. May be used by Relay 1. */
   systemMemberEdge?: Maybe<SystemMembersEdge>;
 };
@@ -8921,12 +9085,23 @@ export type ImageTransformOptions = {
   format?: Maybe<ImageFormat>;
 };
 
-export type ImportPayload = {
-  __typename?: "ImportPayload";
-  systemsToUpdate?: Maybe<Array<Maybe<System>>>;
-  systemsToInsert?: Maybe<Array<Maybe<System>>>;
-  productsToUpdate?: Maybe<Array<Maybe<Product>>>;
-  productsToInsert?: Maybe<Array<Maybe<Product>>>;
+export type ImportError = {
+  __typename?: "ImportError";
+  ref?: Maybe<Scalars["String"]>;
+  message?: Maybe<Scalars["String"]>;
+};
+
+export type ImportOutput = {
+  __typename?: "ImportOutput";
+  systemsToUpdate?: Maybe<Array<System>>;
+  systemsToInsert?: Maybe<Array<System>>;
+  productsToUpdate?: Maybe<Array<Product>>;
+  productsToInsert?: Maybe<Array<Product>>;
+  errorSystemsToUpdate?: Maybe<Array<ImportError>>;
+  errorSystemsToInsert?: Maybe<Array<ImportError>>;
+  errorProductsToUpdate?: Maybe<Array<ImportError>>;
+  errorProductsToInsert?: Maybe<Array<ImportError>>;
+  errorSystemMembersInsert?: Maybe<Array<ImportError>>;
 };
 
 /** A filter to be used against Int fields. All fields are combined with a logical ‘and.’ */
@@ -8985,13 +9160,19 @@ export type InvitationCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByNodeId?: Maybe<InvitationOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate>;
 };
@@ -9393,6 +9574,8 @@ export type Market = Node & {
   products: ProductsConnection;
   /** Reads and enables pagination through a set of `System`. */
   systems: SystemsConnection;
+  /** Reads and enables pagination through a set of `SystemMember`. */
+  systemMembers: SystemMembersConnection;
 };
 
 /** A country that BMI operates in */
@@ -9453,6 +9636,18 @@ export type MarketSystemsArgs = {
   orderBy?: Maybe<Array<SystemsOrderBy>>;
   condition?: Maybe<SystemCondition>;
   filter?: Maybe<SystemFilter>;
+};
+
+/** A country that BMI operates in */
+export type MarketSystemMembersArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<SystemMembersOrderBy>>;
+  condition?: Maybe<SystemMemberCondition>;
+  filter?: Maybe<SystemMemberFilter>;
 };
 
 /** A condition to be used against `Market` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -9754,6 +9949,7 @@ export type MarketInput = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** The fields on `market` to look up the row to connect. */
@@ -9971,6 +10167,41 @@ export type MarketOnSystemForSystemMarketIdFkeyUsingMarketPkeyUpdate = {
   id: Scalars["Int"];
 };
 
+/** The globally unique `ID` look up for the row to update. */
+export type MarketOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `systemMember` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `systemMember` being updated. */
+  patch: SystemMemberPatch;
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDomainKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch;
+    /** the country code used for example as the subdomain */
+    domain: Scalars["String"];
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
 /** Represents an update to a `Market`. Fields that are set will be updated. */
 export type MarketPatch = {
   /** Primary key */
@@ -10008,6 +10239,7 @@ export type MarketPatch = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** A connection to a list of `Market` values. */
@@ -10449,7 +10681,7 @@ export type MigrationOrder =
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: "Mutation";
-  bulkImport?: Maybe<ImportPayload>;
+  bulkImport?: Maybe<ImportOutput>;
   completeInvitation?: Maybe<Account>;
   courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
   courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
@@ -10526,6 +10758,8 @@ export type Mutation = {
   deleteCompany?: Maybe<DeleteCompanyPayload>;
   /** Deletes a single `Company` using its globally unique id. */
   deleteCompanyByNodeId?: Maybe<DeleteCompanyPayload>;
+  /** Deletes a single `Company` using a unique key. */
+  deleteCompanyByReferenceNumber?: Maybe<DeleteCompanyPayload>;
   /** Deletes a single `CompanyDocument` using a unique key. */
   deleteCompanyDocument?: Maybe<DeleteCompanyDocumentPayload>;
   /** Deletes a single `CompanyDocument` using its globally unique id. */
@@ -10629,7 +10863,7 @@ export type Mutation = {
   /** Deletes a single `SystemMember` using its globally unique id. */
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using a unique key. */
-  deleteSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<DeleteSystemMemberPayload>;
+  deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<DeleteSystemMemberPayload>;
   evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
@@ -10656,6 +10890,8 @@ export type Mutation = {
   updateCompany?: Maybe<UpdateCompanyPayload>;
   /** Updates a single `Company` using its globally unique id and a patch. */
   updateCompanyByNodeId?: Maybe<UpdateCompanyPayload>;
+  /** Updates a single `Company` using a unique key and a patch. */
+  updateCompanyByReferenceNumber?: Maybe<UpdateCompanyPayload>;
   /** Updates a single `CompanyDocument` using a unique key and a patch. */
   updateCompanyDocument?: Maybe<UpdateCompanyDocumentPayload>;
   /** Updates a single `CompanyDocument` using its globally unique id and a patch. */
@@ -10760,7 +10996,7 @@ export type Mutation = {
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
   updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
   /** Updates a single `SystemMember` using a unique key and a patch. */
-  updateSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<UpdateSystemMemberPayload>;
+  updateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
 };
 
@@ -10988,6 +11224,11 @@ export type MutationDeleteCompanyArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteCompanyByNodeIdArgs = {
   input: DeleteCompanyByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteCompanyByReferenceNumberArgs = {
+  input: DeleteCompanyByReferenceNumberInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -11247,9 +11488,10 @@ export type MutationDeleteSystemMemberByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
-  input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput;
-};
+export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdArgs =
+  {
+    input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput;
+  };
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationEvidenceItemsAddArgs = {
@@ -11324,6 +11566,11 @@ export type MutationUpdateCompanyArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateCompanyByNodeIdArgs = {
   input: UpdateCompanyByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateCompanyByReferenceNumberArgs = {
+  input: UpdateCompanyByReferenceNumberInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -11588,9 +11835,10 @@ export type MutationUpdateSystemMemberByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
-  input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput;
-};
+export type MutationUpdateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdArgs =
+  {
+    input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput;
+  };
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTrainingArgs = {
@@ -12547,6 +12795,7 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** The `product` to be created by this mutation. */
@@ -12970,13 +13219,19 @@ export type ProjectCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByNodeId?: Maybe<ProjectOnProjectForProjectCompanyIdFkeyNodeIdUpdate>;
 };
@@ -13884,6 +14139,7 @@ export type Query = Node & {
   company?: Maybe<Company>;
   /** Reads a single `Company` using its globally unique `ID`. */
   companyByNodeId?: Maybe<Company>;
+  companyByReferenceNumber?: Maybe<Company>;
   companyDocument?: Maybe<CompanyDocument>;
   /** Reads a single `CompanyDocument` using its globally unique `ID`. */
   companyDocumentByNodeId?: Maybe<CompanyDocument>;
@@ -14037,7 +14293,7 @@ export type Query = Node & {
   systemMember?: Maybe<SystemMember>;
   /** Reads a single `SystemMember` using its globally unique `ID`. */
   systemMemberByNodeId?: Maybe<SystemMember>;
-  systemMemberBySystemBmiRefAndProductBmiRef?: Maybe<SystemMember>;
+  systemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<SystemMember>;
   /** Reads and enables pagination through a set of `SystemMember`. */
   systemMembers?: Maybe<SystemMembersConnection>;
   /** Reads and enables pagination through a set of `System`. */
@@ -14209,6 +14465,11 @@ export type QueryCompanyArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryCompanyByNodeIdArgs = {
   nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryCompanyByReferenceNumberArgs = {
+  referenceNumber: Scalars["String"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -14938,9 +15199,10 @@ export type QuerySystemMemberByNodeIdArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
-export type QuerySystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+export type QuerySystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdArgs = {
   systemBmiRef: Scalars["String"];
   productBmiRef: Scalars["String"];
+  marketId: Scalars["Int"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -15363,6 +15625,7 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** The `system` to be created by this mutation. */
@@ -15399,12 +15662,16 @@ export type SystemMember = Node & {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `System` that is related to this `SystemMember`. */
   systemBySystemBmiRef?: Maybe<System>;
   /** Reads a single `Product` that is related to this `SystemMember`. */
   productByProductBmiRef?: Maybe<Product>;
+  /** Reads a single `Market` that is related to this `SystemMember`. */
+  market?: Maybe<Market>;
 };
 
 /**
@@ -15418,6 +15685,8 @@ export type SystemMemberCondition = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `productBmiRef` field. */
   productBmiRef?: Maybe<Scalars["String"]>;
+  /** Checks for equality with the object’s `marketId` field. */
+  marketId?: Maybe<Scalars["Int"]>;
 };
 
 /** A filter to be used against `SystemMember` object types. All fields are combined with a logical ‘and.’ */
@@ -15428,6 +15697,8 @@ export type SystemMemberFilter = {
   systemBmiRef?: Maybe<StringFilter>;
   /** Filter by the object’s `productBmiRef` field. */
   productBmiRef?: Maybe<StringFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: Maybe<IntFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<SystemMemberFilter>>;
   /** Checks for any expressions in this list. */
@@ -15444,10 +15715,134 @@ export type SystemMemberInput = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
   productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  marketToMarketId?: Maybe<SystemMemberMarketIdFkeyInput>;
+};
+
+/** Input for the nested mutation of `market` in the `SystemMemberInput` mutation. */
+export type SystemMemberMarketIdFkeyInput = {
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectById?: Maybe<MarketMarketPkeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDomain?: Maybe<MarketMarketDomainKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByNodeId?: Maybe<MarketNodeIdConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteById?: Maybe<MarketMarketPkeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDomain?: Maybe<MarketMarketDomainKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<MarketNodeIdDelete>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateById?: Maybe<MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketPkeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDomain?: Maybe<MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDomainKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDoceboCatalogueId?: Maybe<MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByNodeId?: Maybe<SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate>;
+  /** A `MarketInput` object that will be created and connected to this object. */
+  create?: Maybe<SystemMemberMarketIdFkeyMarketCreateInput>;
+};
+
+/** Input for the nested mutation of `systemMember` in the `MarketInput` mutation. */
+export type SystemMemberMarketIdFkeyInverseInput = {
+  /** Flag indicating whether all other `systemMember` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  connectById?: Maybe<Array<SystemMemberSystemMemberPkeyConnect>>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  connectBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect>
+  >;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<SystemMemberNodeIdConnect>>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  deleteById?: Maybe<Array<SystemMemberSystemMemberPkeyDelete>>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  deleteBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete>
+  >;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<SystemMemberNodeIdDelete>>;
+  /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
+  updateBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<
+    Array<SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<MarketOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate>
+  >;
+  /** A `SystemMemberInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<SystemMemberMarketIdFkeySystemMemberCreateInput>>;
+};
+
+/** The `market` to be created by this mutation. */
+export type SystemMemberMarketIdFkeyMarketCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
+};
+
+/** The `systemMember` to be created by this mutation. */
+export type SystemMemberMarketIdFkeySystemMemberCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  marketToMarketId?: Maybe<SystemMemberMarketIdFkeyInput>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -15461,6 +15856,37 @@ export type SystemMemberNodeIdDelete = {
   /** The globally unique `ID` which identifies a single `systemMember` to be deleted. */
   nodeId: Scalars["ID"];
 };
+
+/** The globally unique `ID` look up for the row to update. */
+export type SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `market` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: MarketPatch;
+  };
+
+/** The fields on `systemMember` to look up the row to update. */
+export type SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberMarketIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The fields on `systemMember` to look up the row to update. */
+export type SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberMarketIdFkeyPatch;
+    /** fk */
+    systemBmiRef: Scalars["String"];
+    /** fk */
+    productBmiRef: Scalars["String"];
+    /** fk */
+    marketId: Scalars["Int"];
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyNodeIdUpdate =
@@ -15481,7 +15907,7 @@ export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSyste
   };
 
 /** The fields on `systemMember` to look up the row to update. */
-export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate =
+export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate =
   {
     /** An object where the defined keys will be set on the `systemMember` being updated. */
     patch: UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
@@ -15489,6 +15915,8 @@ export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSyste
     systemBmiRef: Scalars["String"];
     /** fk */
     productBmiRef: Scalars["String"];
+    /** fk */
+    marketId: Scalars["Int"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -15510,7 +15938,7 @@ export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystem
   };
 
 /** The fields on `systemMember` to look up the row to update. */
-export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate =
+export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate =
   {
     /** An object where the defined keys will be set on the `systemMember` being updated. */
     patch: UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
@@ -15518,6 +15946,8 @@ export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystem
     systemBmiRef: Scalars["String"];
     /** fk */
     productBmiRef: Scalars["String"];
+    /** fk */
+    marketId: Scalars["Int"];
   };
 
 /** Represents an update to a `SystemMember`. Fields that are set will be updated. */
@@ -15528,10 +15958,13 @@ export type SystemMemberPatch = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
   productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  marketToMarketId?: Maybe<SystemMemberMarketIdFkeyInput>;
 };
 
 /** Input for the nested mutation of `product` in the `SystemMemberInput` mutation. */
@@ -15565,16 +15998,16 @@ export type SystemMemberProductBmiRefFkeyInverseInput = {
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
   connectById?: Maybe<Array<SystemMemberSystemMemberPkeyConnect>>;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
-  connectBySystemBmiRefAndProductBmiRef?: Maybe<
-    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect>
+  connectBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect>
   >;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<SystemMemberNodeIdConnect>>;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
   deleteById?: Maybe<Array<SystemMemberSystemMemberPkeyDelete>>;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
-  deleteBySystemBmiRefAndProductBmiRef?: Maybe<
-    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete>
+  deleteBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete>
   >;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<SystemMemberNodeIdDelete>>;
@@ -15583,8 +16016,8 @@ export type SystemMemberProductBmiRefFkeyInverseInput = {
     Array<SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberPkeyUpdate>
   >;
   /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
-  updateBySystemBmiRefAndProductBmiRef?: Maybe<
-    Array<SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate>
+  updateBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<
+    Array<SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate>
   >;
   /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -15629,10 +16062,13 @@ export type SystemMemberProductBmiRefFkeySystemMemberCreateInput = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
   productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  marketToMarketId?: Maybe<SystemMemberMarketIdFkeyInput>;
 };
 
 /** Input for the nested mutation of `system` in the `SystemMemberInput` mutation. */
@@ -15666,16 +16102,16 @@ export type SystemMemberSystemBmiRefFkeyInverseInput = {
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
   connectById?: Maybe<Array<SystemMemberSystemMemberPkeyConnect>>;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
-  connectBySystemBmiRefAndProductBmiRef?: Maybe<
-    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect>
+  connectBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect>
   >;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
   connectByNodeId?: Maybe<Array<SystemMemberNodeIdConnect>>;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
   deleteById?: Maybe<Array<SystemMemberSystemMemberPkeyDelete>>;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
-  deleteBySystemBmiRefAndProductBmiRef?: Maybe<
-    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete>
+  deleteBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete>
   >;
   /** The primary key(s) for `systemMember` for the far side of the relationship. */
   deleteByNodeId?: Maybe<Array<SystemMemberNodeIdDelete>>;
@@ -15684,8 +16120,8 @@ export type SystemMemberSystemBmiRefFkeyInverseInput = {
     Array<SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberPkeyUpdate>
   >;
   /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
-  updateBySystemBmiRefAndProductBmiRef?: Maybe<
-    Array<SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate>
+  updateBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<
+    Array<SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate>
   >;
   /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
   updateByNodeId?: Maybe<
@@ -15726,10 +16162,13 @@ export type SystemMemberSystemBmiRefFkeySystemMemberCreateInput = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
   productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  marketToMarketId?: Maybe<SystemMemberMarketIdFkeyInput>;
 };
 
 /** The fields on `systemMember` to look up the row to connect. */
@@ -15745,20 +16184,26 @@ export type SystemMemberSystemMemberPkeyDelete = {
 };
 
 /** The fields on `systemMember` to look up the row to connect. */
-export type SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect = {
-  /** fk */
-  systemBmiRef: Scalars["String"];
-  /** fk */
-  productBmiRef: Scalars["String"];
-};
+export type SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect =
+  {
+    /** fk */
+    systemBmiRef: Scalars["String"];
+    /** fk */
+    productBmiRef: Scalars["String"];
+    /** fk */
+    marketId: Scalars["Int"];
+  };
 
 /** The fields on `systemMember` to look up the row to delete. */
-export type SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete = {
-  /** fk */
-  systemBmiRef: Scalars["String"];
-  /** fk */
-  productBmiRef: Scalars["String"];
-};
+export type SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete =
+  {
+    /** fk */
+    systemBmiRef: Scalars["String"];
+    /** fk */
+    productBmiRef: Scalars["String"];
+    /** fk */
+    marketId: Scalars["Int"];
+  };
 
 /** A connection to a list of `SystemMember` values. */
 export type SystemMembersConnection = {
@@ -15791,6 +16236,8 @@ export type SystemMembersOrderBy =
   | "SYSTEM_BMI_REF_DESC"
   | "PRODUCT_BMI_REF_ASC"
   | "PRODUCT_BMI_REF_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
@@ -16560,6 +17007,19 @@ export type UpdateCompanyByNodeIdInput = {
   nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Company` being updated. */
   patch: CompanyPatch;
+};
+
+/** All input for the `updateCompanyByReferenceNumber` mutation. */
+export type UpdateCompanyByReferenceNumberInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Company` being updated. */
+  patch: CompanyPatch;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber: Scalars["String"];
 };
 
 /** All input for the `updateCompanyDocumentByNodeId` mutation. */
@@ -17710,8 +18170,8 @@ export type UpdateSystemMemberByNodeIdInput = {
   patch: SystemMemberPatch;
 };
 
-/** All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
-export type UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput = {
+/** All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId` mutation. */
+export type UpdateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -17723,6 +18183,8 @@ export type UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput = {
   systemBmiRef: Scalars["String"];
   /** fk */
   productBmiRef: Scalars["String"];
+  /** fk */
+  marketId: Scalars["Int"];
 };
 
 /** All input for the `updateSystemMember` mutation. */
@@ -17754,6 +18216,8 @@ export type UpdateSystemMemberPayload = {
   systemBySystemBmiRef?: Maybe<System>;
   /** Reads a single `Product` that is related to this `SystemMember`. */
   productByProductBmiRef?: Maybe<Product>;
+  /** Reads a single `Market` that is related to this `SystemMember`. */
+  market?: Maybe<Market>;
   /** An edge for our `SystemMember`. May be used by Relay 1. */
   systemMemberEdge?: Maybe<SystemMembersEdge>;
 };
@@ -19405,6 +19869,7 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** An object where the defined keys will be set on the `market` being updated. */
@@ -19444,6 +19909,7 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** An object where the defined keys will be set on the `market` being updated. */
@@ -19483,6 +19949,7 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** An object where the defined keys will be set on the `market` being updated. */
@@ -19522,6 +19989,7 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** An object where the defined keys will be set on the `market` being updated. */
@@ -19561,6 +20029,47 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
   productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
   systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `market` being updated. */
+export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+  systemMembersUsingId?: Maybe<SystemMemberMarketIdFkeyInverseInput>;
 };
 
 /** An object where the defined keys will be set on the `note` being updated. */
@@ -20018,16 +20527,34 @@ export type UpdateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `systemMember` being updated. */
+export type UpdateSystemMemberOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  marketToMarketId?: Maybe<SystemMemberMarketIdFkeyInput>;
+};
+
+/** An object where the defined keys will be set on the `systemMember` being updated. */
 export type UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch =
   {
     /** Primary key */
     id?: Maybe<Scalars["Int"]>;
     /** fk */
     systemBmiRef?: Maybe<Scalars["String"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
     createdAt?: Maybe<Scalars["Datetime"]>;
     updatedAt?: Maybe<Scalars["Datetime"]>;
     systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
     productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+    marketToMarketId?: Maybe<SystemMemberMarketIdFkeyInput>;
   };
 
 /** An object where the defined keys will be set on the `systemMember` being updated. */
@@ -20037,10 +20564,13 @@ export type UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch
     id?: Maybe<Scalars["Int"]>;
     /** fk */
     productBmiRef?: Maybe<Scalars["String"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
     createdAt?: Maybe<Scalars["Datetime"]>;
     updatedAt?: Maybe<Scalars["Datetime"]>;
     systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
     productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+    marketToMarketId?: Maybe<SystemMemberMarketIdFkeyInput>;
   };
 
 /** An object where the defined keys will be set on the `system` being updated. */

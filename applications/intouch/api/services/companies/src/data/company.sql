@@ -389,6 +389,7 @@ CREATE TABLE system_member (
   id serial PRIMARY KEY,
   system_bmi_ref text,
   product_bmi_ref text,
+  market_id int,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -782,29 +783,32 @@ INSERT INTO SYSTEM (id, market_id, technology, bmi_ref, name, description, maxim
 
 TRUNCATE TABLE system_member RESTART IDENTITY;
 
-INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
-  VALUES ('1', 'S1', 'P1');
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref, market_id)
+  VALUES ('1', 'S1', 'P1', 1);
 
-INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
-  VALUES ('2', 'S1', 'P3');
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref, market_id)
+  VALUES ('2', 'S1', 'P3', 1);
 
-INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
-  VALUES ('3', 'S2', 'P2');
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref, market_id)
+  VALUES ('3', 'S2', 'P2', 1);
 
-INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
-  VALUES ('4', 'S2', 'P3');
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref, market_id)
+  VALUES ('4', 'S2', 'P3', 1);
 
-INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
-  VALUES ('5', 'S3', 'P4');
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref, market_id)
+  VALUES ('5', 'S3', 'P4', 1);
 
-INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
-  VALUES ('6', 'S3', 'P5');
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref, market_id)
+  VALUES ('6', 'S3', 'P5', 1);
 
 ALTER TABLE account
   ADD UNIQUE (email);
 
 ALTER TABLE account
   ADD UNIQUE (docebo_user_id);
+
+ALTER TABLE company
+  ADD UNIQUE (reference_number);
 
 ALTER TABLE company_member
   ADD UNIQUE (market_id, account_id, company_id);
@@ -822,7 +826,7 @@ ALTER TABLE SYSTEM
   ADD UNIQUE (bmi_ref);
 
 ALTER TABLE system_member
-  ADD UNIQUE (system_bmi_ref, product_bmi_ref);
+  ADD UNIQUE (system_bmi_ref, product_bmi_ref, market_id);
 
 ALTER TABLE account
   ADD FOREIGN KEY (market_id) REFERENCES market (id) ON DELETE CASCADE;
@@ -978,6 +982,11 @@ ALTER TABLE system_member
   ADD FOREIGN KEY (product_bmi_ref) REFERENCES product (bmi_ref) ON DELETE CASCADE;
 
 CREATE INDEX ON system_member (product_bmi_ref);
+
+ALTER TABLE system_member
+  ADD FOREIGN KEY (market_id) REFERENCES market (id) ON DELETE CASCADE;
+
+CREATE INDEX ON system_member (market_id);
 
 COMMENT ON TABLE account IS 'An InTouch account';
 
@@ -1318,6 +1327,8 @@ COMMENT ON COLUMN system_member.id IS 'Primary key';
 COMMENT ON COLUMN system_member.system_bmi_ref IS 'fk';
 
 COMMENT ON COLUMN system_member.product_bmi_ref IS 'fk';
+
+COMMENT ON COLUMN system_member.market_id IS 'fk';
 
 SELECT
   SETVAL('account_id_seq', (

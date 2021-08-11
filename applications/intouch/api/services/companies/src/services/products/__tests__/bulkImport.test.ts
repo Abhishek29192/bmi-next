@@ -1,9 +1,12 @@
 import * as importer from "../bulkImport";
 
 describe("Bulk importer", () => {
-  let context = {
+  let context: any = {
     pgClient: {
       query: jest.fn()
+    },
+    user: {
+      can: () => true
     },
     logger: () => ({
       info: (message) => {},
@@ -33,7 +36,7 @@ describe("Bulk importer", () => {
     try {
       await importer.bulkImport(args, context);
     } catch (error) {
-      expect(error.message).toEqual("the filename has a wrong format");
+      expect(error.message).toEqual("filename_wrong_format");
     }
   });
 
@@ -58,7 +61,7 @@ describe("Bulk importer", () => {
     try {
       await importer.bulkImport(args, context);
     } catch (error) {
-      expect(error.message).toEqual("the market doesn't exists");
+      expect(error.message).toEqual("market_not_found");
     }
   });
 
@@ -82,10 +85,16 @@ describe("Bulk importer", () => {
     jest
       .spyOn(importer, "singleImport")
       .mockReturnValueOnce(
-        Promise.resolve([{ bmi_ref: "12" }, { bmi_ref: "123" }]) // system
+        Promise.resolve([
+          { bmi_ref: "12", maximumValidityYears: 1, technology: "FLAT" },
+          { bmi_ref: "123", maximumValidityYears: 1, technology: "FLAT" }
+        ]) // system
       )
       .mockReturnValueOnce(
-        Promise.resolve([{ bmi_ref: "21" }, { bmi_ref: "321" }]) // products
+        Promise.resolve([
+          { bmi_ref: "21", maximumValidityYears: 1, technology: "FLAT" },
+          { bmi_ref: "321", maximumValidityYears: 1, technology: "FLAT" }
+        ]) // products
       );
 
     const result = await importer.bulkImport(args, context);
@@ -93,10 +102,23 @@ describe("Bulk importer", () => {
     expect(context.pgClient.query.mock.calls.length).toEqual(4);
 
     expect(result).toEqual({
-      systemsToUpdate: [{ bmiRef: "12" }],
-      systemsToInsert: [{ bmiRef: "123" }],
-      productsToUpdate: [{ bmiRef: "21" }],
-      productsToInsert: [{ bmiRef: "321" }]
+      errorProductsToInsert: [],
+      errorProductsToUpdate: [],
+      errorSystemMembersInsert: [],
+      errorSystemsToInsert: [],
+      errorSystemsToUpdate: [],
+      systemsToUpdate: [
+        { bmiRef: "12", maximumValidityYears: 1, technology: "FLAT" }
+      ],
+      systemsToInsert: [
+        { bmiRef: "123", maximumValidityYears: 1, technology: "FLAT" }
+      ],
+      productsToUpdate: [
+        { bmiRef: "21", maximumValidityYears: 1, technology: "FLAT" }
+      ],
+      productsToInsert: [
+        { bmiRef: "321", maximumValidityYears: 1, technology: "FLAT" }
+      ]
     });
   });
 

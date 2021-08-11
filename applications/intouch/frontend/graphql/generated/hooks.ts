@@ -473,6 +473,215 @@ export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
 >;
+export const BulkImportDocument = gql`
+  mutation bulkImport($input: BulkImportInput!) {
+    bulkImport(input: $input) {
+      systemsToInsert {
+        bmiRef
+      }
+      systemsToUpdate {
+        bmiRef
+      }
+      productsToInsert {
+        bmiRef
+      }
+      productsToUpdate {
+        bmiRef
+      }
+      errorSystemsToUpdate {
+        ref
+        message
+      }
+      errorSystemsToInsert {
+        ref
+        message
+      }
+      errorProductsToUpdate {
+        ref
+        message
+      }
+      errorProductsToInsert {
+        ref
+        message
+      }
+      errorSystemMembersInsert {
+        ref
+        message
+      }
+    }
+  }
+`;
+export type BulkImportMutationFn = Apollo.MutationFunction<
+  OperationTypes.BulkImportMutation,
+  OperationTypes.BulkImportMutationVariables
+>;
+
+/**
+ * __useBulkImportMutation__
+ *
+ * To run a mutation, you first call `useBulkImportMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useBulkImportMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [bulkImportMutation, { data, loading, error }] = useBulkImportMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBulkImportMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.BulkImportMutation,
+    OperationTypes.BulkImportMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.BulkImportMutation,
+    OperationTypes.BulkImportMutationVariables
+  >(BulkImportDocument, options);
+}
+export type BulkImportMutationHookResult = ReturnType<
+  typeof useBulkImportMutation
+>;
+export type BulkImportMutationResult =
+  Apollo.MutationResult<OperationTypes.BulkImportMutation>;
+export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.BulkImportMutation,
+  OperationTypes.BulkImportMutationVariables
+>;
+export const UpdateProductDocument = gql`
+  mutation updateProduct($input: UpdateProductInput!) {
+    updateProduct(input: $input) {
+      query {
+        products {
+          nodes {
+            id
+            name
+            brand
+            family
+            bmiRef
+            updatedAt
+            published
+            technology
+            description
+            maximumValidityYears
+          }
+        }
+      }
+    }
+  }
+`;
+export type UpdateProductMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateProductMutation,
+  OperationTypes.UpdateProductMutationVariables
+>;
+
+/**
+ * __useUpdateProductMutation__
+ *
+ * To run a mutation, you first call `useUpdateProductMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateProductMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateProductMutation, { data, loading, error }] = useUpdateProductMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateProductMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateProductMutation,
+    OperationTypes.UpdateProductMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateProductMutation,
+    OperationTypes.UpdateProductMutationVariables
+  >(UpdateProductDocument, options);
+}
+export type UpdateProductMutationHookResult = ReturnType<
+  typeof useUpdateProductMutation
+>;
+export type UpdateProductMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
+export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateProductMutation,
+  OperationTypes.UpdateProductMutationVariables
+>;
+export const UpdateSystemDocument = gql`
+  mutation updateSystem($input: UpdateSystemInput!) {
+    updateSystem(input: $input) {
+      query {
+        systems {
+          nodes {
+            id
+            name
+            bmiRef
+            updatedAt
+            published
+            technology
+            description
+            maximumValidityYears
+          }
+        }
+      }
+    }
+  }
+`;
+export type UpdateSystemMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateSystemMutation,
+  OperationTypes.UpdateSystemMutationVariables
+>;
+
+/**
+ * __useUpdateSystemMutation__
+ *
+ * To run a mutation, you first call `useUpdateSystemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateSystemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateSystemMutation, { data, loading, error }] = useUpdateSystemMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateSystemMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateSystemMutation,
+    OperationTypes.UpdateSystemMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateSystemMutation,
+    OperationTypes.UpdateSystemMutationVariables
+  >(UpdateSystemDocument, options);
+}
+export type UpdateSystemMutationHookResult = ReturnType<
+  typeof useUpdateSystemMutation
+>;
+export type UpdateSystemMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
+export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateSystemMutation,
+  OperationTypes.UpdateSystemMutationVariables
+>;
 export const UpdateAccountProfileDocument = gql`
   mutation updateAccountProfile($updateAccountInput: UpdateAccountInput!) {
     updateAccount(input: $updateAccountInput) {
@@ -1619,22 +1828,27 @@ export const ProductsAndSystemsDocument = gql`
     products {
       nodes {
         id
-        bmiRef
-        family
         name
         brand
+        family
+        bmiRef
+        updatedAt
         published
+        technology
         description
-        brand
+        maximumValidityYears
       }
     }
     systems {
       nodes {
         id
-        bmiRef
-        description
         name
+        bmiRef
         published
+        updatedAt
+        technology
+        description
+        maximumValidityYears
       }
     }
   }
@@ -1688,171 +1902,6 @@ export type ProductsAndSystemsLazyQueryHookResult = ReturnType<
 export type ProductsAndSystemsQueryResult = Apollo.QueryResult<
   OperationTypes.ProductsAndSystemsQuery,
   OperationTypes.ProductsAndSystemsQueryVariables
->;
-export const BulkImportDocument = gql`
-  mutation bulkImport($input: BulkImportInput!) {
-    bulkImport(input: $input) {
-      systemsToInsert {
-        bmiRef
-      }
-      systemsToUpdate {
-        bmiRef
-      }
-      productsToInsert {
-        bmiRef
-      }
-      productsToUpdate {
-        bmiRef
-      }
-    }
-  }
-`;
-export type BulkImportMutationFn = Apollo.MutationFunction<
-  OperationTypes.BulkImportMutation,
-  OperationTypes.BulkImportMutationVariables
->;
-
-/**
- * __useBulkImportMutation__
- *
- * To run a mutation, you first call `useBulkImportMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useBulkImportMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [bulkImportMutation, { data, loading, error }] = useBulkImportMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useBulkImportMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.BulkImportMutation,
-    OperationTypes.BulkImportMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.BulkImportMutation,
-    OperationTypes.BulkImportMutationVariables
-  >(BulkImportDocument, options);
-}
-export type BulkImportMutationHookResult = ReturnType<
-  typeof useBulkImportMutation
->;
-export type BulkImportMutationResult =
-  Apollo.MutationResult<OperationTypes.BulkImportMutation>;
-export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.BulkImportMutation,
-  OperationTypes.BulkImportMutationVariables
->;
-export const UpdateProductDocument = gql`
-  mutation updateProduct($input: UpdateProductInput!) {
-    updateProduct(input: $input) {
-      product {
-        id
-      }
-    }
-  }
-`;
-export type UpdateProductMutationFn = Apollo.MutationFunction<
-  OperationTypes.UpdateProductMutation,
-  OperationTypes.UpdateProductMutationVariables
->;
-
-/**
- * __useUpdateProductMutation__
- *
- * To run a mutation, you first call `useUpdateProductMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpdateProductMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [updateProductMutation, { data, loading, error }] = useUpdateProductMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUpdateProductMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.UpdateProductMutation,
-    OperationTypes.UpdateProductMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.UpdateProductMutation,
-    OperationTypes.UpdateProductMutationVariables
-  >(UpdateProductDocument, options);
-}
-export type UpdateProductMutationHookResult = ReturnType<
-  typeof useUpdateProductMutation
->;
-export type UpdateProductMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
-export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.UpdateProductMutation,
-  OperationTypes.UpdateProductMutationVariables
->;
-export const UpdateSystemDocument = gql`
-  mutation updateSystem($input: UpdateSystemInput!) {
-    updateSystem(input: $input) {
-      system {
-        id
-      }
-    }
-  }
-`;
-export type UpdateSystemMutationFn = Apollo.MutationFunction<
-  OperationTypes.UpdateSystemMutation,
-  OperationTypes.UpdateSystemMutationVariables
->;
-
-/**
- * __useUpdateSystemMutation__
- *
- * To run a mutation, you first call `useUpdateSystemMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpdateSystemMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [updateSystemMutation, { data, loading, error }] = useUpdateSystemMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUpdateSystemMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.UpdateSystemMutation,
-    OperationTypes.UpdateSystemMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.UpdateSystemMutation,
-    OperationTypes.UpdateSystemMutationVariables
-  >(UpdateSystemDocument, options);
-}
-export type UpdateSystemMutationHookResult = ReturnType<
-  typeof useUpdateSystemMutation
->;
-export type UpdateSystemMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
-export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.UpdateSystemMutation,
-  OperationTypes.UpdateSystemMutationVariables
 >;
 export const GetCurrentCompanyDocument = gql`
   query GetCurrentCompany {

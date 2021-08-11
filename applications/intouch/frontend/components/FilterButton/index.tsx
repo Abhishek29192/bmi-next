@@ -22,13 +22,14 @@ const useStyles = makeStyles<Theme, MakeStylesProps>((theme: Theme) =>
       marginRight: "0.5em",
       marginBottom: "0.5em",
       color: "#007bbd",
-      paddingTop: "0.2rem",
-      paddingBottom: "0.2rem",
+      padding: "0.2rem",
       "&:hover": {
         backgroundColor: "#f0f0f0"
       },
       "& > .MuiButton-label": {
-        color: "#007bbd"
+        color: "#007bbd",
+        margin: 0,
+        padding: "2px 10px"
       },
       textTransform: "capitalize"
     }
