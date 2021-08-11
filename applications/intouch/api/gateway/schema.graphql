@@ -3482,7 +3482,6 @@ type Company implements Node {
     filter: ProjectFilter
   ): ProjectsConnection!
   certifications: [Technology]
-  logoSignedUrl: String
 }
 
 """

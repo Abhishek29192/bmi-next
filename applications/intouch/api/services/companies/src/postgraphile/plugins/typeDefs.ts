@@ -125,7 +125,6 @@ export default gql`
   }
   extend type Company {
     certifications: [Technology]
-    logoSignedUrl: String
   }
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType

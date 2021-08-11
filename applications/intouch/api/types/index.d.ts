@@ -1893,7 +1893,6 @@ export type Company = Node & {
   /** Reads and enables pagination through a set of `Project`. */
   projects: ProjectsConnection;
   certifications?: Maybe<Array<Maybe<Technology>>>;
-  logoSignedUrl?: Maybe<Scalars["String"]>;
 };
 
 /** A company that has been registered in InTouch */

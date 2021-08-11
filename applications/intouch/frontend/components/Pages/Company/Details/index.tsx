@@ -32,7 +32,7 @@ export const CompanyDetails = ({
 }: CompanyHeaderProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
-  const logo = (company.logoSignedUrl || company.logo) as string | undefined;
+  const logo = company.logo as string | undefined;
 
   return (
     <div className={styles.main}>
@@ -140,7 +140,6 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
     name
     businessType
     logo
-    logoSignedUrl
     aboutUs
     tradingAddress {
       id

@@ -79,7 +79,7 @@ export const SetCompanyDetailsDialog = ({
     [company, onSubmit, logoUpload, shouldRemoveLogo]
   );
 
-  const initialPictureUrl = company?.logoSignedUrl || company?.logo;
+  const initialPictureUrl = company?.logo;
 
   const getFieldProps = useCallback(
     (fieldName: string) => ({

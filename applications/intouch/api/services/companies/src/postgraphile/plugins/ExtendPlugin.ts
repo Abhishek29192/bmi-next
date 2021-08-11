@@ -22,9 +22,6 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
     resolvers: {
       Upload: GraphQLUpload,
       Company: {
-        logoSignedUrl: async (parent, _args, context) => {
-          return context.storageClient.getPublicAssetSignedUrl(parent.logo);
-        },
         certifications: async (parent, args, context, info) => {
           return getCompanyCertifications(parent, args, context);
         }
