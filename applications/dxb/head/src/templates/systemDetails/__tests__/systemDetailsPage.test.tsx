@@ -4,6 +4,7 @@ import { createMockSiteData } from "../../../test/mockSiteData";
 import dataJson from "../../../data/pim-mock-data.json";
 import SystemDetailsPage from "../systemDetailsPage";
 import { SystemDetails } from "../types";
+import "@testing-library/jest-dom";
 
 const systemPageId = "1234";
 const siteId = "1234";
@@ -36,8 +37,10 @@ describe("SystemDetailsPage template component", () => {
         }}
       />
     );
+    const tabSection = container.querySelector(".TabsBar");
 
     expect(container).toMatchSnapshot();
+    expect(tabSection).toBeInTheDocument();
   });
 
   it("should render without BrandProvider", () => {

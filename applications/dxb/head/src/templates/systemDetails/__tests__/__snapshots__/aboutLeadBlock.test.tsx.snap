@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutLeadBlock tests should not render if no awardsAndCertificates assets 1`] = `
+<div>
+  <div
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <p>
+            LDescription NO
+          </p>
+        </div>
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.guaranteesWarranties
+        </h5>
+        <img
+          alt="Garanti Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties assets 1`] = `
+<div>
+  <div
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <p>
+            LDescription NO
+          </p>
+        </div>
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.awardsCertificates
+        </h5>
+        <img
+          alt="test award"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AboutLeadBlock tests should render 1`] = `
+<div>
+  <div
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          longDescription
+        </div>
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.guaranteesWarranties
+        </h5>
+        <img
+          alt="Garanti Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+        />
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.awardsCertificates
+        </h5>
+        <img
+          alt="test award"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

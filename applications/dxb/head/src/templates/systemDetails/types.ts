@@ -26,16 +26,36 @@ export type Classification = {
   name: string;
 };
 
+export type AssetAssetType =
+  | "BIM"
+  | "WARRANTIES"
+  | "AWARDS"
+  | "GUARANTIES"
+  | "CERTIFICATES";
+
+export type MimeType = "image/jpeg" | "image/png" | "image/tiff";
+
+export type Assets = {
+  allowedToDownload: boolean;
+  assetType: AssetAssetType;
+  fileSize: number;
+  mime: MimeType;
+  name: string;
+  realFileName: string; // includes file extension
+  url: string;
+  format?: string;
+};
+
 export interface SystemDetails {
   type?: string;
   approvalStatus?: string;
   code?: string;
-  assets: any[];
+  assets: Assets[];
   name: string;
   categories: Category[];
   classifications: Classification[];
   images: Image[] | null;
-  longDescription?: string;
+  longDescription: string;
   shortDescription?: string;
   systemBenefits?: string[];
   systemLayers?: any[];
