@@ -46,7 +46,7 @@ describe("Validation", () => {
       expect(errors).toEqual([
         {
           ref: "ref-product-11",
-          error: "Technology not allowed"
+          message: "Technology not allowed"
         }
       ]);
     });
@@ -59,7 +59,7 @@ describe("Validation", () => {
       expect(errors).toEqual([
         {
           ref: "ref-product-1",
-          error: "Duplicate product"
+          message: "Duplicate product"
         }
       ]);
     });
@@ -72,7 +72,7 @@ describe("Validation", () => {
       expect(errors).toEqual([
         {
           ref: "ref-product-1",
-          error: "Duplicate product"
+          message: "Duplicate product"
         }
       ]);
     });
@@ -87,15 +87,15 @@ describe("Validation", () => {
       expect(errors).toEqual([
         {
           ref: "ref-product-11",
-          error: "Wrong maximum validity years"
+          message: "Wrong maximum validity years"
         },
         {
           ref: "ref-product-12",
-          error: "Wrong maximum validity years"
+          message: "Wrong maximum validity years"
         },
         {
           ref: "ref-product-13",
-          error: "Wrong maximum validity years"
+          message: "Wrong maximum validity years"
         }
       ]);
     });
@@ -117,7 +117,10 @@ describe("Validation", () => {
       );
       expect(errors).toHaveLength(1);
       expect(errors).toEqual([
-        { error: "Technology mismatch", ref: "ref-product-11 - ref-system-11" }
+        {
+          message: "Technology mismatch",
+          ref: "ref-product-11 - ref-system-11"
+        }
       ]);
     });
     it("should return an error if product & system not existing", async () => {
@@ -128,8 +131,14 @@ describe("Validation", () => {
       );
       expect(errors).toHaveLength(2);
       expect(errors).toEqual([
-        { error: "System not existing", ref: "ref-product-11 - ref-system-11" },
-        { error: "Technology mismatch", ref: "ref-product-11 - ref-system-11" }
+        {
+          message: "System not existing",
+          ref: "ref-product-11 - ref-system-11"
+        },
+        {
+          message: "Technology mismatch",
+          ref: "ref-product-11 - ref-system-11"
+        }
       ]);
     });
   });
