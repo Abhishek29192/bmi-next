@@ -9,6 +9,8 @@
 
   p {
     font-family: "Effra Medium" !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   & + & {
