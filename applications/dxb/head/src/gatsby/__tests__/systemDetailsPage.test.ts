@@ -41,7 +41,7 @@ describe("createSystemPages function", () => {
         systemPageId: "bar",
         siteId
       },
-      path: "/en/system-details-page/"
+      path: "/en/system-details-page"
     });
     expect(createPage).toHaveBeenCalledTimes(1);
   });

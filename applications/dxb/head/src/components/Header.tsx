@@ -8,6 +8,7 @@ import HidePrint from "@bmi/hide-print";
 import { Tab, TabProps } from "@material-ui/core";
 import withGTM from "../utils/google-tag-manager";
 import Image from "../components/Image";
+import path from "../schema/resolvers/utils/path";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -98,7 +99,7 @@ const parseNavigation = (
       if (linkedPage) {
         action = {
           model: "routerLink",
-          to: `/${countryCode}/${linkedPage.path}`,
+          to: path.getPathWithCountryCode(countryCode, linkedPage.path),
           linkComponent: Link
         };
       } else if (url) {
@@ -207,7 +208,7 @@ const Header = ({
           logoAction={{
             model: "routerLink",
             linkComponent: Link,
-            to: `/${countryCode}/`
+            to: path.getPathWithCountryCode(countryCode, "")
           }}
           logoLabel={getMicroCopy("global.logoLabel")}
           activeNavLabel={activeLabel}
@@ -241,7 +242,7 @@ const Header = ({
               style={{ marginLeft: 10, marginBottom: 15 }}
             />
           )}
-          searchAction={`/${countryCode}/search`}
+          searchAction={path.getPathWithCountryCode(countryCode, "search")}
           searchLabel={getMicroCopy("search.label")}
           searchPlaceholder={getMicroCopy("search.placeholder.header")}
           searchTitle={getMicroCopy("search.title")}

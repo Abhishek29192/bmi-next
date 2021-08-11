@@ -6,6 +6,7 @@ import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simple-page";
 import { pushToDataLayer } from "../utils/google-tag-manager";
+import path from "../schema/resolvers/utils/path";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
@@ -84,12 +85,19 @@ export const getClickableActionFromUrl = (
     };
   }
 
-  if (!countryCode) {
+  let useCountryCode = true;
+  if (process.env.GATSBY_DONT_USE_COUNTRY_CODE) {
+    useCountryCode = false;
+  }
+
+  if (!countryCode && useCountryCode) {
     return;
   }
 
   if (linkedPage && "path" in linkedPage) {
-    const to = `/${countryCode}/${linkedPage.path}`.replace(/\/+/gi, "/");
+    const to = path
+      .getPathWithCountryCode(countryCode, linkedPage.path)
+      .replace(/\/+/gi, "/");
     const dataGtm = { id: "cta-click1", action: to, label };
 
     return {

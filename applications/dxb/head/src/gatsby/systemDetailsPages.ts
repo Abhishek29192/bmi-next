@@ -1,4 +1,5 @@
 import path from "path";
+import pathUtil from "../schema/resolvers/utils/path";
 
 import { CreatePagesOptions } from "./types";
 
@@ -42,7 +43,7 @@ export const createSystemPages = async ({
   } = result;
 
   await createPage<PageContext>({
-    path: `/${countryCode}/system-details-page/`,
+    path: pathUtil.getPathWithCountryCode(countryCode, "system-details-page"),
     component,
     context: {
       systemPageId: id,

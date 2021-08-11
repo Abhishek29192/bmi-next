@@ -10,8 +10,10 @@ import {
 } from "../components/types/ProductBaseTypes";
 import { GalleryImageType } from "../templates/systemDetails/types";
 import { Image } from "../components/types/ProductBaseTypes";
+import pathUtil from "../schema/resolvers/utils/path";
 
-export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
+export const getProductUrl = (countryCode, path) =>
+  pathUtil.getPathWithCountryCode(countryCode, path);
 
 const getProductProp = (classifications, productCode, propName) =>
   classifications[productCode] ? classifications[productCode][propName] : null;
