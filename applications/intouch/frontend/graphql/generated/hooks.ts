@@ -23,8 +23,9 @@ export const AddressLinesFragmentFragmentDoc = gql`
     postcode
   }
 `;
-export const CompanyHeaderDetailsFragmentFragmentDoc = gql`
-  fragment CompanyHeaderDetailsFragment on Company {
+export const CompanyDetailsFragmentFragmentDoc = gql`
+  fragment CompanyDetailsFragment on Company {
+    name
     businessType
     logo
     aboutUs
@@ -88,15 +89,16 @@ export const CompanyCertificationsFragmentDoc = gql`
     certifications
   }
 `;
-export const CompanyDetailsFragmentFragmentDoc = gql`
-  fragment CompanyDetailsFragment on Company {
+export const CompanyPageDetailsFragmentFragmentDoc = gql`
+  fragment CompanyPageDetailsFragment on Company {
     id
-    ...CompanyHeaderDetailsFragment
+    ...CompanyDetailsFragment
     ...CompanyRegisteredDetailsFragment
     ...CompanyAdminsFragment
     ...CompanyCertifications
+    status
   }
-  ${CompanyHeaderDetailsFragmentFragmentDoc}
+  ${CompanyDetailsFragmentFragmentDoc}
   ${CompanyRegisteredDetailsFragmentFragmentDoc}
   ${CompanyAdminsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
@@ -112,6 +114,35 @@ export const ImageFragmentFragmentDoc = gql`
     width
     height
   }
+`;
+export const AccountPageDetailsFragmentFragmentDoc = gql`
+  fragment AccountPageDetailsFragment on Account {
+    id
+    firstName
+    lastName
+    role
+    email
+    phone
+    photo
+    signedPhotoUrl
+    companyMembers {
+      nodes {
+        company {
+          id
+          ...CompanyDetailsFragment
+        }
+      }
+    }
+    certificationsByDoceboUserId {
+      nodes {
+        id
+        technology
+        expiryDate
+        name
+      }
+    }
+  }
+  ${CompanyDetailsFragmentFragmentDoc}
 `;
 export const GetGlobalDataDocument = gql`
   query GetGlobalData {
@@ -187,11 +218,11 @@ export const UpdateCompanyDetailsDocument = gql`
   mutation updateCompanyDetails($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
       company {
-        ...CompanyDetailsFragment
+        ...CompanyPageDetailsFragment
       }
     }
   }
-  ${CompanyDetailsFragmentFragmentDoc}
+  ${CompanyPageDetailsFragmentFragmentDoc}
 `;
 export type UpdateCompanyDetailsMutationFn = Apollo.MutationFunction<
   OperationTypes.UpdateCompanyDetailsMutation,
@@ -235,6 +266,110 @@ export type UpdateCompanyDetailsMutationResult =
 export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
+>;
+export const CreateCompanyDocument = gql`
+  mutation createCompany($input: CreateCompanyInput!) {
+    createCompany(input: $input) {
+      company {
+        id
+      }
+    }
+  }
+`;
+export type CreateCompanyMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateCompanyMutation,
+  OperationTypes.CreateCompanyMutationVariables
+>;
+
+/**
+ * __useCreateCompanyMutation__
+ *
+ * To run a mutation, you first call `useCreateCompanyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateCompanyMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createCompanyMutation, { data, loading, error }] = useCreateCompanyMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateCompanyMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateCompanyMutation,
+    OperationTypes.CreateCompanyMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateCompanyMutation,
+    OperationTypes.CreateCompanyMutationVariables
+  >(CreateCompanyDocument, options);
+}
+export type CreateCompanyMutationHookResult = ReturnType<
+  typeof useCreateCompanyMutation
+>;
+export type CreateCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
+export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateCompanyMutation,
+  OperationTypes.CreateCompanyMutationVariables
+>;
+export const CreateAddressDocument = gql`
+  mutation createAddress($input: CreateAddressInput!) {
+    createAddress(input: $input) {
+      address {
+        id
+      }
+    }
+  }
+`;
+export type CreateAddressMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateAddressMutation,
+  OperationTypes.CreateAddressMutationVariables
+>;
+
+/**
+ * __useCreateAddressMutation__
+ *
+ * To run a mutation, you first call `useCreateAddressMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateAddressMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createAddressMutation, { data, loading, error }] = useCreateAddressMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateAddressMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateAddressMutation,
+    OperationTypes.CreateAddressMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateAddressMutation,
+    OperationTypes.CreateAddressMutationVariables
+  >(CreateAddressDocument, options);
+}
+export type CreateAddressMutationHookResult = ReturnType<
+  typeof useCreateAddressMutation
+>;
+export type CreateAddressMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateAddressMutation>;
+export type CreateAddressMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateAddressMutation,
+  OperationTypes.CreateAddressMutationVariables
 >;
 export const InviteDocument = gql`
   mutation invite($input: InviteInput!) {
@@ -337,6 +472,168 @@ export type DeleteCompanyMemberMutationResult =
 export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
+>;
+export const UpdateAccountProfileDocument = gql`
+  mutation updateAccountProfile($updateAccountInput: UpdateAccountInput!) {
+    updateAccount(input: $updateAccountInput) {
+      account {
+        ...AccountPageDetailsFragment
+      }
+    }
+  }
+  ${AccountPageDetailsFragmentFragmentDoc}
+`;
+export type UpdateAccountProfileMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateAccountProfileMutation,
+  OperationTypes.UpdateAccountProfileMutationVariables
+>;
+
+/**
+ * __useUpdateAccountProfileMutation__
+ *
+ * To run a mutation, you first call `useUpdateAccountProfileMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAccountProfileMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAccountProfileMutation, { data, loading, error }] = useUpdateAccountProfileMutation({
+ *   variables: {
+ *      updateAccountInput: // value for 'updateAccountInput'
+ *   },
+ * });
+ */
+export function useUpdateAccountProfileMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateAccountProfileMutation,
+    OperationTypes.UpdateAccountProfileMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateAccountProfileMutation,
+    OperationTypes.UpdateAccountProfileMutationVariables
+  >(UpdateAccountProfileDocument, options);
+}
+export type UpdateAccountProfileMutationHookResult = ReturnType<
+  typeof useUpdateAccountProfileMutation
+>;
+export type UpdateAccountProfileMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateAccountProfileMutation>;
+export type UpdateAccountProfileMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateAccountProfileMutation,
+  OperationTypes.UpdateAccountProfileMutationVariables
+>;
+export const LeaveCompanyDocument = gql`
+  mutation leaveCompany($accountId: Int!, $companyId: Int!, $marketId: Int!) {
+    deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId(
+      input: {
+        accountId: $accountId
+        companyId: $companyId
+        marketId: $marketId
+      }
+    ) {
+      clientMutationId
+      account {
+        ...AccountPageDetailsFragment
+      }
+    }
+  }
+  ${AccountPageDetailsFragmentFragmentDoc}
+`;
+export type LeaveCompanyMutationFn = Apollo.MutationFunction<
+  OperationTypes.LeaveCompanyMutation,
+  OperationTypes.LeaveCompanyMutationVariables
+>;
+
+/**
+ * __useLeaveCompanyMutation__
+ *
+ * To run a mutation, you first call `useLeaveCompanyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useLeaveCompanyMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [leaveCompanyMutation, { data, loading, error }] = useLeaveCompanyMutation({
+ *   variables: {
+ *      accountId: // value for 'accountId'
+ *      companyId: // value for 'companyId'
+ *      marketId: // value for 'marketId'
+ *   },
+ * });
+ */
+export function useLeaveCompanyMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.LeaveCompanyMutation,
+    OperationTypes.LeaveCompanyMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.LeaveCompanyMutation,
+    OperationTypes.LeaveCompanyMutationVariables
+  >(LeaveCompanyDocument, options);
+}
+export type LeaveCompanyMutationHookResult = ReturnType<
+  typeof useLeaveCompanyMutation
+>;
+export type LeaveCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.LeaveCompanyMutation>;
+export type LeaveCompanyMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.LeaveCompanyMutation,
+  OperationTypes.LeaveCompanyMutationVariables
+>;
+export const ResetPasswordDocument = gql`
+  mutation resetPassword {
+    resetPassword
+  }
+`;
+export type ResetPasswordMutationFn = Apollo.MutationFunction<
+  OperationTypes.ResetPasswordMutation,
+  OperationTypes.ResetPasswordMutationVariables
+>;
+
+/**
+ * __useResetPasswordMutation__
+ *
+ * To run a mutation, you first call `useResetPasswordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useResetPasswordMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [resetPasswordMutation, { data, loading, error }] = useResetPasswordMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useResetPasswordMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.ResetPasswordMutation,
+    OperationTypes.ResetPasswordMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.ResetPasswordMutation,
+    OperationTypes.ResetPasswordMutationVariables
+  >(ResetPasswordDocument, options);
+}
+export type ResetPasswordMutationHookResult = ReturnType<
+  typeof useResetPasswordMutation
+>;
+export type ResetPasswordMutationResult =
+  Apollo.MutationResult<OperationTypes.ResetPasswordMutation>;
+export type ResetPasswordMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.ResetPasswordMutation,
+  OperationTypes.ResetPasswordMutationVariables
 >;
 export const GetProjectDocument = gql`
   query GetProject($projectId: Int!) {
@@ -1615,14 +1912,13 @@ export type GetCurrentCompanyQueryResult = Apollo.QueryResult<
 export const GetCompanyDocument = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
-      ...CompanyDetailsFragment
-      status
+      ...CompanyPageDetailsFragment
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
     }
   }
-  ${CompanyDetailsFragmentFragmentDoc}
+  ${CompanyPageDetailsFragmentFragmentDoc}
   ${ContactDetailsCollectionFragmentFragmentDoc}
 `;
 
@@ -1682,6 +1978,10 @@ export const GetPartnerBrandsDocument = gql`
           items {
             name
             shortDescription
+            websiteUrl
+            description {
+              json
+            }
             image {
               ...ImageFragment
             }
@@ -1781,54 +2081,10 @@ export type GetPartnerBrandsQueryResult = Apollo.QueryResult<
 export const GetUserProfileDocument = gql`
   query getUserProfile($accountId: Int!) {
     account(id: $accountId) {
-      firstName
-      lastName
-      role
-      email
-      phone
-      photo
-      companyMembers {
-        nodes {
-          company {
-            id
-            name
-            phone
-            website
-            aboutUs
-            registeredAddress {
-              firstLine
-              secondLine
-              town
-              region
-              country
-              postcode
-            }
-            logo
-            taxNumber
-            tier
-            businessType
-            ownerFullname
-            ownerEmail
-            ownerPhone
-            phone
-            publicEmail
-            website
-            linkedIn
-            facebook
-            referenceNumber
-          }
-        }
-      }
-      certificationsByDoceboUserId {
-        nodes {
-          id
-          technology
-          expiryDate
-          name
-        }
-      }
+      ...AccountPageDetailsFragment
     }
   }
+  ${AccountPageDetailsFragmentFragmentDoc}
 `;
 
 /**

@@ -97,6 +97,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     seo: null
   };
 
+  const bimAssetUrl = product.assets?.find(
+    (asset) => asset.assetType === "BIM"
+  )?.url;
+
   return (
     <Page
       brand={brandCode}
@@ -173,6 +177,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           classificationNamespace={
             pageContext.pimClassificationCatalogueNamespace
           }
+          bimAssetUrl={bimAssetUrl}
         />
       </Section>
       <RelatedProducts

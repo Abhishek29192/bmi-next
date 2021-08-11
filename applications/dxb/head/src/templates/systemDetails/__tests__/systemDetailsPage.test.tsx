@@ -23,7 +23,6 @@ describe("SystemDetailsPage template component", () => {
   });
 
   it("should render", () => {
-    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
     const { container } = renderWithRouter(
       <SystemDetailsPage
         data={{
@@ -42,6 +41,7 @@ describe("SystemDetailsPage template component", () => {
   });
 
   it("should render without BrandProvider", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = null;
     const { container } = renderWithRouter(
       <SystemDetailsPage
         data={{

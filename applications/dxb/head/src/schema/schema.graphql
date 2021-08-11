@@ -932,7 +932,7 @@ type ContentfulResources implements Node {
 
   "The elements for the product details page sidebar for these resources."
   pdpSidebarItems: [ContentfulTitleWithContent]
-    @link(by: "id", from: "pdpSideBarItems___NODE")
+    @link(from: "pdpSidebarItems___NODE")
 
   "The title for the product details page cards for these resources."
   pdpCardsTitle: String

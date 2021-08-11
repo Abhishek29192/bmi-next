@@ -8,7 +8,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
     class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
     style="font-size: 1.2rem;"
   >
-    Registered Details
+    details.registeredDetails
   </h4>
   <div
     class="body"
@@ -19,7 +19,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
       <h6
         class="MuiTypography-root Typography MuiTypography-h6"
       >
-        Registered name
+        details.name
       </h6>
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -33,7 +33,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
       <h6
         class="MuiTypography-root Typography MuiTypography-h6"
       >
-        Membership number
+        details.referenceNumber
       </h6>
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -47,7 +47,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
       <h6
         class="MuiTypography-root Typography MuiTypography-h6"
       >
-        Registered address
+        details.registeredAddress
       </h6>
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -94,7 +94,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
       <h6
         class="MuiTypography-root Typography MuiTypography-h6"
       >
-        Company VAT number
+        details.taxNumber
       </h6>
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -122,12 +122,12 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
       <h6
         class="MuiTypography-root Typography MuiTypography-h6"
       >
-        company.operations
+        companyOperations
       </h6>
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
       >
-        Operationtypes.pitched and operationTypes.FLAT company.operations_suffix
+        Operationtypes.pitched and operationTypes.FLAT companyOperationsSuffix
       </div>
     </div>
     <div

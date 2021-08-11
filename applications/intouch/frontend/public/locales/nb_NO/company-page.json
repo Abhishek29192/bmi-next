@@ -6,8 +6,8 @@
   "Registered Address": "Norway - Registered Address",
   "Main office address": "Norway - Main office address",
   "Phone": "Norway - Phone",
-  "support.title": "Norway - Roofpro Support",
-  "company.incomplete_profile": {
+  "supportTitle": "Norway - Roofpro Support",
+  "incompleteProfile": {
     "warning": "Norway - In order to take part of the BMI Contract Locator please provide the required information listed below.",
     "phone": "Norway - Phone",
     "email": "Norway - Email",
@@ -22,8 +22,8 @@
     "MERCHANT": "Norway - Merchant",
     "CORP_DEVELOPER": "Norway - Developer"
   },
-  "company.operations": "Norway - Operation Type",
-  "company.operations_suffix": "Norway - roofing",
+  "companyOperations": "Norway - Operation Type",
+  "companyOperationsSuffix": "Norway - roofing",
   "operationTypes": {
     "FLAT": "Norway - flat",
     "PITCHED": "Norway - pitched",

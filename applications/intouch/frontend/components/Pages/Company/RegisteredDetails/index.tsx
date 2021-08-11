@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import capitalize from "lodash.capitalize";
 import { gql } from "@apollo/client";
 import { Operation } from "@bmi/intouch-api-types";
@@ -31,7 +31,7 @@ export const formatCompanyOperations = (t, operations: Operation[]) => {
     return `${str}, ${o}`;
   }, "");
 
-  const suffix = t("company-page:company.operations_suffix");
+  const suffix = t("company-page:companyOperationsSuffix");
 
   return operationLabels.length > 0 ? `${operationsText} ${suffix}` : "";
 };
@@ -56,24 +56,28 @@ export const CompanyRegisteredDetails = ({
   return (
     <div className={styles.main}>
       <Typography variant="h4" hasUnderline style={{ fontSize: "1.2rem" }}>
-        {t("Registered Details")}
+        {t("company-page:details.registeredDetails")}
       </Typography>
 
       <div className={styles.body}>
-        <InfoPair title={t("Registered name")}>{name}</InfoPair>
+        <InfoPair title={t("company-page:details.name")}>{name}</InfoPair>
 
         {referenceNumber ? (
-          <InfoPair title={t("Membership number")}>{referenceNumber}</InfoPair>
+          <InfoPair title={t("company-page:details.referenceNumber")}>
+            {referenceNumber}
+          </InfoPair>
         ) : null}
 
         {registeredAddress ? (
-          <InfoPair title={t("Registered address")}>
+          <InfoPair title={t("company-page:details.registeredAddress")}>
             <Address address={registeredAddress} />
           </InfoPair>
         ) : null}
 
         {taxNumber ? (
-          <InfoPair title={t("Company VAT number")}>{taxNumber}</InfoPair>
+          <InfoPair title={t("company-page:details.taxNumber")}>
+            {taxNumber}
+          </InfoPair>
         ) : null}
 
         {tier ? (
@@ -81,7 +85,7 @@ export const CompanyRegisteredDetails = ({
         ) : null}
 
         {operations.length > 0 ? (
-          <InfoPair title={t("company-page:company.operations")}>
+          <InfoPair title={t("company-page:companyOperations")}>
             {formatCompanyOperations(t, operations)}
           </InfoPair>
         ) : null}

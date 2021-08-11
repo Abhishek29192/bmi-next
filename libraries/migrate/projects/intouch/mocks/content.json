@@ -62,9 +62,6 @@
         "name": {
           "en-US": "Case studies"
         },
-        "description": {
-          "en-US": "Case studies on the BMI website"
-        },
         "url": {
           "en-US": "https://www.bmigroup.com/your-project/case-studies"
         }
@@ -85,7 +82,7 @@
         "id": "2H9GYsnHaV75zBRmqxvxKW",
         "type": "Entry",
         "createdAt": "2021-03-24T12:36:02.763Z",
-        "updatedAt": "2021-03-24T12:36:15.311Z",
+        "updatedAt": "2021-07-30T15:15:45.488Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -93,8 +90,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2021-03-24T12:36:15.311Z",
+        "publishedVersion": 5,
+        "publishedAt": "2021-07-30T15:15:45.488Z",
         "firstPublishedAt": "2021-03-24T12:36:15.311Z",
         "createdBy": {
           "sys": {
@@ -110,8 +107,8 @@
             "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -139,9 +136,6 @@
               "id": "1a11UUWud7CdKtmHwF1NUw"
             }
           }
-        },
-        "description": {
-          "en-US": "Nordica concrete tiles specification"
         }
       }
     },
@@ -214,9 +208,6 @@
               "id": "3UdpXohht17mQp4mEXvu0y"
             }
           }
-        },
-        "description": {
-          "en-US": "Elebana Concrete Tiles spec"
         }
       }
     },
@@ -364,9 +355,6 @@
             }
           }
         },
-        "description": {
-          "en-US": "Innovation page on the BMI website"
-        },
         "url": {
           "en-US": "https://www.bmigroup.com/innovation"
         }
@@ -441,9 +429,6 @@
               "id": "20fN2yJqUfyEJ2Mtq8bBx2"
             }
           }
-        },
-        "description": {
-          "en-US": "A leaflet about the BMI ThermaFoil Series"
         }
       }
     },
@@ -543,7 +528,7 @@
         "id": "1PEb5EJ4v7YNXFc8zoZ8ed",
         "type": "Entry",
         "createdAt": "2021-03-24T12:36:03.153Z",
-        "updatedAt": "2021-03-24T12:36:07.523Z",
+        "updatedAt": "2021-07-30T15:15:56.442Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -551,8 +536,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2021-03-24T12:36:07.523Z",
+        "publishedVersion": 4,
+        "publishedAt": "2021-07-30T15:15:56.442Z",
         "firstPublishedAt": "2021-03-24T12:36:07.523Z",
         "createdBy": {
           "sys": {
@@ -568,8 +553,8 @@
             "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 5,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -747,7 +732,7 @@
         "id": "2RdhIZRj7BuTDbC2eO2vQp",
         "type": "Entry",
         "createdAt": "2021-03-24T12:36:03.553Z",
-        "updatedAt": "2021-03-24T12:36:09.080Z",
+        "updatedAt": "2021-08-10T08:34:18.593Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -755,8 +740,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2021-03-24T12:36:09.080Z",
+        "publishedVersion": 4,
+        "publishedAt": "2021-08-10T08:34:18.593Z",
         "firstPublishedAt": "2021-03-24T12:36:09.080Z",
         "createdBy": {
           "sys": {
@@ -772,8 +757,8 @@
             "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 5,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1000,9 +985,6 @@
               "id": "1NoR12oaUzXhq9dh0TZpNZ"
             }
           }
-        },
-        "description": {
-          "en-US": "Traditional foil radian barriers designed to meet the latest green building standards."
         }
       }
     },
@@ -1084,9 +1066,6 @@
               "id": "2fKQsXDX4MwOO3Dt2ni04O"
             }
           }
-        },
-        "description": {
-          "en-US": "Sealoflex Ulitma Liquid Applied Waterproofing System.  Sealoflex Systems are for roofs, balconies, walkways and other applications. An Extremely versatile single component system."
         }
       }
     },
@@ -1256,9 +1235,6 @@
               "id": "2HZhW89EbyPLdtyfPgMX8r"
             }
           }
-        },
-        "description": {
-          "en-US": "A brochure about the BMI Liquid Applied Waterprofing Systems"
         }
       }
     },
@@ -1340,9 +1316,6 @@
               "id": "1CZCIYWLijkdjh1Sr9ZS8O"
             }
           }
-        },
-        "description": {
-          "en-US": "Green and clean way to get water heated using the power of the sun and BMI's cutting edge tech."
         }
       }
     },
@@ -1424,9 +1397,6 @@
               "id": "1auCeGR3geEh11uAUCssLy"
             }
           }
-        },
-        "description": {
-          "en-US": "A fine layer of protection.  A profound depth of support.  A layer of industry expertise makes BMI EverGuard quick to install and quick to repay your investment."
         }
       }
     },
@@ -1508,9 +1478,6 @@
               "id": "2TgVCTqeFlqGe9MvDptAMd"
             }
           }
-        },
-        "description": {
-          "en-US": "A high resolution photograph of a lovely dark mineral roof on a house.  Copyright BMI."
         }
       }
     },
@@ -1529,7 +1496,7 @@
         "id": "4WuF7lqmeYsfG1xfY136B3",
         "type": "Entry",
         "createdAt": "2021-03-24T12:36:04.402Z",
-        "updatedAt": "2021-03-24T12:36:12.377Z",
+        "updatedAt": "2021-07-30T15:12:23.813Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -1537,8 +1504,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2021-03-24T12:36:12.377Z",
+        "publishedVersion": 4,
+        "publishedAt": "2021-07-30T15:12:23.813Z",
         "firstPublishedAt": "2021-03-24T12:36:12.377Z",
         "createdBy": {
           "sys": {
@@ -1554,8 +1521,8 @@
             "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 5,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1583,9 +1550,6 @@
               "id": "1Kt0vRbixNOiooywauG4I2"
             }
           }
-        },
-        "description": {
-          "en-US": "A video about BMI"
         },
         "url": {
           "en-US": "https://vimeo.com/424813433"
@@ -1661,9 +1625,6 @@
               "id": "5RwRchjWqLllTR535o3nJl"
             }
           }
-        },
-        "description": {
-          "en-US": "Advanced Contour technical specifications"
         }
       }
     },
@@ -1745,9 +1706,6 @@
               "id": "6vpemZCQsLCptgFo6javWR"
             }
           }
-        },
-        "description": {
-          "en-US": "A high res image of a Toscana Warisan - Black Glazed roof. Copyright BMI."
         }
       }
     },
@@ -1820,9 +1778,6 @@
               "id": "1qt8rwS5HLxgnufLDfq28W"
             }
           }
-        },
-        "description": {
-          "en-US": "The Heritage V Technical Specifications"
         }
       }
     },
@@ -1976,9 +1931,6 @@
               "id": "2rTnGMm4BPyHXKNLBw0A6C"
             }
           }
-        },
-        "description": {
-          "en-US": "Horizon 8 Technical Specifications"
         }
       }
     },
@@ -2051,9 +2003,6 @@
               "id": "6H5AhkVyHKBZK9awoCVJUm"
             }
           }
-        },
-        "description": {
-          "en-US": "Marseille 12 technical specifications"
         }
       }
     },
@@ -2117,9 +2066,6 @@
       "fields": {
         "name": {
           "en-US": "About BMI"
-        },
-        "description": {
-          "en-US": "A video about BMI Malaysia"
         },
         "url": {
           "en-US": "https://vimeo.com/387974487"
@@ -2888,7 +2834,7 @@
         "id": "3jTodDJlXXdFPAHQiOjeeF",
         "type": "Entry",
         "createdAt": "2021-03-25T11:41:54.340Z",
-        "updatedAt": "2021-04-21T09:55:55.679Z",
+        "updatedAt": "2021-07-29T11:57:30.732Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -2896,8 +2842,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 22,
-        "publishedAt": "2021-04-21T09:55:55.679Z",
+        "publishedVersion": 24,
+        "publishedAt": "2021-07-29T11:57:30.732Z",
         "firstPublishedAt": "2021-03-25T11:47:51.448Z",
         "createdBy": {
           "sys": {
@@ -2913,8 +2859,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 4,
-        "version": 23,
+        "publishedCounter": 5,
+        "version": 25,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -3075,7 +3021,7 @@
           }
         },
         "shortDescription": {
-          "en-US": "Mobility Services for Roofers"
+          "en-US": "The car of your dreams"
         },
         "websiteUrl": {
           "en-US": "https://www.sixt.com"
@@ -3097,7 +3043,7 @@
         "id": "34O0kNaNsNaGh3XdICM8wq",
         "type": "Entry",
         "createdAt": "2021-03-25T13:57:47.650Z",
-        "updatedAt": "2021-04-21T10:29:42.227Z",
+        "updatedAt": "2021-07-29T10:18:20.697Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -3105,8 +3051,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 23,
-        "publishedAt": "2021-04-21T10:29:42.227Z",
+        "publishedVersion": 29,
+        "publishedAt": "2021-07-29T10:18:20.697Z",
         "firstPublishedAt": "2021-03-25T14:42:50.223Z",
         "createdBy": {
           "sys": {
@@ -3122,8 +3068,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 6,
-        "version": 24,
+        "publishedCounter": 9,
+        "version": 30,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -3159,7 +3105,7 @@
           "en-US": "NONE"
         },
         "audienceTiers": {
-          "en-US": ["T1", "T2", "T3", "T4"]
+          "en-US": ["T2", "T3", "T4"]
         }
       }
     },
@@ -3178,7 +3124,7 @@
         "id": "5zMSzQWtVlaq717XCMQqHK",
         "type": "Entry",
         "createdAt": "2021-03-25T14:43:04.349Z",
-        "updatedAt": "2021-04-21T10:28:34.920Z",
+        "updatedAt": "2021-08-09T15:26:20.968Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -3186,8 +3132,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 37,
-        "publishedAt": "2021-04-21T10:28:34.920Z",
+        "publishedVersion": 41,
+        "publishedAt": "2021-08-09T15:26:20.968Z",
         "firstPublishedAt": "2021-03-25T14:50:04.357Z",
         "createdBy": {
           "sys": {
@@ -3203,8 +3149,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 5,
-        "version": 38,
+        "publishedCounter": 7,
+        "version": 42,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -3234,10 +3180,10 @@
           }
         },
         "body": {
-          "en-US": "Our polymorphic mult-axial asymmetrical tessellation patterns with fit the most complex shapes your architects can imagine."
+          "en-US": "Our polymorphic multi-axial asymmetrical tessellation patterns with fit the most complex shapes your architects can imagine."
         },
         "cta": {
-          "en-US": "MERCHANDISE"
+          "en-US": "PROJECT"
         },
         "audienceTiers": {
           "en-US": ["T1", "T2", "T3", "T4"]
@@ -3340,7 +3286,7 @@
         "id": "4gw1DaXqWng4VCCBNAg9rN",
         "type": "Entry",
         "createdAt": "2021-03-25T15:51:52.735Z",
-        "updatedAt": "2021-04-21T10:29:06.307Z",
+        "updatedAt": "2021-07-29T11:59:42.364Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -3348,8 +3294,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 32,
-        "publishedAt": "2021-04-21T10:29:06.307Z",
+        "publishedVersion": 36,
+        "publishedAt": "2021-07-29T11:59:42.364Z",
         "firstPublishedAt": "2021-03-25T20:34:54.536Z",
         "createdBy": {
           "sys": {
@@ -3365,8 +3311,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 6,
-        "version": 33,
+        "publishedCounter": 8,
+        "version": 37,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -3502,7 +3448,7 @@
         "id": "5FUfSR9zHJCrf7Ks0NzCTm",
         "type": "Entry",
         "createdAt": "2021-03-25T20:46:10.189Z",
-        "updatedAt": "2021-03-25T20:48:47.003Z",
+        "updatedAt": "2021-07-30T14:43:12.993Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -3510,8 +3456,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 18,
-        "publishedAt": "2021-03-25T20:48:47.003Z",
+        "publishedVersion": 21,
+        "publishedAt": "2021-07-30T14:43:12.993Z",
         "firstPublishedAt": "2021-03-25T20:48:47.003Z",
         "createdBy": {
           "sys": {
@@ -3527,8 +3473,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 1,
-        "version": 19,
+        "publishedCounter": 2,
+        "version": 22,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -3549,7 +3495,7 @@
           "en-US": "Privacy notice"
         },
         "relativePath": {
-          "en-US": "/privacy"
+          "en-US": "/coo"
         },
         "body": {
           "en-US": {
@@ -7312,7 +7258,7 @@
         "id": "7j0FaWCBSVanXJqaZrDyvP",
         "type": "Entry",
         "createdAt": "2021-03-25T21:06:48.810Z",
-        "updatedAt": "2021-03-25T21:08:51.679Z",
+        "updatedAt": "2021-07-30T14:55:00.671Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -7320,8 +7266,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 16,
-        "publishedAt": "2021-03-25T21:08:51.679Z",
+        "publishedVersion": 21,
+        "publishedAt": "2021-07-30T14:55:00.671Z",
         "firstPublishedAt": "2021-03-25T21:08:51.679Z",
         "createdBy": {
           "sys": {
@@ -7337,8 +7283,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 1,
-        "version": 17,
+        "publishedCounter": 3,
+        "version": 22,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -7360,26 +7306,26 @@
         },
         "description": {
           "en-US": {
+            "nodeType": "document",
             "data": {},
             "content": [
               {
-                "data": {},
+                "nodeType": "paragraph",
                 "content": [
                   {
-                    "data": {},
+                    "nodeType": "text",
+                    "value": "Provide a photo of the team working on the roof in situ.  Demonstrate that they are working safely, with adequate tools and facilities for a project of this size.",
                     "marks": [],
-                    "value": "Provide a photo of the team working on the roof in situ.  Demonstrating that they are working safely, with adequate tools and facilities for a project this size.",
-                    "nodeType": "text"
+                    "data": {}
                   }
                 ],
-                "nodeType": "paragraph"
+                "data": {}
               }
-            ],
-            "nodeType": "document"
+            ]
           }
         },
         "minimumUploads": {
-          "en-US": 3
+          "en-US": 1
         }
       }
     },
@@ -7484,7 +7430,7 @@
         "id": "1zGapt2pTtGBAGy9SYSonB",
         "type": "Entry",
         "createdAt": "2021-03-25T21:11:00.135Z",
-        "updatedAt": "2021-04-23T10:33:44.254Z",
+        "updatedAt": "2021-07-30T15:45:38.470Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -7492,8 +7438,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 71,
-        "publishedAt": "2021-04-23T10:33:44.254Z",
+        "publishedVersion": 73,
+        "publishedAt": "2021-07-30T15:45:38.470Z",
         "firstPublishedAt": "2021-03-25T21:28:41.319Z",
         "createdBy": {
           "sys": {
@@ -7509,8 +7455,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 7,
-        "version": 72,
+        "publishedCounter": 8,
+        "version": 74,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -7540,7 +7486,7 @@
           "en-US": "You have been invited to join {{company}}"
         },
         "emailBody": {
-          "en-US": "Dear {{firstname}},\n\nYou have been invited to join {{company}}.\n\nYou were invited by {{sender}}.\n\nNote from sender: {{personalNote}}\n\n\n\nregards\n\nBMI InTouch Team"
+          "en-US": "Dear {{firstname}},\n\nYou have been invited to join {{company}}.\n\nYou were invited by {{sender}}.\n\nregards\n\nBMI InTouch Team"
         }
       }
     },
@@ -7559,7 +7505,7 @@
         "id": "6SWC9VnIqf0nZoPoH7JR4J",
         "type": "Entry",
         "createdAt": "2021-03-25T21:30:06.212Z",
-        "updatedAt": "2021-04-23T10:33:54.398Z",
+        "updatedAt": "2021-07-14T11:12:06.436Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -7567,8 +7513,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 29,
-        "publishedAt": "2021-04-23T10:33:54.398Z",
+        "publishedVersion": 34,
+        "publishedAt": "2021-07-14T11:12:06.436Z",
         "firstPublishedAt": "2021-03-25T21:30:41.541Z",
         "createdBy": {
           "sys": {
@@ -7584,8 +7530,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 5,
-        "version": 30,
+        "publishedCounter": 6,
+        "version": 35,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -7634,7 +7580,7 @@
         "id": "5einbWhd4LZ5dDge7J6m8y",
         "type": "Entry",
         "createdAt": "2021-03-25T21:31:04.366Z",
-        "updatedAt": "2021-04-23T10:35:00.476Z",
+        "updatedAt": "2021-07-13T16:28:41.158Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -7642,8 +7588,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 34,
-        "publishedAt": "2021-04-23T10:35:00.476Z",
+        "publishedVersion": 65,
+        "publishedAt": "2021-07-13T16:28:41.158Z",
         "firstPublishedAt": "2021-03-25T21:32:52.975Z",
         "createdBy": {
           "sys": {
@@ -7659,8 +7605,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 5,
-        "version": 35,
+        "publishedCounter": 6,
+        "version": 66,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -7690,7 +7636,7 @@
           "en-US": "Reminder to complete your company profile on BMI InTouch"
         },
         "emailBody": {
-          "en-US": "Dear {{firstname}},\n\nThis a reminder to complete your profile on BMI InTouch.  Completing your profile ensures that you have full visibility to potential customers via our services.\n\nregards\n\nBMI InTouch Team"
+          "en-US": "Dear {{firstname}},\n\nThis a reminder to complete your company profile on BMI InTouch.  Completing your profile ensures that you have full visibility to potential customers via our services.  It is important for your presence on Find A Roofer for your Company to provide all of the following information:\n\n1. Trading Address.\n2. Phone number.\n3. Public email.\n4. Website address.\n5. Company description.\n6. Company logo.\n\nregards\n\nBMI InTouch Team"
         }
       }
     },
@@ -7709,7 +7655,7 @@
         "id": "6AOfsimVd1dyPzpceKCA7V",
         "type": "Entry",
         "createdAt": "2021-03-25T22:07:37.663Z",
-        "updatedAt": "2021-04-23T10:37:21.261Z",
+        "updatedAt": "2021-07-30T15:48:45.372Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -7717,8 +7663,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 25,
-        "publishedAt": "2021-04-23T10:37:21.261Z",
+        "publishedVersion": 27,
+        "publishedAt": "2021-07-30T15:48:45.372Z",
         "firstPublishedAt": "2021-03-25T22:10:50.822Z",
         "createdBy": {
           "sys": {
@@ -7734,8 +7680,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 4,
-        "version": 26,
+        "publishedCounter": 5,
+        "version": 28,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -7765,82 +7711,7 @@
           "en-US": "You have been assigned the role {{role}}"
         },
         "emailBody": {
-          "en-US": "Dear {{firstname}},\n\nYou have been assigned the role {{role}}\n\nregards\n\nBMI InTouch team"
-        }
-      }
-    },
-    {
-      "metadata": {
-        "tags": []
-      },
-      "sys": {
-        "space": {
-          "sys": {
-            "type": "Link",
-            "linkType": "Space",
-            "id": "opay6t6wwmup"
-          }
-        },
-        "id": "3T6NmGeC2cP1UIhyWJimOZ",
-        "type": "Entry",
-        "createdAt": "2021-03-25T22:20:11.160Z",
-        "updatedAt": "2021-04-23T10:37:02.304Z",
-        "environment": {
-          "sys": {
-            "id": "develop",
-            "type": "Link",
-            "linkType": "Environment"
-          }
-        },
-        "publishedVersion": 37,
-        "publishedAt": "2021-04-23T10:37:02.304Z",
-        "firstPublishedAt": "2021-03-25T22:22:32.873Z",
-        "createdBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
-          }
-        },
-        "updatedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
-          }
-        },
-        "publishedCounter": 4,
-        "version": 38,
-        "publishedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
-          }
-        },
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "messageTemplate"
-          }
-        }
-      },
-      "fields": {
-        "event": {
-          "en-US": "CERTIFICATION_EXPIRED"
-        },
-        "format": {
-          "en-US": ["NOTIFICATION", "EMAIL"]
-        },
-        "subject": {
-          "en-US": "Certification is expiring"
-        },
-        "notificationBody": {
-          "en-US": "Your BMI certification is expiring soon"
-        },
-        "emailBody": {
-          "en-US": "Dear {{firstname}},\n\nYour certification: {{certification}}, is expiring soon.\n\nPlease log in to InTouch and see your training options.\n\nregards\n\nBMI InTouch Team"
+          "en-US": "Dear {{firstname}},\n\nYou have been assigned the role {{role}}.\n\nregards\n\nBMI InTouch team"
         }
       }
     },
@@ -7859,7 +7730,7 @@
         "id": "7BAxONxEOdp0d2Trx3UeHw",
         "type": "Entry",
         "createdAt": "2021-03-25T22:23:24.261Z",
-        "updatedAt": "2021-04-23T10:33:23.180Z",
+        "updatedAt": "2021-07-30T15:44:44.208Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -7867,8 +7738,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 39,
-        "publishedAt": "2021-04-23T10:33:23.180Z",
+        "publishedVersion": 51,
+        "publishedAt": "2021-07-30T15:44:44.208Z",
         "firstPublishedAt": "2021-03-25T22:25:28.810Z",
         "createdBy": {
           "sys": {
@@ -7884,8 +7755,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 5,
-        "version": 40,
+        "publishedCounter": 7,
+        "version": 52,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -7909,13 +7780,13 @@
           "en-US": ["EMAIL", "NOTIFICATION"]
         },
         "subject": {
-          "en-US": "You have been assigned to the {{tier}}"
+          "en-US": "You have been assigned to the {{tier}} Tier"
         },
         "notificationBody": {
-          "en-US": "You have been assigned to the {{tier}}"
+          "en-US": "You have been assigned to the {{tier}} Tier"
         },
         "emailBody": {
-          "en-US": "Dear {{firstname}},\n\nYou have been assigned to the {{tier}}\n\nThe benefits of the  {{tier}} include:\n\n$$new_tier_benefits\n\n\nregards\n\nBMI InTouch Team"
+          "en-US": "Dear {{firstname}},\n\nYou have been assigned to the {{tier}} Tier\n\nThe benefits of the {{tier}} include:\n\n{{tierBenefitsShortDescription}}\n\n\nregards\n\nBMI InTouch Team"
         }
       }
     },
@@ -7934,7 +7805,7 @@
         "id": "5koPXCh2DEokoDUmwsTh2m",
         "type": "Entry",
         "createdAt": "2021-03-25T22:25:40.187Z",
-        "updatedAt": "2021-04-23T10:33:11.815Z",
+        "updatedAt": "2021-08-03T11:10:51.303Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -7942,8 +7813,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 55,
-        "publishedAt": "2021-04-23T10:33:11.815Z",
+        "publishedVersion": 58,
+        "publishedAt": "2021-08-03T11:10:51.303Z",
         "firstPublishedAt": "2021-03-25T22:29:09.504Z",
         "createdBy": {
           "sys": {
@@ -7959,8 +7830,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 6,
-        "version": 56,
+        "publishedCounter": 7,
+        "version": 59,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -7987,10 +7858,10 @@
           "en-US": "More information required."
         },
         "notificationBody": {
-          "en-US": "Project {{project}} cannot be approved for a solution guarantee yet.  The reviewer has requested more information."
+          "en-US": "Project {{project}} cannot be approved for a guarantee yet.  The reviewer has requested more information."
         },
         "emailBody": {
-          "en-US": "Dear {{firstname}},\n\nProject {{project}} cannot be approved for a solution guarantee yet.  The reviewer has requested more information.\n\nPlease log in to InTouch for further details.\n\nregards\n\nBMI InTouch Team"
+          "en-US": "Dear {{firstname}},\n\nProject {{project}} cannot be approved for a guarantee yet.  The reviewer has requested more information.\n\nPlease log in to InTouch for further details.\n\nregards\n\nBMI InTouch Team"
         }
       }
     },
@@ -8009,7 +7880,7 @@
         "id": "7Ag0zeNtJEbSIIKgUmbMwe",
         "type": "Entry",
         "createdAt": "2021-03-25T22:30:28.242Z",
-        "updatedAt": "2021-04-23T10:45:01.112Z",
+        "updatedAt": "2021-07-30T15:50:08.142Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -8017,8 +7888,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 42,
-        "publishedAt": "2021-04-23T10:45:01.112Z",
+        "publishedVersion": 50,
+        "publishedAt": "2021-07-30T15:50:08.142Z",
         "firstPublishedAt": "2021-03-25T22:32:17.764Z",
         "createdBy": {
           "sys": {
@@ -8034,8 +7905,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 5,
-        "version": 43,
+        "publishedCounter": 6,
+        "version": 51,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8059,13 +7930,13 @@
           "en-US": ["EMAIL", "NOTIFICATION"]
         },
         "subject": {
-          "en-US": "Your application for a solution guarantee has been approved by BMI"
+          "en-US": "Your application for a guarantee has been issued by BMI"
         },
         "notificationBody": {
-          "en-US": "Your application for a solution guarantee has been approved by BMI.  Project {{project}} now has a solution guarantee."
+          "en-US": "Your application for a guarantee has been issued by BMI.  Project {{project}} now has a new guarantee."
         },
         "emailBody": {
-          "en-US": "Dear {{firstname}},\n\nYour application for a solution guarantee has been approved by BMI.  Project {{project}} now has a solution guarantee.\n\nThe guarantee has been sent to the building owner.  Log in to InTouch to download a PDF copy.\n\nregards\n\nBMI InTouch Team"
+          "en-US": "Dear {{firstname}},\n\nYour application for a guarantee has been issued by BMI.  Project {{project}} now has a new guarantee.\n\nThe guarantee has been sent to the building owner.  Log in to InTouch to download a PDF copy.\n\nregards\n\nBMI InTouch Team"
         }
       }
     },
@@ -8084,7 +7955,7 @@
         "id": "7uSy0NeVTgPiJbOiVYW4DX",
         "type": "Entry",
         "createdAt": "2021-03-25T22:42:56.557Z",
-        "updatedAt": "2021-04-02T09:33:36.611Z",
+        "updatedAt": "2021-08-10T08:34:33.214Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -8092,8 +7963,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 28,
-        "publishedAt": "2021-04-02T09:33:36.611Z",
+        "publishedVersion": 40,
+        "publishedAt": "2021-08-10T08:34:33.214Z",
         "firstPublishedAt": "2021-03-26T11:08:13.268Z",
         "createdBy": {
           "sys": {
@@ -8106,16 +7977,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
-        "publishedCounter": 6,
-        "version": 29,
+        "publishedCounter": 9,
+        "version": 41,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
         "contentType": {
@@ -8155,18 +8026,7 @@
           "en-US": ["T2", "T3", "T4"]
         },
         "ranking": {
-          "en-US": 5
-        },
-        "evidenceCategories": {
-          "en-US": [
-            {
-              "sys": {
-                "type": "Link",
-                "linkType": "Entry",
-                "id": "7l2982ONQRjTjw0rswqdWr"
-              }
-            }
-          ]
+          "en-US": 1
         },
         "guaranteeTemplates": {
           "en-US": [
@@ -8203,7 +8063,7 @@
         "id": "6ivLobJgk2jd0Tm3fwA48u",
         "type": "Entry",
         "createdAt": "2021-03-25T22:54:13.444Z",
-        "updatedAt": "2021-04-02T09:33:08.289Z",
+        "updatedAt": "2021-07-30T16:09:00.387Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -8211,8 +8071,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 42,
-        "publishedAt": "2021-04-02T09:33:08.289Z",
+        "publishedVersion": 50,
+        "publishedAt": "2021-07-30T16:09:00.387Z",
         "firstPublishedAt": "2021-03-26T11:06:47.376Z",
         "createdBy": {
           "sys": {
@@ -8228,8 +8088,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 8,
-        "version": 43,
+        "publishedCounter": 12,
+        "version": 51,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8274,18 +8134,7 @@
           "en-US": ["T2", "T3", "T4"]
         },
         "ranking": {
-          "en-US": 6
-        },
-        "evidenceCategories": {
-          "en-US": [
-            {
-              "sys": {
-                "type": "Link",
-                "linkType": "Entry",
-                "id": "7l2982ONQRjTjw0rswqdWr"
-              }
-            }
-          ]
+          "en-US": 11
         },
         "guaranteeTemplates": {
           "en-US": [
@@ -8322,7 +8171,7 @@
         "id": "RkS8ufpDvSSjRu97p6LVg",
         "type": "Entry",
         "createdAt": "2021-03-25T22:58:57.126Z",
-        "updatedAt": "2021-05-13T14:25:43.489Z",
+        "updatedAt": "2021-07-30T16:15:23.812Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -8330,8 +8179,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 26,
-        "publishedAt": "2021-04-02T09:33:53.010Z",
+        "publishedVersion": 34,
+        "publishedAt": "2021-07-30T16:15:23.812Z",
         "firstPublishedAt": "2021-03-26T11:05:04.575Z",
         "createdBy": {
           "sys": {
@@ -8344,16 +8193,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
-        "publishedCounter": 7,
-        "version": 29,
+        "publishedCounter": 10,
+        "version": 35,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
         "contentType": {
@@ -8393,18 +8242,7 @@
           "en-US": ["T3", "T4"]
         },
         "ranking": {
-          "en-US": 3
-        },
-        "evidenceCategories": {
-          "en-US": [
-            {
-              "sys": {
-                "type": "Link",
-                "linkType": "Entry",
-                "id": "7l2982ONQRjTjw0rswqdWr"
-              }
-            }
-          ]
+          "en-US": 2
         },
         "guaranteeTemplates": {
           "en-US": [
@@ -8441,7 +8279,7 @@
         "id": "6ocz7IxsI0S61RFF7d69Aa",
         "type": "Entry",
         "createdAt": "2021-03-25T23:01:01.118Z",
-        "updatedAt": "2021-04-01T13:58:31.314Z",
+        "updatedAt": "2021-07-30T16:09:00.390Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -8449,8 +8287,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 21,
-        "publishedAt": "2021-04-01T13:58:31.314Z",
+        "publishedVersion": 27,
+        "publishedAt": "2021-07-30T16:09:00.390Z",
         "firstPublishedAt": "2021-03-26T11:03:53.357Z",
         "createdBy": {
           "sys": {
@@ -8466,8 +8304,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 4,
-        "version": 22,
+        "publishedCounter": 7,
+        "version": 28,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8509,21 +8347,10 @@
           "en-US": 23
         },
         "tiersAvailable": {
-          "en-US": ["T3", "T4"]
+          "en-US": ["T3", "T4", "T2"]
         },
         "ranking": {
-          "en-US": 4
-        },
-        "evidenceCategories": {
-          "en-US": [
-            {
-              "sys": {
-                "type": "Link",
-                "linkType": "Entry",
-                "id": "7l2982ONQRjTjw0rswqdWr"
-              }
-            }
-          ]
+          "en-US": 12
         },
         "guaranteeTemplates": {
           "en-US": [
@@ -8560,7 +8387,7 @@
         "id": "54S9J770q5T2jPYxptah89",
         "type": "Entry",
         "createdAt": "2021-03-25T23:01:48.070Z",
-        "updatedAt": "2021-04-02T09:33:25.658Z",
+        "updatedAt": "2021-08-10T08:34:27.124Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -8568,8 +8395,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 19,
-        "publishedAt": "2021-04-02T09:33:25.658Z",
+        "publishedVersion": 25,
+        "publishedAt": "2021-08-10T08:34:27.124Z",
         "firstPublishedAt": "2021-03-26T11:01:10.920Z",
         "createdBy": {
           "sys": {
@@ -8582,16 +8409,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
-        "publishedCounter": 5,
-        "version": 20,
+        "publishedCounter": 7,
+        "version": 26,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
         "contentType": {
@@ -8631,7 +8458,7 @@
           "en-US": ["T4"]
         },
         "ranking": {
-          "en-US": 1
+          "en-US": 3
         },
         "evidenceCategories": {
           "en-US": [
@@ -8640,13 +8467,6 @@
                 "type": "Link",
                 "linkType": "Entry",
                 "id": "3ka17lbEy4ENxBKQC4CY4V"
-              }
-            },
-            {
-              "sys": {
-                "type": "Link",
-                "linkType": "Entry",
-                "id": "7l2982ONQRjTjw0rswqdWr"
               }
             },
             {
@@ -8700,7 +8520,7 @@
         "id": "2weKEYQ8xXZ56FM0ZtiGXO",
         "type": "Entry",
         "createdAt": "2021-03-25T23:02:32.538Z",
-        "updatedAt": "2021-04-02T09:32:15.887Z",
+        "updatedAt": "2021-07-30T16:11:07.126Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -8708,8 +8528,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 25,
-        "publishedAt": "2021-04-02T09:32:15.887Z",
+        "publishedVersion": 31,
+        "publishedAt": "2021-07-30T16:11:07.126Z",
         "firstPublishedAt": "2021-03-26T10:58:08.816Z",
         "createdBy": {
           "sys": {
@@ -8722,16 +8542,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
-        "publishedCounter": 7,
-        "version": 26,
+        "publishedCounter": 8,
+        "version": 32,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
         "contentType": {
@@ -8771,7 +8591,7 @@
           "en-US": ["T4"]
         },
         "ranking": {
-          "en-US": 2
+          "en-US": 13
         },
         "evidenceCategories": {
           "en-US": [
@@ -8786,7 +8606,7 @@
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
-                "id": "7l2982ONQRjTjw0rswqdWr"
+                "id": "5FbxiRcMYuY6txgoVAnWJm"
               }
             },
             {
@@ -8830,96 +8650,10 @@
             "id": "opay6t6wwmup"
           }
         },
-        "id": "7l2982ONQRjTjw0rswqdWr",
-        "type": "Entry",
-        "createdAt": "2021-03-25T23:06:13.981Z",
-        "updatedAt": "2021-04-01T12:37:40.714Z",
-        "environment": {
-          "sys": {
-            "id": "develop",
-            "type": "Link",
-            "linkType": "Environment"
-          }
-        },
-        "publishedVersion": 12,
-        "publishedAt": "2021-04-01T12:37:40.714Z",
-        "firstPublishedAt": "2021-03-25T23:08:02.125Z",
-        "createdBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
-          }
-        },
-        "updatedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
-          }
-        },
-        "publishedCounter": 3,
-        "version": 13,
-        "publishedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
-          }
-        },
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "evidenceCategory"
-          }
-        }
-      },
-      "fields": {
-        "name": {
-          "en-US": "Proof of purchase"
-        },
-        "description": {
-          "en-US": {
-            "data": {},
-            "content": [
-              {
-                "data": {},
-                "content": [
-                  {
-                    "data": {},
-                    "marks": [],
-                    "value": "Provide a copy of your receipt or invoice for the BMI products that your are expecting to be guaranteed.",
-                    "nodeType": "text"
-                  }
-                ],
-                "nodeType": "paragraph"
-              }
-            ],
-            "nodeType": "document"
-          }
-        },
-        "minimumUploads": {
-          "en-US": 1
-        }
-      }
-    },
-    {
-      "metadata": {
-        "tags": []
-      },
-      "sys": {
-        "space": {
-          "sys": {
-            "type": "Link",
-            "linkType": "Space",
-            "id": "opay6t6wwmup"
-          }
-        },
         "id": "1hkU39ASbE4oYoBREitkgV",
         "type": "Entry",
         "createdAt": "2021-03-26T12:07:58.477Z",
-        "updatedAt": "2021-05-05T16:08:44.245Z",
+        "updatedAt": "2021-07-30T15:24:14.595Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -8927,8 +8661,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 81,
-        "publishedAt": "2021-05-05T16:08:44.245Z",
+        "publishedVersion": 90,
+        "publishedAt": "2021-07-30T15:24:14.595Z",
         "firstPublishedAt": "2021-03-26T15:03:49.621Z",
         "createdBy": {
           "sys": {
@@ -8941,16 +8675,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 8,
-        "version": 82,
+        "publishedCounter": 11,
+        "version": 91,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -8964,6 +8698,9 @@
       "fields": {
         "displayName": {
           "en-US": "Product English (pitched)"
+        },
+        "languageDescriptor": {
+          "en-US": "English"
         },
         "approvalMessage": {
           "en-US": {
@@ -9070,14 +8807,14 @@
         "filenamePrefix": {
           "en-US": "BMI Product Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Product Guarantee Pitched Title Line 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Product Guarantee Pitched Title Line 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Pitched"
         }
       }
     },
@@ -9096,7 +8833,7 @@
         "id": "22BgGheAIvaEv8NhtvpEtw",
         "type": "Entry",
         "createdAt": "2021-03-26T15:06:16.246Z",
-        "updatedAt": "2021-05-05T16:07:51.760Z",
+        "updatedAt": "2021-07-30T15:24:14.576Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -9104,8 +8841,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 23,
-        "publishedAt": "2021-05-05T16:07:51.760Z",
+        "publishedVersion": 31,
+        "publishedAt": "2021-07-30T15:24:14.576Z",
         "firstPublishedAt": "2021-03-26T15:16:51.123Z",
         "createdBy": {
           "sys": {
@@ -9118,16 +8855,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 6,
-        "version": 24,
+        "publishedCounter": 9,
+        "version": 32,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -9141,6 +8878,9 @@
       "fields": {
         "displayName": {
           "en-US": "System English (pitched)"
+        },
+        "languageDescriptor": {
+          "en-US": "English"
         },
         "approvalMessage": {
           "en-US": {
@@ -9247,14 +8987,14 @@
         "filenamePrefix": {
           "en-US": "BMI System Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "System Guarantee Pitched Title Line 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "System Guarantee Pitched Title Line 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Pitched"
         }
       }
     },
@@ -9273,7 +9013,7 @@
         "id": "5usXl2K46aa01z2TKaKEIF",
         "type": "Entry",
         "createdAt": "2021-03-26T15:18:41.105Z",
-        "updatedAt": "2021-05-05T16:08:02.040Z",
+        "updatedAt": "2021-07-30T15:24:14.566Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -9281,8 +9021,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 28,
-        "publishedAt": "2021-05-05T16:08:02.040Z",
+        "publishedVersion": 34,
+        "publishedAt": "2021-07-30T15:24:14.566Z",
         "firstPublishedAt": "2021-03-26T15:20:51.425Z",
         "createdBy": {
           "sys": {
@@ -9295,16 +9035,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 7,
-        "version": 29,
+        "publishedCounter": 10,
+        "version": 35,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -9318,6 +9058,9 @@
       "fields": {
         "displayName": {
           "en-US": "Solution English (pitched)"
+        },
+        "languageDescriptor": {
+          "en-US": "English"
         },
         "approvalMessage": {
           "en-US": {
@@ -9424,14 +9167,14 @@
         "filenamePrefix": {
           "en-US": "BMI Solution Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Solution Guarantee Pitched Title Line 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Solution Guarantee Pitched Title Line 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Pitched"
         }
       }
     },
@@ -9450,7 +9193,7 @@
         "id": "4cDQT8Au0RrtmzKAdZbAcx",
         "type": "Entry",
         "createdAt": "2021-03-29T08:45:51.626Z",
-        "updatedAt": "2021-05-05T16:08:14.845Z",
+        "updatedAt": "2021-07-30T15:24:13.404Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -9458,8 +9201,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 21,
-        "publishedAt": "2021-05-05T16:08:14.845Z",
+        "publishedVersion": 33,
+        "publishedAt": "2021-07-30T15:24:13.404Z",
         "firstPublishedAt": "2021-03-29T08:53:52.673Z",
         "createdBy": {
           "sys": {
@@ -9472,16 +9215,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 6,
-        "version": 22,
+        "publishedCounter": 11,
+        "version": 34,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -9495,6 +9238,9 @@
       "fields": {
         "displayName": {
           "en-US": "Product English (flat)"
+        },
+        "languageDescriptor": {
+          "en-US": "English"
         },
         "approvalMessage": {
           "en-US": {
@@ -9601,14 +9347,14 @@
         "filenamePrefix": {
           "en-US": "BMI Product Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Product Guarantee Flat Title Line 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Product Guarantee Flat Title Line 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Flat"
         }
       }
     },
@@ -9627,7 +9373,7 @@
         "id": "77UFTaudMNcBVynlm8CmbE",
         "type": "Entry",
         "createdAt": "2021-03-29T08:58:46.494Z",
-        "updatedAt": "2021-05-05T16:07:30.821Z",
+        "updatedAt": "2021-07-30T15:24:14.034Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -9635,8 +9381,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 29,
-        "publishedAt": "2021-05-05T16:07:30.821Z",
+        "publishedVersion": 35,
+        "publishedAt": "2021-07-30T15:24:14.034Z",
         "firstPublishedAt": "2021-03-29T09:14:39.391Z",
         "createdBy": {
           "sys": {
@@ -9649,16 +9395,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 7,
-        "version": 30,
+        "publishedCounter": 9,
+        "version": 36,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -9672,6 +9418,9 @@
       "fields": {
         "displayName": {
           "en-US": "System English (flat)"
+        },
+        "languageDescriptor": {
+          "en-US": "English"
         },
         "approvalMessage": {
           "en-US": {
@@ -9778,14 +9527,14 @@
         "filenamePrefix": {
           "en-US": "BMI System Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "System Guarantee Title Line 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "System Guarantee Title Line 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Flat"
         }
       }
     },
@@ -9804,7 +9553,7 @@
         "id": "2cH694AWInJSZIdKHDKfJO",
         "type": "Entry",
         "createdAt": "2021-03-29T10:50:54.056Z",
-        "updatedAt": "2021-05-05T16:07:41.352Z",
+        "updatedAt": "2021-07-30T15:24:14.578Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -9812,8 +9561,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 14,
-        "publishedAt": "2021-05-05T16:07:41.352Z",
+        "publishedVersion": 19,
+        "publishedAt": "2021-07-30T15:24:14.578Z",
         "firstPublishedAt": "2021-03-29T10:53:20.231Z",
         "createdBy": {
           "sys": {
@@ -9826,16 +9575,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 3,
-        "version": 15,
+        "publishedCounter": 5,
+        "version": 20,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -9849,6 +9598,9 @@
       "fields": {
         "displayName": {
           "en-US": "Solution English (flat)"
+        },
+        "languageDescriptor": {
+          "en-US": "English"
         },
         "approvalMessage": {
           "en-US": {
@@ -9955,14 +9707,14 @@
         "filenamePrefix": {
           "en-US": "BMI Solution Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Solution Guarantee Title Line 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Solution Guarantee Title Line 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Flat"
         }
       }
     },
@@ -9981,7 +9733,7 @@
         "id": "71k4T9LgthbOricwbUvQey",
         "type": "Entry",
         "createdAt": "2021-03-29T10:57:40.543Z",
-        "updatedAt": "2021-05-05T16:07:19.420Z",
+        "updatedAt": "2021-07-30T15:24:13.817Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -9989,8 +9741,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 32,
-        "publishedAt": "2021-05-05T16:07:19.420Z",
+        "publishedVersion": 39,
+        "publishedAt": "2021-07-30T15:24:13.817Z",
         "firstPublishedAt": "2021-03-29T11:06:26.383Z",
         "createdBy": {
           "sys": {
@@ -10003,16 +9755,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 3,
-        "version": 33,
+        "publishedCounter": 6,
+        "version": 40,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -10026,6 +9778,9 @@
       "fields": {
         "displayName": {
           "en-US": "Solution Esperanto (flat)"
+        },
+        "languageDescriptor": {
+          "en-US": "Esperanto"
         },
         "approvalMessage": {
           "en-US": {
@@ -10132,14 +9887,14 @@
         "filenamePrefix": {
           "en-US": "BMI Solution Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Solvo Garantia plata titolinio 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Solvo Garantia plata titolinio 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Plata"
         }
       }
     },
@@ -10158,7 +9913,7 @@
         "id": "3N6SohZMuQrKc3U99skZ9N",
         "type": "Entry",
         "createdAt": "2021-03-29T11:07:28.770Z",
-        "updatedAt": "2021-05-05T16:07:09.008Z",
+        "updatedAt": "2021-07-30T15:24:13.687Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -10166,8 +9921,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 32,
-        "publishedAt": "2021-05-05T16:07:09.008Z",
+        "publishedVersion": 39,
+        "publishedAt": "2021-07-30T15:24:13.687Z",
         "firstPublishedAt": "2021-03-29T11:11:37.170Z",
         "createdBy": {
           "sys": {
@@ -10180,16 +9935,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 3,
-        "version": 33,
+        "publishedCounter": 5,
+        "version": 40,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -10203,6 +9958,9 @@
       "fields": {
         "displayName": {
           "en-US": "Solution Esperanto (pitched)"
+        },
+        "languageDescriptor": {
+          "en-US": "Esperanto"
         },
         "approvalMessage": {
           "en-US": {
@@ -10309,14 +10067,14 @@
         "filenamePrefix": {
           "en-US": "BMI Solution Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Solvo Garantia ĵetita titolinio 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Solvo Garantia ĵetita titolinio 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Itchetita"
         }
       }
     },
@@ -10335,7 +10093,7 @@
         "id": "3aygkP2KGtBt7xu1YGQMQP",
         "type": "Entry",
         "createdAt": "2021-03-29T11:29:20.730Z",
-        "updatedAt": "2021-05-05T16:07:00.222Z",
+        "updatedAt": "2021-07-30T15:24:13.751Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -10343,8 +10101,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 36,
-        "publishedAt": "2021-05-05T16:07:00.222Z",
+        "publishedVersion": 41,
+        "publishedAt": "2021-07-30T15:24:13.751Z",
         "firstPublishedAt": "2021-03-29T11:33:44.680Z",
         "createdBy": {
           "sys": {
@@ -10357,16 +10115,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 3,
-        "version": 37,
+        "publishedCounter": 5,
+        "version": 42,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -10380,6 +10138,9 @@
       "fields": {
         "displayName": {
           "en-US": "System Esperanto (pitched)"
+        },
+        "languageDescriptor": {
+          "en-US": "Esperanto"
         },
         "approvalMessage": {
           "en-US": {
@@ -10486,14 +10247,14 @@
         "filenamePrefix": {
           "en-US": "BMI System Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Solvo Garantia sistemo titolinio 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Solvo Garantia sistemo titolinio 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Itchetita"
         }
       }
     },
@@ -10512,7 +10273,7 @@
         "id": "3GqSNJvtVOftVb2j18ZKIj",
         "type": "Entry",
         "createdAt": "2021-03-29T11:35:16.697Z",
-        "updatedAt": "2021-05-13T14:26:58.280Z",
+        "updatedAt": "2021-07-30T15:24:46.359Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -10520,8 +10281,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 49,
-        "publishedAt": "2021-05-05T16:06:48.140Z",
+        "publishedVersion": 65,
+        "publishedAt": "2021-07-30T15:24:46.359Z",
         "firstPublishedAt": "2021-03-29T11:38:22.349Z",
         "createdBy": {
           "sys": {
@@ -10537,13 +10298,13 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 8,
-        "version": 52,
+        "publishedCounter": 11,
+        "version": 66,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -10557,6 +10318,9 @@
       "fields": {
         "displayName": {
           "en-US": "System Esperanto (flat)"
+        },
+        "languageDescriptor": {
+          "en-US": "Esperanto"
         },
         "approvalMessage": {
           "en-US": {
@@ -10663,14 +10427,14 @@
         "filenamePrefix": {
           "en-US": "BMI System Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Sistema Garantia titolo - linio 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Sistema Garantia titolo - linio 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Plata"
         }
       }
     },
@@ -10689,7 +10453,7 @@
         "id": "BwFVC2Eutkm25EAU9Beza",
         "type": "Entry",
         "createdAt": "2021-03-29T11:39:24.751Z",
-        "updatedAt": "2021-05-05T16:06:36.821Z",
+        "updatedAt": "2021-07-30T15:24:13.685Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -10697,8 +10461,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 54,
-        "publishedAt": "2021-05-05T16:06:36.821Z",
+        "publishedVersion": 60,
+        "publishedAt": "2021-07-30T15:24:13.685Z",
         "firstPublishedAt": "2021-03-29T11:43:12.692Z",
         "createdBy": {
           "sys": {
@@ -10711,16 +10475,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 9,
-        "version": 55,
+        "publishedCounter": 11,
+        "version": 61,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -10734,6 +10498,9 @@
       "fields": {
         "displayName": {
           "en-US": "Product Esperanto (flat)"
+        },
+        "languageDescriptor": {
+          "en-US": "Esperanto"
         },
         "approvalMessage": {
           "en-US": {
@@ -10840,14 +10607,14 @@
         "filenamePrefix": {
           "en-US": "BMI Product Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Garantia produkto plata titolinio 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Garantia produkto plata titolinio 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Plata"
         }
       }
     },
@@ -10866,7 +10633,7 @@
         "id": "GffHyN9ZgOc1wnhXRsELg",
         "type": "Entry",
         "createdAt": "2021-03-29T11:43:24.631Z",
-        "updatedAt": "2021-05-05T16:06:11.642Z",
+        "updatedAt": "2021-07-30T15:24:13.482Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -10874,8 +10641,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 38,
-        "publishedAt": "2021-05-05T16:06:11.642Z",
+        "publishedVersion": 48,
+        "publishedAt": "2021-07-30T15:24:13.482Z",
         "firstPublishedAt": "2021-03-29T11:47:44.057Z",
         "createdBy": {
           "sys": {
@@ -10888,16 +10655,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 5,
-        "version": 39,
+        "publishedCounter": 9,
+        "version": 49,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -10911,6 +10678,9 @@
       "fields": {
         "displayName": {
           "en-US": "Product Esperanto (pitched)"
+        },
+        "languageDescriptor": {
+          "en-US": "Esperanto"
         },
         "approvalMessage": {
           "en-US": {
@@ -11017,14 +10787,14 @@
         "filenamePrefix": {
           "en-US": "BMI Product Guarantee MP"
         },
-        "lockupLine1": {
-          "en-US": "TODO"
+        "titleLine1": {
+          "en-US": "Garantia produkto ĵetita titolinio 1"
         },
-        "lockupLine2": {
-          "en-US": "TODO"
+        "titleLine2": {
+          "en-US": "Garantia produkto ĵetita titolinio 2"
         },
         "roofType": {
-          "en-US": "TODO"
+          "en-US": "Itchetita"
         }
       }
     },
@@ -11043,7 +10813,7 @@
         "id": "4UfaRvzdl1szoixRieCF4B",
         "type": "Entry",
         "createdAt": "2021-03-30T11:10:15.493Z",
-        "updatedAt": "2021-04-21T07:29:21.918Z",
+        "updatedAt": "2021-08-09T15:39:41.993Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -11051,8 +10821,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 79,
-        "publishedAt": "2021-04-21T07:29:21.918Z",
+        "publishedVersion": 93,
+        "publishedAt": "2021-08-09T15:39:41.993Z",
         "firstPublishedAt": "2021-03-30T12:18:50.112Z",
         "createdBy": {
           "sys": {
@@ -11065,16 +10835,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 4,
-        "version": 80,
+        "publishedCounter": 11,
+        "version": 94,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "52tDAUR51qW1NAbALfYYJ1"
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
         "contentType": {
@@ -11087,13 +10857,13 @@
       },
       "fields": {
         "pageHeading": {
-          "en-US": "BMI Academy"
+          "en-US": "BMI Training Academy"
         },
         "description": {
-          "en-US": "BMI Academy provides you with the skills you need to fit BMI products.  The Academy is an online offering with access to e-learning modules, webinars and the ability to book on site workshops at our many training centres.\n\nGet the edge over your competitors with BMI Academy by upgrading and maintaining your skills, and getting certified in the technologies you need to be at the cutting edge of modern roofing."
+          "en-US": "The BMI Academy provides you with the skills you need to fit BMI products.  The Academy is an online offering with access to e-learning modules, webinars and the ability to book on site workshops at our many training centres.\n\nGet the edge over your competitors with BMI Academy by upgrading and maintaining your skills, and getting certified in the technologies you need to be at the cutting edge of modern roofing."
         },
         "lmsCtaLabel": {
-          "en-US": "Your training plan"
+          "en-US": "Your BMI training plan"
         },
         "image": {
           "en-US": {
@@ -11114,7 +10884,7 @@
           "en-US": "Find the right training"
         },
         "step1Description": {
-          "en-US": "Browse our extensive list of online and on-site training options from the BMI Academy training catalogue to find out which course will take your skills to the next level."
+          "en-US": "Browse our extensive list of online and on-site training options from the BMI Academy training catalogue to find out which course will take your skills to the next step."
         },
         "step2Heading": {
           "en-US": "Step 2"
@@ -11132,7 +10902,7 @@
           "en-US": "Get certified"
         },
         "step3Description": {
-          "en-US": "Taking courses that carry certifications will let others know that you have the skills needed to carry out certain work.  Certfications will be viewable on your profile."
+          "en-US": "Taking courses that carry certifications will let others know that you have the skills needed to carry out certain work.  Certfications will be viewable on your profile page."
         },
         "live": {
           "en-US": "ok"
@@ -11154,7 +10924,7 @@
         "id": "27TxY9KGRT1f9t0eAjFLFq",
         "type": "Entry",
         "createdAt": "2021-03-30T11:33:05.314Z",
-        "updatedAt": "2021-05-13T14:16:36.606Z",
+        "updatedAt": "2021-08-10T08:34:10.412Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -11162,8 +10932,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 37,
-        "publishedAt": "2021-04-23T10:46:39.453Z",
+        "publishedVersion": 68,
+        "publishedAt": "2021-08-10T08:34:10.412Z",
         "firstPublishedAt": "2021-03-31T08:47:48.734Z",
         "createdBy": {
           "sys": {
@@ -11176,16 +10946,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
-        "publishedCounter": 5,
-        "version": 39,
+        "publishedCounter": 16,
+        "version": 69,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "52tDAUR51qW1NAbALfYYJ1"
           }
         },
         "contentType": {
@@ -11256,14 +11026,14 @@
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
-                "id": "1o5Pj4P3rmpzKhjRQC5gkJ"
+                "id": "4nG2CwGJ5HYFjzmTudiKuX"
               }
             },
             {
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
-                "id": "4nG2CwGJ5HYFjzmTudiKuX"
+                "id": "1o5Pj4P3rmpzKhjRQC5gkJ"
               }
             }
           ]
@@ -11272,10 +11042,10 @@
           "en-US": "BMI on LinkedIn"
         },
         "newsItemUrl": {
-          "en-US": "https://www.linkedin.com/embed/feed/update/urn:li:share:6570506659070910465"
+          "en-US": "https://www.linkedin.com/embed/feed/update/urn:li:share:6706847282253430785"
         },
         "newsItemCta": {
-          "en-US": "Read more on LinkedIn"
+          "en-US": "https://www.linkedin.com/company/bmi-malaysia-monier/"
         },
         "footerLinks": {
           "en-US": [
@@ -11283,14 +11053,14 @@
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
-                "id": "6eYakvwLXb2ooYr601GNNc"
+                "id": "5FUfSR9zHJCrf7Ks0NzCTm"
               }
             },
             {
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
-                "id": "5FUfSR9zHJCrf7Ks0NzCTm"
+                "id": "6eYakvwLXb2ooYr601GNNc"
               }
             },
             {
@@ -11312,10 +11082,10 @@
           }
         },
         "externalLinkLabel": {
-          "en-US": "BMI Website"
+          "en-US": "BMI Norway Website"
         },
         "externalLinkUrl": {
-          "en-US": "https://www.bmigroup.com/nb-no/countrypages/norway"
+          "en-US": "https://www.bmigroup.com/no/"
         },
         "live": {
           "en-US": "ok"
@@ -11481,7 +11251,7 @@
         "id": "3mxpCHgt8k5RqL3I4Ni6hT",
         "type": "Entry",
         "createdAt": "2021-03-30T14:19:31.181Z",
-        "updatedAt": "2021-04-21T10:39:36.278Z",
+        "updatedAt": "2021-07-29T11:58:54.185Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -11489,8 +11259,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 9,
-        "publishedAt": "2021-04-21T10:39:36.278Z",
+        "publishedVersion": 11,
+        "publishedAt": "2021-07-29T11:58:54.185Z",
         "firstPublishedAt": "2021-03-30T14:20:46.248Z",
         "createdBy": {
           "sys": {
@@ -11506,8 +11276,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 3,
-        "version": 10,
+        "publishedCounter": 4,
+        "version": 12,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -11542,6 +11312,13 @@
                 "linkType": "Entry",
                 "id": "4YvZIKqsPAXmB3Mzgn9BDl"
               }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "46jhMwJWBPhTp3yiIAdY33"
+              }
             }
           ]
         },
@@ -11565,7 +11342,7 @@
         "id": "6iSFS2kscl35GqmfVYf5sy",
         "type": "Entry",
         "createdAt": "2021-03-30T14:23:20.311Z",
-        "updatedAt": "2021-04-14T15:54:56.762Z",
+        "updatedAt": "2021-08-09T15:29:19.677Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -11573,8 +11350,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 12,
-        "publishedAt": "2021-04-14T15:54:56.762Z",
+        "publishedVersion": 14,
+        "publishedAt": "2021-08-09T15:29:19.677Z",
         "firstPublishedAt": "2021-03-30T14:23:54.648Z",
         "createdBy": {
           "sys": {
@@ -11590,8 +11367,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 4,
-        "version": 13,
+        "publishedCounter": 5,
+        "version": 15,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -11617,14 +11394,14 @@
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
-                "id": "4YvZIKqsPAXmB3Mzgn9BDl"
+                "id": "46jhMwJWBPhTp3yiIAdY33"
               }
             },
             {
               "sys": {
                 "type": "Link",
                 "linkType": "Entry",
-                "id": "46jhMwJWBPhTp3yiIAdY33"
+                "id": "4YvZIKqsPAXmB3Mzgn9BDl"
               }
             },
             {
@@ -11747,7 +11524,7 @@
         "id": "UMhr0dt4ib7SGvYe9bkix",
         "type": "Entry",
         "createdAt": "2021-04-21T07:54:38.345Z",
-        "updatedAt": "2021-04-27T11:32:35.336Z",
+        "updatedAt": "2021-07-30T16:04:42.685Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -11755,8 +11532,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 34,
-        "publishedAt": "2021-04-27T11:32:35.336Z",
+        "publishedVersion": 36,
+        "publishedAt": "2021-07-30T16:04:42.685Z",
         "firstPublishedAt": "2021-04-21T07:55:25.044Z",
         "createdBy": {
           "sys": {
@@ -11772,8 +11549,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 4,
-        "version": 35,
+        "publishedCounter": 5,
+        "version": 37,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -11798,86 +11575,86 @@
         },
         "description": {
           "en-US": {
-            "nodeType": "document",
             "data": {},
             "content": [
               {
-                "nodeType": "heading-3",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Extended guarantees",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Enhanced roofer locator and marketing support package.",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "heading-3",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Visibility tools",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Your company appears in 'Find a Roofer'",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "heading-3",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Exclusive BMI events",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
-                    "value": "Access to exclusive events in your region",
+                    "data": {},
                     "marks": [],
-                    "data": {}
+                    "value": "Access to exclusive events in your region",
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "paragraph"
               }
-            ]
+            ],
+            "nodeType": "document"
           }
         },
         "shortDescription": {
-          "en-US": "The Partner Tier gives an exclusive BMI paper weight plus 3% off when if buy a new 40 tonnes of Bitumen from one of our partners."
+          "en-US": "The Partner Tier gives an exclusive BMI paper weight plus 3% off when if buy a new 40 tonnes of bitumen from one of our partners."
         }
       }
     },
@@ -11896,7 +11673,7 @@
         "id": "cjsSf1EIxw3fdJLAMn0it",
         "type": "Entry",
         "createdAt": "2021-04-21T07:55:50.043Z",
-        "updatedAt": "2021-04-27T11:33:01.770Z",
+        "updatedAt": "2021-06-10T16:22:16.017Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -11904,8 +11681,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 24,
-        "publishedAt": "2021-04-27T11:33:01.770Z",
+        "publishedVersion": 31,
+        "publishedAt": "2021-06-10T16:22:16.017Z",
         "firstPublishedAt": "2021-04-21T07:56:20.875Z",
         "createdBy": {
           "sys": {
@@ -11921,8 +11698,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 5,
-        "version": 25,
+        "publishedCounter": 6,
+        "version": 32,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -11947,82 +11724,94 @@
         },
         "description": {
           "en-US": {
-            "nodeType": "document",
             "data": {},
             "content": [
               {
-                "nodeType": "heading-3",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Extended guarantees",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Extended validation periods for System Guarantees",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "heading-3",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Visibility tools",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Your company appears in 'Find a Roofer'.",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "heading-3",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {},
+                    "marks": [],
                     "value": "Exclusive BMI events",
-                    "marks": [],
-                    "data": {}
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
+                "data": {},
                 "content": [
                   {
-                    "nodeType": "text",
-                    "value": "Access to all BMI events and free access to 3 events per year in your region.",
+                    "data": {},
                     "marks": [],
-                    "data": {}
+                    "value": "Access to all BMI events and free access to 3 events per year in your region.",
+                    "nodeType": "text"
                   }
                 ],
-                "data": {}
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {},
+                "content": [
+                  {
+                    "data": {},
+                    "marks": [],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
               }
-            ]
+            ],
+            "nodeType": "document"
           }
         },
         "shortDescription": {
@@ -12194,7 +11983,7 @@
         "id": "6bE9ynmTAYRMDRMTjPyxN1",
         "type": "Entry",
         "createdAt": "2021-04-21T08:59:13.369Z",
-        "updatedAt": "2021-04-23T10:33:33.914Z",
+        "updatedAt": "2021-07-30T15:44:23.287Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -12202,8 +11991,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 34,
-        "publishedAt": "2021-04-23T10:33:33.914Z",
+        "publishedVersion": 37,
+        "publishedAt": "2021-07-30T15:44:23.287Z",
         "firstPublishedAt": "2021-04-21T09:36:18.271Z",
         "createdBy": {
           "sys": {
@@ -12219,8 +12008,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 3,
-        "version": 35,
+        "publishedCounter": 4,
+        "version": 38,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -12244,10 +12033,10 @@
           "en-US": ["EMAIL"]
         },
         "subject": {
-          "en-US": "You have joined $$company"
+          "en-US": "You have joined {{company}}"
         },
         "emailBody": {
-          "en-US": "Dear {{firstname}},\n\nYou are now a member of {{company}} on InTouch.\n\nThe company is in the {{tier}} Tier.  {{tierBenefitsShortDescription}}\n\n \nregards\n\nBMI InTouch Team\n\n$$benefitsTierShortDescription"
+          "en-US": "Dear {{firstname}},\n\nYou are now a member of {{company}} on InTouch.\n\nThe company is in the {{tier}} Tier.  {{tierBenefitsShortDescription}}\n\n \nregards\n\nBMI InTouch Team\n\n{{tierBenefitsShortDescription}}"
         }
       }
     },
@@ -12266,7 +12055,7 @@
         "id": "1tMJAaL5TsZa26VYmPyoRa",
         "type": "Entry",
         "createdAt": "2021-04-21T10:21:41.135Z",
-        "updatedAt": "2021-04-21T10:24:56.561Z",
+        "updatedAt": "2021-06-08T09:43:12.206Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -12274,8 +12063,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 25,
-        "publishedAt": "2021-04-21T10:24:56.561Z",
+        "publishedVersion": 54,
+        "publishedAt": "2021-06-08T09:43:12.206Z",
         "firstPublishedAt": "2021-04-21T10:24:56.561Z",
         "createdBy": {
           "sys": {
@@ -12291,8 +12080,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 1,
-        "version": 26,
+        "publishedCounter": 6,
+        "version": 55,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -12310,7 +12099,7 @@
       },
       "fields": {
         "title": {
-          "en-US": "Contact us"
+          "en-US": "Contact"
         },
         "relativePath": {
           "en-US": "/contact"
@@ -12321,11 +12110,11 @@
             "data": {},
             "content": [
               {
-                "nodeType": "heading-2",
+                "nodeType": "heading-3",
                 "content": [
                   {
                     "nodeType": "text",
-                    "value": "Contact information",
+                    "value": "General enquiries",
                     "marks": [],
                     "data": {}
                   }
@@ -12349,7 +12138,27 @@
                 "content": [
                   {
                     "nodeType": "text",
-                    "value": "hello@bmimapleland.com",
+                    "value": "",
+                    "marks": [],
+                    "data": {}
+                  },
+                  {
+                    "nodeType": "hyperlink",
+                    "content": [
+                      {
+                        "nodeType": "text",
+                        "value": "hello@bmimapleland.com",
+                        "marks": [],
+                        "data": {}
+                      }
+                    ],
+                    "data": {
+                      "uri": "mailto:kim@digital-detox.co.uk"
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": "",
                     "marks": [],
                     "data": {}
                   }
@@ -12361,7 +12170,195 @@
                 "content": [
                   {
                     "nodeType": "text",
-                    "value": "+666 (0) 123456",
+                    "value": "+666 (0) 123453",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "heading-3",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Information about new projects",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta, velit non interdum sagittis, tortor neque congue turpis, sit amet cursus eros ex quis diam. Quisque eget mauris consectetur, maximus metus nec, lobortis nunc. Integer et finibus nulla. Sed eu mattis mauris. ",
+                    "marks": [],
+                    "data": {}
+                  },
+                  {
+                    "nodeType": "hyperlink",
+                    "content": [
+                      {
+                        "nodeType": "text",
+                        "value": "Pellentesque",
+                        "marks": [],
+                        "data": {}
+                      }
+                    ],
+                    "data": {
+                      "uri": "https://google.com"
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": " commodo sem non est pretium consequat. Aliquam cursus turpis massa, nec pretium risus finibus nec. Etiam quis elit orci. Donec viverra dolor arcu, at finibus enim tincidunt id. Aliquam tempor nulla nec purus pulvinar fermentum. Cras molestie velit ligula, nec consequat ex sagittis ut.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Proin tempus molestie ante, a blandit mi accumsan ac. Phasellus suscipit, augue nec vehicula pharetra, orci quam dignissim sem, at consectetur lacus ex nec erat. Etiam mattis elit sed dolor viverra convallis. In lobortis quis nunc sed cursus. Curabitur tincidunt sem ut auctor congue. Mauris cursus ligula eu diam commodo lacinia. Nam nunc felis, scelerisque ut nulla et, volutpat viverra elit.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Donec ultricies ultricies metus id hendrerit. Praesent blandit accumsan ante, a molestie diam molestie non. Sed pulvinar urna ex, vel egestas justo pretium eget. Donec ac venenatis nunc, a tempus purus. Cras mollis feugiat tellus, eu viverra elit molestie vel. Sed non vulputate felis, in fringilla nisi. Ut neque ante, hendrerit id ipsum vitae, posuere tempor tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec nisi nisl, luctus a sagittis lacinia, tempus quis dui. Integer sed aliquet leo.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Morbi vel odio eu erat semper lacinia. Nullam eget eros mauris. Ut eu felis fermentum, imperdiet mauris ut, vestibulum enim. Sed felis quam, cursus ut dui a, rutrum laoreet est. Ut facilisis posuere vestibulum. Nulla sodales magna volutpat est euismod venenatis. Phasellus convallis nulla vel orci feugiat sollicitudin. Duis quis erat dolor. Nunc lacinia nisl urna, sed bibendum massa lobortis vitae. Sed sed cursus velit. Aenean vitae consectetur lectus, at facilisis ante. Duis nulla sapien, rhoncus a lacus eget, viverra imperdiet elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sit amet elit at ligula rutrum egestas. Morbi magna eros, hendrerit nec suscipit vitae, tempus quis erat.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "In laoreet nisi non leo lobortis consequat. Etiam hendrerit lacinia aliquet. Vestibulum lorem augue, tincidunt at maximus ac, elementum sit amet urna. Nullam tincidunt lectus non elementum bibendum. Vestibulum non sem aliquam, ullamcorper mauris non, auctor nibh. In tempor arcu nec nulla pellentesque iaculis vitae id nunc. Duis at quam eros. Pellentesque feugiat arcu nec tempor mollis. Nullam semper vitae ante sed tempor. Morbi porttitor eros vitae iaculis sodales. Aenean rhoncus cursus diam nec condimentum.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "heading-3",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Training information",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta, velit non interdum sagittis, tortor neque congue turpis, sit amet cursus eros ex quis diam. Quisque eget mauris consectetur, maximus metus nec, lobortis nunc. Integer et finibus nulla. Sed eu mattis mauris. Pellentesque commodo sem non est pretium consequat. Aliquam cursus turpis massa, nec pretium risus finibus nec. Etiam quis elit orci. Donec viverra dolor arcu, at finibus enim tincidunt id. Aliquam tempor nulla nec purus pulvinar fermentum. Cras molestie velit ligula, nec consequat ex sagittis ut.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Proin tempus molestie ante, a blandit mi accumsan ac. Phasellus suscipit, augue nec vehicula pharetra, orci quam dignissim sem, at consectetur lacus ex nec erat. Etiam mattis elit sed dolor viverra convallis. In lobortis quis nunc sed cursus. Curabitur tincidunt sem ut auctor congue. Mauris cursus ligula eu diam commodo lacinia. Nam nunc felis, scelerisque ut nulla et, volutpat viverra elit.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Donec ultricies ultricies metus id hendrerit. Praesent blandit accumsan ante, a molestie diam molestie non. Sed pulvinar urna ex, vel egestas justo pretium eget. Donec ac venenatis nunc, a tempus purus. Cras mollis feugiat tellus, eu viverra elit molestie vel. Sed non vulputate felis, in fringilla nisi. Ut neque ante, hendrerit id ipsum vitae, posuere tempor tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec nisi nisl, luctus a sagittis lacinia, tempus quis dui. Integer sed aliquet leo.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Morbi vel odio eu erat semper lacinia. Nullam eget eros mauris. Ut eu felis fermentum, imperdiet mauris ut, vestibulum enim. Sed felis quam, cursus ut dui a, rutrum laoreet est. Ut facilisis posuere vestibulum. Nulla sodales magna volutpat est euismod venenatis. Phasellus convallis nulla vel orci feugiat sollicitudin. Duis quis erat dolor. Nunc lacinia nisl urna, sed bibendum massa lobortis vitae. Sed sed cursus velit. Aenean vitae consectetur lectus, at facilisis ante. Duis nulla sapien, rhoncus a lacus eget, viverra imperdiet elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sit amet elit at ligula rutrum egestas. Morbi magna eros, hendrerit nec suscipit vitae, tempus quis erat.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "In laoreet nisi non leo lobortis consequat. Etiam hendrerit lacinia aliquet. Vestibulum lorem augue, tincidunt at maximus ac, elementum sit amet urna. Nullam tincidunt lectus non elementum bibendum. Vestibulum non sem aliquam, ullamcorper mauris non, auctor nibh. In tempor arcu nec nulla pellentesque iaculis vitae id nunc. Duis at quam eros. Pellentesque feugiat arcu nec tempor mollis. Nullam semper vitae ante sed tempor. Morbi porttitor eros vitae iaculis sodales. Aenean rhoncus cursus diam nec condimentum.",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "",
+                    "marks": [],
+                    "data": {}
+                  }
+                ],
+                "data": {}
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "",
                     "marks": [],
                     "data": {}
                   }
@@ -12388,7 +12385,7 @@
         "id": "6t92Y9vOeHaCZVEDuyNZp4",
         "type": "Entry",
         "createdAt": "2021-04-21T10:33:35.937Z",
-        "updatedAt": "2021-04-21T10:35:49.521Z",
+        "updatedAt": "2021-07-23T10:37:05.993Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -12396,8 +12393,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 11,
-        "publishedAt": "2021-04-21T10:35:49.521Z",
+        "publishedVersion": 13,
+        "publishedAt": "2021-07-23T10:37:05.993Z",
         "firstPublishedAt": "2021-04-21T10:35:49.521Z",
         "createdBy": {
           "sys": {
@@ -12410,16 +12407,16 @@
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "7hnmxxXvdDanYbWeBC5hJD"
           }
         },
-        "publishedCounter": 1,
-        "version": 12,
+        "publishedCounter": 2,
+        "version": 14,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+            "id": "7hnmxxXvdDanYbWeBC5hJD"
           }
         },
         "contentType": {
@@ -12450,7 +12447,7 @@
           "en-US": "NONE"
         },
         "audienceTiers": {
-          "en-US": ["T2", "T3", "T4"]
+          "en-US": ["T2", "T3", "T4", "T1"]
         }
       }
     },
@@ -12553,7 +12550,7 @@
         "id": "7BF1u6WNN4YlLqS21I6HVv",
         "type": "Entry",
         "createdAt": "2021-04-21T10:52:01.961Z",
-        "updatedAt": "2021-05-13T14:33:16.701Z",
+        "updatedAt": "2021-05-27T10:38:46.475Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -12561,8 +12558,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 25,
-        "publishedAt": "2021-04-27T11:33:15.390Z",
+        "publishedVersion": 27,
+        "publishedAt": "2021-05-27T10:38:46.475Z",
         "firstPublishedAt": "2021-04-21T10:53:47.628Z",
         "createdBy": {
           "sys": {
@@ -12578,8 +12575,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 4,
-        "version": 27,
+        "publishedCounter": 5,
+        "version": 28,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -12675,82 +12672,10 @@
             "id": "opay6t6wwmup"
           }
         },
-        "id": "3e803jaqoQ47gdljNFrAIq",
-        "type": "Entry",
-        "createdAt": "2021-04-22T09:10:30.854Z",
-        "updatedAt": "2021-04-23T10:35:26.204Z",
-        "environment": {
-          "sys": {
-            "id": "develop",
-            "type": "Link",
-            "linkType": "Environment"
-          }
-        },
-        "publishedVersion": 36,
-        "publishedAt": "2021-04-23T10:35:26.204Z",
-        "firstPublishedAt": "2021-04-22T09:13:00.100Z",
-        "createdBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
-          }
-        },
-        "updatedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
-          }
-        },
-        "publishedCounter": 3,
-        "version": 37,
-        "publishedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
-          }
-        },
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "messageTemplate"
-          }
-        }
-      },
-      "fields": {
-        "event": {
-          "en-US": "ACCOUNT_REGISTERED"
-        },
-        "format": {
-          "en-US": ["EMAIL"]
-        },
-        "subject": {
-          "en-US": "Thank you for registering"
-        },
-        "emailBody": {
-          "en-US": "Dear {{firstname}}\n\nThis is to confirm that you have created an account on InTouch.\n\nTo activate and use the account you must first confirm that this is your email by clicking on the following link:\n\n{{activeLink}}\n\nregards\n\nBMI InTouch Team\n\nPlease confirm that you control this email address and activate your account  using the link below\n\n{{confirmlink}}\n\nregards\n\nBMI InTouch Team"
-        }
-      }
-    },
-    {
-      "metadata": {
-        "tags": []
-      },
-      "sys": {
-        "space": {
-          "sys": {
-            "type": "Link",
-            "linkType": "Space",
-            "id": "opay6t6wwmup"
-          }
-        },
         "id": "64ZhD8OHimUpAR4lxd4NaG",
         "type": "Entry",
         "createdAt": "2021-04-22T09:13:10.747Z",
-        "updatedAt": "2021-04-23T10:36:23.103Z",
+        "updatedAt": "2021-07-30T15:47:21.349Z",
         "environment": {
           "sys": {
             "id": "develop",
@@ -12758,8 +12683,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 35,
-        "publishedAt": "2021-04-23T10:36:23.103Z",
+        "publishedVersion": 40,
+        "publishedAt": "2021-07-30T15:47:21.349Z",
         "firstPublishedAt": "2021-04-22T09:14:33.916Z",
         "createdBy": {
           "sys": {
@@ -12775,8 +12700,8 @@
             "id": "6yqkZzvnX7Z9YMXxc1vTxG"
           }
         },
-        "publishedCounter": 4,
-        "version": 36,
+        "publishedCounter": 5,
+        "version": 41,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -12800,10 +12725,157 @@
           "en-US": ["EMAIL"]
         },
         "subject": {
-          "en-US": "You InTouch account is now active"
+          "en-US": "Your InTouch account is now active"
         },
         "emailBody": {
-          "en-US": "Dear {{firstname}},\n\nYour BMI InTouch account is now activated and you can login with the username {{email}} at https://{{domain}}.bmigroup.com\n\nregards\n\nBMI InTouch Team"
+          "en-US": "Dear {{firstname}},\n\nYour BMI InTouch account is now activated and you can login with the username {{email}} at {{marketUrl}}\n\nregards\n\nBMI InTouch Team"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "opay6t6wwmup"
+          }
+        },
+        "id": "3dkY5pidbTHzfW4VaNEg0K",
+        "type": "Entry",
+        "createdAt": "2021-07-30T16:01:17.820Z",
+        "updatedAt": "2021-08-03T16:50:39.785Z",
+        "environment": {
+          "sys": {
+            "id": "develop",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 17,
+        "publishedAt": "2021-08-03T16:50:39.785Z",
+        "firstPublishedAt": "2021-07-30T16:02:24.542Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 18,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "messageTemplate"
+          }
+        }
+      },
+      "fields": {
+        "event": {
+          "en-US": "COMPANY_MEMBER_REMOVED"
+        },
+        "format": {
+          "en-US": ["EMAIL", "NOTIFICATION"]
+        },
+        "subject": {
+          "en-US": "{{account}} removed"
+        },
+        "notificationBody": {
+          "en-US": "{{account}} has been removed from {{company}}"
+        },
+        "emailBody": {
+          "en-US": "Dear {{firstname}}\n\nYour account, {{account}}, has been removed from the Company {{company}} on InTouch.\n\nregards\n\nBMI InTouch Team"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "opay6t6wwmup"
+          }
+        },
+        "id": "71Uul8FSZXPX4FSvZxSWIS",
+        "type": "Entry",
+        "createdAt": "2021-08-04T16:07:05.228Z",
+        "updatedAt": "2021-08-04T16:19:01.980Z",
+        "environment": {
+          "sys": {
+            "id": "develop",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 10,
+        "publishedAt": "2021-08-04T16:19:01.980Z",
+        "firstPublishedAt": "2021-08-04T16:08:33.475Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "52tDAUR51qW1NAbALfYYJ1"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "52tDAUR51qW1NAbALfYYJ1"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 11,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "52tDAUR51qW1NAbALfYYJ1"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "messageTemplate"
+          }
+        }
+      },
+      "fields": {
+        "event": {
+          "en-US": "COMPANY_REGISTERED"
+        },
+        "format": {
+          "en-US": ["EMAIL", "NOTIFICATION"]
+        },
+        "subject": {
+          "en-US": "Company activation"
+        },
+        "emailBody": {
+          "en-US": "Dear {{firstname}},\n\nYour company {{companyname}} is now active.\nregards\n\nBMI InTouch Team"
         }
       }
     }
@@ -15658,6 +15730,75 @@
             },
             "fileName": "edge.jpg",
             "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "opay6t6wwmup"
+          }
+        },
+        "id": "4V1N74OXbl7xwgpp0ZHp02",
+        "type": "Asset",
+        "createdAt": "2021-08-09T15:50:00.926Z",
+        "updatedAt": "2021-08-09T15:53:47.431Z",
+        "environment": {
+          "sys": {
+            "id": "develop",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2021-08-09T15:53:47.431Z",
+        "firstPublishedAt": "2021-08-09T15:53:47.431Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6yqkZzvnX7Z9YMXxc1vTxG"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "example of a pdf upload"
+        },
+        "description": {
+          "en-US": "just a demo"
+        },
+        "file": {
+          "en-US": {
+            "url": "//assets.ctfassets.net/opay6t6wwmup/4V1N74OXbl7xwgpp0ZHp02/fd10dce343ac35bd2bcf1bf734c9ed48/sample.pdf",
+            "details": {
+              "size": 3028
+            },
+            "fileName": "sample.pdf",
+            "contentType": "application/pdf"
           }
         }
       }

@@ -75,7 +75,6 @@ module.exports.up = (migration) => {
     .createField("evidenceCategories")
     .name("Evidence Categories")
     .type("Array")
-    .required(true)
     .items({
       type: "Link",
       validations: [{ linkContentType: ["evidenceCategory"] }],
@@ -111,7 +110,13 @@ module.exports.up = (migration) => {
   guaranteeType.changeFieldControl(
     "evidenceCategories",
     "builtin",
-    "entryLinksEditor"
+    "entryLinksEditor",
+    {
+      helpText: "List of Evidence Cateogries",
+      bulkEditing: false,
+      showLinkEntityAction: true,
+      showCreateEntityAction: true
+    }
   );
   guaranteeType.changeFieldControl(
     "guaranteeTemplates",

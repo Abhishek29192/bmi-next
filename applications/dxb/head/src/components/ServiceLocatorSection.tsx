@@ -363,7 +363,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       type: "address",
       display: shouldShowIcons ? "icon" : "contentOnly",
       text: service.address,
-      label: getMicroCopy("findARoofer.address"),
+      label: getMicroCopy("global.address"),
       action: isAddressClickable
         ? getClickableActionFromUrl(
             null,
@@ -372,7 +372,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             )}/`,
             countryCode,
             null,
-            getMicroCopy("findARoofer.address")
+            getMicroCopy("global.address")
           )
         : undefined
     };
@@ -412,9 +412,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             `tel:${service.phone}`,
             countryCode,
             null,
-            getMicroCopy("findARoofer.telephoneLabel")
+            getMicroCopy("global.telephone")
           ),
-          label: getMicroCopy("findARoofer.telephoneLabel")
+          label: getMicroCopy("global.telephone")
         }
       : undefined;
 
@@ -428,9 +428,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             `mailto:${service.email}`,
             countryCode,
             null,
-            getMicroCopy("findARoofer.emailLabel")
+            getMicroCopy("global.email")
           ),
-          label: getMicroCopy("findARoofer.emailLabel")
+          label: getMicroCopy("global.email")
         }
       : undefined;
 
@@ -447,11 +447,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             countryCode,
             null,
             shouldShowWebsiteLinkAsLabel
-              ? getMicroCopy("findARoofer.websiteFieldLabel")
+              ? getMicroCopy("global.website")
               : getMicroCopy("findARoofer.websiteLabel")
           ),
           label: shouldShowWebsiteLinkAsLabel
-            ? getMicroCopy("findARoofer.websiteFieldLabel")
+            ? getMicroCopy("global.website")
             : getMicroCopy("findARoofer.websiteLabel")
         }
       : undefined;
@@ -461,7 +461,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           type: "content",
           text: service.fax,
           textStyle: "bold",
-          label: getMicroCopy("findARoofer.faxLabel")
+          label: getMicroCopy("global.fax")
         }
       : undefined;
 

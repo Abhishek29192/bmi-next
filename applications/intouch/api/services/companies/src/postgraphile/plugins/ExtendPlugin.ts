@@ -13,6 +13,7 @@ import {
 } from "../../services/company/customResolvers";
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
+import { resetPassword } from "../../services/account";
 import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
@@ -103,6 +104,10 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         },
         bulkImport: async (query, args, context, resolveInfo) => {
           return bulkImport(args, context);
+        },
+        resetPassword: async (_query, args, context, resolveInfo) => {
+          const auth0 = await Auth0.init(context.logger);
+          return resetPassword(_query, args, context, resolveInfo, auth0);
         }
       }
     }

@@ -35,11 +35,24 @@ export default class StorageClient {
     });
   }
 
+  async deleteFile(bucketName: string, fileName: string): Promise<any> {
+    return this.storage.bucket(bucketName).file(fileName).delete();
+  }
+
   async getFileSignedUrl(
     bucketName: string,
     fileName: string,
     expireDate: Date
   ) {
+    // if we try to sign an externally hosted image we would get
+    // a confusing permission error: "The caller does not have permission"
+    if (
+      !fileName ||
+      // externally-hosted or null images should not be signed
+      fileName.startsWith("http")
+    ) {
+      return fileName;
+    }
     const [url] = await this.storage
       .bucket(bucketName)
       .file(fileName)

@@ -8,41 +8,53 @@ import { GetCompanyQuery } from "../../../../graphql/generated/operations";
 import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../../IconLink";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
-import { EditCompanyButton } from "../EditCompany/Button";
-import { OnCompanyUpdateSuccess } from "../EditCompany/Dialog";
 import styles from "./styles.module.scss";
 
 export type CompanyHeaderProps = {
-  company: GetCompanyQuery["company"];
-  onCompanyUpdateSuccess: OnCompanyUpdateSuccess;
+  company: Partial<GetCompanyQuery["company"]>;
+  actions: JSX.Element;
+  showName?: boolean;
+  showBusinessType?: boolean;
+  showLogo?: boolean;
+  showAboutUs?: boolean;
+  showCompanyOwner?: boolean;
 };
 
-export const CompanyHeader = ({
+export const CompanyDetails = ({
   company,
-  onCompanyUpdateSuccess
+  actions,
+  showName = true,
+  showBusinessType = true,
+  showLogo = true,
+  showAboutUs = true,
+  showCompanyOwner = true
 }: CompanyHeaderProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
   return (
     <div className={styles.main}>
       <Typography variant="h4" hasUnderline>
-        {t("common:Company Details")}
+        {t("company-page:details.title")}
       </Typography>
 
-      <Typography className={styles.businessType} variant="h5">
-        {t(`company-page:businessType.${company.businessType}`)}
-      </Typography>
+      {showBusinessType ? (
+        <Typography className={styles.businessType} variant="h5">
+          {t(`company-page:businessType.${company.businessType}`)}
+        </Typography>
+      ) : null}
 
       <div className={styles.body}>
         <Grid container spacing={3}>
-          <Grid item xs={12} lg={3} xl={3}>
-            {/* TODO: Placeholder logo */}
-            <img src={company.logo} alt="" style={{ maxWidth: "100%" }} />
-          </Grid>
+          {showLogo ? (
+            <Grid item xs={12} lg={3} xl={3}>
+              {/* TODO: Placeholder logo */}
+              <img src={company.logo} alt="" style={{ maxWidth: "100%" }} />
+            </Grid>
+          ) : null}
           <Grid item xs={12} lg={9} xl={9}>
-            {company.aboutUs ? (
+            {showAboutUs && company.aboutUs ? (
               <div>
-                <InfoPair title="Company description">
+                <InfoPair title={t("company-page:details.aboutUs")}>
                   {company.aboutUs}
                 </InfoPair>
               </div>
@@ -50,30 +62,38 @@ export const CompanyHeader = ({
 
             <Grid container spacing={3}>
               <Grid item xs={12} xl={6}>
+                {showName ? (
+                  <InfoPair title={t("company-page:details.name")}>
+                    {company.name}
+                  </InfoPair>
+                ) : null}
+
                 {company.tradingAddress ? (
-                  <InfoPair title="Main office address">
+                  <InfoPair title={t("company-page:details.tradingAddress")}>
                     <Address address={company.tradingAddress} />
                   </InfoPair>
                 ) : null}
 
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <InfoPair title="Company Owner">
-                    <Typography>{company.ownerFullname}</Typography>
+                {showCompanyOwner && (
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <InfoPair title={t("company-page:details.owner")}>
+                      <Typography>{company.ownerFullname}</Typography>
 
-                    {company.ownerPhone ? (
-                      <PhoneNumberLink phoneNumber={company.ownerPhone} />
-                    ) : null}
+                      {company.ownerPhone ? (
+                        <PhoneNumberLink phoneNumber={company.ownerPhone} />
+                      ) : null}
 
-                    {company.ownerEmail ? (
-                      <EmailLink emailAddress={company.ownerEmail} />
-                    ) : null}
-                  </InfoPair>
-                </div>
+                      {company.ownerEmail ? (
+                        <EmailLink emailAddress={company.ownerEmail} />
+                      ) : null}
+                    </InfoPair>
+                  </div>
+                )}
               </Grid>
 
               <Grid item xs={12} xl={6}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <InfoPair title="Contact information">
+                  <InfoPair title={t("company-page:details.contactDetails")}>
                     {company.phone ? (
                       <PhoneNumberLink phoneNumber={company.phone} />
                     ) : null}
@@ -97,10 +117,7 @@ export const CompanyHeader = ({
                 </div>
               </Grid>
 
-              <EditCompanyButton
-                company={company}
-                onCompanyUpdateSuccess={onCompanyUpdateSuccess}
-              />
+              {actions}
             </Grid>
           </Grid>
         </Grid>
@@ -109,8 +126,9 @@ export const CompanyHeader = ({
   );
 };
 
-export const CompanyHeaderDetailsFragment = gql`
-  fragment CompanyHeaderDetailsFragment on Company {
+export const COMPANY_DETAILS_FRAGMENT = gql`
+  fragment CompanyDetailsFragment on Company {
+    name
     businessType
     logo
     aboutUs
