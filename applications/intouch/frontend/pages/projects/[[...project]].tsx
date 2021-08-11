@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import { useRouter } from "next/router";
@@ -25,26 +25,39 @@ import {
 
 import { getServerPageGetProjects } from "../../graphql/generated/page";
 
-export type PageProps = {
+export type ProjectsPageProps = {
   projects: GetProjectsQuery["projects"];
   globalPageData: GetGlobalDataQuery;
 };
 
-const Projects = ({ projects, globalPageData }: PageProps) => {
+const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
   const { t } = useTranslation("common");
   const router = useRouter();
 
-  const [activeProjectId, setActiveProjectId] = useState<number>(null);
+  const sortedProjects = useMemo(() => {
+    const now = Date.now();
 
-  useEffect(() => {
+    return [...(projects?.nodes || [])].sort((a, b) => {
+      return (
+        Math.abs(now - new Date(a.endDate).getTime()) -
+        Math.abs(now - new Date(b.endDate).getTime())
+      );
+    });
+  }, [projects?.nodes]);
+
+  const activeProjectId = useMemo(() => {
     const { project } = router.query;
     if (project && project.length) {
-      setActiveProjectId(parseInt(project[0]));
+      return parseInt(project[0]);
     }
-  }, [router.query]);
 
-  const sidePanelHandler = (projectId: number) => {
-    //setActiveProjectId(projectId);
+    // TODO: redirect in SSR, also, if no projects... just end up here... so it's valid to not have a selected project
+    router.push(`/projects/${sortedProjects[0]?.id}`, undefined, {
+      shallow: true
+    });
+  }, [router.query, sortedProjects]);
+
+  const handleProjectSelection = (projectId: number) => {
     router.push(`/projects/${projectId}`, undefined, { shallow: true });
   };
 
@@ -52,8 +65,8 @@ const Projects = ({ projects, globalPageData }: PageProps) => {
     <Layout title={t("Projects")} pageData={globalPageData}>
       <div style={{ display: "flex" }}>
         <ProjectSidePanel
-          projects={projects}
-          onProjectSelected={sidePanelHandler}
+          projects={sortedProjects}
+          onProjectSelected={handleProjectSelection}
         />
 
         <Grid
@@ -62,10 +75,7 @@ const Projects = ({ projects, globalPageData }: PageProps) => {
           className={GridStyles.outerGrid}
           alignItems="stretch"
         >
-          {projects?.nodes?.length > 0 && (
-            <ProjectDetail projectId={activeProjectId} />
-          )}
-          {!projects?.nodes?.length && (
+          {sortedProjects.length === 0 ? (
             <Grid item xs={12}>
               <NoProjectsCard title="No projects to display">
                 <Typography variant="subtitle2">
@@ -77,6 +87,8 @@ const Projects = ({ projects, globalPageData }: PageProps) => {
                 </Typography>
               </NoProjectsCard>
             </Grid>
+          ) : (
+            <ProjectDetail projectId={activeProjectId} />
           )}
         </Grid>
       </div>

@@ -26,7 +26,7 @@ const technologyIcon: {
 };
 
 type ProjectSidePanelProps = {
-  projects: GetProjectsQuery["projects"];
+  projects: GetProjectsQuery["projects"]["nodes"];
   onProjectSelected?: (projectId: number) => void;
 };
 export const ProjectSidePanel = ({
@@ -35,11 +35,9 @@ export const ProjectSidePanel = ({
 }: ProjectSidePanelProps) => {
   const { t } = useTranslation("project-page");
 
-  const { nodes = [] } = projects || {};
-
   return (
     <SidePanel searchLabel="Search for a project" filters={projectFilters}>
-      {nodes.map(
+      {projects.map(
         ({ id, name, siteAddress, technology, startDate, endDate }) => (
           <FilterResult
             label={name}
