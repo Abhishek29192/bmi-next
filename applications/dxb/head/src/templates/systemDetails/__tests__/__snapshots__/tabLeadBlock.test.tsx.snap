@@ -99,11 +99,6 @@ exports[`TabLeadBlock tests should render 1`] = `
                 class="image"
                 src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
               />
-              <img
-                alt="Test Guarentee (NO)"
-                class="image"
-                src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h05/h5f/9006918336542/Test-Guaranteepng"
-              />
             </div>
             <div
               class="GuaranteesAndAwardsAsset LeadBlockContentSection"
@@ -117,11 +112,6 @@ exports[`TabLeadBlock tests should render 1`] = `
                 alt="test award"
                 class="image"
                 src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
-              />
-              <img
-                alt="Test Certificate (NO)"
-                class="image"
-                src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf4/h5b/9006918402078/test-Certificatepng"
               />
             </div>
           </div>

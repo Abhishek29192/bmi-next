@@ -7,14 +7,20 @@ import { SystemDetails } from "./types";
 import AboutLeadBlock from "./aboutLeadBlock";
 
 type Props = {
-  data: SystemDetails;
+  longDescription: SystemDetails["longDescription"];
+  guaranteesAndWarranties: SystemDetails["assets"];
+  awardsAndCertificates: SystemDetails["assets"];
 };
 
 const GTMTab = withGTM<TabProps>(Tab, {
   label: "label"
 });
 
-const TabLeadBlock = ({ data: { longDescription, assets } }: Props) => {
+const TabLeadBlock = ({
+  longDescription,
+  guaranteesAndWarranties,
+  awardsAndCertificates
+}: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
 
   return (
@@ -30,14 +36,8 @@ const TabLeadBlock = ({ data: { longDescription, assets } }: Props) => {
       <Tabs.TabPanel heading={getMicroCopy("sdp.leadBlock.about")} index="one">
         <AboutLeadBlock
           longDescription={longDescription}
-          guaranteesAndWarranties={assets.filter(
-            ({ assetType }) =>
-              assetType === "GUARANTIES" || assetType === "WARRANTIES"
-          )}
-          awardsAndCertificates={assets.filter(
-            ({ assetType }) =>
-              assetType === "AWARDS" || assetType === "CERTIFICATES"
-          )}
+          guaranteesAndWarranties={guaranteesAndWarranties}
+          awardsAndCertificates={awardsAndCertificates}
         />
       </Tabs.TabPanel>
     </Tabs>

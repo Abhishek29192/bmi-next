@@ -27,7 +27,8 @@ type Props = {
 const SystemDetailsPage = ({ data }: Props) => {
   const { contentfulSite, dataJson } = data;
   const { resources } = contentfulSite;
-  const { name, categories, classifications, images } = dataJson;
+  const { name, categories, classifications, images, longDescription, assets } =
+    dataJson;
 
   return (
     <Page
@@ -46,7 +47,17 @@ const SystemDetailsPage = ({ data }: Props) => {
       />
       <ImageGallerySection images={images || []} />
       <Section backgroundColor="white">
-        <TabLeadBlock data={dataJson} />
+        <TabLeadBlock
+          longDescription={longDescription}
+          guaranteesAndWarranties={assets.filter(
+            ({ assetType }) =>
+              assetType === "GUARANTIES" || assetType === "WARRANTIES"
+          )}
+          awardsAndCertificates={assets.filter(
+            ({ assetType }) =>
+              assetType === "AWARDS" || assetType === "CERTIFICATES"
+          )}
+        />
       </Section>
     </Page>
   );

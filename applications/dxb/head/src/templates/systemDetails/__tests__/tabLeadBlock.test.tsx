@@ -11,7 +11,17 @@ describe("TabLeadBlock tests", () => {
   afterEach(cleanup);
 
   it("should render", () => {
-    const { container, getByText } = render(<Component data={data} />);
+    const { container, getByText } = render(
+      <Component
+        longDescription={dataJson.longDescription}
+        guaranteesAndWarranties={dataJson.assets.filter(
+          ({ assetType }) => assetType === "WARRANTIES"
+        )}
+        awardsAndCertificates={dataJson.assets.filter(
+          ({ assetType }) => assetType === "AWARDS"
+        )}
+      />
+    );
 
     const aboutTabButton = getByText("sdp.leadBlock.about", {
       exact: false
