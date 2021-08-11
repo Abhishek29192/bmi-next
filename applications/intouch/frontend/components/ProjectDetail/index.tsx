@@ -17,6 +17,7 @@ import { NoteTab } from "../../components/Tabs/Notes";
 import { useGetProjectQuery } from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import { getProjectStatus } from "../../lib/utils/project";
+import log from "../../lib/logger";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
   if (!projectId) {
@@ -34,14 +35,26 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     );
   }
 
-  const { data: { project = null } = {}, loading } = useGetProjectQuery({
+  const {
+    data: { project } = {},
+    loading,
+    error
+  } = useGetProjectQuery({
     variables: {
       projectId: projectId
     }
   });
 
-  if (loading || project === null) return <></>;
+  if (error) {
+    log({
+      severity: "ERROR",
+      message: `Error loading project details. ID: ${projectId}. Error: ${error.toString()}`
+    });
+    return <div>Error loading project details.</div>;
+  }
 
+  // TODO: Microcopy
+  if (loading) return <>Loading project details...</>;
 
   return (
     <>
