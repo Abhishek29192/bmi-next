@@ -185,14 +185,22 @@ export const updateAccount = async (
 
       const uploadedFile: FileUpload = await photoUpload;
 
-      args.input.patch.photo = newFileName;
-
-      const storageClient = new StorageClient();
-      await storageClient.uploadFileByStream(
-        GCP_PRIVATE_BUCKET_NAME,
-        newFileName,
-        uploadedFile
-      );
+      try {
+        const storageClient = new StorageClient();
+        await storageClient.uploadFileByStream(
+          GCP_PRIVATE_BUCKET_NAME,
+          newFileName,
+          uploadedFile
+        );
+        // update the photo only if successful
+        args.input.patch.photo = newFileName;
+        logger.info(`Succesfully uploaded profile picture file ${newFileName}`);
+      } catch (error) {
+        logger.error(
+          `Could not upload profile picture file ${newFileName}`,
+          error.toString()
+        );
+      }
     }
 
     // if the user wants to remove the image OR a new photo has been uploaded
@@ -477,7 +485,7 @@ export const completeInvitation = async (
   }
 };
 
-export const getAccountSignedPhotoUrl = async (photoName: string) => {
+export const getAccountSignedPhotoUrl = (photoName: string) => {
   const { GCP_PRIVATE_BUCKET_NAME } = process.env;
   if (!photoName) {
     return "";
@@ -487,7 +495,7 @@ export const getAccountSignedPhotoUrl = async (photoName: string) => {
   expireDate.setDate(expireDate.getDate() + 1);
 
   const storageClient = new StorageClient();
-  return await storageClient.getFileSignedUrl(
+  return storageClient.getFileSignedUrl(
     GCP_PRIVATE_BUCKET_NAME,
     photoName,
     expireDate
