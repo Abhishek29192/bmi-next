@@ -18,7 +18,7 @@ export const CompanyAdmins = ({
         <Grid item xs={12} md={6} key={account.id}>
           <SmallProfileCard
             name={[account.firstName, account.lastName].join(" ")}
-            jobTitle={t(account.role)}
+            jobTitle={t(`roles.${account.role}`)}
             phoneNumber={account.phone}
             emailAddress={account.email}
             avatar={account.photo}
