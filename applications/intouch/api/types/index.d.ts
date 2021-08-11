@@ -3921,8 +3921,8 @@ export type ContentfulGuaranteeTemplate = {
   footer?: Maybe<Scalars["String"]>;
   mailBody?: Maybe<Scalars["String"]>;
   filenamePrefix?: Maybe<Scalars["String"]>;
-  lockupLine1?: Maybe<Scalars["String"]>;
-  lockupLine2?: Maybe<Scalars["String"]>;
+  titleLine1?: Maybe<Scalars["String"]>;
+  titleLine2?: Maybe<Scalars["String"]>;
   roofType?: Maybe<Scalars["String"]>;
 };
 

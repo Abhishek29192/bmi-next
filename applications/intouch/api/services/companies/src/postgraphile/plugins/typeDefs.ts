@@ -96,8 +96,8 @@ export default gql`
     footer: String
     mailBody: String
     filenamePrefix: String
-    lockupLine1: String
-    lockupLine2: String
+    titleLine1: String
+    titleLine2: String
     roofType: String
   }
   type ContentfulGuaranteeTemplatesCollection {
