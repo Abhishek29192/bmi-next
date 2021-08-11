@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Alert = ({ messages, onClose }: Props) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("team-page");
   return (
     <>
       {messages?.map((message, index) => (
