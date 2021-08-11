@@ -16,6 +16,7 @@ import { NoProjectsCard } from "../../components/Cards/NoProjects";
 import { NoteTab } from "../../components/Tabs/Notes";
 import { useGetProjectQuery } from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
+import { getProjectStatus } from "../../lib/utils/project";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
   if (!projectId) {
@@ -41,11 +42,6 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
 
   if (loading || project === null) return <></>;
 
-  const getProjectStatus = (startDate, endDate) => {
-    if (!startDate && !endDate) return "Not started";
-    else if (startDate && !endDate) return "In progress";
-    else return "Completed";
-  };
 
   return (
     <>

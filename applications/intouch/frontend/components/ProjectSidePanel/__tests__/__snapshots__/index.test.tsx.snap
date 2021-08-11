@@ -175,7 +175,7 @@ exports[`ProjectSidePanel component renders correctly 1`] = `
                   focusable="false"
                   viewBox="0 0 24 24"
                 />
-                Completed
+                In progress
               </p>
             </div>
             <svg

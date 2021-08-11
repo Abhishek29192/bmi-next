@@ -17,10 +17,13 @@ describe("ProjectSidePanel component", () => {
           },
           technology: "FLAT",
           startDate: "01/01/2019",
-          endDate: "01/01/2019"
+          endDate: "01/01/2020"
         }
       ]
     };
+
+    // Mocking the date to show project in progress
+    Date.now = jest.fn(() => Date.parse("2019-01-02"));
 
     const { container } = render(
       <I18nProvider>

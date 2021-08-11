@@ -6,6 +6,7 @@ import { Technology } from "@bmi/intouch-api-types";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
+import { getProjectStatus } from "../../lib/utils/project";
 import { PitchIcon, FlatIcon, OtherIcon } from "../icons";
 
 const projectFilters = [
@@ -24,12 +25,6 @@ const technologyIcon: {
   OTHER: OtherIcon
 };
 
-export enum ProjectStatus {
-  NOT_STARTED = "Not started",
-  IN_PROGRESS = "In progress",
-  COMPLETED = "Completed"
-}
-
 type ProjectSidePanelProps = {
   projects: GetProjectsQuery["projects"];
   onProjectSelected?: (projectId: number) => void;
@@ -41,12 +36,6 @@ export const ProjectSidePanel = ({
   const { t } = useTranslation("project-page");
 
   const { nodes = [] } = projects || {};
-
-  const getProjectStatus = (startDate, endDate) => {
-    if (!startDate && !endDate) return ProjectStatus.NOT_STARTED;
-    else if (startDate && !endDate) return ProjectStatus.IN_PROGRESS;
-    else return ProjectStatus.COMPLETED;
-  };
 
   return (
     <SidePanel searchLabel="Search for a project" filters={projectFilters}>
