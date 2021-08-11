@@ -687,12 +687,12 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "Guarantee" } & Pick<
               SchemaTypes.Guarantee,
-              "id" | "guaranteeTypeId"
+              "id" | "guaranteeTypeId" | "status"
             > & {
                 readonly guaranteeType?: SchemaTypes.Maybe<
                   { readonly __typename?: "ContentfulGuaranteeType" } & Pick<
                     SchemaTypes.ContentfulGuaranteeType,
-                    "name"
+                    "name" | "coverage" | "displayName" | "technology"
                   > & {
                       readonly evidenceCategoriesCollection?: SchemaTypes.Maybe<
                         {
@@ -752,7 +752,7 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "ProjectMember" } & Pick<
               SchemaTypes.ProjectMember,
-              "id" | "accountId"
+              "id" | "accountId" | "isResponsibleInstaller"
             > & {
                 readonly account?: SchemaTypes.Maybe<
                   { readonly __typename?: "Account" } & Pick<
@@ -774,6 +774,12 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
               }
           >;
         };
+        readonly company?: SchemaTypes.Maybe<
+          { readonly __typename?: "Company" } & Pick<
+            SchemaTypes.Company,
+            "id" | "name" | "tier"
+          >
+        >;
       }
   >;
 };
@@ -905,6 +911,32 @@ export type AddEvidencesMutation = { readonly __typename?: "Mutation" } & {
             SchemaTypes.EvidenceItem,
             "id" | "name"
           >
+        >
+      >;
+    }
+  >;
+};
+
+export type ContentfulEvidenceCategoriesQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type ContentfulEvidenceCategoriesQuery = {
+  readonly __typename?: "Query";
+} & {
+  readonly evidenceCategoryCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "EvidenceCategoryCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "EvidenceCategory" } & Pick<
+            SchemaTypes.EvidenceCategory,
+            "name"
+          > & {
+              readonly sys: { readonly __typename?: "Sys" } & Pick<
+                SchemaTypes.Sys,
+                "id"
+              >;
+            }
         >
       >;
     }
