@@ -3,13 +3,13 @@ import Tabs from "@bmi/tabs";
 import { Tab, TabProps } from "@material-ui/core";
 import { SiteContext } from "../../components/Site";
 import withGTM from "../../utils/google-tag-manager";
-import { SystemDetails } from "./types";
+import { Assets } from "./types";
 import AboutLeadBlock from "./aboutLeadBlock";
 
 type Props = {
-  longDescription: SystemDetails["longDescription"];
-  guaranteesAndWarranties: SystemDetails["assets"];
-  awardsAndCertificates: SystemDetails["assets"];
+  longDescription: string;
+  guaranteesAndWarranties: Assets[];
+  awardsAndCertificates: Assets[];
 };
 
 const GTMTab = withGTM<TabProps>(Tab, {

@@ -29,6 +29,12 @@ const SystemDetailsPage = ({ data }: Props) => {
   const { resources } = contentfulSite;
   const { name, categories, classifications, images, longDescription, assets } =
     dataJson;
+  const guaranteesAndWarranties = assets.filter(
+    ({ assetType }) => assetType === "GUARANTIES" || assetType === "WARRANTIES"
+  );
+  const awardsAndCertificates = assets.filter(
+    ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
+  );
 
   return (
     <Page
@@ -49,14 +55,8 @@ const SystemDetailsPage = ({ data }: Props) => {
       <Section backgroundColor="white">
         <TabLeadBlock
           longDescription={longDescription}
-          guaranteesAndWarranties={assets.filter(
-            ({ assetType }) =>
-              assetType === "GUARANTIES" || assetType === "WARRANTIES"
-          )}
-          awardsAndCertificates={assets.filter(
-            ({ assetType }) =>
-              assetType === "AWARDS" || assetType === "CERTIFICATES"
-          )}
+          guaranteesAndWarranties={guaranteesAndWarranties}
+          awardsAndCertificates={awardsAndCertificates}
         />
       </Section>
     </Page>
