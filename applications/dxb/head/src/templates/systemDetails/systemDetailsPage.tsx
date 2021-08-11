@@ -9,7 +9,7 @@ import ShareWidgetSection, {
 
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
-import { SystemDetails } from "./types";
+import { SystemDetails, Assets } from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 
 type Props = {
@@ -29,10 +29,10 @@ const SystemDetailsPage = ({ data }: Props) => {
   const { resources } = contentfulSite;
   const { name, categories, classifications, images, longDescription, assets } =
     dataJson;
-  const guaranteesAndWarranties = assets.filter(
+  const guaranteesAndWarranties: Assets[] = assets.filter(
     ({ assetType }) => assetType === "GUARANTIES" || assetType === "WARRANTIES"
   );
-  const awardsAndCertificates = assets.filter(
+  const awardsAndCertificates: Assets[] = assets.filter(
     ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
   );
 

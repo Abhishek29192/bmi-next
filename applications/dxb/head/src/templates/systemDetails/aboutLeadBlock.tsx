@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import LeadBlock from "@bmi/lead-block";
 import Typography from "@bmi/typography";
 import { SiteContext } from "../../components/Site";
-import { SystemDetails } from "./types";
+import { Assets } from "./types";
 import styles from "./styles/aboutLeadBlock.module.scss";
 
 type Props = {
-  longDescription: SystemDetails["longDescription"];
-  guaranteesAndWarranties: SystemDetails["assets"];
-  awardsAndCertificates: SystemDetails["assets"];
+  longDescription: string;
+  guaranteesAndWarranties: Assets[];
+  awardsAndCertificates: Assets[];
 };
 
 const AboutLeadBlock = ({
