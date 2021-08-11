@@ -204,7 +204,9 @@
           </div>
           <div class="mdc-checkbox__ripple"></div>
         </div>
-        <label for="terms-and-conditions">I agree to BMI's <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+        <label for="terms-and-conditions" >
+          <span x-text="$t('i_agree_to')">I agree to BMI's</span> <a href="https://www.bmigroup.com/legal/legal" target="_blank" x-text="$t('terms_and_conditions')">Terms & Conditions</a> <span x-text="$t('and')">and</span> <a href="https://www.bmigroup.com/legal/third-party-privacy-notice" target="_blank" x-text="$t('privacy_policy')">Privacy Policy</a>
+        </label>
       </div>
 
       <div class="button-container">
@@ -332,6 +334,10 @@
           name_surname_missing: "First and last name missing",
           email_password_missing: "Email and password missing",
           registration_tooltip: "Only select Company Account if you are sure that your company is not already registered InTouch.  Individual Accounts will get access to training and can become members of registered companies.",
+          i_agree_to: "I agree to BMI's",
+          terms_and_conditions: "Terms & Conditions",
+          and: "and",
+          privacy_policy: "Privacy Policy",
         },
         it: {
           intouch_title: "In Touch - Login/Registrazione",
@@ -360,6 +366,10 @@
           name_surname_missing: "Nome e Cognome mancanti",
           email_password_missing: "Email e password mancanti",
           registration_tooltip: "Seleziona Account azienda solo se sei sicuro che la tua azienda non sia già registrata in InTouch. Gli account individuali avranno accesso alla formazione e possono diventare membri di aziende registrate.",
+          i_agree_to: "I agree to BMI's",
+          terms_and_conditions: "Terms & Conditions",
+          and: "and",
+          privacy_policy: "Privacy Policy",
         }
       };
 
