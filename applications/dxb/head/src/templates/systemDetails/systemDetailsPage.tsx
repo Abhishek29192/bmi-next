@@ -1,18 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import Tabs from "@bmi/tabs";
-import { Tab, TabProps } from "@material-ui/core";
 import Section from "@bmi/section";
 import Page from "../../components/Page";
-import { Data as SiteData, SiteContext } from "../../components/Site";
+import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../components/ShareWidgetSection";
-import withGTM from "../../utils/google-tag-manager";
+
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import { SystemDetails } from "./types";
-import AboutLeadBlock from "./aboutLeadBlock";
+import TabLeadBlock from "./tabLeadBlock";
 
 type Props = {
   pageContext: {
@@ -26,16 +24,10 @@ type Props = {
   };
 };
 
-const GTMTab = withGTM<TabProps>(Tab, {
-  label: "label"
-});
-
 const SystemDetailsPage = ({ data }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
   const { contentfulSite, dataJson } = data;
   const { resources } = contentfulSite;
-  const { name, categories, classifications, images, assets, longDescription } =
-    dataJson;
+  const { name, categories, classifications, images } = dataJson;
 
   return (
     <Page
@@ -54,32 +46,7 @@ const SystemDetailsPage = ({ data }: Props) => {
       />
       <ImageGallerySection images={images || []} />
       <Section backgroundColor="white">
-        <Tabs
-          initialValue="one"
-          tabComponent={(props: TabProps) => (
-            <GTMTab
-              gtm={{ id: "selector-tabs1", action: "Selector – Tabs" }}
-              {...props}
-            />
-          )}
-        >
-          <Tabs.TabPanel
-            heading={getMicroCopy("sdp.leadBlock.about")}
-            index="one"
-          >
-            <AboutLeadBlock
-              longDescription={longDescription}
-              guaranteesAndWarranties={assets.filter(
-                ({ assetType }) =>
-                  assetType === "GUARANTIES" || assetType === "WARRANTIES"
-              )}
-              awardsAndCertificates={assets.filter(
-                ({ assetType }) =>
-                  assetType === "AWARDS" || assetType === "CERTIFICATES"
-              )}
-            />
-          </Tabs.TabPanel>
-        </Tabs>
+        <TabLeadBlock data={dataJson} />
       </Section>
     </Page>
   );

@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabLeadBlock tests should render 1`] = `
+<div>
+  <div
+    class="Tabs Tabs--primary"
+  >
+    <div
+      class="TabsBar"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiTabs-root"
+          >
+            <div
+              class="MuiTabs-scrollable"
+              style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+            />
+            <div
+              class="MuiTabs-scroller MuiTabs-scrollable"
+              style="margin-bottom: 0px;"
+            >
+              <div
+                aria-label="tabs"
+                class="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-controls="tabpanel-one"
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                  data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  id="tab-one"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    MC: sdp.leadBlock.about
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="tab-one"
+      class="MuiGrid-root TabPanel MuiGrid-item"
+      heading="MC: sdp.leadBlock.about"
+      id="tabpanel-one"
+      role="tabpanel"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-5 TabPanelBox"
+      >
+        <div
+          class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+          >
+            <div
+              class="LeadBlockContentSection"
+            >
+              <div
+                class="MuiTypography-root Typography MuiTypography-body1"
+              >
+                <p>
+                  LDescription NO
+                </p>
+              </div>
+            </div>
+            <div
+              class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+            >
+              <h5
+                class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+              >
+                MC: sdp.leadBlock.guaranteesWarranties
+              </h5>
+              <img
+                alt="Garanti Test"
+                class="image"
+                src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+              />
+              <img
+                alt="Test Guarentee (NO)"
+                class="image"
+                src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h05/h5f/9006918336542/Test-Guaranteepng"
+              />
+            </div>
+            <div
+              class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+            >
+              <h5
+                class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+              >
+                MC: sdp.leadBlock.awardsCertificates
+              </h5>
+              <img
+                alt="test award"
+                class="image"
+                src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
+              />
+              <img
+                alt="Test Certificate (NO)"
+                class="image"
+                src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf4/h5b/9006918402078/test-Certificatepng"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
