@@ -143,7 +143,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root NBACard ColorPair ColorPair--color-theme-secondary-1"
+              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
