@@ -31,6 +31,38 @@ type EmailAddressCollectionProps = {
   sendEmailAddress: (values: EmailFormValues) => Promise<void>;
 };
 
+const replaceImageURLWithImage = async (
+  result: ResultsRow
+): Promise<ResultsRow> => {
+  let dataURI = "";
+
+  try {
+    const response = await fetch(result.image);
+    const contentType = response.headers.get("content-type");
+
+    const imageArrayBuffer = await response.arrayBuffer();
+    const imageUInt8Array = new Uint8Array(imageArrayBuffer);
+    let utf8EncodedImage = "";
+
+    for (const byte of imageUInt8Array) {
+      utf8EncodedImage += String.fromCharCode(byte);
+    }
+
+    const base64EncodedImage = btoa(utf8EncodedImage);
+    dataURI = `data:${contentType};base64,${base64EncodedImage}`;
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      // eslint-disable-next-line no-console
+      console.error("Failed to convert image for PDF", result, error);
+    }
+  }
+
+  return {
+    ...result,
+    image: dataURI
+  };
+};
+
 const EmailAddressCollection = ({
   results,
   area,
@@ -71,8 +103,20 @@ const EmailAddressCollection = ({
         });
 
         try {
-          (await import("./_PDF")).default({
-            results,
+          const openPDF = (await import("./_PDF")).default;
+
+          const resultsWithImages = { ...results };
+
+          for (const category of Object.keys(results)) {
+            // eslint-disable-next-line security/detect-object-injection
+            resultsWithImages[category] = await Promise.all(
+              // eslint-disable-next-line security/detect-object-injection
+              results[category].map(replaceImageURLWithImage)
+            );
+          }
+
+          openPDF({
+            results: resultsWithImages,
             area: (area / 10000).toFixed(2),
             getMicroCopy: (...params) => getMicroCopy(copy, ...params)
           });

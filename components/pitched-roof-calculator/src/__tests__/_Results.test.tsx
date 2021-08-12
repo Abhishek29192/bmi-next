@@ -1,5 +1,6 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
+import fetchMockJest from "fetch-mock-jest";
 import { MicroCopy } from "../helpers/microCopy";
 import data from "../samples/data.json";
 import en from "../samples/copy/en.json";
@@ -12,6 +13,15 @@ jest.mock("@bmi/quantity-table", () => {
   return {
     __esModule: true,
     default: QuantityTable
+  };
+});
+
+let openPDF;
+jest.mock("../_PDF", () => {
+  openPDF = jest.fn();
+  return {
+    __esModule: true,
+    default: openPDF
   };
 });
 
@@ -394,6 +404,7 @@ const resultsProps = {
 };
 
 beforeEach(() => {
+  jest.clearAllMocks();
   global.open = jest.fn();
 });
 
@@ -467,7 +478,19 @@ describe("PitchedRoofCalculator Results component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("sends email address", () => {
+  it("sends email address and downloads PDF ignoring unavailable images", async () => {
+    fetchMockJest.get(`893ed88a9339cf3c629e614a923f7c1c.jpg`, {
+      body: "image-data....",
+      status: 200,
+      headers: {
+        "Content-Type": "image/jpeg"
+      }
+    });
+
+    fetchMockJest.get(`f4420511632ec8f82eb7b56aff3a072b.jpg`, {
+      throws: new Error("Not found")
+    });
+
     const sendEmailAddress = jest.fn();
     const { container } = render(
       <MicroCopy.Provider values={en}>
@@ -490,6 +513,12 @@ describe("PitchedRoofCalculator Results component", () => {
     const submitButton = container.querySelector(`.submit`);
     fireEvent.click(submitButton);
 
-    expect(sendEmailAddress.mock.calls).toMatchSnapshot();
+    expect(sendEmailAddress.mock.calls).toMatchSnapshot(
+      "Email address details"
+    );
+
+    await waitFor(() => expect(submitButton["disabled"]).toEqual(false));
+
+    expect(openPDF.mock.calls).toMatchSnapshot("PDF props");
   });
 });

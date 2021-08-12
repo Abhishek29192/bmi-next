@@ -2624,7 +2624,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
 </div>
 `;
 
-exports[`PitchedRoofCalculator Results component sends email address 1`] = `
+exports[`PitchedRoofCalculator Results component sends email address and downloads PDF ignoring unavailable images: Email address details 1`] = `
 Array [
   Array [
     Object {
@@ -2632,6 +2632,187 @@ Array [
       "gdpr_1": true,
       "gdpr_2": true,
       "name": "Test Test",
+    },
+  ],
+]
+`;
+
+exports[`PitchedRoofCalculator Results component sends email address and downloads PDF ignoring unavailable images: PDF props 1`] = `
+Array [
+  Array [
+    Object {
+      "area": "151.51",
+      "getMicroCopy": [Function],
+      "results": Object {
+        "accessories": Array [
+          Object {
+            "category": "accessories",
+            "description": "Zanda_Protector_verge metal flush black left start",
+            "externalProductCode": "86035763",
+            "image": "data:image/jpeg;base64,aW1hZ2UtZGF0YS4uLi4=",
+            "packSize": "-",
+            "quantity": 3,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Zanda_Protector_verge metal flush black left",
+            "externalProductCode": "86035761",
+            "image": "data:image/jpeg;base64,aW1hZ2UtZGF0YS4uLi4=",
+            "packSize": "-",
+            "quantity": 105,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Zanda_Protector_verge metal flush black right start",
+            "externalProductCode": "86035764",
+            "image": "data:image/jpeg;base64,aW1hZ2UtZGF0YS4uLi4=",
+            "packSize": "-",
+            "quantity": 3,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Zanda_Protector_verge metal flush black right",
+            "externalProductCode": "86035762",
+            "image": "data:image/jpeg;base64,aW1hZ2UtZGF0YS4uLi4=",
+            "packSize": "-",
+            "quantity": 105,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Test Guttering Grey",
+            "externalProductCode": "4391",
+            "image": "",
+            "packSize": "-",
+            "quantity": 11,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Test Guttering Hook Grey",
+            "externalProductCode": "4392",
+            "image": "",
+            "packSize": "-",
+            "quantity": 15,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Downpipe",
+            "externalProductCode": "33332",
+            "image": "",
+            "packSize": "-",
+            "quantity": 3,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Downpipe Connector",
+            "externalProductCode": "33331",
+            "image": "",
+            "packSize": "-",
+            "quantity": 4,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Clips",
+            "externalProductCode": "113456781",
+            "image": "",
+            "packSize": "-",
+            "quantity": 97,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Ridge and Hip Screw",
+            "externalProductCode": "113456782",
+            "image": "",
+            "packSize": "-",
+            "quantity": 97,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Long Screw",
+            "externalProductCode": "113456783",
+            "image": "",
+            "packSize": "-",
+            "quantity": 281,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Screw",
+            "externalProductCode": "113456784",
+            "image": "",
+            "packSize": "-",
+            "quantity": 1312,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Finishing Kit",
+            "externalProductCode": "113456786",
+            "image": "",
+            "packSize": "-",
+            "quantity": 2,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Underlay Divoroll TOP RU",
+            "externalProductCode": "26583450",
+            "image": "",
+            "packSize": "-",
+            "quantity": 4,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Fuglelist ventilert",
+            "externalProductCode": "5555551",
+            "image": "data:image/jpeg;base64,aW1hZ2UtZGF0YS4uLi4=",
+            "packSize": "-",
+            "quantity": 7,
+          },
+          Object {
+            "category": "accessories",
+            "description": "Other accesories example",
+            "externalProductCode": "5555550",
+            "image": "data:image/jpeg;base64,aW1hZ2UtZGF0YS4uLi4=",
+            "packSize": "-",
+            "quantity": 0,
+          },
+        ],
+        "fixings": Array [],
+        "sealing": Array [],
+        "tiles": Array [
+          Object {
+            "category": "tiles",
+            "description": "Zanda Protector main tile black",
+            "externalProductCode": "46035712",
+            "image": "data:image/jpeg;base64,aW1hZ2UtZGF0YS4uLi4=",
+            "packSize": "-",
+            "quantity": 1418,
+          },
+          Object {
+            "category": "tiles",
+            "description": "Zanda Protector half tile black",
+            "externalProductCode": "46035795",
+            "image": "data:image/jpeg;base64,aW1hZ2UtZGF0YS4uLi4=",
+            "packSize": "-",
+            "quantity": 32,
+          },
+          Object {
+            "category": "tiles",
+            "description": "Zanda_Protector_ridge tile black",
+            "externalProductCode": "46035761",
+            "image": "data:image/jpeg;base64,aW1hZ2UtZGF0YS4uLi4=",
+            "packSize": "-",
+            "quantity": 49,
+          },
+        ],
+        "ventilation": Array [
+          Object {
+            "category": "ventilation",
+            "description": "Ventilation Hood 1",
+            "externalProductCode": "100456781",
+            "image": "",
+            "packSize": "-",
+            "quantity": 2,
+          },
+        ],
+      },
     },
   ],
 ]

@@ -13,7 +13,7 @@ import {
 } from "@bmi/react-pdf-maker";
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import EffraBold from "./fonts/Effra_Bd.ttf";
-import { ResultsObject } from "./types";
+import { ResultsObject, ResultsRow } from "./types";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constents";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
@@ -352,14 +352,15 @@ type PdfDocumentProps = {
 };
 
 const mapResultsRow = ({
+  image,
   description,
   packSize,
   externalProductCode,
   quantity
-}) => (
+}: ResultsRow) => (
   <ResultsTableTemplate.Row key={externalProductCode}>
     <ResultsTableTemplate.Cell hasWrapperRemoved>
-      <Img src={externalProductCode} fit={[50, 50]} />
+      {image ? <Img src={image} fit={[50, 50]} /> : ""}
     </ResultsTableTemplate.Cell>
     <ResultsTableTemplate.Cell>{description}</ResultsTableTemplate.Cell>
     <ResultsTableTemplate.Cell>{packSize}</ResultsTableTemplate.Cell>
@@ -379,15 +380,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
       35 /* Bottom (should include footer space) */
     ]}
     header={<Header />}
-    images={Object.values(results).reduce((acc, items) => {
-      items.forEach(
-        ({ image, externalProductCode }) =>
-          (acc[externalProductCode] = image.includes("://")
-            ? image
-            : window.location.origin + "/" + image)
-      );
-      return acc;
-    }, {})}
+    images={{}}
     pageBreakBefore={shouldAddPageBreak}
     defaultStyle={{
       font: "Effra"
