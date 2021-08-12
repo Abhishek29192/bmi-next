@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
+import { ColorPairContext } from "@bmi/color-pair";
 import { renderVideo } from "./Video";
 import { Data as PromoData } from "./Promo";
 import { SiteContext } from "./Site";
@@ -26,6 +27,7 @@ const SyndicateSection = ({
   position: number;
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { type } = useContext(ColorPairContext);
 
   const villainsData = villains?.map((data) => {
     const callToAction = useMemo(() => {
@@ -33,7 +35,11 @@ const SyndicateSection = ({
 
       if (data.__typename == "ContentfulPromo" && data.cta) {
         return (
-          <Link component={Button} data={data.cta}>
+          <Link
+            component={Button}
+            hasDarkBackground={type === "dark"}
+            data={data.cta}
+          >
             {data.cta.label}
           </Link>
         );
@@ -41,7 +47,9 @@ const SyndicateSection = ({
 
       if (cta && cta.action) {
         return (
-          <Button action={cta.action}>{getMicroCopy("page.linkLabel")}</Button>
+          <Button action={cta.action} hasDarkBackground={type === "dark"}>
+            {getMicroCopy("page.linkLabel")}
+          </Button>
         );
       }
 

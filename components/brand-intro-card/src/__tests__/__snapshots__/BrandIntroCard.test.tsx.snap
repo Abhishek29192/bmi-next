@@ -5,12 +5,12 @@ exports[`BrandIntroCard component renders correctly 1`] = `
   class="MuiPaper-root MuiCard-root BrandIntroCard MuiPaper-elevation1 MuiPaper-rounded"
 >
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-text Button brandLogoButton MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-3 brandLogoButton MuiButton-textPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-5"
     >
       <svg
         class="brandLogo"
@@ -24,12 +24,12 @@ exports[`BrandIntroCard component renders correctly 1`] = `
     desc
   </h6>
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-3 MuiButton-textPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-5"
     >
       label
       <span

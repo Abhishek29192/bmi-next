@@ -1,3 +1,4 @@
+import uniqueId from "lodash/uniqueId";
 import { ClickableAction } from "@bmi/clickable";
 import Dialog from "@bmi/dialog";
 import Clickable from "@bmi/clickable";
@@ -225,7 +226,7 @@ export const renderDialog = (
     return;
   }
 
-  const sectionId = `dialog-section-${new Date().getTime()}`;
+  const sectionId = `dialog-section-${uniqueId()}`;
   const Component: React.ElementType =
     sectionsMap[data.dialogContent.__typename];
 

@@ -29,7 +29,7 @@ exports[`ContainerDialog component renders correctly 1`] = `
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text iconButton"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-18 iconButtonStyles-medium-24 iconButtonStyles-text-20 iconButton"
           tabindex="0"
           type="button"
         >

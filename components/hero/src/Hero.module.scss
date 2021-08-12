@@ -104,7 +104,7 @@ $hero-breakpoint-sm: 769px;
       margin-top: -10px;
 
       &::before {
-        background-color: $color-theme-accent;
+        background-color: $color-theme-accent-300;
         content: "";
         display: block;
         height: 4px;

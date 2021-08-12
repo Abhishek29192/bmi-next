@@ -38,12 +38,12 @@ exports[`InputGroup component renders correctly 1`] = `
     </div>
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-8 button MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-9"
     >
       Submit
     </span>
@@ -79,10 +79,10 @@ exports[`InputGroup component renders unlocked 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-31 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-7"
+          class="PrivateNotchedOutline-legendLabelled-33"
         >
           <span>
             First name
@@ -92,12 +92,12 @@ exports[`InputGroup component renders unlocked 1`] = `
     </div>
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-35 MuiButton-contained buttonStyles-contained-38 button MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-39"
     >
       Submit
     </span>
@@ -133,10 +133,10 @@ exports[`InputGroup component renders with an IconButton 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-61 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-11"
+          class="PrivateNotchedOutline-legendLabelled-63"
         >
           <span>
             First name
@@ -147,7 +147,7 @@ exports[`InputGroup component renders with an IconButton 1`] = `
   </div>
   <button
     aria-label="Submit"
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-82 iconButtonStyles-medium-88 iconButtonStyles-contained-83 button"
     tabindex="0"
     type="button"
   >

@@ -6,7 +6,7 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
 >
   <button
     aria-label="Down"
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button-sides"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-18 iconButtonStyles-medium-24 iconButtonStyles-contained-19 button-sides"
     tabindex="0"
     type="button"
   >
@@ -44,7 +44,7 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
   </div>
   <button
     aria-label="Up"
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-18 iconButtonStyles-medium-24 iconButtonStyles-contained-19 button"
     tabindex="0"
     type="button"
   >
@@ -89,7 +89,7 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
   </div>
   <button
     aria-label="Down"
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button-right"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-44 iconButtonStyles-medium-50 iconButtonStyles-contained-45 button-right"
     tabindex="0"
     type="button"
   >
@@ -113,7 +113,7 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
   </button>
   <button
     aria-label="Up"
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-44 iconButtonStyles-medium-50 iconButtonStyles-contained-45 button"
     tabindex="0"
     type="button"
   >
@@ -144,7 +144,7 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
 >
   <button
     aria-label="Down"
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button-sides"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-70 iconButtonStyles-medium-76 iconButtonStyles-contained-71 button-sides"
     tabindex="0"
     type="button"
   >
@@ -182,7 +182,7 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
   </div>
   <button
     aria-label="Up"
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-70 iconButtonStyles-medium-76 iconButtonStyles-contained-71 button"
     tabindex="0"
     type="button"
   >

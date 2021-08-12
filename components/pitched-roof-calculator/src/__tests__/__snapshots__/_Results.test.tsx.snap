@@ -505,13 +505,13 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-12 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-13"
             >
               Print this list
             </span>
@@ -878,10 +878,10 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-35 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-11"
+                  class="PrivateNotchedOutline-legendLabelled-37"
                 >
                   <span>
                     Your name
@@ -915,10 +915,10 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-35 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-11"
+                  class="PrivateNotchedOutline-legendLabelled-37"
                 >
                   <span>
                     Your email address
@@ -943,13 +943,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-13 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-39 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
               >
                 <span
                   class="MuiIconButton-label"
                 >
                   <input
-                    class="PrivateSwitchBase-input-16"
+                    class="PrivateSwitchBase-input-42"
                     data-indeterminate="false"
                     name="gdpr_1"
                     type="checkbox"
@@ -989,13 +989,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-13 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-39 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
               >
                 <span
                   class="MuiIconButton-label"
                 >
                   <input
-                    class="PrivateSwitchBase-input-16"
+                    class="PrivateSwitchBase-input-42"
                     data-indeterminate="false"
                     name="gdpr_2"
                     type="checkbox"
@@ -1028,13 +1028,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-43 MuiButton-contained buttonStyles-contained-46 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-47"
             >
               Print this list
             </span>
@@ -1474,10 +1474,10 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-33 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-137 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-35"
+                  class="PrivateNotchedOutline-legendLabelled-139"
                 >
                   <span>
                     Your name
@@ -1511,10 +1511,10 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-33 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-137 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-35"
+                  class="PrivateNotchedOutline-legendLabelled-139"
                 >
                   <span>
                     Your email address
@@ -1539,13 +1539,13 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-37 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-141 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
               >
                 <span
                   class="MuiIconButton-label"
                 >
                   <input
-                    class="PrivateSwitchBase-input-40"
+                    class="PrivateSwitchBase-input-144"
                     data-indeterminate="false"
                     name="gdpr_1"
                     type="checkbox"
@@ -1585,13 +1585,13 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-37 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-141 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
               >
                 <span
                   class="MuiIconButton-label"
                 >
                   <input
-                    class="PrivateSwitchBase-input-40"
+                    class="PrivateSwitchBase-input-144"
                     data-indeterminate="false"
                     name="gdpr_2"
                     type="checkbox"
@@ -1624,13 +1624,13 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-contained buttonStyles-contained-148 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-149"
             >
               Print this list
             </span>
@@ -1965,10 +1965,10 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-103 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-27"
+                  class="PrivateNotchedOutline-legendLabelled-105"
                 >
                   <span>
                     Your name
@@ -2002,10 +2002,10 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-103 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-27"
+                  class="PrivateNotchedOutline-legendLabelled-105"
                 >
                   <span>
                     Your email address
@@ -2030,13 +2030,13 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-29 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-107 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
               >
                 <span
                   class="MuiIconButton-label"
                 >
                   <input
-                    class="PrivateSwitchBase-input-32"
+                    class="PrivateSwitchBase-input-110"
                     data-indeterminate="false"
                     name="gdpr_1"
                     type="checkbox"
@@ -2076,13 +2076,13 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-29 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-107 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
               >
                 <span
                   class="MuiIconButton-label"
                 >
                   <input
-                    class="PrivateSwitchBase-input-32"
+                    class="PrivateSwitchBase-input-110"
                     data-indeterminate="false"
                     name="gdpr_2"
                     type="checkbox"
@@ -2115,13 +2115,13 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-111 MuiButton-contained buttonStyles-contained-114 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-115"
             >
               Print this list
             </span>
@@ -2456,10 +2456,10 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-69 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-19"
+                  class="PrivateNotchedOutline-legendLabelled-71"
                 >
                   <span>
                     Your name
@@ -2493,10 +2493,10 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-69 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-19"
+                  class="PrivateNotchedOutline-legendLabelled-71"
                 >
                   <span>
                     Your email address
@@ -2521,13 +2521,13 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-73 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
               >
                 <span
                   class="MuiIconButton-label"
                 >
                   <input
-                    class="PrivateSwitchBase-input-24"
+                    class="PrivateSwitchBase-input-76"
                     data-indeterminate="false"
                     name="gdpr_1"
                     type="checkbox"
@@ -2567,13 +2567,13 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-73 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
               >
                 <span
                   class="MuiIconButton-label"
                 >
                   <input
-                    class="PrivateSwitchBase-input-24"
+                    class="PrivateSwitchBase-input-76"
                     data-indeterminate="false"
                     name="gdpr_2"
                     type="checkbox"
@@ -2606,13 +2606,13 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-77 MuiButton-contained buttonStyles-contained-80 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-81"
             >
               Print this list
             </span>

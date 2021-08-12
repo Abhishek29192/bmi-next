@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { isElement } from "react-is";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
@@ -15,6 +15,7 @@ type Props = {
   onCloseClick?: () => any;
   onBackdropClick?: ModalProps["onBackdropClick"];
   backdropProps?: ModalProps["BackdropProps"];
+  disablePortal?: ModalProps["disablePortal"];
   areaLabelledby?: string;
   areaDescribedby?: string;
   children: React.ReactNode;
@@ -26,6 +27,7 @@ const Dialog = ({
   maxWidth = "md",
   color = "white",
   onCloseClick,
+  disablePortal = true,
   onBackdropClick = onCloseClick,
   backdropProps,
   areaLabelledby,
@@ -37,6 +39,20 @@ const Dialog = ({
   const rawTitle = childrenArray.find(
     (child) => isElement(child) && child.type === Title
   ) as React.ReactElement | undefined;
+
+  // workaround of accessability issue https://github.com/mui-org/material-ui/issues/19450
+  useEffect(() => {
+    if (open && disablePortal) {
+      Array.from(document.body.children).forEach((child) => {
+        const isSkippedTag = ["SCRIPT", "IFRAME", "NOSCRIPT"].some(
+          (tagName) => child.tagName === tagName
+        );
+        if (!isSkippedTag) {
+          child.setAttribute("aria-hidden", "false");
+        }
+      });
+    }
+  }, [open, disablePortal]);
 
   const title = rawTitle
     ? React.cloneElement(rawTitle, {
@@ -55,6 +71,7 @@ const Dialog = ({
       BackdropProps={backdropProps}
       aria-labelledby={areaLabelledby}
       aria-describedby={areaDescribedby}
+      disablePortal={disablePortal}
     >
       <Fade in={open}>
         <div

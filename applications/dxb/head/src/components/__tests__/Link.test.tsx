@@ -1,3 +1,5 @@
+import "@testing-library/jest-dom";
+
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import {
@@ -247,6 +249,45 @@ describe("Link component", () => {
         </SiteContext.Provider>
       );
       expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("Dialog closes properly", () => {
+      const data: LinkData = {
+        __typename: "ContentfulLink",
+        id: "string",
+        label: "ImALink",
+        icon: null,
+        isLabelHidden: null,
+        url: "https://www.external.co.uk",
+        linkedPage: null,
+        type: "Dialog",
+        parameters: null,
+        dialogContent: {
+          __typename: "ContentfulFormSection",
+          title: "Test form",
+          showTitle: true,
+          description: null,
+          recipients: "recipient@mail.com",
+          inputs: null,
+          submitText: "Submit",
+          successRedirect: null,
+          source: "HubSpot",
+          hubSpotFormGuid: null
+        },
+        hubSpotCTAID: null
+      };
+      const { getByText, getByRole } = render(
+        <SiteContext.Provider value={getMockSiteContext()}>
+          <Link data={data}>{data.label}</Link>
+        </SiteContext.Provider>
+      );
+
+      const openDialog = getByText("ImALink");
+      openDialog.click();
+      expect(getByText(/Test form/i)).toBeVisible();
+      const closeDialogButton = getByRole("button", { name: "Close" });
+      closeDialogButton.click();
+      expect(getByText(/Test form/i)).not.toBeVisible();
     });
   });
 
