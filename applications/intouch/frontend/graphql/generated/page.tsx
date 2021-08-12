@@ -530,49 +530,6 @@ export const ssrProductsAndSystems = {
 
   usePage: useProductsAndSystems
 };
-export async function getServerPageGetCurrentCompany(
-  options: Omit<
-    Apollo.QueryOptions<OperationTypes.GetCurrentCompanyQueryVariables>,
-    "query"
-  >,
-  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
-) {
-  const data = await apolloClient.query<OperationTypes.GetCurrentCompanyQuery>({
-    ...options,
-    query: Operations.GetCurrentCompanyDocument
-  });
-
-  const apolloState = apolloClient.cache.extract();
-
-  return {
-    props: {
-      apolloState: apolloState,
-      data: data?.data,
-      error: data?.error ?? data?.errors ?? null
-    }
-  };
-}
-export const useGetCurrentCompany = (
-  optionsFunc?: (
-    router: NextRouter
-  ) => QueryHookOptions<
-    OperationTypes.GetCurrentCompanyQuery,
-    OperationTypes.GetCurrentCompanyQueryVariables
-  >
-) => {
-  const router = useRouter();
-  const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.GetCurrentCompanyDocument, options);
-};
-export type PageGetCurrentCompanyComp = React.FC<{
-  data?: OperationTypes.GetCurrentCompanyQuery;
-  error?: Apollo.ApolloError;
-}>;
-export const ssrGetCurrentCompany = {
-  getServerPage: getServerPageGetCurrentCompany,
-
-  usePage: useGetCurrentCompany
-};
 export async function getServerPageGetCompany(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetCompanyQueryVariables>,

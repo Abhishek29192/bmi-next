@@ -2291,68 +2291,21 @@ export type ProductsAndSystemsQueryResult = Apollo.QueryResult<
   OperationTypes.ProductsAndSystemsQuery,
   OperationTypes.ProductsAndSystemsQueryVariables
 >;
-export const GetCurrentCompanyDocument = gql`
-  query GetCurrentCompany {
-    currentCompany
-  }
-`;
-
-/**
- * __useGetCurrentCompanyQuery__
- *
- * To run a query within a React component, call `useGetCurrentCompanyQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetCurrentCompanyQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetCurrentCompanyQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetCurrentCompanyQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.GetCurrentCompanyQuery,
-    OperationTypes.GetCurrentCompanyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.GetCurrentCompanyQuery,
-    OperationTypes.GetCurrentCompanyQueryVariables
-  >(GetCurrentCompanyDocument, options);
-}
-export function useGetCurrentCompanyLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.GetCurrentCompanyQuery,
-    OperationTypes.GetCurrentCompanyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.GetCurrentCompanyQuery,
-    OperationTypes.GetCurrentCompanyQueryVariables
-  >(GetCurrentCompanyDocument, options);
-}
-export type GetCurrentCompanyQueryHookResult = ReturnType<
-  typeof useGetCurrentCompanyQuery
->;
-export type GetCurrentCompanyLazyQueryHookResult = ReturnType<
-  typeof useGetCurrentCompanyLazyQuery
->;
-export type GetCurrentCompanyQueryResult = Apollo.QueryResult<
-  OperationTypes.GetCurrentCompanyQuery,
-  OperationTypes.GetCurrentCompanyQueryVariables
->;
 export const GetCompanyDocument = gql`
-  query GetCompany($companyId: Int!) {
+  query GetCompany($companyId: Int!, $marketDomain: String!) {
     company(id: $companyId) {
       ...CompanyPageDetailsFragment
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
+    }
+    markets(condition: { domain: $marketDomain }) {
+      nodes {
+        geoMiddle {
+          x
+          y
+        }
+      }
     }
   }
   ${CompanyPageDetailsFragmentFragmentDoc}
@@ -2372,6 +2325,7 @@ export const GetCompanyDocument = gql`
  * const { data, loading, error } = useGetCompanyQuery({
  *   variables: {
  *      companyId: // value for 'companyId'
+ *      marketDomain: // value for 'marketDomain'
  *   },
  * });
  */

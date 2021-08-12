@@ -30,7 +30,14 @@ const Company = ({ company }: { company: GetCompanyQuery["company"] }) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, globalPageData, res }) => {
+  async ({
+    apolloClient,
+    locale,
+    account,
+    globalPageData,
+    marketDomain,
+    res
+  }) => {
     const companyId = findAccountCompany(account)?.id;
     if (!companyId) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
@@ -39,10 +46,10 @@ export const getServerSideProps = withPage(
     }
     const {
       props: {
-        data: { company }
+        data: { company, markets }
       }
     } = await getServerPageGetCompany(
-      { variables: { companyId } },
+      { variables: { companyId, marketDomain } },
       apolloClient
     );
     if (company.status !== "NEW") {
@@ -56,6 +63,7 @@ export const getServerSideProps = withPage(
     return {
       props: {
         company,
+        market: markets.nodes?.[0],
         account,
         ...(await serverSideTranslations(locale, ["common", "company-page"]))
       }

@@ -1401,17 +1401,9 @@ export type ProductsAndSystemsQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
-export type GetCurrentCompanyQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
-}>;
-
-export type GetCurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
-  SchemaTypes.Query,
-  "currentCompany"
->;
-
 export type GetCompanyQueryVariables = SchemaTypes.Exact<{
   companyId: SchemaTypes.Scalars["Int"];
+  marketDomain: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetCompanyQuery = { readonly __typename?: "Query" } & {
@@ -1509,6 +1501,20 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
             "fullName" | "subHeading" | "email" | "phoneNumber"
           >
         >
+      >;
+    }
+  >;
+  readonly markets?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Market" } & {
+          readonly geoMiddle?: SchemaTypes.Maybe<
+            { readonly __typename?: "Point" } & Pick<
+              SchemaTypes.Point,
+              "x" | "y"
+            >
+          >;
+        }
       >;
     }
   >;

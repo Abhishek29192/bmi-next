@@ -1,13 +1,28 @@
+import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
+import { NextApiRequest, NextApiResponse } from "next";
 import { Session } from "@auth0/nextjs-auth0";
 import { Account } from "@bmi/intouch-api-types";
 import { NextLogger } from "@bmi/logger";
+import { getServerPageGetGlobalData } from "../../graphql/generated/page";
+import { GetGlobalDataQuery } from "../../graphql/generated/operations";
+import { isSingleMarket } from "../../lib/config";
 import { getAuth0Instance } from "../auth0";
 import { initializeApollo } from "../apolloClient";
 import { marketRedirect } from "../redirects/market";
 import { redirectCompanyRegistration } from "../redirects/companyRegistration";
 import { userRegistration } from "../redirects/userRegistration";
 import { queryAccountByEmail } from "../account";
-import { getServerPageGetGlobalData } from "../../graphql/generated/page";
+
+type PageContext = {
+  req: NextApiRequest;
+  res: NextApiResponse;
+  auth0: any;
+  apolloClient: ApolloClient<NormalizedCacheObject>;
+  session: Session;
+  account: Account;
+  marketDomain: string;
+  globalPageData: GetGlobalDataQuery;
+};
 
 export const innerGetServerSideProps = async (
   getServerSideProps,
@@ -17,7 +32,7 @@ export const innerGetServerSideProps = async (
   const { req, res } = ctx;
   const session: Session = auth0.getSession(req, res);
 
-  const apolloClient = await initializeApollo(null, { req, res });
+  const apolloClient = initializeApollo(null, { req, res });
 
   const {
     data: { accountByEmail }
@@ -52,18 +67,22 @@ export const innerGetServerSideProps = async (
     apolloClient,
     session: session,
     account: accountByEmail as Account,
+    marketDomain: isSingleMarket
+      ? undefined
+      : req.headers.host?.split(".")?.[0],
     globalPageData
   });
 };
 
-export const withPage = (getServerSideProps) => async (context) => {
-  if (context.req) {
-    NextLogger(context.req, context.res);
-  }
-  const auth0 = await getAuth0Instance(context.req, context.res);
-  return auth0.withPageAuthRequired({
-    async getServerSideProps(ctx) {
-      return innerGetServerSideProps(getServerSideProps, auth0, ctx);
+export const withPage =
+  (getServerSideProps) => async (context: PageContext) => {
+    if (context.req) {
+      NextLogger(context.req, context.res);
     }
-  })(context);
-};
+    const auth0 = await getAuth0Instance(context.req, context.res);
+    return auth0.withPageAuthRequired({
+      async getServerSideProps(ctx: PageContext) {
+        return innerGetServerSideProps(getServerSideProps, auth0, ctx);
+      }
+    })(context);
+  };
