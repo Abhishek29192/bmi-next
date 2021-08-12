@@ -1,11 +1,10 @@
 import crypto from "crypto";
 import camelcaseKeys from "camelcase-keys";
 import { FileUpload } from "graphql-upload";
-import { InviteInput, Role } from "@bmi/intouch-api-types";
+import { AccountPatch, InviteInput, Role } from "@bmi/intouch-api-types";
 import { UpdateAccountInput } from "@bmi/intouch-api-types";
 import { sendEmailWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
-import StorageClient from "../storage-client";
 import { Account } from "../../types";
 
 const INSTALLER: Role = "INSTALLER";
@@ -106,8 +105,9 @@ export const updateAccount = async (
 ) => {
   const { GCP_PRIVATE_BUCKET_NAME } = process.env;
 
-  const { pgClient, user, logger: Logger } = context;
-  const { photoUpload, role, shouldRemovePhoto } = args.input.patch;
+  const { pgClient, user, logger: Logger, storageClient } = context;
+  const { photoUpload, role, shouldRemovePhoto }: AccountPatch =
+    args.input.patch;
 
   const logger = Logger("service:account");
 
@@ -186,7 +186,6 @@ export const updateAccount = async (
       const uploadedFile: FileUpload = await photoUpload;
 
       try {
-        const storageClient = new StorageClient();
         await storageClient.uploadFileByStream(
           GCP_PRIVATE_BUCKET_NAME,
           newFileName,
@@ -215,7 +214,6 @@ export const updateAccount = async (
       // delete the previous image if it exists & is hosted on GCP Cloud storage
       // if the current image is externally hosted (i.e. starts with https://) it is probably mock data
       if (currentPhoto && !/^http(s):\/\//.test(currentPhoto)) {
-        const storageClient = new StorageClient();
         await storageClient.deleteFile(GCP_PRIVATE_BUCKET_NAME, currentPhoto);
       }
     }
@@ -483,23 +481,6 @@ export const completeInvitation = async (
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }
-};
-
-export const getAccountSignedPhotoUrl = (photoName: string) => {
-  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
-  if (!photoName) {
-    return "";
-  }
-
-  const expireDate = new Date();
-  expireDate.setDate(expireDate.getDate() + 1);
-
-  const storageClient = new StorageClient();
-  return storageClient.getFileSignedUrl(
-    GCP_PRIVATE_BUCKET_NAME,
-    photoName,
-    expireDate
-  );
 };
 
 export const resetPassword = async (

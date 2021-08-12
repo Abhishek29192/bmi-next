@@ -225,34 +225,6 @@ export type UpdateCompanyDetailsMutation = {
   >;
 };
 
-export type CreateCompanyMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.CreateCompanyInput;
-}>;
-
-export type CreateCompanyMutation = { readonly __typename?: "Mutation" } & {
-  readonly createCompany?: SchemaTypes.Maybe<
-    { readonly __typename?: "CreateCompanyPayload" } & {
-      readonly company?: SchemaTypes.Maybe<
-        { readonly __typename?: "Company" } & Pick<SchemaTypes.Company, "id">
-      >;
-    }
-  >;
-};
-
-export type CreateAddressMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.CreateAddressInput;
-}>;
-
-export type CreateAddressMutation = { readonly __typename?: "Mutation" } & {
-  readonly createAddress?: SchemaTypes.Maybe<
-    { readonly __typename?: "CreateAddressPayload" } & {
-      readonly address?: SchemaTypes.Maybe<
-        { readonly __typename?: "Address" } & Pick<SchemaTypes.Address, "id">
-      >;
-    }
-  >;
-};
-
 export type InviteMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.InviteInput;
 }>;
@@ -648,6 +620,20 @@ export type ResetPasswordMutation = { readonly __typename?: "Mutation" } & Pick<
   SchemaTypes.Mutation,
   "resetPassword"
 >;
+
+export type CreateCompanyMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateCompanyInput;
+}>;
+
+export type CreateCompanyMutation = { readonly __typename?: "Mutation" } & {
+  readonly createCompany?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateCompanyPayload" } & {
+      readonly company?: SchemaTypes.Maybe<
+        { readonly __typename?: "Company" } & Pick<SchemaTypes.Company, "id">
+      >;
+    }
+  >;
+};
 
 export type GetProjectQueryVariables = SchemaTypes.Exact<{
   projectId: SchemaTypes.Scalars["Int"];

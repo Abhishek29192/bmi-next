@@ -3449,6 +3449,8 @@ export type CompanyPatch = {
   companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
   invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
   projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  logoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemoveLogo?: Maybe<Scalars["Boolean"]>;
 };
 
 /** The `address` to be created by this mutation. */
@@ -19249,6 +19251,8 @@ export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
     companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
     invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
     projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+    logoUpload?: Maybe<Scalars["Upload"]>;
+    shouldRemoveLogo?: Maybe<Scalars["Boolean"]>;
   };
 
 /** An object where the defined keys will be set on the `company` being updated. */
@@ -19313,6 +19317,8 @@ export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
   companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
   invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
   projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  logoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemoveLogo?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `company` being updated. */
@@ -19377,6 +19383,8 @@ export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
   companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
   invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
   projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  logoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemoveLogo?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `company` being updated. */
@@ -19441,6 +19449,8 @@ export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
   companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
   invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
   projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  logoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemoveLogo?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `company` being updated. */
@@ -19507,6 +19517,8 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
   companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
   invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
   projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  logoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemoveLogo?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `company` being updated. */
@@ -19574,6 +19586,8 @@ export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
     companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
     invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
     projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+    logoUpload?: Maybe<Scalars["Upload"]>;
+    shouldRemoveLogo?: Maybe<Scalars["Boolean"]>;
   };
 
 /** An object where the defined keys will be set on the `company` being updated. */
@@ -19640,6 +19654,8 @@ export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
   companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
   invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
   projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  logoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemoveLogo?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `company` being updated. */
@@ -19706,6 +19722,8 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
   companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
   invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
   projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  logoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemoveLogo?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `companyOperation` being updated. */

@@ -3,11 +3,11 @@ import { useTranslation } from "next-i18next";
 import Card, { CardContent, CardActions } from "@bmi/card";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
-import { RegisterCompanyDialog } from "../../Pages/Company/EditCompany/DialogRegister";
+import { RegisterCompanyDialog } from "../Dialog";
 import styles from "./styles.module.scss";
 
-const RegisterCompanyCard = () => {
-  const { t } = useTranslation("profile-page");
+export const RegisterCompanyCard = () => {
+  const { t } = useTranslation("profile");
   const [isDialogOpen, setDialogOpen] = useState(false);
 
   return (
@@ -32,5 +32,3 @@ const RegisterCompanyCard = () => {
     </>
   );
 };
-
-export default RegisterCompanyCard;

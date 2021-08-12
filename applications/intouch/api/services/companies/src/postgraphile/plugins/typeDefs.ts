@@ -147,6 +147,11 @@ export default gql`
     shouldRemovePhoto: Boolean
   }
 
+  extend input CompanyPatch {
+    logoUpload: Upload
+    shouldRemoveLogo: Boolean
+  }
+
   input PublishInput {
     title: String
     text: String

@@ -1,4 +1,4 @@
-import { DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
+import { CompanyPatch, DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
 import { sendEmailWithTemplate } from "../../services/mailer";
 
 export const updateCompany = async (
@@ -8,8 +8,49 @@ export const updateCompany = async (
   context,
   resolveInfo
 ) => {
+  const { GCP_PUBLIC_BUCKET_NAME } = process.env;
+  const { pgClient, storageClient, user } = context;
+  const { logoUpload, shouldRemoveLogo }: CompanyPatch = args.input.patch;
+
+  if (!logoUpload && shouldRemoveLogo) {
+    args.input.patch.logo = null;
+  }
+
+  if (logoUpload) {
+    const { GCP_PUBLIC_BUCKET_NAME } = process.env;
+
+    const fileName = `companies/logos/${args.input.id}/${Date.now()}`;
+
+    const uploadedFile = await logoUpload;
+
+    await storageClient.uploadFileByStream(
+      GCP_PUBLIC_BUCKET_NAME,
+      fileName,
+      uploadedFile
+    );
+    args.input.patch.logo = storageClient.getPublicFileUrl(fileName);
+  }
+
+  // if the admin wants to remove the logo OR a new logo has been uploaded
+  if ((!logoUpload && shouldRemoveLogo) || logoUpload) {
+    const {
+      rows: [{ logo: currentLogoURL }]
+    } = await pgClient.query("select company.logo from company where id = $1", [
+      user.company.id
+    ]);
+
+    // delete the previous image if it exists & is hosted on GCP Cloud storage
+    // for now, not trying to delete externally hosted images (e.g. mock data)
+    if (currentLogoURL?.startsWith("https://storage.googleapis.com")) {
+      await storageClient.deleteFile(
+        GCP_PUBLIC_BUCKET_NAME,
+        storageClient.getFileNameFromPublicUrl(currentLogoURL)
+      );
+    }
+  }
+
   const result = await resolve(source, args, context, resolveInfo);
-  const { pgClient, user } = context;
+
   const {
     data: {
       $name,

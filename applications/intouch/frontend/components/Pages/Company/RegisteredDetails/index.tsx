@@ -7,8 +7,8 @@ import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
+import { OnCompanyUpdateSuccess } from "../../../SetCompanyDetailsDialog";
 import { EditCompanyButton } from "../EditCompany/Button";
-import { OnCompanyUpdateSuccess } from "../EditCompany/Dialog";
 import styles from "./styles.module.scss";
 
 export type CompanyRegisteredDetailsProps = {
