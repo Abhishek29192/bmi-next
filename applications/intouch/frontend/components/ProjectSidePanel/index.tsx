@@ -103,7 +103,9 @@ export const ProjectSidePanel = ({
             }}
           >
             <Typography>
-              {siteAddress?.town},{siteAddress?.postcode}
+              {[siteAddress?.town, siteAddress?.postcode]
+                .filter(Boolean)
+                .join(", ")}
             </Typography>
             <Typography style={{ display: "flex" }}>
               <SvgIcon component={technologyIcon[technology as Technology]} />
