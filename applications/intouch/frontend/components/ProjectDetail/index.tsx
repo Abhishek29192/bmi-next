@@ -20,15 +20,17 @@ import { getProjectStatus } from "../../lib/utils/project";
 import log from "../../lib/logger";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
+  const { t } = useTranslation("project-page");
+
   if (!projectId) {
     return (
       <Grid item xs={12}>
-        <NoProjectsCard title="No projects to display">
+        <NoProjectsCard title={t("noProjecSelected.title")}>
           <Typography variant="subtitle2">
-            You have not select any project yet!
+            {t("noProjecSelected.body1")}
           </Typography>
           <Typography variant="subtitle2">
-            Select the &quot;project&quot; from sidebar to get started.
+            {t("noProjecSelected.body2")}
           </Typography>
         </NoProjectsCard>
       </Grid>

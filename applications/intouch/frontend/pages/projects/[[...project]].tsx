@@ -31,7 +31,7 @@ export type ProjectsPageProps = {
 };
 
 const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation(["common", "project-page"]);
   const router = useRouter();
 
   const sortedProjects = useMemo(() => {
@@ -62,7 +62,7 @@ const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
   };
 
   return (
-    <Layout title={t("Projects")} pageData={globalPageData}>
+    <Layout title={t("common:Projects")} pageData={globalPageData}>
       <div style={{ display: "flex" }}>
         <ProjectSidePanel
           projects={sortedProjects}
@@ -78,13 +78,12 @@ const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
         >
           {sortedProjects.length === 0 ? (
             <Grid item xs={12}>
-              <NoProjectsCard title="No projects to display">
+              <NoProjectsCard title={t("project-page:noProjects.title")}>
                 <Typography variant="subtitle2">
-                  You have not added any new projects yet!
+                  {t("project-page:noProjects.body1")}
                 </Typography>
                 <Typography variant="subtitle2">
-                  Select the &quot;Add new project&quot; button below to get
-                  started.
+                  {t("project-page:noProjects.body2")}
                 </Typography>
               </NoProjectsCard>
             </Grid>
