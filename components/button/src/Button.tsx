@@ -5,7 +5,6 @@ import MaterialButton, {
 import MaterialIconButton, {
   IconButtonProps as MuiIconButtonProps
 } from "@material-ui/core/IconButton";
-import { Button as MuiButton } from "@material-ui/core";
 import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
 import styles from "./Button.module.scss";
@@ -56,6 +55,7 @@ const Button = ({
         className
       )}
       aria-label={accessibilityLabel}
+      component={component}
       disabled={disabled}
       {...rest}
     >
