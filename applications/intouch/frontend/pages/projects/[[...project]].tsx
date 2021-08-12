@@ -30,31 +30,31 @@ export type ProjectsPageProps = {
   globalPageData: GetGlobalDataQuery;
 };
 
+const sortProjects = (projects: GetProjectsQuery["projects"]["nodes"]) => {
+  const now = Date.now();
+
+  return [...(projects || [])].sort((a, b) => {
+    return (
+      Math.abs(now - new Date(a.endDate).getTime()) -
+      Math.abs(now - new Date(b.endDate).getTime())
+    );
+  });
+};
+
 const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
   const { t } = useTranslation(["common", "project-page"]);
   const router = useRouter();
 
-  const sortedProjects = useMemo(() => {
-    const now = Date.now();
-
-    return [...(projects?.nodes || [])].sort((a, b) => {
-      return (
-        Math.abs(now - new Date(a.endDate).getTime()) -
-        Math.abs(now - new Date(b.endDate).getTime())
-      );
-    });
-  }, [projects?.nodes]);
+  const sortedProjects = useMemo(
+    () => sortProjects(projects?.nodes),
+    [projects?.nodes]
+  );
 
   const activeProjectId = useMemo(() => {
     const { project } = router.query;
     if (project && project.length) {
       return parseInt(project[0]);
     }
-
-    // TODO: redirect in SSR, also, if no projects... just end up here... so it's valid to not have a selected project
-    router.push(`/projects/${sortedProjects[0]?.id}`, undefined, {
-      shallow: true
-    });
   }, [router.query, sortedProjects]);
 
   const handleProjectSelection = (projectId: number) => {
@@ -63,7 +63,7 @@ const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
 
   return (
     <Layout title={t("common:Projects")} pageData={globalPageData}>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", height: "100%" }}>
         <ProjectSidePanel
           projects={sortedProjects}
           onProjectSelected={handleProjectSelection}
@@ -97,19 +97,39 @@ const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, globalPageData, res }) => {
-    // TODO: Rename this function or reuse it at a different gate?
+  async ({ apolloClient, locale, account, globalPageData, res, params }) => {
+    // Check if user can generally access the page
     if (!can(account, "page", "projects")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
       return generatePageError(statusCode, {}, { globalPageData });
     }
 
+    // Retrieve all the projects accessible to the user
     const {
       props: {
         data: { projects }
       }
     } = await getServerPageGetProjects({}, apolloClient);
+
+    // If trying to access a specific project, check if it's accessible
+    if (params?.project && params?.project.length) {
+      const found = projects?.nodes.find(
+        ({ id }) => id === parseInt(params.project[0])
+      );
+
+      if (!found) {
+        const statusCode = ErrorStatusCode.NOT_FOUND;
+        res.statusCode = statusCode;
+        return generatePageError(statusCode, {}, { globalPageData });
+      }
+      // Otherwise, redirect to first accessible project, if any
+    } else if (projects?.nodes.length) {
+      const sortedProjects = sortProjects(projects?.nodes);
+
+      res.writeHead(302, { Location: `/projects/${sortedProjects[0]?.id}` });
+      return res.end();
+    }
 
     const props = {
       account,
