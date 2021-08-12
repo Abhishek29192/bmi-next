@@ -1812,6 +1812,8 @@ export type CompaniesOrderBy =
   | "REGISTERED_ADDRESS_ID_DESC"
   | "TRADING_ADDRESS_ID_ASC"
   | "TRADING_ADDRESS_ID_DESC"
+  | "NAME_ASC"
+  | "NAME_DESC"
   | "REFERENCE_NUMBER_ASC"
   | "REFERENCE_NUMBER_DESC"
   | "PRIMARY_KEY_ASC"
@@ -1956,6 +1958,18 @@ export type CompanyProjectsArgs = {
 };
 
 /** The fields on `company` to look up the row to connect. */
+export type CompanyCompanyNameKeyConnect = {
+  /** The registered name of the Company */
+  name: Scalars["String"];
+};
+
+/** The fields on `company` to look up the row to delete. */
+export type CompanyCompanyNameKeyDelete = {
+  /** The registered name of the Company */
+  name: Scalars["String"];
+};
+
+/** The fields on `company` to look up the row to connect. */
 export type CompanyCompanyPkeyConnect = {
   /** Primary key */
   id: Scalars["Int"];
@@ -1989,6 +2003,8 @@ export type CompanyCondition = {
   registeredAddressId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `tradingAddressId` field. */
   tradingAddressId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `referenceNumber` field. */
   referenceNumber?: Maybe<Scalars["String"]>;
 };
@@ -2038,17 +2054,23 @@ export type CompanyDocumentCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByName?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -2202,6 +2224,8 @@ export type CompanyFilter = {
   registeredAddressId?: Maybe<IntFilter>;
   /** Filter by the object’s `tradingAddressId` field. */
   tradingAddressId?: Maybe<IntFilter>;
+  /** Filter by the object’s `name` field. */
+  name?: Maybe<StringFilter>;
   /** Filter by the object’s `referenceNumber` field. */
   referenceNumber?: Maybe<StringFilter>;
   /** Checks for all expressions in this list. */
@@ -2249,6 +2273,8 @@ export type CompanyMarketIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByName?: Maybe<Array<CompanyCompanyNameKeyConnect>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyConnect>
   >;
@@ -2256,6 +2282,8 @@ export type CompanyMarketIdFkeyInverseInput = {
   connectByNodeId?: Maybe<Array<CompanyNodeIdConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByName?: Maybe<Array<CompanyCompanyNameKeyDelete>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyDelete>
@@ -2265,6 +2293,10 @@ export type CompanyMarketIdFkeyInverseInput = {
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<
     Array<CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByName?: Maybe<
+    Array<CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<
@@ -2438,17 +2470,23 @@ export type CompanyMemberCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByName?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -2874,6 +2912,15 @@ export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate 
   };
 
 /** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
+    /** The registered name of the Company */
+    name: Scalars["String"];
+  };
+
+/** The fields on `company` to look up the row to update. */
 export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
@@ -2897,6 +2944,14 @@ export type CompanyOnCompanyForCompanyMarketIdFkeyNodeIdUpdate = {
   nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `market` being updated. */
   patch: MarketPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate = {
+  /** An object where the defined keys will be set on the `company` being updated. */
+  patch: UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch;
+  /** The registered name of the Company */
+  name: Scalars["String"];
 };
 
 /** The fields on `company` to look up the row to update. */
@@ -2925,6 +2980,15 @@ export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
+    /** The registered name of the Company */
+    name: Scalars["String"];
+  };
+
+/** The fields on `company` to look up the row to update. */
 export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
@@ -2951,6 +3015,15 @@ export type CompanyOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch;
+    /** The registered name of the Company */
+    name: Scalars["String"];
+  };
+
+/** The fields on `company` to look up the row to update. */
 export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
@@ -2975,6 +3048,15 @@ export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate = {
   /** An object where the defined keys will be set on the `companyMember` being updated. */
   patch: CompanyMemberPatch;
 };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
+    /** The registered name of the Company */
+    name: Scalars["String"];
+  };
 
 /** The fields on `company` to look up the row to update. */
 export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate =
@@ -3004,6 +3086,15 @@ export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate 
   };
 
 /** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
+    /** The registered name of the Company */
+    name: Scalars["String"];
+  };
+
+/** The fields on `company` to look up the row to update. */
 export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
@@ -3030,6 +3121,15 @@ export type CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
+export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch;
+    /** The registered name of the Company */
+    name: Scalars["String"];
+  };
+
+/** The fields on `company` to look up the row to update. */
 export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
@@ -3053,6 +3153,14 @@ export type CompanyOnProjectForProjectCompanyIdFkeyNodeIdUpdate = {
   nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `project` being updated. */
   patch: ProjectPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate = {
+  /** An object where the defined keys will be set on the `company` being updated. */
+  patch: UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch;
+  /** The registered name of the Company */
+  name: Scalars["String"];
 };
 
 /** The fields on `company` to look up the row to update. */
@@ -3105,17 +3213,23 @@ export type CompanyOperationCompanyFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByName?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -3390,6 +3504,8 @@ export type CompanyRegisteredAddressIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByName?: Maybe<Array<CompanyCompanyNameKeyConnect>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyConnect>
   >;
@@ -3397,6 +3513,8 @@ export type CompanyRegisteredAddressIdFkeyInverseInput = {
   connectByNodeId?: Maybe<Array<CompanyNodeIdConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByName?: Maybe<Array<CompanyCompanyNameKeyDelete>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyDelete>
@@ -3406,6 +3524,10 @@ export type CompanyRegisteredAddressIdFkeyInverseInput = {
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<
     Array<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByName?: Maybe<
+    Array<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<
@@ -3472,6 +3594,8 @@ export type CompanyTradingAddressIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByName?: Maybe<Array<CompanyCompanyNameKeyConnect>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyConnect>
   >;
@@ -3479,6 +3603,8 @@ export type CompanyTradingAddressIdFkeyInverseInput = {
   connectByNodeId?: Maybe<Array<CompanyNodeIdConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByName?: Maybe<Array<CompanyCompanyNameKeyDelete>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyDelete>
@@ -3488,6 +3614,10 @@ export type CompanyTradingAddressIdFkeyInverseInput = {
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<
     Array<CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByName?: Maybe<
+    Array<CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<
@@ -5707,6 +5837,17 @@ export type DeleteCertificationPayload = {
 /** The output of our delete `Certification` mutation. */
 export type DeleteCertificationPayloadCertificationEdgeArgs = {
   orderBy?: Maybe<Array<CertificationsOrderBy>>;
+};
+
+/** All input for the `deleteCompanyByName` mutation. */
+export type DeleteCompanyByNameInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The registered name of the Company */
+  name: Scalars["String"];
 };
 
 /** All input for the `deleteCompanyByNodeId` mutation. */
@@ -9160,17 +9301,23 @@ export type InvitationCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByName?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -10756,6 +10903,8 @@ export type Mutation = {
   deleteCertificationByNodeId?: Maybe<DeleteCertificationPayload>;
   /** Deletes a single `Company` using a unique key. */
   deleteCompany?: Maybe<DeleteCompanyPayload>;
+  /** Deletes a single `Company` using a unique key. */
+  deleteCompanyByName?: Maybe<DeleteCompanyPayload>;
   /** Deletes a single `Company` using its globally unique id. */
   deleteCompanyByNodeId?: Maybe<DeleteCompanyPayload>;
   /** Deletes a single `Company` using a unique key. */
@@ -10888,6 +11037,8 @@ export type Mutation = {
   updateCertificationByNodeId?: Maybe<UpdateCertificationPayload>;
   /** Updates a single `Company` using a unique key and a patch. */
   updateCompany?: Maybe<UpdateCompanyPayload>;
+  /** Updates a single `Company` using a unique key and a patch. */
+  updateCompanyByName?: Maybe<UpdateCompanyPayload>;
   /** Updates a single `Company` using its globally unique id and a patch. */
   updateCompanyByNodeId?: Maybe<UpdateCompanyPayload>;
   /** Updates a single `Company` using a unique key and a patch. */
@@ -11219,6 +11370,11 @@ export type MutationDeleteCertificationByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteCompanyArgs = {
   input: DeleteCompanyInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteCompanyByNameArgs = {
+  input: DeleteCompanyByNameInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -11561,6 +11717,11 @@ export type MutationUpdateCertificationByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateCompanyArgs = {
   input: UpdateCompanyInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateCompanyByNameArgs = {
+  input: UpdateCompanyByNameInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13219,17 +13380,23 @@ export type ProjectCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByNodeId?: Maybe<CompanyNodeIdConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByName?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -14137,6 +14304,7 @@ export type Query = Node & {
   /** Reads and enables pagination through a set of `Company`. */
   companies?: Maybe<CompaniesConnection>;
   company?: Maybe<Company>;
+  companyByName?: Maybe<Company>;
   /** Reads a single `Company` using its globally unique `ID`. */
   companyByNodeId?: Maybe<Company>;
   companyByReferenceNumber?: Maybe<Company>;
@@ -14460,6 +14628,11 @@ export type QueryCompaniesArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryCompanyArgs = {
   id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryCompanyByNameArgs = {
+  name: Scalars["String"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -16994,6 +17167,19 @@ export type UpdateCertificationPayload = {
 /** The output of our update `Certification` mutation. */
 export type UpdateCertificationPayloadCertificationEdgeArgs = {
   orderBy?: Maybe<Array<CertificationsOrderBy>>;
+};
+
+/** All input for the `updateCompanyByName` mutation. */
+export type UpdateCompanyByNameInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Company` being updated. */
+  patch: CompanyPatch;
+  /** The registered name of the Company */
+  name: Scalars["String"];
 };
 
 /** All input for the `updateCompanyByNodeId` mutation. */
