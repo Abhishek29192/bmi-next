@@ -55,7 +55,7 @@ const ImportTab = () => {
             ...data.bulkImport,
             message: dryRun
               ? {
-                  text: t("dyRunCompleted"),
+                  text: t("dryRunCompleted"),
                   severity: "success"
                 }
               : {

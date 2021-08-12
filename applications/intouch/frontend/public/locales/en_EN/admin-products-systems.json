@@ -40,5 +40,6 @@
   "errors": {
     "filename_wrong_format": "The file has a wrong format",
     "unauthorized": "Not authorized"
-  }
+  },
+  "dryRunCompleted": "Dry run completed"
 }
