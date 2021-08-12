@@ -45,6 +45,6 @@ describe("YoutubeVideo component", () => {
     );
     const thumbnailButton = getByRole("button", { name: props.label });
     thumbnailButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container.parentElement).toMatchSnapshot();
   });
 });
