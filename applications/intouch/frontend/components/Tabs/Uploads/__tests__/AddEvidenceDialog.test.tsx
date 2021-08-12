@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { EvidenceCategoryType } from "@bmi/intouch-api-types";
 import { AddEvidenceDialog } from "../AddEvidenceDialog";
 import {
   renderWithI18NProvider,
@@ -38,8 +39,12 @@ describe("AddEvidenceDialog Components", () => {
       new File([], "name1", { type: "pdf" }),
       new File([], "name2", { type: "pdf" })
     ];
+    const evidenceCategoryType: EvidenceCategoryType = "MISCELLANEOUS";
+    const customEvidenceCategoryId: string = null;
     fireEvent.change(addEvidence, {
       target: {
+        evidenceCategoryType,
+        customEvidenceCategoryId,
         files
       }
     });
@@ -48,6 +53,6 @@ describe("AddEvidenceDialog Components", () => {
       "upload_tab.add_evidence_modal.confirm_label"
     );
     confirmButton.click();
-    expect(onConfirmClick).toHaveBeenCalledWith(files);
+    expect(onConfirmClick).toHaveBeenCalledWith("MISCELLANEOUS", null, files);
   });
 });

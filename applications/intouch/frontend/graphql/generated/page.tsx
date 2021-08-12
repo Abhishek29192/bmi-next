@@ -139,6 +139,50 @@ export const ssrGetProjectCompanyMembers = {
   usePage: useGetProjectCompanyMembers
 };
 
+export async function getServerPageContentfulEvidenceCategories(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.ContentfulEvidenceCategoriesQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.ContentfulEvidenceCategoriesQuery>({
+      ...options,
+      query: Operations.ContentfulEvidenceCategoriesDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useContentfulEvidenceCategories = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.ContentfulEvidenceCategoriesQuery,
+    OperationTypes.ContentfulEvidenceCategoriesQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.ContentfulEvidenceCategoriesDocument, options);
+};
+export type PageContentfulEvidenceCategoriesComp = React.FC<{
+  data?: OperationTypes.ContentfulEvidenceCategoriesQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrContentfulEvidenceCategories = {
+  getServerPage: getServerPageContentfulEvidenceCategories,
+
+  usePage: useContentfulEvidenceCategories
+};
 export async function getServerPageAccountByEmail(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.AccountByEmailQueryVariables>,

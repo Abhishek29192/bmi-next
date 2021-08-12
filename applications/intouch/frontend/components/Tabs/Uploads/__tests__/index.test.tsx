@@ -9,7 +9,8 @@ jest.mock("@bmi/use-dimensions", () => ({
 }));
 
 jest.mock("../../../../graphql/generated/hooks", () => ({
-  useAddEvidencesMutation: () => [jest.fn()]
+  useAddEvidencesMutation: () => [jest.fn()],
+  useContentfulEvidenceCategoriesLazyQuery: () => [jest.fn()]
 }));
 
 describe("Uploads Components", () => {

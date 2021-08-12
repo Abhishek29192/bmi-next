@@ -878,6 +878,9 @@ export const GetProjectDocument = gql`
           guaranteeTypeId
           guaranteeType {
             name
+            coverage
+            displayName
+            technology
             evidenceCategoriesCollection {
               items {
                 name
@@ -885,6 +888,7 @@ export const GetProjectDocument = gql`
               }
             }
           }
+          status
         }
       }
       evidenceItems {
@@ -922,7 +926,13 @@ export const GetProjectDocument = gql`
               }
             }
           }
+          isResponsibleInstaller
         }
+      }
+      company {
+        id
+        name
+        tier
       }
     }
   }
@@ -1271,6 +1281,68 @@ export type AddEvidencesMutationResult =
 export type AddEvidencesMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.AddEvidencesMutation,
   OperationTypes.AddEvidencesMutationVariables
+>;
+export const ContentfulEvidenceCategoriesDocument = gql`
+  query contentfulEvidenceCategories {
+    evidenceCategoryCollection {
+      items {
+        sys {
+          id
+        }
+        name
+      }
+    }
+  }
+`;
+
+/**
+ * __useContentfulEvidenceCategoriesQuery__
+ *
+ * To run a query within a React component, call `useContentfulEvidenceCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useContentfulEvidenceCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useContentfulEvidenceCategoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useContentfulEvidenceCategoriesQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.ContentfulEvidenceCategoriesQuery,
+    OperationTypes.ContentfulEvidenceCategoriesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.ContentfulEvidenceCategoriesQuery,
+    OperationTypes.ContentfulEvidenceCategoriesQueryVariables
+  >(ContentfulEvidenceCategoriesDocument, options);
+}
+export function useContentfulEvidenceCategoriesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.ContentfulEvidenceCategoriesQuery,
+    OperationTypes.ContentfulEvidenceCategoriesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.ContentfulEvidenceCategoriesQuery,
+    OperationTypes.ContentfulEvidenceCategoriesQueryVariables
+  >(ContentfulEvidenceCategoriesDocument, options);
+}
+export type ContentfulEvidenceCategoriesQueryHookResult = ReturnType<
+  typeof useContentfulEvidenceCategoriesQuery
+>;
+export type ContentfulEvidenceCategoriesLazyQueryHookResult = ReturnType<
+  typeof useContentfulEvidenceCategoriesLazyQuery
+>;
+export type ContentfulEvidenceCategoriesQueryResult = Apollo.QueryResult<
+  OperationTypes.ContentfulEvidenceCategoriesQuery,
+  OperationTypes.ContentfulEvidenceCategoriesQueryVariables
 >;
 export const AccountByEmailDocument = gql`
   query accountByEmail($email: String!) {

@@ -35,7 +35,9 @@
       },
       "instruction": "You can add files",
       "confirm_label": "Add Evidences",
-      "cancel_label": "Cancel"
+      "cancel_label": "Cancel",
+      "file_validation_message": "You cannot upload  files larger than",
+      "evidence_category": "Evidence Category"
     }
   }
 }

@@ -3,7 +3,7 @@ import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
-import { Note, ProjectMember } from "@bmi/intouch-api-types";
+import { Guarantee, Note, ProjectMember } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import { ProjectsHeader } from "../../components/Cards/ProjectsHeader";
 import { BuildingOwnerDetails } from "../../components/Cards/BuildingOwnerDetails";
@@ -39,7 +39,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     }
   });
 
-  if (loading) return <></>;
+  if (loading || project === null) return <></>;
 
   const getProjectStatus = (startDate, endDate) => {
     if (!startDate && !endDate) return "Not started";
@@ -138,7 +138,36 @@ const UploadedFiles = ({
     const existFiles = map.has(categoryLabel) ? map.get(categoryLabel) : [];
     map.set(categoryLabel, [...existFiles, evidence.name]);
   }
-  return <UploadsTab projectId={id} uploads={map} />;
+
+  const guaranteeEvidence = getGuaranteeEvidence(
+    guarantees.nodes as Guarantee[]
+  );
+
+  return (
+    <UploadsTab
+      projectId={id}
+      guaranteeId={guaranteeEvidence.guaranteeId}
+      uploads={map}
+      isContentfulEvidenceAvailable={guaranteeEvidence.customEvidenceAvailable}
+    />
+  );
+};
+
+const getGuaranteeEvidence = (guarantees: Guarantee[]) => {
+  const solutionGuarantee =
+    guarantees.find((node) => node.guaranteeType.coverage === "SOLUTION") ||
+    null;
+
+  let evidenceAvailable = false;
+  if (solutionGuarantee !== null) {
+    evidenceAvailable = !["APPROVED", "REVIEW"].includes(
+      solutionGuarantee.status
+    );
+  }
+  return {
+    guaranteeId: solutionGuarantee?.id,
+    customEvidenceAvailable: evidenceAvailable
+  };
 };
 
 export default ProjectDetail;
@@ -177,6 +206,9 @@ export const GET_PROJECT = gql`
           guaranteeTypeId
           guaranteeType {
             name
+            coverage
+            displayName
+            technology
             evidenceCategoriesCollection {
               items {
                 name
@@ -184,6 +216,7 @@ export const GET_PROJECT = gql`
               }
             }
           }
+          status
         }
       }
       evidenceItems {
@@ -221,7 +254,13 @@ export const GET_PROJECT = gql`
               }
             }
           }
+          isResponsibleInstaller
         }
+      }
+      company {
+        id
+        name
+        tier
       }
     }
   }
