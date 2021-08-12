@@ -93,7 +93,7 @@ const CompanyMembers = ({ data }: PageProps) => {
       setMessages([
         {
           severity: "error",
-          message: error.message
+          message: "genericError"
         }
       ]);
       closeWithDelay();
@@ -110,7 +110,7 @@ const CompanyMembers = ({ data }: PageProps) => {
       setMessages([
         {
           severity: "success",
-          message: "member.removed.success"
+          message: "memberRemoved"
         }
       ]);
 
@@ -149,7 +149,7 @@ const CompanyMembers = ({ data }: PageProps) => {
       setMessages([
         {
           severity: "error",
-          message: error.message
+          message: "genericError"
         }
       ]);
     },
