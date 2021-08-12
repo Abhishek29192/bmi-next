@@ -59,6 +59,7 @@ export type Product = {
   code: string;
   externalProductCode: string | null;
   name: string;
+  longDescription: string | null;
   description: string;
   images?: ReadonlyArray<Image>;
   assets?: ReadonlyArray<Asset>;
