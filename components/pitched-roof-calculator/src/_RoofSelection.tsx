@@ -42,6 +42,7 @@ const RoofSelectionRow = ({
               illustratedImage={roof.illustration}
               onClick={() => {
                 pushEvent({
+                  event: "dxb.button_click",
                   id: "rc-roof-type",
                   label,
                   action: "selected"

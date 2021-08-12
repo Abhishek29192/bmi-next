@@ -66,6 +66,7 @@ const PitchedRoofCalculatorSteps = ({
     e.preventDefault();
 
     pushEvent({
+      event: "dxb.button_click",
       id: "rc-dimensions",
       label: getMicroCopy(copy, "roofDimensions.nextLabel"),
       action: "selected"
@@ -130,6 +131,7 @@ const PitchedRoofCalculatorSteps = ({
   useEffect(() => {
     if (selected === "your-solution-contains") {
       pushEvent({
+        event: "dxb.button_click",
         id: "rc-solution-m2",
         label: "m²",
         action: formattedArea
@@ -157,6 +159,7 @@ const PitchedRoofCalculatorSteps = ({
           backLabel={getMicroCopy(copy, "roofDimensions.backLabel")}
           backButtonOnClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-dimensions",
               label: getMicroCopy(copy, "roofDimensions.backLabel"),
               action: "selected"
@@ -173,6 +176,7 @@ const PitchedRoofCalculatorSteps = ({
           backLabel={getMicroCopy(copy, "tileSelection.backLabel")}
           backButtonOnClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-select-tile",
               label: getMicroCopy(copy, "tileSelection.backLabel"),
               action: "selected"
@@ -194,6 +198,7 @@ const PitchedRoofCalculatorSteps = ({
           backLabel={getMicroCopy(copy, "variantSelection.backLabel")}
           backButtonOnClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-select-tile-colour",
               label: getMicroCopy(copy, "variantSelection.backLabel"),
               action: "selected"
@@ -217,6 +222,7 @@ const PitchedRoofCalculatorSteps = ({
           nextLabel={getMicroCopy(copy, "tileOptions.nextLabel")}
           nextButtonOnClick={(e, values) => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-options-accessories",
               label: getMicroCopy(copy, "tileOptions.nextLabel"),
               action: "selected"
@@ -226,6 +232,7 @@ const PitchedRoofCalculatorSteps = ({
           backLabel={getMicroCopy(copy, "tileOptions.backLabel")}
           backButtonOnClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-options-accessories",
               label: getMicroCopy(copy, "tileOptions.backLabel"),
               action: "selected"
@@ -244,6 +251,7 @@ const PitchedRoofCalculatorSteps = ({
           nextLabel={getMicroCopy(copy, "underlaySelection.nextLabel")}
           nextButtonOnClick={(e, values) => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-select-underlay",
               label: getMicroCopy(copy, "underlaySelection.nextLabel"),
               action: "selected"
@@ -253,6 +261,7 @@ const PitchedRoofCalculatorSteps = ({
           backLabel={getMicroCopy(copy, "underlaySelection.backLabel")}
           backButtonOnClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-select-underlay",
               label: getMicroCopy(copy, "underlaySelection.backLabel"),
               action: "selected"
@@ -273,6 +282,7 @@ const PitchedRoofCalculatorSteps = ({
           nextLabel={getMicroCopy(copy, "guttering.nextLabel")}
           nextButtonOnClick={(e, values) => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-select-guttering",
               label: getMicroCopy(copy, "guttering.nextLabel"),
               action: "selected"
@@ -282,6 +292,7 @@ const PitchedRoofCalculatorSteps = ({
           backLabel={getMicroCopy(copy, "guttering.backLabel")}
           backButtonOnClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-select-guttering",
               label: getMicroCopy(copy, "guttering.backLabel"),
               action: "selected"
@@ -291,6 +302,7 @@ const PitchedRoofCalculatorSteps = ({
           linkLabel={getMicroCopy(copy, "guttering.skipLabel")}
           linkOnClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-select-guttering",
               label: getMicroCopy(copy, "guttering.skipLabel"),
               action: "selected"
@@ -320,6 +332,7 @@ const PitchedRoofCalculatorSteps = ({
           backLabel={getMicroCopy(copy, "results.backLabel")}
           backButtonOnClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-solution",
               label: getMicroCopy(copy, "results.backLabel"),
               action: "selected"
@@ -329,6 +342,7 @@ const PitchedRoofCalculatorSteps = ({
           linkLabel={getMicroCopy(copy, "results.startOverLabel")}
           linkOnClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-solution",
               label: getMicroCopy(copy, "results.startOverLabel"),
               action: "selected"

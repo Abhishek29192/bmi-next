@@ -72,6 +72,7 @@ const PitchedRoofCalculator = ({
         open={isOpen}
         onCloseClick={() => {
           pushEvent({
+            event: "dxb.button_click",
             id: "rc-close",
             label: "Close Roof Calculator",
             action: "selected"

@@ -37,6 +37,7 @@ const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
             imageSource={image}
             onClick={() => {
               pushEvent({
+                event: "dxb.button_click",
                 id: "rc-select-guttering",
                 label: name,
                 action: "selected"
@@ -81,6 +82,7 @@ const GutteringVariantSelection = ({
             imageSource={image}
             onClick={() => {
               pushEvent({
+                event: "dxb.button_click",
                 id: "rc-select-guttering",
                 label: name,
                 action: "selected"
@@ -125,6 +127,7 @@ const GutteringHookSelection = ({
             imageSource={image}
             onClick={() => {
               pushEvent({
+                event: "dxb.button_click",
                 id: "rc-select-guttering",
                 label: name,
                 action: "selected"
@@ -163,6 +166,7 @@ const DownPipeSelection = ({
               defaultValue={downPipes}
               onChange={(value) => {
                 pushEvent({
+                  event: "dxb.button_click",
                   id: "rc-select-guttering",
                   label: getMicroCopy(copy, "guttering.downPipe.title"),
                   action: value + ""
@@ -182,6 +186,7 @@ const DownPipeSelection = ({
               defaultValue={downPipeConnectors}
               onChange={(value) => {
                 pushEvent({
+                  event: "dxb.button_click",
                   id: "rc-select-guttering",
                   label: getMicroCopy(
                     copy,
