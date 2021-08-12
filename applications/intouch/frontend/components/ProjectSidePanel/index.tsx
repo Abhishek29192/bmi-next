@@ -31,10 +31,12 @@ const technologyIcon: {
 type ProjectSidePanelProps = {
   projects: GetProjectsQuery["projects"]["nodes"];
   onProjectSelected?: (projectId: number) => void;
+  selectedProjectId?: number;
 };
 export const ProjectSidePanel = ({
   projects,
-  onProjectSelected
+  onProjectSelected,
+  selectedProjectId
 }: ProjectSidePanelProps) => {
   const { t } = useTranslation("project-page");
   const [filterSelection, setFilterSelection] = useState<string>(
@@ -98,6 +100,7 @@ export const ProjectSidePanel = ({
           <FilterResult
             label={name}
             key={id}
+            isSelected={selectedProjectId === id}
             onClick={() => {
               onProjectSelected && onProjectSelected(id);
             }}

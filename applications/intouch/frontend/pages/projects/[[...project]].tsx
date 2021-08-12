@@ -67,6 +67,7 @@ const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
         <ProjectSidePanel
           projects={sortedProjects}
           onProjectSelected={handleProjectSelection}
+          selectedProjectId={activeProjectId}
         />
 
         <Grid
