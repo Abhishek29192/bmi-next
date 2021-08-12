@@ -63,6 +63,21 @@ const card2: PromoData = {
   backgroundColor: null
 };
 
+const card3: PromoData = {
+  __typename: "ContentfulPromo",
+  id: "testId",
+  name: "test name",
+  title: null,
+  subtitle: "I am a subtitle",
+  body: null,
+  tags: null,
+  brandLogo: null,
+  featuredMedia: null,
+  featuredVideo: null,
+  cta,
+  backgroundColor: null
+};
+
 describe("NextBestActions component", () => {
   it("renders correctly", () => {
     const { container } = render(
@@ -86,6 +101,15 @@ describe("NextBestActions component", () => {
     const { container } = render(
       <SiteContext.Provider value={getMockSiteContext()}>
         <NextBestActions data={[{ ...card2, cta: { ...cta, label: null } }]} />
+      </SiteContext.Provider>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders name with no title", () => {
+    const { container } = render(
+      <SiteContext.Provider value={getMockSiteContext()}>
+        <NextBestActions data={[card3]} />
       </SiteContext.Provider>
     );
     expect(container).toMatchSnapshot();

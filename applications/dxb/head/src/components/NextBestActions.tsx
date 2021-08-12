@@ -30,6 +30,7 @@ const NextBestActions = ({ data }: { data: Data }) => {
       <Grid container spacing={3}>
         {data.map(({ title, subtitle, ...rest }, index) => {
           const cta = getCTA(rest, countryCode, getMicroCopy("page.linkLabel"));
+          const name = rest.__typename === "ContentfulPromo" ? rest.name : null;
 
           const ClickableButtonBase =
             withClickable<ButtonBaseProps>(ButtonBase);
@@ -38,7 +39,7 @@ const NextBestActions = ({ data }: { data: Data }) => {
             <Grid item xs={12} md={4} lg={3} key={`nba-${index}`}>
               <NBACard
                 theme={indexToBackgroundMap[index]}
-                title={title}
+                title={title || name}
                 footer={
                   cta && cta.label ? (
                     <div style={{ fontSize: "1rem" }}>
