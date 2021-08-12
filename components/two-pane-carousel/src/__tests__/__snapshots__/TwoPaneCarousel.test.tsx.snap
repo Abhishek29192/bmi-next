@@ -60,7 +60,20 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
                     </div>
                   </div>
                 </div>
-@@ -105,16 +87,21 @@
+@@ -76,11 +58,11 @@
+          <div
+            class=\\"SlideControls controls\\"
+          >
+            <button
+              aria-label=\\"previous\\"
+-             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-122 iconButtonStyles-medium-128 iconButtonStyles-text-124\\"
++             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-148 iconButtonStyles-medium-154 iconButtonStyles-text-150\\"
+              tabindex=\\"0\\"
+              type=\\"button\\"
+            >
+              <span
+                class=\\"MuiIconButton-label\\"
+@@ -105,28 +87,33 @@
             >
               <span
                 class=\\"sliding-slot\\"
@@ -68,22 +81,35 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
                 <span
 -                 class=\\"numbers\\"
 +                 class=\\"numbers numbers--up\\"
-+               >
-+                 <span
+                >
+                  <span
+-                   class=\\"number number--active\\"
 +                   class=\\"number\\"
                   >
-+                   01
-+                 </span>
-                  <span
-                    class=\\"number number--active\\"
-                  >
--                   01
+                    01
+                  </span>
++                 <span
++                   class=\\"number number--active\\"
++                 >
 +                   02
                   </span>
                 </span>
-              </span>
++             </span>
               <span
                 class=\\"total\\"
+              >
+                03
+              </span>
+            </span>
+            <button
+              aria-label=\\"next\\"
+-             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-122 iconButtonStyles-medium-128 iconButtonStyles-text-124\\"
++             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-148 iconButtonStyles-medium-154 iconButtonStyles-text-150\\"
+              tabindex=\\"0\\"
+              type=\\"button\\"
+            >
+              <span
+                class=\\"MuiIconButton-label\\"
 @@ -162,11 +149,11 @@
             <div
               style=\\"overflow-x: hidden;\\"
@@ -143,6 +169,19 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                               class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
                               type=\\"button\\"
                             >
+@@ -76,11 +72,11 @@
+          <div
+            class=\\"SlideControls controls\\"
+          >
+            <button
+              aria-label=\\"previous\\"
+-             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-200 iconButtonStyles-medium-206 iconButtonStyles-text-202\\"
++             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-226 iconButtonStyles-medium-232 iconButtonStyles-text-228\\"
+              tabindex=\\"0\\"
+              type=\\"button\\"
+            >
+              <span
+                class=\\"MuiIconButton-label\\"
 @@ -105,14 +101,19 @@
             >
               <span
@@ -164,6 +203,19 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                   </span>
                 </span>
               </span>
+@@ -122,11 +123,11 @@
+                03
+              </span>
+            </span>
+            <button
+              aria-label=\\"next\\"
+-             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-200 iconButtonStyles-medium-206 iconButtonStyles-text-202\\"
++             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-226 iconButtonStyles-medium-232 iconButtonStyles-text-228\\"
+              tabindex=\\"0\\"
+              type=\\"button\\"
+            >
+              <span
+                class=\\"MuiIconButton-label\\"
 @@ -162,11 +163,11 @@
             <div
               style=\\"overflow-x: hidden;\\"
@@ -278,7 +330,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
         >
           <button
             aria-label="previous"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-70 iconButtonStyles-medium-76 iconButtonStyles-text-72"
             tabindex="0"
             type="button"
           >
@@ -324,7 +376,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
           </span>
           <button
             aria-label="next"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-70 iconButtonStyles-medium-76 iconButtonStyles-text-72"
             tabindex="0"
             type="button"
           >
@@ -513,7 +565,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
     >
       <button
         aria-label="previous"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-18 iconButtonStyles-medium-24 iconButtonStyles-text-20"
         tabindex="0"
         type="button"
       >
@@ -559,7 +611,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
       </span>
       <button
         aria-label="next"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-18 iconButtonStyles-medium-24 iconButtonStyles-text-20"
         tabindex="0"
         type="button"
       >

@@ -83,12 +83,12 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-79 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-83"
         >
           Go to this
         </span>
@@ -177,12 +177,12 @@ exports[`OverviewCard component renders correctly 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-5"
         >
           Go to this
         </span>
@@ -319,12 +319,12 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-27 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-31"
         >
           Go to this
         </span>
@@ -372,12 +372,12 @@ exports[`OverviewCard component renders with deprecated imageSource 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-57"
         >
           Go to this
         </span>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { render } from "@testing-library/react";
 import Dialog from "../";
 
@@ -9,6 +9,17 @@ describe("Dialog component", () => {
         <Dialog.Title hasUnderline>Heading</Dialog.Title>
         <Dialog.Content>Some content</Dialog.Content>
         <Dialog.Actions confirmLabel={"Close"} />
+      </Dialog>
+    );
+    expect(container.parentElement!).toMatchSnapshot();
+  });
+
+  it("renders without confirm label", () => {
+    const { container } = render(
+      <Dialog open onCloseClick={console.log}>
+        <Dialog.Title hasUnderline>Heading</Dialog.Title>
+        <Dialog.Content>Some content</Dialog.Content>
+        <Dialog.Actions />
       </Dialog>
     );
     expect(container.parentElement!).toMatchSnapshot();
@@ -92,5 +103,37 @@ describe("Dialog component", () => {
     // @ts-ignore
     backdrop.click();
     expect(onBackdropClick).toHaveBeenCalled();
+  });
+
+  it("aria-hidden should be false if disabled portal", () => {
+    const TestComponent = () => {
+      const [open, setOpen] = useState(false);
+
+      return (
+        <>
+          <button onClick={setOpen.bind(null, true)} type="button">
+            Open Dialog
+          </button>
+          <Dialog open={open} disablePortal>
+            <Dialog.Title hasUnderline>Heading</Dialog.Title>
+            <Dialog.Content>Some content</Dialog.Content>
+            <Dialog.Actions confirmLabel={"Close"} />
+          </Dialog>
+        </>
+      );
+    };
+    const { getByText } = render(<TestComponent />);
+
+    const openDialog = getByText("Open Dialog");
+    openDialog.click();
+    const isAreaHiddenFalse = Array.from(document.body.children)
+      .filter(
+        (child) =>
+          !["SCRIPT", "IFRAME", "NOSCRIPT"].some(
+            (tagName) => child.tagName === tagName
+          )
+      )
+      .every((child) => child.getAttribute("aria-hidden") === "false");
+    expect(isAreaHiddenFalse).toBe(true);
   });
 });

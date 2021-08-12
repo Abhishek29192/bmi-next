@@ -48,7 +48,6 @@ const LeadBlockSection = ({
             {postItCard ? (
               <RichText
                 document={postItCard}
-                backgroundTheme="dark"
                 underlineHeadings={["h2", "h3", "h4"]}
               />
             ) : (

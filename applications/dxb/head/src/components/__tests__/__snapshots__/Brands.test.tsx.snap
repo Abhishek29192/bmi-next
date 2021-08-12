@@ -27,14 +27,14 @@ exports[`Brands component renders correctly 1`] = `
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button brandLogoButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-3 brandLogoButton MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"[object Object]\\",\\"action\\":\\"/smilex\\"}"
               href="/smilex"
               role="button"
               tabindex="0"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-5"
               >
                 <svg
                   class="brandLogo"
@@ -49,14 +49,14 @@ exports[`Brands component renders correctly 1`] = `
             </h6>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-3 MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
               href="/smilex"
               role="button"
               tabindex="0"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-5"
               >
                 MC: homepage.brands.learn
                 <span

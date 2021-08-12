@@ -201,13 +201,13 @@ exports[`Hero component renders level 1 with CTA 1`] = `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button cta Button--dark-background MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-outlinedDarkBg-15 cta MuiButton-outlinedPrimary"
             label="CTA action"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-5"
             >
               CTA action
             </span>

@@ -311,12 +311,12 @@ exports[`FormSection component renders correctly 1`] = `
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary MuiButton-fullWidth"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label-13"
                     >
                       <svg
                         aria-hidden="true"
@@ -490,14 +490,14 @@ exports[`FormSection component renders correctly 1`] = `
           class="ButtonWrapper"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-12 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
             data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"Submit\\",\\"action\\":\\"Test form\\"}"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-13"
             >
               Submit
               <span

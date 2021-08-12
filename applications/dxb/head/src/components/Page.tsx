@@ -12,6 +12,7 @@ import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
 import getJpgImage from "../utils/images";
+import BrandProvider from "./BrandProvider";
 import { SiteContext, Data as SiteData } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
@@ -19,9 +20,6 @@ import ErrorFallback from "./ErrorFallback";
 import { Data as SEOContentData } from "./SEOContent";
 import VisualiserProvider from "./Visualiser";
 import Calculator from "./PitchedRoofCalcualtor";
-import styles from "./styles/Page.module.scss";
-
-import BrandProvider from "./BrandProvider";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
