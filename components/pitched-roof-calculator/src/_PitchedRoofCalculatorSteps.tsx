@@ -18,6 +18,7 @@ import protrusionTypes from "./calculation/protrusions";
 import { DimensionsValues, Measurements, Roof } from "./types/roof";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";
 import { Data } from "./types";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constents";
 
 type Step =
   | "select-roof"
@@ -321,7 +322,7 @@ const PitchedRoofCalculatorSteps = ({
           key="your-solution-contains"
           title={getMicroCopy(copy, "results.title")}
           subtitle={getMicroCopy(copy, "results.subtitle", {
-            contingency: "0"
+            contingency: CONTINGENCY_PERCENTAGE_TEXT
           })}
           paragraph={
             <span>

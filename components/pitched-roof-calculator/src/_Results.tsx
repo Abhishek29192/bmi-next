@@ -14,7 +14,8 @@ import {
   ResultsObject,
   Underlay,
   VergeOption,
-  Guttering
+  Guttering,
+  ResultsRow
 } from "./types";
 import { Measurements } from "./types/roof";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
@@ -22,6 +23,7 @@ import { AnalyticsContext } from "./helpers/analytics";
 import Alert from "./subcomponents/_Alert";
 import styles from "./_Results.module.scss";
 import { EmailFormValues } from "./types/EmailFormValues";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constents";
 
 type EmailAddressCollectionProps = {
   results: ResultsObject;
@@ -168,10 +170,22 @@ const EmailAddressCollection = ({
   );
 };
 
-const getRemoveRow = (setRows) => (externalProductCode) =>
+type SetRows = (replacer: (rows: ResultsRow[]) => ResultsRow[]) => void;
+
+const getRemoveRow = (setRows: SetRows) => (externalProductCode) =>
   setRows((rows) =>
     rows.filter((row) => row.externalProductCode !== externalProductCode)
   );
+
+const getChangeQuantity =
+  (setRows: SetRows) => (externalProductCode, newQuantity) =>
+    setRows((rows) =>
+      rows.map((row) =>
+        row.externalProductCode === externalProductCode
+          ? { ...row, quantity: newQuantity }
+          : row
+      )
+    );
 
 const Results = ({
   underlays,
@@ -283,7 +297,7 @@ const Results = ({
         <FieldContainer title={getMicroCopy(copy, "results.categories.tiles")}>
           <QuantityTable
             onDelete={getRemoveRow(setTileRows)}
-            onChangeQuantity={() => {}}
+            onChangeQuantity={getChangeQuantity(setTileRows)}
             rows={tileRows}
             {...tableLabels}
           />
@@ -295,7 +309,7 @@ const Results = ({
         >
           <QuantityTable
             onDelete={getRemoveRow(setFixingRows)}
-            onChangeQuantity={() => {}}
+            onChangeQuantity={getChangeQuantity(setFixingRows)}
             rows={fixingRows}
             {...tableLabels}
           />
@@ -307,7 +321,7 @@ const Results = ({
         >
           <QuantityTable
             onDelete={getRemoveRow(setSealingRows)}
-            onChangeQuantity={() => {}}
+            onChangeQuantity={getChangeQuantity(setSealingRows)}
             rows={sealingRows}
             {...tableLabels}
           />
@@ -319,7 +333,7 @@ const Results = ({
         >
           <QuantityTable
             onDelete={getRemoveRow(setVentilationRows)}
-            onChangeQuantity={() => {}}
+            onChangeQuantity={getChangeQuantity(setVentilationRows)}
             rows={ventilationRows}
             {...tableLabels}
           />
@@ -331,7 +345,7 @@ const Results = ({
         >
           <QuantityTable
             onDelete={getRemoveRow(setAccessoryRows)}
-            onChangeQuantity={() => {}}
+            onChangeQuantity={getChangeQuantity(setAccessoryRows)}
             rows={accessoryRows}
             {...tableLabels}
           />
@@ -346,10 +360,22 @@ const Results = ({
       </Alert>
       <Alert title={getMicroCopy(copy, "results.alerts.needToKnow.title")} last>
         {getMicroCopy(copy, "results.alerts.needToKnow.text", {
-          contingency: "0"
+          contingency: CONTINGENCY_PERCENTAGE_TEXT
         })}
       </Alert>
-      <EmailAddressCollection {...{ results, area, sendEmailAddress }} />
+      <EmailAddressCollection
+        {...{
+          results: {
+            tiles: tileRows,
+            fixings: fixingRows,
+            sealing: sealingRows,
+            ventilation: ventilationRows,
+            accessories: accessoryRows
+          },
+          area,
+          sendEmailAddress
+        }}
+      />
       {isDebugging ? (
         <FieldContainer>
           <Typography variant="h3">

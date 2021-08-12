@@ -14,6 +14,7 @@ import {
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import EffraBold from "./fonts/Effra_Bd.ttf";
 import { ResultsObject } from "./types";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constents";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
 const MARGIN_LEFT = 25;
@@ -401,7 +402,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     </Typography>
     <Typography variant="body1" center margin={[100, 0, 100, 0]}>
       {getMicroCopy("results.subtitle", {
-        contingency: "0"
+        contingency: CONTINGENCY_PERCENTAGE_TEXT
       })}
     </Typography>
     <Typography variant="h5" margin={[0, 25, 0, 10]}>
@@ -459,7 +460,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     </Alert>
     <Alert title={getMicroCopy("results.alerts.needToKnow.title")}>
       {getMicroCopy("results.alerts.needToKnow.text", {
-        contingency: "0"
+        contingency: CONTINGENCY_PERCENTAGE_TEXT
       })}
     </Alert>
   </Document>
