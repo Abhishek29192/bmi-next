@@ -3758,7 +3758,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                 for="company-autocomplete"
                 id="company-autocomplete-label"
               >
-                MC: findARoofer.companyFieldLabel
+                MC: findARoofer.merchantNameSearchLabel
               </label>
               <div
                 class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -3815,7 +3815,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                     class="PrivateNotchedOutline-legendLabelled-79 PrivateNotchedOutline-legendNotched-80"
                   >
                     <span>
-                      MC: findARoofer.companyFieldLabel
+                      MC: findARoofer.merchantNameSearchLabel
                     </span>
                   </legend>
                 </fieldset>

@@ -130,6 +130,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const shouldEnableSearch = sectionType !== "Branch";
   const shouldListCertification = sectionType === "Roofer";
 
+  const nameSearchLabelKey =
+    sectionType === "Merchant"
+      ? "merchantNameSearchLabel"
+      : "companyFieldLabel";
+
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
 
@@ -558,7 +563,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               <>
                 <Autocomplete
                   id="company-autocomplete"
-                  label={getMicroCopy("findARoofer.companyFieldLabel")}
+                  label={getMicroCopy(`findARoofer.${nameSearchLabelKey}`)}
                   noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
                   className={styles["company-autocomplete"]}
                   onChange={(_, inputValue) => {
