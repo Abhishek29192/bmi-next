@@ -911,6 +911,7 @@ union ContentfulSection =
   | ContentfulServiceLocatorSection
   | ContentfulVideoSection
   | ContentfulIframe
+  | ContentfulSystemConfiguratorBlock
 
 """
 Represents a key value pair for UI strings.
@@ -1628,4 +1629,21 @@ type CountryJSON {
 type RegionJson implements Node @dontInfer {
   label: String!
   menu: [CountryJSON]!
+}
+
+type ContentfulSystemConfiguratorBlock implements Node {
+  id: ID!
+
+  "The label for the System Configurator block"
+  label: String
+
+  "The title for the System Configurator block"
+  title: String
+
+  "The description for the System Configurator block"
+  description: ContentfulRichText
+
+  "No result items from the tree below the current block"
+  noResultItems: [ContentfulTitleWithContent]
+    @link(from: "noResultItems___NODE")
 }

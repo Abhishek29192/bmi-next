@@ -32,6 +32,9 @@ import TitleWithContentSection, {
 } from "./TitleWithContentSection";
 import VideoSection, { Data as VideoSectionData } from "./VideoSection";
 import IframeSection, { Data as IframeSectionData } from "./IframeSection";
+import SystemConfiguratorSection, {
+  Data as SystemConfiguratorSectionData
+} from "./SystemConfiguratorSection";
 
 export type SectionData =
   | ExploreBarSectionData
@@ -46,7 +49,8 @@ export type SectionData =
   | DocumentDownloadSectionData
   | ServiceLocatorSectionData
   | VideoSectionData
-  | IframeSectionData;
+  | IframeSectionData
+  | SystemConfiguratorSectionData;
 
 export type Data = SectionData[];
 
@@ -63,7 +67,8 @@ export const sectionsMap = {
   ContentfulDocumentDownloadSection: DocumentDownloadSection,
   ContentfulServiceLocatorSection: ServiceLocatorSection,
   ContentfulVideoSection: VideoSection,
-  ContentfulIframe: IframeSection
+  ContentfulIframe: IframeSection,
+  ContentfulSystemConfiguratorBlock: SystemConfiguratorSection
 };
 
 type DisplayProps = {
@@ -136,7 +141,6 @@ const Sections = ({
         if (!Component) {
           return;
         }
-
         const sectionComponent = (
           <Component
             data={section}
@@ -175,6 +179,7 @@ export const query = graphql`
     ...ServiceLocatorSectionFragment
     ...VideoSectionFragment
     ...IframeSectionFragment
+    ...SystemConfiguratorBlockFragment
   }
   fragment DialogSectionsFragment on ContentfulSection {
     __typename
