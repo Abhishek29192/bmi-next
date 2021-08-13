@@ -14,7 +14,7 @@ import {
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import EffraBold from "./fonts/Effra_Bd.ttf";
 import { ResultsObject, ResultsRow } from "./types";
-import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constents";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
 const MARGIN_LEFT = 25;

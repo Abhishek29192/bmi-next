@@ -20,7 +20,7 @@ import {
   Measurements
 } from "../types/roof";
 import { battenCalc, surface } from "./calculate";
-import { CONTINGENCY } from "./constents";
+import { CONTINGENCY } from "./constants";
 
 export type ProductRowBase = BaseVariant & {
   category?: ProductCategory; // Needed for accessories

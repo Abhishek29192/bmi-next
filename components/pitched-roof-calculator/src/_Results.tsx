@@ -23,7 +23,7 @@ import { AnalyticsContext } from "./helpers/analytics";
 import Alert from "./subcomponents/_Alert";
 import styles from "./_Results.module.scss";
 import { EmailFormValues } from "./types/EmailFormValues";
-import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constents";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 
 type EmailAddressCollectionProps = {
   results: ResultsObject;

@@ -18,7 +18,7 @@ import protrusionTypes from "./calculation/protrusions";
 import { DimensionsValues, Measurements, Roof } from "./types/roof";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";
 import { Data } from "./types";
-import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constents";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 
 type Step =
   | "select-roof"
