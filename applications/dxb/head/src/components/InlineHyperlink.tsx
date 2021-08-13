@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import { Inline } from "@contentful/rich-text-types";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import withGTM from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import { getClickableActionFromUrl, getLinkURL, renderDialog } from "./Link";
 import { SiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
@@ -108,13 +109,19 @@ const InlineHyperlink = ({ node, children }: Props) => {
     <GTMAnchorLink
       action={{
         model: "routerLink",
-        to: `/${countryCode}/${fields.path}`.replace(/\/+/gi, "/"),
+        to: getPathWithCountryCode(countryCode, fields.path).replace(
+          /\/+/gi,
+          "/"
+        ),
         linkComponent: Link
       }}
       gtm={{
         id: "cta-click1",
         label: children[0][1],
-        action: `/${countryCode}/${fields.path}`.replace(/\/+/gi, "/")
+        action: getPathWithCountryCode(countryCode, fields.path).replace(
+          /\/+/gi,
+          "/"
+        )
       }}
     >
       {children}

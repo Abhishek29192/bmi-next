@@ -12,6 +12,7 @@ import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
 import getJpgImage from "../utils/images";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import BrandProvider from "./BrandProvider";
 import { SiteContext, Data as SiteData } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
@@ -223,14 +224,20 @@ const Page = ({
                     promo={resources.errorGeneral}
                   />
                 )}
-                onError={() => navigate(`/${countryCode}/422`)}
+                onError={() =>
+                  navigate(getPathWithCountryCode(countryCode, "422"))
+                }
               >
                 <VisualiserProvider
                   contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
                   variantCodeToPathMap={variantCodeToPathMap}
                   shareWidgetData={resources?.visualiserShareWidget}
                 >
-                  <Calculator onError={() => navigate(`/${countryCode}/422`)}>
+                  <Calculator
+                    onError={() =>
+                      navigate(getPathWithCountryCode(countryCode, "422"))
+                    }
+                  >
                     {children}
                   </Calculator>
                 </VisualiserProvider>
