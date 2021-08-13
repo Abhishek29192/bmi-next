@@ -40,7 +40,7 @@ import Link, {
   Data as LinkData,
   getClickableActionFromUrl
 } from "../components/Link";
-import { Data as SiteData, SiteContext } from "../components/Site";
+import { Data as SiteData, useSiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import Breadcrumbs, {
   Data as BreadcrumbsData
@@ -119,6 +119,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     featuredVideo,
     cta
   } = data.contentfulProductListerPage;
+  const { getMicroCopy } = useSiteContext();
 
   const initialProducts = data.initialProducts || [];
 
@@ -343,175 +344,169 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
     >
-      <SiteContext.Consumer>
-        {({ getMicroCopy }) => {
-          return (
-            <>
-              {isLoading ? (
-                <Scrim theme="light">
-                  <ProgressIndicator theme="light" />
-                </Scrim>
+      <>
+        {isLoading ? (
+          <Scrim theme="light">
+            <ProgressIndicator theme="light" />
+          </Scrim>
+        ) : null}
+        {heroType === "Spotlight" ? (
+          <SpotlightHero
+            {...heroProps}
+            breadcrumbs={breadcrumbsNode}
+            brand={brandLogo}
+          />
+        ) : (
+          <Hero
+            level={heroLevel}
+            {...heroProps}
+            breadcrumbs={breadcrumbsNode}
+            brand={brandLogo}
+          />
+        )}
+        <Section backgroundColor="white">
+          <LeadBlock>
+            <LeadBlock.Content>
+              <RichText
+                document={content}
+                underlineHeadings={["h2", "h3", "h4"]}
+              />
+            </LeadBlock.Content>
+            <LeadBlock.Card theme="pearl">
+              {features ? (
+                <LeadBlock.Card.Section>
+                  <LeadBlock.Card.Heading hasUnderline>
+                    {getMicroCopy("plp.keyFeatures.title")}
+                  </LeadBlock.Card.Heading>
+                  <LeadBlock.Card.Content>
+                    <IconList>
+                      {features.map((feature, index) => (
+                        <IconList.Item
+                          key={index}
+                          icon={BlueCheckIcon}
+                          title={feature}
+                          isCompact
+                        />
+                      ))}
+                    </IconList>
+                    {featuresLink && (
+                      <AnchorLink
+                        action={getClickableActionFromUrl(
+                          featuresLink.linkedPage,
+                          featuresLink.url,
+                          countryCode,
+                          featuresLink.asset?.file?.url,
+                          featuresLink.label
+                        )}
+                      >
+                        {featuresLink.label}
+                      </AnchorLink>
+                    )}
+                  </LeadBlock.Card.Content>
+                </LeadBlock.Card.Section>
               ) : null}
-              {heroType === "Spotlight" ? (
-                <SpotlightHero
-                  {...heroProps}
-                  breadcrumbs={breadcrumbsNode}
-                  brand={brandLogo}
+            </LeadBlock.Card>
+          </LeadBlock>
+        </Section>
+        <Section backgroundColor="pearl" overflowVisible>
+          {categoryName && (
+            <Section.Title hasUnderline>{categoryName}</Section.Title>
+          )}
+          <Grid container spacing={3}>
+            {filters.length ? (
+              <Grid item xs={12} md={12} lg={3}>
+                <FiltersSidebar
+                  filters={filters}
+                  onFiltersChange={handleFiltersChange}
+                  onClearFilters={handleClearFilters}
                 />
-              ) : (
-                <Hero
-                  level={heroLevel}
-                  {...heroProps}
-                  breadcrumbs={breadcrumbsNode}
-                  brand={brandLogo}
-                />
-              )}
-              <Section backgroundColor="white">
-                <LeadBlock>
-                  <LeadBlock.Content>
-                    <RichText
-                      document={content}
-                      underlineHeadings={["h2", "h3", "h4"]}
-                    />
-                  </LeadBlock.Content>
-                  <LeadBlock.Card theme="pearl">
-                    {features ? (
-                      <LeadBlock.Card.Section>
-                        <LeadBlock.Card.Heading hasUnderline>
-                          {getMicroCopy("plp.keyFeatures.title")}
-                        </LeadBlock.Card.Heading>
-                        <LeadBlock.Card.Content>
-                          <IconList>
-                            {features.map((feature, index) => (
-                              <IconList.Item
-                                key={index}
-                                icon={BlueCheckIcon}
-                                title={feature}
-                                isCompact
-                              />
-                            ))}
-                          </IconList>
-                          {featuresLink && (
-                            <AnchorLink
-                              action={getClickableActionFromUrl(
-                                featuresLink.linkedPage,
-                                featuresLink.url,
-                                countryCode,
-                                featuresLink.asset?.file?.url,
-                                featuresLink.label
-                              )}
-                            >
-                              {featuresLink.label}
-                            </AnchorLink>
-                          )}
-                        </LeadBlock.Card.Content>
-                      </LeadBlock.Card.Section>
-                    ) : null}
-                  </LeadBlock.Card>
-                </LeadBlock>
-              </Section>
-              <Section backgroundColor="pearl" overflowVisible>
-                {categoryName && (
-                  <Section.Title hasUnderline>{categoryName}</Section.Title>
+              </Grid>
+            ) : null}
+            <Grid
+              item
+              xs={12}
+              md={12}
+              lg={filters.length ? 9 : 12}
+              style={{ paddingTop: 60 }}
+              ref={resultsElement}
+            >
+              <Grid container spacing={3}>
+                {products.length === 0 && (
+                  <Typography>
+                    {getMicroCopy("plp.product.noResultsFound")}
+                  </Typography>
                 )}
-                <Grid container spacing={3}>
-                  {filters.length ? (
-                    <Grid item xs={12} md={12} lg={3}>
-                      <FiltersSidebar
-                        filters={filters}
-                        onFiltersChange={handleFiltersChange}
-                        onClearFilters={handleClearFilters}
-                      />
-                    </Grid>
-                  ) : null}
-                  <Grid
-                    item
-                    xs={12}
-                    md={12}
-                    lg={filters.length ? 9 : 12}
-                    style={{ paddingTop: 60 }}
-                    ref={resultsElement}
-                  >
-                    <Grid container spacing={3}>
-                      {products.length === 0 && (
-                        <Typography>
-                          {getMicroCopy("plp.product.noResultsFound")}
-                        </Typography>
-                      )}
-                      {flatten(
-                        products.map((variant) => {
-                          const brandLogoCode = variant.brandCode;
-                          const brandLogo = iconMap[brandLogoCode];
-                          const mainImage = findMasterImageUrl(variant.images);
-                          const product: Product = variant.baseProduct;
-                          const productUrl = getProductUrl(
-                            countryCode,
-                            pageContext.variantCodeToPathMap[variant.code]
-                          );
-                          const uniqueClassifications = mapClassificationValues(
-                            findUniqueVariantClassifications(
-                              { ...variant, _product: product },
-                              pageContext.pimClassificationCatalogueNamespace
-                            )
-                          );
+                {flatten(
+                  products.map((variant) => {
+                    const brandLogoCode = variant.brandCode;
+                    const brandLogo = iconMap[brandLogoCode];
+                    const mainImage = findMasterImageUrl(variant.images);
+                    const product: Product = variant.baseProduct;
+                    const productUrl = getProductUrl(
+                      countryCode,
+                      pageContext.variantCodeToPathMap[variant.code]
+                    );
+                    const uniqueClassifications = mapClassificationValues(
+                      findUniqueVariantClassifications(
+                        { ...variant, _product: product },
+                        pageContext.pimClassificationCatalogueNamespace
+                      )
+                    );
 
-                          return (
-                            <Grid
-                              item
-                              key={`${product.code}-${variant.code}`}
-                              xs={12}
-                              md={6}
-                              lg={4}
-                              xl={filters.length ? 4 : 3}
-                            >
-                              <GTMOverviewCard
-                                title={product.name}
-                                titleVariant="h5"
-                                subtitle={uniqueClassifications}
-                                subtitleVariant="h6"
-                                media={
-                                  <img
-                                    src={mainImage}
-                                    alt={`${uniqueClassifications} ${product.name}`}
-                                  />
-                                }
-                                imageSize="contain"
-                                brandImageSource={brandLogo}
-                                action={{
-                                  model: "routerLink",
-                                  linkComponent: GatsbyLink,
-                                  to: productUrl
-                                }}
-                                gtm={{
-                                  id: "cta-click1",
-                                  action: productUrl,
-                                  label: getMicroCopy("plp.product.viewDetails")
-                                }}
-                                footer={
-                                  <AnchorLink iconEnd>
-                                    {getMicroCopy("plp.product.viewDetails")}
-                                  </AnchorLink>
-                                }
-                              >
-                                {variant.shortDescription}
-                              </GTMOverviewCard>
-                            </Grid>
-                          );
-                        })
-                      )}
-                    </Grid>
-                    <ResultsPagination
-                      page={page + 1}
-                      onPageChange={handlePageChange}
-                      count={pageCount}
-                    />
-                  </Grid>
-                </Grid>
-              </Section>
-            </>
-          );
-        }}
-      </SiteContext.Consumer>
+                    return (
+                      <Grid
+                        item
+                        key={`${product.code}-${variant.code}`}
+                        xs={12}
+                        md={6}
+                        lg={4}
+                        xl={filters.length ? 4 : 3}
+                      >
+                        <GTMOverviewCard
+                          title={product.name}
+                          titleVariant="h5"
+                          subtitle={uniqueClassifications}
+                          subtitleVariant="h6"
+                          media={
+                            <img
+                              src={mainImage}
+                              alt={`${uniqueClassifications} ${product.name}`}
+                            />
+                          }
+                          imageSize="contain"
+                          brandImageSource={brandLogo}
+                          action={{
+                            model: "routerLink",
+                            linkComponent: GatsbyLink,
+                            to: productUrl
+                          }}
+                          gtm={{
+                            id: "cta-click1",
+                            action: productUrl,
+                            label: getMicroCopy("plp.product.viewDetails")
+                          }}
+                          footer={
+                            <AnchorLink iconEnd>
+                              {getMicroCopy("plp.product.viewDetails")}
+                            </AnchorLink>
+                          }
+                        >
+                          {variant.shortDescription}
+                        </GTMOverviewCard>
+                      </Grid>
+                    );
+                  })
+                )}
+              </Grid>
+              <ResultsPagination
+                page={page + 1}
+                onPageChange={handlePageChange}
+                count={pageCount}
+              />
+            </Grid>
+          </Grid>
+        </Section>
+      </>
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs data={breadcrumbs} />
       </Section>

@@ -10,7 +10,7 @@ import {
   Link
 } from "../Link";
 import { Data as PromoData } from "../Promo";
-import { SiteContext } from "../Site";
+import { SiteContextProvider } from "../Site";
 
 const getMockSiteContext = (
   countryCode: string = "en",
@@ -46,9 +46,9 @@ describe("Link component", () => {
       };
       // TODO: The rest of these tests need fixing to match this one.
       const { container } = render(
-        <SiteContext.Provider value={getMockSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext()}>
           <Link data={cta}>{cta.label}</Link>
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       expect(container.firstChild).toMatchSnapshot();
     });
@@ -244,9 +244,9 @@ describe("Link component", () => {
         hubSpotCTAID: "123abc"
       };
       const { container } = render(
-        <SiteContext.Provider value={getMockSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext()}>
           <Link data={data}>{data.label}</Link>
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       expect(container.firstChild).toMatchSnapshot();
     });
@@ -277,9 +277,9 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
       const { getByText, getByRole } = render(
-        <SiteContext.Provider value={getMockSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext()}>
           <Link data={data}>{data.label}</Link>
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       const openDialog = getByText("ImALink");

@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import filesize from "filesize";
 import Section from "@bmi/section";
 import Table from "@bmi/table";
 import Button, { ButtonProps } from "@bmi/button";
-import Icon, { iconMap } from "@bmi/icon";
+import Icon from "@bmi/icon";
 import withGTM from "../utils/google-tag-manager";
 import fileIconsMap from "../components/FileIconsMap";
 import RichText, { RichTextData } from "./RichText";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import { Data as DocumentData } from "./Document";
 import { getClickableActionFromUrl } from "./Link";
 
@@ -29,7 +29,7 @@ const DocumentDownloadSection = ({
 }: {
   data: Data;
 }) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   const GTMButton = withGTM<ButtonProps>(Button, {
     label: "children"

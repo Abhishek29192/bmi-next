@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Dialog from "@bmi/dialog";
 import classnames from "classnames";
 import useStickyState from "../utils/sticky-state";
 import RichText, { RichTextData } from "./RichText";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import BrandLogo from "./BrandLogo";
 import styles from "./styles/WelcomeDialog.module.scss";
 
@@ -20,7 +20,7 @@ const WelcomeDialog = ({ data }: { data: Data }) => {
     return null;
   }
   const [dialogClose, setDialogClose] = useStickyState(false, "welcome-dialog");
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   return (
     <Dialog
       open={!dialogClose}

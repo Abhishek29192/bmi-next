@@ -2,9 +2,9 @@ import Button, { ButtonProps } from "@bmi/button";
 import Section from "@bmi/section";
 import ShareWidget from "@bmi/share-widget";
 import { graphql } from "gatsby";
-import React, { useContext } from "react";
+import React from "react";
 import withGTM from "../utils/google-tag-manager";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   __typename: "ShareWidgetSection";
@@ -41,7 +41,7 @@ const ShareWidgetSection = ({
   data: Data;
   hasNoPadding?: boolean;
 }) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const availableChannels = [
     { type: "copy" as "copy", label: getMicroCopy("share.copy") },
     {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import AddIcon from "@material-ui/icons/Add";
 import Button from "@bmi/button";
@@ -7,7 +7,7 @@ import MasonryGrid from "@bmi/masonry-grid";
 import RemoveIcon from "@material-ui/icons/Remove";
 import Section from "@bmi/section";
 import { ClickableAction } from "components/clickable/src";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import {
   getClickableActionFromUrl,
   NavigationData,
@@ -21,7 +21,7 @@ export type Data = {
 };
 
 const LinkColumnsSection = ({ data }: { data: Data }) => {
-  const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { countryCode, getMicroCopy } = useSiteContext();
   const { title, columns } = data;
 
   const openButton = (

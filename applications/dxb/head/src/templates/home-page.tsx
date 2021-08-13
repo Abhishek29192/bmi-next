@@ -12,7 +12,7 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
-import { Data as SiteData, SiteContext } from "../components/Site";
+import { Data as SiteData, useSiteContext } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
 import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "../components/Video";
@@ -89,6 +89,9 @@ const HomePage = ({ data, pageContext }: Props) => {
   const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
     data.contentfulSite.resources || {};
   const GTMButton = withGTM<ButtonProps>(Button);
+  const siteContext = useSiteContext();
+  const { countryCode, getMicroCopy } = siteContext;
+  const heroItems = getHeroItemsWithContext(siteContext, slides);
 
   return (
     <Page
@@ -98,27 +101,19 @@ const HomePage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={slides?.[0]?.featuredMedia.image?.file.url}
     >
-      <SiteContext.Consumer>
-        {(context) => {
-          const { countryCode, getMicroCopy } = context;
-          const heroItems = getHeroItemsWithContext(context, slides);
-          return (
-            <Hero level={0} heroes={heroItems} hasSpaceBottom>
-              <Search
-                buttonComponent={(props) => (
-                  <GTMButton
-                    gtm={{ id: "search2", label: getMicroCopy("search.label") }}
-                    {...props}
-                  />
-                )}
-                action={getPathWithCountryCode(countryCode, "search")}
-                label={getMicroCopy("search.label")}
-                placeholder={getMicroCopy("search.placeholder.hero")}
-              />
-            </Hero>
-          );
-        }}
-      </SiteContext.Consumer>
+      <Hero level={0} heroes={heroItems} hasSpaceBottom>
+        <Search
+          buttonComponent={(props) => (
+            <GTMButton
+              gtm={{ id: "search2", label: getMicroCopy("search.label") }}
+              {...props}
+            />
+          )}
+          action={getPathWithCountryCode(countryCode, "search")}
+          label={getMicroCopy("search.label")}
+          placeholder={getMicroCopy("search.placeholder.hero")}
+        />
+      </Hero>
       {overlapCards && <OverlapCards data={overlapCards} />}
       {brands?.length ? <Brands data={brands} /> : null}
       {sections && <Sections data={sections} pageTypename={__typename} />}

@@ -3,7 +3,7 @@ import Footer, { MenuItem } from "@bmi/footer";
 import BmiIcon from "@bmi/footer/src/svgs/BMI.svg";
 import HidePrint from "@bmi/hide-print";
 import { graphql } from "gatsby";
-import React, { useContext } from "react";
+import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import {
@@ -11,7 +11,7 @@ import {
   Data as LinkData,
   NavigationData
 } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 const parseNavigation = (
   navigationItems: NavigationData["links"],
@@ -56,7 +56,7 @@ type Props = {
 };
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
-  const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { countryCode, getMicroCopy } = useSiteContext();
   const main = parseNavigation(mainNavigation.links, countryCode);
   const secondary = parseNavigation(secondaryNavigation.links, countryCode);
   const secondaryWithSitemap = [

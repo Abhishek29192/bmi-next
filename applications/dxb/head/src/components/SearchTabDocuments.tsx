@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Grid from "@bmi/grid";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import FiltersSidebar from "../components/FiltersSidebar";
@@ -14,7 +14,7 @@ import {
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
@@ -129,7 +129,7 @@ export const getCount = async (queryString) => {
 const SearchTabPanelDocuments = (props: Props) => {
   const { queryString, onLoadingChange, onCountChange, extraData } = props;
 
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   // TODO: Not sure if we need this, would be nice to remove
   const isInitialLoad = useRef(true);

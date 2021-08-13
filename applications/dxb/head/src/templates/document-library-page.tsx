@@ -30,7 +30,7 @@ import DocumentResultsFooter, {
 import { getCount as getSimpleTableCount } from "../components/DocumentSimpleTableResults";
 import { getCount as getTechnicalTableCount } from "../components/DocumentTechnicalTableResults";
 import { getCount as getCardsCount } from "../components/DocumentCardsResults";
-import { SiteContext } from "../components/Site";
+import { useSiteContext } from "../components/Site";
 import RichText, { RichTextData } from "../components/RichText";
 import {
   ResultType,
@@ -129,6 +129,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     seo
   };
 
+  const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -254,106 +255,98 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
           <RichText document={description} />
         </Section>
       )}
-      <SiteContext.Consumer>
-        {({ getMicroCopy }) => {
-          return (
-            <DownloadList
-              maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
-            >
-              <DownloadListContext.Consumer>
-                {({ count }) => {
-                  if (count === 0) {
-                    return null;
-                  }
+      <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+        <DownloadListContext.Consumer>
+          {({ count }) => {
+            if (count === 0) {
+              return null;
+            }
 
-                  return (
-                    <AlertBanner severity="info">
-                      <AlertBanner.Title>
-                        {getMicroCopy("downloadList.info.title")}
-                      </AlertBanner.Title>
-                      {getMicroCopy("downloadList.info.message")}
-                    </AlertBanner>
-                  );
-                }}
-              </DownloadListContext.Consumer>
-              <Section backgroundColor="white">
-                <div className={filterStyles["Filters"]}>
-                  <Grid container spacing={3} ref={resultsElement}>
-                    <Grid item xs={12} md={12} lg={3}>
-                      <PerfectScrollbar className={filterStyles["scroll-bar"]}>
-                        <div className={filterStyles["box"]}>
-                          <Typography variant="h5">
-                            {getMicroCopy("documentLibrary.filters.title")}
-                          </Typography>
-                          <Button variant="text" onClick={clearFilters}>
-                            {getMicroCopy("documentLibrary.filters.clearAll")}
-                          </Button>
-                        </div>
-                        <DownloadListContext.Consumer>
-                          {({ resetList }) => (
-                            <Filters
-                              filters={filters}
-                              onChange={handleFiltersChange(resetList)}
-                              checkboxComponent={(props: CheckboxProps) => (
-                                <GTMCheckbox
-                                  gtm={{
-                                    id: "filter2",
-                                    action: "Selector – Filter"
-                                  }}
-                                  {...props}
-                                />
-                              )}
-                              accordionSummaryComponent={(
-                                props: AccordionSummaryProps
-                              ) => (
-                                <GTMAccordionSummary
-                                  gtm={{
-                                    id: "filter1",
-                                    // @ts-ignore
-                                    label: props.children?.props?.children,
-                                    action: "Selector – Filter"
-                                  }}
-                                  {...props}
-                                />
-                              )}
-                            />
-                          )}
-                        </DownloadListContext.Consumer>
-                      </PerfectScrollbar>
-                    </Grid>
-                    <Grid item xs={12} md={12} lg={9}>
-                      {results.length ? (
-                        <>
-                          <DocumentResults
-                            data={results}
-                            format={format}
-                            page={page}
+            return (
+              <AlertBanner severity="info">
+                <AlertBanner.Title>
+                  {getMicroCopy("downloadList.info.title")}
+                </AlertBanner.Title>
+                {getMicroCopy("downloadList.info.message")}
+              </AlertBanner>
+            );
+          }}
+        </DownloadListContext.Consumer>
+        <Section backgroundColor="white">
+          <div className={filterStyles["Filters"]}>
+            <Grid container spacing={3} ref={resultsElement}>
+              <Grid item xs={12} md={12} lg={3}>
+                <PerfectScrollbar className={filterStyles["scroll-bar"]}>
+                  <div className={filterStyles["box"]}>
+                    <Typography variant="h5">
+                      {getMicroCopy("documentLibrary.filters.title")}
+                    </Typography>
+                    <Button variant="text" onClick={clearFilters}>
+                      {getMicroCopy("documentLibrary.filters.clearAll")}
+                    </Button>
+                  </div>
+                  <DownloadListContext.Consumer>
+                    {({ resetList }) => (
+                      <Filters
+                        filters={filters}
+                        onChange={handleFiltersChange(resetList)}
+                        checkboxComponent={(props: CheckboxProps) => (
+                          <GTMCheckbox
+                            gtm={{
+                              id: "filter2",
+                              action: "Selector – Filter"
+                            }}
+                            {...props}
                           />
-                          <div className={filterStyles["results"]}>
-                            <DocumentResultsFooter
-                              page={page}
-                              count={pageCount}
-                              onDownloadClick={
-                                format === "cards" ||
-                                (!matches && format === "technicalTable")
-                                  ? undefined
-                                  : handleDownloadClick
-                              }
-                              onPageChange={handlePageChange}
-                            />
-                          </div>
-                        </>
-                      ) : (
-                        getMicroCopy("documentLibrary.noResults")
-                      )}
-                    </Grid>
-                  </Grid>
-                </div>
-              </Section>
-            </DownloadList>
-          );
-        }}
-      </SiteContext.Consumer>
+                        )}
+                        accordionSummaryComponent={(
+                          props: AccordionSummaryProps
+                        ) => (
+                          <GTMAccordionSummary
+                            gtm={{
+                              id: "filter1",
+                              // @ts-ignore
+                              label: props.children?.props?.children,
+                              action: "Selector – Filter"
+                            }}
+                            {...props}
+                          />
+                        )}
+                      />
+                    )}
+                  </DownloadListContext.Consumer>
+                </PerfectScrollbar>
+              </Grid>
+              <Grid item xs={12} md={12} lg={9}>
+                {results.length ? (
+                  <>
+                    <DocumentResults
+                      data={results}
+                      format={format}
+                      page={page}
+                    />
+                    <div className={filterStyles["results"]}>
+                      <DocumentResultsFooter
+                        page={page}
+                        count={pageCount}
+                        onDownloadClick={
+                          format === "cards" ||
+                          (!matches && format === "technicalTable")
+                            ? undefined
+                            : handleDownloadClick
+                        }
+                        onPageChange={handlePageChange}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  getMicroCopy("documentLibrary.noResults")
+                )}
+              </Grid>
+            </Grid>
+          </div>
+        </Section>
+      </DownloadList>
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs data={breadcrumbs} />
       </Section>

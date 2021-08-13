@@ -1,5 +1,5 @@
 /* eslint-disable no-unreachable */
-import React, { useState, useCallback, useContext } from "react";
+import React, { useState, useCallback } from "react";
 import { graphql } from "gatsby";
 import InputBanner from "@bmi/input-banner";
 import Dialog from "@bmi/dialog";
@@ -11,7 +11,7 @@ import Button, { ButtonProps } from "@bmi/button";
 import Typography from "@bmi/typography";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import FormInputs, { Data as FormInputsData } from "./FormInputs";
 import RichText, { RichTextData } from "./RichText";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
@@ -45,7 +45,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [secondDialogOpen, setSecondDialogOpen] = useState(false);
   const [retryDialogOpen, setRetryDialogOpen] = useState(false);
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const {
     title,
     description,

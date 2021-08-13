@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import LeadBlock from "@bmi/lead-block";
 import Typography from "@bmi/typography";
-import { SiteContext } from "../../components/Site";
+import { useSiteContext } from "../../components/Site";
 import { Assets } from "./types";
 import styles from "./styles/aboutLeadBlock.module.scss";
 
@@ -16,7 +16,7 @@ const AboutLeadBlock = ({
   guaranteesAndWarranties,
   awardsAndCertificates
 }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   return (
     <LeadBlock className={styles["aboutLeadBlock"]}>
