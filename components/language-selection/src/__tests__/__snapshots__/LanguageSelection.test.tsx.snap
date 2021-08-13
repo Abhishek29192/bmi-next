@@ -21,7 +21,7 @@ exports[`LanguageSelection component accepts a url to the icon 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-text buttonStyles-text-55 NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-text buttonStyles-text-55 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/al"
           tabindex="0"
         >
@@ -48,7 +48,7 @@ exports[`LanguageSelection component accepts a url to the icon 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-text buttonStyles-text-55 NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-text buttonStyles-text-55 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/at"
           tabindex="0"
         >
@@ -96,7 +96,7 @@ exports[`LanguageSelection component accepts introduction text 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-27 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-27 MuiButton-text buttonStyles-text-29 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/al"
           tabindex="0"
         >
@@ -122,7 +122,7 @@ exports[`LanguageSelection component accepts introduction text 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-27 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-27 MuiButton-text buttonStyles-text-29 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/at"
           tabindex="0"
         >
@@ -166,7 +166,7 @@ exports[`LanguageSelection component renders correctly 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-3 NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-3 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/al"
           tabindex="0"
         >
@@ -192,7 +192,7 @@ exports[`LanguageSelection component renders correctly 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-3 NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-3 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/at"
           tabindex="0"
         >
