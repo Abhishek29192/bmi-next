@@ -13,7 +13,11 @@ const canSeeProjects = (account) => {
     return false;
   }
 
-  if (account?.role === ROLES.SUPER_ADMIN) {
+  if (
+    [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(
+      account?.role
+    )
+  ) {
     return true;
   }
 
@@ -21,7 +25,7 @@ const canSeeProjects = (account) => {
     return hasProjects(account);
   }
 
-  return true;
+  return false;
 };
 
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
