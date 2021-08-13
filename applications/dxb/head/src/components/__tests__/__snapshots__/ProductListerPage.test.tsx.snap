@@ -5027,7 +5027,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 class="content"
               >
                 <h1
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                  class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
                 >
                   i am a title
                 </h1>
@@ -6290,7 +6290,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 class="content"
               >
                 <h1
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                  class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
                 >
                   i am a title
                 </h1>
@@ -9610,7 +9610,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 class="content"
               >
                 <h1
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                  class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
                 >
                   i am a title
                 </h1>

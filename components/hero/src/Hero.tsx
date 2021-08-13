@@ -203,7 +203,10 @@ const SingleHero = ({
               variant="h1"
               hasUnderline
               hasDarkBackground={levelProps.level !== 3}
-              className={styles["title"]}
+              className={classnames(
+                styles["title"],
+                styles["title--truncated"]
+              )}
             >
               {title}
             </Typography>
