@@ -16,36 +16,47 @@ import { NoProjectsCard } from "../../components/Cards/NoProjects";
 import { NoteTab } from "../../components/Tabs/Notes";
 import { useGetProjectQuery } from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
+import { getProjectStatus } from "../../lib/utils/project";
+import log from "../../lib/logger";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
+  const { t } = useTranslation("project-page");
+
   if (!projectId) {
     return (
       <Grid item xs={12}>
-        <NoProjectsCard title="No projects to display">
+        <NoProjectsCard title={t("noProjecSelected.title")}>
           <Typography variant="subtitle2">
-            You have not select any project yet!
+            {t("noProjecSelected.body1")}
           </Typography>
           <Typography variant="subtitle2">
-            Select the &quot;project&quot; from sidebar to get started.
+            {t("noProjecSelected.body2")}
           </Typography>
         </NoProjectsCard>
       </Grid>
     );
   }
 
-  const { data: { project = null } = {}, loading } = useGetProjectQuery({
+  const {
+    data: { project } = {},
+    loading,
+    error
+  } = useGetProjectQuery({
     variables: {
       projectId: projectId
     }
   });
 
-  if (loading || project === null) return <></>;
+  if (error) {
+    log({
+      severity: "ERROR",
+      message: `Error loading project details. ID: ${projectId}. Error: ${error.toString()}`
+    });
+    return <div>Error loading project details.</div>;
+  }
 
-  const getProjectStatus = (startDate, endDate) => {
-    if (!startDate && !endDate) return "Not started";
-    else if (startDate && !endDate) return "In progress";
-    else return "Completed";
-  };
+  // TODO: Microcopy
+  if (loading) return <>Loading project details...</>;
 
   return (
     <>

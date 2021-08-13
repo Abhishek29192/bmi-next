@@ -82,8 +82,8 @@ query guarantee($id:String!) {
         footer
         mailBody
         filenamePrefix
-        lockupLine1
-        lockupLine2
+        titleLine1
+        titleLine2
         roofType
       }
     }

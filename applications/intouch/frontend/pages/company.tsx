@@ -9,10 +9,7 @@ import {
   GetCompanyQuery,
   GetGlobalDataQuery
 } from "../graphql/generated/operations";
-import {
-  getServerPageGetCompany,
-  getServerPageGetCurrentCompany
-} from "../graphql/generated/page";
+import { getServerPageGetCompany } from "../graphql/generated/page";
 import { findAccountCompany } from "../lib/account";
 import { ROLES } from "../lib/constants";
 import {

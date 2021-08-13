@@ -3,6 +3,29 @@
   "MISCELLANEOUS": "Supporting files",
   "PROOF_OF_PURCHASE": "Proof of purchase",
   "CUSTOM": "Custom Files",
+  "search": {
+    "inputLabel": "Search for a project"
+  },
+  "filters": {
+    "labels": {
+      "ALL": "All",
+      "NOT_STARTED": "Not started",
+      "IN_PROGRESS": "In progress",
+      "COMPLETED": "Completed",
+      "FLAT": "Flat",
+      "PITCHED": "Pitched"
+    }
+  },
+  "noProjects": {
+    "title": "No projects to display",
+    "body1": "You have not added any new projects yet!",
+    "body2": "Select the \"Add new project\" button below to get started."
+  },
+  "noProjectSelected": {
+    "title": "No projects to display",
+    "body1": "You have not select any project yet!",
+    "body2": "Select the &quot;project&quot; from sidebar to get started."
+  },
   "teamTab": {
     "header": "Add team member",
     "table": {
