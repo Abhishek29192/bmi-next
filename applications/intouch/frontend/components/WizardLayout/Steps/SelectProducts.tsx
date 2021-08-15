@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { gql } from "@apollo/client";
-import { useTranslation } from "next-i18next";
 import { Product, Technology } from "@bmi/intouch-api-types";
 import { useSearchProductsLazyQuery } from "../../../graphql/generated/hooks";
 import {
@@ -11,9 +10,8 @@ import {
 import { useWizardContext } from "../WizardContext";
 import { WizardProductDetailCard } from "../WizardProductDetailCard";
 
-export const SelectProducts = () => {
+const SelectProducts = () => {
   const { data, setData } = useWizardContext();
-  const { t } = useTranslation("common");
 
   const [products, setProducts] = useState<Product[]>();
 
@@ -23,6 +21,7 @@ export const SelectProducts = () => {
       items: []
     });
   const [productsSearch] = useSearchProductsLazyQuery({
+    fetchPolicy: "cache-and-network",
     onCompleted: ({ searchProducts: { totalCount, nodes } }) => {
       setProducts(nodes as Product[]);
       const products = {
@@ -104,3 +103,5 @@ export const GET_GUARANTEE_PRODUCTS = gql`
     }
   }
 `;
+
+export default SelectProducts;

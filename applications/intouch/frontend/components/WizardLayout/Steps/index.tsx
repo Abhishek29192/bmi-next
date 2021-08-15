@@ -1,15 +1,13 @@
-import { SelectGuarantee } from "./SelectGuarantee";
-import { SelectGuaranteesTemplate } from "./SelectGuaranteesTemplate";
-import { SelectProducts } from "./SelectProducts";
-import { SelectSystem } from "./SelectSystem";
-import { SelectEvidence } from "./SelectEvidence";
-import { Review } from "./Review";
+import SelectGuarantee from "./SelectGuarantee";
+import SelectGuaranteesTemplate from "./SelectGuaranteesTemplate";
+import SelectProductOrSystem from "./SelectProductOrSystem";
+import SelectEvidence from "./SelectEvidence";
+import Review from "./Review";
 
 export {
   SelectGuarantee,
   SelectGuaranteesTemplate,
-  SelectProducts,
-  SelectSystem,
+  SelectProductOrSystem,
   SelectEvidence,
   Review
 };

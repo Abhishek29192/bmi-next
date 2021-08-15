@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Select, { MenuItem } from "@bmi/select";
 import { useWizardContext } from "../WizardContext";
 
-export const SelectGuaranteesTemplate = () => {
+const SelectGuaranteesTemplate = () => {
   const { data, setData } = useWizardContext();
 
   const templates = data.guaranteeType?.guaranteeTemplatesCollection?.items;
@@ -41,3 +41,5 @@ export const SelectGuaranteesTemplate = () => {
     </div>
   );
 };
+
+export default SelectGuaranteesTemplate;

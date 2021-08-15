@@ -10,7 +10,7 @@ import {
 import { useWizardContext } from "../WizardContext";
 import { WizardSystemDetailCard } from "../WizardSystemDetailCard";
 
-export const SelectSystem = () => {
+const SelectSystem = () => {
   const { data, setData } = useWizardContext();
   const [options, setOptions] = useState<WizardAutoCompleteOptions>({
     totalCount: 0,
@@ -19,6 +19,7 @@ export const SelectSystem = () => {
   const [systems, setSystems] = useState<System[]>();
 
   const [systemsSearch] = useSearchSystemsLazyQuery({
+    fetchPolicy: "cache-and-network",
     onCompleted: ({ searchSystems: { totalCount, nodes } }) => {
       setSystems(nodes as System[]);
       const systems = {
@@ -111,3 +112,5 @@ export const GET_GUARANTEE_SYSTEM = gql`
     }
   }
 `;
+
+export default SelectSystem;

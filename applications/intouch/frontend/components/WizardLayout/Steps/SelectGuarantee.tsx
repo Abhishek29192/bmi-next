@@ -13,7 +13,7 @@ export type SelectGuaranteeType = {
   tooltipHint: string;
 };
 
-export const SelectGuarantee = () => {
+const SelectGuarantee = () => {
   const { data, project, setData } = useWizardContext();
   const { t } = useTranslation("project-page");
 
@@ -63,7 +63,7 @@ export const SelectGuarantee = () => {
             <ActionTile
               title={guarantee.guaranteeType.displayName}
               description={guarantee.guaranteeType.name}
-              disabled={false}
+              disabled={guarantee.isDisabled}
               onClick={() => {
                 onClickHandler(guarantee.guaranteeType);
               }}
@@ -120,3 +120,4 @@ const getProductGuarantees = (
     };
   });
 };
+export default SelectGuarantee;

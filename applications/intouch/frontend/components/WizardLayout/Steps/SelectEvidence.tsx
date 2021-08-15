@@ -3,7 +3,7 @@ import Upload from "@bmi/upload";
 import { useTranslation } from "next-i18next";
 import { useWizardContext } from "../WizardContext";
 
-export const SelectEvidence = () => {
+const SelectEvidence = () => {
   const { data, setData } = useWizardContext();
   const { t } = useTranslation("project-page");
 
@@ -37,3 +37,5 @@ export const SelectEvidence = () => {
     />
   );
 };
+
+export default SelectEvidence;

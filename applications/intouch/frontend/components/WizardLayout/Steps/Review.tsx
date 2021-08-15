@@ -8,7 +8,7 @@ import { WizardProductDetailCard } from "../WizardProductDetailCard";
 import { WizardSystemDetailCard } from "../WizardSystemDetailCard";
 import styles from "./styles.module.scss";
 
-export const Review = () => {
+const Review = () => {
   const { t } = useTranslation("project-page");
   const { data, project } = useWizardContext();
 
@@ -131,3 +131,5 @@ export const Review = () => {
     </div>
   );
 };
+
+export default Review;

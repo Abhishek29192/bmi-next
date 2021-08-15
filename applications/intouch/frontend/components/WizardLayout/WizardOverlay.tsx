@@ -7,9 +7,9 @@ import {
   Review,
   SelectEvidence,
   SelectGuarantee,
-  SelectGuaranteesTemplate
+  SelectGuaranteesTemplate,
+  SelectProductOrSystem
 } from "./Steps";
-import { SelectProductOrSystem } from "./Steps/SelectProductOrSystem";
 import { GuaranteeWizardData } from "./WizardContext";
 
 type WizardOverlayProps = {

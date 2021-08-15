@@ -1,9 +1,9 @@
 import React from "react";
 import { useWizardContext } from "../WizardContext";
-import { SelectProducts } from "./SelectProducts";
-import { SelectSystem } from "./SelectSystem";
+import SelectProducts from "./SelectProducts";
+import SelectSystem from "./SelectSystem";
 
-export const SelectProductOrSystem = () => {
+const SelectProductOrSystem = () => {
   const { data } = useWizardContext();
   return (
     <div>
@@ -15,3 +15,5 @@ export const SelectProductOrSystem = () => {
     </div>
   );
 };
+
+export default SelectProductOrSystem;
