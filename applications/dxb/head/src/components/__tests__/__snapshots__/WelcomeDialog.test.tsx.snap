@@ -230,6 +230,14 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
 </body>
 `;
 
+exports[`WelcomeDialog component Renders correctly when Dialog is Closed 1`] = `
+<body
+  style=""
+>
+  <div />
+</body>
+`;
+
 exports[`WelcomeDialog component Renders null when Body not present 1`] = `
 <body>
   <div />

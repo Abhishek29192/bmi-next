@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, waitForElementToBeRemoved } from "@testing-library/react";
 import WelcomeDialog, { Data } from "../WelcomeDialog";
 
 describe("WelcomeDialog component", () => {
@@ -79,6 +79,27 @@ describe("WelcomeDialog component", () => {
       // just want to make sure that the brands are rendered byt checking container element's childrend count
       expect(wrapper.getByTestId("brandsContainer").children.length).toEqual(3);
       expect(wrapper.baseElement).toMatchSnapshot();
+    });
+    it("when Dialog is Closed", async () => {
+      const data: Data = {
+        welcomeDialogTitle: "Dialog Title",
+        welcomeDialogBody: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        welcomeDialogBrands: []
+      };
+
+      const { getByLabelText, getByText, baseElement, debug } = render(
+        <WelcomeDialog data={data} />
+      );
+
+      const closeButton = getByLabelText("Close");
+
+      closeButton.click();
+      await waitForElementToBeRemoved(() => getByText("Dialog Title"));
+
+      expect(baseElement).toMatchSnapshot();
     });
   });
 });
