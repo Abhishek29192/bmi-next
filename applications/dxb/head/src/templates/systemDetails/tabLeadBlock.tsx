@@ -13,8 +13,8 @@ type Props = {
   longDescription: string;
   guaranteesAndWarranties: Assets[];
   awardsAndCertificates: Assets[];
-  keyFeatures: Feature;
-  systemBenefits: SystemBenefits;
+  keyFeatures?: Feature;
+  systemBenefits?: SystemBenefits;
 };
 
 const GTMTab = withGTM<TabProps>(Tab, {

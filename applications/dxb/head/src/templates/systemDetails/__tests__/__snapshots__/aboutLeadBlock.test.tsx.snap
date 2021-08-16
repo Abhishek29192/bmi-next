@@ -15,7 +15,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
           class="MuiTypography-root Typography MuiTypography-body1"
         >
           <p>
-            LDescription NO
+            Long Dec System 1 NO
           </p>
         </div>
       </div>
@@ -53,7 +53,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
           class="MuiTypography-root Typography MuiTypography-body1"
         >
           <p>
-            LDescription NO
+            Long Dec System 1 NO
           </p>
         </div>
       </div>
@@ -66,9 +66,165 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
           MC: sdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="test award"
+          alt="Award_Test"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
+<div>
+  <div
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <p>
+            Long Dec System 1 NO
+          </p>
+        </div>
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.guaranteesWarranties
+        </h5>
+        <img
+          alt="Garanti Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+        />
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.awardsCertificates
+        </h5>
+        <img
+          alt="Award_Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBenefits 1`] = `
+<div>
+  <div
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <p>
+            Long Dec System 1 NO
+          </p>
+        </div>
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.guaranteesWarranties
+        </h5>
+        <img
+          alt="Garanti Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+        />
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.awardsCertificates
+        </h5>
+        <img
+          alt="Award_Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
+<div>
+  <div
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <p>
+            Long Dec System 1 NO
+          </p>
+        </div>
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.guaranteesWarranties
+        </h5>
+        <img
+          alt="Garanti Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+        />
+      </div>
+      <div
+        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.awardsCertificates
+        </h5>
+        <img
+          alt="Award_Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
         />
       </div>
     </div>
@@ -116,9 +272,9 @@ exports[`AboutLeadBlock tests should render 1`] = `
           MC: sdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="test award"
+          alt="Award_Test"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
         />
       </div>
     </div>

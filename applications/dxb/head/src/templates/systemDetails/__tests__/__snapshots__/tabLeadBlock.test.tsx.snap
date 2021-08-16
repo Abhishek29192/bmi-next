@@ -91,7 +91,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                       class="MuiTypography-root Typography MuiTypography-body1"
                     >
                       <p>
-                        LDescription NO
+                        Long Dec System 1 NO
                       </p>
                     </div>
                   </div>
@@ -118,9 +118,9 @@ exports[`TabLeadBlock tests should render 1`] = `
                       MC: sdp.leadBlock.awardsCertificates
                     </h5>
                     <img
-                      alt="test award"
+                      alt="Award_Test"
                       class="image"
-                      src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
+                      src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
                     />
                   </div>
                 </div>

@@ -12,8 +12,8 @@ type Props = {
   longDescription: string;
   guaranteesAndWarranties: Assets[];
   awardsAndCertificates: Assets[];
-  keyFeatures: Feature;
-  systemBenefits: SystemBenefits;
+  keyFeatures?: Feature;
+  systemBenefits?: SystemBenefits;
 };
 
 const BlueCheckIcon = (
@@ -52,7 +52,9 @@ const AboutLeadBlock = ({
   systemBenefits
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
-  const { featureValues, name } = keyFeatures;
+
+  keyFeatures = null;
+  systemBenefits = null;
 
   return (
     <LeadBlock className={styles["aboutLeadBlock"]}>
@@ -98,12 +100,14 @@ const AboutLeadBlock = ({
           </LeadBlock.Content.Section>
         )}
       </LeadBlock.Content>
-      {(featureValues || systemBenefits) && (
+      {(keyFeatures || systemBenefits) && (
         <LeadBlock.Card theme="pearl">
-          {featureValues && (
+          {keyFeatures && (
             <LeadBlockCardContent
-              title={name}
-              contents={featureValues.map(({ value }) => value as string)}
+              title={keyFeatures.name}
+              contents={keyFeatures.featureValues.map(
+                ({ value }) => value as string
+              )}
             />
           )}
           {systemBenefits && (
