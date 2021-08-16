@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import RecaptchaPrivacyLinks from "../RecaptchaPrivacyLinks";
 
-import { SiteContext } from "../Site";
+import { SiteContextProvider } from "../Site";
 
 beforeAll(() => {
   mockConsole();
@@ -13,7 +13,7 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When invalid country code is provided", () => {
     it("renders English Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContext.Provider
+        <SiteContextProvider
           value={{
             node_locale: "en-UK",
             homePage: { title: "Home Page" },
@@ -24,7 +24,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           }}
         >
           <RecaptchaPrivacyLinks />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -45,7 +45,7 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'no' country code is provided", () => {
     it("renders Norwegian Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContext.Provider
+        <SiteContextProvider
           value={{
             node_locale: "en-UK",
             homePage: { title: "Home Page" },
@@ -56,7 +56,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           }}
         >
           <RecaptchaPrivacyLinks />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -78,7 +78,7 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'fi' country code is provided", () => {
     it("renders Finnish Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContext.Provider
+        <SiteContextProvider
           value={{
             node_locale: "en-UK",
             homePage: { title: "Home Page" },
@@ -89,7 +89,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           }}
         >
           <RecaptchaPrivacyLinks />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -112,7 +112,7 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'it' country code is provided", () => {
     it("renders Italian Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContext.Provider
+        <SiteContextProvider
           value={{
             node_locale: "en-UK",
             homePage: { title: "Home Page" },
@@ -123,7 +123,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           }}
         >
           <RecaptchaPrivacyLinks />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -147,7 +147,7 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'fr' country code is provided", () => {
     it("renders French Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContext.Provider
+        <SiteContextProvider
           value={{
             node_locale: "en-UK",
             homePage: { title: "Home Page" },
@@ -158,7 +158,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           }}
         >
           <RecaptchaPrivacyLinks />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       await findByText((content) =>
         content.startsWith("Ce site est protégé par reCAPTCHA et la ")
@@ -184,7 +184,7 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'de' country code is provided", () => {
     it("renders German Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContext.Provider
+        <SiteContextProvider
           value={{
             node_locale: "en-UK",
             homePage: { title: "Home Page" },
@@ -195,7 +195,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           }}
         >
           <RecaptchaPrivacyLinks />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       await findByText((content) =>
         content.startsWith(
