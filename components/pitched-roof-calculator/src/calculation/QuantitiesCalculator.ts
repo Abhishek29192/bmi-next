@@ -139,7 +139,7 @@ class QuantitiesCalculator {
   ) {
     if (!this.facesBattens) {
       throw new Error(
-        `"calculateSurfaceCoveringProducts" must be called before calculating surface covering products`
+        `"facesBattens" must be assigned by the constructor before calculating surface covering products`
       );
     }
 
