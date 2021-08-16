@@ -91,6 +91,12 @@ $chevron-margin-left-lg: 3px;
       &--no-children {
         display: flex;
         align-items: center;
+
+        :global {
+          .MuiTab-wrapper {
+            padding-bottom: $chevron-width;
+          }
+        }
       }
 
       &--selected {
