@@ -35,10 +35,6 @@ export type Data = {
 };
 
 const IntegratedInputBanner = ({ data }: { data?: Data }) => {
-  if (!data) {
-    return null;
-  }
-
   const [email, setEmail] = useState("");
   const [additionalFields, setAdditionalFields] = useState(null);
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -97,13 +93,45 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
       }
       setDialogOpen(false);
     },
-    [email]
+    [email, errorTitle, errorBody]
   );
+
+  if (!data) {
+    return null;
+  }
 
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
     <div className={styles["InputBanner"]}>
+      <InputBanner
+        title={title}
+        description={description.description}
+        inputLabel={inputLabel}
+        inputCallToAction={submitButtonLabel}
+        inputGroupSuffix={<RecaptchaPrivacyLinks />}
+        buttonComponent={(props: ButtonProps) => (
+          <GTMButton
+            gtm={{
+              id: "cta-click1",
+              label: submitButtonLabel,
+              action: "Opens dialog"
+            }}
+            {...props}
+          />
+        )}
+        onSubmit={(email) => {
+          setEmail(email);
+
+          if (additionalInputs) {
+            setDialogOpen(true);
+
+            return;
+          }
+
+          setSecondDialogOpen(true);
+        }}
+      />
       {additionalInputs && (
         <Dialog open={dialogOpen} onCloseClick={() => setDialogOpen(false)}>
           <Dialog.Title hasUnderline>{title}</Dialog.Title>
@@ -191,34 +219,6 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
           }}
         />
       </Dialog>
-      <InputBanner
-        title={title}
-        description={description.description}
-        inputLabel={inputLabel}
-        inputCallToAction={submitButtonLabel}
-        inputGroupSuffix={<RecaptchaPrivacyLinks />}
-        buttonComponent={(props: ButtonProps) => (
-          <GTMButton
-            gtm={{
-              id: "cta-click1",
-              label: submitButtonLabel,
-              action: "Opens dialog"
-            }}
-            {...props}
-          />
-        )}
-        onSubmit={(email) => {
-          setEmail(email);
-
-          if (additionalInputs) {
-            setDialogOpen(true);
-
-            return;
-          }
-
-          setSecondDialogOpen(true);
-        }}
-      />
     </div>
   );
 };
