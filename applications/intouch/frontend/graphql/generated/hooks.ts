@@ -358,7 +358,7 @@ export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProjectHiddenMutationVariables
 >;
 export const GetGlobalDataDocument = gql`
-  query GetGlobalData {
+  query GetGlobalData($accountId: Int!) {
     marketContentCollection(limit: 1) {
       items {
         footerLinksCollection {
@@ -373,6 +373,14 @@ export const GetGlobalDataDocument = gql`
         }
         externalLinkUrl
         externalLinkLabel
+      }
+    }
+    notifications(condition: { accountId: $accountId }) {
+      nodes {
+        body
+        sendDate
+        read
+        id
       }
     }
   }
@@ -390,11 +398,12 @@ export const GetGlobalDataDocument = gql`
  * @example
  * const { data, loading, error } = useGetGlobalDataQuery({
  *   variables: {
+ *      accountId: // value for 'accountId'
  *   },
  * });
  */
 export function useGetGlobalDataQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetGlobalDataQuery,
     OperationTypes.GetGlobalDataQueryVariables
   >

@@ -45,7 +45,7 @@ export type ContactDetailsCollectionFragmentFragment = {
 };
 
 export type GetGlobalDataQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  accountId: SchemaTypes.Scalars["Int"];
 }>;
 
 export type GetGlobalDataQuery = { readonly __typename?: "Query" } & {
@@ -78,6 +78,16 @@ export type GetGlobalDataQuery = { readonly __typename?: "Query" } & {
                 >
               >;
             }
+        >
+      >;
+    }
+  >;
+  readonly notifications?: SchemaTypes.Maybe<
+    { readonly __typename?: "NotificationsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Notification" } & Pick<
+          SchemaTypes.Notification,
+          "body" | "sendDate" | "read" | "id"
         >
       >;
     }
