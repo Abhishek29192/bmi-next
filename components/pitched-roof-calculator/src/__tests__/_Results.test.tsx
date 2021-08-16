@@ -1,11 +1,16 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
+import mockConsole from "jest-mock-console";
 import fetchMockJest from "fetch-mock-jest";
 import { MicroCopy } from "../helpers/microCopy";
 import data from "../samples/data.json";
 import en from "../samples/copy/en.json";
 import Results from "../_Results";
 import { Measurements } from "../types/roof";
+
+beforeAll(() => {
+  mockConsole();
+});
 
 jest.mock("@bmi/quantity-table", () => {
   const QuantityTable = (props) => <p>{JSON.stringify(props, null, 2)}</p>;
