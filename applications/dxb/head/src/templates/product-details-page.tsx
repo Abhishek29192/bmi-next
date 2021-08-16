@@ -5,7 +5,7 @@ import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as SiteData, useSiteContext } from "../components/Site";
+import { Data as SiteData } from "../components/Site";
 import ProductOverview, {
   Data as ProductOverviewData
 } from "../components/ProductOverview";
@@ -59,7 +59,6 @@ const transformImages = (images) => {
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
-  const { getMicroCopy } = useSiteContext();
 
   // Which variant (including base) are we looking at
   // TODO: Merge data here!
@@ -116,117 +115,122 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={selfProduct?.images?.[0].url}
     >
-      {breadcrumbs && (
-        <Section backgroundColor="pearl" isSlim>
-          <Breadcrumbs data={breadcrumbs} />
-        </Section>
-      )}
-      <Container>
-        <ProductOverview
-          data={{
-            name: product.name,
-            brandName: brandCode || "",
-            nobb: selfProduct.externalProductCode || null,
-            images: transformImages(
-              mapGalleryImages([
-                ...(selfProduct.images || []),
-                ...(product.images || [])
-              ])
-            ),
-            attributes: getProductAttributes(
-              productClassifications,
-              selfProduct,
-              pageContext.countryCode,
-              {
-                size: getMicroCopy("pdp.overview.size")
-              },
-              variantCodeToPathMap
-            )
-          }}
-        >
-          {resources?.pdpShareWidget && (
-            <ShareWidgetSection
-              data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
-              hasNoPadding={true}
-            />
+      {({ siteContext: { getMicroCopy } }) => (
+        <>
+          {breadcrumbs && (
+            <Section backgroundColor="pearl" isSlim>
+              <Breadcrumbs data={breadcrumbs} />
+            </Section>
           )}
-        </ProductOverview>
-      </Container>
-      <Section backgroundColor="white">
-        <ProductLeadBlock
-          description={product.longDescription || product.description}
-          keyFeatures={product.productBenefits}
-          sidebarItems={resources?.pdpSidebarItems}
-          guaranteesAndWarranties={product.assets?.filter(
-            (asset) =>
-              asset.assetType === "GUARANTIES" ||
-              asset.assetType === "WARRANTIES"
-          )}
-          awardsAndCertificates={product.assets?.filter(
-            (asset) =>
-              asset.assetType === "AWARDS" || asset.assetType === "CERTIFICATES"
-          )}
-          documents={product.documents}
-          validClassifications={validClassifications}
-          classificationNamespace={
-            pageContext.pimClassificationCatalogueNamespace
-          }
-          bimIframeUrl={bimIframeUrl}
-        />
-      </Section>
-      <RelatedProducts
-        countryCode={pageContext.countryCode}
-        classificationNamespace={
-          pageContext.pimClassificationCatalogueNamespace
-        }
-        products={relatedProducts.nodes}
-      />
-      {resources?.pdpCardsTitle && resources.pdpCards && (
-        <Section backgroundColor="alabaster">
-          <Section.Title>{resources.pdpCardsTitle}</Section.Title>
-          <Grid container spacing={3}>
-            {resources.pdpCards.map(
-              (
-                { title, featuredVideo, featuredMedia, ...data },
-                index,
-                cards
-              ) => {
-                const cta = getCTA(data, countryCode);
-                return (
-                  <Grid
-                    item
-                    key={`card-${index}`}
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    lg={(12 / Math.max(cards.length, 3)) as GridSize}
-                  >
-                    <CTACard
-                      title={title}
-                      media={
-                        featuredVideo
-                          ? renderVideo(featuredVideo)
-                          : renderImage(featuredMedia)
-                      }
-                      clickableArea={featuredVideo ? "heading" : "full"}
-                      action={cta?.action}
-                    />
-                  </Grid>
-                );
+          <Container>
+            <ProductOverview
+              data={{
+                name: product.name,
+                brandName: brandCode || "",
+                nobb: selfProduct.externalProductCode || null,
+                images: transformImages(
+                  mapGalleryImages([
+                    ...(selfProduct.images || []),
+                    ...(product.images || [])
+                  ])
+                ),
+                attributes: getProductAttributes(
+                  productClassifications,
+                  selfProduct,
+                  pageContext.countryCode,
+                  {
+                    size: getMicroCopy("pdp.overview.size")
+                  },
+                  variantCodeToPathMap
+                )
+              }}
+            >
+              {resources?.pdpShareWidget && (
+                <ShareWidgetSection
+                  data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
+                  hasNoPadding={true}
+                />
+              )}
+            </ProductOverview>
+          </Container>
+          <Section backgroundColor="white">
+            <ProductLeadBlock
+              description={product.longDescription || product.description}
+              keyFeatures={product.productBenefits}
+              sidebarItems={resources?.pdpSidebarItems}
+              guaranteesAndWarranties={product.assets?.filter(
+                (asset) =>
+                  asset.assetType === "GUARANTIES" ||
+                  asset.assetType === "WARRANTIES"
+              )}
+              awardsAndCertificates={product.assets?.filter(
+                (asset) =>
+                  asset.assetType === "AWARDS" ||
+                  asset.assetType === "CERTIFICATES"
+              )}
+              documents={product.documents}
+              validClassifications={validClassifications}
+              classificationNamespace={
+                pageContext.pimClassificationCatalogueNamespace
               }
-            )}
-          </Grid>
-        </Section>
-      )}
-      {resources?.pdpExploreBar && (
-        <Section backgroundColor="alabaster">
-          <ExploreBar data={resources.pdpExploreBar} />
-        </Section>
-      )}
-      {breadcrumbs && (
-        <Section backgroundColor="pearl" isSlim>
-          <Breadcrumbs data={breadcrumbs} />
-        </Section>
+              bimIframeUrl={bimIframeUrl}
+            />
+          </Section>
+          <RelatedProducts
+            countryCode={pageContext.countryCode}
+            classificationNamespace={
+              pageContext.pimClassificationCatalogueNamespace
+            }
+            products={relatedProducts.nodes}
+          />
+          {resources?.pdpCardsTitle && resources.pdpCards && (
+            <Section backgroundColor="alabaster">
+              <Section.Title>{resources.pdpCardsTitle}</Section.Title>
+              <Grid container spacing={3}>
+                {resources.pdpCards.map(
+                  (
+                    { title, featuredVideo, featuredMedia, ...data },
+                    index,
+                    cards
+                  ) => {
+                    const cta = getCTA(data, countryCode);
+                    return (
+                      <Grid
+                        item
+                        key={`card-${index}`}
+                        xs={12}
+                        sm={6}
+                        md={4}
+                        lg={(12 / Math.max(cards.length, 3)) as GridSize}
+                      >
+                        <CTACard
+                          title={title}
+                          media={
+                            featuredVideo
+                              ? renderVideo(featuredVideo)
+                              : renderImage(featuredMedia)
+                          }
+                          clickableArea={featuredVideo ? "heading" : "full"}
+                          action={cta?.action}
+                        />
+                      </Grid>
+                    );
+                  }
+                )}
+              </Grid>
+            </Section>
+          )}
+          {resources?.pdpExploreBar && (
+            <Section backgroundColor="alabaster">
+              <ExploreBar data={resources.pdpExploreBar} />
+            </Section>
+          )}
+          {breadcrumbs && (
+            <Section backgroundColor="pearl" isSlim>
+              <Breadcrumbs data={breadcrumbs} />
+            </Section>
+          )}
+        </>
       )}
     </Page>
   );

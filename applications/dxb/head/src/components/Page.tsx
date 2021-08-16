@@ -14,7 +14,12 @@ import InputBanner, {
 import getJpgImage from "../utils/images";
 import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import BrandProvider from "./BrandProvider";
-import { SiteContextProvider, Data as SiteData } from "./Site";
+import {
+  SiteContextProvider,
+  Data as SiteData,
+  useSiteContext,
+  Context as SiteContext
+} from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
 import ErrorFallback from "./ErrorFallback";
@@ -28,15 +33,27 @@ export type Data = {
   seo: SEOContentData | null;
 };
 
+type Context = {
+  siteContext: SiteContext;
+};
+
+type Children = React.ReactNode | ((context: Context) => React.ReactNode);
+
 type Props = {
   brand?: string;
-  children: React.ReactNode;
+  children: Children;
   title: string;
   pageData: Data;
   siteData: SiteData;
   isSearchPage?: boolean;
   variantCodeToPathMap?: Record<string, string>;
   ogImageUrl?: string;
+};
+
+const Content = ({ children }: { children: Children }) => {
+  const siteContext = useSiteContext();
+
+  return typeof children === "function" ? children({ siteContext }) : children;
 };
 
 const Page = ({
@@ -87,6 +104,23 @@ const Page = ({
   );
   const enableHubSpot = Boolean(
     !process.env.GATSBY_PREVIEW && process.env.GATSBY_HUBSPOT_ID
+  );
+
+  const siteContext = {
+    node_locale,
+    countryCode,
+    homePage: siteData.homePage,
+    getMicroCopy,
+    reCaptchaKey,
+    reCaptchaNet
+  };
+
+  const microCopyContext = resources?.microCopy.reduce(
+    (carry, { key, value }) => ({
+      ...carry,
+      [key]: value
+    }),
+    {}
   );
 
   return (
@@ -177,25 +211,8 @@ const Page = ({
         )}
       </Helmet>
 
-      <SiteContextProvider
-        value={{
-          node_locale,
-          countryCode,
-          homePage: siteData.homePage,
-          getMicroCopy,
-          reCaptchaKey,
-          reCaptchaNet
-        }}
-      >
-        <MicroCopy.Provider
-          values={resources?.microCopy.reduce(
-            (carry, { key, value }) => ({
-              ...carry,
-              [key]: value
-            }),
-            {}
-          )}
-        >
+      <SiteContextProvider value={siteContext}>
+        <MicroCopy.Provider values={microCopyContext}>
           <GoogleReCaptchaProvider
             reCaptchaKey={reCaptchaKey}
             useRecaptchaNet={reCaptchaNet}
@@ -238,7 +255,7 @@ const Page = ({
                       navigate(getPathWithCountryCode(countryCode, "422"))
                     }
                   >
-                    {children}
+                    <Content>{children}</Content>
                   </Calculator>
                 </VisualiserProvider>
                 {inputBanner ? <InputBanner data={inputBanner} /> : null}
