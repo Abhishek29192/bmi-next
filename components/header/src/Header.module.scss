@@ -409,6 +409,14 @@ $chevron-margin-left-lg: 3px;
           flex-direction: row-reverse;
         }
       }
+
+      &--no-children {
+        :global {
+          .MuiTab-wrapper {
+            padding-bottom: 0;
+          }
+        }
+      }
     }
 
     .nav-drawer {
