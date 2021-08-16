@@ -2815,9 +2815,8 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 class="LeadBlockContentSection"
               >
                 <img
-                  alt="Icopal RGB logo"
                   class="brandLogo"
-                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h77/h56/8801873297438/bmi-icopal.png"
+                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h4e/he9/9020231090206/bmi-siplastpng"
                   style="object-fit: cover; object-position: center;"
                 />
               </div>
@@ -2827,7 +2826,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <h1
                   class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
                 >
-                  TEST ID NO
+                  NO System 1
                 </h1>
               </div>
               <div
@@ -2836,7 +2835,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <p
                   class="MuiTypography-root Typography MuiTypography-body2"
                 >
-                  Test Promotional Content NO locale
+                  Sample PC value
                 </p>
               </div>
               <div
@@ -3018,80 +3017,10 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   class="image-wrapper"
                 >
                   <img
-                    alt="TBK SN-403 T"
+                    alt="snofanger1"
                     class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd8/h14/9004358139934/Product-Hero-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
+                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h9a/he6/8975183413278/Product-Hero-Small-Desktop-Tablet-snofanger1jpg"
                   />
-                </div>
-                <div
-                  class="thumbnails"
-                >
-                  <button
-                    class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <div
-                    class="scroller"
-                    style="margin-right: 0%;"
-                  >
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h19/h11/9004358008862/Product-Color-Selector-Mobile-TBK-SN-403-Tjpg);"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <span
-                        class="accessibility-text"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd5/hc5/9006940487710/Product-Color-Selector-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg);"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <span
-                        class="accessibility-text"
-                      />
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
@@ -3216,7 +3145,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
                         <p>
-                          LDescription NO
+                          Long Dec System 1 NO
                         </p>
                       </div>
                     </div>
@@ -3234,9 +3163,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
                       />
                       <img
-                        alt="Test Guarentee (NO)"
+                        alt="Guarantee test"
                         class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h05/h5f/9006918336542/Test-Guaranteepng"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h36/h6c/9020240723998/Test-Guaranteepng"
                       />
                     </div>
                     <div
@@ -3248,14 +3177,19 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         MC: sdp.leadBlock.awardsCertificates
                       </h5>
                       <img
-                        alt="test award"
+                        alt="Award_Test"
                         class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
                       />
                       <img
-                        alt="Test Certificate (NO)"
+                        alt="Certificate Test"
                         class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf4/h5b/9006918402078/test-Certificatepng"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h76/h68/9020240855070/test-Certificatepng"
+                      />
+                      <img
+                        alt="Certificate Logo Test"
+                        class="image"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hae/h08/9020241575966/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
                       />
                     </div>
                   </div>
@@ -3275,7 +3209,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               >
                 <iframe
                   class="bimIframe"
-                  src="https://www.bimobject.com/fr/bmi_siplast_fr/product/spl010108"
+                  src="https://www.bimobject.com/en/steelpro/product/sp200_i_residental"
                 />
               </div>
             </div>

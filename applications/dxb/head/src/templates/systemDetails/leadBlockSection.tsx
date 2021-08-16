@@ -27,7 +27,7 @@ const getBrandLogo = (categories: Category[]): null | ImageData => {
 
   return {
     type: null,
-    altText: brandCategory.image.altText,
+    altText: null,
     image: {
       file: {
         fileName: brandCategory.image.realFileName,
