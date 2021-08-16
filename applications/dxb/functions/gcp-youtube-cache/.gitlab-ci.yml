@@ -1,0 +1,19 @@
+variables:
+  PROJECT_NAME: gcp-youtube-cache
+
+build_gcp-youtube-cache:
+  extends: .build_function
+
+package_gcp-youtube-cache:
+  extends: .package_function
+  needs:
+    - build_gcp-youtube-cache
+  dependencies:
+    - build_gcp-youtube-cache
+
+deploy_gcp-youtube-cache:
+  extends: .deploy_function
+  needs:
+    - package_gcp-youtube-cache
+  dependencies:
+    - package_gcp-youtube-cache
