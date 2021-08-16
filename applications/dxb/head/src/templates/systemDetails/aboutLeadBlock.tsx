@@ -53,9 +53,6 @@ const AboutLeadBlock = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
-  keyFeatures = null;
-  systemBenefits = null;
-
   return (
     <LeadBlock className={styles["aboutLeadBlock"]}>
       <LeadBlock.Content>
