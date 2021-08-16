@@ -6,6 +6,37 @@
   "search": {
     "inputLabel": "Search for a project"
   },
+  "projectDetails": {
+    "code": "Project code",
+    "status": "Project status",
+    "roofArea": "Total roof measurement",
+    "buildingAddress": "Building address",
+    "description": "Project description",
+    "startDate": "Project start date",
+    "endDate": "Project end date",
+    "guaranteeType": "Guarantee",
+    "guaranteeStatus": "Guarantee status"
+  },
+  "buildingOwnerDetails": {
+    "title": "Building Owner Details",
+    "noContent": "Building Owner details have not been added to this project",
+    "name": "Name",
+    "email": "Email",
+    "Company": "Company",
+    "address": "Building Owner address"
+  },
+  "guarantee": {
+    "notRequested": "Not requested",
+    "status": {
+      "NOT_APPLICABLE": "N/A",
+      "STARTED": "Started",
+      "READY": "Ready",
+      "SUBMITTED": "Submitted",
+      "REVIEW": "Submitted",
+      "REJECTED": "Returned",
+      "APPROVED": "Approved"
+    }
+  },
   "filters": {
     "labels": {
       "ALL": "All",

@@ -1,3 +1,7 @@
+import { Project } from "@bmi/intouch-api-types";
+import { DeepPartial } from "./types";
+import { GuaranteeStatus, guaranteePrerequsitesMet } from "./guarantee";
+
 export enum ProjectStatus {
   NOT_STARTED = "Not started",
   IN_PROGRESS = "In progress",
@@ -26,4 +30,26 @@ export const getProjectStatus = (startDate, endDate) => {
 
   // TODO: Invalid, log it?
   return ProjectStatus.NOT_STARTED;
+};
+
+export const getProjectGuaranteeStatus = (
+  project: DeepPartial<Project>
+): GuaranteeStatus => {
+  const guarantee = project?.guarantees?.nodes?.[0];
+
+  // Guarantee associated with the Project - Not Applicable
+  if (!guarantee) {
+    return "NOT_APPLICABLE";
+  }
+
+  if (guarantee.status === "NEW") {
+    return guaranteePrerequsitesMet(guarantee) ? "READY" : "STARTED";
+  }
+
+  // Other known statuses are handled in microcopy, with a fallback:
+  return ["SUBMITTED", "REVIEW", "REJECTED", "APPROVED"].includes(
+    guarantee.status
+  )
+    ? guarantee.status
+    : "NOT_APPLICABLE";
 };
