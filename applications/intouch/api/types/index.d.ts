@@ -65,13 +65,13 @@ export type Account = Node & {
   /** ek */
   role?: Maybe<Role>;
   /** The email address associated with the account */
-  email?: Maybe<Scalars["String"]>;
+  email: Scalars["String"];
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
   /** First name */
-  firstName?: Maybe<Scalars["String"]>;
+  firstName: Scalars["String"];
   /** Last name */
-  lastName?: Maybe<Scalars["String"]>;
+  lastName: Scalars["String"];
   /** When the account was created */
   created?: Maybe<Scalars["Datetime"]>;
   /** User account in Docebo */
@@ -279,13 +279,13 @@ export type AccountInput = {
   /** ek */
   role?: Maybe<Role>;
   /** The email address associated with the account */
-  email?: Maybe<Scalars["String"]>;
+  email: Scalars["String"];
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
   /** First name */
-  firstName?: Maybe<Scalars["String"]>;
+  firstName: Scalars["String"];
   /** Last name */
-  lastName?: Maybe<Scalars["String"]>;
+  lastName: Scalars["String"];
   /** When the account was created */
   created?: Maybe<Scalars["Datetime"]>;
   /** User account in Docebo */
@@ -831,7 +831,7 @@ export type Address = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** First line of this address */
-  firstLine?: Maybe<Scalars["String"]>;
+  firstLine: Scalars["String"];
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -841,7 +841,7 @@ export type Address = Node & {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode?: Maybe<Scalars["String"]>;
+  postcode: Scalars["String"];
   /** The coordinates on a map of the world */
   coordinates?: Maybe<Point>;
   /** Used for reference when importing data from the legacy system */
@@ -941,7 +941,7 @@ export type AddressInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine?: Maybe<Scalars["String"]>;
+  firstLine: Scalars["String"];
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -951,7 +951,7 @@ export type AddressInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode?: Maybe<Scalars["String"]>;
+  postcode: Scalars["String"];
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -1866,7 +1866,7 @@ export type Company = Node & {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -1983,13 +1983,13 @@ export type CompanyCompanyPkeyDelete = {
 
 /** The fields on `company` to look up the row to connect. */
 export type CompanyCompanyReferenceNumberKeyConnect = {
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber: Scalars["String"];
 };
 
 /** The fields on `company` to look up the row to delete. */
 export type CompanyCompanyReferenceNumberKeyDelete = {
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber: Scalars["String"];
 };
 
@@ -2934,7 +2934,7 @@ export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyR
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -2967,7 +2967,7 @@ export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKey
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3002,7 +3002,7 @@ export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferen
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3037,7 +3037,7 @@ export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceN
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3072,7 +3072,7 @@ export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyRefer
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3108,7 +3108,7 @@ export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyR
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3143,7 +3143,7 @@ export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNu
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3176,7 +3176,7 @@ export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKe
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3429,7 +3429,7 @@ export type CompanyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -3458,7 +3458,7 @@ export type CompanyRegisteredAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine?: Maybe<Scalars["String"]>;
+  firstLine: Scalars["String"];
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -3468,7 +3468,7 @@ export type CompanyRegisteredAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode?: Maybe<Scalars["String"]>;
+  postcode: Scalars["String"];
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -3548,7 +3548,7 @@ export type CompanyTradingAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine?: Maybe<Scalars["String"]>;
+  firstLine: Scalars["String"];
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -3558,7 +3558,7 @@ export type CompanyTradingAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode?: Maybe<Scalars["String"]>;
+  postcode: Scalars["String"];
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -5870,7 +5870,7 @@ export type DeleteCompanyByReferenceNumberInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber: Scalars["String"];
 };
 
@@ -7204,9 +7204,9 @@ export type EvidenceItem = Node & {
   /** ek */
   evidenceCategoryType?: Maybe<EvidenceCategoryType>;
   /** Short name for the item of evidence */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** File reference or the file itself. Photo of the evidence */
-  attachment?: Maybe<Scalars["String"]>;
+  attachment: Scalars["String"];
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Project` that is related to this `EvidenceItem`. */
@@ -7268,9 +7268,9 @@ export type EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput = {
   /** ek */
   evidenceCategoryType?: Maybe<EvidenceCategoryType>;
   /** Short name for the item of evidence */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** File reference or the file itself. Photo of the evidence */
-  attachment?: Maybe<Scalars["String"]>;
+  attachment: Scalars["String"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
@@ -7289,7 +7289,7 @@ export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  guaranteeTypeId: Scalars["String"];
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
@@ -7377,9 +7377,9 @@ export type EvidenceItemInput = {
   /** ek */
   evidenceCategoryType?: Maybe<EvidenceCategoryType>;
   /** Short name for the item of evidence */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** File reference or the file itself. Photo of the evidence */
-  attachment?: Maybe<Scalars["String"]>;
+  attachment: Scalars["String"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
@@ -7468,9 +7468,9 @@ export type EvidenceItemProjectIdFkeyEvidenceItemCreateInput = {
   /** ek */
   evidenceCategoryType?: Maybe<EvidenceCategoryType>;
   /** Short name for the item of evidence */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** File reference or the file itself. Photo of the evidence */
-  attachment?: Maybe<Scalars["String"]>;
+  attachment: Scalars["String"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
@@ -7533,13 +7533,13 @@ export type EvidenceItemProjectIdFkeyProjectCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
   /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
-  roofArea?: Maybe<Scalars["Int"]>;
+  roofArea: Scalars["Int"];
   /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
   buildingOwnerMail?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
@@ -7549,9 +7549,9 @@ export type EvidenceItemProjectIdFkeyProjectCreateInput = {
   /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project officially starts or started */
-  startDate?: Maybe<Scalars["Datetime"]>;
+  startDate: Scalars["Datetime"];
   /** The date that the Project officially expects to end or ended */
-  endDate?: Maybe<Scalars["Datetime"]>;
+  endDate: Scalars["Datetime"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
@@ -7634,7 +7634,7 @@ export type Guarantee = Node & {
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  guaranteeTypeId: Scalars["String"];
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
@@ -7760,7 +7760,7 @@ export type GuaranteeInput = {
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  guaranteeTypeId: Scalars["String"];
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
@@ -8007,7 +8007,7 @@ export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  guaranteeTypeId: Scalars["String"];
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
@@ -8101,19 +8101,19 @@ export type GuaranteeProductBmiRefFkeyProductCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the product known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** The Products brand */
-  brand?: Maybe<Scalars["String"]>;
+  brand: Scalars["String"];
   /** Short name for the Product */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description of the Product */
   description?: Maybe<Scalars["String"]>;
   /** The family of Products this Product is in */
-  family?: Maybe<Scalars["String"]>;
+  family: Scalars["String"];
   /** Whether the Product is avialable for new guarantees */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   /** The number of years that this product can be guaranteed for */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
@@ -8130,7 +8130,7 @@ export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  guaranteeTypeId: Scalars["String"];
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
@@ -8224,13 +8224,13 @@ export type GuaranteeProjectIdFkeyProjectCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
   /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
-  roofArea?: Maybe<Scalars["Int"]>;
+  roofArea: Scalars["Int"];
   /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
   buildingOwnerMail?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
@@ -8240,9 +8240,9 @@ export type GuaranteeProjectIdFkeyProjectCreateInput = {
   /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project officially starts or started */
-  startDate?: Maybe<Scalars["Datetime"]>;
+  startDate: Scalars["Datetime"];
   /** The date that the Project officially expects to end or ended */
-  endDate?: Maybe<Scalars["Datetime"]>;
+  endDate: Scalars["Datetime"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
@@ -8263,7 +8263,7 @@ export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  guaranteeTypeId: Scalars["String"];
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
@@ -8365,7 +8365,7 @@ export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  guaranteeTypeId: Scalars["String"];
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
@@ -8465,7 +8465,7 @@ export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  guaranteeTypeId: Scalars["String"];
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
@@ -8559,15 +8559,15 @@ export type GuaranteeSystemBmiRefFkeySystemCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the system known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** Short name for the System */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description for the System */
   description?: Maybe<Scalars["String"]>;
   /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   /** If true this system is available for users to select when applying for a system or solution guarantee */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
@@ -9436,7 +9436,7 @@ export type Invitation = Node & {
   /** ek */
   status?: Maybe<InvitationStatus>;
   /** An email address */
-  invitee?: Maybe<Scalars["String"]>;
+  invitee: Scalars["String"];
   /** An optional note that can be included in the invitation by the sender */
   personalNote?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
@@ -12439,13 +12439,13 @@ export type NoteProjectIdFkeyProjectCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
   /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
-  roofArea?: Maybe<Scalars["Int"]>;
+  roofArea: Scalars["Int"];
   /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
   buildingOwnerMail?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
@@ -12455,9 +12455,9 @@ export type NoteProjectIdFkeyProjectCreateInput = {
   /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project officially starts or started */
-  startDate?: Maybe<Scalars["Datetime"]>;
+  startDate: Scalars["Datetime"];
   /** The date that the Project officially expects to end or ended */
-  endDate?: Maybe<Scalars["Datetime"]>;
+  endDate: Scalars["Datetime"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
@@ -12513,9 +12513,9 @@ export type Notification = Node & {
   /** fk */
   accountId?: Maybe<Scalars["Int"]>;
   /** The datetime stamp for when the message was sent */
-  sendDate?: Maybe<Scalars["Datetime"]>;
+  sendDate: Scalars["Datetime"];
   /** Whether the message still needs to be read */
-  unread?: Maybe<Scalars["Boolean"]>;
+  unread: Scalars["Boolean"];
   /** The body of the message */
   body?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
@@ -12581,9 +12581,9 @@ export type NotificationAccountIdFkeyNotificationCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** The datetime stamp for when the message was sent */
-  sendDate?: Maybe<Scalars["Datetime"]>;
+  sendDate: Scalars["Datetime"];
   /** Whether the message still needs to be read */
-  unread?: Maybe<Scalars["Boolean"]>;
+  unread: Scalars["Boolean"];
   /** The body of the message */
   body?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
@@ -12623,9 +12623,9 @@ export type NotificationInput = {
   /** fk */
   accountId?: Maybe<Scalars["Int"]>;
   /** The datetime stamp for when the message was sent */
-  sendDate?: Maybe<Scalars["Datetime"]>;
+  sendDate: Scalars["Datetime"];
   /** Whether the message still needs to be read */
-  unread?: Maybe<Scalars["Boolean"]>;
+  unread: Scalars["Boolean"];
   /** The body of the message */
   body?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
@@ -12920,19 +12920,19 @@ export type Product = Node & {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the product known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** The Products brand */
-  brand?: Maybe<Scalars["String"]>;
+  brand: Scalars["String"];
   /** Short name for the Product */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description of the Product */
   description?: Maybe<Scalars["String"]>;
   /** The family of Products this Product is in */
-  family?: Maybe<Scalars["String"]>;
+  family: Scalars["String"];
   /** Whether the Product is avialable for new guarantees */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   /** The number of years that this product can be guaranteed for */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `Product`. */
@@ -13002,19 +13002,19 @@ export type ProductInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the product known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** The Products brand */
-  brand?: Maybe<Scalars["String"]>;
+  brand: Scalars["String"];
   /** Short name for the Product */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description of the Product */
   description?: Maybe<Scalars["String"]>;
   /** The family of Products this Product is in */
-  family?: Maybe<Scalars["String"]>;
+  family: Scalars["String"];
   /** Whether the Product is avialable for new guarantees */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   /** The number of years that this product can be guaranteed for */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
@@ -13131,19 +13131,19 @@ export type ProductMarketIdFkeyProductCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the product known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** The Products brand */
-  brand?: Maybe<Scalars["String"]>;
+  brand: Scalars["String"];
   /** Short name for the Product */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description of the Product */
   description?: Maybe<Scalars["String"]>;
   /** The family of Products this Product is in */
-  family?: Maybe<Scalars["String"]>;
+  family: Scalars["String"];
   /** Whether the Product is avialable for new guarantees */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   /** The number of years that this product can be guaranteed for */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
@@ -13344,13 +13344,13 @@ export type Project = Node & {
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
   /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
-  roofArea?: Maybe<Scalars["Int"]>;
+  roofArea: Scalars["Int"];
   /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
   buildingOwnerMail?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
@@ -13360,9 +13360,9 @@ export type Project = Node & {
   /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project officially starts or started */
-  startDate?: Maybe<Scalars["Datetime"]>;
+  startDate: Scalars["Datetime"];
   /** The date that the Project officially expects to end or ended */
-  endDate?: Maybe<Scalars["Datetime"]>;
+  endDate: Scalars["Datetime"];
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `Project`. */
@@ -13434,7 +13434,7 @@ export type ProjectBuildingOwnerAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine?: Maybe<Scalars["String"]>;
+  firstLine: Scalars["String"];
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -13444,7 +13444,7 @@ export type ProjectBuildingOwnerAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode?: Maybe<Scalars["String"]>;
+  postcode: Scalars["String"];
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -13510,13 +13510,13 @@ export type ProjectBuildingOwnerAddressIdFkeyProjectCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
   /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
-  roofArea?: Maybe<Scalars["Int"]>;
+  roofArea: Scalars["Int"];
   /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
   buildingOwnerMail?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
@@ -13526,9 +13526,9 @@ export type ProjectBuildingOwnerAddressIdFkeyProjectCreateInput = {
   /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project officially starts or started */
-  startDate?: Maybe<Scalars["Datetime"]>;
+  startDate: Scalars["Datetime"];
   /** The date that the Project officially expects to end or ended */
-  endDate?: Maybe<Scalars["Datetime"]>;
+  endDate: Scalars["Datetime"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
@@ -13603,13 +13603,13 @@ export type ProjectCompanyIdFkeyProjectCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
   /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
-  roofArea?: Maybe<Scalars["Int"]>;
+  roofArea: Scalars["Int"];
   /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
   buildingOwnerMail?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
@@ -13619,9 +13619,9 @@ export type ProjectCompanyIdFkeyProjectCreateInput = {
   /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project officially starts or started */
-  startDate?: Maybe<Scalars["Datetime"]>;
+  startDate: Scalars["Datetime"];
   /** The date that the Project officially expects to end or ended */
-  endDate?: Maybe<Scalars["Datetime"]>;
+  endDate: Scalars["Datetime"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
@@ -13676,13 +13676,13 @@ export type ProjectInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
   /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
-  roofArea?: Maybe<Scalars["Int"]>;
+  roofArea: Scalars["Int"];
   /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
   buildingOwnerMail?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
@@ -13692,9 +13692,9 @@ export type ProjectInput = {
   /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project officially starts or started */
-  startDate?: Maybe<Scalars["Datetime"]>;
+  startDate: Scalars["Datetime"];
   /** The date that the Project officially expects to end or ended */
-  endDate?: Maybe<Scalars["Datetime"]>;
+  endDate: Scalars["Datetime"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
@@ -13961,13 +13961,13 @@ export type ProjectMemberProjectIdFkeyProjectCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
   /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
-  roofArea?: Maybe<Scalars["Int"]>;
+  roofArea: Scalars["Int"];
   /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
   buildingOwnerMail?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
@@ -13977,9 +13977,9 @@ export type ProjectMemberProjectIdFkeyProjectCreateInput = {
   /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project officially starts or started */
-  startDate?: Maybe<Scalars["Datetime"]>;
+  startDate: Scalars["Datetime"];
   /** The date that the Project officially expects to end or ended */
-  endDate?: Maybe<Scalars["Datetime"]>;
+  endDate: Scalars["Datetime"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
@@ -14265,7 +14265,7 @@ export type ProjectSiteAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine?: Maybe<Scalars["String"]>;
+  firstLine: Scalars["String"];
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -14275,7 +14275,7 @@ export type ProjectSiteAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode?: Maybe<Scalars["String"]>;
+  postcode: Scalars["String"];
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -14341,13 +14341,13 @@ export type ProjectSiteAddressIdFkeyProjectCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
   /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
-  roofArea?: Maybe<Scalars["Int"]>;
+  roofArea: Scalars["Int"];
   /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
   buildingOwnerMail?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
@@ -14357,9 +14357,9 @@ export type ProjectSiteAddressIdFkeyProjectCreateInput = {
   /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project officially starts or started */
-  startDate?: Maybe<Scalars["Datetime"]>;
+  startDate: Scalars["Datetime"];
   /** The date that the Project officially expects to end or ended */
-  endDate?: Maybe<Scalars["Datetime"]>;
+  endDate: Scalars["Datetime"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
@@ -15776,15 +15776,15 @@ export type System = Node & {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the system known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** Short name for the System */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description for the System */
   description?: Maybe<Scalars["String"]>;
   /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   /** If true this system is available for users to select when applying for a system or solution guarantee */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `System`. */
@@ -15854,15 +15854,15 @@ export type SystemInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the system known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** Short name for the System */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description for the System */
   description?: Maybe<Scalars["String"]>;
   /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   /** If true this system is available for users to select when applying for a system or solution guarantee */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
@@ -15979,15 +15979,15 @@ export type SystemMarketIdFkeySystemCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the system known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** Short name for the System */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description for the System */
   description?: Maybe<Scalars["String"]>;
   /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   /** If true this system is available for users to select when applying for a system or solution guarantee */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
@@ -16380,19 +16380,19 @@ export type SystemMemberProductBmiRefFkeyProductCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the product known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** The Products brand */
-  brand?: Maybe<Scalars["String"]>;
+  brand: Scalars["String"];
   /** Short name for the Product */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description of the Product */
   description?: Maybe<Scalars["String"]>;
   /** The family of Products this Product is in */
-  family?: Maybe<Scalars["String"]>;
+  family: Scalars["String"];
   /** Whether the Product is avialable for new guarantees */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   /** The number of years that this product can be guaranteed for */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
@@ -16484,15 +16484,15 @@ export type SystemMemberSystemBmiRefFkeySystemCreateInput = {
   /** ek */
   technology?: Maybe<Technology>;
   /** A unique reference for the system known to BMI */
-  bmiRef?: Maybe<Scalars["String"]>;
+  bmiRef: Scalars["String"];
   /** Short name for the System */
-  name?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
   /** A description for the System */
   description?: Maybe<Scalars["String"]>;
   /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
-  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears: Scalars["Int"];
   /** If true this system is available for users to select when applying for a system or solution guarantee */
-  published?: Maybe<Scalars["Boolean"]>;
+  published: Scalars["Boolean"];
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
@@ -17375,7 +17375,7 @@ export type UpdateCompanyByReferenceNumberInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** An object where the defined keys will be set on the `Company` being updated. */
   patch: CompanyPatch;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber: Scalars["String"];
 };
 
@@ -19413,7 +19413,7 @@ export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
     facebook?: Maybe<Scalars["String"]>;
     /** Their Company LinkedIn page URL */
     linkedIn?: Maybe<Scalars["String"]>;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber?: Maybe<Scalars["String"]>;
     /** A reference to the logo image */
     logo?: Maybe<Scalars["String"]>;
@@ -19479,7 +19479,7 @@ export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19545,7 +19545,7 @@ export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19611,7 +19611,7 @@ export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19679,7 +19679,7 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19748,7 +19748,7 @@ export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
     facebook?: Maybe<Scalars["String"]>;
     /** Their Company LinkedIn page URL */
     linkedIn?: Maybe<Scalars["String"]>;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber?: Maybe<Scalars["String"]>;
     /** A reference to the logo image */
     logo?: Maybe<Scalars["String"]>;
@@ -19816,7 +19816,7 @@ export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19884,7 +19884,7 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;

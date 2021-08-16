@@ -38,7 +38,7 @@ type Account implements Node {
   """
   The email address associated with the account
   """
-  email: String
+  email: String!
 
   """
   A phone number that can optionally be provided, and is useful for Company Admin people to provide
@@ -48,12 +48,12 @@ type Account implements Node {
   """
   First name
   """
-  firstName: String
+  firstName: String!
 
   """
   Last name
   """
-  lastName: String
+  lastName: String!
 
   """
   When the account was created
@@ -610,7 +610,7 @@ input AccountInput {
   """
   The email address associated with the account
   """
-  email: String
+  email: String!
 
   """
   A phone number that can optionally be provided, and is useful for Company Admin people to provide
@@ -620,12 +620,12 @@ input AccountInput {
   """
   First name
   """
-  firstName: String
+  firstName: String!
 
   """
   Last name
   """
-  lastName: String
+  lastName: String!
 
   """
   When the account was created
@@ -1611,7 +1611,7 @@ type Address implements Node {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -1636,7 +1636,7 @@ type Address implements Node {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -1902,7 +1902,7 @@ input AddressInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -1927,7 +1927,7 @@ input AddressInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -6276,7 +6276,7 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -6301,7 +6301,7 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -6448,7 +6448,7 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -6473,7 +6473,7 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -11944,12 +11944,12 @@ type EvidenceItem implements Node {
   """
   Short name for the item of evidence
   """
-  name: String
+  name: String!
 
   """
   File reference or the file itself. Photo of the evidence
   """
-  attachment: String
+  attachment: String!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -12068,12 +12068,12 @@ input EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput {
   """
   Short name for the item of evidence
   """
-  name: String
+  name: String!
 
   """
   File reference or the file itself. Photo of the evidence
   """
-  attachment: String
+  attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
   projectToProjectId: EvidenceItemProjectIdFkeyInput
@@ -12108,7 +12108,7 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   """
   a reference to the guaranteeType sys id in Contentful
   """
-  guaranteeTypeId: String
+  guaranteeTypeId: String!
 
   """
   fk
@@ -12291,12 +12291,12 @@ input EvidenceItemInput {
   """
   Short name for the item of evidence
   """
-  name: String
+  name: String!
 
   """
   File reference or the file itself. Photo of the evidence
   """
-  attachment: String
+  attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
   projectToProjectId: EvidenceItemProjectIdFkeyInput
@@ -12455,12 +12455,12 @@ input EvidenceItemProjectIdFkeyEvidenceItemCreateInput {
   """
   Short name for the item of evidence
   """
-  name: String
+  name: String!
 
   """
   File reference or the file itself. Photo of the evidence
   """
-  attachment: String
+  attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
   projectToProjectId: EvidenceItemProjectIdFkeyInput
@@ -12585,7 +12585,7 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -12600,7 +12600,7 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -12625,12 +12625,12 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -12758,7 +12758,7 @@ type Guarantee implements Node {
   """
   a reference to the guaranteeType sys id in Contentful
   """
-  guaranteeTypeId: String
+  guaranteeTypeId: String!
 
   """
   fk
@@ -13038,7 +13038,7 @@ input GuaranteeInput {
   """
   a reference to the guaranteeType sys id in Contentful
   """
-  guaranteeTypeId: String
+  guaranteeTypeId: String!
 
   """
   fk
@@ -13484,7 +13484,7 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   """
   a reference to the guaranteeType sys id in Contentful
   """
-  guaranteeTypeId: String
+  guaranteeTypeId: String!
 
   """
   fk
@@ -13667,17 +13667,17 @@ input GuaranteeProductBmiRefFkeyProductCreateInput {
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -13687,17 +13687,17 @@ input GuaranteeProductBmiRefFkeyProductCreateInput {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: ProductMarketIdFkeyInput
@@ -13727,7 +13727,7 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   """
   a reference to the guaranteeType sys id in Contentful
   """
-  guaranteeTypeId: String
+  guaranteeTypeId: String!
 
   """
   fk
@@ -13910,7 +13910,7 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -13925,7 +13925,7 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -13950,12 +13950,12 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -13989,7 +13989,7 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   """
   a reference to the guaranteeType sys id in Contentful
   """
-  guaranteeTypeId: String
+  guaranteeTypeId: String!
 
   """
   fk
@@ -14192,7 +14192,7 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   """
   a reference to the guaranteeType sys id in Contentful
   """
-  guaranteeTypeId: String
+  guaranteeTypeId: String!
 
   """
   fk
@@ -14390,7 +14390,7 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   """
   a reference to the guaranteeType sys id in Contentful
   """
-  guaranteeTypeId: String
+  guaranteeTypeId: String!
 
   """
   fk
@@ -14573,12 +14573,12 @@ input GuaranteeSystemBmiRefFkeySystemCreateInput {
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -14588,12 +14588,12 @@ input GuaranteeSystemBmiRefFkeySystemCreateInput {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: SystemMarketIdFkeyInput
@@ -15395,7 +15395,7 @@ type Invitation implements Node {
   """
   An email address
   """
-  invitee: String
+  invitee: String!
 
   """
   An optional note that can be included in the invitation by the sender
@@ -19830,7 +19830,7 @@ input NoteProjectIdFkeyProjectCreateInput {
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -19845,7 +19845,7 @@ input NoteProjectIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -19870,12 +19870,12 @@ input NoteProjectIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -19964,12 +19964,12 @@ type Notification implements Node {
   """
   The datetime stamp for when the message was sent
   """
-  sendDate: Datetime
+  sendDate: Datetime!
 
   """
   Whether the message still needs to be read
   """
-  unread: Boolean
+  unread: Boolean!
 
   """
   The body of the message
@@ -20106,12 +20106,12 @@ input NotificationAccountIdFkeyNotificationCreateInput {
   """
   The datetime stamp for when the message was sent
   """
-  sendDate: Datetime
+  sendDate: Datetime!
 
   """
   Whether the message still needs to be read
   """
-  unread: Boolean
+  unread: Boolean!
 
   """
   The body of the message
@@ -20185,12 +20185,12 @@ input NotificationInput {
   """
   The datetime stamp for when the message was sent
   """
-  sendDate: Datetime
+  sendDate: Datetime!
 
   """
   Whether the message still needs to be read
   """
-  unread: Boolean
+  unread: Boolean!
 
   """
   The body of the message
@@ -20535,17 +20535,17 @@ type Product implements Node {
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -20555,17 +20555,17 @@ type Product implements Node {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -20744,17 +20744,17 @@ input ProductInput {
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -20764,17 +20764,17 @@ input ProductInput {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: ProductMarketIdFkeyInput
@@ -21012,17 +21012,17 @@ input ProductMarketIdFkeyProductCreateInput {
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -21032,17 +21032,17 @@ input ProductMarketIdFkeyProductCreateInput {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: ProductMarketIdFkeyInput
@@ -21397,7 +21397,7 @@ type Project implements Node {
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -21412,7 +21412,7 @@ type Project implements Node {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -21437,12 +21437,12 @@ type Project implements Node {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -21658,7 +21658,7 @@ input ProjectBuildingOwnerAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -21683,7 +21683,7 @@ input ProjectBuildingOwnerAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -21814,7 +21814,7 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -21829,7 +21829,7 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -21854,12 +21854,12 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -22008,7 +22008,7 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -22023,7 +22023,7 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -22048,12 +22048,12 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -22162,7 +22162,7 @@ input ProjectInput {
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -22177,7 +22177,7 @@ input ProjectInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -22202,12 +22202,12 @@ input ProjectInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -22716,7 +22716,7 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -22731,7 +22731,7 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -22756,12 +22756,12 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -23254,7 +23254,7 @@ input ProjectSiteAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -23279,7 +23279,7 @@ input ProjectSiteAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -23410,7 +23410,7 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -23425,7 +23425,7 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -23450,12 +23450,12 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -25613,12 +25613,12 @@ type System implements Node {
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -25628,12 +25628,12 @@ type System implements Node {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -25812,12 +25812,12 @@ input SystemInput {
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -25827,12 +25827,12 @@ input SystemInput {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: SystemMarketIdFkeyInput
@@ -26070,12 +26070,12 @@ input SystemMarketIdFkeySystemCreateInput {
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -26085,12 +26085,12 @@ input SystemMarketIdFkeySystemCreateInput {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: SystemMarketIdFkeyInput
@@ -26831,17 +26831,17 @@ input SystemMemberProductBmiRefFkeyProductCreateInput {
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -26851,17 +26851,17 @@ input SystemMemberProductBmiRefFkeyProductCreateInput {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: ProductMarketIdFkeyInput
@@ -27031,12 +27031,12 @@ input SystemMemberSystemBmiRefFkeySystemCreateInput {
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -27046,12 +27046,12 @@ input SystemMemberSystemBmiRefFkeySystemCreateInput {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: SystemMarketIdFkeyInput

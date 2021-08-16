@@ -21,6 +21,8 @@ jest.mock("crypto", () => {
 
 const evidenceItemInputs = [
   {
+    name: "file1",
+    attachment: "file1",
     attachmentUpload: {
       filename: "file1",
       mimetype: "image",
@@ -29,6 +31,8 @@ const evidenceItemInputs = [
     }
   },
   {
+    name: "file2",
+    attachment: "file2",
     attachmentUpload: {
       filename: "file2",
       mimetype: "application/pdf",
@@ -44,6 +48,7 @@ let guaranteeInput: CreateGuaranteeInput = {
     projectId: 1,
     bmiReferenceId: "",
     requestorAccountId: 1,
+    guaranteeTypeId: "test_guarantee_type_id",
     evidenceItemsUsingId: {
       create: evidenceItemInputs
     }

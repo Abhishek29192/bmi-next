@@ -121,10 +121,10 @@ CREATE TABLE account (
   status account_status,
   market_id int,
   ROLE ROLE,
-  email text,
+  email text NOT NULL,
   phone text,
-  first_name text,
-  last_name text,
+  first_name text NOT NULL,
+  last_name text NOT NULL,
   created timestamp,
   docebo_user_id int,
   docebo_username text,
@@ -138,12 +138,12 @@ DROP TABLE IF EXISTS address CASCADE;
 
 CREATE TABLE address (
   id serial PRIMARY KEY,
-  first_line text,
+  first_line text NOT NULL,
   second_line text,
   town text,
   region text,
   country text,
-  postcode text,
+  postcode text NOT NULL,
   coordinates point,
   migration_id text,
   created_at timestamp NOT NULL DEFAULT now(),
@@ -234,8 +234,8 @@ CREATE TABLE evidence_item (
   project_id int,
   guarantee_id int,
   evidence_category_type evidence_category_type,
-  name text,
-  attachment text,
+  name text NOT NULL,
+  attachment text NOT NULL,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -247,7 +247,7 @@ CREATE TABLE guarantee (
   file_storage_id text,
   requestor_account_id int,
   project_id int,
-  guarantee_type_id text,
+  guarantee_type_id text NOT NULL,
   system_bmi_ref text,
   product_bmi_ref text,
   reviewer_account_id int,
@@ -267,7 +267,7 @@ CREATE TABLE invitation (
   sender_account_id int,
   company_id int,
   status invitation_status,
-  invitee text,
+  invitee text NOT NULL,
   personal_note text,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
@@ -311,8 +311,8 @@ DROP TABLE IF EXISTS notification CASCADE;
 CREATE TABLE notification (
   id serial PRIMARY KEY,
   account_id int,
-  send_date timestamp,
-  unread boolean,
+  send_date timestamp NOT NULL,
+  unread boolean NOT NULL,
   body text,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
@@ -324,13 +324,13 @@ CREATE TABLE product (
   id serial PRIMARY KEY,
   market_id int,
   technology technology,
-  bmi_ref text,
-  brand text,
-  name text,
+  bmi_ref text NOT NULL,
+  brand text NOT NULL,
+  name text NOT NULL,
   description text,
-  family text,
-  published boolean,
-  maximum_validity_years int,
+  family text NOT NULL,
+  published boolean NOT NULL,
+  maximum_validity_years int NOT NULL,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -343,16 +343,16 @@ CREATE TABLE project (
   site_address_id int,
   building_owner_address_id int,
   technology technology,
-  name text,
+  name text NOT NULL,
   description text,
   hidden boolean,
-  roof_area int,
+  roof_area int NOT NULL,
   building_owner_mail text,
   building_owner_firstname text,
   building_owner_lastname text,
   building_owner_company text,
-  start_date timestamp,
-  end_date timestamp,
+  start_date timestamp NOT NULL,
+  end_date timestamp NOT NULL,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -374,11 +374,11 @@ CREATE TABLE SYSTEM (
   id serial PRIMARY KEY,
   market_id int,
   technology technology,
-  bmi_ref text,
-  name text,
+  bmi_ref text NOT NULL,
+  name text NOT NULL,
   description text,
-  maximum_validity_years int,
-  published boolean,
+  maximum_validity_years int NOT NULL,
+  published boolean NOT NULL,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -456,34 +456,34 @@ INSERT INTO address (id, first_line, second_line, town, region, country, postcod
   VALUES ('6', '39 Old Castle Rd', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(10.6971494,-72.2598689)', NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('7', '1 Brixton Hill', 'Brixton', NULL, 'London', 'UK', 'SW2 1RW', NULL, NULL);
+  VALUES ('7', '1 Brixton Hill', 'Brixton', 'London', 'London', 'UK', 'SW2 1RW', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('8', '49 Brixton Station Rd', 'Brixton', NULL, 'London', 'UK', 'SW9 8PQ', NULL, NULL);
+  VALUES ('8', '49 Brixton Station Rd', 'Brixton', 'London', 'London', 'UK', 'SW9 8PQ', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('9', '211 Stockwell Rd', 'Brixton', NULL, 'London', 'UK', 'SW9 9SL', NULL, NULL);
+  VALUES ('9', '211 Stockwell Rd', 'Brixton', 'London', 'London', 'UK', 'SW9 9SL', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('10', '103 Gaunt St', 'Lambeth', NULL, 'London', 'UK', 'SE1 6DP', NULL, NULL);
+  VALUES ('10', '103 Gaunt St', 'Lambeth', 'London', 'London', 'UK', 'SE1 6DP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('11', '12 Alice Mansions', 'Soho', NULL, 'London', 'UK', 'UK W1A', NULL, NULL);
+  VALUES ('11', '12 Alice Mansions', 'Soho', 'London', 'London', 'UK', 'UK W1A', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('12', '15 Bob Monk House', 'Covent Garden', NULL, 'London', 'UK', 'W1C8RJ', NULL, NULL);
+  VALUES ('12', '15 Bob Monk House', 'Covent Garden', 'London', 'London', 'UK', 'W1C8RJ', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('13', '23 Shakespeare House', 'Barbican', NULL, 'London', 'UK', 'EC1', NULL, NULL);
+  VALUES ('13', '23 Shakespeare House', 'Barbican', 'London', 'London', 'UK', 'EC1', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('14', '4 Oxford Street', NULL, NULL, 'London', 'UK', 'W1B 5LP', NULL, NULL);
+  VALUES ('14', '4 Oxford Street', NULL, 'London', 'London', 'UK', 'W1B 5LP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('15', 'Next to Bluestar House', '234-244 Stockwell Road', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('16', '4 Oxford Street', NULL, NULL, 'London', 'UK', 'W1B 5LP', NULL, NULL);
+  VALUES ('16', '4 Oxford Street', NULL, 'London', 'London', 'UK', 'W1B 5LP', NULL, NULL);
 
 TRUNCATE TABLE certification RESTART IDENTITY;
 

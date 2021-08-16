@@ -362,8 +362,16 @@ describe("Database permissions", () => {
             accountUuid: company_admin_id,
             accountEmail: COMPANY_ADMIN_EMAIL
           },
-          "insert into project (company_id, name) values ($1, $2) returning *",
-          [company_id, "Project name"]
+          "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7) returning *",
+          [
+            company_id,
+            "Project name",
+            100,
+            "Joe",
+            "Doe",
+            "2021-01-01",
+            "2021-01-02"
+          ]
         );
         expect(rows.length).toEqual(1);
         project_id = rows[0].id;
@@ -377,8 +385,8 @@ describe("Database permissions", () => {
               accountUuid: company_admin_id,
               accountEmail: COMPANY_ADMIN_EMAIL
             },
-            "insert into project (company_id, name) values ($1, $2) returning *",
-            [1, "Project name"]
+            "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7) returning *",
+            [1, "Project name", 100, "Joe", "Doe", "2021-01-01", "2021-01-02"]
           );
         } catch (error) {
           expect(error.message).toEqual(RLS_ERROR("project"));
@@ -469,8 +477,8 @@ describe("Database permissions", () => {
             accountUuid: company_admin_id,
             accountEmail: COMPANY_ADMIN_EMAIL
           },
-          "insert into guarantee (requestor_account_id, project_id) VALUES($1, $2) RETURNING *",
-          [company_admin_id, project_id]
+          "insert into guarantee (requestor_account_id, project_id, guarantee_type_id) VALUES($1, $2, $3) RETURNING *",
+          [company_admin_id, project_id, "randomGuaranteeTypeId"]
         );
         expect(rows.length).toEqual(1);
         guarantee_id = rows[0].id;
@@ -486,8 +494,8 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into guarantee (requestor_account_id) VALUES($1)",
-            [installer_id]
+            "insert into guarantee (requestor_account_id, project_id, guarantee_type_id) VALUES($1, $2, $3)",
+            [installer_id, 1, "randomGuaranteeTypeId"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("guarantee"));
@@ -682,8 +690,16 @@ describe("Database permissions", () => {
             accountUuid: market_admin_id,
             accountEmail: MARKET_ADMIN_EMAIL
           },
-          "insert into product (name, market_id) VALUES ($1, $2) RETURNING *",
-          ["Name", MARKET_ID]
+          "insert into product (name, market_id, bmi_ref, brand, family, published, maximum_validity_years) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+          [
+            "Name",
+            MARKET_ID,
+            "test_bmi_ref",
+            "test_brand",
+            "test_family",
+            true,
+            1
+          ]
         );
         expect(rows.length).toEqual(1);
         product_id = rows[0].id;
@@ -697,8 +713,8 @@ describe("Database permissions", () => {
               accountUuid: market_admin_id,
               accountEmail: MARKET_ADMIN_EMAIL
             },
-            "insert into product (name, market_id) VALUES ($1, $2) RETURNING *",
-            ["Name", 2]
+            "insert into product (name, market_id, bmi_ref, brand, family, published, maximum_validity_years) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+            ["Name", 2, "test_bmi_ref", "test_brand", "test_family", true, 1]
           );
         } catch (error) {
           expect(error.message).toEqual(RLS_ERROR("product"));
@@ -717,8 +733,8 @@ describe("Database permissions", () => {
             accountUuid: 0,
             accountEmail: SUPER_ADMIN_EMAIL
           },
-          "insert into system (name, market_id) VALUES ($1, $2) RETURNING *",
-          ["Name", MARKET_ID]
+          "insert into system (name, market_id, bmi_ref, maximum_validity_years, published) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+          ["Name", MARKET_ID, "test_bmi_ref", 1, true]
         );
         expect(rows.length).toEqual(1);
         system_id = rows[0].id;
