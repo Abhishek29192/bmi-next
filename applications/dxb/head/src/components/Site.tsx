@@ -5,7 +5,7 @@ import { Data as ResourcesData } from "./Resources";
 import { GetMicroCopy, fallbackGetMicroCopy } from "./MicroCopy";
 import { Region } from "./Header";
 
-type Context = {
+export type Context = {
   node_locale: string;
   countryCode: string;
   homePage: {

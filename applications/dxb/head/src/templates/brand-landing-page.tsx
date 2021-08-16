@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Hero, { HeroItem } from "@bmi/hero";
 import Section from "@bmi/section";
-import { Data as SiteData, useSiteContext } from "../components/Site";
+import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
@@ -66,7 +66,6 @@ const getHeroItemsWithContext = (
 };
 
 const BrandLandingPage = ({ data, pageContext }: Props) => {
-  const siteContext = useSiteContext();
   const {
     title,
     description,
@@ -85,7 +84,6 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     inputBanner,
     seo
   };
-  const heroItems = getHeroItemsWithContext(siteContext, slides);
 
   const firstSlide: HeroItem = {
     title: <BrandLogo brandName={brandLogo} />,
@@ -105,19 +103,27 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
     >
-      <Hero
-        level={0}
-        brand={brandLogo}
-        breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
-        heroes={[firstSlide, ...heroItems]}
-        hasSpaceBottom
-      />
+      {({ siteContext }) => {
+        const heroItems = getHeroItemsWithContext(siteContext, slides);
 
-      {overlapCards && <OverlapCards data={overlapCards} />}
-      {sections && <Sections data={sections} />}
-      <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs data={breadcrumbs} />
-      </Section>
+        return (
+          <>
+            <Hero
+              level={0}
+              brand={brandLogo}
+              breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
+              heroes={[firstSlide, ...heroItems]}
+              hasSpaceBottom
+            />
+
+            {overlapCards && <OverlapCards data={overlapCards} />}
+            {sections && <Sections data={sections} />}
+            <Section backgroundColor="alabaster" isSlim>
+              <Breadcrumbs data={breadcrumbs} />
+            </Section>
+          </>
+        );
+      }}
     </Page>
   );
 };
