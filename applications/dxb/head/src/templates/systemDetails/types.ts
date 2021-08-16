@@ -6,16 +6,26 @@ export type GalleryImageType = {
   altText: string;
 };
 
+export type CategoryImage = {
+  allowedToDownload: boolean;
+  fileSize: number;
+  mime: string;
+  name: string;
+  realFileName: string;
+  url: string;
+};
+
 export type Category = {
   categoryType: string;
   name: string;
-  image?: Image;
+  image?: CategoryImage;
 };
 
 export type Feature = {
   code:
     | "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup"
-    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent";
+    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent"
+    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures";
   featureValues: { value: string }[];
   name: string;
 };
@@ -46,6 +56,8 @@ export type Assets = {
   format?: string;
 };
 
+export type SystemBenefits = string[];
+
 export interface SystemDetails {
   type?: string;
   approvalStatus?: string;
@@ -57,7 +69,7 @@ export interface SystemDetails {
   images: Image[] | null;
   longDescription: string;
   shortDescription?: string;
-  systemBenefits?: string[];
+  systemBenefits: SystemBenefits;
   systemLayers?: any[];
   systemReferences?: any[];
 }

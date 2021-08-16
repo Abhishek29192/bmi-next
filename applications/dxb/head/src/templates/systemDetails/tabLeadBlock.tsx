@@ -5,7 +5,7 @@ import Section from "@bmi/section";
 import { useSiteContext } from "../../components/Site";
 import withGTM from "../../utils/google-tag-manager";
 import BimIframe from "../../components/BimIframe";
-import { Assets } from "./types";
+import { Assets, Feature, SystemBenefits } from "./types";
 import AboutLeadBlock from "./aboutLeadBlock";
 
 type Props = {
@@ -13,6 +13,8 @@ type Props = {
   longDescription: string;
   guaranteesAndWarranties: Assets[];
   awardsAndCertificates: Assets[];
+  keyFeatures: Feature;
+  systemBenefits: SystemBenefits;
 };
 
 const GTMTab = withGTM<TabProps>(Tab, {
@@ -23,7 +25,9 @@ const TabLeadBlock = ({
   longDescription,
   guaranteesAndWarranties,
   awardsAndCertificates,
-  bimIframeUrl
+  bimIframeUrl,
+  keyFeatures,
+  systemBenefits
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -46,6 +50,8 @@ const TabLeadBlock = ({
             longDescription={longDescription}
             guaranteesAndWarranties={guaranteesAndWarranties}
             awardsAndCertificates={awardsAndCertificates}
+            keyFeatures={keyFeatures}
+            systemBenefits={systemBenefits}
           />
         </Tabs.TabPanel>
 

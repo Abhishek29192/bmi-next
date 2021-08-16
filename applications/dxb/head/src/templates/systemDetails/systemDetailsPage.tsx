@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { graphql } from "gatsby";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
@@ -9,7 +9,7 @@ import ShareWidgetSection, {
 import { getBimIframeUrl } from "../../components/BimIframe";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
-import { SystemDetails, Assets } from "./types";
+import { SystemDetails, Assets, Classification, Feature } from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 
 type Props = {
@@ -27,15 +27,38 @@ type Props = {
 const SystemDetailsPage = ({ data }: Props) => {
   const { contentfulSite, dataJson } = data;
   const { resources } = contentfulSite;
-  const { name, categories, classifications, images, longDescription, assets } =
-    dataJson;
-  const guaranteesAndWarranties: Assets[] = assets.filter(
-    ({ assetType }) => assetType === "GUARANTIES" || assetType === "WARRANTIES"
-  );
-  const awardsAndCertificates: Assets[] = assets.filter(
-    ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
-  );
+  const {
+    name,
+    categories,
+    classifications,
+    images,
+    longDescription,
+    assets,
+    systemBenefits
+  } = dataJson;
   const bimIframeUrl = getBimIframeUrl(assets);
+  const guaranteesAndWarranties: Assets[] = useMemo(() => {
+    return assets.filter(
+      ({ assetType }) =>
+        assetType === "GUARANTIES" || assetType === "WARRANTIES"
+    );
+  }, []);
+  const awardsAndCertificates: Assets[] = useMemo(() => {
+    return assets.filter(
+      ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
+    );
+  }, []);
+  const systemAttributes: Classification = useMemo(() => {
+    return classifications.find(({ code }) => code === "systemAttributes");
+  }, []);
+  const keyFeatures: Feature = useMemo(() => {
+    const { features } = systemAttributes;
+    return features.find(
+      ({ code }) =>
+        code ===
+        "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures"
+    );
+  }, []);
 
   return (
     <Page
@@ -61,6 +84,8 @@ const SystemDetailsPage = ({ data }: Props) => {
         guaranteesAndWarranties={guaranteesAndWarranties}
         awardsAndCertificates={awardsAndCertificates}
         bimIframeUrl={bimIframeUrl}
+        keyFeatures={keyFeatures}
+        systemBenefits={systemBenefits}
       />
     </Page>
   );
@@ -77,6 +102,7 @@ export const pageQuery = graphql`
       name
       shortDescription
       longDescription
+      systemBenefits
       assets {
         allowedToDownload
         assetType
@@ -94,9 +120,6 @@ export const pageQuery = graphql`
           name
           mime
           fileSize
-          containerId
-          assetType
-          altText
           allowedToDownload
           realFileName
         }
@@ -108,6 +131,7 @@ export const pageQuery = graphql`
           featureValues {
             value
           }
+          name
         }
       }
       images {
