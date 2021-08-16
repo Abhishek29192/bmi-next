@@ -41,7 +41,7 @@ export const calculateBattensForFaces = (
     battens: battenCalc(face.vertices, [face.pitch], mainTileVariant)
   }));
 
-const convertProductRowToResultsRow = (
+export const convertProductRowToResultsRow = (
   {
     name,
     packSize = 1, // No packs by default
@@ -57,7 +57,7 @@ const convertProductRowToResultsRow = (
   description: name,
   externalProductCode,
   packSize: packSize === 1 ? "-" : packSize.toString(),
-  quantity: Math.ceil((baseQuantity / packSize) * (1 + contingency))
+  quantity: Math.ceil(Math.ceil(baseQuantity / packSize) * (1 + contingency))
 });
 
 const LONG_SCREW_PER_METER = 3.2;
