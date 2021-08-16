@@ -1,13 +1,13 @@
-import React, { useContext, useMemo } from "react";
+import React, { useMemo } from "react";
 import Typography from "@bmi/typography";
 import AnchorLink from "@bmi/anchor-link";
 import getRecaptchaPrivacyContent, {
   RecaptchaPolicyContentType
 } from "./RecaptchaContentProvider";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 const RecaptchaPrivacyLinks = () => {
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode } = useSiteContext();
 
   return useMemo(() => {
     const recaptchaContent: RecaptchaPolicyContentType =
