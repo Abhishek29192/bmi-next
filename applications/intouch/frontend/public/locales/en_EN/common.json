@@ -33,5 +33,6 @@
     "url_format": "Invalid URL",
     "email_format": "Invalid email address",
     "phone_number_format": "Invalid phone number"
-  }
+  },
+  "Products": "Products"
 }

@@ -100,7 +100,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Guarantee" index="two">
             <TabCard>
-              <GuaranteeTab />
+              <GuaranteeTab project={project} />
             </TabCard>
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Uploads" index="three">

@@ -934,6 +934,58 @@ export type GetProjectQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectQuery,
   OperationTypes.GetProjectQueryVariables
 >;
+export const CreateGuaranteeDocument = gql`
+  mutation createGuarantee($input: CreateGuaranteeInput!) {
+    createGuarantee(input: $input) {
+      guarantee {
+        id
+      }
+    }
+  }
+`;
+export type CreateGuaranteeMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateGuaranteeMutation,
+  OperationTypes.CreateGuaranteeMutationVariables
+>;
+
+/**
+ * __useCreateGuaranteeMutation__
+ *
+ * To run a mutation, you first call `useCreateGuaranteeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateGuaranteeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createGuaranteeMutation, { data, loading, error }] = useCreateGuaranteeMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateGuaranteeMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateGuaranteeMutation,
+    OperationTypes.CreateGuaranteeMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateGuaranteeMutation,
+    OperationTypes.CreateGuaranteeMutationVariables
+  >(CreateGuaranteeDocument, options);
+}
+export type CreateGuaranteeMutationHookResult = ReturnType<
+  typeof useCreateGuaranteeMutation
+>;
+export type CreateGuaranteeMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateGuaranteeMutation>;
+export type CreateGuaranteeMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateGuaranteeMutation,
+  OperationTypes.CreateGuaranteeMutationVariables
+>;
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {
@@ -1291,6 +1343,237 @@ export type ContentfulEvidenceCategoriesLazyQueryHookResult = ReturnType<
 export type ContentfulEvidenceCategoriesQueryResult = Apollo.QueryResult<
   OperationTypes.ContentfulEvidenceCategoriesQuery,
   OperationTypes.ContentfulEvidenceCategoriesQueryVariables
+>;
+export const SearchProductsDocument = gql`
+  query searchProducts($query: String!, $technology: Technology!) {
+    searchProducts(query: $query, technology: $technology, first: 20) {
+      totalCount
+      nodes {
+        id
+        technology
+        name
+        description
+        published
+        brand
+        family
+        bmiRef
+      }
+    }
+  }
+`;
+
+/**
+ * __useSearchProductsQuery__
+ *
+ * To run a query within a React component, call `useSearchProductsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSearchProductsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSearchProductsQuery({
+ *   variables: {
+ *      query: // value for 'query'
+ *      technology: // value for 'technology'
+ *   },
+ * });
+ */
+export function useSearchProductsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >(SearchProductsDocument, options);
+}
+export function useSearchProductsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >(SearchProductsDocument, options);
+}
+export type SearchProductsQueryHookResult = ReturnType<
+  typeof useSearchProductsQuery
+>;
+export type SearchProductsLazyQueryHookResult = ReturnType<
+  typeof useSearchProductsLazyQuery
+>;
+export type SearchProductsQueryResult = Apollo.QueryResult<
+  OperationTypes.SearchProductsQuery,
+  OperationTypes.SearchProductsQueryVariables
+>;
+export const SearchSystemsDocument = gql`
+  query searchSystems($query: String!, $technology: Technology!) {
+    searchSystems(query: $query, technology: $technology, first: 20) {
+      totalCount
+      nodes {
+        id
+        technology
+        name
+        description
+        bmiRef
+        systemMembersBySystemBmiRef {
+          nodes {
+            id
+            productByProductBmiRef {
+              id
+              name
+              family
+              brand
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useSearchSystemsQuery__
+ *
+ * To run a query within a React component, call `useSearchSystemsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSearchSystemsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSearchSystemsQuery({
+ *   variables: {
+ *      query: // value for 'query'
+ *      technology: // value for 'technology'
+ *   },
+ * });
+ */
+export function useSearchSystemsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.SearchSystemsQuery,
+    OperationTypes.SearchSystemsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.SearchSystemsQuery,
+    OperationTypes.SearchSystemsQueryVariables
+  >(SearchSystemsDocument, options);
+}
+export function useSearchSystemsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.SearchSystemsQuery,
+    OperationTypes.SearchSystemsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.SearchSystemsQuery,
+    OperationTypes.SearchSystemsQueryVariables
+  >(SearchSystemsDocument, options);
+}
+export type SearchSystemsQueryHookResult = ReturnType<
+  typeof useSearchSystemsQuery
+>;
+export type SearchSystemsLazyQueryHookResult = ReturnType<
+  typeof useSearchSystemsLazyQuery
+>;
+export type SearchSystemsQueryResult = Apollo.QueryResult<
+  OperationTypes.SearchSystemsQuery,
+  OperationTypes.SearchSystemsQueryVariables
+>;
+export const GetProductGuaranteeTypesDocument = gql`
+  query getProductGuaranteeTypes($technology: String) {
+    guaranteeTypeCollection(
+      order: ranking_ASC
+      where: { technology: $technology }
+      limit: 10
+    ) {
+      items {
+        sys {
+          id
+        }
+        name
+        displayName
+        technology
+        coverage
+        ranking
+        tiersAvailable
+        guaranteeTemplatesCollection {
+          items {
+            sys {
+              id
+            }
+            displayName
+          }
+        }
+        evidenceCategoriesCollection {
+          items {
+            name
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetProductGuaranteeTypesQuery__
+ *
+ * To run a query within a React component, call `useGetProductGuaranteeTypesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductGuaranteeTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductGuaranteeTypesQuery({
+ *   variables: {
+ *      technology: // value for 'technology'
+ *   },
+ * });
+ */
+export function useGetProductGuaranteeTypesQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >(GetProductGuaranteeTypesDocument, options);
+}
+export function useGetProductGuaranteeTypesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >(GetProductGuaranteeTypesDocument, options);
+}
+export type GetProductGuaranteeTypesQueryHookResult = ReturnType<
+  typeof useGetProductGuaranteeTypesQuery
+>;
+export type GetProductGuaranteeTypesLazyQueryHookResult = ReturnType<
+  typeof useGetProductGuaranteeTypesLazyQuery
+>;
+export type GetProductGuaranteeTypesQueryResult = Apollo.QueryResult<
+  OperationTypes.GetProductGuaranteeTypesQuery,
+  OperationTypes.GetProductGuaranteeTypesQueryVariables
 >;
 export const AccountByEmailDocument = gql`
   query accountByEmail($email: String!) {

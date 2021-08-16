@@ -770,6 +770,23 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type CreateGuaranteeMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateGuaranteeInput;
+}>;
+
+export type CreateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
+  readonly createGuarantee?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateGuaranteePayload" } & {
+      readonly guarantee?: SchemaTypes.Maybe<
+        { readonly __typename?: "Guarantee" } & Pick<
+          SchemaTypes.Guarantee,
+          "id"
+        >
+      >;
+    }
+  >;
+};
+
 export type DeleteProjectMemberMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.DeleteProjectMemberInput;
 }>;
@@ -921,6 +938,137 @@ export type ContentfulEvidenceCategoriesQuery = {
               readonly sys: { readonly __typename?: "Sys" } & Pick<
                 SchemaTypes.Sys,
                 "id"
+              >;
+            }
+        >
+      >;
+    }
+  >;
+};
+
+export type SearchProductsQueryVariables = SchemaTypes.Exact<{
+  query: SchemaTypes.Scalars["String"];
+  technology: SchemaTypes.Technology;
+}>;
+
+export type SearchProductsQuery = { readonly __typename?: "Query" } & {
+  readonly searchProducts?: SchemaTypes.Maybe<
+    { readonly __typename?: "ProductsConnection" } & Pick<
+      SchemaTypes.ProductsConnection,
+      "totalCount"
+    > & {
+        readonly nodes: ReadonlyArray<
+          { readonly __typename?: "Product" } & Pick<
+            SchemaTypes.Product,
+            | "id"
+            | "technology"
+            | "name"
+            | "description"
+            | "published"
+            | "brand"
+            | "family"
+            | "bmiRef"
+          >
+        >;
+      }
+  >;
+};
+
+export type SearchSystemsQueryVariables = SchemaTypes.Exact<{
+  query: SchemaTypes.Scalars["String"];
+  technology: SchemaTypes.Technology;
+}>;
+
+export type SearchSystemsQuery = { readonly __typename?: "Query" } & {
+  readonly searchSystems?: SchemaTypes.Maybe<
+    { readonly __typename?: "SystemsConnection" } & Pick<
+      SchemaTypes.SystemsConnection,
+      "totalCount"
+    > & {
+        readonly nodes: ReadonlyArray<
+          { readonly __typename?: "System" } & Pick<
+            SchemaTypes.System,
+            "id" | "technology" | "name" | "description" | "bmiRef"
+          > & {
+              readonly systemMembersBySystemBmiRef: {
+                readonly __typename?: "SystemMembersConnection";
+              } & {
+                readonly nodes: ReadonlyArray<
+                  { readonly __typename?: "SystemMember" } & Pick<
+                    SchemaTypes.SystemMember,
+                    "id"
+                  > & {
+                      readonly productByProductBmiRef?: SchemaTypes.Maybe<
+                        { readonly __typename?: "Product" } & Pick<
+                          SchemaTypes.Product,
+                          "id" | "name" | "family" | "brand"
+                        >
+                      >;
+                    }
+                >;
+              };
+            }
+        >;
+      }
+  >;
+};
+
+export type GetProductGuaranteeTypesQueryVariables = SchemaTypes.Exact<{
+  technology?: SchemaTypes.Maybe<SchemaTypes.Scalars["String"]>;
+}>;
+
+export type GetProductGuaranteeTypesQuery = {
+  readonly __typename?: "Query";
+} & {
+  readonly guaranteeTypeCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "GuaranteeTypeCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "GuaranteeType" } & Pick<
+            SchemaTypes.GuaranteeType,
+            | "name"
+            | "displayName"
+            | "technology"
+            | "coverage"
+            | "ranking"
+            | "tiersAvailable"
+          > & {
+              readonly sys: { readonly __typename?: "Sys" } & Pick<
+                SchemaTypes.Sys,
+                "id"
+              >;
+              readonly guaranteeTemplatesCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "GuaranteeTypeGuaranteeTemplatesCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "GuaranteeTemplate" } & Pick<
+                        SchemaTypes.GuaranteeTemplate,
+                        "displayName"
+                      > & {
+                          readonly sys: { readonly __typename?: "Sys" } & Pick<
+                            SchemaTypes.Sys,
+                            "id"
+                          >;
+                        }
+                    >
+                  >;
+                }
+              >;
+              readonly evidenceCategoriesCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "GuaranteeTypeEvidenceCategoriesCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "EvidenceCategory" } & Pick<
+                        SchemaTypes.EvidenceCategory,
+                        "name"
+                      >
+                    >
+                  >;
+                }
               >;
             }
         >
