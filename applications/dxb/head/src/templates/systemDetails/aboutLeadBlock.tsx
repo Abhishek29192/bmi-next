@@ -28,7 +28,11 @@ const LeadBlockCardContent = ({
   contents: string[];
 }) => (
   <LeadBlock.Card.Section>
-    <LeadBlock.Card.Heading>{title}</LeadBlock.Card.Heading>
+    <LeadBlock.Card.Heading>
+      <Typography hasUnderline variant="h4">
+        {title}
+      </Typography>
+    </LeadBlock.Card.Heading>
     <LeadBlock.Card.Content>
       <IconList>
         {contents.map((value, index) => (
