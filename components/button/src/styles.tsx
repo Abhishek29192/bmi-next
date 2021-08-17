@@ -8,7 +8,6 @@ export const useButtonStyles = makeStyles(
       borderRadius: 3,
       overflowWrap: "anywhere"
     },
-    outlined: {},
     text: {
       "&:hover": {
         backgroundColor: fade(variables["color-black"]!, 0.05)
@@ -26,14 +25,6 @@ export const useButtonStyles = makeStyles(
     startIcon: {
       marginLeft: 0
     },
-    // classnames can override
-    textPrimary: {},
-    textSecondary: {},
-    outlinedPrimary: {},
-    outlinedSecondary: {},
-    containedSecondary: {},
-    disabled: {},
-    colorInherit: {},
     // custom classes
     textDarkBg: {
       color: fade(variables["color-white"]!, 0.8),

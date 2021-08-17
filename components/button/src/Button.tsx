@@ -44,12 +44,8 @@ const Button = ({
   ...rest
 }: ButtonProps | IconButtonProps) => {
   const { outlinedDarkBg, containedDarkBg, textDarkBg, ...buttonClasses } =
-    useButtonStyles({
-      classes: !isIconButton ? classes : undefined
-    });
-  const iconButtonClasses = useIconButtonStyles({
-    classes: isIconButton ? classes : undefined
-  });
+    useButtonStyles();
+  const iconButtonClasses = useIconButtonStyles();
 
   return isIconButton ? (
     <MaterialIconButton
@@ -81,16 +77,16 @@ const Button = ({
       {...rest}
       classes={{
         ...classes,
-        root: classnames(buttonClasses.root),
-        text: classnames(buttonClasses.text, {
+        root: classnames(buttonClasses.root, classes?.root),
+        text: classnames(buttonClasses.text, classes?.text, {
           [textDarkBg]: hasDarkBackground
         }),
-        contained: classnames(buttonClasses.contained, {
+        contained: classnames(buttonClasses.contained, classes?.contained, {
           [containedDarkBg]: hasDarkBackground
         }),
-        label: classnames(buttonClasses.label),
-        startIcon: classnames(buttonClasses.startIcon),
-        outlined: classnames({
+        label: classnames(buttonClasses.label, classes?.label),
+        startIcon: classnames(buttonClasses.startIcon, classes?.startIcon),
+        outlined: classnames(classes?.outlined, {
           [outlinedDarkBg]: hasDarkBackground
         })
       }}

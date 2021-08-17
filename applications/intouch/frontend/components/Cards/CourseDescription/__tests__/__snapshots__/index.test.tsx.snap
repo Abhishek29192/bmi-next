@@ -53,10 +53,10 @@ exports[`CourseDescription component renders correctly 1`] = `
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-5"
+              class="MuiButton-label buttonStyles-label-4"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-6 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"

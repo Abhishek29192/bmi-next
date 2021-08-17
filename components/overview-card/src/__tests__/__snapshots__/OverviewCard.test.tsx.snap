@@ -83,12 +83,12 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-79 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-83"
+          class="MuiButton-label buttonStyles-label-58"
         >
           Go to this
         </span>
@@ -182,7 +182,7 @@ exports[`OverviewCard component renders correctly 1`] = `
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-5"
+          class="MuiButton-label buttonStyles-label-4"
         >
           Go to this
         </span>
@@ -319,12 +319,12 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-27 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-31"
+          class="MuiButton-label buttonStyles-label-22"
         >
           Go to this
         </span>
@@ -372,12 +372,12 @@ exports[`OverviewCard component renders with deprecated imageSource 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-57"
+          class="MuiButton-label buttonStyles-label-40"
         >
           Go to this
         </span>

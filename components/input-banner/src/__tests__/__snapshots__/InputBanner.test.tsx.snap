@@ -61,13 +61,13 @@ exports[`InputBanner component renders correctly 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-4 buttonStyles-containedDarkBg-16 button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 buttonStyles-containedDarkBg-8 button MuiButton-containedPrimary Mui-disabled Mui-disabled"
                   disabled=""
                   tabindex="-1"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-5"
+                    class="MuiButton-label buttonStyles-label-4"
                   >
                     CTA
                     <span

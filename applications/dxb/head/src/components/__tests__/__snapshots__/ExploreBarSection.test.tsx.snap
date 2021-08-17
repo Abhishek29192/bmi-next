@@ -26,7 +26,7 @@ exports[`ExploreBarSection component renders correctly 1`] = `
           type="button"
         >
           <span
-            class="MuiButton-label buttonStyles-label-5"
+            class="MuiButton-label buttonStyles-label-4"
           >
             String
           </span>
@@ -40,7 +40,7 @@ exports[`ExploreBarSection component renders correctly 1`] = `
           type="button"
         >
           <span
-            class="MuiButton-label buttonStyles-label-5"
+            class="MuiButton-label buttonStyles-label-4"
           >
             Another string
           </span>
