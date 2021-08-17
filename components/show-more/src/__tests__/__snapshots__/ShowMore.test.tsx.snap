@@ -4,12 +4,12 @@ exports[`ShowMore component renders correctly 1`] = `
 <div>
   <div />
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-4 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-5"
+      class="MuiButton-label buttonStyles-label-4"
     >
       Show more
     </span>
@@ -26,12 +26,12 @@ exports[`ShowMore component renders correctly when trigger button is clicked 1`]
     Show more content
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-contained buttonStyles-contained-56 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-57"
+      class="MuiButton-label buttonStyles-label-40"
     >
       Trigger
     </span>
@@ -48,12 +48,12 @@ exports[`ShowMore component renders correctly with close button 1`] = `
     Show more content
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-79 MuiButton-contained buttonStyles-contained-82 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-contained buttonStyles-contained-57 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-83"
+      class="MuiButton-label buttonStyles-label-58"
     >
       Close
     </span>
@@ -68,12 +68,12 @@ exports[`ShowMore component renders correctly with close button is clicked 1`] =
 <div>
   <div />
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-105 MuiButton-contained buttonStyles-contained-108 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-contained buttonStyles-contained-75 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-109"
+      class="MuiButton-label buttonStyles-label-76"
     >
       Trigger
     </span>
@@ -90,12 +90,12 @@ exports[`ShowMore component renders correctly with content expanded 1`] = `
     Show more content
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-27 MuiButton-contained buttonStyles-contained-30 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-31"
+      class="MuiButton-label buttonStyles-label-22"
     >
       Show more
     </span>

@@ -62,13 +62,13 @@ exports[`CardCollectionSection component Card label doesn't render button if car
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-443 MuiButton-contained buttonStyles-contained-446 link MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-307 MuiButton-contained buttonStyles-contained-309 link MuiButton-containedPrimary"
             data-gtm="{\\"id\\":\\"cta-visualiser1\\",\\"action\\":\\"visualiser\\",\\"label\\":\\"Visualiser\\"}"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-447"
+              class="MuiButton-label buttonStyles-label-310"
             >
               Visualiser
               <span
@@ -182,13 +182,13 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                                 </h6>
                                 <span
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-4 MuiButton-containedPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
                                   data-testid="card-link"
                                   role="button"
                                   tabindex="0"
                                 >
                                   <span
-                                    class="MuiButton-label buttonStyles-label-5"
+                                    class="MuiButton-label buttonStyles-label-4"
                                   >
                                     a string
                                   </span>
@@ -277,13 +277,13 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-157 MuiButton-contained buttonStyles-contained-160 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-contained buttonStyles-contained-111 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-161"
+                          class="MuiButton-label buttonStyles-label-112"
                         >
                           a string
                         </span>
@@ -371,13 +371,13 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-27 MuiButton-contained buttonStyles-contained-30 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-31"
+                          class="MuiButton-label buttonStyles-label-22"
                         >
                           a string
                         </span>
@@ -465,13 +465,13 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-contained buttonStyles-contained-56 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-57"
+                          class="MuiButton-label buttonStyles-label-40"
                         >
                           a string
                         </span>
@@ -559,13 +559,13 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-79 MuiButton-contained buttonStyles-contained-82 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-contained buttonStyles-contained-57 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-83"
+                          class="MuiButton-label buttonStyles-label-58"
                         >
                           a string
                         </span>
@@ -653,13 +653,13 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-105 MuiButton-contained buttonStyles-contained-108 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-contained buttonStyles-contained-75 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-109"
+                          class="MuiButton-label buttonStyles-label-76"
                         >
                           a string
                         </span>
@@ -747,13 +747,13 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-131 MuiButton-contained buttonStyles-contained-134 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-91 MuiButton-contained buttonStyles-contained-93 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-135"
+                          class="MuiButton-label buttonStyles-label-94"
                         >
                           a string
                         </span>
@@ -841,13 +841,13 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-183 MuiButton-contained buttonStyles-contained-186 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-127 MuiButton-contained buttonStyles-contained-129 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-187"
+                          class="MuiButton-label buttonStyles-label-130"
                         >
                           a string
                         </span>
@@ -935,13 +935,13 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-209 MuiButton-contained buttonStyles-contained-212 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-contained buttonStyles-contained-147 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-213"
+                          class="MuiButton-label buttonStyles-label-148"
                         >
                           a string
                         </span>
@@ -959,7 +959,7 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
             </div>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-209 MuiButton-contained buttonStyles-contained-212 link MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-contained buttonStyles-contained-147 link MuiButton-containedPrimary"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
@@ -967,7 +967,7 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
               target="_blank"
             >
               <span
-                class="MuiButton-label buttonStyles-label-213"
+                class="MuiButton-label buttonStyles-label-148"
               >
                 string
                 <span
@@ -1127,13 +1127,13 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-625 MuiButton-contained buttonStyles-contained-628 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-433 MuiButton-contained buttonStyles-contained-435 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-629"
+                          class="MuiButton-label buttonStyles-label-436"
                         >
                           a string
                         </span>
@@ -1180,13 +1180,13 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-625 MuiButton-contained buttonStyles-contained-628 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-433 MuiButton-contained buttonStyles-contained-435 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-629"
+                          class="MuiButton-label buttonStyles-label-436"
                         >
                           a string
                         </span>
@@ -1233,13 +1233,13 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-625 MuiButton-contained buttonStyles-contained-628 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-433 MuiButton-contained buttonStyles-contained-435 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-629"
+                          class="MuiButton-label buttonStyles-label-436"
                         >
                           a string
                         </span>
@@ -1369,13 +1369,13 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-651 MuiButton-contained buttonStyles-contained-654 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-451 MuiButton-contained buttonStyles-contained-453 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-655"
+                          class="MuiButton-label buttonStyles-label-454"
                         >
                           a string
                         </span>
@@ -1422,13 +1422,13 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-651 MuiButton-contained buttonStyles-contained-654 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-451 MuiButton-contained buttonStyles-contained-453 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-655"
+                          class="MuiButton-label buttonStyles-label-454"
                         >
                           a string
                         </span>
@@ -1475,13 +1475,13 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-651 MuiButton-contained buttonStyles-contained-654 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-451 MuiButton-contained buttonStyles-contained-453 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-655"
+                          class="MuiButton-label buttonStyles-label-454"
                         >
                           a string
                         </span>
@@ -1635,13 +1635,13 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-677 MuiButton-contained buttonStyles-contained-680 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-469 MuiButton-contained buttonStyles-contained-471 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-681"
+                          class="MuiButton-label buttonStyles-label-472"
                         >
                           a string
                         </span>
@@ -1688,13 +1688,13 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-677 MuiButton-contained buttonStyles-contained-680 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-469 MuiButton-contained buttonStyles-contained-471 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-681"
+                          class="MuiButton-label buttonStyles-label-472"
                         >
                           a string
                         </span>
@@ -1741,13 +1741,13 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-677 MuiButton-contained buttonStyles-contained-680 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-469 MuiButton-contained buttonStyles-contained-471 MuiButton-containedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-681"
+                          class="MuiButton-label buttonStyles-label-472"
                         >
                           a string
                         </span>
