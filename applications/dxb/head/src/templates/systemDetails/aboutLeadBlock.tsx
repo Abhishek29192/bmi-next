@@ -17,7 +17,7 @@ type Props = {
 };
 
 const BlueCheckIcon = (
-  <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
+  <Icon source={CheckIcon} className={styles["blueCheckIcon"]} />
 );
 
 const LeadBlockCardContent = ({
@@ -68,7 +68,7 @@ const AboutLeadBlock = ({
         </LeadBlock.Content.Section>
         {guaranteesAndWarranties.length > 0 && (
           <LeadBlock.Content.Section
-            className={styles["GuaranteesAndAwardsAsset"]}
+            className={styles["guaranteesAndAwardsAsset"]}
           >
             <LeadBlock.Content.Heading>
               {getMicroCopy("sdp.leadBlock.guaranteesWarranties")}
@@ -85,7 +85,7 @@ const AboutLeadBlock = ({
         )}
         {awardsAndCertificates.length > 0 && (
           <LeadBlock.Content.Section
-            className={styles["GuaranteesAndAwardsAsset"]}
+            className={styles["guaranteesAndAwardsAsset"]}
           >
             <LeadBlock.Content.Heading>
               {getMicroCopy("sdp.leadBlock.awardsCertificates")}

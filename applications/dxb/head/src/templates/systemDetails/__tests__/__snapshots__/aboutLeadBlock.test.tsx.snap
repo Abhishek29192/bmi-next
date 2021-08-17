@@ -20,7 +20,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
         </div>
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -69,7 +69,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -96,7 +96,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -144,7 +144,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -171,7 +171,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -220,7 +220,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
         </div>
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -269,7 +269,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -296,7 +296,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -344,7 +344,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -371,7 +371,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -420,7 +420,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         </div>
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -434,7 +434,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         />
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -483,7 +483,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -510,7 +510,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -559,7 +559,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         </div>
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -573,7 +573,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         />
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -611,7 +611,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         </div>
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -625,7 +625,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         />
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -674,7 +674,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -701,7 +701,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -748,7 +748,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
         </div>
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -762,7 +762,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
         />
       </div>
       <div
-        class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -811,7 +811,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -838,7 +838,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -886,7 +886,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -913,7 +913,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root"
+                      class="MuiSvgIcon-root blueCheckIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >

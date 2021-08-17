@@ -3150,7 +3150,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       </div>
                     </div>
                     <div
-                      class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+                      class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
                       <h5
                         class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -3169,7 +3169,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       />
                     </div>
                     <div
-                      class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+                      class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
                       <h5
                         class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -3228,7 +3228,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root"
+                                    class="MuiSvgIcon-root blueCheckIcon"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -3255,7 +3255,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root"
+                                    class="MuiSvgIcon-root blueCheckIcon"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -3303,7 +3303,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root"
+                                    class="MuiSvgIcon-root blueCheckIcon"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -3330,7 +3330,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root"
+                                    class="MuiSvgIcon-root blueCheckIcon"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
