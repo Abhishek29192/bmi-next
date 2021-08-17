@@ -93,7 +93,7 @@ const BuildSmallViewRows = ({
     <>
       {rows.map((row, iterator) => (
         <Table.Row
-          key={Math.random() * iterator}
+          key={row.externalProductCode}
           className={classnames(iterator % 2 !== 0 && styles.greyBack)}
         >
           <Table.Cell className={styles.smallCell}>
@@ -152,7 +152,7 @@ const BuildMediumViewRows = ({
     <>
       {rows.map((row, iterator) => (
         <Table.Row
-          key={Math.random() * iterator}
+          key={row.externalProductCode}
           className={classnames(iterator % 2 !== 0 && styles.greyBack)}
         >
           <Table.Cell>

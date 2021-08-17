@@ -9,7 +9,7 @@ const resultsSample: ResultsObject = {
   tiles: [
     {
       category: "tiles",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Zanda Protector main tile black",
       externalProductCode: "46035712",
       packSize: "-",
@@ -17,7 +17,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "tiles",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Zanda Protector half tile black",
       externalProductCode: "46035795",
       packSize: "-",
@@ -25,7 +25,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "tiles",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Zanda_Protector_ridge tile black",
       externalProductCode: "46035761",
       packSize: "-",
@@ -37,7 +37,7 @@ const resultsSample: ResultsObject = {
   ventilation: [
     {
       category: "ventilation",
-      image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      image: "",
       description: "Ventilation Hood 1",
       externalProductCode: "100456781",
       packSize: "-",
@@ -47,7 +47,7 @@ const resultsSample: ResultsObject = {
   accessories: [
     {
       category: "accessories",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Zanda_Protector_verge metal flush black left start",
       externalProductCode: "86035763",
       packSize: "-",
@@ -55,7 +55,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Zanda_Protector_verge metal flush black left",
       externalProductCode: "86035761",
       packSize: "-",
@@ -63,7 +63,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Zanda_Protector_verge metal flush black right start",
       externalProductCode: "86035764",
       packSize: "-",
@@ -71,7 +71,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Zanda_Protector_verge metal flush black right",
       externalProductCode: "86035762",
       packSize: "-",
@@ -79,7 +79,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      image: "",
       description: "Clips",
       externalProductCode: "113456781",
       packSize: "-",
@@ -87,7 +87,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      image: "",
       description: "Ridge and Hip Screw",
       externalProductCode: "113456782",
       packSize: "-",
@@ -95,7 +95,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      image: "",
       description: "Long Screw",
       externalProductCode: "113456783",
       packSize: "-",
@@ -103,7 +103,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      image: "",
       description: "Screw",
       externalProductCode: "113456784",
       packSize: "-",
@@ -111,7 +111,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      image: "",
       description: "Finishing Kit",
       externalProductCode: "113456786",
       packSize: "-",
@@ -119,7 +119,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Underlay Divoroll TOP RU",
       externalProductCode: "26583450",
       packSize: "-",
@@ -127,7 +127,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Fuglelist ventilert",
       externalProductCode: "5555551",
       packSize: "-",
@@ -135,7 +135,7 @@ const resultsSample: ResultsObject = {
     },
     {
       category: "accessories",
-      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      image: "data:image/jpg;base64,imagedata",
       description: "Other accesories example",
       externalProductCode: "5555550",
       packSize: "-",
