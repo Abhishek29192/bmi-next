@@ -3192,6 +3192,46 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hae/h08/9020241575966/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
                       />
                     </div>
+                    <div
+                      class="LeadBlockContentSection"
+                    >
+                      <h5
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      >
+                        MC: sdp.leadBlock.specification
+                      </h5>
+                      <a
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-outlined MuiButton-outlinedPrimary"
+                        href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h65/h1a/9020241018910/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
+                        rel="noopener noreferrer"
+                        tabindex="0"
+                        target="_blank"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label-22"
+                        >
+                          Spec Test
+                          <span
+                            class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </a>
+                    </div>
                   </div>
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"

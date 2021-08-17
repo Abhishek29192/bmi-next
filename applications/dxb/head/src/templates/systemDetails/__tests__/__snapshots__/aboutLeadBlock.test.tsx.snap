@@ -33,6 +33,46 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
           src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
         />
       </div>
+      <div
+        class="LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.specification
+        </h5>
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-outlined MuiButton-outlinedPrimary"
+          href="test"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-40"
+          >
+            Spec Test
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
     </div>
     <div
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
@@ -232,6 +272,46 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
           class="image"
           src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
         />
+      </div>
+      <div
+        class="LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.specification
+        </h5>
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-outlined MuiButton-outlinedPrimary"
+          href="test"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-22"
+          >
+            Spec Test
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
       </div>
     </div>
     <div
@@ -591,7 +671,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
 </div>
 `;
 
-exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
+exports[`AboutLeadBlock tests should not render if no specification asset 1`] = `
 <div>
   <div
     class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -657,7 +737,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
               <h4
                 class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
               >
-                Key Features
+                MC: sdp.leadBlock.systemBenefits
               </h4>
             </h4>
             <div
@@ -689,7 +769,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
                     <p
                       class="MuiTypography-root title Typography MuiTypography-body1"
                     >
-                      Sample KF value
+                      Benefit value 1
                     </p>
                   </div>
                 </li>
@@ -716,7 +796,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
                     <p
                       class="MuiTypography-root title Typography MuiTypography-body1"
                     >
-                      Sample KF value 2
+                      Benefit value 2
                     </p>
                   </div>
                 </li>
@@ -724,6 +804,58 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
+<div>
+  <div
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <p>
+            Long Dec System 1 NO
+          </p>
+        </div>
+      </div>
+      <div
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.guaranteesWarranties
+        </h5>
+        <img
+          alt="Garanti Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+        />
+      </div>
+      <div
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.awardsCertificates
+        </h5>
+        <img
+          alt="Award_Test"
+          class="image"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+        />
       </div>
     </div>
   </div>
@@ -774,6 +906,46 @@ exports[`AboutLeadBlock tests should render 1`] = `
           class="image"
           src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
         />
+      </div>
+      <div
+        class="LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.specification
+        </h5>
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+          href="test"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-4"
+          >
+            Spec Test
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
       </div>
     </div>
     <div
@@ -936,6 +1108,68 @@ exports[`AboutLeadBlock tests should render 1`] = `
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AboutLeadBlock tests specification section move up if no guaranteesAndWarranties and awardsAndCertificates assets 1`] = `
+<div>
+  <div
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          longDescription
+        </div>
+      </div>
+      <div
+        class="LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          MC: sdp.leadBlock.specification
+        </h5>
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-outlined MuiButton-outlinedPrimary"
+          href="test"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-76"
+          >
+            Spec Test
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
       </div>
     </div>
   </div>
