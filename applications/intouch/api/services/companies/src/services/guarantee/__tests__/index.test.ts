@@ -53,6 +53,7 @@ let guaranteeInput: CreateGuaranteeInput = {
 describe("Guarantee", () => {
   const source = {};
   const resolveInfo = {};
+  const mockQuery = jest.fn();
   const context: any = {
     pubSub: {},
     logger: jest.fn().mockReturnValue({
@@ -62,7 +63,7 @@ describe("Guarantee", () => {
     }),
     pgRootPool: null,
     pgClient: {
-      query: jest.fn()
+      query: mockQuery
     },
     user: {
       id: "1",
@@ -80,8 +81,15 @@ describe("Guarantee", () => {
       input: guaranteeInput
     };
 
-    context.pgClient.query.mockImplementation(() => {});
-    context.pgClient.query.mockImplementation(() => ({ rows: [] }));
+    mockQuery
+      .mockImplementationOnce(() => {})
+      .mockImplementationOnce(() => ({
+        rows: [{ name: "project" }]
+      }))
+      .mockImplementationOnce(() => ({
+        rows: []
+      }));
+
     await createGuarantee(resolve, source, args, context, resolveInfo);
 
     expect(resolve).toBeCalledTimes(1);
@@ -101,8 +109,15 @@ describe("Guarantee", () => {
         }
       }
     };
-    context.pgClient.query.mockImplementation(() => {});
-    context.pgClient.query.mockImplementation(() => ({ rows: [] }));
+
+    mockQuery
+      .mockImplementationOnce(() => {})
+      .mockImplementationOnce(() => ({
+        rows: [{ name: "project" }]
+      }))
+      .mockImplementationOnce(() => ({
+        rows: []
+      }));
 
     await createGuarantee(resolve, source, args, context, resolveInfo);
 
