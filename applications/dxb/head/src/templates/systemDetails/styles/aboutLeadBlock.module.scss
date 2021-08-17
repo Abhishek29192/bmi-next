@@ -7,10 +7,14 @@
     }
   }
 
-  .GuaranteesAndAwardsAsset {
+  .guaranteesAndAwardsAsset {
     .image {
       height: 60px;
       padding-right: 10px;
     }
+  }
+
+  .blueCheckIcon {
+    color: var(--color-theme-accent-300);
   }
 }

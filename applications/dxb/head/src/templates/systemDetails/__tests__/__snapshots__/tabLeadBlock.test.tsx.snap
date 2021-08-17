@@ -91,12 +91,12 @@ exports[`TabLeadBlock tests should render 1`] = `
                       class="MuiTypography-root Typography MuiTypography-body1"
                     >
                       <p>
-                        LDescription NO
+                        Long Dec System 1 NO
                       </p>
                     </div>
                   </div>
                   <div
-                    class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+                    class="guaranteesAndAwardsAsset LeadBlockContentSection"
                   >
                     <h5
                       class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -110,7 +110,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                     />
                   </div>
                   <div
-                    class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+                    class="guaranteesAndAwardsAsset LeadBlockContentSection"
                   >
                     <h5
                       class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
@@ -118,10 +118,172 @@ exports[`TabLeadBlock tests should render 1`] = `
                       MC: sdp.leadBlock.awardsCertificates
                     </h5>
                     <img
-                      alt="test award"
+                      alt="Award_Test"
                       class="image"
-                      src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
+                      src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
                     />
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+                >
+                  <div
+                    class="ColorPair ColorPair--pearl"
+                  >
+                    <div
+                      class="PostItCard"
+                    >
+                      <div
+                        class="section"
+                      >
+                        <h4
+                          class="MuiTypography-root Typography MuiTypography-h4"
+                        >
+                          <h4
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                          >
+                            Key Features
+                          </h4>
+                        </h4>
+                        <div
+                          class="content"
+                        >
+                          <ul
+                            class="IconList"
+                          >
+                            <li
+                              class="ListItem ListItem--isCompact"
+                            >
+                              <div
+                                class="icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root blueCheckIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="content"
+                              >
+                                <p
+                                  class="MuiTypography-root title Typography MuiTypography-body1"
+                                >
+                                  Sample KF value
+                                </p>
+                              </div>
+                            </li>
+                            <li
+                              class="ListItem ListItem--isCompact"
+                            >
+                              <div
+                                class="icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root blueCheckIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="content"
+                              >
+                                <p
+                                  class="MuiTypography-root title Typography MuiTypography-body1"
+                                >
+                                  Sample KF value 2
+                                </p>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div
+                        class="section"
+                      >
+                        <h4
+                          class="MuiTypography-root Typography MuiTypography-h4"
+                        >
+                          <h4
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                          >
+                            MC: sdp.leadBlock.systemBenefits
+                          </h4>
+                        </h4>
+                        <div
+                          class="content"
+                        >
+                          <ul
+                            class="IconList"
+                          >
+                            <li
+                              class="ListItem ListItem--isCompact"
+                            >
+                              <div
+                                class="icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root blueCheckIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="content"
+                              >
+                                <p
+                                  class="MuiTypography-root title Typography MuiTypography-body1"
+                                >
+                                  Benefit value 1
+                                </p>
+                              </div>
+                            </li>
+                            <li
+                              class="ListItem ListItem--isCompact"
+                            >
+                              <div
+                                class="icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root blueCheckIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="content"
+                              >
+                                <p
+                                  class="MuiTypography-root title Typography MuiTypography-body1"
+                                >
+                                  Benefit value 2
+                                </p>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

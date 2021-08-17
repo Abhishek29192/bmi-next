@@ -4,12 +4,6 @@
   "assets": [
     {
       "allowedToDownload": true,
-      "assetType": "BIM",
-      "name": "BIM URL Sample",
-      "url": "https://www.bimobject.com/fr/bmi_siplast_fr/product/spl010108"
-    },
-    {
-      "allowedToDownload": true,
       "assetType": "WARRANTIES",
       "fileSize": 8470,
       "mime": "image/jpeg",
@@ -19,61 +13,94 @@
     },
     {
       "allowedToDownload": true,
-      "assetType": "AWARDS",
-      "fileSize": 7454,
-      "mime": "image/png",
-      "name": "test award",
-      "realFileName": "Test_Award.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
-    },
-    {
-      "allowedToDownload": true,
       "assetType": "GUARANTIES",
       "fileSize": 12750,
       "mime": "image/png",
-      "name": "Test Guarentee (NO)",
+      "name": "Guarantee test",
       "realFileName": "Test_Guarantee.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h05/h5f/9006918336542/Test-Guaranteepng"
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h36/h6c/9020240723998/Test-Guaranteepng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "AWARDS",
+      "fileSize": 7454,
+      "mime": "image/png",
+      "name": "Award_Test",
+      "realFileName": "Test_Award.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
     },
     {
       "allowedToDownload": true,
       "assetType": "CERTIFICATES",
       "fileSize": 8364,
       "mime": "image/png",
-      "name": "Test Certificate (NO)",
+      "name": "Certificate Test",
       "realFileName": "test_Certificate.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf4/h5b/9006918402078/test-Certificatepng"
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h76/h68/9020240855070/test-Certificatepng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "BIM",
+      "name": "BIM Test",
+      "url": "https://www.bimobject.com/en/steelpro/product/sp200_i_residental"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "CAD",
+      "fileSize": 270539,
+      "mime": "application/pdf",
+      "name": "CAD Test",
+      "realFileName": "1344416763.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h0e/h65/9020240953374/1344416763pdf"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "SPECIFICATION",
+      "fileSize": 689490,
+      "mime": "application/pdf",
+      "name": "Spec Test",
+      "realFileName": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h65/h1a/9020241018910/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "CERTIFICATES",
+      "fileSize": 689490,
+      "mime": "application/pdf",
+      "name": "Certificate Logo Test",
+      "realFileName": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hae/h08/9020241575966/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "DATA_SHEETS",
+      "fileSize": 390375,
+      "mime": "application/pdf",
+      "name": "DataSheet Test",
+      "realFileName": "Icopal Ventura.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h9d/h05/9020241641502/Icopal-Venturapdf"
     }
   ],
   "categories": [
     {
       "categoryType": "Brand",
-      "code": "Icopal",
+      "code": "Siplast",
       "image": {
         "allowedToDownload": true,
-        "altText": "Icopal RGB logo",
-        "assetType": "MASTER_IMAGE",
-        "containerId": "container_Icopal_RGB_Logo",
-        "fileSize": 6144,
+        "fileSize": 6728,
         "mime": "image/png",
-        "name": "bmi_icopal",
-        "realFileName": "bmi_icopal.png",
-        "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h77/h56/8801873297438/bmi-icopal.png"
+        "name": "bmi_siplast",
+        "realFileName": "bmi_siplast.png",
+        "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h4e/he9/9020231090206/bmi-siplastpng"
       },
-      "name": "Icopal",
-      "parentCategoryCode": "BMI"
+      "name": "Siplast",
+      "parentCategoryCode": "BMI_Brands"
     },
     {
       "categoryType": "SystemType",
-      "code": "SYSTEM_FAST_TRACK",
-      "name": "Fast Track",
-      "parentCategoryCode": "SYSTEM_FLAT_ROOF"
-    },
-    {
-      "categoryType": "SystemType",
-      "code": "SYSTEM_FLAT_ROOF",
-      "name": "Flat Roof",
-      "parentCategoryCode": "SYSTEM_TYPES"
+      "code": "SYSTEM_TYPES",
+      "name": "System Types",
+      "parentCategoryCode": ""
     }
   ],
   "classifications": [
@@ -81,476 +108,231 @@
       "code": "systemAttributes",
       "features": [
         {
-          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup",
-          "featureValues": [
-            {
-              "value": "N/A"
-            }
-          ],
-          "name": "Roof build-up"
-        },
-        {
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
           "featureValues": [
             {
-              "value": "Test Promotional Content NO locale"
+              "value": "Sample PC value"
             }
           ],
           "name": "Promotional Content"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.uniquesellingpropositions",
+          "featureValues": [
+            {
+              "value": "Sample USP value"
+            },
+            {
+              "value": "Sample USP value 2"
+            }
+          ],
+          "name": "Unique Selling Propositions"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.uniquesellingpropositions",
+          "featureValues": [
+            {
+              "value": "Sample USP value"
+            },
+            {
+              "value": "Sample USP value 2"
+            }
+          ],
+          "name": "Unique Selling Propositions"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
+          "featureValues": [
+            {
+              "value": "Sample KF value"
+            },
+            {
+              "value": "Sample KF value 2"
+            }
+          ],
+          "name": "Key Features"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
+          "featureValues": [
+            {
+              "value": "Sample KF value"
+            },
+            {
+              "value": "Sample KF value 2"
+            }
+          ],
+          "name": "Key Features"
         }
       ],
       "name": "System Attributes"
-    },
-    {
-      "code": "measurementAttributes",
-      "features": [
-        {
-          "code": "bmiSystemsClassificationCatalog/1.0/measurementAttributes.width",
-          "featureUnit": {
-            "name": "mm",
-            "symbol": "mm",
-            "unitType": "uom"
-          },
-          "featureValues": [
-            {
-              "value": "55"
-            }
-          ]
-        }
-      ],
-      "name": "Measurement"
     }
   ],
-  "code": "Test_PIM",
+  "code": "Test_PIM_System1",
   "images": [
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 185391,
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 715065,
       "mime": "image/jpeg",
-      "name": "TBK SN-403 T",
-      "realFileName": "TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+      "name": "snofanger1",
+      "realFileName": "snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf5/hf5/8974702477342/snofanger1jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 50546,
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 39429,
       "format": "Product-Hero-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Large-Desktop_TBK SN-403 T",
-      "realFileName": "Product-Hero-Large-Desktop_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h8f/h39/9004357943326/Product-Hero-Large-Desktop-TBK-SN-403-Tjpg"
+      "name": "Product-Hero-Large-Desktop_snofanger1",
+      "realFileName": "Product-Hero-Large-Desktop_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hca/hdf/8975183216670/Product-Hero-Large-Desktop-snofanger1jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 4797,
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 4840,
       "format": "Product-Color-Selector-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Mobile_TBK SN-403 T",
-      "realFileName": "Product-Color-Selector-Mobile_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h19/h11/9004358008862/Product-Color-Selector-Mobile-TBK-SN-403-Tjpg"
+      "name": "Product-Color-Selector-Mobile_snofanger1",
+      "realFileName": "Product-Color-Selector-Mobile_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h8b/he0/8975183282206/Product-Color-Selector-Mobile-snofanger1jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 11351,
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 10515,
       "format": "Product-Listing-Card-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Large-Desktop_TBK SN-403 T",
-      "realFileName": "Product-Listing-Card-Large-Desktop_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hda/h11/9004358074398/Product-Listing-Card-Large-Desktop-TBK-SN-403-Tjpg"
+      "name": "Product-Listing-Card-Large-Desktop_snofanger1",
+      "realFileName": "Product-Listing-Card-Large-Desktop_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h89/he3/8975183347742/Product-Listing-Card-Large-Desktop-snofanger1jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 27074,
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 21639,
       "format": "Product-Hero-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Small-Desktop-Tablet_TBK SN-403 T",
-      "realFileName": "Product-Hero-Small-Desktop-Tablet_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd8/h14/9004358139934/Product-Hero-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
+      "name": "Product-Hero-Small-Desktop-Tablet_snofanger1",
+      "realFileName": "Product-Hero-Small-Desktop-Tablet_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h9a/he6/8975183413278/Product-Hero-Small-Desktop-Tablet-snofanger1jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 7445,
-      "format": "Product-Hero-Mobile",
-      "mime": "image/jpeg",
-      "name": "Product-Hero-Mobile_TBK SN-403 T",
-      "realFileName": "Product-Hero-Mobile_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he9/h17/9004358205470/Product-Hero-Mobile-TBK-SN-403-Tjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 13076,
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 13051,
       "format": "Product-Color-Selector-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Large-Desktop_TBK SN-403 T",
-      "realFileName": "Product-Color-Selector-Large-Desktop_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hab/h18/9004358271006/Product-Color-Selector-Large-Desktop-TBK-SN-403-Tjpg"
+      "name": "Product-Color-Selector-Large-Desktop_snofanger1",
+      "realFileName": "Product-Color-Selector-Large-Desktop_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h59/hea/8975183544350/Product-Color-Selector-Large-Desktop-snofanger1jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 7445,
-      "format": "Product-Color-Selector-Small-Desktop-Tablet",
-      "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Small-Desktop-Tablet_TBK SN-403 T",
-      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha9/h1b/9004358336542/Product-Color-Selector-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 5631,
-      "format": "Product-Listing-Card-Small-Desktop-Tablet",
-      "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Small-Desktop-Tablet_TBK SN-403 T",
-      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hba/h1e/9004358402078/Product-Listing-Card-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 6142,
-      "format": "Product-Listing-Card-Mobile",
-      "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Mobile_TBK SN-403 T",
-      "realFileName": "Product-Listing-Card-Mobile_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h68/h1f/9004358467614/Product-Listing-Card-Mobile-TBK-SN-403-Tjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 46347,
-      "format": "Web",
-      "mime": "image/jpeg",
-      "name": "Web_TBK SN-403 T",
-      "realFileName": "Web_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h79/h22/9004358533150/Web-TBK-SN-403-Tjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 511725,
-      "format": "Print",
-      "mime": "image/tiff",
-      "name": "Print_TBK SN-403 T",
-      "realFileName": "Print_TBK SN-403 T.tiff",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h27/h23/9004358598686/Print-TBK-SN-403-Ttiff"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 572987,
-      "mime": "image/jpeg",
-      "name": "Test Image NO",
-      "realFileName": "system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h46/h55/9006939373598/system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 65517,
-      "format": "Product-Hero-Large-Desktop",
-      "mime": "image/jpeg",
-      "name": "Product-Hero-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Hero-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h27/hc5/9006940422174/Product-Hero-Large-Desktop-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 28759,
-      "format": "Product-Color-Selector-Mobile",
-      "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Color-Selector-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd5/hc5/9006940487710/Product-Color-Selector-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 31442,
-      "format": "Product-Listing-Card-Large-Desktop",
-      "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Listing-Card-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he6/hc8/9006940553246/Product-Listing-Card-Large-Desktop-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 43301,
-      "format": "Product-Hero-Small-Desktop-Tablet",
-      "mime": "image/jpeg",
-      "name": "Product-Hero-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Hero-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he4/hcb/9006940618782/Product-Hero-Small-Desktop-Tablet-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 32497,
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 7616,
       "format": "Product-Hero-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Hero-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha6/hcc/9006940684318/Product-Hero-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Hero-Mobile_snofanger1",
+      "realFileName": "Product-Hero-Mobile_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h48/he7/8975183478814/Product-Hero-Mobile-snofanger1jpg"
     },
     {
       "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 41642,
-      "format": "Product-Color-Selector-Large-Desktop",
-      "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Color-Selector-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha3/hcf/9006940749854/Product-Color-Selector-Large-Desktop-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 32497,
-      "format": "Product-Color-Selector-Small-Desktop-Tablet",
-      "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb5/hd2/9006940815390/Product-Color-Selector-Small-Desktop-Tablet-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 26783,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 5404,
       "format": "Product-Listing-Card-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h75/hd3/9006940880926/Product-Listing-Card-Small-Desktop-Tablet-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Listing-Card-Small-Desktop-Tablet_snofanger1",
+      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h19/hee/8975183675422/Product-Listing-Card-Small-Desktop-Tablet-snofanger1jpg"
     },
     {
       "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 27221,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 7616,
+      "format": "Product-Color-Selector-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Small-Desktop-Tablet_snofanger1",
+      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h57/hed/8975183609886/Product-Color-Selector-Small-Desktop-Tablet-snofanger1jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 5792,
       "format": "Product-Listing-Card-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Listing-Card-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h74/hd6/9006940946462/Product-Listing-Card-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Listing-Card-Mobile_snofanger1",
+      "realFileName": "Product-Listing-Card-Mobile_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h29/hf1/8975183740958/Product-Listing-Card-Mobile-snofanger1jpg"
     },
     {
       "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 76571,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 44705,
       "format": "Web",
       "mime": "image/jpeg",
-      "name": "Web_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Web_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcf/hde/9006941011998/Web-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Web_snofanger1",
+      "realFileName": "Web_snofanger1.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h28/hf4/8975183806494/Web-snofanger1jpg"
     },
     {
       "allowedToDownload": true,
-      "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 1718134,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_snofanger1.jpg",
+      "fileSize": 52209880,
       "format": "Print",
       "mime": "image/tiff",
-      "name": "Print_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Print_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.tiff",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h21/hde/9006941077534/Print-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechtiff"
+      "name": "Print_snofanger1",
+      "realFileName": "Print_snofanger1.tiff",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he9/hf4/8975183872030/Print-snofanger1tiff"
     }
   ],
-  "longDescription": "<p>LDescription NO</p>",
-  "name": "TEST ID NO",
-  "shortDescription": "SD Norway",
-  "systemBenefits": ["windroof NO"],
+  "longDescription": "<p>Long Dec System 1&nbsp;NO</p>",
+  "name": "NO System 1",
+  "shortDescription": "SDescription 1 NO",
+  "systemBenefits": ["Benefit value 1", "Benefit value 2"],
   "systemLayers": [
     {
       "addon": false,
       "approvalStatus": "approved",
-      "code": "Test_Layer",
-      "images": [
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 566118,
-          "mime": "image/jpeg",
-          "name": "10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf5/h8c/8974292451358/10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 125472,
-          "format": "Product-Hero-Large-Desktop",
-          "mime": "image/jpeg",
-          "name": "Product-Hero-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Hero-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h1f/h76/9003844403230/Product-Hero-Large-Desktop-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 21488,
-          "format": "Product-Color-Selector-Mobile",
-          "mime": "image/jpeg",
-          "name": "Product-Color-Selector-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Color-Selector-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/h75/9003844468766/Product-Color-Selector-Mobile-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 27891,
-          "format": "Product-Listing-Card-Large-Desktop",
-          "mime": "image/jpeg",
-          "name": "Product-Listing-Card-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Listing-Card-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h60/h72/9003844534302/Product-Listing-Card-Large-Desktop-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 49575,
-          "format": "Product-Hero-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "Product-Hero-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Hero-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb2/h71/9003844599838/Product-Hero-Small-Desktop-Tablet-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 23891,
-          "format": "Product-Hero-Mobile",
-          "mime": "image/jpeg",
-          "name": "Product-Hero-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Hero-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha1/h6e/9003844665374/Product-Hero-Mobile-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 29691,
-          "format": "Product-Color-Selector-Large-Desktop",
-          "mime": "image/jpeg",
-          "name": "Product-Color-Selector-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Color-Selector-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h6b/9003844730910/Product-Color-Selector-Large-Desktop-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 23891,
-          "format": "Product-Color-Selector-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "Product-Color-Selector-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he1/h6a/9003844796446/Product-Color-Selector-Small-Desktop-Tablet-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 22335,
-          "format": "Product-Listing-Card-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "Product-Listing-Card-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd1/h67/9003844861982/Product-Listing-Card-Small-Desktop-Tablet-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 22745,
-          "format": "Product-Listing-Card-Mobile",
-          "mime": "image/jpeg",
-          "name": "Product-Listing-Card-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Listing-Card-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd2/h64/9003844927518/Product-Listing-Card-Mobile-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 91700,
-          "format": "Web",
-          "mime": "image/jpeg",
-          "name": "Web_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Web_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h11/h64/9003844993054/Web-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 1098565,
-          "format": "Print",
-          "mime": "image/tiff",
-          "name": "Print_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Print_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.tiff",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h68/h19/9003845058590/Print-10205979-Icopal-bordtakbeslag-plast-BT3-17-sorttiff"
-        }
-      ],
+      "code": "Layer_2",
+      "layerNumber": 2,
+      "longDescription": "<p>Long Dec System 1&nbsp;NO</p>",
+      "name": "Layer 2 NO",
+      "shortDescription": "Layer SD value",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_7",
       "layerNumber": 1,
-      "longDescription": "Long Description NO",
-      "name": "Layer Id NO",
-      "optionalProducts": [
-        {
-          "code": "Radonmansjett"
-        }
-      ],
-      "products": [
-        {
-          "code": "Zanda_Protector_main_tile"
-        }
-      ],
-      "shortDescription": "SD NO",
-      "type": "LAYER_VAPOR_BARRIER"
+      "longDescription": "<p>Long Dec System 1&nbsp;NO</p>",
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
     }
   ],
   "systemReferences": [
     {
       "referenceType": "CROSSELLING",
       "target": {
-        "code": "TEST_2",
-        "name": "TEST_IDENTIFIER_NO"
+        "code": "Test_PIM_System2",
+        "name": "NO System 2"
       },
       "preselected": true
     }
