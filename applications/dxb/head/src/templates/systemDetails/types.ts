@@ -36,18 +36,23 @@ export type Classification = {
   name: string;
 };
 
-export type AssetAssetType =
+export type AssetType =
   | "BIM"
   | "WARRANTIES"
   | "AWARDS"
   | "GUARANTIES"
-  | "CERTIFICATES";
+  | "CERTIFICATES"
+  | "SPECIFICATION";
 
-export type MimeType = "image/jpeg" | "image/png" | "image/tiff";
+export type MimeType =
+  | "image/jpeg"
+  | "image/png"
+  | "image/tiff"
+  | "application/pdf";
 
 export type Assets = {
   allowedToDownload: boolean;
-  assetType: AssetAssetType;
+  assetType: AssetType;
   fileSize: number;
   mime: MimeType;
   name: string;

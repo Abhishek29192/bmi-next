@@ -59,6 +59,9 @@ const SystemDetailsPage = ({ data }: Props) => {
         "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures"
     );
   }, []);
+  const specification: Assets = useMemo(() => {
+    return assets.find(({ assetType }) => assetType === "SPECIFICATION");
+  }, []);
 
   return (
     <Page
@@ -86,6 +89,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         bimIframeUrl={bimIframeUrl}
         keyFeatures={keyFeatures}
         systemBenefits={systemBenefits}
+        specification={specification}
       />
     </Page>
   );

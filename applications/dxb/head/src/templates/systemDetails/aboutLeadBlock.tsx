@@ -4,16 +4,19 @@ import Typography from "@bmi/typography";
 import IconList from "@bmi/icon-list";
 import Icon from "@bmi/icon";
 import CheckIcon from "@material-ui/icons/Check";
+import Button from "@bmi/button";
+import { Launch } from "@material-ui/icons";
 import { useSiteContext } from "../../components/Site";
 import { Assets, Feature, SystemBenefits } from "./types";
 import styles from "./styles/aboutLeadBlock.module.scss";
 
 type Props = {
   longDescription: string;
-  guaranteesAndWarranties: Assets[];
-  awardsAndCertificates: Assets[];
+  guaranteesAndWarranties?: Assets[];
+  awardsAndCertificates?: Assets[];
   keyFeatures?: Feature;
   systemBenefits?: SystemBenefits;
+  specification?: Assets;
 };
 
 const BlueCheckIcon = (
@@ -53,7 +56,8 @@ const AboutLeadBlock = ({
   guaranteesAndWarranties,
   awardsAndCertificates,
   keyFeatures,
-  systemBenefits
+  systemBenefits,
+  specification
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -66,7 +70,7 @@ const AboutLeadBlock = ({
             dangerouslySetInnerHTML={{ __html: longDescription }}
           />
         </LeadBlock.Content.Section>
-        {guaranteesAndWarranties.length > 0 && (
+        {guaranteesAndWarranties && guaranteesAndWarranties.length > 0 && (
           <LeadBlock.Content.Section
             className={styles["guaranteesAndAwardsAsset"]}
           >
@@ -83,7 +87,7 @@ const AboutLeadBlock = ({
             ))}
           </LeadBlock.Content.Section>
         )}
-        {awardsAndCertificates.length > 0 && (
+        {awardsAndCertificates && awardsAndCertificates.length > 0 && (
           <LeadBlock.Content.Section
             className={styles["guaranteesAndAwardsAsset"]}
           >
@@ -98,6 +102,26 @@ const AboutLeadBlock = ({
                 className={styles["image"]}
               />
             ))}
+          </LeadBlock.Content.Section>
+        )}
+        {specification && (
+          <LeadBlock.Content.Section>
+            <LeadBlock.Content.Heading>
+              {getMicroCopy("sdp.leadBlock.specification")}
+            </LeadBlock.Content.Heading>
+
+            <Button
+              variant="outlined"
+              action={{
+                model: "htmlLink",
+                href: specification.url,
+                target: "_blank",
+                rel: "noopener noreferrer"
+              }}
+              endIcon={<Launch />}
+            >
+              {specification.name}
+            </Button>
           </LeadBlock.Content.Section>
         )}
       </LeadBlock.Content>
