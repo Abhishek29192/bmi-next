@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo } from "react";
+import React, { useContext, useState, useMemo, memo } from "react";
 import { graphql } from "gatsby";
 import AnchorLink from "@bmi/anchor-link";
 import Button, { ButtonProps } from "@bmi/button";
@@ -132,6 +132,8 @@ const CardCollectionItem = ({
     </OverviewCard>
   );
 };
+
+const MemoedCardCollectionItem = memo(CardCollectionItem);
 
 // TODO: Reuse the getCTA function here.
 const transformCard = ({
@@ -357,7 +359,7 @@ const CardCollectionSection = ({
               const { id } = card;
               return (
                 <Carousel.Slide key={`${id}-${i}`}>
-                  <CardCollectionItem
+                  <MemoedCardCollectionItem
                     card={card}
                     label={cardLabel}
                     type={cardType}

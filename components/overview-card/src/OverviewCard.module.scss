@@ -21,7 +21,6 @@
     z-index: 2;
 
     &--negative {
-      position: absolute;
       margin-top: -50px;
     }
   }
@@ -68,7 +67,7 @@
     padding: 30px 24px;
 
     /* override BaseButton styles */
-    align-items: flex-start;
+    align-items: normal;
     text-align: initial;
 
     @media (min-width: $breakpoint-sm) {
@@ -98,7 +97,7 @@
 
   &--clickable {
     /* override BaseButton styles */
-    align-items: flex-start;
+    align-items: normal;
     text-align: initial;
     transition: opacity 280ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
