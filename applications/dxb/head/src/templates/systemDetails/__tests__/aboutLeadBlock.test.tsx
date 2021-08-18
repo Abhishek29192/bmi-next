@@ -5,11 +5,10 @@ import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
 import { Assets, Feature } from "../types";
 
-const guaranteesAndWarranties = dataJson.assets.filter(
+const guaranteesAndWarranties: Assets[] = dataJson.assets.filter(
   ({ assetType }) => assetType === "WARRANTIES"
 ) as Assets[];
-
-const awardsAndCertificates = dataJson.assets.filter(
+const awardsAndCertificates: Assets[] = dataJson.assets.filter(
   ({ assetType }) => assetType === "AWARDS"
 ) as Assets[];
 
@@ -28,6 +27,16 @@ const keyFeatures: Feature = {
 
 const systemBenefits = dataJson.systemBenefits;
 
+const specification: Assets = {
+  allowedToDownload: true,
+  assetType: "SPECIFICATION",
+  fileSize: 689490,
+  mime: "application/pdf",
+  name: "Spec Test",
+  realFileName: "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg.pdf",
+  url: "test"
+};
+
 describe("AboutLeadBlock tests", () => {
   afterEach(cleanup);
 
@@ -40,12 +49,35 @@ describe("AboutLeadBlock tests", () => {
         awardsAndCertificates={awardsAndCertificates}
         keyFeatures={keyFeatures}
         systemBenefits={systemBenefits}
+        specification={specification}
       />
     );
     const longDescriptionText = queryByText(longDescription);
+    const guaranteesWarrantiesTitle = queryByText(
+      "sdp.leadBlock.guaranteesWarranties",
+      {
+        exact: false
+      }
+    );
+    const awardsCertificatesTitle = queryByText(
+      "sdp.leadBlock.awardsCertificates",
+      {
+        exact: false
+      }
+    );
+    const specificationTitle = queryByText("sdp.leadBlock.specification", {
+      exact: false
+    });
+    const specificationButton = container.querySelector(
+      `[rel="noopener noreferrer"]`
+    );
 
     expect(container).toMatchSnapshot();
     expect(longDescriptionText).toBeInTheDocument();
+    expect(guaranteesWarrantiesTitle).toBeInTheDocument();
+    expect(awardsCertificatesTitle).toBeInTheDocument();
+    expect(specificationTitle).toBeInTheDocument();
+    expect(specificationButton).toBeInTheDocument();
   });
 
   describe("should not render", () => {
@@ -57,6 +89,7 @@ describe("AboutLeadBlock tests", () => {
           awardsAndCertificates={awardsAndCertificates}
           keyFeatures={keyFeatures}
           systemBenefits={systemBenefits}
+          specification={specification}
         />
       );
       const text = queryByText("sdp.leadBlock.guaranteesWarranties", {
@@ -74,6 +107,7 @@ describe("AboutLeadBlock tests", () => {
           awardsAndCertificates={[]}
           keyFeatures={keyFeatures}
           systemBenefits={systemBenefits}
+          specification={specification}
         />
       );
       const text = queryByText("sdp.leadBlock.awardsCertificates", {
@@ -106,10 +140,10 @@ describe("AboutLeadBlock tests", () => {
           longDescription={dataJson.longDescription}
           guaranteesAndWarranties={guaranteesAndWarranties}
           awardsAndCertificates={awardsAndCertificates}
-          keyFeatures={keyFeatures}
-          systemBenefits={null}
+          specification={null}
         />
       );
+
       const text = queryByText("sdp.leadBlock.systemBenefits", {
         exact: false
       });
@@ -131,6 +165,73 @@ describe("AboutLeadBlock tests", () => {
 
       expect(container).toMatchSnapshot();
       expect(card).not.toBeInTheDocument();
+    });
+
+    it("if no specification asset", () => {
+      const { container, queryByText } = render(
+        <AboutLeadBlock
+          longDescription={dataJson.longDescription}
+          guaranteesAndWarranties={guaranteesAndWarranties}
+          awardsAndCertificates={awardsAndCertificates}
+          keyFeatures={null}
+          systemBenefits={systemBenefits}
+        />
+      );
+
+      const text = queryByText("sdp.leadBlock.specification", {
+        exact: false
+      });
+      const specificationButton = container.querySelector(
+        `[rel="noopener noreferrer"]`
+      );
+      expect(container).toMatchSnapshot();
+      expect(text).not.toBeInTheDocument();
+      expect(specificationButton).not.toBeInTheDocument();
+    });
+  });
+
+  describe("specification section", () => {
+    it("Button should open new tab", () => {
+      const { container } = render(
+        <AboutLeadBlock
+          longDescription={dataJson.longDescription}
+          guaranteesAndWarranties={guaranteesAndWarranties}
+          awardsAndCertificates={awardsAndCertificates}
+          keyFeatures={keyFeatures}
+          systemBenefits={systemBenefits}
+          specification={specification}
+        />
+      );
+
+      const specificationButton = container.querySelector(
+        `[rel="noopener noreferrer"]`
+      );
+      expect(specificationButton).toHaveAttribute("href", specification.url);
+      expect(specificationButton).toHaveAttribute("target", "_blank");
+    });
+
+    it("move up if no guaranteesAndWarranties and awardsAndCertificates assets", () => {
+      const longDescription = "longDescription";
+      const { container, queryByText } = render(
+        <AboutLeadBlock
+          longDescription={longDescription}
+          guaranteesAndWarranties={[]}
+          awardsAndCertificates={[]}
+          specification={specification}
+        />
+      );
+      expect(container).toMatchSnapshot();
+      const leadBlockSections = container.querySelectorAll(
+        ".LeadBlockContentSection"
+      );
+      const descriptionSection = queryByText(longDescription, {
+        exact: false
+      }).closest(".LeadBlockContentSection");
+      const specificationSection = queryByText("sdp.leadBlock.specification", {
+        exact: false
+      }).closest(".LeadBlockContentSection");
+      expect(leadBlockSections[0]).toBe(descriptionSection);
+      expect(leadBlockSections[1]).toBe(specificationSection);
     });
   });
 });

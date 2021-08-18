@@ -11,10 +11,11 @@ import AboutLeadBlock from "./aboutLeadBlock";
 type Props = {
   bimIframeUrl?: string;
   longDescription: string;
-  guaranteesAndWarranties: Assets[];
-  awardsAndCertificates: Assets[];
+  guaranteesAndWarranties?: Assets[];
+  awardsAndCertificates?: Assets[];
   keyFeatures?: Feature;
   systemBenefits?: SystemBenefits;
+  specification?: Assets;
 };
 
 const GTMTab = withGTM<TabProps>(Tab, {
@@ -27,7 +28,8 @@ const TabLeadBlock = ({
   awardsAndCertificates,
   bimIframeUrl,
   keyFeatures,
-  systemBenefits
+  systemBenefits,
+  specification
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -52,6 +54,7 @@ const TabLeadBlock = ({
             awardsAndCertificates={awardsAndCertificates}
             keyFeatures={keyFeatures}
             systemBenefits={systemBenefits}
+            specification={specification}
           />
         </Tabs.TabPanel>
 
