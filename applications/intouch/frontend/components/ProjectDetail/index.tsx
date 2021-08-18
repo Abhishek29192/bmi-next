@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
@@ -16,11 +16,25 @@ import { NoProjectsCard } from "../../components/Cards/NoProjects";
 import { NoteTab } from "../../components/Tabs/Notes";
 import { useGetProjectQuery } from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
-import { getProjectStatus } from "../../lib/utils/project";
+import {
+  getProjectStatus,
+  getProjectGuaranteeStatus
+} from "../../lib/utils/project";
 import log from "../../lib/logger";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
   const { t } = useTranslation("project-page");
+
+  // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
+  const getProjectGuaranteeType = useCallback(
+    (project: GetProjectQuery["project"]) => {
+      return (
+        project?.guarantees?.nodes?.[0]?.guaranteeType?.displayName ||
+        t("guarantee.notRequested")
+      );
+    },
+    [t]
+  );
 
   if (!projectId) {
     return (
@@ -65,19 +79,22 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           title={project.name}
           projectCode={`${project.id}`}
           projectStatus={getProjectStatus(project.startDate, project.endDate)}
-          buildingAddress={`${project.siteAddress.firstLine}, ${project.siteAddress.secondLine}, ${project.siteAddress.region}, ${project.siteAddress.town}, ${project.siteAddress.postcode}`}
+          buildingAddress={project.siteAddress}
           projectDescription={project.description}
+          roofArea={project.roofArea}
           startDate={project.startDate}
           endDate={project.endDate}
-          guarantee="-"
-          guaranteeStatus="-"
+          guaranteeType={getProjectGuaranteeType(project)}
+          guaranteeStatus={getProjectGuaranteeStatus(project)}
         />
 
         <BuildingOwnerDetails
-          name={`${project.buildingOwnerFirstname} ${project.buildingOwnerLastname}`}
+          name={[project.buildingOwnerFirstname, project.buildingOwnerLastname]
+            .filter(Boolean)
+            .join(" ")}
           email={project.buildingOwnerMail}
           company={project.buildingOwnerCompany}
-          address={`${project.buildingOwnerAddress?.firstLine}, ${project.buildingOwnerAddress?.secondLine}, ${project.buildingOwnerAddress?.region}, ${project.buildingOwnerAddress?.town}, ${project.buildingOwnerAddress?.postcode}`}
+          address={project.buildingOwnerAddress}
         />
       </Grid>
 

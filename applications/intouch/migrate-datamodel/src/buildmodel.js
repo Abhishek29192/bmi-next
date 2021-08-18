@@ -65,12 +65,21 @@ class Value {
 }
 
 class Attribute extends Value {
-  constructor(name, description, type, mockValues, constraint, reference) {
+  constructor(
+    name,
+    description,
+    type,
+    mockValues,
+    constraint,
+    reference,
+    mandatory
+  ) {
     super(name, description);
     this.type = type;
     this.mockValues = mockValues.split(";");
     this.constraint = constraint;
     this.reference = reference;
+    this.mandatory = mandatory === "Y" ? true : false;
   }
 }
 
@@ -100,14 +109,23 @@ class Table extends Thing {
     ];
   }
 
-  addColumn(name, description, type, mockValues, constraint, reference) {
+  addColumn(
+    name,
+    description,
+    type,
+    mockValues,
+    constraint,
+    reference,
+    mandatory
+  ) {
     let attribute = new Attribute(
       name,
       description,
       type,
       mockValues,
       constraint,
-      reference
+      reference,
+      mandatory
     );
     this.properties.push(attribute);
   }
@@ -121,11 +139,10 @@ class Table extends Thing {
 CREATE TABLE ${this.name} (
 ${this.properties
   .map((property) => {
-    const column =
-      property.type === "pk"
-        ? `${property.name} SERIAL PRIMARY KEY`
-        : `${property.name} ${property.type}`;
-    return column;
+    const isMandatory = property.mandatory ? "NOT NULL" : undefined;
+    const type = property.type === "pk" ? "SERIAL PRIMARY KEY" : property.type;
+
+    return [property.name, type, isMandatory].filter(Boolean).join(" ");
   })
   .concat(additionalColumns)
   .join(",\n")
@@ -354,7 +371,8 @@ const buildModel = (records) => {
           record.Type,
           record.Mocks,
           record.Constraint,
-          record.Reference
+          record.Reference,
+          record.Mandatory
         ); // add the new field to the current table based on the current record
         break;
     }

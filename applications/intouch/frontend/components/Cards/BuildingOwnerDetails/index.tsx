@@ -1,16 +1,25 @@
 import React from "react";
 import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
-import { InfoPair } from "../../InfoPair";
+import { Address, AddressProps } from "../../Address";
+import { MaybeInfoPair } from "../../InfoPair";
 import { NoContent } from "../../NoContent";
 import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 
 export type BuildingOwnerDetailsProps = {
-  name: string;
-  email: string;
-  company: string;
-  address: string;
+  name?: string;
+  email?: string;
+  company?: string;
+  address?: AddressProps["address"];
+};
+
+const InfoPair = (props) => {
+  const { t } = useTranslation("common");
+
+  return (
+    <MaybeInfoPair fallback={<i>{t("fallback.notAdded")}</i>} {...props} />
+  );
 };
 
 export const BuildingOwnerDetails = ({
@@ -19,19 +28,25 @@ export const BuildingOwnerDetails = ({
   company,
   address
 }: BuildingOwnerDetailsProps) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("project-page");
+
+  const empty = [name, email, company, address].filter(Boolean).length === 0;
 
   return (
     <SimpleCard>
-      <Typography variant="h5">{t("Building Owner Details")}</Typography>
-      {!company ? (
-        <NoContent message="Building owner details have not been added to this project" />
+      <Typography variant="h5">{t("buildingOwnerDetails.title")}</Typography>
+      {empty ? (
+        <NoContent message={t("buildingOwnerDetails.noContent")} />
       ) : (
         <div className={styles.body}>
-          <InfoPair title={t("Name")}>{name}</InfoPair>
-          <InfoPair title={t("Email")}>{email}</InfoPair>
-          <InfoPair title={t("Company")}>{company}</InfoPair>
-          <InfoPair title={t("Building Owner Address")}>{address}</InfoPair>
+          <InfoPair title={t("buildingOwnerDetails.name")}>{name}</InfoPair>
+          <InfoPair title={t("buildingOwnerDetails.email")}>{email}</InfoPair>
+          <InfoPair title={t("buildingOwnerDetails.company")}>
+            {company}
+          </InfoPair>
+          <InfoPair title={t("buildingOwnerDetails.address")}>
+            <Address address={address} />
+          </InfoPair>
         </div>
       )}
     </SimpleCard>

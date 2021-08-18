@@ -34,5 +34,8 @@
     "email_format": "Invalid email address",
     "phone_number_format": "Invalid phone number"
   },
-  "Products": "Products"
+  "Products": "Products",
+  "fallback": {
+    "notAdded": "Not added"
+  }
 }

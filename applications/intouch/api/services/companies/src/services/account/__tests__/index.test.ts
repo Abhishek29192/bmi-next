@@ -100,8 +100,8 @@ describe("Account", () => {
             accountUuid: -1,
             accountEmail: ""
           },
-          "insert into account (role) VALUES($1) RETURNING *",
-          ["INSTALLER"]
+          "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
+          ["INSTALLER", "joe", "doe", "joe@email.invalid"]
         );
         await transaction(
           pool,
@@ -110,8 +110,8 @@ describe("Account", () => {
             accountUuid: -1,
             accountEmail: ""
           },
-          "insert into account (role) VALUES($1) RETURNING *",
-          ["COMPANY_ADMIN"]
+          "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
+          ["COMPANY_ADMIN", "jane", "doe", "jane@email.invalid"]
         );
 
         try {

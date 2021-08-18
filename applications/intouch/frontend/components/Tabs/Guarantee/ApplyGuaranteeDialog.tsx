@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 import Dialog from "@material-ui/core/Dialog";
 import { gql } from "@apollo/client";
-import { EvidenceItemInput } from "@bmi/intouch-api-types";
 import {
   CreateGuaranteeMutationVariables,
   GetProjectQuery
@@ -26,8 +25,6 @@ export const ApplyGuaranteeDialog = ({
   onCloseClick,
   onCompletedClick
 }: ApplyGuaranteeDialogProps) => {
-  const { t } = useTranslation("project-page");
-
   const [createGuaranteMutation] = useCreateGuaranteeMutation({
     onCompleted: (data) => {
       onCompletedClick && onCompletedClick();
@@ -52,8 +49,11 @@ export const ApplyGuaranteeDialog = ({
           status: "SUBMITTED",
           evidenceItemsUsingId: {
             create: evidences.map((evidence) => ({
+              name: evidence.name,
+              // NOTE: mandatory in DB but resolver updates it with cloud URL
+              attachment: "",
               attachmentUpload: evidence
-            })) as EvidenceItemInput[]
+            }))
           }
         }
       }
