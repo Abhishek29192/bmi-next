@@ -126,7 +126,15 @@ const Hero = ({
                       >
                         {title}
                       </Typography>
-                      <div className={styles["text"]}>{children}</div>
+                      <div
+                        className={
+                          hasUnderline
+                            ? styles["text"]
+                            : styles["text-no-underline"]
+                        }
+                      >
+                        {children}
+                      </div>
                       {React.isValidElement(cta) &&
                         React.cloneElement(cta, {
                           className: classnames(

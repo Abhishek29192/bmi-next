@@ -116,4 +116,24 @@ describe("Hero component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders with no underline for brand", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
+
+    const { container } = render(
+      <Hero
+        heroes={[
+          {
+            title: "Title",
+            imageSource,
+            children: "",
+            hasUnderline: false
+          }
+        ]}
+        level={0}
+        brand="Brand Name"
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
