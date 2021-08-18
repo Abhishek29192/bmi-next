@@ -1,0 +1,21 @@
+@import "@bmi/styles";
+
+.main {
+  padding: 10px 0px;
+}
+.body {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.6rem;
+  border: 1px solid $color-storm;
+  &__title {
+    margin: 5px;
+  }
+  &__footer {
+    margin: 10px 0px;
+  }
+  &__logo {
+    width: 32px;
+    height: 32px;
+  }
+}
