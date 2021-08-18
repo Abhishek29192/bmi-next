@@ -24,13 +24,11 @@ export const ProjectGuarantee = ({ guarantees }: ProjectGuaranteeProps) => {
         <Accordion>
           {Object.entries(projectGuarantees).map(([key, guarantees]) => {
             return (
-              <Accordion.Item key={key}>
+              <Accordion.Item key={key} defaultExpanded={true}>
                 <Accordion.Summary>
-                  <Typography
-                    variant="h6"
-                    style={{ textTransform: "capitalize" }}
-                  >
-                    {key.toLowerCase()}
+                  <Typography variant="h6">
+                    {guarantees?.[0]?.guaranteeType?.displayName ||
+                      t("guarantee.notRequested")}
                   </Typography>
                 </Accordion.Summary>
                 <Accordion.Details>
@@ -38,7 +36,7 @@ export const ProjectGuarantee = ({ guarantees }: ProjectGuaranteeProps) => {
                     {key === "PRODUCT" ? (
                       <ProductGuarantee guarantees={guarantees} />
                     ) : (
-                      // System and solution guarantee have  same view.
+                      // System and solution guarantee have  same view...
                       <SolutionGuarantee guarantees={guarantees} />
                     )}
                   </div>
