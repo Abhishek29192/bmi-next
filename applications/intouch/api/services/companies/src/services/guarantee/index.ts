@@ -29,6 +29,13 @@ export const createGuarantee = async (
       .toString("hex")}`;
 
     const { projectId, evidenceItemsUsingId } = args.input.guarantee;
+
+    const {
+      rows: [{ name: projectName }]
+    } = await pgClient.query("select name from project where project.id=$1", [
+      projectId
+    ]);
+
     const evidenceCategoryType: EvidenceCategoryType = "PROOF_OF_PURCHASE";
 
     if (evidenceItemsUsingId?.create?.length > 0) {
@@ -52,7 +59,7 @@ export const createGuarantee = async (
       email: user.email,
       firstname: user.firstName,
       role: user.role,
-      project: `${projectId}`
+      project: `${projectName}`
     });
 
     //Get all company admins and send mail
@@ -69,7 +76,7 @@ export const createGuarantee = async (
         email: account.email,
         firstname: account.first_name,
         role: account.role,
-        project: `${projectId}`
+        project: `${projectName}`
       });
     }
 

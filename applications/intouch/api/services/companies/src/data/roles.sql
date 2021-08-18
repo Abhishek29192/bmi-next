@@ -88,8 +88,7 @@ grant select, insert, update, delete on invitation to super_admin;
 
 -- guarantee
 grant select on guarantee to installer;
-grant select on guarantee to company_admin;
-grant insert (id, requestor_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
+grant select, insert on guarantee to company_admin;
 grant update (id, requestor_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
 grant update (requestor_account_id, expiry_date) on guarantee to market_admin;
 
