@@ -415,3 +415,139 @@ exports[`Hero component renders with deprecated imageSource 1`] = `
   />
 </div>
 `;
+
+exports[`Hero component renders with no underline for brand 1`] = `
+<div
+  class="Hero Hero--slim Hero--carousel Hero--keyline"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root container MuiContainer-maxWidthXl"
+    >
+      <div
+        class="wrapper"
+      >
+        <div
+          class="wrapper"
+        >
+          <div
+            class="Carousel Carousel--opacity Carousel--swipable"
+            data-testid="carousel"
+          >
+            <div
+              style="overflow-x: hidden;"
+            >
+              <div
+                class="react-swipeable-view-container"
+                style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+              >
+                <div
+                  aria-hidden="false"
+                  class="Carousel__slide--global"
+                  data-swipeable="true"
+                  style="width: 100%; flex-shrink: 0; overflow: auto;"
+                >
+                  <div
+                    class="page"
+                  >
+                    <div
+                      class="slide"
+                      style="width: 100%;"
+                    >
+                      <div
+                        class="content"
+                      >
+                        <h1
+                          class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
+                        >
+                          Title
+                        </h1>
+                        <div
+                          class="text-no-underline"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="SlideControls SlideControls--light controls"
+        >
+          <span
+            class="middle-container"
+          >
+            <span
+              class="sliding-slot"
+            >
+              <span
+                class="numbers"
+              >
+                <span
+                  class="number number--active"
+                >
+                  01
+                </span>
+              </span>
+            </span>
+            <span
+              class="total"
+            >
+              01
+            </span>
+          </span>
+        </div>
+        <div
+          class="children"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="image-carousel"
+  >
+    <div
+      class="wrapper"
+    >
+      <div
+        class="Carousel Carousel--swipable"
+        data-testid="carousel"
+      >
+        <div
+          style="overflow-x: hidden;"
+        >
+          <div
+            class="react-swipeable-view-container"
+            style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+          >
+            <div
+              aria-hidden="false"
+              class="Carousel__slide--global"
+              data-swipeable="true"
+              style="width: 100%; flex-shrink: 0; overflow: auto;"
+            >
+              <div
+                class="page"
+              >
+                <div
+                  class="slide"
+                  style="width: 100%;"
+                >
+                  <div
+                    class="image"
+                    style="background-image: url(path-to-image);"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
