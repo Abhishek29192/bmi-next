@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
+import getJpgImage from "../utils/images";
 import { SiteContext, Data as SiteData } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
@@ -20,6 +21,8 @@ import VisualiserProvider from "./Visualiser";
 import Calculator from "./PitchedRoofCalcualtor";
 import styles from "./styles/Page.module.scss";
 
+import BrandProvider from "./BrandProvider";
+
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
   inputBanner: InputBannerData | null;
@@ -27,6 +30,7 @@ export type Data = {
 };
 
 type Props = {
+  brand?: string;
   children: React.ReactNode;
   title: string;
   pageData: Data;
@@ -37,6 +41,7 @@ type Props = {
 };
 
 const Page = ({
+  brand,
   title,
   children,
   pageData,
@@ -57,7 +62,8 @@ const Page = ({
     scriptGA,
     scriptOnetrust,
     scriptHotJar,
-    scriptGOptLoad
+    scriptGOptLoad,
+    regions
   } = siteData;
 
   const { breadcrumbs, inputBanner, seo } = pageData;
@@ -69,14 +75,29 @@ const Page = ({
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
+  const imageUrl = getJpgImage(ogImageUrl);
+
+  const enableOnetrust = Boolean(!process.env.GATSBY_PREVIEW && scriptOnetrust);
+  const enableGA = Boolean(!process.env.GATSBY_PREVIEW && scriptGA);
+  const enableTagManagerId = Boolean(
+    !process.env.GATSBY_PREVIEW && process.env.GOOGLE_TAGMANAGER_ID
+  );
+  const enableHotjar = Boolean(!process.env.GATSBY_PREVIEW && scriptHotJar);
+  const enableGOptimize = Boolean(
+    !process.env.GATSBY_PREVIEW && scriptGOptLoad
+  );
+  const enableHubSpot = Boolean(
+    !process.env.GATSBY_PREVIEW && process.env.GATSBY_HUBSPOT_ID
+  );
+
   return (
-    <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
+    <>
       <Helmet
         htmlAttributes={{ lang: node_locale }}
         title={seo?.metaTitle || title}
         defer={false}
       >
-        {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+        {imageUrl && <meta property="og:image" content={imageUrl} />}
 
         {/* NOTE: expand viewport beyond safe area */}
         <meta
@@ -88,7 +109,7 @@ const Page = ({
         )}
         {headScripts && <script>{headScripts.headScripts}</script>}
 
-        {!process.env.GATSBY_PREVIEW && scriptOnetrust && (
+        {enableOnetrust && (
           <script
             src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
             type="text/javascript"
@@ -96,18 +117,24 @@ const Page = ({
             data-domain-script={scriptOnetrust}
           />
         )}
-        {!process.env.GATSBY_PREVIEW && scriptOnetrust && (
+        {enableOnetrust && (
           <script type="text/javascript">
             {`function OptanonWrapper() {}`}
           </script>
         )}
-        {!process.env.GATSBY_PREVIEW && scriptGA && (
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${scriptGA}`}
-          />
+
+        {enableTagManagerId && (
+          <style>{`.async-hide { opacity: 0 !important}`}</style>
         )}
-        {!process.env.GATSBY_PREVIEW && scriptGA && (
+
+        {enableTagManagerId && (
+          <script>{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+          h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+          (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document.documentElement,'async-hide','dataLayer',4000,
+          {'${process.env.GOOGLE_TAGMANAGER_ID}':true});`}</script>
+        )}
+        {enableGA && (
           <script>
             {`<!-- Global site tag (gtag.js) - Google Analytics -->
             window.dataLayer = window.dataLayer || []; 
@@ -116,7 +143,14 @@ const Page = ({
           </script>
         )}
 
-        {!process.env.GATSBY_PREVIEW && scriptHotJar && (
+        {enableGA && (
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${scriptGA}`}
+          />
+        )}
+
+        {enableHotjar && (
           <script>
             {`<!-- Hotjar Tracking Code for https://www.bmigroup.com/no -->
               (function(h,o,t,j,a,r){
@@ -129,18 +163,18 @@ const Page = ({
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
           </script>
         )}
-        {!process.env.GATSBY_PREVIEW && scriptGOptLoad && (
+        {enableGOptimize && (
           <script
             async
             src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
           />
         )}
-        {!process.env.GATSBY_PREVIEW && process.env.GATSBY_HUBSPOT_ID && (
+        {enableHubSpot && (
           // This script is for the HubSpot CTA Links (see `Link.tsx`)
           <script
             id="hubspot-cta-script"
             src="https://js.hscta.net/cta/current.js"
-          ></script>
+          />
         )}
       </Helmet>
 
@@ -168,42 +202,54 @@ const Page = ({
             useRecaptchaNet={reCaptchaNet}
             language={countryCode}
           >
-            <Header
-              navigationData={menuNavigation}
-              utilitiesData={menuUtilities}
-              countryCode={countryCode}
-              activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
-              isOnSearchPage={isSearchPage}
-            />
-            <ErrorBoundary
-              fallbackRender={() => (
-                <ErrorFallback
-                  countryCode={countryCode}
-                  promo={resources.errorGeneral}
-                />
-              )}
-              onError={() => navigate(`/${countryCode}/422`)}
-            >
-              <VisualiserProvider
-                contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
-                variantCodeToPathMap={variantCodeToPathMap}
-                shareWidgetData={resources?.visualiserShareWidget}
+            <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
+              <Header
+                navigationData={menuNavigation}
+                utilitiesData={menuUtilities}
+                countryCode={countryCode}
+                activeLabel={
+                  (breadcrumbs && breadcrumbs[0]?.label) || undefined
+                }
+                isOnSearchPage={isSearchPage}
+                countryNavigationIntroduction={
+                  resources?.countryNavigationIntroduction
+                }
+                regions={regions}
+              />
+            </BmiThemeProvider>
+            <BrandProvider brand={brand}>
+              <ErrorBoundary
+                fallbackRender={() => (
+                  <ErrorFallback
+                    countryCode={countryCode}
+                    promo={resources.errorGeneral}
+                  />
+                )}
+                onError={() => navigate(`/${countryCode}/422`)}
               >
-                <Calculator onError={() => navigate(`/${countryCode}/422`)}>
-                  <div className={styles["content"]}>{children}</div>
-                </Calculator>
-              </VisualiserProvider>
-              {inputBanner ? <InputBanner data={inputBanner} /> : null}
-            </ErrorBoundary>
-            <Footer
-              mainNavigation={footerMainNavigation}
-              secondaryNavigation={footerSecondaryNavigation}
-            />
+                <VisualiserProvider
+                  contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
+                  variantCodeToPathMap={variantCodeToPathMap}
+                  shareWidgetData={resources?.visualiserShareWidget}
+                >
+                  <Calculator onError={() => navigate(`/${countryCode}/422`)}>
+                    {children}
+                  </Calculator>
+                </VisualiserProvider>
+                {inputBanner ? <InputBanner data={inputBanner} /> : null}
+              </ErrorBoundary>
+            </BrandProvider>
+            <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
+              <Footer
+                mainNavigation={footerMainNavigation}
+                secondaryNavigation={footerSecondaryNavigation}
+              />
+              <BackToTop accessibilityLabel="Back to the top" />
+            </BmiThemeProvider>
           </GoogleReCaptchaProvider>
         </MicroCopy.Provider>
       </SiteContext.Provider>
-      <BackToTop accessibilityLabel="Back to the top" />
-    </BmiThemeProvider>
+    </>
   );
 };
 

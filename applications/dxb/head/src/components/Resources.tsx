@@ -30,6 +30,7 @@ export type Data = {
   welcomeDialogTitle: string | null;
   welcomeDialogBrands: [string] | null;
   welcomeDialogBody: RichTextData | null;
+  countryNavigationIntroduction?: RichTextData | null;
 };
 
 export const query = graphql`
@@ -84,5 +85,6 @@ export const query = graphql`
       ...PromoFragment
     }
     ...WelcomeDialogFragment
+    ...HeaderLanguageFragment
   }
 `;

@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
-import { graphql, Link } from "gatsby";
+import React, { useContext, useMemo } from "react";
+import { graphql, Link, withPrefix } from "gatsby";
+import { getSrc } from "gatsby-plugin-image";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
@@ -15,6 +16,7 @@ import {
   getCTA
 } from "./Link";
 import { SiteContext } from "./Site";
+import RichText, { RichTextData } from "./RichText";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
   const cta = getCTA(promo, countryCode, getMicroCopy("page.linkLabel"));
@@ -128,19 +130,52 @@ const GTMNavigationTab = withGTM<TabProps>(Tab, {
   label: "label"
 });
 
+export type Region = {
+  label: string;
+  menu: Array<{
+    code: string;
+    label: string;
+    icon: string | null;
+  }>;
+};
+
 const Header = ({
   navigationData,
   utilitiesData,
   countryCode,
   activeLabel,
-  isOnSearchPage
+  isOnSearchPage,
+  countryNavigationIntroduction,
+  regions
 }: {
   navigationData: NavigationData;
   utilitiesData: NavigationData;
   countryCode: string;
   activeLabel?: string;
   isOnSearchPage?: boolean;
+  countryNavigationIntroduction?: RichTextData | null;
+  regions: Region[];
 }) => {
+  const languages = useMemo(
+    () =>
+      regions.map((region) => ({
+        ...region,
+        menu: region.menu.map((language) => ({
+          ...language,
+          icon: language.icon ? withPrefix(language.icon) : undefined
+        }))
+      })),
+    [regions]
+  );
+
+  const language = useMemo(
+    () =>
+      languages
+        .reduce((acc, { menu }) => acc.concat(menu), [])
+        .find((l) => l.code === countryCode),
+    [languages, countryCode]
+  );
+
   if (!navigationData || !utilitiesData) {
     return null;
   }
@@ -161,6 +196,12 @@ const Header = ({
     <HidePrint
       component={() => (
         <HeaderComponent
+          languages={languages}
+          language={language}
+          languageLabel={getMicroCopy("menu.language")}
+          languageIntroduction={
+            <RichText document={countryNavigationIntroduction} />
+          }
           utilities={utilities}
           navigation={navigation}
           logoAction={{
@@ -182,7 +223,11 @@ const Header = ({
               gtm={{
                 id: "nav-main-menu",
                 // @ts-ignore This is getting messy
-                action: props.action ? props.action.to : undefined
+                action: props.action?.to,
+                label:
+                  typeof props.children !== "string"
+                    ? props.accessibilityLabel
+                    : undefined
               }}
               {...props}
             />
@@ -301,6 +346,19 @@ export const query = graphql`
       ... on ContentfulLink {
         ...LinkFragment
       }
+    }
+  }
+  fragment HeaderLanguageFragment on ContentfulResources {
+    countryNavigationIntroduction {
+      ...RichTextFragment
+    }
+  }
+  fragment RegionFragment on RegionJson {
+    label
+    menu {
+      code
+      label
+      icon
     }
   }
 `;

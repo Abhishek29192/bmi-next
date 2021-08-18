@@ -1,6 +1,6 @@
 import TableOfContent from "@bmi/table-of-content";
 import { graphql } from "gatsby";
-import React from "react";
+import React, { createContext, useMemo } from "react";
 import CardCollectionSection, {
   Data as CardCollectionSectionData
 } from "./CardCollectionSection";
@@ -66,6 +66,17 @@ export const sectionsMap = {
   ContentfulIframe: IframeSection
 };
 
+type DisplayProps = {
+  backgroundColor: PromoSectionData["backgroundColor"];
+  isReversed: boolean;
+};
+
+type Context = {
+  [id: string]: DisplayProps;
+};
+
+export const SectionsContext = createContext<Context>({});
+
 // TODO: This should be exported by the card collection.
 type ThemeOptions = "cardCollectionRowType";
 
@@ -86,8 +97,34 @@ const Sections = ({
   startIndex?: number;
   pageTypename?: string;
 }) => {
+  const themeMap = useMemo(
+    () =>
+      data.reduce<Context>((carry, section, index) => {
+        if (section.__typename !== "ContentfulPromo") {
+          return carry;
+        }
+
+        const { id, backgroundColor } = section;
+
+        return {
+          ...carry,
+          [id]: {
+            // @ts-ignore Property 'id' does not exist on type 'SectionData'.
+            isReversed: !carry[data[index - 1]?.id]?.isReversed,
+            backgroundColor:
+              backgroundColor ||
+              // @ts-ignore Property 'id' does not exist on type 'SectionData'.
+              (carry[data[index - 1]?.id]?.backgroundColor === "White"
+                ? "Alabaster"
+                : "White")
+          }
+        };
+      }, {}),
+    [data]
+  );
+
   return (
-    <>
+    <SectionsContext.Provider value={themeMap}>
       {data.map((section, index) => {
         const Component: React.ElementType = sectionsMap[section.__typename];
         const title =
@@ -116,7 +153,7 @@ const Sections = ({
           sectionComponent
         );
       })}
-    </>
+    </SectionsContext.Provider>
   );
 };
 

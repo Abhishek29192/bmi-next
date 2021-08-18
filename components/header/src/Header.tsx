@@ -2,13 +2,16 @@ import Button from "@bmi/button";
 import Icon from "@bmi/icon";
 import Search from "@bmi/search";
 import LanguageSelection, {
-  defaultLanguage,
   LanguageSelectionItem,
   LanguageSelectionList
 } from "@bmi/language-selection";
 import { BMI as BmiIcon } from "@bmi/logo";
 import Clickable, { ClickableProps, ClickableAction } from "@bmi/clickable";
-import Navigation, { LinkList, NavigationList } from "@bmi/navigation";
+import Navigation, {
+  LinkList,
+  NavigationList,
+  NavigationListButton
+} from "@bmi/navigation";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
 import {
@@ -22,7 +25,8 @@ import {
   Close,
   KeyboardArrowDown,
   Menu,
-  Search as SearchIcon
+  Search as SearchIcon,
+  ChevronLeft
 } from "@material-ui/icons";
 import classnames from "classnames";
 import React, { forwardRef } from "react";
@@ -56,10 +60,11 @@ type HeaderProps = {
   mainMenuTitleLabel?: string;
   mainMenuDefaultLabel?: string;
   languageLabel?: string;
+  languageIntroduction?: React.ReactNode;
 };
 
 const Header = ({
-  language = defaultLanguage,
+  language,
   languages,
   navigation,
   utilities,
@@ -80,7 +85,8 @@ const Header = ({
   openLabel = "Open menu",
   mainMenuTitleLabel,
   mainMenuDefaultLabel,
-  languageLabel
+  languageLabel,
+  languageIntroduction
 }: HeaderProps) => {
   const $body =
     typeof document !== "undefined"
@@ -193,7 +199,7 @@ const Header = ({
                 </Button>
               </li>
             ))}
-            {languages && (
+            {language && languages && (
               <li className={styles["nav-item"]}>
                 <Button
                   className={classnames(
@@ -208,13 +214,19 @@ const Header = ({
                   variant="text"
                   aria-label={languageLabel}
                 >
-                  {language.icon && (
-                    <Icon
-                      source={language.icon}
-                      className={styles["language-icon"]}
-                    />
-                  )}
-                  {language.code}
+                  {language.icon &&
+                    (typeof language.icon === "string" ? (
+                      <img
+                        className={styles["language-icon"]}
+                        src={language.icon}
+                      />
+                    ) : (
+                      <Icon
+                        source={language.icon}
+                        className={styles["language-icon"]}
+                      />
+                    ))}
+                  {language.code.toUpperCase()}
                   <span
                     className={classnames(styles["down-arrow"], {
                       [styles["down-arrow--up"]!]: showLanguageSelection
@@ -240,12 +252,28 @@ const Header = ({
               accessibilityLabel={closeLabel}
               className={styles["close-button"]}
               isIconButton
-              onClick={toggleLanguageSelection}
+              onClick={hideAll}
             >
               <Icon source={Close} />
             </Button>
-            <Container>
-              <LanguageSelection languages={languages} />
+            <div className={styles["back-navigation"]}>
+              <NavigationListButton
+                component={Button}
+                className={styles["back-button"]}
+                startIcon={<ChevronLeft className={styles["chevronLeft"]} />}
+                endIcon={false}
+                onClick={toggleLanguageSelection}
+              >
+                {mainMenuDefaultLabel}
+              </NavigationListButton>
+              <hr className={styles["separator"]} />
+            </div>
+            <Container wrapperClassName={styles["language-container"]}>
+              <LanguageSelection
+                introduction={languageIntroduction}
+                languages={languages}
+                forceMobile={!sizes.length}
+              />
             </Container>
           </div>
         </Slide>
@@ -381,7 +409,7 @@ const Header = ({
             setRootValue={setValue}
             mainMenuTitleLabel={mainMenuTitleLabel}
             mainMenuDefaultLabel={mainMenuDefaultLabel}
-            languageLabel={languageLabel}
+            language={language}
             sizes={sizes}
           />
         </div>

@@ -33,6 +33,7 @@ export type Props = {
   onUploadRequest?: FileProps["onRequest"];
   microcopyProvider: Record<string, string>;
   defaultExpanded?: boolean;
+  onFilesChange?: (file: File[]) => void;
 };
 
 const Upload = ({
@@ -52,7 +53,8 @@ const Upload = ({
   onChange,
   onUploadRequest,
   microcopyProvider,
-  defaultExpanded = false
+  defaultExpanded = false,
+  onFilesChange
 }: Props) => {
   const [files, setFiles] = useState<readonly UploadFile[]>([]);
   const [dragCounter, setDragCounter] = useState(0);
@@ -62,6 +64,7 @@ const Upload = ({
 
   useEffect(() => {
     onChange(files.map((file) => file.value));
+    onFilesChange && onFilesChange(files.map((file) => file.file));
   }, [files]);
 
   const onInputChange = (event?: ChangeEvent<HTMLInputElement>) => {

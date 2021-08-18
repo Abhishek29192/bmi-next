@@ -202,6 +202,42 @@ export type AccountProjectMembersArgs = {
   filter?: Maybe<ProjectMemberFilter>;
 };
 
+/** The fields on `account` to look up the row to connect. */
+export type AccountAccountDoceboUserIdKeyConnect = {
+  /** User account in Docebo */
+  doceboUserId: Scalars["Int"];
+};
+
+/** The fields on `account` to look up the row to delete. */
+export type AccountAccountDoceboUserIdKeyDelete = {
+  /** User account in Docebo */
+  doceboUserId: Scalars["Int"];
+};
+
+/** The fields on `account` to look up the row to connect. */
+export type AccountAccountEmailKeyConnect = {
+  /** The email address associated with the account */
+  email: Scalars["String"];
+};
+
+/** The fields on `account` to look up the row to delete. */
+export type AccountAccountEmailKeyDelete = {
+  /** The email address associated with the account */
+  email: Scalars["String"];
+};
+
+/** The fields on `account` to look up the row to connect. */
+export type AccountAccountPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `account` to look up the row to delete. */
+export type AccountAccountPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
 /** A condition to be used against `Account` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type AccountCondition = {
   /** Checks for equality with the object’s `id` field. */
@@ -262,8 +298,448 @@ export type AccountInput = {
   migrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   marketCode?: Maybe<Scalars["String"]>;
 };
+
+/** Input for the nested mutation of `market` in the `AccountInput` mutation. */
+export type AccountMarketIdFkeyInput = {
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectById?: Maybe<MarketMarketPkeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDomain?: Maybe<MarketMarketDomainKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByNodeId?: Maybe<MarketNodeIdConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteById?: Maybe<MarketMarketPkeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDomain?: Maybe<MarketMarketDomainKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<MarketNodeIdDelete>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateById?: Maybe<MarketOnAccountForAccountMarketIdFkeyUsingMarketPkeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDomain?: Maybe<MarketOnAccountForAccountMarketIdFkeyUsingMarketDomainKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDoceboCatalogueId?: Maybe<MarketOnAccountForAccountMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByNodeId?: Maybe<AccountOnAccountForAccountMarketIdFkeyNodeIdUpdate>;
+  /** A `MarketInput` object that will be created and connected to this object. */
+  create?: Maybe<AccountMarketIdFkeyMarketCreateInput>;
+};
+
+/** Input for the nested mutation of `account` in the `MarketInput` mutation. */
+export type AccountMarketIdFkeyInverseInput = {
+  /** Flag indicating whether all other `account` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: Maybe<Array<AccountAccountPkeyConnect>>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: Maybe<Array<AccountAccountEmailKeyConnect>>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: Maybe<Array<AccountAccountDoceboUserIdKeyConnect>>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<AccountNodeIdConnect>>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: Maybe<Array<AccountAccountPkeyDelete>>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: Maybe<Array<AccountAccountEmailKeyDelete>>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: Maybe<Array<AccountAccountDoceboUserIdKeyDelete>>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<AccountNodeIdDelete>>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<AccountOnAccountForAccountMarketIdFkeyUsingAccountPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: Maybe<
+    Array<AccountOnAccountForAccountMarketIdFkeyUsingAccountEmailKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: Maybe<
+    Array<AccountOnAccountForAccountMarketIdFkeyUsingAccountDoceboUserIdKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<MarketOnAccountForAccountMarketIdFkeyNodeIdUpdate>
+  >;
+};
+
+/** The `market` to be created by this mutation. */
+export type AccountMarketIdFkeyMarketCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type AccountNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `account` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type AccountNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `account` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnAccountForAccountMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `market` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: MarketPatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnAccountForAccountMarketIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnAccountForAccountMarketIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnAccountForAccountMarketIdFkeyUsingAccountEmailKeyUpdate = {
+  /** An object where the defined keys will be set on the `account` being updated. */
+  patch: UpdateAccountOnAccountForAccountMarketIdFkeyPatch;
+  /** The email address associated with the account */
+  email: Scalars["String"];
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnAccountForAccountMarketIdFkeyUsingAccountPkeyUpdate = {
+  /** An object where the defined keys will be set on the `account` being updated. */
+  patch: UpdateAccountOnAccountForAccountMarketIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnCertificationForCertificationDoceboUserIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `certification` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `certification` being updated. */
+    patch: CertificationPatch;
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `companyMember` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `companyMember` being updated. */
+  patch: CompanyMemberPatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `guarantee` being updated. */
+  patch: GuaranteePatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `guarantee` being updated. */
+  patch: GuaranteePatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnInvitationForInvitationSenderAccountIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `invitation` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `invitation` being updated. */
+  patch: InvitationPatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnNoteForNoteAuthorIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `note` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `note` being updated. */
+  patch: NotePatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnNoteForNoteAuthorIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnNoteForNoteAuthorIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnNoteForNoteAuthorIdFkeyUsingAccountEmailKeyUpdate = {
+  /** An object where the defined keys will be set on the `account` being updated. */
+  patch: UpdateAccountOnNoteForNoteAuthorIdFkeyPatch;
+  /** The email address associated with the account */
+  email: Scalars["String"];
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnNoteForNoteAuthorIdFkeyUsingAccountPkeyUpdate = {
+  /** An object where the defined keys will be set on the `account` being updated. */
+  patch: UpdateAccountOnNoteForNoteAuthorIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnNotificationForNotificationAccountIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `notification` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `notification` being updated. */
+  patch: NotificationPatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnNotificationForNotificationAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnNotificationForNotificationAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnNotificationForNotificationAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnProjectMemberForProjectMemberAccountIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `projectMember` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `projectMember` being updated. */
+  patch: ProjectMemberPatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
+    /** The email address associated with the account */
+    email: Scalars["String"];
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Account`. Fields that are set will be updated. */
 export type AccountPatch = {
@@ -295,7 +771,17 @@ export type AccountPatch = {
   migrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
 };
 
 export type AccountStatus = "NEW" | "ACTIVE" | "SUSPENDED";
@@ -419,6 +905,18 @@ export type AddressProjectsByBuildingOwnerAddressIdArgs = {
   filter?: Maybe<ProjectFilter>;
 };
 
+/** The fields on `address` to look up the row to connect. */
+export type AddressAddressPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `address` to look up the row to delete. */
+export type AddressAddressPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
 /** A condition to be used against `Address` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type AddressCondition = {
   /** Checks for equality with the object’s `id` field. */
@@ -459,7 +957,91 @@ export type AddressInput = {
   migrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
 };
+
+/** The globally unique `ID` look up for the row to connect. */
+export type AddressNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `address` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type AddressNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `address` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type AddressOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `company` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `company` being updated. */
+  patch: CompanyPatch;
+};
+
+/** The fields on `address` to look up the row to update. */
+export type AddressOnCompanyForCompanyRegisteredAddressIdFkeyUsingAddressPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `address` being updated. */
+    patch: UpdateAddressOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AddressOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `company` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `company` being updated. */
+  patch: CompanyPatch;
+};
+
+/** The fields on `address` to look up the row to update. */
+export type AddressOnCompanyForCompanyTradingAddressIdFkeyUsingAddressPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `address` being updated. */
+    patch: UpdateAddressOnCompanyForCompanyTradingAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AddressOnProjectForProjectBuildingOwnerAddressIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `project` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `project` being updated. */
+  patch: ProjectPatch;
+};
+
+/** The fields on `address` to look up the row to update. */
+export type AddressOnProjectForProjectBuildingOwnerAddressIdFkeyUsingAddressPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `address` being updated. */
+    patch: UpdateAddressOnProjectForProjectBuildingOwnerAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AddressOnProjectForProjectSiteAddressIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `project` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `project` being updated. */
+  patch: ProjectPatch;
+};
+
+/** The fields on `address` to look up the row to update. */
+export type AddressOnProjectForProjectSiteAddressIdFkeyUsingAddressPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `address` being updated. */
+    patch: UpdateAddressOnProjectForProjectSiteAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Address`. Fields that are set will be updated. */
 export type AddressPatch = {
@@ -483,6 +1065,10 @@ export type AddressPatch = {
   migrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
 };
 
 /** A connection to a list of `Address` values. */
@@ -975,6 +1561,18 @@ export type Certification = Node & {
   doceboUser?: Maybe<Account>;
 };
 
+/** The fields on `certification` to look up the row to connect. */
+export type CertificationCertificationPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `certification` to look up the row to delete. */
+export type CertificationCertificationPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
 /**
  * A condition to be used against `Certification` object types. All fields are
  * tested for equality and combined with a logical ‘and.’
@@ -988,6 +1586,73 @@ export type CertificationCondition = {
   technology?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `expiryDate` field. */
   expiryDate?: Maybe<Scalars["Datetime"]>;
+};
+
+/** The `certification` to be created by this mutation. */
+export type CertificationDoceboUserIdFkeyCertificationCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** technology */
+  technology?: Maybe<Scalars["String"]>;
+  /** The name of the certification according to Docebo */
+  name?: Maybe<Scalars["String"]>;
+  /** The last day that this certification is valid */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInput>;
+};
+
+/** Input for the nested mutation of `account` in the `CertificationInput` mutation. */
+export type CertificationDoceboUserIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: Maybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: Maybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: Maybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: Maybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: Maybe<AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: Maybe<AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: Maybe<AccountOnCertificationForCertificationDoceboUserIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: Maybe<CertificationOnCertificationForCertificationDoceboUserIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `certification` in the `AccountInput` mutation. */
+export type CertificationDoceboUserIdFkeyInverseInput = {
+  /** Flag indicating whether all other `certification` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `certification` for the far side of the relationship. */
+  connectById?: Maybe<Array<CertificationCertificationPkeyConnect>>;
+  /** The primary key(s) for `certification` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<CertificationNodeIdConnect>>;
+  /** The primary key(s) for `certification` for the far side of the relationship. */
+  deleteById?: Maybe<Array<CertificationCertificationPkeyDelete>>;
+  /** The primary key(s) for `certification` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<CertificationNodeIdDelete>>;
+  /** The primary key(s) and patch data for `certification` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<CertificationOnCertificationForCertificationDoceboUserIdFkeyUsingCertificationPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `certification` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AccountOnCertificationForCertificationDoceboUserIdFkeyNodeIdUpdate>
+  >;
+  /** A `CertificationInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<CertificationDoceboUserIdFkeyCertificationCreateInput>>;
 };
 
 /** A filter to be used against `Certification` object types. All fields are combined with a logical ‘and.’ */
@@ -1022,7 +1687,38 @@ export type CertificationInput = {
   expiryDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInput>;
 };
+
+/** The globally unique `ID` look up for the row to connect. */
+export type CertificationNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `certification` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type CertificationNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `certification` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type CertificationOnCertificationForCertificationDoceboUserIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `certification` to look up the row to update. */
+export type CertificationOnCertificationForCertificationDoceboUserIdFkeyUsingCertificationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `certification` being updated. */
+    patch: UpdateCertificationOnCertificationForCertificationDoceboUserIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Certification`. Fields that are set will be updated. */
 export type CertificationPatch = {
@@ -1038,6 +1734,7 @@ export type CertificationPatch = {
   expiryDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInput>;
 };
 
 /** A connection to a list of `Certification` values. */
@@ -1255,6 +1952,18 @@ export type CompanyProjectsArgs = {
   filter?: Maybe<ProjectFilter>;
 };
 
+/** The fields on `company` to look up the row to connect. */
+export type CompanyCompanyPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `company` to look up the row to delete. */
+export type CompanyCompanyPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
 /** A condition to be used against `Company` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type CompanyCondition = {
   /** Checks for equality with the object’s `id` field. */
@@ -1282,6 +1991,69 @@ export type CompanyDocument = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
   company?: Maybe<Company>;
+};
+
+/** The fields on `companyDocument` to look up the row to connect. */
+export type CompanyDocumentCompanyDocumentPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `companyDocument` to look up the row to delete. */
+export type CompanyDocumentCompanyDocumentPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The `companyDocument` to be created by this mutation. */
+export type CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** The reference to the document */
+  document?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+};
+
+/** Input for the nested mutation of `company` in the `CompanyDocumentInput` mutation. */
+export type CompanyDocumentCompanyIdFkeyInput = {
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: Maybe<CompanyCompanyPkeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: Maybe<CompanyNodeIdConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: Maybe<CompanyCompanyPkeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: Maybe<CompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `companyDocument` in the `CompanyInput` mutation. */
+export type CompanyDocumentCompanyIdFkeyInverseInput = {
+  /** Flag indicating whether all other `companyDocument` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `companyDocument` for the far side of the relationship. */
+  connectById?: Maybe<Array<CompanyDocumentCompanyDocumentPkeyConnect>>;
+  /** The primary key(s) for `companyDocument` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<CompanyDocumentNodeIdConnect>>;
+  /** The primary key(s) for `companyDocument` for the far side of the relationship. */
+  deleteById?: Maybe<Array<CompanyDocumentCompanyDocumentPkeyDelete>>;
+  /** The primary key(s) for `companyDocument` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<CompanyDocumentNodeIdDelete>>;
+  /** The primary key(s) and patch data for `companyDocument` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<CompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyDocumentPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `companyDocument` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate>
+  >;
+  /** A `CompanyDocumentInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput>>;
 };
 
 /**
@@ -1319,7 +2091,38 @@ export type CompanyDocumentInput = {
   document?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
 };
+
+/** The globally unique `ID` look up for the row to connect. */
+export type CompanyDocumentNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `companyDocument` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type CompanyDocumentNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `companyDocument` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `company` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: CompanyPatch;
+  };
+
+/** The fields on `companyDocument` to look up the row to update. */
+export type CompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyDocumentPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyDocument` being updated. */
+    patch: UpdateCompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `CompanyDocument`. Fields that are set will be updated. */
 export type CompanyDocumentPatch = {
@@ -1331,6 +2134,7 @@ export type CompanyDocumentPatch = {
   document?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
 };
 
 /** A connection to a list of `CompanyDocument` values. */
@@ -1383,6 +2187,97 @@ export type CompanyFilter = {
   not?: Maybe<CompanyFilter>;
 };
 
+/** Input for the nested mutation of `market` in the `CompanyInput` mutation. */
+export type CompanyMarketIdFkeyInput = {
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectById?: Maybe<MarketMarketPkeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDomain?: Maybe<MarketMarketDomainKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByNodeId?: Maybe<MarketNodeIdConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteById?: Maybe<MarketMarketPkeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDomain?: Maybe<MarketMarketDomainKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<MarketNodeIdDelete>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateById?: Maybe<MarketOnCompanyForCompanyMarketIdFkeyUsingMarketPkeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDomain?: Maybe<MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDomainKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDoceboCatalogueId?: Maybe<MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByNodeId?: Maybe<CompanyOnCompanyForCompanyMarketIdFkeyNodeIdUpdate>;
+  /** A `MarketInput` object that will be created and connected to this object. */
+  create?: Maybe<CompanyMarketIdFkeyMarketCreateInput>;
+};
+
+/** Input for the nested mutation of `company` in the `MarketInput` mutation. */
+export type CompanyMarketIdFkeyInverseInput = {
+  /** Flag indicating whether all other `company` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<CompanyNodeIdConnect>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<CompanyNodeIdDelete>>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<MarketOnCompanyForCompanyMarketIdFkeyNodeIdUpdate>
+  >;
+};
+
+/** The `market` to be created by this mutation. */
+export type CompanyMarketIdFkeyMarketCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
 /** A connection between a user and a company */
 export type CompanyMember = Node & {
   __typename?: "CompanyMember";
@@ -1404,6 +2299,184 @@ export type CompanyMember = Node & {
   account?: Maybe<Account>;
   /** Reads a single `Company` that is related to this `CompanyMember`. */
   company?: Maybe<Company>;
+};
+
+/** The `companyMember` to be created by this mutation. */
+export type CompanyMemberAccountIdFkeyCompanyMemberCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+  accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+  companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
+};
+
+/** Input for the nested mutation of `account` in the `CompanyMemberInput` mutation. */
+export type CompanyMemberAccountIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: Maybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: Maybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: Maybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: Maybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: Maybe<AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: Maybe<AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: Maybe<AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: Maybe<CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `companyMember` in the `AccountInput` mutation. */
+export type CompanyMemberAccountIdFkeyInverseInput = {
+  /** Flag indicating whether all other `companyMember` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  connectById?: Maybe<Array<CompanyMemberCompanyMemberPkeyConnect>>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  connectByMarketIdAndAccountIdAndCompanyId?: Maybe<
+    Array<CompanyMemberCompanyMemberMarketIdAccountIdCompanyIdKeyConnect>
+  >;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<CompanyMemberNodeIdConnect>>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  deleteById?: Maybe<Array<CompanyMemberCompanyMemberPkeyDelete>>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  deleteByMarketIdAndAccountIdAndCompanyId?: Maybe<
+    Array<CompanyMemberCompanyMemberMarketIdAccountIdCompanyIdKeyDelete>
+  >;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<CompanyMemberNodeIdDelete>>;
+  /** The primary key(s) and patch data for `companyMember` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyUsingCompanyMemberPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `companyMember` for the far side of the relationship. */
+  updateByMarketIdAndAccountIdAndCompanyId?: Maybe<
+    Array<CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `companyMember` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AccountOnCompanyMemberForCompanyMemberAccountIdFkeyNodeIdUpdate>
+  >;
+  /** A `CompanyMemberInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<CompanyMemberAccountIdFkeyCompanyMemberCreateInput>>;
+};
+
+/** The `companyMember` to be created by this mutation. */
+export type CompanyMemberCompanyIdFkeyCompanyMemberCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  accountId?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+  accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+  companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
+};
+
+/** Input for the nested mutation of `company` in the `CompanyMemberInput` mutation. */
+export type CompanyMemberCompanyIdFkeyInput = {
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: Maybe<CompanyCompanyPkeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: Maybe<CompanyNodeIdConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: Maybe<CompanyCompanyPkeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: Maybe<CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `companyMember` in the `CompanyInput` mutation. */
+export type CompanyMemberCompanyIdFkeyInverseInput = {
+  /** Flag indicating whether all other `companyMember` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  connectById?: Maybe<Array<CompanyMemberCompanyMemberPkeyConnect>>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  connectByMarketIdAndAccountIdAndCompanyId?: Maybe<
+    Array<CompanyMemberCompanyMemberMarketIdAccountIdCompanyIdKeyConnect>
+  >;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<CompanyMemberNodeIdConnect>>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  deleteById?: Maybe<Array<CompanyMemberCompanyMemberPkeyDelete>>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  deleteByMarketIdAndAccountIdAndCompanyId?: Maybe<
+    Array<CompanyMemberCompanyMemberMarketIdAccountIdCompanyIdKeyDelete>
+  >;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<CompanyMemberNodeIdDelete>>;
+  /** The primary key(s) and patch data for `companyMember` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMemberPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `companyMember` for the far side of the relationship. */
+  updateByMarketIdAndAccountIdAndCompanyId?: Maybe<
+    Array<CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `companyMember` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate>
+  >;
+  /** A `CompanyMemberInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<CompanyMemberCompanyIdFkeyCompanyMemberCreateInput>>;
+};
+
+/** The fields on `companyMember` to look up the row to connect. */
+export type CompanyMemberCompanyMemberMarketIdAccountIdCompanyIdKeyConnect = {
+  /** fk */
+  marketId: Scalars["Int"];
+  /** fk */
+  accountId: Scalars["Int"];
+  /** fk */
+  companyId: Scalars["Int"];
+};
+
+/** The fields on `companyMember` to look up the row to delete. */
+export type CompanyMemberCompanyMemberMarketIdAccountIdCompanyIdKeyDelete = {
+  /** fk */
+  marketId: Scalars["Int"];
+  /** fk */
+  accountId: Scalars["Int"];
+  /** fk */
+  companyId: Scalars["Int"];
+};
+
+/** The fields on `companyMember` to look up the row to connect. */
+export type CompanyMemberCompanyMemberPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `companyMember` to look up the row to delete. */
+export type CompanyMemberCompanyMemberPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /**
@@ -1451,7 +2524,235 @@ export type CompanyMemberInput = {
   companyId?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+  accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+  companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
 };
+
+/** The `companyMember` to be created by this mutation. */
+export type CompanyMemberMarketIdFkeyCompanyMemberCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  accountId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+  accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+  companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
+};
+
+/** Input for the nested mutation of `market` in the `CompanyMemberInput` mutation. */
+export type CompanyMemberMarketIdFkeyInput = {
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectById?: Maybe<MarketMarketPkeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDomain?: Maybe<MarketMarketDomainKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByNodeId?: Maybe<MarketNodeIdConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteById?: Maybe<MarketMarketPkeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDomain?: Maybe<MarketMarketDomainKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<MarketNodeIdDelete>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateById?: Maybe<MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketPkeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDomain?: Maybe<MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDomainKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDoceboCatalogueId?: Maybe<MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByNodeId?: Maybe<CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyNodeIdUpdate>;
+  /** A `MarketInput` object that will be created and connected to this object. */
+  create?: Maybe<CompanyMemberMarketIdFkeyMarketCreateInput>;
+};
+
+/** Input for the nested mutation of `companyMember` in the `MarketInput` mutation. */
+export type CompanyMemberMarketIdFkeyInverseInput = {
+  /** Flag indicating whether all other `companyMember` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  connectById?: Maybe<Array<CompanyMemberCompanyMemberPkeyConnect>>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  connectByMarketIdAndAccountIdAndCompanyId?: Maybe<
+    Array<CompanyMemberCompanyMemberMarketIdAccountIdCompanyIdKeyConnect>
+  >;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<CompanyMemberNodeIdConnect>>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  deleteById?: Maybe<Array<CompanyMemberCompanyMemberPkeyDelete>>;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  deleteByMarketIdAndAccountIdAndCompanyId?: Maybe<
+    Array<CompanyMemberCompanyMemberMarketIdAccountIdCompanyIdKeyDelete>
+  >;
+  /** The primary key(s) for `companyMember` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<CompanyMemberNodeIdDelete>>;
+  /** The primary key(s) and patch data for `companyMember` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyUsingCompanyMemberPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `companyMember` for the far side of the relationship. */
+  updateByMarketIdAndAccountIdAndCompanyId?: Maybe<
+    Array<CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `companyMember` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<MarketOnCompanyMemberForCompanyMemberMarketIdFkeyNodeIdUpdate>
+  >;
+  /** A `CompanyMemberInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<CompanyMemberMarketIdFkeyCompanyMemberCreateInput>>;
+};
+
+/** The `market` to be created by this mutation. */
+export type CompanyMemberMarketIdFkeyMarketCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type CompanyMemberNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `companyMember` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type CompanyMemberNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `companyMember` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `companyMember` to look up the row to update. */
+export type CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
+    /** fk */
+    accountId: Scalars["Int"];
+    /** fk */
+    companyId: Scalars["Int"];
+  };
+
+/** The fields on `companyMember` to look up the row to update. */
+export type CompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyUsingCompanyMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `company` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: CompanyPatch;
+  };
+
+/** The fields on `companyMember` to look up the row to update. */
+export type CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
+    /** fk */
+    accountId: Scalars["Int"];
+    /** fk */
+    companyId: Scalars["Int"];
+  };
+
+/** The fields on `companyMember` to look up the row to update. */
+export type CompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `market` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: MarketPatch;
+  };
+
+/** The fields on `companyMember` to look up the row to update. */
+export type CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyUsingCompanyMemberMarketIdAccountIdCompanyIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
+    /** fk */
+    accountId: Scalars["Int"];
+    /** fk */
+    companyId: Scalars["Int"];
+  };
+
+/** The fields on `companyMember` to look up the row to update. */
+export type CompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyUsingCompanyMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyMember` being updated. */
+    patch: UpdateCompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `CompanyMember`. Fields that are set will be updated. */
 export type CompanyMemberPatch = {
@@ -1465,6 +2766,9 @@ export type CompanyMemberPatch = {
   companyId?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+  accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+  companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
 };
 
 /** A connection to a list of `CompanyMember` values. */
@@ -1503,6 +2807,154 @@ export type CompanyMembersOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+/** The globally unique `ID` look up for the row to connect. */
+export type CompanyNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `company` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type CompanyNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `company` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `companyDocument` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `companyDocument` being updated. */
+    patch: CompanyDocumentPatch;
+  };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnCompanyForCompanyMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `market` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: MarketPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate = {
+  /** An object where the defined keys will be set on the `company` being updated. */
+  patch: UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `address` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `address` being updated. */
+  patch: AddressPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `address` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `address` being updated. */
+  patch: AddressPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `companyMember` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `companyMember` being updated. */
+  patch: CompanyMemberPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `companyOperation` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `companyOperation` being updated. */
+    patch: CompanyOperationPatch;
+  };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `invitation` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `invitation` being updated. */
+  patch: InvitationPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnProjectForProjectCompanyIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `project` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `project` being updated. */
+  patch: ProjectPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate = {
+  /** An object where the defined keys will be set on the `company` being updated. */
+  patch: UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
 /** The assignment of an operation type to a Company by the Market Admin.  A Company can be assigned multiple types from the allowed enums list.  The operation types that a Company has are sent to Find a Roofer. */
 export type CompanyOperation = Node & {
   __typename?: "CompanyOperation";
@@ -1518,6 +2970,69 @@ export type CompanyOperation = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `CompanyOperation`. */
   companyByCompany?: Maybe<Company>;
+};
+
+/** The `companyOperation` to be created by this mutation. */
+export type CompanyOperationCompanyFkeyCompanyOperationCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  operation?: Maybe<Operation>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompany?: Maybe<CompanyOperationCompanyFkeyInput>;
+};
+
+/** Input for the nested mutation of `company` in the `CompanyOperationInput` mutation. */
+export type CompanyOperationCompanyFkeyInput = {
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: Maybe<CompanyCompanyPkeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: Maybe<CompanyNodeIdConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: Maybe<CompanyCompanyPkeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: Maybe<CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `companyOperation` in the `CompanyInput` mutation. */
+export type CompanyOperationCompanyFkeyInverseInput = {
+  /** Flag indicating whether all other `companyOperation` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `companyOperation` for the far side of the relationship. */
+  connectById?: Maybe<Array<CompanyOperationCompanyOperationPkeyConnect>>;
+  /** The primary key(s) for `companyOperation` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<CompanyOperationNodeIdConnect>>;
+  /** The primary key(s) for `companyOperation` for the far side of the relationship. */
+  deleteById?: Maybe<Array<CompanyOperationCompanyOperationPkeyDelete>>;
+  /** The primary key(s) for `companyOperation` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<CompanyOperationNodeIdDelete>>;
+  /** The primary key(s) and patch data for `companyOperation` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyOperationPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `companyOperation` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate>
+  >;
+  /** A `CompanyOperationInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<CompanyOperationCompanyFkeyCompanyOperationCreateInput>>;
+};
+
+/** The fields on `companyOperation` to look up the row to connect. */
+export type CompanyOperationCompanyOperationPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `companyOperation` to look up the row to delete. */
+export type CompanyOperationCompanyOperationPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /**
@@ -1555,7 +3070,38 @@ export type CompanyOperationInput = {
   operation?: Maybe<Operation>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompany?: Maybe<CompanyOperationCompanyFkeyInput>;
 };
+
+/** The globally unique `ID` look up for the row to connect. */
+export type CompanyOperationNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `companyOperation` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type CompanyOperationNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `companyOperation` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `company` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: CompanyPatch;
+  };
+
+/** The fields on `companyOperation` to look up the row to update. */
+export type CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyOperationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `companyOperation` being updated. */
+    patch: UpdateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `CompanyOperation`. Fields that are set will be updated. */
 export type CompanyOperationPatch = {
@@ -1567,6 +3113,7 @@ export type CompanyOperationPatch = {
   operation?: Maybe<Operation>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompany?: Maybe<CompanyOperationCompanyFkeyInput>;
 };
 
 /** A connection to a list of `CompanyOperation` values. */
@@ -1657,9 +3204,153 @@ export type CompanyPatch = {
   registeredAddressMigrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+  addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+  addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+  companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+  companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+  projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+};
+
+/** The `address` to be created by this mutation. */
+export type CompanyRegisteredAddressIdFkeyAddressCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** First line of this address */
+  firstLine?: Maybe<Scalars["String"]>;
+  /** Second line of this address */
+  secondLine?: Maybe<Scalars["String"]>;
+  /** The postal town */
+  town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
+  /** The country for this address */
+  country?: Maybe<Scalars["String"]>;
+  /** The postcode for this address */
+  postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `address` in the `CompanyInput` mutation. */
+export type CompanyRegisteredAddressIdFkeyInput = {
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  connectById?: Maybe<AddressAddressPkeyConnect>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AddressNodeIdConnect>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  deleteById?: Maybe<AddressAddressPkeyDelete>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AddressNodeIdDelete>;
+  /** The primary key(s) and patch data for `address` for the far side of the relationship. */
+  updateById?: Maybe<AddressOnCompanyForCompanyRegisteredAddressIdFkeyUsingAddressPkeyUpdate>;
+  /** The primary key(s) and patch data for `address` for the far side of the relationship. */
+  updateByNodeId?: Maybe<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate>;
+  /** A `AddressInput` object that will be created and connected to this object. */
+  create?: Maybe<CompanyRegisteredAddressIdFkeyAddressCreateInput>;
+};
+
+/** Input for the nested mutation of `company` in the `AddressInput` mutation. */
+export type CompanyRegisteredAddressIdFkeyInverseInput = {
+  /** Flag indicating whether all other `company` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<CompanyNodeIdConnect>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<CompanyNodeIdDelete>>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AddressOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate>
+  >;
 };
 
 export type CompanyStatus = "NEW" | "ACTIVE" | "DEACTIVATED";
+
+/** The `address` to be created by this mutation. */
+export type CompanyTradingAddressIdFkeyAddressCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** First line of this address */
+  firstLine?: Maybe<Scalars["String"]>;
+  /** Second line of this address */
+  secondLine?: Maybe<Scalars["String"]>;
+  /** The postal town */
+  town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
+  /** The country for this address */
+  country?: Maybe<Scalars["String"]>;
+  /** The postcode for this address */
+  postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `address` in the `CompanyInput` mutation. */
+export type CompanyTradingAddressIdFkeyInput = {
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  connectById?: Maybe<AddressAddressPkeyConnect>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AddressNodeIdConnect>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  deleteById?: Maybe<AddressAddressPkeyDelete>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AddressNodeIdDelete>;
+  /** The primary key(s) and patch data for `address` for the far side of the relationship. */
+  updateById?: Maybe<AddressOnCompanyForCompanyTradingAddressIdFkeyUsingAddressPkeyUpdate>;
+  /** The primary key(s) and patch data for `address` for the far side of the relationship. */
+  updateByNodeId?: Maybe<CompanyOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate>;
+  /** A `AddressInput` object that will be created and connected to this object. */
+  create?: Maybe<CompanyTradingAddressIdFkeyAddressCreateInput>;
+};
+
+/** Input for the nested mutation of `company` in the `AddressInput` mutation. */
+export type CompanyTradingAddressIdFkeyInverseInput = {
+  /** Flag indicating whether all other `company` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<CompanyNodeIdConnect>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<CompanyNodeIdDelete>>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AddressOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate>
+  >;
+};
 
 /** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
 export type ContactDetails = Entry & {
@@ -2984,6 +4675,20 @@ export type CreateCompanyInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  ownerFullname?: Maybe<Scalars["String"]>;
+  ownerEmail?: Maybe<Scalars["String"]>;
+  ownerPhone?: Maybe<Scalars["String"]>;
+  businessType?: Maybe<BusinessType>;
+  tier?: Maybe<Tier>;
+  status?: Maybe<CompanyStatus>;
+  name?: Maybe<Scalars["String"]>;
+  taxNumber?: Maybe<Scalars["String"]>;
+  phone?: Maybe<Scalars["String"]>;
+  aboutUs?: Maybe<Scalars["String"]>;
+  publicEmail?: Maybe<Scalars["String"]>;
+  website?: Maybe<Scalars["String"]>;
+  facebook?: Maybe<Scalars["String"]>;
+  linkedIn?: Maybe<Scalars["String"]>;
 };
 
 /** All input for the create `CompanyMember` mutation. */
@@ -5206,6 +6911,18 @@ export type EvidenceItemCondition = {
   guaranteeId?: Maybe<Scalars["Int"]>;
 };
 
+/** The fields on `evidenceItem` to look up the row to connect. */
+export type EvidenceItemEvidenceItemPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `evidenceItem` to look up the row to delete. */
+export type EvidenceItemEvidenceItemPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
 /** A filter to be used against `EvidenceItem` object types. All fields are combined with a logical ‘and.’ */
 export type EvidenceItemFilter = {
   /** Filter by the object’s `id` field. */
@@ -5220,6 +6937,107 @@ export type EvidenceItemFilter = {
   or?: Maybe<Array<EvidenceItemFilter>>;
   /** Negates the expression. */
   not?: Maybe<EvidenceItemFilter>;
+};
+
+/** The `evidenceItem` to be created by this mutation. */
+export type EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** a reference to the evidenceCategory sys id in Contentful */
+  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  evidenceCategoryType?: Maybe<EvidenceCategoryType>;
+  /** Short name for the item of evidence */
+  name?: Maybe<Scalars["String"]>;
+  /** File reference or the file itself. Photo of the evidence */
+  attachment?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
+  guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
+};
+
+/** The `guarantee` to be created by this mutation. */
+export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `guarantee` in the `EvidenceItemInput` mutation. */
+export type EvidenceItemGuaranteeIdFkeyInput = {
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectById?: Maybe<GuaranteeGuaranteePkeyConnect>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByNodeId?: Maybe<GuaranteeNodeIdConnect>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteById?: Maybe<GuaranteeGuaranteePkeyDelete>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<GuaranteeNodeIdDelete>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateById?: Maybe<GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByNodeId?: Maybe<EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate>;
+  /** A `GuaranteeInput` object that will be created and connected to this object. */
+  create?: Maybe<EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput>;
+};
+
+/** Input for the nested mutation of `evidenceItem` in the `GuaranteeInput` mutation. */
+export type EvidenceItemGuaranteeIdFkeyInverseInput = {
+  /** Flag indicating whether all other `evidenceItem` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  connectById?: Maybe<Array<EvidenceItemEvidenceItemPkeyConnect>>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<EvidenceItemNodeIdConnect>>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  deleteById?: Maybe<Array<EvidenceItemEvidenceItemPkeyDelete>>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<EvidenceItemNodeIdDelete>>;
+  /** The primary key(s) and patch data for `evidenceItem` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingEvidenceItemPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `evidenceItem` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate>
+  >;
+  /** A `EvidenceItemInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput>>;
 };
 
 /** An input for mutations affecting `EvidenceItem` */
@@ -5240,8 +7058,58 @@ export type EvidenceItemInput = {
   attachment?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
+  guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
   attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
+
+/** The globally unique `ID` look up for the row to connect. */
+export type EvidenceItemNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `evidenceItem` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type EvidenceItemNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `evidenceItem` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: GuaranteePatch;
+  };
+
+/** The fields on `evidenceItem` to look up the row to update. */
+export type EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingEvidenceItemPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `evidenceItem` being updated. */
+    patch: UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `project` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: ProjectPatch;
+  };
+
+/** The fields on `evidenceItem` to look up the row to update. */
+export type EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyUsingEvidenceItemPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `evidenceItem` being updated. */
+    patch: UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `EvidenceItem`. Fields that are set will be updated. */
 export type EvidenceItemPatch = {
@@ -5261,6 +7129,114 @@ export type EvidenceItemPatch = {
   attachment?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
+  guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
+};
+
+/** The `evidenceItem` to be created by this mutation. */
+export type EvidenceItemProjectIdFkeyEvidenceItemCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** a reference to the evidenceCategory sys id in Contentful */
+  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** fk */
+  guaranteeId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  evidenceCategoryType?: Maybe<EvidenceCategoryType>;
+  /** Short name for the item of evidence */
+  name?: Maybe<Scalars["String"]>;
+  /** File reference or the file itself. Photo of the evidence */
+  attachment?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
+  guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
+};
+
+/** Input for the nested mutation of `project` in the `EvidenceItemInput` mutation. */
+export type EvidenceItemProjectIdFkeyInput = {
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectById?: Maybe<ProjectProjectPkeyConnect>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectByNodeId?: Maybe<ProjectNodeIdConnect>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteById?: Maybe<ProjectProjectPkeyDelete>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<ProjectNodeIdDelete>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateById?: Maybe<ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyUsingProjectPkeyUpdate>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateByNodeId?: Maybe<EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate>;
+  /** A `ProjectInput` object that will be created and connected to this object. */
+  create?: Maybe<EvidenceItemProjectIdFkeyProjectCreateInput>;
+};
+
+/** Input for the nested mutation of `evidenceItem` in the `ProjectInput` mutation. */
+export type EvidenceItemProjectIdFkeyInverseInput = {
+  /** Flag indicating whether all other `evidenceItem` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  connectById?: Maybe<Array<EvidenceItemEvidenceItemPkeyConnect>>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<EvidenceItemNodeIdConnect>>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  deleteById?: Maybe<Array<EvidenceItemEvidenceItemPkeyDelete>>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<EvidenceItemNodeIdDelete>>;
+  /** The primary key(s) and patch data for `evidenceItem` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyUsingEvidenceItemPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `evidenceItem` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate>
+  >;
+  /** A `EvidenceItemInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<EvidenceItemProjectIdFkeyEvidenceItemCreateInput>>;
+};
+
+/** The `project` to be created by this mutation. */
+export type EvidenceItemProjectIdFkeyProjectCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
 };
 
 /** All input for the `evidenceItemsAdd` mutation. */
@@ -5421,6 +7397,18 @@ export type GuaranteeFilter = {
   not?: Maybe<GuaranteeFilter>;
 };
 
+/** The fields on `guarantee` to look up the row to connect. */
+export type GuaranteeGuaranteePkeyConnect = {
+  /** Primary key - starts at 6100 */
+  id: Scalars["Int"];
+};
+
+/** The fields on `guarantee` to look up the row to delete. */
+export type GuaranteeGuaranteePkeyDelete = {
+  /** Primary key - starts at 6100 */
+  id: Scalars["Int"];
+};
+
 /** An input for mutations affecting `Guarantee` */
 export type GuaranteeInput = {
   /** Primary key - starts at 6100 */
@@ -5451,7 +7439,130 @@ export type GuaranteeInput = {
   bmiReferenceId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
 };
+
+/** The globally unique `ID` look up for the row to connect. */
+export type GuaranteeNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type GuaranteeNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `guarantee` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `evidenceItem` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `evidenceItem` being updated. */
+    patch: EvidenceItemPatch;
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `product` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `product` being updated. */
+  patch: ProductPatch;
+};
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `project` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `project` being updated. */
+  patch: ProjectPatch;
+};
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `system` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `system` being updated. */
+  patch: SystemPatch;
+};
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Guarantee`. Fields that are set will be updated. */
 export type GuaranteePatch = {
@@ -5483,6 +7594,531 @@ export type GuaranteePatch = {
   bmiReferenceId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** The `guarantee` to be created by this mutation. */
+export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `product` in the `GuaranteeInput` mutation. */
+export type GuaranteeProductBmiRefFkeyInput = {
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  connectById?: Maybe<ProductProductPkeyConnect>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  connectByBmiRef?: Maybe<ProductProductBmiRefKeyConnect>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  connectByNodeId?: Maybe<ProductNodeIdConnect>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  deleteById?: Maybe<ProductProductPkeyDelete>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  deleteByBmiRef?: Maybe<ProductProductBmiRefKeyDelete>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<ProductNodeIdDelete>;
+  /** The primary key(s) and patch data for `product` for the far side of the relationship. */
+  updateById?: Maybe<ProductOnGuaranteeForGuaranteeProductBmiRefFkeyUsingProductPkeyUpdate>;
+  /** The primary key(s) and patch data for `product` for the far side of the relationship. */
+  updateByBmiRef?: Maybe<ProductOnGuaranteeForGuaranteeProductBmiRefFkeyUsingProductBmiRefKeyUpdate>;
+  /** The primary key(s) and patch data for `product` for the far side of the relationship. */
+  updateByNodeId?: Maybe<GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyNodeIdUpdate>;
+  /** A `ProductInput` object that will be created and connected to this object. */
+  create?: Maybe<GuaranteeProductBmiRefFkeyProductCreateInput>;
+};
+
+/** Input for the nested mutation of `guarantee` in the `ProductInput` mutation. */
+export type GuaranteeProductBmiRefFkeyInverseInput = {
+  /** Flag indicating whether all other `guarantee` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<ProductOnGuaranteeForGuaranteeProductBmiRefFkeyNodeIdUpdate>
+  >;
+  /** A `GuaranteeInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<GuaranteeProductBmiRefFkeyGuaranteeCreateInput>>;
+};
+
+/** The `product` to be created by this mutation. */
+export type GuaranteeProductBmiRefFkeyProductCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the product known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** The Products brand */
+  brand?: Maybe<Scalars["String"]>;
+  /** Short name for the Product */
+  name?: Maybe<Scalars["String"]>;
+  /** A description of the Product */
+  description?: Maybe<Scalars["String"]>;
+  /** The family of Products this Product is in */
+  family?: Maybe<Scalars["String"]>;
+  /** Whether the Product is avialable for new guarantees */
+  published?: Maybe<Scalars["Boolean"]>;
+  /** The number of years that this product can be guaranteed for */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInverseInput>;
+};
+
+/** The `guarantee` to be created by this mutation. */
+export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `project` in the `GuaranteeInput` mutation. */
+export type GuaranteeProjectIdFkeyInput = {
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectById?: Maybe<ProjectProjectPkeyConnect>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectByNodeId?: Maybe<ProjectNodeIdConnect>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteById?: Maybe<ProjectProjectPkeyDelete>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<ProjectNodeIdDelete>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateById?: Maybe<ProjectOnGuaranteeForGuaranteeProjectIdFkeyUsingProjectPkeyUpdate>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateByNodeId?: Maybe<GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate>;
+  /** A `ProjectInput` object that will be created and connected to this object. */
+  create?: Maybe<GuaranteeProjectIdFkeyProjectCreateInput>;
+};
+
+/** Input for the nested mutation of `guarantee` in the `ProjectInput` mutation. */
+export type GuaranteeProjectIdFkeyInverseInput = {
+  /** Flag indicating whether all other `guarantee` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<ProjectOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate>
+  >;
+  /** A `GuaranteeInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<GuaranteeProjectIdFkeyGuaranteeCreateInput>>;
+};
+
+/** The `project` to be created by this mutation. */
+export type GuaranteeProjectIdFkeyProjectCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** The `guarantee` to be created by this mutation. */
+export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `account` in the `GuaranteeInput` mutation. */
+export type GuaranteeRequestorAccountIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: Maybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: Maybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: Maybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: Maybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: Maybe<AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: Maybe<AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: Maybe<AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: Maybe<GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `guarantee` in the `AccountInput` mutation. */
+export type GuaranteeRequestorAccountIdFkeyInverseInput = {
+  /** Flag indicating whether all other `guarantee` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate>
+  >;
+  /** A `GuaranteeInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput>>;
+};
+
+/** The `guarantee` to be created by this mutation. */
+export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `account` in the `GuaranteeInput` mutation. */
+export type GuaranteeReviewerAccountIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: Maybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: Maybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: Maybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: Maybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: Maybe<AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: Maybe<AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: Maybe<AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: Maybe<GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `guarantee` in the `AccountInput` mutation. */
+export type GuaranteeReviewerAccountIdFkeyInverseInput = {
+  /** Flag indicating whether all other `guarantee` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate>
+  >;
+  /** A `GuaranteeInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput>>;
+};
+
+/** The `guarantee` to be created by this mutation. */
+export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `system` in the `GuaranteeInput` mutation. */
+export type GuaranteeSystemBmiRefFkeyInput = {
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  connectById?: Maybe<SystemSystemPkeyConnect>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  connectByBmiRef?: Maybe<SystemSystemBmiRefKeyConnect>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  connectByNodeId?: Maybe<SystemNodeIdConnect>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  deleteById?: Maybe<SystemSystemPkeyDelete>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  deleteByBmiRef?: Maybe<SystemSystemBmiRefKeyDelete>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<SystemNodeIdDelete>;
+  /** The primary key(s) and patch data for `system` for the far side of the relationship. */
+  updateById?: Maybe<SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingSystemPkeyUpdate>;
+  /** The primary key(s) and patch data for `system` for the far side of the relationship. */
+  updateByBmiRef?: Maybe<SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingSystemBmiRefKeyUpdate>;
+  /** The primary key(s) and patch data for `system` for the far side of the relationship. */
+  updateByNodeId?: Maybe<GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyNodeIdUpdate>;
+  /** A `SystemInput` object that will be created and connected to this object. */
+  create?: Maybe<GuaranteeSystemBmiRefFkeySystemCreateInput>;
+};
+
+/** Input for the nested mutation of `guarantee` in the `SystemInput` mutation. */
+export type GuaranteeSystemBmiRefFkeyInverseInput = {
+  /** Flag indicating whether all other `guarantee` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectById?: Maybe<Array<GuaranteeGuaranteePkeyConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<GuaranteeNodeIdConnect>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteById?: Maybe<Array<GuaranteeGuaranteePkeyDelete>>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<GuaranteeNodeIdDelete>>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyNodeIdUpdate>
+  >;
+  /** A `GuaranteeInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<GuaranteeSystemBmiRefFkeyGuaranteeCreateInput>>;
+};
+
+/** The `system` to be created by this mutation. */
+export type GuaranteeSystemBmiRefFkeySystemCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the system known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** Short name for the System */
+  name?: Maybe<Scalars["String"]>;
+  /** A description for the System */
+  description?: Maybe<Scalars["String"]>;
+  /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  /** If true this system is available for users to select when applying for a system or solution guarantee */
+  published?: Maybe<Scalars["Boolean"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInverseInput>;
 };
 
 /** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
@@ -6329,6 +8965,44 @@ export type Invitation = Node & {
   company?: Maybe<Company>;
 };
 
+/** Input for the nested mutation of `company` in the `InvitationInput` mutation. */
+export type InvitationCompanyIdFkeyInput = {
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: Maybe<CompanyCompanyPkeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: Maybe<CompanyNodeIdConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: Maybe<CompanyCompanyPkeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: Maybe<InvitationOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `invitation` in the `CompanyInput` mutation. */
+export type InvitationCompanyIdFkeyInverseInput = {
+  /** Flag indicating whether all other `invitation` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `invitation` for the far side of the relationship. */
+  connectById?: Maybe<Array<InvitationInvitationPkeyConnect>>;
+  /** The primary key(s) for `invitation` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<InvitationNodeIdConnect>>;
+  /** The primary key(s) for `invitation` for the far side of the relationship. */
+  deleteById?: Maybe<Array<InvitationInvitationPkeyDelete>>;
+  /** The primary key(s) for `invitation` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<InvitationNodeIdDelete>>;
+  /** The primary key(s) and patch data for `invitation` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<InvitationOnInvitationForInvitationCompanyIdFkeyUsingInvitationPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `invitation` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate>
+  >;
+};
+
 /**
  * A condition to be used against `Invitation` object types. All fields are tested
  * for equality and combined with a logical ‘and.’
@@ -6366,6 +9040,65 @@ export type InvitationFilter = {
   not?: Maybe<InvitationFilter>;
 };
 
+/** The fields on `invitation` to look up the row to connect. */
+export type InvitationInvitationPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `invitation` to look up the row to delete. */
+export type InvitationInvitationPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type InvitationNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `invitation` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type InvitationNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `invitation` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type InvitationOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `company` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `company` being updated. */
+  patch: CompanyPatch;
+};
+
+/** The fields on `invitation` to look up the row to update. */
+export type InvitationOnInvitationForInvitationCompanyIdFkeyUsingInvitationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `invitation` being updated. */
+    patch: UpdateInvitationOnInvitationForInvitationCompanyIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type InvitationOnInvitationForInvitationSenderAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `invitation` to look up the row to update. */
+export type InvitationOnInvitationForInvitationSenderAccountIdFkeyUsingInvitationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `invitation` being updated. */
+    patch: UpdateInvitationOnInvitationForInvitationSenderAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
 /** Represents an update to a `Invitation`. Fields that are set will be updated. */
 export type InvitationPatch = {
   /** Primary key */
@@ -6382,6 +9115,58 @@ export type InvitationPatch = {
   personalNote?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToSenderAccountId?: Maybe<InvitationSenderAccountIdFkeyInput>;
+  companyToCompanyId?: Maybe<InvitationCompanyIdFkeyInput>;
+};
+
+/** Input for the nested mutation of `account` in the `InvitationInput` mutation. */
+export type InvitationSenderAccountIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: Maybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: Maybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: Maybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: Maybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: Maybe<AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: Maybe<AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: Maybe<AccountOnInvitationForInvitationSenderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: Maybe<InvitationOnInvitationForInvitationSenderAccountIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `invitation` in the `AccountInput` mutation. */
+export type InvitationSenderAccountIdFkeyInverseInput = {
+  /** Flag indicating whether all other `invitation` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `invitation` for the far side of the relationship. */
+  connectById?: Maybe<Array<InvitationInvitationPkeyConnect>>;
+  /** The primary key(s) for `invitation` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<InvitationNodeIdConnect>>;
+  /** The primary key(s) for `invitation` for the far side of the relationship. */
+  deleteById?: Maybe<Array<InvitationInvitationPkeyDelete>>;
+  /** The primary key(s) for `invitation` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<InvitationNodeIdDelete>>;
+  /** The primary key(s) and patch data for `invitation` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<InvitationOnInvitationForInvitationSenderAccountIdFkeyUsingInvitationPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `invitation` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AccountOnInvitationForInvitationSenderAccountIdFkeyNodeIdUpdate>
+  >;
 };
 
 export type InvitationStatus = "NEW" | "ACCEPTED" | "CANCELLED";
@@ -6949,6 +9734,226 @@ export type MarketInput = {
   geoMiddle?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** The fields on `market` to look up the row to connect. */
+export type MarketMarketDoceboCatalogueIdKeyConnect = {
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId: Scalars["Int"];
+};
+
+/** The fields on `market` to look up the row to delete. */
+export type MarketMarketDoceboCatalogueIdKeyDelete = {
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId: Scalars["Int"];
+};
+
+/** The fields on `market` to look up the row to connect. */
+export type MarketMarketDomainKeyConnect = {
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+};
+
+/** The fields on `market` to look up the row to delete. */
+export type MarketMarketDomainKeyDelete = {
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+};
+
+/** The fields on `market` to look up the row to connect. */
+export type MarketMarketPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `market` to look up the row to delete. */
+export type MarketMarketPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type MarketNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `market` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type MarketNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `market` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type MarketOnAccountForAccountMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `account` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `account` being updated. */
+  patch: AccountPatch;
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnAccountForAccountMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnAccountForAccountMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnAccountForAccountMarketIdFkeyUsingMarketDomainKeyUpdate = {
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: UpdateMarketOnAccountForAccountMarketIdFkeyPatch;
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnAccountForAccountMarketIdFkeyUsingMarketPkeyUpdate = {
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: UpdateMarketOnAccountForAccountMarketIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type MarketOnCompanyForCompanyMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `company` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `company` being updated. */
+  patch: CompanyPatch;
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDomainKeyUpdate = {
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch;
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnCompanyForCompanyMarketIdFkeyUsingMarketPkeyUpdate = {
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `companyMember` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `companyMember` being updated. */
+  patch: CompanyMemberPatch;
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDomainKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** the country code used for example as the subdomain */
+    domain: Scalars["String"];
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type MarketOnProductForProductMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `product` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `product` being updated. */
+  patch: ProductPatch;
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnProductForProductMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnProductForProductMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnProductForProductMarketIdFkeyUsingMarketDomainKeyUpdate = {
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: UpdateMarketOnProductForProductMarketIdFkeyPatch;
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnProductForProductMarketIdFkeyUsingMarketPkeyUpdate = {
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: UpdateMarketOnProductForProductMarketIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type MarketOnSystemForSystemMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `system` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `system` being updated. */
+  patch: SystemPatch;
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnSystemForSystemMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnSystemForSystemMarketIdFkeyPatch;
+    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnSystemForSystemMarketIdFkeyUsingMarketDomainKeyUpdate = {
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: UpdateMarketOnSystemForSystemMarketIdFkeyPatch;
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnSystemForSystemMarketIdFkeyUsingMarketPkeyUpdate = {
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: UpdateMarketOnSystemForSystemMarketIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** Represents an update to a `Market`. Fields that are set will be updated. */
@@ -6983,6 +9988,11 @@ export type MarketPatch = {
   geoMiddle?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
 };
 
 /** A connection to a list of `Market` values. */
@@ -7623,6 +10633,7 @@ export type Mutation = {
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
+  resetPassword?: Maybe<Scalars["String"]>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
@@ -8611,6 +11622,68 @@ export type Note = Node & {
   project?: Maybe<Project>;
 };
 
+/** Input for the nested mutation of `account` in the `NoteInput` mutation. */
+export type NoteAuthorIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: Maybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: Maybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: Maybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: Maybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: Maybe<AccountOnNoteForNoteAuthorIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: Maybe<AccountOnNoteForNoteAuthorIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: Maybe<AccountOnNoteForNoteAuthorIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: Maybe<NoteOnNoteForNoteAuthorIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `note` in the `AccountInput` mutation. */
+export type NoteAuthorIdFkeyInverseInput = {
+  /** Flag indicating whether all other `note` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `note` for the far side of the relationship. */
+  connectById?: Maybe<Array<NoteNotePkeyConnect>>;
+  /** The primary key(s) for `note` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<NoteNodeIdConnect>>;
+  /** The primary key(s) for `note` for the far side of the relationship. */
+  deleteById?: Maybe<Array<NoteNotePkeyDelete>>;
+  /** The primary key(s) for `note` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<NoteNodeIdDelete>>;
+  /** The primary key(s) and patch data for `note` for the far side of the relationship. */
+  updateById?: Maybe<Array<NoteOnNoteForNoteAuthorIdFkeyUsingNotePkeyUpdate>>;
+  /** The primary key(s) and patch data for `note` for the far side of the relationship. */
+  updateByNodeId?: Maybe<Array<AccountOnNoteForNoteAuthorIdFkeyNodeIdUpdate>>;
+  /** A `NoteInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<NoteAuthorIdFkeyNoteCreateInput>>;
+};
+
+/** The `note` to be created by this mutation. */
+export type NoteAuthorIdFkeyNoteCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** The body of the Note */
+  body?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToAuthorId?: Maybe<NoteAuthorIdFkeyInput>;
+  projectToProjectId?: Maybe<NoteProjectIdFkeyInput>;
+};
+
 /** A condition to be used against `Note` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type NoteCondition = {
   /** Checks for equality with the object’s `id` field. */
@@ -8649,6 +11722,64 @@ export type NoteInput = {
   body?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToAuthorId?: Maybe<NoteAuthorIdFkeyInput>;
+  projectToProjectId?: Maybe<NoteProjectIdFkeyInput>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type NoteNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `note` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type NoteNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `note` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The fields on `note` to look up the row to connect. */
+export type NoteNotePkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `note` to look up the row to delete. */
+export type NoteNotePkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type NoteOnNoteForNoteAuthorIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `account` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `account` being updated. */
+  patch: AccountPatch;
+};
+
+/** The fields on `note` to look up the row to update. */
+export type NoteOnNoteForNoteAuthorIdFkeyUsingNotePkeyUpdate = {
+  /** An object where the defined keys will be set on the `note` being updated. */
+  patch: UpdateNoteOnNoteForNoteAuthorIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type NoteOnNoteForNoteProjectIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `project` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `project` being updated. */
+  patch: ProjectPatch;
+};
+
+/** The fields on `note` to look up the row to update. */
+export type NoteOnNoteForNoteProjectIdFkeyUsingNotePkeyUpdate = {
+  /** An object where the defined keys will be set on the `note` being updated. */
+  patch: UpdateNoteOnNoteForNoteProjectIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** Represents an update to a `Note`. Fields that are set will be updated. */
@@ -8663,6 +11794,103 @@ export type NotePatch = {
   body?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToAuthorId?: Maybe<NoteAuthorIdFkeyInput>;
+  projectToProjectId?: Maybe<NoteProjectIdFkeyInput>;
+};
+
+/** Input for the nested mutation of `project` in the `NoteInput` mutation. */
+export type NoteProjectIdFkeyInput = {
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectById?: Maybe<ProjectProjectPkeyConnect>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectByNodeId?: Maybe<ProjectNodeIdConnect>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteById?: Maybe<ProjectProjectPkeyDelete>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<ProjectNodeIdDelete>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateById?: Maybe<ProjectOnNoteForNoteProjectIdFkeyUsingProjectPkeyUpdate>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateByNodeId?: Maybe<NoteOnNoteForNoteProjectIdFkeyNodeIdUpdate>;
+  /** A `ProjectInput` object that will be created and connected to this object. */
+  create?: Maybe<NoteProjectIdFkeyProjectCreateInput>;
+};
+
+/** Input for the nested mutation of `note` in the `ProjectInput` mutation. */
+export type NoteProjectIdFkeyInverseInput = {
+  /** Flag indicating whether all other `note` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `note` for the far side of the relationship. */
+  connectById?: Maybe<Array<NoteNotePkeyConnect>>;
+  /** The primary key(s) for `note` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<NoteNodeIdConnect>>;
+  /** The primary key(s) for `note` for the far side of the relationship. */
+  deleteById?: Maybe<Array<NoteNotePkeyDelete>>;
+  /** The primary key(s) for `note` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<NoteNodeIdDelete>>;
+  /** The primary key(s) and patch data for `note` for the far side of the relationship. */
+  updateById?: Maybe<Array<NoteOnNoteForNoteProjectIdFkeyUsingNotePkeyUpdate>>;
+  /** The primary key(s) and patch data for `note` for the far side of the relationship. */
+  updateByNodeId?: Maybe<Array<ProjectOnNoteForNoteProjectIdFkeyNodeIdUpdate>>;
+  /** A `NoteInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<NoteProjectIdFkeyNoteCreateInput>>;
+};
+
+/** The `note` to be created by this mutation. */
+export type NoteProjectIdFkeyNoteCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  authorId?: Maybe<Scalars["Int"]>;
+  /** The body of the Note */
+  body?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToAuthorId?: Maybe<NoteAuthorIdFkeyInput>;
+  projectToProjectId?: Maybe<NoteProjectIdFkeyInput>;
+};
+
+/** The `project` to be created by this mutation. */
+export type NoteProjectIdFkeyProjectCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
 };
 
 /** A connection to a list of `Note` values. */
@@ -8720,6 +11948,73 @@ export type Notification = Node & {
   account?: Maybe<Account>;
 };
 
+/** Input for the nested mutation of `account` in the `NotificationInput` mutation. */
+export type NotificationAccountIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: Maybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: Maybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: Maybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: Maybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: Maybe<AccountOnNotificationForNotificationAccountIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: Maybe<AccountOnNotificationForNotificationAccountIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: Maybe<AccountOnNotificationForNotificationAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: Maybe<NotificationOnNotificationForNotificationAccountIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `notification` in the `AccountInput` mutation. */
+export type NotificationAccountIdFkeyInverseInput = {
+  /** Flag indicating whether all other `notification` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `notification` for the far side of the relationship. */
+  connectById?: Maybe<Array<NotificationNotificationPkeyConnect>>;
+  /** The primary key(s) for `notification` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<NotificationNodeIdConnect>>;
+  /** The primary key(s) for `notification` for the far side of the relationship. */
+  deleteById?: Maybe<Array<NotificationNotificationPkeyDelete>>;
+  /** The primary key(s) for `notification` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<NotificationNodeIdDelete>>;
+  /** The primary key(s) and patch data for `notification` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<NotificationOnNotificationForNotificationAccountIdFkeyUsingNotificationPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `notification` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AccountOnNotificationForNotificationAccountIdFkeyNodeIdUpdate>
+  >;
+  /** A `NotificationInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<NotificationAccountIdFkeyNotificationCreateInput>>;
+};
+
+/** The `notification` to be created by this mutation. */
+export type NotificationAccountIdFkeyNotificationCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** The datetime stamp for when the message was sent */
+  sendDate?: Maybe<Scalars["Datetime"]>;
+  /** Whether the message still needs to be read */
+  unread?: Maybe<Scalars["Boolean"]>;
+  /** The body of the message */
+  body?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToAccountId?: Maybe<NotificationAccountIdFkeyInput>;
+};
+
 /**
  * A condition to be used against `Notification` object types. All fields are
  * tested for equality and combined with a logical ‘and.’
@@ -8759,7 +12054,50 @@ export type NotificationInput = {
   body?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToAccountId?: Maybe<NotificationAccountIdFkeyInput>;
 };
+
+/** The globally unique `ID` look up for the row to connect. */
+export type NotificationNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `notification` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type NotificationNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `notification` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The fields on `notification` to look up the row to connect. */
+export type NotificationNotificationPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `notification` to look up the row to delete. */
+export type NotificationNotificationPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type NotificationOnNotificationForNotificationAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `notification` to look up the row to update. */
+export type NotificationOnNotificationForNotificationAccountIdFkeyUsingNotificationPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `notification` being updated. */
+    patch: UpdateNotificationOnNotificationForNotificationAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Notification`. Fields that are set will be updated. */
 export type NotificationPatch = {
@@ -8775,6 +12113,7 @@ export type NotificationPatch = {
   body?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToAccountId?: Maybe<NotificationAccountIdFkeyInput>;
 };
 
 /** A connection to a list of `Notification` values. */
@@ -9102,7 +12441,228 @@ export type ProductInput = {
   maximumValidityYears?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInverseInput>;
 };
+
+/** Input for the nested mutation of `market` in the `ProductInput` mutation. */
+export type ProductMarketIdFkeyInput = {
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectById?: Maybe<MarketMarketPkeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDomain?: Maybe<MarketMarketDomainKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByNodeId?: Maybe<MarketNodeIdConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteById?: Maybe<MarketMarketPkeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDomain?: Maybe<MarketMarketDomainKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<MarketNodeIdDelete>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateById?: Maybe<MarketOnProductForProductMarketIdFkeyUsingMarketPkeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDomain?: Maybe<MarketOnProductForProductMarketIdFkeyUsingMarketDomainKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDoceboCatalogueId?: Maybe<MarketOnProductForProductMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByNodeId?: Maybe<ProductOnProductForProductMarketIdFkeyNodeIdUpdate>;
+  /** A `MarketInput` object that will be created and connected to this object. */
+  create?: Maybe<ProductMarketIdFkeyMarketCreateInput>;
+};
+
+/** Input for the nested mutation of `product` in the `MarketInput` mutation. */
+export type ProductMarketIdFkeyInverseInput = {
+  /** Flag indicating whether all other `product` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  connectById?: Maybe<Array<ProductProductPkeyConnect>>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  connectByBmiRef?: Maybe<Array<ProductProductBmiRefKeyConnect>>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<ProductNodeIdConnect>>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  deleteById?: Maybe<Array<ProductProductPkeyDelete>>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  deleteByBmiRef?: Maybe<Array<ProductProductBmiRefKeyDelete>>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<ProductNodeIdDelete>>;
+  /** The primary key(s) and patch data for `product` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<ProductOnProductForProductMarketIdFkeyUsingProductPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `product` for the far side of the relationship. */
+  updateByBmiRef?: Maybe<
+    Array<ProductOnProductForProductMarketIdFkeyUsingProductBmiRefKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `product` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<MarketOnProductForProductMarketIdFkeyNodeIdUpdate>
+  >;
+  /** A `ProductInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<ProductMarketIdFkeyProductCreateInput>>;
+};
+
+/** The `market` to be created by this mutation. */
+export type ProductMarketIdFkeyMarketCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** The `product` to be created by this mutation. */
+export type ProductMarketIdFkeyProductCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the product known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** The Products brand */
+  brand?: Maybe<Scalars["String"]>;
+  /** Short name for the Product */
+  name?: Maybe<Scalars["String"]>;
+  /** A description of the Product */
+  description?: Maybe<Scalars["String"]>;
+  /** The family of Products this Product is in */
+  family?: Maybe<Scalars["String"]>;
+  /** Whether the Product is avialable for new guarantees */
+  published?: Maybe<Scalars["Boolean"]>;
+  /** The number of years that this product can be guaranteed for */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInverseInput>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type ProductNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `product` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type ProductNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `product` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProductOnGuaranteeForGuaranteeProductBmiRefFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `guarantee` being updated. */
+  patch: GuaranteePatch;
+};
+
+/** The fields on `product` to look up the row to update. */
+export type ProductOnGuaranteeForGuaranteeProductBmiRefFkeyUsingProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
+    /** A unique reference for the product known to BMI */
+    bmiRef: Scalars["String"];
+  };
+
+/** The fields on `product` to look up the row to update. */
+export type ProductOnGuaranteeForGuaranteeProductBmiRefFkeyUsingProductPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnGuaranteeForGuaranteeProductBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProductOnProductForProductMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `market` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: MarketPatch;
+};
+
+/** The fields on `product` to look up the row to update. */
+export type ProductOnProductForProductMarketIdFkeyUsingProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnProductForProductMarketIdFkeyPatch;
+    /** A unique reference for the product known to BMI */
+    bmiRef: Scalars["String"];
+  };
+
+/** The fields on `product` to look up the row to update. */
+export type ProductOnProductForProductMarketIdFkeyUsingProductPkeyUpdate = {
+  /** An object where the defined keys will be set on the `product` being updated. */
+  patch: UpdateProductOnProductForProductMarketIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProductOnSystemMemberForSystemMemberProductBmiRefFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `systemMember` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: SystemMemberPatch;
+  };
+
+/** The fields on `product` to look up the row to update. */
+export type ProductOnSystemMemberForSystemMemberProductBmiRefFkeyUsingProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
+    /** A unique reference for the product known to BMI */
+    bmiRef: Scalars["String"];
+  };
+
+/** The fields on `product` to look up the row to update. */
+export type ProductOnSystemMemberForSystemMemberProductBmiRefFkeyUsingProductPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: UpdateProductOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `Product`. Fields that are set will be updated. */
 export type ProductPatch = {
@@ -9128,6 +12688,33 @@ export type ProductPatch = {
   maximumValidityYears?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInverseInput>;
+};
+
+/** The fields on `product` to look up the row to connect. */
+export type ProductProductBmiRefKeyConnect = {
+  /** A unique reference for the product known to BMI */
+  bmiRef: Scalars["String"];
+};
+
+/** The fields on `product` to look up the row to delete. */
+export type ProductProductBmiRefKeyDelete = {
+  /** A unique reference for the product known to BMI */
+  bmiRef: Scalars["String"];
+};
+
+/** The fields on `product` to look up the row to connect. */
+export type ProductProductPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `product` to look up the row to delete. */
+export type ProductProductPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** A connection to a list of `Product` values. */
@@ -9265,6 +12852,198 @@ export type ProjectProjectMembersArgs = {
   filter?: Maybe<ProjectMemberFilter>;
 };
 
+/** The `address` to be created by this mutation. */
+export type ProjectBuildingOwnerAddressIdFkeyAddressCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** First line of this address */
+  firstLine?: Maybe<Scalars["String"]>;
+  /** Second line of this address */
+  secondLine?: Maybe<Scalars["String"]>;
+  /** The postal town */
+  town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
+  /** The country for this address */
+  country?: Maybe<Scalars["String"]>;
+  /** The postcode for this address */
+  postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `address` in the `ProjectInput` mutation. */
+export type ProjectBuildingOwnerAddressIdFkeyInput = {
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  connectById?: Maybe<AddressAddressPkeyConnect>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AddressNodeIdConnect>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  deleteById?: Maybe<AddressAddressPkeyDelete>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AddressNodeIdDelete>;
+  /** The primary key(s) and patch data for `address` for the far side of the relationship. */
+  updateById?: Maybe<AddressOnProjectForProjectBuildingOwnerAddressIdFkeyUsingAddressPkeyUpdate>;
+  /** The primary key(s) and patch data for `address` for the far side of the relationship. */
+  updateByNodeId?: Maybe<ProjectOnProjectForProjectBuildingOwnerAddressIdFkeyNodeIdUpdate>;
+  /** A `AddressInput` object that will be created and connected to this object. */
+  create?: Maybe<ProjectBuildingOwnerAddressIdFkeyAddressCreateInput>;
+};
+
+/** Input for the nested mutation of `project` in the `AddressInput` mutation. */
+export type ProjectBuildingOwnerAddressIdFkeyInverseInput = {
+  /** Flag indicating whether all other `project` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectById?: Maybe<Array<ProjectProjectPkeyConnect>>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<ProjectNodeIdConnect>>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteById?: Maybe<Array<ProjectProjectPkeyDelete>>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<ProjectNodeIdDelete>>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<ProjectOnProjectForProjectBuildingOwnerAddressIdFkeyUsingProjectPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AddressOnProjectForProjectBuildingOwnerAddressIdFkeyNodeIdUpdate>
+  >;
+  /** A `ProjectInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<ProjectBuildingOwnerAddressIdFkeyProjectCreateInput>>;
+};
+
+/** The `project` to be created by this mutation. */
+export type ProjectBuildingOwnerAddressIdFkeyProjectCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `company` in the `ProjectInput` mutation. */
+export type ProjectCompanyIdFkeyInput = {
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: Maybe<CompanyCompanyPkeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: Maybe<CompanyNodeIdConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: Maybe<CompanyCompanyPkeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<CompanyNodeIdDelete>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: Maybe<ProjectOnProjectForProjectCompanyIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `project` in the `CompanyInput` mutation. */
+export type ProjectCompanyIdFkeyInverseInput = {
+  /** Flag indicating whether all other `project` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectById?: Maybe<Array<ProjectProjectPkeyConnect>>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<ProjectNodeIdConnect>>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteById?: Maybe<Array<ProjectProjectPkeyDelete>>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<ProjectNodeIdDelete>>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<ProjectOnProjectForProjectCompanyIdFkeyUsingProjectPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<CompanyOnProjectForProjectCompanyIdFkeyNodeIdUpdate>
+  >;
+  /** A `ProjectInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<ProjectCompanyIdFkeyProjectCreateInput>>;
+};
+
+/** The `project` to be created by this mutation. */
+export type ProjectCompanyIdFkeyProjectCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
 /** A condition to be used against `Project` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type ProjectCondition = {
   /** Checks for equality with the object’s `id` field. */
@@ -9329,6 +13108,13 @@ export type ProjectInput = {
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
 };
 
 /** People who are on a Project */
@@ -9350,6 +13136,72 @@ export type ProjectMember = Node & {
   project?: Maybe<Project>;
   /** Reads a single `Account` that is related to this `ProjectMember`. */
   account?: Maybe<Account>;
+};
+
+/** Input for the nested mutation of `account` in the `ProjectMemberInput` mutation. */
+export type ProjectMemberAccountIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: Maybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: Maybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: Maybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: Maybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: Maybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: Maybe<AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: Maybe<AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: Maybe<AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: Maybe<ProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `projectMember` in the `AccountInput` mutation. */
+export type ProjectMemberAccountIdFkeyInverseInput = {
+  /** Flag indicating whether all other `projectMember` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `projectMember` for the far side of the relationship. */
+  connectById?: Maybe<Array<ProjectMemberProjectMemberPkeyConnect>>;
+  /** The primary key(s) for `projectMember` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<ProjectMemberNodeIdConnect>>;
+  /** The primary key(s) for `projectMember` for the far side of the relationship. */
+  deleteById?: Maybe<Array<ProjectMemberProjectMemberPkeyDelete>>;
+  /** The primary key(s) for `projectMember` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<ProjectMemberNodeIdDelete>>;
+  /** The primary key(s) and patch data for `projectMember` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<ProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyUsingProjectMemberPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `projectMember` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AccountOnProjectMemberForProjectMemberAccountIdFkeyNodeIdUpdate>
+  >;
+  /** A `ProjectMemberInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<ProjectMemberAccountIdFkeyProjectMemberCreateInput>>;
+};
+
+/** The `projectMember` to be created by this mutation. */
+export type ProjectMemberAccountIdFkeyProjectMemberCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** The responsible installer */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
+  accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
 };
 
 /**
@@ -9397,7 +13249,57 @@ export type ProjectMemberInput = {
   isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
+  accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
 };
+
+/** The globally unique `ID` look up for the row to connect. */
+export type ProjectMemberNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `projectMember` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type ProjectMemberNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `projectMember` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `projectMember` to look up the row to update. */
+export type ProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyUsingProjectMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `projectMember` being updated. */
+    patch: UpdateProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `project` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: ProjectPatch;
+  };
+
+/** The fields on `projectMember` to look up the row to update. */
+export type ProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyUsingProjectMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `projectMember` being updated. */
+    patch: UpdateProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
 
 /** Represents an update to a `ProjectMember`. Fields that are set will be updated. */
 export type ProjectMemberPatch = {
@@ -9411,6 +13313,119 @@ export type ProjectMemberPatch = {
   isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
+  accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
+};
+
+/** Input for the nested mutation of `project` in the `ProjectMemberInput` mutation. */
+export type ProjectMemberProjectIdFkeyInput = {
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectById?: Maybe<ProjectProjectPkeyConnect>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectByNodeId?: Maybe<ProjectNodeIdConnect>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteById?: Maybe<ProjectProjectPkeyDelete>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<ProjectNodeIdDelete>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateById?: Maybe<ProjectOnProjectMemberForProjectMemberProjectIdFkeyUsingProjectPkeyUpdate>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateByNodeId?: Maybe<ProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyNodeIdUpdate>;
+  /** A `ProjectInput` object that will be created and connected to this object. */
+  create?: Maybe<ProjectMemberProjectIdFkeyProjectCreateInput>;
+};
+
+/** Input for the nested mutation of `projectMember` in the `ProjectInput` mutation. */
+export type ProjectMemberProjectIdFkeyInverseInput = {
+  /** Flag indicating whether all other `projectMember` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `projectMember` for the far side of the relationship. */
+  connectById?: Maybe<Array<ProjectMemberProjectMemberPkeyConnect>>;
+  /** The primary key(s) for `projectMember` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<ProjectMemberNodeIdConnect>>;
+  /** The primary key(s) for `projectMember` for the far side of the relationship. */
+  deleteById?: Maybe<Array<ProjectMemberProjectMemberPkeyDelete>>;
+  /** The primary key(s) for `projectMember` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<ProjectMemberNodeIdDelete>>;
+  /** The primary key(s) and patch data for `projectMember` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<ProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyUsingProjectMemberPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `projectMember` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<ProjectOnProjectMemberForProjectMemberProjectIdFkeyNodeIdUpdate>
+  >;
+  /** A `ProjectMemberInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<ProjectMemberProjectIdFkeyProjectMemberCreateInput>>;
+};
+
+/** The `project` to be created by this mutation. */
+export type ProjectMemberProjectIdFkeyProjectCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** The `projectMember` to be created by this mutation. */
+export type ProjectMemberProjectIdFkeyProjectMemberCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  accountId?: Maybe<Scalars["Int"]>;
+  /** The responsible installer */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
+  accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
+};
+
+/** The fields on `projectMember` to look up the row to connect. */
+export type ProjectMemberProjectMemberPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `projectMember` to look up the row to delete. */
+export type ProjectMemberProjectMemberPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** All input for the `projectMembersAdd` mutation. */
@@ -9472,6 +13487,135 @@ export type ProjectMembersOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+/** The globally unique `ID` look up for the row to connect. */
+export type ProjectNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `project` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type ProjectNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `project` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `evidenceItem` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `evidenceItem` being updated. */
+  patch: EvidenceItemPatch;
+};
+
+/** The fields on `project` to look up the row to update. */
+export type ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProjectOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `guarantee` being updated. */
+  patch: GuaranteePatch;
+};
+
+/** The fields on `project` to look up the row to update. */
+export type ProjectOnGuaranteeForGuaranteeProjectIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProjectOnNoteForNoteProjectIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `note` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `note` being updated. */
+  patch: NotePatch;
+};
+
+/** The fields on `project` to look up the row to update. */
+export type ProjectOnNoteForNoteProjectIdFkeyUsingProjectPkeyUpdate = {
+  /** An object where the defined keys will be set on the `project` being updated. */
+  patch: UpdateProjectOnNoteForNoteProjectIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProjectOnProjectForProjectBuildingOwnerAddressIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `address` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `address` being updated. */
+  patch: AddressPatch;
+};
+
+/** The fields on `project` to look up the row to update. */
+export type ProjectOnProjectForProjectBuildingOwnerAddressIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProjectOnProjectForProjectCompanyIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `company` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `company` being updated. */
+  patch: CompanyPatch;
+};
+
+/** The fields on `project` to look up the row to update. */
+export type ProjectOnProjectForProjectCompanyIdFkeyUsingProjectPkeyUpdate = {
+  /** An object where the defined keys will be set on the `project` being updated. */
+  patch: UpdateProjectOnProjectForProjectCompanyIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProjectOnProjectForProjectSiteAddressIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `address` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `address` being updated. */
+  patch: AddressPatch;
+};
+
+/** The fields on `project` to look up the row to update. */
+export type ProjectOnProjectForProjectSiteAddressIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnProjectForProjectSiteAddressIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type ProjectOnProjectMemberForProjectMemberProjectIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `projectMember` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `projectMember` being updated. */
+  patch: ProjectMemberPatch;
+};
+
+/** The fields on `project` to look up the row to update. */
+export type ProjectOnProjectMemberForProjectMemberProjectIdFkeyUsingProjectPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `project` being updated. */
+    patch: UpdateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
 /** Represents an update to a `Project`. Fields that are set will be updated. */
 export type ProjectPatch = {
   /** Primary key */
@@ -9506,6 +13650,136 @@ export type ProjectPatch = {
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** The fields on `project` to look up the row to connect. */
+export type ProjectProjectPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `project` to look up the row to delete. */
+export type ProjectProjectPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The `address` to be created by this mutation. */
+export type ProjectSiteAddressIdFkeyAddressCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** First line of this address */
+  firstLine?: Maybe<Scalars["String"]>;
+  /** Second line of this address */
+  secondLine?: Maybe<Scalars["String"]>;
+  /** The postal town */
+  town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
+  /** The country for this address */
+  country?: Maybe<Scalars["String"]>;
+  /** The postcode for this address */
+  postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `address` in the `ProjectInput` mutation. */
+export type ProjectSiteAddressIdFkeyInput = {
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  connectById?: Maybe<AddressAddressPkeyConnect>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  connectByNodeId?: Maybe<AddressNodeIdConnect>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  deleteById?: Maybe<AddressAddressPkeyDelete>;
+  /** The primary key(s) for `address` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<AddressNodeIdDelete>;
+  /** The primary key(s) and patch data for `address` for the far side of the relationship. */
+  updateById?: Maybe<AddressOnProjectForProjectSiteAddressIdFkeyUsingAddressPkeyUpdate>;
+  /** The primary key(s) and patch data for `address` for the far side of the relationship. */
+  updateByNodeId?: Maybe<ProjectOnProjectForProjectSiteAddressIdFkeyNodeIdUpdate>;
+  /** A `AddressInput` object that will be created and connected to this object. */
+  create?: Maybe<ProjectSiteAddressIdFkeyAddressCreateInput>;
+};
+
+/** Input for the nested mutation of `project` in the `AddressInput` mutation. */
+export type ProjectSiteAddressIdFkeyInverseInput = {
+  /** Flag indicating whether all other `project` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectById?: Maybe<Array<ProjectProjectPkeyConnect>>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<ProjectNodeIdConnect>>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteById?: Maybe<Array<ProjectProjectPkeyDelete>>;
+  /** The primary key(s) for `project` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<ProjectNodeIdDelete>>;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<ProjectOnProjectForProjectSiteAddressIdFkeyUsingProjectPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `project` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<AddressOnProjectForProjectSiteAddressIdFkeyNodeIdUpdate>
+  >;
+  /** A `ProjectInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<ProjectSiteAddressIdFkeyProjectCreateInput>>;
+};
+
+/** The `project` to be created by this mutation. */
+export type ProjectSiteAddressIdFkeyProjectCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
 };
 
 /** A connection to a list of `Project` values. */
@@ -9750,6 +14024,10 @@ export type Query = Node & {
    * which can only query top level fields if they are in a particular form.
    */
   query: Query;
+  /** Reads and enables pagination through a set of `Product`. */
+  searchProducts?: Maybe<ProductsConnection>;
+  /** Reads and enables pagination through a set of `System`. */
+  searchSystems?: Maybe<SystemsConnection>;
   system?: Maybe<System>;
   systemByBmiRef?: Maybe<System>;
   /** Reads a single `System` using its globally unique `ID`. */
@@ -10609,6 +14887,30 @@ export type QueryProjectsArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QuerySearchProductsArgs = {
+  query: Scalars["String"];
+  technology: Technology;
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  filter?: Maybe<ProductFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QuerySearchSystemsArgs = {
+  query: Scalars["String"];
+  technology: Technology;
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  filter?: Maybe<SystemFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QuerySystemArgs = {
   id: Scalars["Int"];
 };
@@ -10955,6 +15257,133 @@ export type SystemInput = {
   published?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInverseInput>;
+};
+
+/** Input for the nested mutation of `market` in the `SystemInput` mutation. */
+export type SystemMarketIdFkeyInput = {
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectById?: Maybe<MarketMarketPkeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDomain?: Maybe<MarketMarketDomainKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByNodeId?: Maybe<MarketNodeIdConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteById?: Maybe<MarketMarketPkeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDomain?: Maybe<MarketMarketDomainKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDoceboCatalogueId?: Maybe<MarketMarketDoceboCatalogueIdKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<MarketNodeIdDelete>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateById?: Maybe<MarketOnSystemForSystemMarketIdFkeyUsingMarketPkeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDomain?: Maybe<MarketOnSystemForSystemMarketIdFkeyUsingMarketDomainKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDoceboCatalogueId?: Maybe<MarketOnSystemForSystemMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByNodeId?: Maybe<SystemOnSystemForSystemMarketIdFkeyNodeIdUpdate>;
+  /** A `MarketInput` object that will be created and connected to this object. */
+  create?: Maybe<SystemMarketIdFkeyMarketCreateInput>;
+};
+
+/** Input for the nested mutation of `system` in the `MarketInput` mutation. */
+export type SystemMarketIdFkeyInverseInput = {
+  /** Flag indicating whether all other `system` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  connectById?: Maybe<Array<SystemSystemPkeyConnect>>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  connectByBmiRef?: Maybe<Array<SystemSystemBmiRefKeyConnect>>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<SystemNodeIdConnect>>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  deleteById?: Maybe<Array<SystemSystemPkeyDelete>>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  deleteByBmiRef?: Maybe<Array<SystemSystemBmiRefKeyDelete>>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<SystemNodeIdDelete>>;
+  /** The primary key(s) and patch data for `system` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<SystemOnSystemForSystemMarketIdFkeyUsingSystemPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `system` for the far side of the relationship. */
+  updateByBmiRef?: Maybe<
+    Array<SystemOnSystemForSystemMarketIdFkeyUsingSystemBmiRefKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `system` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<MarketOnSystemForSystemMarketIdFkeyNodeIdUpdate>
+  >;
+  /** A `SystemInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<SystemMarketIdFkeySystemCreateInput>>;
+};
+
+/** The `market` to be created by this mutation. */
+export type SystemMarketIdFkeyMarketCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** The `system` to be created by this mutation. */
+export type SystemMarketIdFkeySystemCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the system known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** Short name for the System */
+  name?: Maybe<Scalars["String"]>;
+  /** A description for the System */
+  description?: Maybe<Scalars["String"]>;
+  /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  /** If true this system is available for users to select when applying for a system or solution guarantee */
+  published?: Maybe<Scalars["Boolean"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInverseInput>;
 };
 
 /** A Products that make up a system */
@@ -11015,7 +15444,79 @@ export type SystemMemberInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
 };
+
+/** The globally unique `ID` look up for the row to connect. */
+export type SystemMemberNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `systemMember` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type SystemMemberNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `systemMember` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `product` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `product` being updated. */
+    patch: ProductPatch;
+  };
+
+/** The fields on `systemMember` to look up the row to update. */
+export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The fields on `systemMember` to look up the row to update. */
+export type SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch;
+    /** fk */
+    systemBmiRef: Scalars["String"];
+    /** fk */
+    productBmiRef: Scalars["String"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `system` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: SystemPatch;
+  };
+
+/** The fields on `systemMember` to look up the row to update. */
+export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The fields on `systemMember` to look up the row to update. */
+export type SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `systemMember` being updated. */
+    patch: UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
+    /** fk */
+    systemBmiRef: Scalars["String"];
+    /** fk */
+    productBmiRef: Scalars["String"];
+  };
 
 /** Represents an update to a `SystemMember`. Fields that are set will be updated. */
 export type SystemMemberPatch = {
@@ -11027,6 +15528,234 @@ export type SystemMemberPatch = {
   productBmiRef?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+};
+
+/** Input for the nested mutation of `product` in the `SystemMemberInput` mutation. */
+export type SystemMemberProductBmiRefFkeyInput = {
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  connectById?: Maybe<ProductProductPkeyConnect>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  connectByBmiRef?: Maybe<ProductProductBmiRefKeyConnect>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  connectByNodeId?: Maybe<ProductNodeIdConnect>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  deleteById?: Maybe<ProductProductPkeyDelete>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  deleteByBmiRef?: Maybe<ProductProductBmiRefKeyDelete>;
+  /** The primary key(s) for `product` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<ProductNodeIdDelete>;
+  /** The primary key(s) and patch data for `product` for the far side of the relationship. */
+  updateById?: Maybe<ProductOnSystemMemberForSystemMemberProductBmiRefFkeyUsingProductPkeyUpdate>;
+  /** The primary key(s) and patch data for `product` for the far side of the relationship. */
+  updateByBmiRef?: Maybe<ProductOnSystemMemberForSystemMemberProductBmiRefFkeyUsingProductBmiRefKeyUpdate>;
+  /** The primary key(s) and patch data for `product` for the far side of the relationship. */
+  updateByNodeId?: Maybe<SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyNodeIdUpdate>;
+  /** A `ProductInput` object that will be created and connected to this object. */
+  create?: Maybe<SystemMemberProductBmiRefFkeyProductCreateInput>;
+};
+
+/** Input for the nested mutation of `systemMember` in the `ProductInput` mutation. */
+export type SystemMemberProductBmiRefFkeyInverseInput = {
+  /** Flag indicating whether all other `systemMember` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  connectById?: Maybe<Array<SystemMemberSystemMemberPkeyConnect>>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  connectBySystemBmiRefAndProductBmiRef?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect>
+  >;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<SystemMemberNodeIdConnect>>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  deleteById?: Maybe<Array<SystemMemberSystemMemberPkeyDelete>>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  deleteBySystemBmiRefAndProductBmiRef?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete>
+  >;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<SystemMemberNodeIdDelete>>;
+  /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
+  updateBySystemBmiRefAndProductBmiRef?: Maybe<
+    Array<SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<ProductOnSystemMemberForSystemMemberProductBmiRefFkeyNodeIdUpdate>
+  >;
+  /** A `SystemMemberInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<SystemMemberProductBmiRefFkeySystemMemberCreateInput>>;
+};
+
+/** The `product` to be created by this mutation. */
+export type SystemMemberProductBmiRefFkeyProductCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the product known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** The Products brand */
+  brand?: Maybe<Scalars["String"]>;
+  /** Short name for the Product */
+  name?: Maybe<Scalars["String"]>;
+  /** A description of the Product */
+  description?: Maybe<Scalars["String"]>;
+  /** The family of Products this Product is in */
+  family?: Maybe<Scalars["String"]>;
+  /** Whether the Product is avialable for new guarantees */
+  published?: Maybe<Scalars["Boolean"]>;
+  /** The number of years that this product can be guaranteed for */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInverseInput>;
+};
+
+/** The `systemMember` to be created by this mutation. */
+export type SystemMemberProductBmiRefFkeySystemMemberCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+};
+
+/** Input for the nested mutation of `system` in the `SystemMemberInput` mutation. */
+export type SystemMemberSystemBmiRefFkeyInput = {
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  connectById?: Maybe<SystemSystemPkeyConnect>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  connectByBmiRef?: Maybe<SystemSystemBmiRefKeyConnect>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  connectByNodeId?: Maybe<SystemNodeIdConnect>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  deleteById?: Maybe<SystemSystemPkeyDelete>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  deleteByBmiRef?: Maybe<SystemSystemBmiRefKeyDelete>;
+  /** The primary key(s) for `system` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<SystemNodeIdDelete>;
+  /** The primary key(s) and patch data for `system` for the far side of the relationship. */
+  updateById?: Maybe<SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemPkeyUpdate>;
+  /** The primary key(s) and patch data for `system` for the far side of the relationship. */
+  updateByBmiRef?: Maybe<SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemBmiRefKeyUpdate>;
+  /** The primary key(s) and patch data for `system` for the far side of the relationship. */
+  updateByNodeId?: Maybe<SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyNodeIdUpdate>;
+  /** A `SystemInput` object that will be created and connected to this object. */
+  create?: Maybe<SystemMemberSystemBmiRefFkeySystemCreateInput>;
+};
+
+/** Input for the nested mutation of `systemMember` in the `SystemInput` mutation. */
+export type SystemMemberSystemBmiRefFkeyInverseInput = {
+  /** Flag indicating whether all other `systemMember` records that match this relationship should be removed. */
+  deleteOthers?: Maybe<Scalars["Boolean"]>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  connectById?: Maybe<Array<SystemMemberSystemMemberPkeyConnect>>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  connectBySystemBmiRefAndProductBmiRef?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect>
+  >;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  connectByNodeId?: Maybe<Array<SystemMemberNodeIdConnect>>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  deleteById?: Maybe<Array<SystemMemberSystemMemberPkeyDelete>>;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  deleteBySystemBmiRefAndProductBmiRef?: Maybe<
+    Array<SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete>
+  >;
+  /** The primary key(s) for `systemMember` for the far side of the relationship. */
+  deleteByNodeId?: Maybe<Array<SystemMemberNodeIdDelete>>;
+  /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
+  updateById?: Maybe<
+    Array<SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
+  updateBySystemBmiRefAndProductBmiRef?: Maybe<
+    Array<SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `systemMember` for the far side of the relationship. */
+  updateByNodeId?: Maybe<
+    Array<SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyNodeIdUpdate>
+  >;
+  /** A `SystemMemberInput` object that will be created and connected to this object. */
+  create?: Maybe<Array<SystemMemberSystemBmiRefFkeySystemMemberCreateInput>>;
+};
+
+/** The `system` to be created by this mutation. */
+export type SystemMemberSystemBmiRefFkeySystemCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the system known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** Short name for the System */
+  name?: Maybe<Scalars["String"]>;
+  /** A description for the System */
+  description?: Maybe<Scalars["String"]>;
+  /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  /** If true this system is available for users to select when applying for a system or solution guarantee */
+  published?: Maybe<Scalars["Boolean"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInverseInput>;
+};
+
+/** The `systemMember` to be created by this mutation. */
+export type SystemMemberSystemBmiRefFkeySystemMemberCreateInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+};
+
+/** The fields on `systemMember` to look up the row to connect. */
+export type SystemMemberSystemMemberPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `systemMember` to look up the row to delete. */
+export type SystemMemberSystemMemberPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `systemMember` to look up the row to connect. */
+export type SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect = {
+  /** fk */
+  systemBmiRef: Scalars["String"];
+  /** fk */
+  productBmiRef: Scalars["String"];
+};
+
+/** The fields on `systemMember` to look up the row to delete. */
+export type SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete = {
+  /** fk */
+  systemBmiRef: Scalars["String"];
+  /** fk */
+  productBmiRef: Scalars["String"];
 };
 
 /** A connection to a list of `SystemMember` values. */
@@ -11063,6 +15792,94 @@ export type SystemMembersOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+/** The globally unique `ID` look up for the row to connect. */
+export type SystemNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `system` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type SystemNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `system` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `guarantee` being updated. */
+  patch: GuaranteePatch;
+};
+
+/** The fields on `system` to look up the row to update. */
+export type SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingSystemBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: UpdateSystemOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
+    /** A unique reference for the system known to BMI */
+    bmiRef: Scalars["String"];
+  };
+
+/** The fields on `system` to look up the row to update. */
+export type SystemOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingSystemPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: UpdateSystemOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type SystemOnSystemForSystemMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `market` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: MarketPatch;
+};
+
+/** The fields on `system` to look up the row to update. */
+export type SystemOnSystemForSystemMarketIdFkeyUsingSystemBmiRefKeyUpdate = {
+  /** An object where the defined keys will be set on the `system` being updated. */
+  patch: UpdateSystemOnSystemForSystemMarketIdFkeyPatch;
+  /** A unique reference for the system known to BMI */
+  bmiRef: Scalars["String"];
+};
+
+/** The fields on `system` to look up the row to update. */
+export type SystemOnSystemForSystemMarketIdFkeyUsingSystemPkeyUpdate = {
+  /** An object where the defined keys will be set on the `system` being updated. */
+  patch: UpdateSystemOnSystemForSystemMarketIdFkeyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `systemMember` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `systemMember` being updated. */
+  patch: SystemMemberPatch;
+};
+
+/** The fields on `system` to look up the row to update. */
+export type SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemBmiRefKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: UpdateSystemOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
+    /** A unique reference for the system known to BMI */
+    bmiRef: Scalars["String"];
+  };
+
+/** The fields on `system` to look up the row to update. */
+export type SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemPkeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `system` being updated. */
+    patch: UpdateSystemOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch;
+    /** Primary key */
+    id: Scalars["Int"];
+  };
+
 /** Represents an update to a `System`. Fields that are set will be updated. */
 export type SystemPatch = {
   /** Primary key */
@@ -11083,6 +15900,33 @@ export type SystemPatch = {
   published?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInverseInput>;
+};
+
+/** The fields on `system` to look up the row to connect. */
+export type SystemSystemBmiRefKeyConnect = {
+  /** A unique reference for the system known to BMI */
+  bmiRef: Scalars["String"];
+};
+
+/** The fields on `system` to look up the row to delete. */
+export type SystemSystemBmiRefKeyDelete = {
+  /** A unique reference for the system known to BMI */
+  bmiRef: Scalars["String"];
+};
+
+/** The fields on `system` to look up the row to connect. */
+export type SystemSystemPkeyConnect = {
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The fields on `system` to look up the row to delete. */
+export type SystemSystemPkeyDelete = {
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** A connection to a list of `System` values. */
@@ -13097,4 +17941,2158 @@ export type CfMessageTemplateNestedFilter = {
   emailBody_not_contains?: Maybe<Scalars["String"]>;
   OR?: Maybe<Array<Maybe<CfMessageTemplateNestedFilter>>>;
   AND?: Maybe<Array<Maybe<CfMessageTemplateNestedFilter>>>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<AccountStatus>;
+  /** ek */
+  role?: Maybe<Role>;
+  /** The email address associated with the account */
+  email?: Maybe<Scalars["String"]>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: Maybe<Scalars["String"]>;
+  /** First name */
+  firstName?: Maybe<Scalars["String"]>;
+  /** Last name */
+  lastName?: Maybe<Scalars["String"]>;
+  /** When the account was created */
+  created?: Maybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: Maybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** ek */
+    status?: Maybe<AccountStatus>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** ek */
+    role?: Maybe<Role>;
+    /** The email address associated with the account */
+    email?: Maybe<Scalars["String"]>;
+    /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+    phone?: Maybe<Scalars["String"]>;
+    /** First name */
+    firstName?: Maybe<Scalars["String"]>;
+    /** Last name */
+    lastName?: Maybe<Scalars["String"]>;
+    /** When the account was created */
+    created?: Maybe<Scalars["Datetime"]>;
+    /** Username in Docebo.  Needed to generate the SSO link */
+    doceboUsername?: Maybe<Scalars["String"]>;
+    /** File reference. A profile picture of the user */
+    photo?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    migrationId?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+    certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+    companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+    guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+    guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+    invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+    notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+    notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+    projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+    photoUpload?: Maybe<Scalars["Upload"]>;
+    shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  };
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<AccountStatus>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  role?: Maybe<Role>;
+  /** The email address associated with the account */
+  email?: Maybe<Scalars["String"]>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: Maybe<Scalars["String"]>;
+  /** First name */
+  firstName?: Maybe<Scalars["String"]>;
+  /** Last name */
+  lastName?: Maybe<Scalars["String"]>;
+  /** When the account was created */
+  created?: Maybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: Maybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<AccountStatus>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  role?: Maybe<Role>;
+  /** The email address associated with the account */
+  email?: Maybe<Scalars["String"]>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: Maybe<Scalars["String"]>;
+  /** First name */
+  firstName?: Maybe<Scalars["String"]>;
+  /** Last name */
+  lastName?: Maybe<Scalars["String"]>;
+  /** When the account was created */
+  created?: Maybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: Maybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<AccountStatus>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  role?: Maybe<Role>;
+  /** The email address associated with the account */
+  email?: Maybe<Scalars["String"]>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: Maybe<Scalars["String"]>;
+  /** First name */
+  firstName?: Maybe<Scalars["String"]>;
+  /** Last name */
+  lastName?: Maybe<Scalars["String"]>;
+  /** When the account was created */
+  created?: Maybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: Maybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<AccountStatus>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  role?: Maybe<Role>;
+  /** The email address associated with the account */
+  email?: Maybe<Scalars["String"]>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: Maybe<Scalars["String"]>;
+  /** First name */
+  firstName?: Maybe<Scalars["String"]>;
+  /** Last name */
+  lastName?: Maybe<Scalars["String"]>;
+  /** When the account was created */
+  created?: Maybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: Maybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<AccountStatus>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  role?: Maybe<Role>;
+  /** The email address associated with the account */
+  email?: Maybe<Scalars["String"]>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: Maybe<Scalars["String"]>;
+  /** First name */
+  firstName?: Maybe<Scalars["String"]>;
+  /** Last name */
+  lastName?: Maybe<Scalars["String"]>;
+  /** When the account was created */
+  created?: Maybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: Maybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<AccountStatus>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  role?: Maybe<Role>;
+  /** The email address associated with the account */
+  email?: Maybe<Scalars["String"]>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: Maybe<Scalars["String"]>;
+  /** First name */
+  firstName?: Maybe<Scalars["String"]>;
+  /** Last name */
+  lastName?: Maybe<Scalars["String"]>;
+  /** When the account was created */
+  created?: Maybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: Maybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<AccountStatus>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  role?: Maybe<Role>;
+  /** The email address associated with the account */
+  email?: Maybe<Scalars["String"]>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: Maybe<Scalars["String"]>;
+  /** First name */
+  firstName?: Maybe<Scalars["String"]>;
+  /** Last name */
+  lastName?: Maybe<Scalars["String"]>;
+  /** When the account was created */
+  created?: Maybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: Maybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
+  certificationsUsingDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberAccountIdFkeyInverseInput>;
+  guaranteesToRequestorAccountIdUsingId?: Maybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: Maybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationSenderAccountIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: Maybe<NotificationAccountIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
+  shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+};
+
+/** An object where the defined keys will be set on the `address` being updated. */
+export type UpdateAddressOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** First line of this address */
+  firstLine?: Maybe<Scalars["String"]>;
+  /** Second line of this address */
+  secondLine?: Maybe<Scalars["String"]>;
+  /** The postal town */
+  town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
+  /** The country for this address */
+  country?: Maybe<Scalars["String"]>;
+  /** The postcode for this address */
+  postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `address` being updated. */
+export type UpdateAddressOnCompanyForCompanyTradingAddressIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** First line of this address */
+  firstLine?: Maybe<Scalars["String"]>;
+  /** Second line of this address */
+  secondLine?: Maybe<Scalars["String"]>;
+  /** The postal town */
+  town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
+  /** The country for this address */
+  country?: Maybe<Scalars["String"]>;
+  /** The postcode for this address */
+  postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `address` being updated. */
+export type UpdateAddressOnProjectForProjectBuildingOwnerAddressIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** First line of this address */
+  firstLine?: Maybe<Scalars["String"]>;
+  /** Second line of this address */
+  secondLine?: Maybe<Scalars["String"]>;
+  /** The postal town */
+  town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
+  /** The country for this address */
+  country?: Maybe<Scalars["String"]>;
+  /** The postcode for this address */
+  postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `address` being updated. */
+export type UpdateAddressOnProjectForProjectSiteAddressIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** First line of this address */
+  firstLine?: Maybe<Scalars["String"]>;
+  /** Second line of this address */
+  secondLine?: Maybe<Scalars["String"]>;
+  /** The postal town */
+  town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
+  /** The country for this address */
+  country?: Maybe<Scalars["String"]>;
+  /** The postcode for this address */
+  postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companiesToRegisteredAddressIdUsingId?: Maybe<CompanyRegisteredAddressIdFkeyInverseInput>;
+  companiesToTradingAddressIdUsingId?: Maybe<CompanyTradingAddressIdFkeyInverseInput>;
+  projectsToSiteAddressIdUsingId?: Maybe<ProjectSiteAddressIdFkeyInverseInput>;
+  projectsToBuildingOwnerAddressIdUsingId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `certification` being updated. */
+export type UpdateCertificationOnCertificationForCertificationDoceboUserIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** technology */
+    technology?: Maybe<Scalars["String"]>;
+    /** The name of the certification according to Docebo */
+    name?: Maybe<Scalars["String"]>;
+    /** The last day that this certification is valid */
+    expiryDate?: Maybe<Scalars["Datetime"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    accountToDoceboUserId?: Maybe<CertificationDoceboUserIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `companyDocument` being updated. */
+export type UpdateCompanyDocumentOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** The reference to the document */
+    document?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `companyMember` being updated. */
+export type UpdateCompanyMemberOnCompanyMemberForCompanyMemberAccountIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    companyId?: Maybe<Scalars["Int"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+    accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+    companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `companyMember` being updated. */
+export type UpdateCompanyMemberOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    accountId?: Maybe<Scalars["Int"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+    accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+    companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `companyMember` being updated. */
+export type UpdateCompanyMemberOnCompanyMemberForCompanyMemberMarketIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    accountId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    companyId?: Maybe<Scalars["Int"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMemberMarketIdFkeyInput>;
+    accountToAccountId?: Maybe<CompanyMemberAccountIdFkeyInput>;
+    companyToCompanyId?: Maybe<CompanyMemberCompanyIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    registeredAddressId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    tradingAddressId?: Maybe<Scalars["Int"]>;
+    /** the name of the owner of the Company */
+    ownerFullname?: Maybe<Scalars["String"]>;
+    /** the email address to contact the owner */
+    ownerEmail?: Maybe<Scalars["String"]>;
+    /** the phone number to contact the owner */
+    ownerPhone?: Maybe<Scalars["String"]>;
+    /** ek */
+    businessType?: Maybe<BusinessType>;
+    /** ek */
+    tier?: Maybe<Tier>;
+    /** ek */
+    status?: Maybe<CompanyStatus>;
+    /** the email address of the person who filled out the company registration form */
+    registeredBy?: Maybe<Scalars["String"]>;
+    /** the date that the Company registration form was submitted */
+    registeredDate?: Maybe<Scalars["Datetime"]>;
+    /** The Group ID of the company in Docebo */
+    doceboGroupId?: Maybe<Scalars["String"]>;
+    /** The registered name of the Company */
+    name?: Maybe<Scalars["String"]>;
+    /** The Tax number in that Market, such as the VAT number */
+    taxNumber?: Maybe<Scalars["String"]>;
+    /** The Company public phone number */
+    phone?: Maybe<Scalars["String"]>;
+    /** A descirption of the Company intended for Find a Roofer */
+    aboutUs?: Maybe<Scalars["String"]>;
+    /** The email address that they can be contacted with by the public assuming they are listed */
+    publicEmail?: Maybe<Scalars["String"]>;
+    /** The Company website URL */
+    website?: Maybe<Scalars["String"]>;
+    /** The Company facebook website */
+    facebook?: Maybe<Scalars["String"]>;
+    /** Their Company LinkedIn page URL */
+    linkedIn?: Maybe<Scalars["String"]>;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber?: Maybe<Scalars["String"]>;
+    /** A reference to the logo image */
+    logo?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    migrationId?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+    addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+    addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+    companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+    companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+    companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+    invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+    projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  };
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  tradingAddressId?: Maybe<Scalars["Int"]>;
+  /** the name of the owner of the Company */
+  ownerFullname?: Maybe<Scalars["String"]>;
+  /** the email address to contact the owner */
+  ownerEmail?: Maybe<Scalars["String"]>;
+  /** the phone number to contact the owner */
+  ownerPhone?: Maybe<Scalars["String"]>;
+  /** ek */
+  businessType?: Maybe<BusinessType>;
+  /** ek */
+  tier?: Maybe<Tier>;
+  /** ek */
+  status?: Maybe<CompanyStatus>;
+  /** the email address of the person who filled out the company registration form */
+  registeredBy?: Maybe<Scalars["String"]>;
+  /** the date that the Company registration form was submitted */
+  registeredDate?: Maybe<Scalars["Datetime"]>;
+  /** The Group ID of the company in Docebo */
+  doceboGroupId?: Maybe<Scalars["String"]>;
+  /** The registered name of the Company */
+  name?: Maybe<Scalars["String"]>;
+  /** The Tax number in that Market, such as the VAT number */
+  taxNumber?: Maybe<Scalars["String"]>;
+  /** The Company public phone number */
+  phone?: Maybe<Scalars["String"]>;
+  /** A descirption of the Company intended for Find a Roofer */
+  aboutUs?: Maybe<Scalars["String"]>;
+  /** The email address that they can be contacted with by the public assuming they are listed */
+  publicEmail?: Maybe<Scalars["String"]>;
+  /** The Company website URL */
+  website?: Maybe<Scalars["String"]>;
+  /** The Company facebook website */
+  facebook?: Maybe<Scalars["String"]>;
+  /** Their Company LinkedIn page URL */
+  linkedIn?: Maybe<Scalars["String"]>;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber?: Maybe<Scalars["String"]>;
+  /** A reference to the logo image */
+  logo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+  addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+  addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+  companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+  companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+  projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  tradingAddressId?: Maybe<Scalars["Int"]>;
+  /** the name of the owner of the Company */
+  ownerFullname?: Maybe<Scalars["String"]>;
+  /** the email address to contact the owner */
+  ownerEmail?: Maybe<Scalars["String"]>;
+  /** the phone number to contact the owner */
+  ownerPhone?: Maybe<Scalars["String"]>;
+  /** ek */
+  businessType?: Maybe<BusinessType>;
+  /** ek */
+  tier?: Maybe<Tier>;
+  /** ek */
+  status?: Maybe<CompanyStatus>;
+  /** the email address of the person who filled out the company registration form */
+  registeredBy?: Maybe<Scalars["String"]>;
+  /** the date that the Company registration form was submitted */
+  registeredDate?: Maybe<Scalars["Datetime"]>;
+  /** The Group ID of the company in Docebo */
+  doceboGroupId?: Maybe<Scalars["String"]>;
+  /** The registered name of the Company */
+  name?: Maybe<Scalars["String"]>;
+  /** The Tax number in that Market, such as the VAT number */
+  taxNumber?: Maybe<Scalars["String"]>;
+  /** The Company public phone number */
+  phone?: Maybe<Scalars["String"]>;
+  /** A descirption of the Company intended for Find a Roofer */
+  aboutUs?: Maybe<Scalars["String"]>;
+  /** The email address that they can be contacted with by the public assuming they are listed */
+  publicEmail?: Maybe<Scalars["String"]>;
+  /** The Company website URL */
+  website?: Maybe<Scalars["String"]>;
+  /** The Company facebook website */
+  facebook?: Maybe<Scalars["String"]>;
+  /** Their Company LinkedIn page URL */
+  linkedIn?: Maybe<Scalars["String"]>;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber?: Maybe<Scalars["String"]>;
+  /** A reference to the logo image */
+  logo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+  addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+  addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+  companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+  companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+  projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  /** the name of the owner of the Company */
+  ownerFullname?: Maybe<Scalars["String"]>;
+  /** the email address to contact the owner */
+  ownerEmail?: Maybe<Scalars["String"]>;
+  /** the phone number to contact the owner */
+  ownerPhone?: Maybe<Scalars["String"]>;
+  /** ek */
+  businessType?: Maybe<BusinessType>;
+  /** ek */
+  tier?: Maybe<Tier>;
+  /** ek */
+  status?: Maybe<CompanyStatus>;
+  /** the email address of the person who filled out the company registration form */
+  registeredBy?: Maybe<Scalars["String"]>;
+  /** the date that the Company registration form was submitted */
+  registeredDate?: Maybe<Scalars["Datetime"]>;
+  /** The Group ID of the company in Docebo */
+  doceboGroupId?: Maybe<Scalars["String"]>;
+  /** The registered name of the Company */
+  name?: Maybe<Scalars["String"]>;
+  /** The Tax number in that Market, such as the VAT number */
+  taxNumber?: Maybe<Scalars["String"]>;
+  /** The Company public phone number */
+  phone?: Maybe<Scalars["String"]>;
+  /** A descirption of the Company intended for Find a Roofer */
+  aboutUs?: Maybe<Scalars["String"]>;
+  /** The email address that they can be contacted with by the public assuming they are listed */
+  publicEmail?: Maybe<Scalars["String"]>;
+  /** The Company website URL */
+  website?: Maybe<Scalars["String"]>;
+  /** The Company facebook website */
+  facebook?: Maybe<Scalars["String"]>;
+  /** Their Company LinkedIn page URL */
+  linkedIn?: Maybe<Scalars["String"]>;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber?: Maybe<Scalars["String"]>;
+  /** A reference to the logo image */
+  logo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+  addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+  addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+  companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+  companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+  projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  tradingAddressId?: Maybe<Scalars["Int"]>;
+  /** the name of the owner of the Company */
+  ownerFullname?: Maybe<Scalars["String"]>;
+  /** the email address to contact the owner */
+  ownerEmail?: Maybe<Scalars["String"]>;
+  /** the phone number to contact the owner */
+  ownerPhone?: Maybe<Scalars["String"]>;
+  /** ek */
+  businessType?: Maybe<BusinessType>;
+  /** ek */
+  tier?: Maybe<Tier>;
+  /** ek */
+  status?: Maybe<CompanyStatus>;
+  /** the email address of the person who filled out the company registration form */
+  registeredBy?: Maybe<Scalars["String"]>;
+  /** the date that the Company registration form was submitted */
+  registeredDate?: Maybe<Scalars["Datetime"]>;
+  /** The Group ID of the company in Docebo */
+  doceboGroupId?: Maybe<Scalars["String"]>;
+  /** The registered name of the Company */
+  name?: Maybe<Scalars["String"]>;
+  /** The Tax number in that Market, such as the VAT number */
+  taxNumber?: Maybe<Scalars["String"]>;
+  /** The Company public phone number */
+  phone?: Maybe<Scalars["String"]>;
+  /** A descirption of the Company intended for Find a Roofer */
+  aboutUs?: Maybe<Scalars["String"]>;
+  /** The email address that they can be contacted with by the public assuming they are listed */
+  publicEmail?: Maybe<Scalars["String"]>;
+  /** The Company website URL */
+  website?: Maybe<Scalars["String"]>;
+  /** The Company facebook website */
+  facebook?: Maybe<Scalars["String"]>;
+  /** Their Company LinkedIn page URL */
+  linkedIn?: Maybe<Scalars["String"]>;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber?: Maybe<Scalars["String"]>;
+  /** A reference to the logo image */
+  logo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+  addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+  addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+  companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+  companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+  projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    marketId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    registeredAddressId?: Maybe<Scalars["Int"]>;
+    /** fk */
+    tradingAddressId?: Maybe<Scalars["Int"]>;
+    /** the name of the owner of the Company */
+    ownerFullname?: Maybe<Scalars["String"]>;
+    /** the email address to contact the owner */
+    ownerEmail?: Maybe<Scalars["String"]>;
+    /** the phone number to contact the owner */
+    ownerPhone?: Maybe<Scalars["String"]>;
+    /** ek */
+    businessType?: Maybe<BusinessType>;
+    /** ek */
+    tier?: Maybe<Tier>;
+    /** ek */
+    status?: Maybe<CompanyStatus>;
+    /** the email address of the person who filled out the company registration form */
+    registeredBy?: Maybe<Scalars["String"]>;
+    /** the date that the Company registration form was submitted */
+    registeredDate?: Maybe<Scalars["Datetime"]>;
+    /** The Group ID of the company in Docebo */
+    doceboGroupId?: Maybe<Scalars["String"]>;
+    /** The registered name of the Company */
+    name?: Maybe<Scalars["String"]>;
+    /** The Tax number in that Market, such as the VAT number */
+    taxNumber?: Maybe<Scalars["String"]>;
+    /** The Company public phone number */
+    phone?: Maybe<Scalars["String"]>;
+    /** A descirption of the Company intended for Find a Roofer */
+    aboutUs?: Maybe<Scalars["String"]>;
+    /** The email address that they can be contacted with by the public assuming they are listed */
+    publicEmail?: Maybe<Scalars["String"]>;
+    /** The Company website URL */
+    website?: Maybe<Scalars["String"]>;
+    /** The Company facebook website */
+    facebook?: Maybe<Scalars["String"]>;
+    /** Their Company LinkedIn page URL */
+    linkedIn?: Maybe<Scalars["String"]>;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber?: Maybe<Scalars["String"]>;
+    /** A reference to the logo image */
+    logo?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    migrationId?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+    /** Used for reference when importing data from the legacy system */
+    registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+    addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+    addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+    companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+    companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+    companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+    invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+    projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+  };
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  tradingAddressId?: Maybe<Scalars["Int"]>;
+  /** the name of the owner of the Company */
+  ownerFullname?: Maybe<Scalars["String"]>;
+  /** the email address to contact the owner */
+  ownerEmail?: Maybe<Scalars["String"]>;
+  /** the phone number to contact the owner */
+  ownerPhone?: Maybe<Scalars["String"]>;
+  /** ek */
+  businessType?: Maybe<BusinessType>;
+  /** ek */
+  tier?: Maybe<Tier>;
+  /** ek */
+  status?: Maybe<CompanyStatus>;
+  /** the email address of the person who filled out the company registration form */
+  registeredBy?: Maybe<Scalars["String"]>;
+  /** the date that the Company registration form was submitted */
+  registeredDate?: Maybe<Scalars["Datetime"]>;
+  /** The Group ID of the company in Docebo */
+  doceboGroupId?: Maybe<Scalars["String"]>;
+  /** The registered name of the Company */
+  name?: Maybe<Scalars["String"]>;
+  /** The Tax number in that Market, such as the VAT number */
+  taxNumber?: Maybe<Scalars["String"]>;
+  /** The Company public phone number */
+  phone?: Maybe<Scalars["String"]>;
+  /** A descirption of the Company intended for Find a Roofer */
+  aboutUs?: Maybe<Scalars["String"]>;
+  /** The email address that they can be contacted with by the public assuming they are listed */
+  publicEmail?: Maybe<Scalars["String"]>;
+  /** The Company website URL */
+  website?: Maybe<Scalars["String"]>;
+  /** The Company facebook website */
+  facebook?: Maybe<Scalars["String"]>;
+  /** Their Company LinkedIn page URL */
+  linkedIn?: Maybe<Scalars["String"]>;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber?: Maybe<Scalars["String"]>;
+  /** A reference to the logo image */
+  logo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+  addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+  addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+  companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+  companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+  projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  tradingAddressId?: Maybe<Scalars["Int"]>;
+  /** the name of the owner of the Company */
+  ownerFullname?: Maybe<Scalars["String"]>;
+  /** the email address to contact the owner */
+  ownerEmail?: Maybe<Scalars["String"]>;
+  /** the phone number to contact the owner */
+  ownerPhone?: Maybe<Scalars["String"]>;
+  /** ek */
+  businessType?: Maybe<BusinessType>;
+  /** ek */
+  tier?: Maybe<Tier>;
+  /** ek */
+  status?: Maybe<CompanyStatus>;
+  /** the email address of the person who filled out the company registration form */
+  registeredBy?: Maybe<Scalars["String"]>;
+  /** the date that the Company registration form was submitted */
+  registeredDate?: Maybe<Scalars["Datetime"]>;
+  /** The Group ID of the company in Docebo */
+  doceboGroupId?: Maybe<Scalars["String"]>;
+  /** The registered name of the Company */
+  name?: Maybe<Scalars["String"]>;
+  /** The Tax number in that Market, such as the VAT number */
+  taxNumber?: Maybe<Scalars["String"]>;
+  /** The Company public phone number */
+  phone?: Maybe<Scalars["String"]>;
+  /** A descirption of the Company intended for Find a Roofer */
+  aboutUs?: Maybe<Scalars["String"]>;
+  /** The email address that they can be contacted with by the public assuming they are listed */
+  publicEmail?: Maybe<Scalars["String"]>;
+  /** The Company website URL */
+  website?: Maybe<Scalars["String"]>;
+  /** The Company facebook website */
+  facebook?: Maybe<Scalars["String"]>;
+  /** Their Company LinkedIn page URL */
+  linkedIn?: Maybe<Scalars["String"]>;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber?: Maybe<Scalars["String"]>;
+  /** A reference to the logo image */
+  logo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<CompanyMarketIdFkeyInput>;
+  addressToRegisteredAddressId?: Maybe<CompanyRegisteredAddressIdFkeyInput>;
+  addressToTradingAddressId?: Maybe<CompanyTradingAddressIdFkeyInput>;
+  companyDocumentsUsingId?: Maybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberCompanyIdFkeyInverseInput>;
+  companyOperationsUsingId?: Maybe<CompanyOperationCompanyFkeyInverseInput>;
+  invitationsUsingId?: Maybe<InvitationCompanyIdFkeyInverseInput>;
+  projectsUsingId?: Maybe<ProjectCompanyIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `companyOperation` being updated. */
+export type UpdateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** ek */
+    operation?: Maybe<Operation>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    companyToCompany?: Maybe<CompanyOperationCompanyFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `evidenceItem` being updated. */
+export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** a reference to the evidenceCategory sys id in Contentful */
+    customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+    /** fk */
+    projectId?: Maybe<Scalars["Int"]>;
+    /** ek */
+    evidenceCategoryType?: Maybe<EvidenceCategoryType>;
+    /** Short name for the item of evidence */
+    name?: Maybe<Scalars["String"]>;
+    /** File reference or the file itself. Photo of the evidence */
+    attachment?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
+    guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `evidenceItem` being updated. */
+export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** a reference to the evidenceCategory sys id in Contentful */
+    customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+    /** fk */
+    guaranteeId?: Maybe<Scalars["Int"]>;
+    /** ek */
+    evidenceCategoryType?: Maybe<EvidenceCategoryType>;
+    /** Short name for the item of evidence */
+    name?: Maybe<Scalars["String"]>;
+    /** File reference or the file itself. Photo of the evidence */
+    attachment?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    projectToProjectId?: Maybe<EvidenceItemProjectIdFkeyInput>;
+    guaranteeToGuaranteeId?: Maybe<EvidenceItemGuaranteeIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `guarantee` being updated. */
+export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `guarantee` being updated. */
+export type UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `guarantee` being updated. */
+export type UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `guarantee` being updated. */
+export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
+  {
+    /** Primary key - starts at 6100 */
+    id?: Maybe<Scalars["Int"]>;
+    /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+    fileStorageId?: Maybe<Scalars["String"]>;
+    /** fk */
+    projectId?: Maybe<Scalars["Int"]>;
+    /** a reference to the guaranteeType sys id in Contentful */
+    guaranteeTypeId?: Maybe<Scalars["String"]>;
+    /** fk */
+    systemBmiRef?: Maybe<Scalars["String"]>;
+    /** fk */
+    productBmiRef?: Maybe<Scalars["String"]>;
+    /** fk */
+    reviewerAccountId?: Maybe<Scalars["Int"]>;
+    /** a reference to the guaranteeType sys id in Contentful */
+    guaranteeTemplateId?: Maybe<Scalars["String"]>;
+    /** ek */
+    status?: Maybe<RequestStatus>;
+    /** The date that the Guarantee is approved either automatically or manually */
+    startDate?: Maybe<Scalars["Datetime"]>;
+    /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+    expiryDate?: Maybe<Scalars["Datetime"]>;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+    projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+    systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+    productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+    accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+    evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  };
+
+/** An object where the defined keys will be set on the `guarantee` being updated. */
+export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `guarantee` being updated. */
+export type UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {
+  /** Primary key - starts at 6100 */
+  id?: Maybe<Scalars["Int"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: Maybe<Scalars["String"]>;
+  /** fk */
+  requestorAccountId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** fk */
+  productBmiRef?: Maybe<Scalars["String"]>;
+  /** fk */
+  reviewerAccountId?: Maybe<Scalars["Int"]>;
+  /** a reference to the guaranteeType sys id in Contentful */
+  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  status?: Maybe<RequestStatus>;
+  /** The date that the Guarantee is approved either automatically or manually */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToRequestorAccountId?: Maybe<GuaranteeRequestorAccountIdFkeyInput>;
+  projectToProjectId?: Maybe<GuaranteeProjectIdFkeyInput>;
+  systemToSystemBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInput>;
+  productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
+  accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `invitation` being updated. */
+export type UpdateInvitationOnInvitationForInvitationCompanyIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  senderAccountId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<InvitationStatus>;
+  /** An email address */
+  invitee?: Maybe<Scalars["String"]>;
+  /** An optional note that can be included in the invitation by the sender */
+  personalNote?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToSenderAccountId?: Maybe<InvitationSenderAccountIdFkeyInput>;
+  companyToCompanyId?: Maybe<InvitationCompanyIdFkeyInput>;
+};
+
+/** An object where the defined keys will be set on the `invitation` being updated. */
+export type UpdateInvitationOnInvitationForInvitationSenderAccountIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    companyId?: Maybe<Scalars["Int"]>;
+    /** ek */
+    status?: Maybe<InvitationStatus>;
+    /** An email address */
+    invitee?: Maybe<Scalars["String"]>;
+    /** An optional note that can be included in the invitation by the sender */
+    personalNote?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    accountToSenderAccountId?: Maybe<InvitationSenderAccountIdFkeyInput>;
+    companyToCompanyId?: Maybe<InvitationCompanyIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `market` being updated. */
+export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `market` being updated. */
+export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `market` being updated. */
+export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `market` being updated. */
+export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `market` being updated. */
+export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  language?: Maybe<Language>;
+  /** the country code used for example as the subdomain */
+  domain?: Maybe<Scalars["String"]>;
+  /** The space in Contenful */
+  cmsSpaceId?: Maybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: Maybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: Maybe<Scalars["String"]>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: Maybe<Scalars["String"]>;
+  /** The default branch in Docebo that installers go into */
+  doceboInstallersBranchId?: Maybe<Scalars["String"]>;
+  /** The branch in Docebo that company admins go into */
+  doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
+  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: Maybe<Scalars["String"]>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: Maybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
+  companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
+  productsUsingId?: Maybe<ProductMarketIdFkeyInverseInput>;
+  systemsUsingId?: Maybe<SystemMarketIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `note` being updated. */
+export type UpdateNoteOnNoteForNoteAuthorIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** The body of the Note */
+  body?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToAuthorId?: Maybe<NoteAuthorIdFkeyInput>;
+  projectToProjectId?: Maybe<NoteProjectIdFkeyInput>;
+};
+
+/** An object where the defined keys will be set on the `note` being updated. */
+export type UpdateNoteOnNoteForNoteProjectIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  authorId?: Maybe<Scalars["Int"]>;
+  /** The body of the Note */
+  body?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  accountToAuthorId?: Maybe<NoteAuthorIdFkeyInput>;
+  projectToProjectId?: Maybe<NoteProjectIdFkeyInput>;
+};
+
+/** An object where the defined keys will be set on the `notification` being updated. */
+export type UpdateNotificationOnNotificationForNotificationAccountIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** The datetime stamp for when the message was sent */
+    sendDate?: Maybe<Scalars["Datetime"]>;
+    /** Whether the message still needs to be read */
+    unread?: Maybe<Scalars["Boolean"]>;
+    /** The body of the message */
+    body?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    accountToAccountId?: Maybe<NotificationAccountIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `product` being updated. */
+export type UpdateProductOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the product known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** The Products brand */
+  brand?: Maybe<Scalars["String"]>;
+  /** Short name for the Product */
+  name?: Maybe<Scalars["String"]>;
+  /** A description of the Product */
+  description?: Maybe<Scalars["String"]>;
+  /** The family of Products this Product is in */
+  family?: Maybe<Scalars["String"]>;
+  /** Whether the Product is avialable for new guarantees */
+  published?: Maybe<Scalars["Boolean"]>;
+  /** The number of years that this product can be guaranteed for */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `product` being updated. */
+export type UpdateProductOnProductForProductMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the product known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** The Products brand */
+  brand?: Maybe<Scalars["String"]>;
+  /** Short name for the Product */
+  name?: Maybe<Scalars["String"]>;
+  /** A description of the Product */
+  description?: Maybe<Scalars["String"]>;
+  /** The family of Products this Product is in */
+  family?: Maybe<Scalars["String"]>;
+  /** Whether the Product is avialable for new guarantees */
+  published?: Maybe<Scalars["Boolean"]>;
+  /** The number of years that this product can be guaranteed for */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `product` being updated. */
+export type UpdateProductOnSystemMemberForSystemMemberProductBmiRefFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the product known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** The Products brand */
+  brand?: Maybe<Scalars["String"]>;
+  /** Short name for the Product */
+  name?: Maybe<Scalars["String"]>;
+  /** A description of the Product */
+  description?: Maybe<Scalars["String"]>;
+  /** The family of Products this Product is in */
+  family?: Maybe<Scalars["String"]>;
+  /** Whether the Product is avialable for new guarantees */
+  published?: Maybe<Scalars["Boolean"]>;
+  /** The number of years that this product can be guaranteed for */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<ProductMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `projectMember` being updated. */
+export type UpdateProjectMemberOnProjectMemberForProjectMemberAccountIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    projectId?: Maybe<Scalars["Int"]>;
+    /** The responsible installer */
+    isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
+    accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `projectMember` being updated. */
+export type UpdateProjectMemberOnProjectMemberForProjectMemberProjectIdFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    accountId?: Maybe<Scalars["Int"]>;
+    /** The responsible installer */
+    isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    projectToProjectId?: Maybe<ProjectMemberProjectIdFkeyInput>;
+    accountToAccountId?: Maybe<ProjectMemberAccountIdFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `project` being updated. */
+export type UpdateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `project` being updated. */
+export type UpdateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `project` being updated. */
+export type UpdateProjectOnNoteForNoteProjectIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `project` being updated. */
+export type UpdateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `project` being updated. */
+export type UpdateProjectOnProjectForProjectCompanyIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `project` being updated. */
+export type UpdateProjectOnProjectForProjectSiteAddressIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `project` being updated. */
+export type UpdateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** Short name for the Project */
+  name?: Maybe<Scalars["String"]>;
+  /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
+  description?: Maybe<Scalars["String"]>;
+  /** If this is true then the Project should be hidden from End Users */
+  hidden?: Maybe<Scalars["Boolean"]>;
+  /** The number of square meters of roof that this project covers */
+  roofArea?: Maybe<Scalars["Int"]>;
+  /** Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project. */
+  buildingOwnerMail?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
+  buildingOwnerLastname?: Maybe<Scalars["String"]>;
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
+  buildingOwnerCompany?: Maybe<Scalars["String"]>;
+  /** The date that the Project officially starts or started */
+  startDate?: Maybe<Scalars["Datetime"]>;
+  /** The date that the Project officially expects to end or ended */
+  endDate?: Maybe<Scalars["Datetime"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  companyToCompanyId?: Maybe<ProjectCompanyIdFkeyInput>;
+  addressToSiteAddressId?: Maybe<ProjectSiteAddressIdFkeyInput>;
+  addressToBuildingOwnerAddressId?: Maybe<ProjectBuildingOwnerAddressIdFkeyInput>;
+  evidenceItemsUsingId?: Maybe<EvidenceItemProjectIdFkeyInverseInput>;
+  guaranteesUsingId?: Maybe<GuaranteeProjectIdFkeyInverseInput>;
+  notesUsingId?: Maybe<NoteProjectIdFkeyInverseInput>;
+  projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `systemMember` being updated. */
+export type UpdateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    systemBmiRef?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+    productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `systemMember` being updated. */
+export type UpdateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch =
+  {
+    /** Primary key */
+    id?: Maybe<Scalars["Int"]>;
+    /** fk */
+    productBmiRef?: Maybe<Scalars["String"]>;
+    createdAt?: Maybe<Scalars["Datetime"]>;
+    updatedAt?: Maybe<Scalars["Datetime"]>;
+    systemToSystemBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInput>;
+    productToProductBmiRef?: Maybe<SystemMemberProductBmiRefFkeyInput>;
+  };
+
+/** An object where the defined keys will be set on the `system` being updated. */
+export type UpdateSystemOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the system known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** Short name for the System */
+  name?: Maybe<Scalars["String"]>;
+  /** A description for the System */
+  description?: Maybe<Scalars["String"]>;
+  /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  /** If true this system is available for users to select when applying for a system or solution guarantee */
+  published?: Maybe<Scalars["Boolean"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `system` being updated. */
+export type UpdateSystemOnSystemForSystemMarketIdFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the system known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** Short name for the System */
+  name?: Maybe<Scalars["String"]>;
+  /** A description for the System */
+  description?: Maybe<Scalars["String"]>;
+  /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  /** If true this system is available for users to select when applying for a system or solution guarantee */
+  published?: Maybe<Scalars["Boolean"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInverseInput>;
+};
+
+/** An object where the defined keys will be set on the `system` being updated. */
+export type UpdateSystemOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  technology?: Maybe<Technology>;
+  /** A unique reference for the system known to BMI */
+  bmiRef?: Maybe<Scalars["String"]>;
+  /** Short name for the System */
+  name?: Maybe<Scalars["String"]>;
+  /** A description for the System */
+  description?: Maybe<Scalars["String"]>;
+  /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  /** If true this system is available for users to select when applying for a system or solution guarantee */
+  published?: Maybe<Scalars["Boolean"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketToMarketId?: Maybe<SystemMarketIdFkeyInput>;
+  guaranteesUsingBmiRef?: Maybe<GuaranteeSystemBmiRefFkeyInverseInput>;
+  systemMembersUsingBmiRef?: Maybe<SystemMemberSystemBmiRefFkeyInverseInput>;
 };

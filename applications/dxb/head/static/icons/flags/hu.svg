@@ -1,0 +1,34 @@
+<svg id="Hungary_Magyarország" data-name="Hungary Magyarország" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" y1="-22.613" x2="20" y2="-22.613" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fd6738"/>
+      <stop offset="0.55" stop-color="#ff5a29"/>
+      <stop offset="1" stop-color="#f73303"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="-27.946" x2="20" y2="-27.946" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e8e8e8"/>
+      <stop offset="0.45" stop-color="#fff"/>
+      <stop offset="1" stop-color="#ccc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" y1="-33.28" x2="20" y2="-33.28" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4abc24"/>
+      <stop offset="0.645" stop-color="#2aad14"/>
+      <stop offset="1" stop-color="#049802"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="8.189" cy="-25.447" r="10.474" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="20" height="5.333" fill="url(#linear-gradient)"/>
+  <rect y="5.333" width="20" height="5.333" fill="url(#linear-gradient-2)"/>
+  <rect y="10.667" width="20" height="5.333" fill="url(#linear-gradient-3)"/>
+  <g clip-path="url(#clip-path)">
+    <circle cx="8.189" cy="5.5" r="10.474" fill="url(#radial-gradient)"/>
+  </g>
+  <path d="M19,1V15H1V1H18.952M20,0H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>

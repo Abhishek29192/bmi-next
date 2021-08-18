@@ -67,7 +67,7 @@ exports[`SpotlightHero component renders correctly 1`] = `
             </nav>
           </div>
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading desktop
           </h1>
@@ -175,7 +175,7 @@ exports[`SpotlightHero component renders with cta 1`] = `
             </nav>
           </div>
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading desktop
           </h1>
@@ -299,7 +299,7 @@ exports[`SpotlightHero component renders with deprecated imageSource 1`] = `
             </nav>
           </div>
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading desktop
           </h1>
@@ -330,6 +330,114 @@ exports[`SpotlightHero component renders with deprecated imageSource 1`] = `
     <div
       class="overlay overlay--blue"
     />
+  </div>
+</div>
+`;
+
+exports[`SpotlightHero component renders with keyline for brand 1`] = `
+<div
+  class="SpotlightHero SpotlightHero--keyline"
+>
+  <div
+    class="image"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root header-container MuiContainer-maxWidthXl"
+        >
+          <div
+            class="breadcrumbs"
+          >
+            <nav
+              aria-label="breadcrumbs"
+              class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs Breadcrumbs--dark-themed MuiTypography-body1 MuiTypography-colorTextSecondary"
+            >
+              <ol
+                class="MuiBreadcrumbs-ol"
+              >
+                <li
+                  class="MuiBreadcrumbs-li"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                    href="/"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root icon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="label"
+                      >
+                        Tiles
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <h1
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+          >
+            H1 Heading desktop
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="content"
+        >
+          <div
+            class="text"
+          >
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1"
+            >
+              Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu quis ex nostrud sunt ad eu laboris commodo deserunt commodo. Exercitation ullamco ipsum duis reprehenderit labore officia incididunt amet aliquip quis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="overlay overlay--blue"
+    >
+      <img
+        alt="Lorem ipsum"
+        class="Media"
+        src="path-to-image"
+      />
+    </div>
   </div>
 </div>
 `;

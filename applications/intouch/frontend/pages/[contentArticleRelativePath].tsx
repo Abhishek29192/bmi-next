@@ -13,6 +13,7 @@ import {
 } from "../lib/error";
 import { GetGlobalDataQuery } from "../graphql/generated/operations";
 import { getServerPageGetContentArticleContent } from "../graphql/generated/page";
+import styles from "../styles/ContentArticle.module.scss";
 
 export const GET_CONTENT_ARTICLE_CONTENT = gql`
   query getContentArticleContent($relativePath: String!) {
@@ -40,13 +41,15 @@ const ContentArticlePage = ({
 }: ContentArticlePageProps) => {
   return (
     <Layout title={title} pageData={globalPageData}>
-      <RichText content={body} />
+      <div className={styles.container}>
+        <RichText content={body} />
+      </div>
     </Layout>
   );
 };
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, res, params }) => {
+  async ({ locale, apolloClient, globalPageData, res, params, account }) => {
     const { contentArticleRelativePath } = params;
 
     const {
@@ -83,6 +86,7 @@ export const getServerSideProps = withPage(
         title: pageContent.title,
         body: pageContent.body.json,
         globalPageData,
+        account,
         ...(await serverSideTranslations(locale, ["common"]))
       }
     };

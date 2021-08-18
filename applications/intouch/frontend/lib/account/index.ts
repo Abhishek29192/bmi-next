@@ -1,6 +1,7 @@
 import { Logger } from "winston";
-import { Account } from "@bmi/intouch-api-types";
+import { Account, Tier } from "@bmi/intouch-api-types";
 import { ApolloClient, NormalizedCacheObject, gql } from "@apollo/client";
+import { GetUserProfileQuery } from "../../graphql/generated/operations";
 import { randomPassword } from "../utils/account";
 
 const { AUTH0_NAMESPACE } = process.env;
@@ -20,6 +21,7 @@ export const queryAccountByEmail = gql`
         language
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
+        merchandisingUrl
         projectsEnabled
       }
       companyMembers {
@@ -138,12 +140,22 @@ export const findAccountCompany = (account: Account) => {
   return account?.companyMembers?.nodes?.[0]?.company;
 };
 
+// Couldn't find a way to use findAccountCompany
+// to accept both Account and GetUserProfileQuery["account"]
+export const findAccountCompanyFromAccountQuery = (
+  account: GetUserProfileQuery["account"]
+) => {
+  return account?.companyMembers?.nodes?.[0]?.company;
+};
+
 // Account inherits tier from company.
 // if not assigned to a company, fallback to T1.
-export const findAccountTier = (account: Account) => {
+export const findAccountTier = (account: Account): Tier => {
   const company = findAccountCompany(account);
 
-  if (company) {
+  // company may be created but not completed,
+  // and therefore have no tier
+  if (company && company.tier) {
     return company.tier;
   }
 
@@ -356,7 +368,9 @@ export default class AccountService {
             lastname: lastName,
             language,
             level,
+            valid: 1,
             email_validation_status: 1,
+            can_manage_subordinates: false,
             send_notification_email: false,
             select_orgchart: {
               branch_id: branchId

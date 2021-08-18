@@ -1,7 +1,7 @@
 test_head:
   extends: .test_jest
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -15,7 +15,6 @@ test_head:
 
 test_mr_coverage_head:
   extends: .test_jest_mr_coverage
-  allow_failure: true
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
@@ -27,10 +26,10 @@ test_mr_coverage_head:
   variables:
     WORKSPACE: "@bmi/head"
 
-build_head:
+build_head_mr:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -58,12 +57,51 @@ build_head:
       paths:
         - "**/node_modules"
         - ".yarn_cache"
-    - key: build_head
+    - key: build_head_mr
       policy: pull-push
       untracked: false
       paths:
         - "applications/dxb/head/.cache"
         - "applications/dxb/head/public"
+
+# TODO: Set to use pre-prod environment data
+# build_head_hotfix_mr:
+#   stage: build
+#   rules:
+#     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+#       changes:
+#         - applications/dxb/head/**/*
+#         - components/**/*
+#         - libraries/**/*
+#         - package.json
+#         - "**/package.json"
+#   needs:
+#     - install
+#   variables:
+#     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
+#   before_script:
+#     - yarn config set cache-folder ${PWD}/.yarn_cache
+#   script:
+#     - yarn workspace @bmi/head check:ts
+#     - yarn workspace @bmi/head build
+#   artifacts:
+#     paths:
+#       - applications/dxb/head/public
+#   cache:
+#     - key:
+#         files:
+#           - yarn.lock
+#       policy: pull
+#       untracked: false
+#       paths:
+#         - "**/node_modules"
+#         - ".yarn_cache"
+#     - key: build_head_hotfix_mr
+#       policy: pull-push
+#       untracked: false
+#       paths:
+#         - "applications/dxb/head/.cache"
+#         - "applications/dxb/head/public"
 
 deploy_head_preview:
   stage: deploy
@@ -74,7 +112,7 @@ deploy_head_preview:
         - components/**/*
         - libraries/**/*
   needs:
-    - build_head
+    - build_head_mr
   before_script:
     - yarn config set cache-folder ~/.yarn
     - apt-get update
@@ -105,28 +143,40 @@ deploy_head_preview:
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-baseline.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+    - zap-baseline.py -t "${BASE_URL}" -J gl-dast-report.json -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT} || failed=true
+    - cp /zap/wrk/gl-dast-report.json .
+    - cp /zap/wrk/zap_output.html  .
+    - "[ $failed ] && exit 1"
   artifacts:
+    reports:
+      dast: gl-dast-report.json
     paths:
       - zap_output.html
+    when: always
 
 .full_scan:
   stage: dynamic security
   rules:
     - when: never
   image: owasp/zap2docker-stable:latest
+  timeout: 3h
   cache: {}
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-full-scan.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+    - zap-full-scan.py -t "${BASE_URL}" -J gl-dast-report.json -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT} || failed=true
+    - cp /zap/wrk/gl-dast-report.json .
+    - cp /zap/wrk/zap_output.html  .
+    - "[ $failed ] && exit 1"
   artifacts:
+    reports:
+      dast: gl-dast-report.json
     paths:
       - zap_output.html
+    when: always
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Triggered by Netlify when deploy is complete
-# Disabled until it can be fixed
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
@@ -137,6 +187,7 @@ baseline_scan_head_preview:
         - libraries/**/*
   needs:
     - deploy_head_preview
+  allow_failure: true
   variables:
     ZAP_ENVIRONMENT: "mr"
   before_script:
@@ -146,11 +197,6 @@ baseline_scan_head_preview:
       [ -z "${BASE_URL}" ] && echo "Nothing deployed to test" && exit 0
       xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${BASE_URL}" applications/dxb/head/dast/mr.context
       export BASE_URL=${BASE_URL}/no
-  # Only need script until we do the work to actually get the script to pass (as it always fails), but we want to know when MRs are eventually passing
-  script:
-    - mkdir /zap/wrk
-    - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-baseline.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT} || echo "ZAP check failed"
 
 # https://www.zaproxy.org/docs/docker/full-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
@@ -197,7 +243,7 @@ baseline_scan_head_prod:
       for url in ${LIGHTHOUSE_URLS[@]}; do
         params="$params --collect.url=${url}"
       done
-      yarn workspace @bmi/head lighthouse ${params} || echo "LHCI failed!"
+      yarn workspace @bmi/head lighthouse ${params}
   artifacts:
     paths:
       - applications/dxb/head/lighthouseci/reports
@@ -214,6 +260,7 @@ lighthouseci_scan_head_preview:
         - libraries/**/*
   needs:
     - deploy_head_preview
+  allow_failure: true
   variables:
     # Required as QA password has a `$` in it
     NETLIFY_PWD: "$NETLIFY_PASSWORD_QA"
@@ -224,7 +271,7 @@ lighthouseci_scan_head_preview:
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
       export LIGHTHOUSE_URLS=(
         "${base_url}/no/"
-        "${base_url}/no/metal-tiles/contact-us/"
+        "${base_url}/no/contact-us/"
         "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
       )
 

@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { useTranslation } from "next-i18next";
 import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
 import { BMI } from "@bmi/logo";
 import { Notifications, Menu, Close } from "@material-ui/icons";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
+import { findAccountTier } from "../../lib/account";
 import { Link } from "../Link";
 import UserMenu from "../UserMenu";
 import { NotificationsPanel } from "../NotificationsPanel";
+import { useAccountContext } from "../../context/AccountContext";
 import styles from "./styles.module.scss";
 
 type HeaderLink = {
@@ -27,7 +30,13 @@ export const Header = ({
   contactUsLink,
   globalExternalLink
 }: HeaderProps) => {
+  const { t } = useTranslation("common");
   const [isOpen, setIsOpen] = React.useState(false);
+  const { account } = useAccountContext();
+
+  const accountTierName = useMemo(() => {
+    return t(`tier.${findAccountTier(account)}`);
+  }, [account]);
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -83,7 +92,7 @@ export const Header = ({
               style={{ margin: "0 1rem" }}
             />
             <Typography variant="h3" className={styles.lowerHeaderUserLevel}>
-              Expert
+              {accountTierName}
             </Typography>
           </div>
 

@@ -1,7 +1,10 @@
-import dotenv from "dotenv";
+import { resolve } from "path";
+import { config } from "dotenv";
 import { PoolConfig, Pool } from "pg";
 
-dotenv.config();
+config({
+  path: resolve(__dirname, "../../.env")
+});
 
 let pool;
 export const getDbPool = () => {

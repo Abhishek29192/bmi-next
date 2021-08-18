@@ -12,8 +12,13 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
 <div
   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
 >
-  <div
-    class="OverviewCard"
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1\\"}"
+    href="/undefined/test1"
+    role="button"
+    tabindex="0"
   >
     <img
       alt=" imaproduct"
@@ -29,15 +34,14 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
       </h5>
       
       <div
-        class="children"
+        class="children text"
       />
       <div
         class="footer"
       >
-        <a
+        <span
           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1\\"}"
-          href="/undefined/test1"
+          type="button"
         >
           <span>
             MC: plp.product.viewDetails
@@ -47,9 +51,12 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
             class="icon"
             focusable="false"
           />
-        </a>
+        </span>
       </div>
     </div>
-  </div>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </a>
 </div>
 `;

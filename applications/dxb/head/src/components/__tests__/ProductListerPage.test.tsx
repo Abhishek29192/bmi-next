@@ -1,6 +1,10 @@
 import React from "react";
-import { render, RenderResult } from "@testing-library/react";
-import { LocationProvider } from "@reach/router";
+import { render, RenderResult, waitFor } from "@testing-library/react";
+import {
+  createHistory,
+  createMemorySource,
+  LocationProvider
+} from "@reach/router";
 import * as all from "@bmi/use-dimensions";
 import { Filter } from "@bmi/filters";
 import ProductListerPage, {
@@ -11,6 +15,7 @@ import { Data as PageData } from "../../components/Page";
 import { RichTextData } from "../../components/RichText";
 import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 import { Data as LinkData } from "../../components/Link";
+import regions from "../../countries/region.json";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
 import ProvideStyles from "./utils/StylesProvider";
@@ -24,6 +29,14 @@ type Data = PageInfoData &
     features: string[] | null;
     featuresLink: LinkData | null;
     breadcrumbs: BreadcrumbsData;
+    heroType:
+      | "Hierarchy"
+      | "Spotlight"
+      | "Level 1"
+      | "Level 2"
+      | "Level 3"
+      | null;
+    cta: LinkData | null;
   };
 
 const heroTitle = "i am a title";
@@ -86,7 +99,9 @@ const pageInfo: Data = {
   path: "",
   content: null,
   features: ["test"],
-  featuresLink: null
+  featuresLink: null,
+  heroType: "Spotlight",
+  cta: null
 };
 
 const mockNavigation: NavigationData = {
@@ -121,7 +136,17 @@ const siteData: SiteData = {
   menuNavigation: mockNavigation,
   menuUtilities: mockNavigation,
   resources: null,
-  scriptGOptLoad: null
+  scriptGOptLoad: null,
+  regions: [
+    {
+      label: "Europe",
+      menu: [
+        { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+        { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+        { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
+      ]
+    }
+  ]
 };
 
 const pageData = {
@@ -236,6 +261,10 @@ function mockUseDimensions({
       .mockImplementationOnce(getDimensionHookFn(mediumTableWidth));
   }
 }
+process.env.GATSBY_RECAPTCHA_KEY = "test";
+process.env.GATSBY_VISUALISER_ASSETS_URL = "jest-test-page";
+const route = "/jest-test-page";
+const history = createHistory(createMemorySource(route));
 
 const renderWithStylesAndLocationProvider = (
   pageData: any,
@@ -243,18 +272,25 @@ const renderWithStylesAndLocationProvider = (
 ): RenderResult => {
   return render(
     <ProvideStyles>
-      <LocationProvider>
+      <LocationProvider history={history}>
         <ProductListerPage data={pageData} pageContext={pageContext} />
       </LocationProvider>
     </ProvideStyles>
   );
 };
 
+const OLD_ENV = process.env;
+
 afterEach(() => {
+  process.env = OLD_ENV; // Restore old environment
+
   jest.restoreAllMocks();
 });
 
 beforeEach(() => {
+  jest.resetModules(); // Most important - it clears the cache
+  process.env = { ...OLD_ENV }; // Make a copy
+  process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
   mockUseDimensions({
     containerWidth: 400,
     normalTableWidth: 400,
@@ -263,6 +299,20 @@ beforeEach(() => {
 });
 
 describe("ProductListerPage template", () => {
+  describe("ProductListerPage without initialProducts without BrandProvider", () => {
+    it("renders basic ProductListerPage", async () => {
+      process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
+      pageData.initialProducts = [];
+      pageData.productFilters = [];
+      const { container, findByText } = renderWithStylesAndLocationProvider(
+        pageData,
+        pageContext
+      );
+      await findByText(heroTitle);
+      await waitFor(() => expect(container.parentElement).toMatchSnapshot());
+    });
+  });
+
   describe("ProductListerPage without initialProducts", () => {
     it("renders basic ProductListerPage", async () => {
       pageData.initialProducts = [];
@@ -272,7 +322,7 @@ describe("ProductListerPage template", () => {
         pageContext
       );
       await findByText(heroTitle);
-      expect(container.parentElement).toMatchSnapshot();
+      await waitFor(() => expect(container.parentElement).toMatchSnapshot());
     });
   });
 
@@ -292,7 +342,7 @@ describe("ProductListerPage template", () => {
 
         localPageData.initialProducts = [localProductWithVariant];
         localPageData.productFilters = [];
-        const localPageContext = {
+        const localPageContext: PageContextType = {
           variantCode: "variant1",
           siteId: "siteId",
           countryCode: "no",
@@ -302,14 +352,16 @@ describe("ProductListerPage template", () => {
             variant1: "variant1"
           }
         };
+
         const { container, findByText } = renderWithStylesAndLocationProvider(
           localPageData,
           localPageContext
         );
         await findByText("category-code-2");
-        expect(container.parentElement).toMatchSnapshot();
+        await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });
+
     describe("And First Category code on first initial product does NOT match", () => {
       it("then, Renders category code Section Title", async () => {
         const localPageData = { ...pageData };
@@ -381,6 +433,22 @@ describe("ProductListerPage template", () => {
         await getByLabelText(color1Label);
         expect(queryByText(color2Label)).not.toBeNull();
         expect(container.parentElement).toMatchSnapshot();
+      });
+    });
+
+    describe("When level 1 hero selected", () => {
+      it("renders renders hero correctly", async () => {
+        pageData.initialProducts = [productWithVariantAndBase];
+        pageData.contentfulProductListerPage.heroType = "Level 1";
+
+        const { container } = renderWithStylesAndLocationProvider(
+          pageData,
+          pageContext
+        );
+        await waitFor(() =>
+          expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(1)
+        );
+        await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });
 

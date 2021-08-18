@@ -196,6 +196,13 @@ module.exports = {
         path: `${__dirname}/src/data`
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `region`,
+        path: `${__dirname}/src/countries`
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

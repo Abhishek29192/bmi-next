@@ -63,6 +63,7 @@ type Props = {
 
 const SimplePage = ({ data, pageContext }: Props) => {
   const {
+    brandLogo,
     title,
     subtitle,
     featuredMedia,
@@ -117,6 +118,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
 
   return (
     <Page
+      brand={brandLogo}
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
@@ -124,9 +126,18 @@ const SimplePage = ({ data, pageContext }: Props) => {
       ogImageUrl={featuredMedia?.image?.file.url}
     >
       {heroType === "Spotlight" ? (
-        <SpotlightHero {...heroProps} breadcrumbs={breadcrumbsNode} />
+        <SpotlightHero
+          {...heroProps}
+          brand={brandLogo}
+          breadcrumbs={breadcrumbsNode}
+        />
       ) : (
-        <Hero level={heroLevel} {...heroProps} breadcrumbs={breadcrumbsNode} />
+        <Hero
+          brand={brandLogo}
+          level={heroLevel}
+          {...heroProps}
+          breadcrumbs={breadcrumbsNode}
+        />
       )}
       <TableOfContent
         renderLink={(sectionId, title) => (

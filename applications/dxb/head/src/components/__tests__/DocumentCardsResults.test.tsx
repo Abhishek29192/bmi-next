@@ -6,7 +6,17 @@ import { Data as DocumentData } from "./../Document";
 
 describe("Brands component", () => {
   it("renders correctly", () => {
-    const docs: DocumentData[] = [createContentfulDocument()];
+    const docs: DocumentData[] = [
+      createContentfulDocument(),
+      {
+        ...createContentfulDocument(),
+        featuredMedia: null,
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        }
+      }
+    ];
 
     const { container } = render(
       <DocumentCardsResults documents={docs} page={1} documentsPerPage={10} />
@@ -14,6 +24,6 @@ describe("Brands component", () => {
     expect(container.firstChild).toMatchSnapshot();
 
     const resultsCount = getCount(docs);
-    expect(resultsCount).toEqual(1);
+    expect(resultsCount).toEqual(2);
   });
 });

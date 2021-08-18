@@ -12,14 +12,19 @@ import { ProjectSidePanel } from "../../components/ProjectSidePanel";
 import ProjectDetail from "../../components/ProjectDetail";
 import { Layout } from "../../components/Layout";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
-import { GetProjectsQuery } from "../../graphql/generated/operations";
+import {
+  GetProjectsQuery,
+  GetGlobalDataQuery
+} from "../../graphql/generated/operations";
+
 import { getServerPageGetProjects } from "../../graphql/generated/page";
 
 export type PageProps = {
   projects: GetProjectsQuery["projects"];
+  globalPageData: GetGlobalDataQuery;
 };
 
-const Projects = ({ projects }: PageProps) => {
+const Projects = ({ projects, globalPageData }: PageProps) => {
   const { t } = useTranslation("common");
   const router = useRouter();
 
@@ -38,7 +43,7 @@ const Projects = ({ projects }: PageProps) => {
   };
 
   return (
-    <Layout title={t("Projects")}>
+    <Layout title={t("Projects")} pageData={globalPageData}>
       <div style={{ display: "flex" }}>
         <ProjectSidePanel
           projects={projects}
@@ -73,25 +78,29 @@ const Projects = ({ projects }: PageProps) => {
   );
 };
 
-export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
-  const {
-    props: {
-      data: { projects }
-    }
-  } = await getServerPageGetProjects({}, apolloClient);
+export const getServerSideProps = withPage(
+  async ({ apolloClient, locale, account, globalPageData }) => {
+    const {
+      props: {
+        data: { projects }
+      }
+    } = await getServerPageGetProjects({}, apolloClient);
 
-  const props = {
-    projects,
-    ...(await serverSideTranslations(locale, [
-      "common",
-      "sidebar",
-      "footer",
-      "project-page"
-    ]))
-  };
+    const props = {
+      account,
+      globalPageData,
+      projects,
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "sidebar",
+        "footer",
+        "project-page"
+      ]))
+    };
 
-  return { props };
-});
+    return { props };
+  }
+);
 
 export default withPageAuthRequired(Projects);
 

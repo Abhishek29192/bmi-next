@@ -1,5 +1,5 @@
 import { DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
-import { publish, TOPICS } from "../../services/events";
+import { sendEmailWithTemplate } from "../../services/mailer";
 
 export const updateCompany = async (
   resolve,
@@ -7,7 +7,48 @@ export const updateCompany = async (
   args,
   context,
   resolveInfo
-) => await resolve(source, args, context, resolveInfo);
+) => {
+  const result = await resolve(source, args, context, resolveInfo);
+  const { pgClient, user } = context;
+  const {
+    data: {
+      $name,
+      $business_type,
+      $tax_number,
+      $status,
+      $registered_address_id
+    }
+  } = result;
+
+  const {
+    rows: [registeredAddress]
+  } = await pgClient.query(
+    "select address.* from address where address.id = $1",
+    [$registered_address_id]
+  );
+
+  if (
+    $status === "NEW" &&
+    // mandatory fields to activate company
+    $name &&
+    $business_type &&
+    $tax_number &&
+    ["first_line", "town", "postcode", "country"].every(
+      (line) => registeredAddress[line]
+    )
+  ) {
+    await pgClient.query("SELECT * FROM activate_company($1)", [args.input.id]);
+
+    // send email for registration
+    await sendEmailWithTemplate(context, "COMPANY_REGISTERED", {
+      email: user.email,
+      firstname: user.firstName,
+      companyname: user.company.name
+    });
+  }
+
+  return result;
+};
 
 export const deleteCompanyMember = async (
   resolve,
@@ -16,13 +57,28 @@ export const deleteCompanyMember = async (
   context,
   resolveInfo
 ) => {
-  const { pgClient, pubSub } = context;
+  const { pgClient } = context;
   const { id }: DeleteCompanyMemberInput = args.input;
 
   const logger = context.logger("delete:companyMember");
 
   const { rows } = await pgClient.query(
-    "SELECT account.id, account.role, account.email, company_member.company_id AS company_id FROM account JOIN company_member ON account.id = company_member.account_id WHERE company_member.id = $1",
+    `
+    SELECT
+      account.id,
+      account.role,
+      account.first_name,
+      account.last_name,
+      account.email,
+      company_member.company_id AS company_id,
+      company.name
+    FROM
+      account
+      JOIN company_member ON account.id = company_member.account_id
+      JOIN company ON company.id = company_member.company_id
+    WHERE
+      company_member.id = $1
+    `,
     [id]
   );
 
@@ -50,14 +106,10 @@ export const deleteCompanyMember = async (
 
     const result = await resolve(source, args, context, resolveInfo);
 
-    await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-      title: `You have been removed from the company ${userToRemove.company_id}`,
-      text: `
-        You have been removed from the company ${userToRemove.company_id}
-      `,
-      html: `
-        You have been removed from the company <b>${userToRemove.company_id}</b>
-      `,
+    await sendEmailWithTemplate(context, "COMPANY_MEMBER_REMOVED", {
+      account: userToRemove.email,
+      firstName: userToRemove.first_name,
+      company: userToRemove.name,
       email: userToRemove.email
     });
     logger.info(`Email sent to the user ${userToRemove.id}`);

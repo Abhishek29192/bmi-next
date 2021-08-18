@@ -1,5 +1,7 @@
 plan_terraform:
   stage: build
+  needs: []
+  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
@@ -26,6 +28,7 @@ plan_terraform:
 apply_terraform:
   needs: [plan_terraform]
   stage: deploy
+  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:

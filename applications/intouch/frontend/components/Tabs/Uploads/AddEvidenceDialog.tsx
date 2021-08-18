@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import Dialog from "@bmi/dialog";
-import Upload, { UploadFile } from "@bmi/upload";
+import Upload from "@bmi/upload";
 
 type AddEvidenceDialogProps = {
   isOpen: boolean;
   onCloseClick: () => void;
-  onConfirmClick: (files: UploadFile[]) => void;
+  onConfirmClick: (files: File[]) => void;
 };
 export const AddEvidenceDialog = ({
   isOpen,
@@ -14,7 +14,7 @@ export const AddEvidenceDialog = ({
   onConfirmClick
 }: AddEvidenceDialogProps) => {
   const { t } = useTranslation("project-page");
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState<File[]>([]);
 
   return (
     <Dialog open={isOpen} onCloseClick={onCloseClick}>
@@ -39,7 +39,7 @@ export const AddEvidenceDialog = ({
             )
           }}
           defaultExpanded={true}
-          onChange={(files) => setFiles(files)}
+          onFilesChange={(files) => setFiles(files)}
         />
       </Dialog.Content>
       <Dialog.Actions

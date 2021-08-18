@@ -11,7 +11,37 @@ const siteId = "1234";
 jest.mock("gatsby");
 
 describe("SystemDetailsPage template component", () => {
+  const OLD_ENV = process.env;
+
+  beforeEach(() => {
+    jest.resetModules(); // Most important - it clears the cache
+    process.env = { ...OLD_ENV }; // Make a copy
+  });
+
+  afterAll(() => {
+    process.env = OLD_ENV; // Restore old environment
+  });
+
   it("should render", () => {
+    const { container } = renderWithRouter(
+      <SystemDetailsPage
+        data={{
+          contentfulSite: createMockSiteData(),
+          shareWidget: null,
+          dataJson: dataJson as SystemDetails
+        }}
+        pageContext={{
+          systemPageId,
+          siteId
+        }}
+      />
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("should render without BrandProvider", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = null;
     const { container } = renderWithRouter(
       <SystemDetailsPage
         data={{

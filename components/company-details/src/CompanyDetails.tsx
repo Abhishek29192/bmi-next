@@ -1,7 +1,11 @@
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Icon from "@bmi/icon";
-import Logo, { RoofProElite, RoofProExpert, RoofProPartner } from "@bmi/logo";
+import Logo, {
+  RoofProElite,
+  RoofProExpert,
+  RoofProPartnerSmall
+} from "@bmi/logo";
 import Typography from "@bmi/typography";
 import {
   Directions,
@@ -12,6 +16,7 @@ import {
 } from "@material-ui/icons";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
 import React from "react";
+import classnames from "classnames";
 import styles from "./CompanyDetails.module.scss";
 
 export type RoofProLevel = "expert" | "partner" | "elite";
@@ -34,8 +39,10 @@ export type DetailProps =
   | {
       type: DetailType;
       text: React.ReactNode;
+      textStyle?: "bold";
       label: React.ReactNode;
       action?: ClickableAction;
+      display?: "icon" | "label" | "contentOnly";
     };
 
 type Props = {
@@ -78,24 +85,11 @@ const DetailsItem = (props: DetailProps) => {
     );
   }
 
-  if (props.type === "content") {
-    const { label, text } = props;
-
-    return (
-      <div className={styles["row"]}>
-        <dt className={styles["term"]}>
-          <span className={styles["label"]}>{label}</span>
-        </dt>
-        <dd className={styles["description"]}>{text}</dd>
-      </div>
-    );
-  }
-
   if (props.type === "roofProLevel") {
     const { label, level } = props;
     const iconSourceMap: Record<RoofProLevel, SVGImport> = {
       expert: RoofProExpert,
-      partner: RoofProPartner,
+      partner: RoofProPartnerSmall,
       elite: RoofProElite
     };
     const iconSource = iconSourceMap[level as RoofProLevel];
@@ -119,21 +113,34 @@ const DetailsItem = (props: DetailProps) => {
     );
   }
 
-  const { type, label, text, action } = props;
+  const {
+    type,
+    label,
+    text,
+    textStyle,
+    action,
+    display = type === "content" ? "label" : "icon"
+  } = props;
   const WrapperElement = type === "address" ? "address" : "div";
   const icon = typeToIconMap(type);
+  const styledText = textStyle === "bold" ? <b>{text}</b> : text;
 
   return (
     <WrapperElement className={styles["row"]}>
       <dt className={styles["term"]}>
-        {icon ? <Icon source={icon} className={styles["icon"]} /> : null}
-        <Typography
-          className={[styles["label"], styles["accessibility-label"]].join(
-            ", "
-          )}
-        >
-          {label}
-        </Typography>
+        {icon && display === "icon" ? (
+          <Icon source={icon} className={styles["icon"]} />
+        ) : null}
+        {display !== "contentOnly" ? (
+          <Typography
+            component="span"
+            className={classnames(styles["label"], {
+              [styles["accessibility-label"] || ""]: display === "icon"
+            })}
+          >
+            {label}
+          </Typography>
+        ) : undefined}
       </dt>
       <dd className={styles["description"]}>
         {action ? (
@@ -141,7 +148,7 @@ const DetailsItem = (props: DetailProps) => {
             {text}
           </AnchorLink>
         ) : (
-          text
+          styledText
         )}
       </dd>
     </WrapperElement>

@@ -8,6 +8,7 @@ import styles from "./SpotlightHero.module.scss";
 type Props = {
   title: React.ReactNode;
   children: React.ReactNode;
+  brand?: string;
   /**
    * @deprecated Use `media` instead.
    */
@@ -37,10 +38,18 @@ const SpotlightHero = ({
   media,
   backgroundColor = "blue",
   breadcrumbs,
-  cta
+  cta,
+  brand
 }: Props) => {
   return (
-    <div className={styles["SpotlightHero"]}>
+    <div
+      className={classnames(
+        styles["SpotlightHero"],
+        !!process.env.GATSBY_ENABLE_BRAND_PROVIDER &&
+          brand &&
+          styles["SpotlightHero--keyline"]
+      )}
+    >
       <div
         className={styles["image"]}
         style={
@@ -56,7 +65,12 @@ const SpotlightHero = ({
             {breadcrumbs && (
               <div className={styles["breadcrumbs"]}>{breadcrumbs}</div>
             )}
-            <Typography variant="h1" hasUnderline className={styles["title"]}>
+            <Typography
+              variant="h1"
+              hasUnderline
+              hasDarkBackground
+              className={styles["title"]}
+            >
               {title}
             </Typography>
           </Container>

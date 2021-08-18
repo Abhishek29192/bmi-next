@@ -8,6 +8,9 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
+  /* Override ButtonBase styles */
+  align-items: normal;
+  text-align: left;
 
   :global {
     .MuiLink-root {

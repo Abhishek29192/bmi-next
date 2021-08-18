@@ -15,7 +15,7 @@ type Props = {
 };
 
 const ConfirmDialog = ({ dialogState, onCancel }: Props) => {
-  const { t } = useTranslation("team-page");
+  const { t } = useTranslation("profile");
 
   return (
     <Dialog

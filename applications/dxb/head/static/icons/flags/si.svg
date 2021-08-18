@@ -1,0 +1,48 @@
+<svg id="Slovenia_Slovenija" data-name="Slovenia Slovenija" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" y1="-27.946" x2="20" y2="-27.946" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0082e8"/>
+      <stop offset="0.545" stop-color="#008af0"/>
+      <stop offset="1" stop-color="#06c"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="-22.613" x2="20" y2="-22.613" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e8e8e8"/>
+      <stop offset="0.439" stop-color="#f7f7f7"/>
+      <stop offset="1" stop-color="#ccc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" y1="-33.28" x2="20" y2="-33.28" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fd5928"/>
+      <stop offset="0.522" stop-color="#ff6030"/>
+      <stop offset="1" stop-color="#f63404"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="2.868" y1="-23.112" x2="2.868" y2="-17.779" gradientTransform="matrix(1, 0, 0, -1, 2.29, -14.973)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="2.868" y1="-23.112" x2="2.868" y2="-17.779" gradientTransform="matrix(1, 0, 0, -1, 2.29, -14.973)" xlink:href="#linear-gradient-3"/>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="5.919" cy="-20.474" r="10.464" gradientTransform="matrix(1, 0, 0, -1, 2.29, -14.973)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect y="5.333" width="20" height="5.333" fill="url(#linear-gradient)"/>
+  <rect width="20" height="5.333" fill="url(#linear-gradient-2)"/>
+  <rect y="10.667" width="20" height="5.333" fill="url(#linear-gradient-3)"/>
+  <g>
+    <path d="M5.157,2.806H5.05a4.691,4.691,0,0,0-1.806.415h0c-.051.021-.1.042-.147.064L3.256,5.78a2.624,2.624,0,0,0,1.9,2.359,2.625,2.625,0,0,0,1.9-2.359L7.219,3.3c-.047-.025-.1-.049-.147-.072h0A4.673,4.673,0,0,0,5.16,2.806h0Z" fill-rule="evenodd" fill="url(#linear-gradient-4)"/>
+    <path d="M5.158,4.531l-.465.909-.3-.391L3.605,6.088c.014.065.031.127.049.188a.593.593,0,0,0,.473.318c.172,0,.344-.138.516-.138s.343.138.515.138.344-.138.516-.138.343.138.515.138A.591.591,0,0,0,6.66,6.28c.019-.062.036-.127.051-.193L5.925,5.049l-.3.391ZM4.643,6.594c-.172,0-.344.137-.516.137a.568.568,0,0,1-.343-.116c.032.067.066.133.1.2a.458.458,0,0,0,.24.074c.172,0,.344-.138.516-.138s.343.138.515.138.344-.138.516-.138.343.138.515.138a.456.456,0,0,0,.238-.073c.037-.062.07-.128.1-.2a.563.563,0,0,1-.34.114c-.172,0-.343-.137-.515-.137s-.344.137-.516.137-.343-.137-.515-.137Zm0,.291c-.172,0-.344.137-.516.137a.555.555,0,0,1-.107-.011,2.4,2.4,0,0,0,1.138.816,2.4,2.4,0,0,0,1.136-.815.622.622,0,0,1-.1.01c-.172,0-.343-.137-.515-.137s-.344.137-.516.137-.343-.137-.515-.137Z" fill="#fff" fill-rule="evenodd"/>
+    <g id="stars">
+      <polygon points="4.643 3.364 4.773 3.364 4.708 3.252 4.773 3.139 4.643 3.139 4.578 3.027 4.513 3.139 4.383 3.139 4.448 3.252 4.383 3.364 4.513 3.364 4.578 3.477 4.643 3.364" fill="#f7e352" fill-rule="evenodd"/>
+      <polygon points="5.868 3.252 5.933 3.139 5.803 3.139 5.738 3.027 5.673 3.139 5.543 3.139 5.608 3.252 5.543 3.364 5.673 3.364 5.738 3.477 5.803 3.364 5.933 3.364 5.868 3.252" fill="#f7e352" fill-rule="evenodd"/>
+      <polygon points="5.288 4.029 5.353 3.916 5.223 3.916 5.158 3.804 5.093 3.916 4.963 3.916 5.028 4.029 4.963 4.141 5.093 4.141 5.158 4.254 5.223 4.141 5.353 4.141 5.288 4.029" fill="#f7e352" fill-rule="evenodd"/>
+    </g>
+  </g>
+  <path d="M5.157,2.806h0Zm-1.913.417c-.051.021-.1.042-.147.064L3.256,5.78a2.624,2.624,0,0,0,1.9,2.359,2.625,2.625,0,0,0,1.9-2.359L7.219,3.3c-.047-.025-.1-.049-.147-.072L6.924,5.7A2.526,2.526,0,0,1,5.158,7.991,2.525,2.525,0,0,1,3.392,5.7Z" fill-rule="evenodd" fill="url(#linear-gradient-5)"/>
+  <g opacity="0.5">
+    <g clip-path="url(#clip-path)">
+      <ellipse cx="8.209" cy="5.5" rx="10.499" ry="10.474" fill="url(#radial-gradient)"/>
+    </g>
+  </g>
+  <path d="M19,1V15H1V1H19m1-1H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>

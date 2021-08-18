@@ -5,6 +5,17 @@ import imageSource from "mock-image.jpg";
 import Hero from "../";
 
 describe("Hero component", () => {
+  const OLD_ENV = process.env;
+
+  beforeEach(() => {
+    jest.resetModules(); // Most important - it clears the cache
+    process.env = { ...OLD_ENV }; // Make a copy
+  });
+
+  afterAll(() => {
+    process.env = OLD_ENV; // Restore old environment
+  });
+
   it("renders level 1", () => {
     const { container } = render(
       <Hero
@@ -66,6 +77,43 @@ describe("Hero component", () => {
 
   it("renders level 3", () => {
     const { container } = render(<Hero title="H1 Heading" level={3} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders level 1 with keyline for brand ", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
+
+    const { container } = render(
+      <Hero title="H1 Heading" level={3} brand="Brand Name" />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders level 1 with keyline for brand if brand", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
+
+    const { container } = render(
+      <Hero title="H1 Heading" level={3} brand="Brand Name" />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders level 0 with keyline for brand ", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
+
+    const { container } = render(
+      <Hero
+        heroes={[
+          {
+            title: "Title",
+            imageSource,
+            children: ""
+          }
+        ]}
+        level={0}
+        brand="Brand Name"
+      />
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 });

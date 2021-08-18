@@ -1,0 +1,15 @@
+@import "@bmi/styles";
+
+.certificationsItemIcon {
+  width: 32px;
+  height: 32px;
+  color: $color-charcoal;
+}
+
+.date {
+  white-space: nowrap;
+}
+
+:global(.certificateExpired .MuiTableCell-body) {
+  color: $color-orange-500 !important;
+}

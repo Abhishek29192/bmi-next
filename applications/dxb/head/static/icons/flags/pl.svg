@@ -1,0 +1,28 @@
+<svg id="Poland_Polska_" data-name="Poland (Polska)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" y1="12" x2="20" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fd5827"/>
+      <stop offset="0.5838" stop-color="#ff5627"/>
+      <stop offset="1" stop-color="#f63606"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="4" x2="20" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2f2f2"/>
+      <stop offset="0.52235" stop-color="#fff"/>
+      <stop offset="1" stop-color="#ccc"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="8.18947" cy="5.50048" r="10.47368" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect y="8" width="20" height="8" fill="url(#linear-gradient)"/>
+  <rect width="20" height="8" fill="url(#linear-gradient-2)"/>
+  <g clip-path="url(#clip-path)">
+    <circle cx="8.18947" cy="5.50048" r="10.47368" fill="url(#radial-gradient)"/>
+  </g>
+  <path d="M19,1V15H1V1ZM0,0V16H20V0Z" opacity="0.15"/>
+</svg>

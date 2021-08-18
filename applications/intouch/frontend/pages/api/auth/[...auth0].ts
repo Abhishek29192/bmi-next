@@ -103,6 +103,12 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
         await handleCallback(req, res, { afterCallback });
       } catch (error) {
         logger.error(`handle callback`, error);
+
+        if (req?.query?.error_description === "email_not_verified") {
+          res.writeHead(302, { Location: "/email-verification" });
+          return res.end();
+        }
+
         return res.status(error.status || 500).end(error.message);
       }
     },

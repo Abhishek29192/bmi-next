@@ -18,7 +18,7 @@ $hero-breakpoint-sm: 769px;
   overflow: hidden;
 
   &--light {
-    background: $color-pearl;
+    background-color: $color-pearl;
     color: $color-charcoal;
   }
 
@@ -107,6 +107,10 @@ $hero-breakpoint-sm: 769px;
 
   .controls {
     margin: 24px 0 32px;
+  }
+
+  &--keyline {
+    border-bottom: 8px solid $color-theme-accent;
   }
 
   @media (min-width: $breakpoint-sm) {

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useCallback } from "react";
 import { graphql, Link } from "gatsby";
 import { Inline } from "@contentful/rich-text-types";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import withGTM from "../utils/google-tag-manager";
-import { getClickableActionFromUrl } from "./Link";
+import { getClickableActionFromUrl, getLinkURL, renderDialog } from "./Link";
 import { SiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
@@ -31,8 +31,13 @@ const InlineHyperlink = ({ node, children }: Props) => {
   const { countryCode } = useContext(SiteContext);
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
+  const [dialogIsOpen, setDialogIsOpen] = useState(false);
 
   const fields = node.data.target;
+
+  const handleDialogCloseClick = useCallback(() => {
+    setDialogIsOpen(false);
+  }, []);
 
   // TODO: Handle ContentfulLink case.
   if (!(fields && availableTypenames.includes(fields.__typename))) {
@@ -41,31 +46,39 @@ const InlineHyperlink = ({ node, children }: Props) => {
 
   if (fields.__typename === "ContentfulLink") {
     const { linkedPage, url, asset, type, parameters } = fields;
+
     return (
-      <GTMAnchorLink
-        action={getClickableActionFromUrl(
-          linkedPage,
-          url,
-          countryCode,
-          asset ? `https:${asset?.file?.url}` : undefined,
-          String(children),
-          type,
-          () => {
-            if (type === "Visualiser" && openVisualiser) {
-              openVisualiser(parameters);
-            } else if (type === "Calculator" && openCalculator) {
-              openCalculator(parameters);
+      <>
+        <GTMAnchorLink
+          action={getClickableActionFromUrl(
+            linkedPage,
+            getLinkURL(fields),
+            countryCode,
+            asset ? `https:${asset?.file?.url}` : undefined,
+            String(children),
+            type,
+            () => {
+              if (type === "Visualiser" && openVisualiser) {
+                openVisualiser(parameters);
+              } else if (type === "Calculator" && openCalculator) {
+                openCalculator(parameters);
+              } else if (type === "Dialog") {
+                setDialogIsOpen(true);
+              }
             }
-          }
-        )}
-        gtm={{
-          id: "cta-click1",
-          label: children[0][1],
-          action: url
-        }}
-      >
-        {children}
-      </GTMAnchorLink>
+          )}
+          gtm={{
+            id: "cta-click1",
+            label: children[0][1],
+            action: url
+          }}
+        >
+          {children}
+        </GTMAnchorLink>
+        {type === "Dialog" &&
+          fields?.dialogContent &&
+          renderDialog(fields, dialogIsOpen, handleDialogCloseClick)}
+      </>
     );
   }
 

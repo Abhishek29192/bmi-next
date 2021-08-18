@@ -8,6 +8,7 @@ import Grid from "@bmi/grid";
 import withGTM from "../utils/google-tag-manager";
 import { renderImage, Data as ImageData } from "./Image";
 import styles from "./styles/ImageGallerySection.module.scss";
+import RichText, { RichTextData } from "./RichText";
 
 type GallerySectionImage = Omit<ImageData, "image"> & {
   image: ImageData["image"] & {
@@ -20,7 +21,7 @@ type GallerySectionImage = Omit<ImageData, "image"> & {
 export type Data = {
   __typename: "ContentfulImageGallerySection";
   title: string | null;
-  description: null | { description: string };
+  longDescription: null | RichTextData;
   medias: GallerySectionImage[];
 };
 
@@ -33,7 +34,7 @@ export const transformImagesSrc = (images?: GallerySectionImage[]): Image[] => {
 };
 
 const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
-  const { title, description, medias } = data;
+  const { title, longDescription, medias } = data;
 
   const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
     label: "altText",
@@ -48,14 +49,14 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
       <Grid container>
         <Grid item xs={12} lg={8}>
           {title && (
-            <Typography variant="h1" hasUnderline>
+            <Typography variant="h2" hasUnderline>
               {title}
             </Typography>
           )}
-          {description && (
-            <Typography className={styles["description"]}>
-              {description.description}
-            </Typography>
+          {longDescription && (
+            <div className={styles["description"]}>
+              <RichText document={longDescription} />
+            </div>
           )}
         </Grid>
         <Grid item xs={12}>
@@ -77,8 +78,8 @@ export default IntegratedImageGallerySection;
 export const query = graphql`
   fragment ImageGallerySectionFragment on ContentfulImageGallerySection {
     title
-    description {
-      description
+    longDescription {
+      ...RichTextFragment
     }
     medias {
       ...ImageGallerySlideFragment

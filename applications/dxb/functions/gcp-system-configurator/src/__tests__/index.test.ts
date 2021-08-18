@@ -2,43 +2,92 @@ import { Request } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import { getMockReq, getMockRes } from "@jest-mock/express";
 import mockConsole from "jest-mock-console";
+import { protos } from "@google-cloud/secret-manager";
+
+const contentfulDeliveryToken = "contentful-delivery-token";
+const recaptchaSecret = "recaptcha-secret";
+const recaptchaSiteKey = "recaptcha-site-key";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-import { nextStep, NextStep, Answer, query } from "..";
+const accessSecretVersion = jest.fn();
+
+jest.mock("@google-cloud/secret-manager", () => {
+  const mSecretManagerServiceClient = jest.fn(() => ({
+    accessSecretVersion: (
+      request: protos.google.cloud.secretmanager.v1.IAccessSecretVersionRequest
+    ) => accessSecretVersion(request)
+  }));
+  return { SecretManagerServiceClient: mSecretManagerServiceClient };
+});
+
+import { nextStep, NextStep, Answer, query, recaptchaTokenHeader } from "..";
 
 type Test = {
   name: string;
   reqData: Partial<Request>;
-  fetchMockData?:
-    | Error
+  mockContentfulResponse?: {
+    data?: {
+      systemConfiguratorBlock: Answer | null;
+    };
+    throws?: Error;
+    errors?: { message: string }[];
+  };
+  mockRecaptchaResponse?:
     | {
-        data: {
-          systemConfiguratorBlock: Answer | null;
-        };
-        errors?: { message: string }[];
+        status: number;
+        body: string;
       }
-    | null;
+    | {
+        // body?: string | null;
+        throws?: Error;
+      };
+  secretManagerPayload?: [{ payload?: { data: string } }];
   expectedStatus: number;
-  expectedSend: Error | NextStep;
+  expectedSend: Error | NextStep | "";
 };
 
 const { res, mockClear } = getMockRes();
 
 beforeAll(() => {
   mockConsole();
+  accessSecretVersion
+    .mockImplementationOnce(() => [{}])
+    .mockImplementationOnce(() => [
+      // Cached
+      {
+        payload: {
+          data: recaptchaSecret
+        }
+      }
+    ])
+    .mockImplementationOnce(() => [{}])
+    .mockImplementationOnce(() => [
+      // Cached
+      {
+        payload: {
+          data: contentfulDeliveryToken
+        }
+      }
+    ]);
 });
 
 beforeEach(() => {
-  jest.clearAllMocks();
-  jest.resetModules();
   fetchMock.reset();
   mockClear();
 });
 
 describe("HTTP function:", () => {
   const testData: Test[] = [
+    {
+      name: "nextStep: returns a 204 response only allowing GET requests",
+      reqData: {
+        method: "OPTIONS"
+      },
+      expectedStatus: 204,
+      expectedSend: ""
+    },
     {
       name: "nextStep: returns a 400 response status when not a GET request",
       reqData: {
@@ -48,10 +97,157 @@ describe("HTTP function:", () => {
       expectedSend: Error("Method is forbidden.")
     },
     {
+      name: "nextStep: returns a 400 response when Recaptcha header token absent from the request",
+      reqData: {
+        headers: {
+          [recaptchaTokenHeader]: undefined
+        },
+        method: "GET",
+        query: {
+          answerId: "1234",
+          locale: "en-US"
+        }
+      },
+      mockContentfulResponse: null,
+      expectedStatus: 400,
+      expectedSend: Error("Recaptcha token not provided.")
+    },
+    {
+      name: "nextStep: returns a 500 response when Secret Manager Recaptcha key response has no payload",
+      reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
+        method: "GET",
+        query: {
+          answerId: "1234",
+          locale: "en-US"
+        }
+      },
+      mockContentfulResponse: null,
+      expectedStatus: 500,
+      expectedSend: Error("Unable to get recaptchaKey secret key.")
+    },
+    {
+      name: "nextStep: returns a 500 response when Recaptcha check fails",
+      reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
+        method: "GET",
+        query: {
+          answerId: "1234",
+          locale: "en-US"
+        }
+      },
+      mockRecaptchaResponse: {
+        throws: new Error("Expected error")
+      },
+      mockContentfulResponse: null,
+      expectedStatus: 500,
+      expectedSend: Error("Recaptcha request failed.")
+    },
+    {
+      name: "nextStep: returns a 400 response when Recaptcha check response is not ok",
+      reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
+        method: "GET",
+        query: {
+          answerId: "1234",
+          locale: "en-US"
+        }
+      },
+      mockRecaptchaResponse: {
+        status: 400,
+        body: ""
+      },
+      mockContentfulResponse: null,
+      expectedStatus: 400,
+      expectedSend: Error("Recaptcha check failed.")
+    },
+    {
+      name: "nextStep: returns a 400 response when the recaptcha check fails",
+      reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
+        method: "GET",
+        query: {
+          answerId: "1234",
+          locale: "en-US"
+        }
+      },
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: false
+        })
+      },
+      mockContentfulResponse: null,
+      expectedStatus: 400,
+      expectedSend: Error("Recaptcha check failed.")
+    },
+    {
+      name: "nextStep: returns a 400 response when the recaptcha score is less than minimum score",
+      reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
+        method: "GET",
+        query: {
+          answerId: "1234",
+          locale: "en-US"
+        }
+      },
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true,
+          score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE) - 0.1
+        })
+      },
+      mockContentfulResponse: null,
+      expectedStatus: 400,
+      expectedSend: Error("Recaptcha check failed.")
+    },
+    {
+      name: "nextStep: returns a 500 response when Secret Manager Contentful delivery token response has no payload",
+      reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
+        method: "GET",
+        query: {
+          answerId: "1234",
+          locale: "en-US"
+        }
+      },
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: null,
+      expectedStatus: 500,
+      expectedSend: Error(`Unable to get contentfulDeliveryToken secret key.`)
+    },
+    {
       name: "nextStep: returns a 400 response status when answerId query is not provided",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {}
+      },
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
       },
       expectedStatus: 400,
       expectedSend: Error(
@@ -61,8 +257,17 @@ describe("HTTP function:", () => {
     {
       name: "nextStep: returns a 400 response status when locale query is not provided",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: { answerId: "1234" }
+      },
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
       },
       expectedStatus: 400,
       expectedSend: Error(
@@ -72,13 +277,22 @@ describe("HTTP function:", () => {
     {
       name: "nextStep: returns a 404 response status when answer is not found",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {
           answerId: "1234",
           locale: "en-US"
         }
       },
-      fetchMockData: {
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
         data: {
           systemConfiguratorBlock: null
         }
@@ -89,13 +303,22 @@ describe("HTTP function:", () => {
     {
       name: "nextStep: returns a 500 response status when the query fails",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {
           answerId: "1234",
           locale: "en-US"
         }
       },
-      fetchMockData: {
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
         errors: [
           {
             message:
@@ -112,26 +335,46 @@ describe("HTTP function:", () => {
     {
       name: "nextStep: returns a 500 response status when the query responses with an error",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {
           answerId: "1234",
           locale: "en-US"
         }
       },
-      fetchMockData: new Error("Rejected!"),
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
+        throws: Error("Rejected!")
+      },
       expectedStatus: 500,
       expectedSend: Error("Rejected!")
     },
     {
       name: "nextStep: returns a 404 response status when answer has no next step.",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {
           answerId: "1234",
           locale: "en-US"
         }
       },
-      fetchMockData: {
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
         data: {
           systemConfiguratorBlock: {
             nextStep: null
@@ -146,13 +389,22 @@ describe("HTTP function:", () => {
     {
       name: "nextStep: returns a 404 response status when next step is of type 'Answer'.",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {
           answerId: "1234",
           locale: "en-US"
         }
       },
-      fetchMockData: {
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
         data: {
           systemConfiguratorBlock: {
             nextStep: {
@@ -177,13 +429,22 @@ describe("HTTP function:", () => {
     {
       name: "nextStep: returns a 400 response status when answer next step is type 'Section'.",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {
           answerId: "1234",
           locale: "en-US"
         }
       },
-      fetchMockData: {
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
         data: {
           systemConfiguratorBlock: {
             // @ts-ignore: breaking type to intentionally test a section type of the SystemConfiguratorBlock.
@@ -207,13 +468,22 @@ describe("HTTP function:", () => {
     {
       name: "nextStep: returns a 200 response status when answer next step is type 'Question'.",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {
           answerId: "1234",
           locale: "en-US"
         }
       },
-      fetchMockData: {
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
         data: {
           systemConfiguratorBlock: {
             nextStep: {
@@ -250,13 +520,22 @@ describe("HTTP function:", () => {
     {
       name: "nextStep: returns a 200 response status when answer next step has no result.",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {
           answerId: "1234",
           locale: "en-US"
         }
       },
-      fetchMockData: {
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
         data: {
           systemConfiguratorBlock: {
             nextStep: {
@@ -281,15 +560,24 @@ describe("HTTP function:", () => {
       }
     },
     {
-      name: "nextStep: returns a 400 if content model has changed.",
+      name: "nextStep: returns a 400 response if content model has changed.",
       reqData: {
+        headers: {
+          [recaptchaTokenHeader]: recaptchaSiteKey
+        },
         method: "GET",
         query: {
           answerId: "1234",
           locale: "en-US"
         }
       },
-      fetchMockData: {
+      mockRecaptchaResponse: {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      },
+      mockContentfulResponse: {
         data: {
           systemConfiguratorBlock: {
             nextStep: {
@@ -311,22 +599,32 @@ describe("HTTP function:", () => {
   ];
 
   testData.forEach(
-    ({ name, reqData, fetchMockData, expectedStatus, expectedSend }) => {
+    ({
+      name,
+      reqData,
+      mockRecaptchaResponse,
+      mockContentfulResponse,
+      expectedStatus,
+      expectedSend
+    }) => {
       it(name, async () => {
         const req = getMockReq(reqData);
 
-        if (fetchMockData instanceof Error) {
-          fetchMock.mock("begin:https://graphql.contentful.com", {
-            throws: fetchMockData
-          });
-        } else if (fetchMockData || fetchMockData === null) {
+        if (mockRecaptchaResponse) {
+          fetchMock.post(
+            "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+            mockRecaptchaResponse
+          );
+        }
+
+        if (mockContentfulResponse) {
           fetchMock.mock(
             {
               method: "POST",
               url: `begin:https://graphql.contentful.com`,
               headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`
+                Authorization: `Bearer ${contentfulDeliveryToken}`
               },
               body: {
                 query,
@@ -337,7 +635,7 @@ describe("HTTP function:", () => {
               },
               matchPartialBody: true
             },
-            fetchMockData
+            mockContentfulResponse
           );
         }
 
@@ -346,7 +644,11 @@ describe("HTTP function:", () => {
         expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
         expect(res.status).toBeCalledWith(expectedStatus);
         expect(res.send).toBeCalledWith(expectedSend);
-        expect(fetchMock.called()).toEqual(!!fetchMockData);
+        if (mockContentfulResponse) {
+          expect(fetchMock).toHaveLastFetched(
+            "begin:https://graphql.contentful.com"
+          );
+        }
       });
     }
   );

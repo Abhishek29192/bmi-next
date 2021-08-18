@@ -22,6 +22,17 @@ const breadcrumbNode = (
 );
 
 describe("SpotlightHero component", () => {
+  const OLD_ENV = process.env;
+
+  beforeEach(() => {
+    jest.resetModules(); // Most important - it clears the cache
+    process.env = { ...OLD_ENV }; // Make a copy
+  });
+
+  afterAll(() => {
+    process.env = OLD_ENV; // Restore old environment
+  });
+
   it("renders correctly", () => {
     const { container } = render(
       <SpotlightHero
@@ -65,6 +76,26 @@ describe("SpotlightHero component", () => {
         title="H1 Heading desktop"
         media={<img src={imageSource} alt="Lorem ipsum" />}
         cta={<Button label="CTA action">CTA action</Button>}
+      >
+        <Typography>
+          Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu
+          quis ex nostrud sunt ad eu laboris commodo deserunt commodo.
+          Exercitation ullamco ipsum duis reprehenderit labore officia
+          incididunt amet aliquip quis.
+        </Typography>
+      </SpotlightHero>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders with keyline for brand", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
+    const { container } = render(
+      <SpotlightHero
+        breadcrumbs={breadcrumbNode}
+        brand="Brand Name"
+        title="H1 Heading desktop"
+        media={<img src={imageSource} alt="Lorem ipsum" />}
       >
         <Typography>
           Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu

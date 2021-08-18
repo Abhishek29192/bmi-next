@@ -1,5 +1,102 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CardCollectionSection component Card label doesn't render button if cardLabel and link label are not provided 1`] = `
+<div>
+  <div
+    class="CardCollectionSection"
+  >
+    <div
+      class="Section Section--pearl"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            test title
+          </h2>
+          <div
+            class="RichText"
+          >
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              test rich text
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <button
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"visualiser\\"}"
+                tabindex="0"
+                type="button"
+              >
+                <div
+                  class="body"
+                >
+                  <h4
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                  >
+                    test
+                  </h4>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button link MuiButton-containedPrimary"
+            data-gtm="{\\"id\\":\\"cta-visualiser1\\",\\"action\\":\\"visualiser\\",\\"label\\":\\"Visualiser\\"}"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Visualiser
+              <span
+                class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`CardCollectionSection component Renders correctly When Title rich text and cards are present 1`] = `
 <body>
   <div>
@@ -56,19 +153,24 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                           class="slide"
                           style="width: 33.333333333333336%;"
                         >
-                          <div
-                            class="OverviewCard"
+                          <a
+                            aria-disabled="false"
+                            class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                            href="/en/null"
+                            role="button"
+                            tabindex="0"
                           >
                             <div
                               class="body"
                             >
                               <h4
-                                class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                                class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                               >
                                 test
                               </h4>
                               <div
-                                class="children"
+                                class="children text"
                               />
                               <div
                                 class="footer"
@@ -78,41 +180,28 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                                 >
                                   1 June 2021
                                 </h6>
-                                <a
+                                <span
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                                  class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                                   data-testid="card-link"
-                                  href="/en/null"
                                   role="button"
                                   tabindex="0"
                                 >
                                   <span
                                     class="MuiButton-label"
                                   >
-                                    <span
-                                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="MuiSvgIcon-root"
-                                        focusable="false"
-                                        viewBox="0 0 24 24"
-                                      >
-                                        <path
-                                          d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                                        />
-                                      </svg>
-                                    </span>
                                     a string
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
                                   />
-                                </a>
+                                </span>
                               </div>
                             </div>
-                          </div>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -159,19 +248,24 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                  href="/en/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -181,41 +275,28 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                       >
                         1 June 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/en/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -261,19 +342,24 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                  href="/en/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -283,41 +369,28 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                       >
                         1 June 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/en/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -363,19 +436,24 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                  href="/en/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -385,41 +463,28 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                       >
                         1 June 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/en/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -465,19 +530,24 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                  href="/en/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -487,41 +557,28 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                       >
                         1 June 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/en/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -567,19 +624,24 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                  href="/en/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -589,41 +651,28 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                       >
                         1 June 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/en/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -669,19 +718,24 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                  href="/en/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -691,41 +745,28 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                       >
                         1 June 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/en/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -771,19 +812,24 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                  href="/en/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -793,41 +839,28 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                       >
                         1 June 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/en/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -873,19 +906,24 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                  href="/en/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -895,41 +933,28 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
                       >
                         1 June 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/en/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
             <a
@@ -1050,18 +1075,19 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
-                  class="OverviewCard"
+                  class="OverviewCard OverviewCard--clickable"
+                  type="button"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       Villain 1
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1072,19 +1098,24 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                  href="/no/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1094,58 +1125,50 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       >
                         1. juni 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/no/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                  href="/no/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test 2
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1155,58 +1178,50 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       >
                         2. juni 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/no/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                  href="/no/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test 3
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1216,41 +1231,28 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       >
                         3. juni 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/no/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -1338,19 +1340,24 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                  href="/no/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test 3
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1360,58 +1367,50 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       >
                         3. juni 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/no/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                  href="/no/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test 2
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1421,58 +1420,50 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       >
                         2. juni 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/no/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                  href="/no/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1482,58 +1473,46 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       >
                         1. juni 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/no/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
-                  class="OverviewCard"
+                  class="OverviewCard OverviewCard--clickable"
+                  type="button"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       Villain 1
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1627,19 +1606,24 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                  href="/no/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1649,58 +1633,50 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       >
                         1. juni 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/no/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                  href="/no/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test 2
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1710,58 +1686,50 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       >
                         2. juni 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/no/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
-                <div
-                  class="OverviewCard"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                  href="/no/null"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       test 3
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"
@@ -1771,58 +1739,46 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       >
                         3. juni 2021
                       </h6>
-                      <a
+                      <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
                         data-testid="card-link"
-                        href="/no/null"
                         role="button"
                         tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
                           a string
                         </span>
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </a>
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
-                  class="OverviewCard"
+                  class="OverviewCard OverviewCard--clickable"
+                  type="button"
                 >
                   <div
                     class="body"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
                     >
                       Villain 1
                     </h4>
                     <div
-                      class="children"
+                      class="children text"
                     />
                     <div
                       class="footer"

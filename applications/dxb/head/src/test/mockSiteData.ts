@@ -1,4 +1,5 @@
 import { Data as SiteData } from "../components/Site";
+import regions from "../countries/region.json";
 
 export const createMockSiteData = (): SiteData =>
   ({
@@ -1304,5 +1305,16 @@ export const createMockSiteData = (): SiteData =>
     scriptGA: null,
     scriptOnetrust: null,
     scriptHotJar: null,
-    scriptGOptLoad: null
+    scriptGOptLoad: null,
+    regions: [
+      {
+        label: "Europe",
+        menu: [
+          { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+          { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+          { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" },
+          { code: "en", label: "English", icon: "/icons/flags/uk.svg" }
+        ]
+      }
+    ]
   } as SiteData);

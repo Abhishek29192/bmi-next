@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "cta": {
+      "MERCHANDISE": "Find out more",
+      "TRAINING": "BMI Academy",
+      "PROJECT": "Start a project"
+    }
+  },
+  "partnerBrands": {
+    "ctaLabel": "Read more"
+  },
+  "linkedin": {
+    "ctaLabel": "Read more on LinkedIn"
+  }
+}

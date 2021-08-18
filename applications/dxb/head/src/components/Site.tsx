@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { NavigationData } from "./Link";
 import { Data as ResourcesData } from "./Resources";
 import { GetMicroCopy, fallbackGetMicroCopy } from "./MicroCopy";
+import { Region } from "./Header";
 
 type Context = {
   node_locale: string;
@@ -42,6 +43,7 @@ export type Data = {
   scriptOnetrust?: string | null;
   scriptHotJar?: string | null;
   scriptGOptLoad?: string | null;
+  regions: Region[];
 };
 
 export const query = graphql`
@@ -73,5 +75,8 @@ export const query = graphql`
     scriptOnetrust
     scriptHotJar
     scriptGOptLoad
+    regions {
+      ...RegionFragment
+    }
   }
 `;

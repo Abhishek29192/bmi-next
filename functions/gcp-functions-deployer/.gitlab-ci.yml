@@ -15,40 +15,25 @@ build_gcp-functions-deployer:
       - functions/gcp-functions-deployer/dist
 
 test_gcp-functions-deployer:
-  stage: test
+  extends: .test_jest
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - functions/gcp-functions-deployer/**/*
         - jest/**/*
-  needs:
-    - install
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/gcp-functions-deployer coverage:jest
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
-  artifacts:
-    when: always
-    reports:
-      junit:
-        - functions/gcp-functions-deployer/junit.xml
+  variables:
+    WORKSPACE: "@bmi/gcp-functions-deployer"
+    ROOT_DIR: "functions/gcp-functions-deployer"
 
 test_mr_coverage_gcp-functions-deployer:
-  stage: test
+  extends: .test_jest_mr_coverage
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - functions/gcp-functions-deployer/**/*
         - jest/**/*
-  needs:
-    - install
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - git fetch origin master
-    - yarn workspace @bmi/gcp-functions-deployer coverage:jest --changed-since=origin/master --coverage-threshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  variables:
+    WORKSPACE: "@bmi/gcp-functions-deployer"
 
 package_gcp-functions-deployer:
   stage: package

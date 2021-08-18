@@ -90,7 +90,8 @@ export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
               globalExternalLink={
                 marketContent && {
                   href: marketContent.externalLinkUrl,
-                  label: marketContent.externalLinkLabel
+                  label: marketContent.externalLinkLabel,
+                  isExternal: true
                 }
               }
             />

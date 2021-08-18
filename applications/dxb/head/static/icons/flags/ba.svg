@@ -1,0 +1,36 @@
+<svg id="Bosna_i_Hercegovina" data-name="Bosna i Hercegovina" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" x1="10" y1="-35.946" x2="10" y2="-19.946" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#007ee4"/>
+      <stop offset="0.525" stop-color="#0089ef"/>
+      <stop offset="1" stop-color="#0071d7"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="9.216" y1="-30.973" x2="9.216" y2="-14.973" gradientTransform="matrix(1, 0, 0, -1, 2.284, -14.973)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffda00"/>
+      <stop offset="1" stop-color="#ffea00"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="8.19" cy="-25.447" r="10.474" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="20" height="16" fill="url(#linear-gradient)"/>
+  <path d="M4,0H19V16Z" fill="url(#linear-gradient-2)"/>
+  <polygon points="16.261 14.305 15.941 15.355 14.904 15.355 15.739 16 16.783 16 17.618 15.355 16.581 15.355 16.261 14.305" fill="#fff"/>
+  <polygon points="14.902 14.005 15.741 13.356 14.704 13.356 14.384 12.306 14.064 13.356 13.027 13.356 13.866 14.005 13.546 15.054 14.384 14.406 15.223 15.054 14.902 14.005" fill="#fff"/>
+  <polygon points="13.025 12.006 13.864 11.357 12.827 11.357 12.507 10.308 12.187 11.357 11.15 11.357 11.989 12.006 11.669 13.056 12.507 12.407 13.346 13.056 13.025 12.006" fill="#fff"/>
+  <polygon points="11.148 10.007 11.987 9.359 10.95 9.359 10.63 8.309 10.31 9.359 9.273 9.359 10.112 10.007 9.792 11.057 10.63 10.408 11.469 11.057 11.148 10.007" fill="#fff"/>
+  <polygon points="9.271 8.009 10.11 7.36 9.073 7.36 8.753 6.311 8.433 7.36 7.396 7.36 8.235 8.009 7.915 9.058 8.753 8.41 9.592 9.058 9.271 8.009" fill="#fff"/>
+  <polygon points="7.394 6.01 8.233 5.361 7.196 5.361 6.876 4.312 6.556 5.361 5.519 5.361 6.358 6.01 6.038 7.06 6.876 6.411 7.715 7.06 7.394 6.01" fill="#fff"/>
+  <polygon points="5.517 4.012 6.356 3.363 5.319 3.363 4.999 2.313 4.679 3.363 3.642 3.363 4.481 4.012 4.161 5.061 4.999 4.412 5.838 5.061 5.517 4.012" fill="#fff"/>
+  <polygon points="3.64 2.013 4.479 1.364 3.442 1.364 3.122 0.315 2.802 1.364 1.766 1.364 2.604 2.013 2.284 3.062 3.122 2.414 3.961 3.062 3.64 2.013" fill="#fff"/>
+  <polygon points="0.709 0 0.727 0.014 0.407 1.064 1.245 0.415 2.084 1.064 1.763 0.014 1.782 0 0.709 0" fill="#fff"/>
+  <g clip-path="url(#clip-path)">
+    <circle cx="8.19" cy="5.501" r="10.474" fill="url(#radial-gradient)"/>
+  </g>
+  <path d="M19,1V15H1V1H18.952M20,0H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>

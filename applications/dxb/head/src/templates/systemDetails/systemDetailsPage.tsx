@@ -41,7 +41,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         classifications={classifications}
         cta={resources?.sdpLeadBlockCta}
       />
-      <ImageGallerySection images={images} />
+      <ImageGallerySection images={images || []} />
     </Page>
   );
 };

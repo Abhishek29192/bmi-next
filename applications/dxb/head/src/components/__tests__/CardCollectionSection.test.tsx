@@ -56,6 +56,7 @@ const card3: PageInfoData = {
 const card4: PromoData = {
   __typename: "ContentfulPromo",
   id: "1234",
+  name: "Villain 1",
   title: "Villain 1",
   brandLogo: null,
   tags: null,
@@ -350,6 +351,7 @@ describe("CardCollectionSection component", () => {
       const promo: PromoData = {
         __typename: "ContentfulPromo",
         id: "testId",
+        name: "test",
         title: "test",
         subtitle: "I am a subtitle",
         body: null,
@@ -692,6 +694,7 @@ describe("CardCollectionSection component", () => {
       const card: PromoData = {
         __typename: "ContentfulPromo",
         id: "test",
+        name: "test",
         title: "test",
         subtitle: null,
         body: null,
@@ -759,6 +762,7 @@ describe("CardCollectionSection component", () => {
         {
           __typename: "ContentfulPromo",
           id: "test",
+          name: "test",
           title: "test",
           subtitle: null,
           body: null,
@@ -809,11 +813,12 @@ describe("CardCollectionSection component", () => {
       expect(cardLink).toBeNull();
     });
 
-    it("renders as 'Go to card.title' if cardLabel and link label are not provided", () => {
+    it("doesn't render button if cardLabel and link label are not provided", () => {
       const cards: Card[] = [
         {
           __typename: "ContentfulPromo",
           id: "test",
+          name: "test",
           title: "test",
           subtitle: null,
           body: null,
@@ -866,14 +871,13 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(
+      const { container } = render(
         <SiteContext.Provider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
         </SiteContext.Provider>
       );
 
-      const cardLink = wrapper.getByTestId("card-link");
-      expect(cardLink.textContent).toEqual(`Go to ${card1.title}`);
+      expect(container).toMatchSnapshot();
     });
   });
 

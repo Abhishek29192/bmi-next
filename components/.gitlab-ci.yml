@@ -1,7 +1,7 @@
 test_components:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - components/**/*
         - jest/**/*
@@ -41,7 +41,7 @@ test_mr_coverage_components:
 build_components:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - components/**/*
         - package.json
@@ -51,7 +51,7 @@ build_components:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script: |
-    for component in $(ls components | grep -v -e '^jest.config.js$' -e '^README.md$') # Having to use grep as OSX doesn't have --ignore/-I
+    for component in $(find components -type f -name 'package.json' | sed -r 's/components\/([a-zA-Z0-9\-]*)\/.*/\1/' | uniq | sort)
     do
       echo "${component}"
       yarn workspace @bmi/${component} tsc

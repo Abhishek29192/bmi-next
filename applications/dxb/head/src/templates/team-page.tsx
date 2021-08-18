@@ -38,7 +38,7 @@ type Props = {
 };
 
 const TeamPage = ({ data, pageContext }: Props) => {
-  const { title, teamCategories, inputBanner, breadcrumbs, seo } =
+  const { brandLogo, title, teamCategories, inputBanner, breadcrumbs, seo } =
     data.contentfulTeamPage;
   const pageData: PageData = {
     breadcrumbs,
@@ -52,6 +52,7 @@ const TeamPage = ({ data, pageContext }: Props) => {
 
   return (
     <Page
+      brand={brandLogo}
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
@@ -60,6 +61,7 @@ const TeamPage = ({ data, pageContext }: Props) => {
       <Hero
         level={2}
         title={title}
+        brand={brandLogo}
         breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
       />
       <Tabs
@@ -102,6 +104,7 @@ export const pageQuery = graphql`
   query TeamPageById($pageId: String!, $siteId: String!) {
     contentfulTeamPage(id: { eq: $pageId }) {
       title
+      brandLogo
       # Check length allowed and define right field type
       teamCategories {
         title

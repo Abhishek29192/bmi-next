@@ -17,7 +17,7 @@ exports[`TrainingCover component render correctly 1`] = `
           class="content"
         >
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             BMI Academy
           </h1>

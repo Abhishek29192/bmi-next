@@ -1,5 +1,20 @@
 import { fetch } from "cross-fetch";
 
+export type EventMessage =
+  | "COMPANY_MEMBER_REMOVED"
+  | "COMPANY_REGISTERED"
+  | "MEMBER_INVITED"
+  | "NEWUSER_INVITED"
+  | "NOTE_ADDED"
+  | "PROFILE_REMINDER"
+  | "ROLE_ASSIGNED"
+  | "ACCOUNT_ACTIVATED"
+  | "TIER_ASSIGNED"
+  | "REQUEST_AUTOMATICALLY_APPROVED"
+  | "REQUEST_REJECTED"
+  | "REQUEST_APPROVED"
+  | "TEAM_JOINED";
+
 export const getGuarantee = async (id: string) => {
   const variables = { id: id };
   const query = `
@@ -91,16 +106,18 @@ query EvidenceCategory($id: String!) {
   return contentfulHandler(query, variables);
 };
 
-export const messageTemplate = async (id: string) => {
+export const messageTemplate = async (event: EventMessage) => {
   const query = `
-  query messageTemplate($id: String!){
-    messageTemplate(id:$id){
-      subject
-      emailBody
+  query messageTemplateCollection($event: String!) {
+    messageTemplateCollection(where: { event: $event }) {
+      items {
+        subject
+        emailBody
+      }
     }
   }`;
 
-  return contentfulHandler(query, { id });
+  return contentfulHandler(query, { event });
 };
 
 const contentfulHandler = async (query: string, variables: Object) => {

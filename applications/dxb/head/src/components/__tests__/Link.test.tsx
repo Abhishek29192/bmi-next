@@ -26,7 +26,6 @@ describe("Link component", () => {
   process.env.GATSBY_HUBSPOT_ID = "012345";
   process.env.GATSBY_HUBSPOT_CTA_URL =
     "https://cta-redirect.hubspot.com/cta/redirect/";
-  process.env.GATSBY_HUBSPOT_CTA_ENABLED = "true";
 
   describe("Link function", () => {
     it("returns a Link correctly", () => {
@@ -160,6 +159,7 @@ describe("Link component", () => {
       const promo: PromoData = {
         __typename: "ContentfulPromo",
         id: "testId",
+        name: "test",
         title: "test",
         subtitle: "I am a subtitle",
         body: null,
@@ -195,6 +195,7 @@ describe("Link component", () => {
       const promo: PromoData = {
         __typename: "ContentfulPromo",
         id: "testId",
+        name: "test",
         title: "test",
         subtitle: "I am a subtitle",
         body: null,

@@ -2,7 +2,7 @@ import React from "react";
 import { CompanyIncompleteProfileAlert } from ".";
 
 export default {
-  title: "CompanyIncompleteProfileAlert",
+  title: "Company Page / Incomplete Profile Alert",
   component: CompanyIncompleteProfileAlert
 };
 

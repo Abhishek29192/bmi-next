@@ -1,0 +1,27 @@
+<svg id="China_中国" data-name="China 中国" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" y1="-27.946" x2="20" y2="-27.946" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff4f1c"/>
+      <stop offset="0.522" stop-color="#ff511d"/>
+      <stop offset="1" stop-color="#ff3b06"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="8.189" cy="-25.447" r="10.474" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="20" height="16" fill="url(#linear-gradient)"/>
+  <polygon points="4.455 3.917 5.745 2.98 4.151 2.98 3.658 1.463 3.165 2.98 1.571 2.98 2.861 3.917 2.368 5.434 3.658 4.496 4.948 5.434 4.455 3.917" fill="#ffe437"/>
+  <polygon points="7.527 1.647 8.045 1.528 7.556 1.32 7.602 0.79 7.253 1.191 6.764 0.983 7.038 1.439 6.689 1.84 7.207 1.721 7.48 2.176 7.527 1.647" fill="#ffe437"/>
+  <polygon points="8.902 3.177 9.426 3.269 9.056 2.887 9.304 2.417 8.827 2.651 8.457 2.27 8.532 2.796 8.055 3.03 8.579 3.121 8.654 3.647 8.902 3.177" fill="#ffe437"/>
+  <polygon points="9.048 5.198 9.466 4.87 8.935 4.889 8.753 4.39 8.607 4.901 8.076 4.92 8.517 5.217 8.371 5.728 8.789 5.401 9.23 5.697 9.048 5.198" fill="#ffe437"/>
+  <polygon points="7.534 6.759 8.047 6.618 7.549 6.431 7.574 5.9 7.242 6.315 6.745 6.127 7.037 6.571 6.705 6.986 7.217 6.846 7.51 7.29 7.534 6.759" fill="#ffe437"/>
+  <g clip-path="url(#clip-path)">
+    <circle cx="8.189" cy="5.5" r="10.474" fill="url(#radial-gradient)"/>
+  </g>
+  <path d="M19,1V15H1V1H18.952M20,0H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>

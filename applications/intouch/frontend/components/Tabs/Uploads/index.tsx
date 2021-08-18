@@ -7,7 +7,6 @@ import Typography from "@bmi/typography";
 import { gql } from "@apollo/client";
 import { EvidenceItemInput } from "@bmi/intouch-api-types";
 import VisibilityIcon from "@material-ui/icons/Visibility";
-import { UploadFile } from "../../../../../../components/upload/src/";
 import {
   useAddEvidencesMutation,
   GetProjectDocument
@@ -33,13 +32,13 @@ export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
       }
     ]
   });
-  const evidenceDialogConfirmHandler = async (uploadedFiles: UploadFile[]) => {
+  const evidenceDialogConfirmHandler = async (uploadedFiles: File[]) => {
     if (uploadedFiles.length > 0) {
       const evidences = uploadedFiles.map(
-        (uploadedFile) =>
+        (attachmentUpload) =>
           ({
             projectId,
-            attachmentUpload: uploadedFile.file,
+            attachmentUpload,
             evidenceCategoryType: "MISCELLANEOUS"
           } as EvidenceItemInput)
       );

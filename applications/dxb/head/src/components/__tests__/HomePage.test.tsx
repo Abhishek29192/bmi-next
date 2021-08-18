@@ -6,6 +6,7 @@ import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as PageData } from "../../components/Page";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as SectionsData } from "../../components/Sections";
+import regions from "../../countries/region.json";
 import { Data as PromoData } from "../Promo";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
@@ -24,6 +25,7 @@ describe("HomePage template", () => {
     const card1: PromoData = {
       __typename: "ContentfulPromo",
       id: "card1",
+      name: "cardTitle1",
       title: "cardTitle1",
       subtitle: null,
       body: null,
@@ -73,6 +75,7 @@ describe("HomePage template", () => {
     const card2: PromoData = {
       __typename: "ContentfulPromo",
       id: "card2",
+      name: "cardTitle2",
       title: "cardTitle2",
       subtitle: null,
       body: null,
@@ -211,7 +214,17 @@ describe("HomePage template", () => {
       menuNavigation: mockNavigation,
       menuUtilities: mockNavigation,
       resources: null,
-      scriptGOptLoad: null
+      scriptGOptLoad: null,
+      regions: [
+        {
+          label: "Europe",
+          menu: [
+            { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+            { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+            { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
+          ]
+        }
+      ]
     };
 
     const hpData = {

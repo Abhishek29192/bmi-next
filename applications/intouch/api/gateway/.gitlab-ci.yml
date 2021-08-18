@@ -4,6 +4,7 @@ build_intouch_api_gateway_dev:
   image: google/cloud-sdk
   services:
     - docker:dind
+  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
@@ -11,7 +12,6 @@ build_intouch_api_gateway_dev:
         - libraries/**/*
         - package.json
         - "**/package.json"
-
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
@@ -23,6 +23,7 @@ deploy_intouch_api_gateway_dev:
   image: google/cloud-sdk
   services:
     - docker:dind
+  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:

@@ -8,7 +8,7 @@ import {
 } from "../../../../../lib/tests/utils";
 import { CompanyIncompleteProfileAlert } from "..";
 
-const phoneFieldText = "company.incomplete_profile.phone";
+const phoneFieldText = "incompleteProfile.fields.phone";
 
 describe("CompanyIncompleteProfile", () => {
   it("should show missing information", () => {

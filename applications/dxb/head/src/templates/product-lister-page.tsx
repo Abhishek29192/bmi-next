@@ -1,18 +1,21 @@
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import AnchorLink from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useState, useRef } from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import Button from "@bmi/button";
 import { flatten } from "lodash";
 import Hero, { HeroItem } from "@bmi/hero";
+import SpotlightHero from "@bmi/spotlight-hero";
 import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import CheckIcon from "@material-ui/icons/Check";
 import IconList from "@bmi/icon-list";
-import OverviewCard from "@bmi/overview-card";
+import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import { Filter } from "@bmi/filters";
 import queryString from "query-string";
-import { useLocation } from "@reach/router";
+import { navigate, useLocation } from "@reach/router";
+import { Link as GatsbyLink } from "gatsby";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -33,7 +36,7 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import { iconMap } from "../components/Icon";
 import RichText, { RichTextData } from "../components/RichText";
 import { Data as PageInfoData } from "../components/PageInfo";
-import {
+import Link, {
   Data as LinkData,
   getClickableActionFromUrl
 } from "../components/Link";
@@ -50,6 +53,8 @@ import {
 import { devLog } from "../utils/devLog";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { Product } from "../components/types/ProductBaseTypes";
+import { renderVideo } from "../components/Video";
+import { renderImage } from "../components/Image";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -61,6 +66,14 @@ type Data = PageInfoData &
     features: string[] | null;
     featuresLink: LinkData | null;
     breadcrumbs: BreadcrumbsData;
+    heroType:
+      | "Hierarchy"
+      | "Spotlight"
+      | "Level 1"
+      | "Level 2"
+      | "Level 3"
+      | null;
+    cta: LinkData | null;
   };
 
 type QueryParams = {
@@ -86,10 +99,13 @@ type Props = {
   };
 };
 
-const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
+const BlueCheckIcon = (
+  <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
+);
 
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
+    brandLogo,
     title,
     subtitle,
     content,
@@ -98,14 +114,25 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     featuresLink,
     breadcrumbs,
     inputBanner,
-    seo
+    seo,
+    heroType,
+    featuredVideo,
+    cta
   } = data.contentfulProductListerPage;
 
-  const initialProducts = data.initialProducts ? data.initialProducts : [];
+  const initialProducts = data.initialProducts || [];
 
   const heroProps: HeroItem = {
     title,
-    children: subtitle
+    children: subtitle,
+    media: featuredVideo
+      ? renderVideo(featuredVideo)
+      : renderImage(featuredMedia, { size: "cover" }),
+    cta: cta && (
+      <Link component={Button} data={cta}>
+        {cta.label}
+      </Link>
+    )
   };
   const { countryCode } = data.contentfulSite;
 
@@ -286,12 +313,30 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const pageData: PageData = { breadcrumbs, inputBanner, seo };
 
-  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
-    label: "children"
-  });
+  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
+
+  let heroLevel;
+  if (heroType == "Spotlight" || heroType == "Hierarchy") {
+    heroLevel = (Math.min(breadcrumbs.filter(({ slug }) => slug).length, 3) ||
+      1) as 1 | 2 | 3;
+  } else {
+    const levelMap = {
+      "Level 1": 1,
+      "Level 2": 2,
+      "Level 3": 3
+    };
+    heroLevel = levelMap[heroType] as 1 | 2 | 3;
+  }
+  const breadcrumbsNode = (
+    <Breadcrumbs
+      data={breadcrumbs}
+      isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
+    />
+  );
 
   return (
     <Page
+      brand={brandLogo}
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
@@ -307,11 +352,20 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   <ProgressIndicator theme="light" />
                 </Scrim>
               ) : null}
-              <Hero
-                level={2}
-                {...heroProps}
-                breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
-              />
+              {heroType === "Spotlight" ? (
+                <SpotlightHero
+                  {...heroProps}
+                  breadcrumbs={breadcrumbsNode}
+                  brand={brandLogo}
+                />
+              ) : (
+                <Hero
+                  level={heroLevel}
+                  {...heroProps}
+                  breadcrumbs={breadcrumbsNode}
+                  brand={brandLogo}
+                />
+              )}
               <Section backgroundColor="white">
                 <LeadBlock>
                   <LeadBlock.Content>
@@ -356,7 +410,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   </LeadBlock.Card>
                 </LeadBlock>
               </Section>
-              <Section backgroundColor="pearl">
+              <Section backgroundColor="pearl" overflowVisible>
                 {categoryName && (
                   <Section.Title hasUnderline>{categoryName}</Section.Title>
                 )}
@@ -394,7 +448,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                             countryCode,
                             pageContext.variantCodeToPathMap[variant.code]
                           );
-
                           const uniqueClassifications = mapClassificationValues(
                             findUniqueVariantClassifications(
                               { ...variant, _product: product },
@@ -411,7 +464,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                               lg={4}
                               xl={filters.length ? 4 : 3}
                             >
-                              <OverviewCard
+                              <GTMOverviewCard
                                 title={product.name}
                                 titleVariant="h5"
                                 subtitle={uniqueClassifications}
@@ -424,25 +477,24 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 }
                                 imageSize="contain"
                                 brandImageSource={brandLogo}
+                                action={{
+                                  model: "routerLink",
+                                  linkComponent: GatsbyLink,
+                                  to: productUrl
+                                }}
+                                gtm={{
+                                  id: "cta-click1",
+                                  action: productUrl,
+                                  label: getMicroCopy("plp.product.viewDetails")
+                                }}
                                 footer={
-                                  <GTMAnchorLink
-                                    iconEnd
-                                    action={{
-                                      model: "routerLink",
-                                      linkComponent: Link,
-                                      to: productUrl
-                                    }}
-                                    gtm={{
-                                      id: "cta-click1",
-                                      action: productUrl
-                                    }}
-                                  >
+                                  <AnchorLink iconEnd>
                                     {getMicroCopy("plp.product.viewDetails")}
-                                  </GTMAnchorLink>
+                                  </AnchorLink>
                                 }
                               >
                                 {variant.shortDescription}
-                              </OverviewCard>
+                              </GTMOverviewCard>
                             </Grid>
                           );
                         })
@@ -485,6 +537,10 @@ export const pageQuery = graphql`
       }
       features
       featuresLink {
+        ...LinkFragment
+      }
+      heroType
+      cta {
         ...LinkFragment
       }
     }

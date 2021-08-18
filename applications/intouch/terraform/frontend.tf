@@ -14,7 +14,7 @@ resource "google_cloud_run_service" "default" {
     }
     spec {
       containers {
-        image = "eu.gcr.io/automated-style-303709/intouch-frontend"
+        image = "eu.gcr.io/automated-style-303709/intouch-frontend:latest"
         ports {
           container_port = 3000
         }
@@ -39,8 +39,8 @@ resource "google_cloud_run_service" "default" {
           value = "intouch.dddev.io"
         }
         env {
-          name  = "FRONTEND_DOMAIN"
-          value = "intouch.dddev.io"
+          name  = "FRONTEND_BASE_URL"
+          value = "https://intouch.dddev.io"
         }
         env {
           name  = "GRAPHQL_URL"

@@ -7,50 +7,61 @@ import styles from "./LanguageSelection.module.scss";
 
 export type LanguageSelectionItem = {
   code: string;
-  icon?: SVGImport;
+  icon?: string | SVGImport;
   label: string;
 };
 
 export type LanguageSelectionList = {
   label: string;
-  menu?: readonly LanguageSelectionItem[];
+  menu: readonly LanguageSelectionItem[];
 };
 
 type LanguageSelectionProps = {
+  introduction?: React.ReactNode;
   languages: readonly LanguageSelectionList[];
+  forceMobile?: boolean;
 };
 
-const LanguageSelection = ({ languages }: LanguageSelectionProps) => (
+const LanguageSelection = ({
+  introduction,
+  languages,
+  forceMobile
+}: LanguageSelectionProps) => (
   <div className={styles["LanguageSelection"]}>
-    <Typography className={styles["heading"]} variant="h5">
-      Choose your region
-    </Typography>
-    <Typography className={styles["paragraph"]}>
-      Selecting a region will take you to a different BMI website that has been
-      tailored to give you the most useful content for your part of the world.
-    </Typography>
-    <Typography className={styles["paragraph"]}>
-      <b>
-        The site you are currently viewing contains products that are available
-        in Norway. Products from other markets may not meet the Norwegian
-        Standards in building materials.
-      </b>
-    </Typography>
-    {languages.map(({ label, menu: subMenu = [] }, key) => (
+    {introduction}
+    {languages.map(({ label, menu: subMenu }, key) => (
       <div key={`language-group-${key}`}>
         <Typography className={styles["heading"]} variant="h6">
           {label}
         </Typography>
-        <Grid container spacing={2}>
-          {subMenu.map(({ label, icon }, key) => (
-            <Grid item key={`language-${key}`} sm={12} md={3}>
+        <Grid
+          container
+          spacing={0}
+          alignItems="center"
+          className={styles["container"]}
+        >
+          {subMenu.map(({ label, icon, code }, key) => (
+            <Grid
+              item
+              key={`language-${key}`}
+              xs={12}
+              {...(forceMobile ? {} : { md: 3, xl: 2 })}
+              className={styles["item"]}
+            >
               <NavigationListButton
                 className={styles["link"]}
                 startIcon={
-                  icon && (
+                  icon &&
+                  (typeof icon === "string" ? (
+                    <img className={styles["LanguageIcon"]} src={icon} />
+                  ) : (
                     <Icon className={styles["LanguageIcon"]} source={icon} />
-                  )
+                  ))
                 }
+                action={{
+                  model: "htmlLink",
+                  href: `/${code}`
+                }}
               >
                 {label}
               </NavigationListButton>

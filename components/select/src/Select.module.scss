@@ -18,8 +18,8 @@
     }
 
     &:global(.Mui-focused) {
-      border-color: $color-cyan-500;
-      box-shadow: 0 0 0 1px $color-cyan-500;
+      border-color: $color-theme-inter;
+      box-shadow: 0 0 0 1px $color-theme-inter;
 
       &:global(.Mui-error) {
         box-shadow: 0 0 0 1px $color-error;
