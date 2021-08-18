@@ -21,6 +21,8 @@ jest.mock("crypto", () => {
 
 const evidenceItemInputs = [
   {
+    name: "file1",
+    attachment: "file1",
     attachmentUpload: {
       filename: "file1",
       mimetype: "image",
@@ -29,6 +31,8 @@ const evidenceItemInputs = [
     }
   },
   {
+    name: "file2",
+    attachment: "file2",
     attachmentUpload: {
       filename: "file2",
       mimetype: "application/pdf",
@@ -44,6 +48,7 @@ let guaranteeInput: CreateGuaranteeInput = {
     projectId: 1,
     bmiReferenceId: "",
     requestorAccountId: 1,
+    guaranteeTypeId: "test_guarantee_type_id",
     evidenceItemsUsingId: {
       create: evidenceItemInputs
     }
@@ -53,6 +58,7 @@ let guaranteeInput: CreateGuaranteeInput = {
 describe("Guarantee", () => {
   const source = {};
   const resolveInfo = {};
+  const mockQuery = jest.fn();
   const context: any = {
     pubSub: {},
     logger: jest.fn().mockReturnValue({
@@ -62,7 +68,7 @@ describe("Guarantee", () => {
     }),
     pgRootPool: null,
     pgClient: {
-      query: jest.fn()
+      query: mockQuery
     },
     user: {
       id: "1",
@@ -80,8 +86,15 @@ describe("Guarantee", () => {
       input: guaranteeInput
     };
 
-    context.pgClient.query.mockImplementation(() => {});
-    context.pgClient.query.mockImplementation(() => ({ rows: [] }));
+    mockQuery
+      .mockImplementationOnce(() => {})
+      .mockImplementationOnce(() => ({
+        rows: [{ name: "project" }]
+      }))
+      .mockImplementationOnce(() => ({
+        rows: []
+      }));
+
     await createGuarantee(resolve, source, args, context, resolveInfo);
 
     expect(resolve).toBeCalledTimes(1);
@@ -101,8 +114,15 @@ describe("Guarantee", () => {
         }
       }
     };
-    context.pgClient.query.mockImplementation(() => {});
-    context.pgClient.query.mockImplementation(() => ({ rows: [] }));
+
+    mockQuery
+      .mockImplementationOnce(() => {})
+      .mockImplementationOnce(() => ({
+        rows: [{ name: "project" }]
+      }))
+      .mockImplementationOnce(() => ({
+        rows: []
+      }));
 
     await createGuarantee(resolve, source, args, context, resolveInfo);
 
