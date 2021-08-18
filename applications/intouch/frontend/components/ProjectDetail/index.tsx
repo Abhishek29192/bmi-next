@@ -244,6 +244,22 @@ export const GET_PROJECT = gql`
               }
             }
           }
+          productByProductBmiRef {
+            ...ProjectDetailsProductFragment
+          }
+          systemBySystemBmiRef {
+            id
+            name
+            description
+            systemMembersBySystemBmiRef {
+              nodes {
+                id
+                productByProductBmiRef {
+                  ...ProjectDetailsProductFragment
+                }
+              }
+            }
+          }
           status
         }
       }
@@ -291,5 +307,15 @@ export const GET_PROJECT = gql`
         tier
       }
     }
+  }
+`;
+
+export const PROJECT_DETAIL_PRODUCT_FRAGMENT = gql`
+  fragment ProjectDetailsProductFragment on Product {
+    id
+    name
+    brand
+    family
+    description
   }
 `;
