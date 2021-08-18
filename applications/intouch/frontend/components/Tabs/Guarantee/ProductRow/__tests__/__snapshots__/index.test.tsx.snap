@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductRow Component renders correctly 1`] = `
+<tr
+  class="MuiTableRow-root"
+>
+  <td
+    class="MuiTableCell-root"
+  >
+    BMI-NO-PROD-001
+  </td>
+  <td
+    class="MuiTableCell-root"
+  >
+    Betongtakstein
+  </td>
+  <td
+    class="MuiTableCell-root"
+  >
+    Zanda
+  </td>
+</tr>
+`;
