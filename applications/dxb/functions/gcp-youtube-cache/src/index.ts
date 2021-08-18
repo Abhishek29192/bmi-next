@@ -1,16 +1,17 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Status } from "simple-http-status";
-import { config } from "./config";
+import { getSecrets } from "./config";
 import { getById, getYoutubeDetails, saveById } from "./db";
 
-const getIsValidToken = (headers) => {
+const getIsValidToken = async (headers) => {
+  const secrets = await getSecrets();
   const auth = headers.authorization || headers.Authorization;
-  return Boolean(auth && auth === `Bearer ${config.SECURITY_KEY}`);
+  return Boolean(auth && auth === `Bearer ${secrets.bearerTokenSecret}`);
 };
 
 export const youtubeCache: HttpFunction = async (req, res) => {
   try {
-    const valid = getIsValidToken(req.headers);
+    const valid = await getIsValidToken(req.headers);
 
     if (!valid) {
       return res.status(Status.HTTP_401_UNAUTHORIZED).json({

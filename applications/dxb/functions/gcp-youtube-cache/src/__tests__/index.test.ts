@@ -5,10 +5,10 @@ import mockConsole from "jest-mock-console";
 
 import { youtubeCache } from "../index";
 import { getById, saveById, getYoutubeDetails } from "../db";
-import { config } from "../config";
+import { getSecrets } from "../config";
 
-jest.mock("../db");
 jest.mock("../config");
+jest.mock("../db");
 
 const mockYoutubeDetails: youtube_v3.Schema$VideoListResponse = {
   kind: "youtube#videoListResponse",
@@ -35,8 +35,9 @@ const mockYoutubeDetails: youtube_v3.Schema$VideoListResponse = {
 const youtubeId = "foo";
 
 const createRequest = async (youtubeId: string, withCredentials: boolean) => {
+  const secrets = await getSecrets();
   const headers = withCredentials
-    ? { Authorization: `Bearer ${config.SECURITY_KEY}` }
+    ? { Authorization: `Bearer ${secrets.bearerTokenSecret}` }
     : {};
 
   const query = youtubeId ? { youtubeId } : {};
@@ -63,7 +64,7 @@ beforeEach(() => {
 
 describe("youtubeCache", function () {
   test("should ask for a defaultYoutubeId", async () => {
-    const { statusCode, data } = await createRequest(null, true);
+    const { statusCode, data } = await createRequest(undefined, true);
 
     expect(statusCode).toBe(Status.HTTP_400_BAD_REQUEST);
     expect(getById).toHaveBeenCalledTimes(0);
@@ -100,7 +101,7 @@ describe("youtubeCache", function () {
 
   test("should cache and then return the details", async () => {
     // @ts-expect-error
-    getById.mockImplementation(async () => null);
+    getById.mockImplementation(async () => undefined);
     // @ts-expect-error
     getYoutubeDetails.mockImplementation(async () => mockYoutubeDetails);
     const { statusCode, data } = await createRequest(youtubeId, true);
