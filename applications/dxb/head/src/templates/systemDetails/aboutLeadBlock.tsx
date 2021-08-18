@@ -130,9 +130,7 @@ const AboutLeadBlock = ({
           {keyFeatures && (
             <LeadBlockCardContent
               title={keyFeatures.name}
-              contents={keyFeatures.featureValues.map(
-                ({ value }) => value as string
-              )}
+              contents={keyFeatures.featureValues.map(({ value }) => value)}
             />
           )}
           {systemBenefits && (
