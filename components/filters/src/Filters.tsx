@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import DefaultCheckbox from "@bmi/checkbox";
 import Typography from "@bmi/typography";
-import MicroCopy from "@bmi/micro-copy";
+import { getMicroCopy, MicroCopyContext } from "@bmi/micro-copy";
 import Accordion from "@bmi/accordion";
 import styles from "./Filters.module.scss";
 
@@ -31,6 +31,8 @@ const Filters = ({
   checkboxComponent: Checkbox = DefaultCheckbox,
   accordionSummaryComponent: AccordionSummary = Accordion.Summary
 }: Props) => {
+  const copy = useContext(MicroCopyContext);
+
   const handleCheckboxChange: Props["onChange"] = (...args) => {
     onChange && onChange(...args);
   };
@@ -51,13 +53,13 @@ const Filters = ({
             }
           );
 
+          const summaryLabel = getMicroCopy(copy, filter.label);
+
           return (
             <Accordion.Item key={filter.name}>
-              <Accordion.Summary>
-                <Typography variant="h6">
-                  <MicroCopy path={filter.label} />
-                </Typography>
-              </Accordion.Summary>
+              <AccordionSummary aria-label={summaryLabel}>
+                <Typography variant="h6">{summaryLabel}</Typography>
+              </AccordionSummary>
               <Accordion.Details>
                 <div className={styles["list"]}>
                   {filterOptions.map((option) => (
