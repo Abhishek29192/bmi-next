@@ -1,0 +1,20 @@
+steps:
+  # It is necessary to connect to the DB via Cloud SQL proxy
+  - id: proxy-install
+    name: gcr.io/cloud-builders/yarn
+    entrypoint: sh
+    args:
+      - "-c"
+      - "wget https://storage.googleapis.com/cloudsql-proxy/v1.20.1/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy && chmod +x cloud_sql_proxy"
+    waitFor: ["-"]
+
+  - id: migrate
+    name: gcr.io/cloud-builders/yarn
+    entrypoint: sh
+    args:
+      - "-c"
+      - "(./cloud_sql_proxy -dir=/cloudsql -instances='${_GCP_INTOUCH_REPLATFORM_PROJECT_ID}:europe-west2:intouch-db' & sleep 2) && export NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN} && yarn install && export PG_USER=${_PG_USER} && export PG_DATABASE=${_PG_DATABASE} && export PG_PORT=${_PG_PORT} && export PG_HOST=${_PG_HOST} &&  export PG_PASSWORD=${_PG_PASSWORD} && yarn workspace ${_DATABASE_SERVICE} migrate-db"
+    timeout: "1200s"
+    waitFor: ["proxy-install"]
+
+timeout: "1200s"
