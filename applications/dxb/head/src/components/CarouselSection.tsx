@@ -87,7 +87,7 @@ const CarouselSection = ({
           rollerSectionComponent={(props: ButtonBaseProps) => (
             <GTMButton
               gtm={{
-                id: "cta-click1",
+                id: "selector-card3",
                 label: props.children[0],
                 action: "Selector - Cards"
               }}
