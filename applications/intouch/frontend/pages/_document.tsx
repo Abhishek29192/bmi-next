@@ -12,7 +12,15 @@ class BMIDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head></Head>
+        <Head>
+          <script
+            async
+            src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+            type="text/javascript"
+            data-domain-script={process.env.ONE_TRUST_GUID}
+          />
+          <script type="text/javascript">{function OptanonWrapper() {}}</script>
+        </Head>
         <body>
           <Main />
           <NextScript />
