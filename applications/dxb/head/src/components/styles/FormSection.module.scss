@@ -35,6 +35,11 @@
         &.hs-fieldtype-date,
         &.hs-fieldtype-file,
         &.hs-fieldtype-select {
+          &:focus-within {
+            > label{
+              color: $color-theme-inter;
+            }
+          }
           > label {
             background-color: $color-white;
             color: $color-charcoal;
@@ -63,7 +68,9 @@
             }
 
             &:focus {
-              outline-color: $color-theme-inter;
+              outline: none;
+              border-color: $color-theme-inter;
+              border-width: 2px;
             }
           }
         }
