@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
+import { isEmpty, compact, first } from "lodash";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
@@ -9,7 +10,7 @@ import ShareWidgetSection, {
 import { getBimIframeUrl } from "../../components/BimIframe";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
-import { SystemDetails, Assets, Classification, Feature } from "./types";
+import { SystemDetails, Assets, Feature } from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 
 type Props = {
@@ -48,15 +49,16 @@ const SystemDetailsPage = ({ data }: Props) => {
       ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
     );
   }, []);
-  const systemAttributes: Classification = useMemo(() => {
-    return classifications.find(({ code }) => code === "systemAttributes");
-  }, []);
   const keyFeatures: Feature = useMemo(() => {
-    const { features } = systemAttributes;
-    return features.find(
-      ({ code }) =>
-        code ===
-        "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures"
+    return first(
+      compact(
+        classifications.map(({ features }) => {
+          return (
+            features &&
+            features.find(({ code }) => code.includes("keyfeatures"))
+          );
+        })
+      )
     );
   }, []);
   const specification: Assets = useMemo(() => {
