@@ -1,12 +1,16 @@
-import { createMocks } from "node-mocks-http";
 import { Method, Status } from "simple-http-status";
 import { youtube_v3 } from "googleapis";
 import mockConsole from "jest-mock-console";
+import fetchMockJest from "fetch-mock-jest";
+import { Request } from "express";
 
+import { mockResponse } from "../../../../../../libraries/fetch-mocks/src/index";
 import { youtubeCache } from "../index";
 import { getById, saveById, getYoutubeDetails } from "../db";
 import { getSecrets } from "../config";
 
+const fetchMock = fetchMockJest.sandbox();
+jest.mock("node-fetch", () => fetchMock);
 jest.mock("../config");
 jest.mock("../db");
 
@@ -42,61 +46,62 @@ const createRequest = async (youtubeId: string, withCredentials: boolean) => {
 
   const query = youtubeId ? { youtubeId } : {};
 
-  const { req, res } = createMocks({
+  const res = mockResponse();
+
+  const req: Partial<Request> = {
     url: "/",
     method: Method.GET,
     query,
     headers
-  });
+  };
 
+  // @ts-expect-error
   await youtubeCache(req, res);
 
-  return {
-    statusCode: res._getStatusCode(),
-    data: JSON.parse(res._getData())
-  };
+  return { res, req };
 };
 
 beforeEach(() => {
   mockConsole();
   jest.resetAllMocks();
+  fetchMock.reset();
 });
 
 describe("youtubeCache", function () {
   test("should ask for a defaultYoutubeId", async () => {
-    const { statusCode, data } = await createRequest(undefined, true);
+    const { res } = await createRequest(undefined, true);
 
-    expect(statusCode).toBe(Status.HTTP_400_BAD_REQUEST);
+    expect(res.status).toBeCalledWith(Status.HTTP_400_BAD_REQUEST);
+    expect(res.send).toBeCalledWith({
+      message: "youtubeId query param is required."
+    });
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
-    expect(data).toEqual({
-      message: "youtubeId query param is required."
-    });
   });
 
   test("should ask for a valid token", async () => {
-    const { statusCode, data } = await createRequest(youtubeId, false);
+    const { res } = await createRequest(youtubeId, false);
 
-    expect(statusCode).toBe(Status.HTTP_401_UNAUTHORIZED);
+    expect(res.status).toBeCalledWith(Status.HTTP_401_UNAUTHORIZED);
+    expect(res.send).toBeCalledWith({
+      message: "Please provide a valid access token."
+    });
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
-    expect(data).toEqual({
-      message: "Please provide a valid access token."
-    });
   });
 
   test("should return the cached youtube details", async () => {
     // @ts-expect-error
     getById.mockImplementation(async () => mockYoutubeDetails);
-    const { statusCode, data } = await createRequest(youtubeId, true);
+    const { res } = await createRequest(youtubeId, true);
 
+    expect(res.status).toBeCalledWith(Status.HTTP_200_OK);
+    expect(res.send).toBeCalledWith(mockYoutubeDetails);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
-    expect(statusCode).toBe(Status.HTTP_200_OK);
-    expect(data).toEqual(mockYoutubeDetails);
   });
 
   test("should cache and then return the details", async () => {
@@ -104,13 +109,13 @@ describe("youtubeCache", function () {
     getById.mockImplementation(async () => undefined);
     // @ts-expect-error
     getYoutubeDetails.mockImplementation(async () => mockYoutubeDetails);
-    const { statusCode, data } = await createRequest(youtubeId, true);
+    const { res } = await createRequest(youtubeId, true);
 
+    expect(res.status).toBeCalledWith(Status.HTTP_201_CREATED);
+    expect(res.send).toBeCalledWith(mockYoutubeDetails);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(1);
-    expect(statusCode).toBe(Status.HTTP_201_CREATED);
-    expect(data).toEqual(mockYoutubeDetails);
   });
 
   test("should not find the youtube video details", async () => {
@@ -119,15 +124,15 @@ describe("youtubeCache", function () {
       ...mockYoutubeDetails,
       items: []
     }));
-    const { statusCode, data } = await createRequest(youtubeId, true);
+    const { res } = await createRequest(youtubeId, true);
 
+    expect(res.status).toBeCalledWith(Status.HTTP_404_NOT_FOUND);
+    expect(res.send).toBeCalledWith({
+      message: 'Youtube video with id: "foo" not found.'
+    });
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(0);
-    expect(statusCode).toBe(Status.HTTP_404_NOT_FOUND);
-    expect(data).toEqual({
-      message: 'Youtube video with id: "foo" not found.'
-    });
   });
 
   test("should return 500 error", async () => {
@@ -135,14 +140,14 @@ describe("youtubeCache", function () {
     getById.mockImplementation(async () => {
       throw new Error("random error");
     });
-    const { statusCode, data } = await createRequest(youtubeId, true);
+    const { res } = await createRequest(youtubeId, true);
 
+    expect(res.status).toBeCalledWith(Status.HTTP_500_INTERNAL_SERVER_ERROR);
+    expect(res.send).toBeCalledWith({
+      message: "Something went wrong, try again later."
+    });
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
-    expect(statusCode).toBe(Status.HTTP_500_INTERNAL_SERVER_ERROR);
-    expect(data).toEqual({
-      message: "Something went wrong, try again later."
-    });
   });
 });
