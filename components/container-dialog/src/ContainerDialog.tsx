@@ -1,4 +1,4 @@
-import React, { isValidElement, RefObject, useMemo } from "react";
+import React, { isValidElement, useEffect, useMemo } from "react";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Button from "@bmi/button";
@@ -19,6 +19,7 @@ type Props = {
   allowOverflow?: boolean;
   className?: string;
   containerClassName?: string;
+  disablePortal?: boolean;
 };
 
 const ContainerDialog = ({
@@ -33,7 +34,8 @@ const ContainerDialog = ({
   children,
   allowOverflow,
   className,
-  containerClassName
+  containerClassName,
+  disablePortal = true
 }: Props) => {
   const [header, content] = useMemo(() => {
     const deconstructedChildren = React.Children.toArray(children).reduce<
@@ -60,6 +62,20 @@ const ContainerDialog = ({
     return [deconstructedChildren[0], deconstructedChildren[1]];
   }, [children]);
 
+  // TODO: create way to reuse hooks in common components
+  useEffect(() => {
+    if (open && disablePortal) {
+      Array.from(document.body.children).forEach((child) => {
+        const isSkippedTag = ["SCRIPT", "IFRAME", "NOSCRIPT"].some(
+          (tagName) => child.tagName === tagName
+        );
+        if (!isSkippedTag) {
+          child.setAttribute("aria-hidden", "false");
+        }
+      });
+    }
+  }, [open, disablePortal]);
+
   return (
     <Modal
       open={open}
@@ -67,6 +83,7 @@ const ContainerDialog = ({
       BackdropProps={backdropProps}
       aria-labelledby={areaLabelledby}
       aria-describedby={areaDescribedby}
+      disablePortal={disablePortal}
     >
       <Fade in={open}>
         <div
