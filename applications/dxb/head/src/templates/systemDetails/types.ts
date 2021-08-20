@@ -1,4 +1,7 @@
-import { Image } from "../../components/types/ProductBaseTypes";
+import {
+  Image,
+  ClassificationFeatureUnit
+} from "../../components/types/ProductBaseTypes";
 
 export type GalleryImageType = {
   mainSource: string;
@@ -21,13 +24,19 @@ export type Category = {
   image?: CategoryImage;
 };
 
+export type FeatureValue = { value: string };
+
 export type Feature = {
   code:
     | "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup"
     | "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent"
-    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures";
-  featureValues: { value: string }[];
+    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures"
+    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.scoringweight"
+    | "bmiSystemsClassificationCatalog/1.0/Measurements.width"
+    | "bmiSystemsClassificationCatalog/1.0/Measurements.length";
+  featureValues: FeatureValue[];
   name: string;
+  featureUnit?: ClassificationFeatureUnit;
 };
 
 export type Classification = {

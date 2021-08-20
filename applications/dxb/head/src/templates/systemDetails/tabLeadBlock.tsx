@@ -2,11 +2,13 @@ import React from "react";
 import Tabs from "@bmi/tabs";
 import { Tab, TabProps } from "@material-ui/core";
 import Section from "@bmi/section";
+import { isEmpty } from "lodash";
 import { useSiteContext } from "../../components/Site";
 import withGTM from "../../utils/google-tag-manager";
 import BimIframe from "../../components/BimIframe";
-import { Assets, Feature, SystemBenefits } from "./types";
+import { Assets, Feature, SystemBenefits, Classification } from "./types";
 import AboutLeadBlock from "./aboutLeadBlock";
+import TechnicalSpecificationLeadBlock from "./technicalSpecificationLeadBlock";
 
 type Props = {
   bimIframeUrl?: string;
@@ -16,6 +18,7 @@ type Props = {
   keyFeatures?: Feature;
   systemBenefits?: SystemBenefits;
   specification?: Assets;
+  technicalSpecClassifications?: Classification[];
 };
 
 const GTMTab = withGTM<TabProps>(Tab, {
@@ -29,7 +32,8 @@ const TabLeadBlock = ({
   bimIframeUrl,
   keyFeatures,
   systemBenefits,
-  specification
+  specification,
+  technicalSpecClassifications
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -57,7 +61,17 @@ const TabLeadBlock = ({
             specification={specification}
           />
         </Tabs.TabPanel>
-
+        {technicalSpecClassifications &&
+          !isEmpty(technicalSpecClassifications) && (
+            <Tabs.TabPanel
+              heading={getMicroCopy("sdp.leadBlock.technicalSpecification")}
+              index="two"
+            >
+              <TechnicalSpecificationLeadBlock
+                technicalSpecClassifications={technicalSpecClassifications}
+              />
+            </Tabs.TabPanel>
+          )}
         {Boolean(bimIframeUrl) && (
           <Tabs.TabPanel heading={getMicroCopy("sdp.tabs.bim")} index="four">
             <BimIframe url={bimIframeUrl} />

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { isEmpty, compact, first } from "lodash";
+import { isEmpty, compact, first, sortBy } from "lodash";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
@@ -10,7 +10,7 @@ import ShareWidgetSection, {
 import { getBimIframeUrl } from "../../components/BimIframe";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
-import { SystemDetails, Assets, Feature } from "./types";
+import { SystemDetails, Assets, Feature, Classification } from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 
 type Props = {
@@ -24,6 +24,13 @@ type Props = {
     shareWidget: ShareWidgetSectionData | null;
   };
 };
+
+const IGNORED_ATTRIBUTES = [
+  "scoringweight",
+  "uniquesellingpropositions",
+  "promotionalcontent",
+  "keyfeatures"
+];
 
 const SystemDetailsPage = ({ data }: Props) => {
   const { contentfulSite, dataJson } = data;
@@ -64,6 +71,29 @@ const SystemDetailsPage = ({ data }: Props) => {
   const specification: Assets = useMemo(() => {
     return assets.find(({ assetType }) => assetType === "SPECIFICATION");
   }, []);
+  const technicalSpecClassifications: Classification[] = useMemo(() => {
+    return sortBy(
+      classifications
+        .filter(
+          ({ code }) =>
+            !IGNORED_ATTRIBUTES.some((attribute) =>
+              code.toLowerCase().includes(attribute)
+            )
+        )
+        .map((classification) => {
+          const filteredFeatures = classification.features.filter(
+            ({ code }) => {
+              return !IGNORED_ATTRIBUTES.some((att) => {
+                return code.toLowerCase().includes(att);
+              });
+            }
+          );
+          classification.features = filteredFeatures;
+          return classification;
+        })
+        .filter(({ features }) => features.length > 0)
+    );
+  }, []);
 
   return (
     <Page
@@ -92,6 +122,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         keyFeatures={keyFeatures}
         systemBenefits={systemBenefits}
         specification={specification}
+        technicalSpecClassifications={technicalSpecClassifications}
       />
     </Page>
   );
@@ -127,7 +158,6 @@ export const pageQuery = graphql`
           mime
           fileSize
           allowedToDownload
-          realFileName
         }
       }
       classifications {
@@ -138,7 +168,11 @@ export const pageQuery = graphql`
             value
           }
           name
+          featureUnit {
+            symbol
+          }
         }
+        name
       }
       images {
         assetType
