@@ -79,6 +79,13 @@ class Attribute extends Value {
     this.mockValues = mockValues.split(";");
     this.constraint = constraint;
     this.reference = reference;
+
+    // "Mandatory" field is optional, but if we get a value, must be a valid one.
+    if (mandatory && !["Y", "N"].includes(mandatory)) {
+      throw new Error(
+        `Mandatory field valid values are [Y, N]. Found ${mandatory}.`
+      );
+    }
     this.mandatory = mandatory === "Y" ? true : false;
   }
 }
