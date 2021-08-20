@@ -3882,6 +3882,7 @@ export type ContentfulAsset = {
 
 export type ContentfulEvidenceCategory = {
   __typename?: "ContentfulEvidenceCategory";
+  sys: ContentfulSys;
   name?: Maybe<Scalars["String"]>;
   description?: Maybe<Scalars["String"]>;
   minimumUploads?: Maybe<Scalars["Int"]>;
@@ -3933,13 +3934,14 @@ export type ContentfulGuaranteeTemplatesCollection = {
 
 export type ContentfulGuaranteeType = {
   __typename?: "ContentfulGuaranteeType";
+  sys: ContentfulSys;
   displayName?: Maybe<Scalars["String"]>;
   technology?: Maybe<ContentfulTechnologyType>;
   coverage?: Maybe<ContentfulGuaranteeCoverageType>;
   name?: Maybe<Scalars["String"]>;
   signature?: Maybe<ContentfulAsset>;
   maximumValidityYears?: Maybe<Scalars["Int"]>;
-  tiersAvailable?: Maybe<ContentfulTiers>;
+  tiersAvailable?: Maybe<Array<Maybe<ContentfulTiers>>>;
   ranking?: Maybe<Scalars["Int"]>;
   evidenceCategoriesCollection?: Maybe<ContentfulEvidenceCategoryCollection>;
   guaranteeTemplatesCollection?: Maybe<ContentfulGuaranteeTemplatesCollection>;
@@ -3985,6 +3987,11 @@ export type ContentfulMetadataTagsFilter = {
   id_contains_all?: Maybe<Array<Maybe<Scalars["String"]>>>;
   id_contains_some?: Maybe<Array<Maybe<Scalars["String"]>>>;
   id_contains_none?: Maybe<Array<Maybe<Scalars["String"]>>>;
+};
+
+export type ContentfulSys = {
+  __typename?: "ContentfulSys";
+  id: Scalars["String"];
 };
 
 /**
