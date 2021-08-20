@@ -22,7 +22,7 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   footer?: React.ReactNode;
   isFlat?: boolean;
   buttonComponent?: React.ComponentType<any>;
-  clickableArea?: "full" | "body";
+  clickableArea?: "full" | "body" | "none";
   isHighlighted?: boolean;
 };
 
@@ -118,7 +118,10 @@ const OverviewCard = ({
         {
           [styles["OverviewCard--highlighted"]!]: isHighlighted
         },
-        styles[`OverviewCard--${isFlat ? "flat" : "clickable"}`],
+        isFlat && styles[`OverviewCard--flat`],
+        !isFlat &&
+          clickableArea !== "none" &&
+          styles[`OverviewCard--clickable`],
         className
       )}
     >
