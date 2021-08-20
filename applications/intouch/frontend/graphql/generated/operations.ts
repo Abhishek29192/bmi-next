@@ -11,6 +11,26 @@ export type CompanyCertificationsFragment = {
   readonly __typename?: "Company";
 } & Pick<SchemaTypes.Company, "certifications">;
 
+export type UpdateProjectHiddenMutationVariables = SchemaTypes.Exact<{
+  projectId: SchemaTypes.Scalars["Int"];
+  hidden: SchemaTypes.Scalars["Boolean"];
+}>;
+
+export type UpdateProjectHiddenMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly updateProject?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateProjectPayload" } & {
+      readonly project?: SchemaTypes.Maybe<
+        { readonly __typename?: "Project" } & Pick<
+          SchemaTypes.Project,
+          "id" | "hidden"
+        >
+      >;
+    }
+  >;
+};
+
 export type ContactDetailsCollectionFragmentFragment = {
   readonly __typename?: "ContactDetailsCollection";
 } & {
@@ -644,6 +664,7 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
     { readonly __typename?: "Project" } & Pick<
       SchemaTypes.Project,
       | "id"
+      | "hidden"
       | "name"
       | "technology"
       | "roofArea"

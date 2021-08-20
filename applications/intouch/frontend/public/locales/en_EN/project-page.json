@@ -190,5 +190,14 @@
     "name": "Product name",
     "family": "Family",
     "brand": "Brand"
+  },
+  "projectActions": {
+    "heading": "Project Actions",
+    "cta": {
+      "archive": "Archive project",
+      "unarchive": "Un-archive project",
+      "requestInformation": "Request more information",
+      "approveGuarantee": "Approve guarantee"
+    }
   }
 }
