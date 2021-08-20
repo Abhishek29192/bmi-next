@@ -4,97 +4,86 @@
   "assets": [
     {
       "allowedToDownload": true,
-      "assetType": "WARRANTIES",
-      "fileSize": 8470,
-      "mime": "image/jpeg",
-      "name": "Garanti Test",
-      "realFileName": "Monier garanti 30 år.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GUARANTIES",
-      "fileSize": 12750,
-      "mime": "image/png",
-      "name": "Guarantee test",
-      "realFileName": "Test_Guarantee.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h36/h6c/9020240723998/Test-Guaranteepng"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "AWARDS",
-      "fileSize": 7454,
-      "mime": "image/png",
-      "name": "Award_Test",
-      "realFileName": "Test_Award.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+      "assetType": "CAD",
+      "fileSize": 270539,
+      "mime": "application/pdf",
+      "name": "1344416763",
+      "realFileName": "1344416763.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
     },
     {
       "allowedToDownload": true,
       "assetType": "CERTIFICATES",
       "fileSize": 8364,
       "mime": "image/png",
-      "name": "Certificate Test",
+      "name": "test_Certificate",
       "realFileName": "test_Certificate.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h76/h68/9020240855070/test-Certificatepng"
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha1/h3c/9012208304158/test-Certificatepng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "AWARDS",
+      "fileSize": 7454,
+      "mime": "image/png",
+      "name": "Test_Award",
+      "realFileName": "Test_Award.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
     },
     {
       "allowedToDownload": true,
       "assetType": "BIM",
-      "name": "BIM Test",
-      "url": "https://www.bimobject.com/en/steelpro/product/sp200_i_residental"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "CAD",
-      "fileSize": 270539,
-      "mime": "application/pdf",
-      "name": "CAD Test",
-      "realFileName": "1344416763.pdf",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h0e/h65/9020240953374/1344416763pdf"
+      "mime": "application/octet-stream",
+      "name": "BIM_Test",
+      "realFileName": "BIM_Test.bin"
     },
     {
       "allowedToDownload": true,
       "assetType": "SPECIFICATION",
       "fileSize": 689490,
       "mime": "application/pdf",
-      "name": "Spec Test",
+      "name": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg",
       "realFileName": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg.pdf",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h65/h1a/9020241018910/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "CERTIFICATES",
-      "fileSize": 689490,
-      "mime": "application/pdf",
-      "name": "Certificate Logo Test",
-      "realFileName": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg.pdf",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hae/h08/9020241575966/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd0/h35/9012208107550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
     },
     {
       "allowedToDownload": true,
       "assetType": "DATA_SHEETS",
       "fileSize": 390375,
       "mime": "application/pdf",
-      "name": "DataSheet Test",
+      "name": "Icopal Ventura",
       "realFileName": "Icopal Ventura.pdf",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h9d/h05/9020241641502/Icopal-Venturapdf"
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h4f/h3d/9012208369694/Icopal-Venturapdf"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GUARANTIES",
+      "fileSize": 12750,
+      "mime": "image/png",
+      "name": "Test_Guarantee",
+      "realFileName": "Test_Guarantee.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h69/h32/9012208009246/Test-Guaranteepng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "WARRANTIES",
+      "fileSize": 8470,
+      "mime": "image/jpeg",
+      "name": "Monier garanti 30 år",
+      "realFileName": "Monier garanti 30 år.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "BIM",
+      "name": "BIM_Test",
+      "url": "https://www.bimobject.com/en-us/bmi_siplast_fr/product/spl010108"
     }
   ],
   "categories": [
     {
       "categoryType": "Brand",
-      "code": "Siplast",
-      "image": {
-        "allowedToDownload": true,
-        "fileSize": 6728,
-        "mime": "image/png",
-        "name": "bmi_siplast",
-        "realFileName": "bmi_siplast.png",
-        "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h4e/he9/9020231090206/bmi-siplastpng"
-      },
-      "name": "Siplast",
-      "parentCategoryCode": "BMI_Brands"
+      "code": "MONARFLEX",
+      "name": "Monarflex"
     },
     {
       "categoryType": "SystemType",
@@ -108,10 +97,19 @@
       "code": "systemAttributes",
       "features": [
         {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup",
+          "featureValues": [
+            {
+              "value": "Value"
+            }
+          ],
+          "name": "Roof build-up"
+        },
+        {
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
           "featureValues": [
             {
-              "value": "Sample PC value"
+              "value": "Test Value"
             }
           ],
           "name": "Promotional Content"
@@ -120,10 +118,10 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.uniquesellingpropositions",
           "featureValues": [
             {
-              "value": "Sample USP value"
+              "value": "Test Value 1"
             },
             {
-              "value": "Sample USP value 2"
+              "value": "Test Value 2"
             }
           ],
           "name": "Unique Selling Propositions"
@@ -132,10 +130,10 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.uniquesellingpropositions",
           "featureValues": [
             {
-              "value": "Sample USP value"
+              "value": "Test Value 1"
             },
             {
-              "value": "Sample USP value 2"
+              "value": "Test Value 2"
             }
           ],
           "name": "Unique Selling Propositions"
@@ -144,10 +142,10 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
           "featureValues": [
             {
-              "value": "Sample KF value"
+              "value": "Test Value 1"
             },
             {
-              "value": "Sample KF value 2"
+              "value": "Test Value 2"
             }
           ],
           "name": "Key Features"
@@ -156,16 +154,64 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
           "featureValues": [
             {
-              "value": "Sample KF value"
+              "value": "Test Value 1"
             },
             {
-              "value": "Sample KF value 2"
+              "value": "Test Value 2"
             }
           ],
           "name": "Key Features"
         }
       ],
       "name": "System Attributes"
+    },
+    {
+      "code": "Measurements",
+      "features": [
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/Measurements.width",
+          "featureUnit": {
+            "name": "millimeter",
+            "symbol": "mm",
+            "unitType": "space"
+          },
+          "featureValues": [
+            {
+              "value": "33"
+            }
+          ],
+          "name": "Width NO"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/Measurements.length",
+          "featureUnit": {
+            "name": "centimeter",
+            "symbol": "cm",
+            "unitType": "space"
+          },
+          "featureValues": [
+            {
+              "value": "22"
+            }
+          ],
+          "name": "Length NO"
+        }
+      ],
+      "name": "Measurements"
+    },
+    {
+      "code": "scoringWeightAttributes",
+      "features": [
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
+          "featureValues": [
+            {
+              "value": "3"
+            }
+          ]
+        }
+      ],
+      "name": "Scoring Weight"
     }
   ],
   "code": "Test_PIM_System1",
@@ -173,148 +219,287 @@
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 715065,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 1852238,
       "mime": "image/jpeg",
-      "name": "snofanger1",
-      "realFileName": "snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf5/hf5/8974702477342/snofanger1jpg"
+      "name": "490189 wireløper",
+      "realFileName": "490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/hdd/9009904189470/490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 39429,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 172262,
       "format": "Product-Hero-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Large-Desktop_snofanger1",
-      "realFileName": "Product-Hero-Large-Desktop_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hca/hdf/8975183216670/Product-Hero-Large-Desktop-snofanger1jpg"
+      "name": "Product-Hero-Large-Desktop_490189 wireløper",
+      "realFileName": "Product-Hero-Large-Desktop_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h91/he2/9009920507934/Product-Hero-Large-Desktop-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 4840,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 37747,
       "format": "Product-Color-Selector-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Mobile_snofanger1",
-      "realFileName": "Product-Color-Selector-Mobile_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h8b/he0/8975183282206/Product-Color-Selector-Mobile-snofanger1jpg"
+      "name": "Product-Color-Selector-Mobile_490189 wireløper",
+      "realFileName": "Product-Color-Selector-Mobile_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 10515,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 48469,
       "format": "Product-Listing-Card-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Large-Desktop_snofanger1",
-      "realFileName": "Product-Listing-Card-Large-Desktop_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h89/he3/8975183347742/Product-Listing-Card-Large-Desktop-snofanger1jpg"
+      "name": "Product-Listing-Card-Large-Desktop_490189 wireløper",
+      "realFileName": "Product-Listing-Card-Large-Desktop_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h51/he6/9009920639006/Product-Listing-Card-Large-Desktop-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 21639,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 91097,
       "format": "Product-Hero-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Small-Desktop-Tablet_snofanger1",
-      "realFileName": "Product-Hero-Small-Desktop-Tablet_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h9a/he6/8975183413278/Product-Hero-Small-Desktop-Tablet-snofanger1jpg"
+      "name": "Product-Hero-Small-Desktop-Tablet_490189 wireløper",
+      "realFileName": "Product-Hero-Small-Desktop-Tablet_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 13051,
-      "format": "Product-Color-Selector-Large-Desktop",
-      "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Large-Desktop_snofanger1",
-      "realFileName": "Product-Color-Selector-Large-Desktop_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h59/hea/8975183544350/Product-Color-Selector-Large-Desktop-snofanger1jpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 7616,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 79391,
       "format": "Product-Hero-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Mobile_snofanger1",
-      "realFileName": "Product-Hero-Mobile_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h48/he7/8975183478814/Product-Hero-Mobile-snofanger1jpg"
+      "name": "Product-Hero-Mobile_490189 wireløper",
+      "realFileName": "Product-Hero-Mobile_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h23/hea/9009920770078/Product-Hero-Mobile-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 5404,
-      "format": "Product-Listing-Card-Small-Desktop-Tablet",
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 85285,
+      "format": "Product-Color-Selector-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Small-Desktop-Tablet_snofanger1",
-      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h19/hee/8975183675422/Product-Listing-Card-Small-Desktop-Tablet-snofanger1jpg"
+      "name": "Product-Color-Selector-Large-Desktop_490189 wireløper",
+      "realFileName": "Product-Color-Selector-Large-Desktop_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h21/hed/9009920835614/Product-Color-Selector-Large-Desktop-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 7616,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 51384,
       "format": "Product-Color-Selector-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Small-Desktop-Tablet_snofanger1",
-      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h57/hed/8975183609886/Product-Color-Selector-Small-Desktop-Tablet-snofanger1jpg"
+      "name": "Product-Color-Selector-Small-Desktop-Tablet_490189 wireløper",
+      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h32/hf0/9009920901150/Product-Color-Selector-Small-Desktop-Tablet-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 5792,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 30099,
+      "format": "Product-Listing-Card-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Small-Desktop-Tablet_490189 wireløper",
+      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he0/hf0/9009920966686/Product-Listing-Card-Small-Desktop-Tablet-490189-wireloperjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 31599,
       "format": "Product-Listing-Card-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Mobile_snofanger1",
-      "realFileName": "Product-Listing-Card-Mobile_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h29/hf1/8975183740958/Product-Listing-Card-Mobile-snofanger1jpg"
+      "name": "Product-Listing-Card-Mobile_490189 wireløper",
+      "realFileName": "Product-Listing-Card-Mobile_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/hc4/9009921032222/Product-Listing-Card-Mobile-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 44705,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 656011,
       "format": "Web",
       "mime": "image/jpeg",
-      "name": "Web_snofanger1",
-      "realFileName": "Web_snofanger1.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h28/hf4/8975183806494/Web-snofanger1jpg"
+      "name": "Web_490189 wireløper",
+      "realFileName": "Web_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb4/hc3/9009921097758/Web-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_snofanger1.jpg",
-      "fileSize": 52209880,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 1675344,
       "format": "Print",
       "mime": "image/tiff",
-      "name": "Print_snofanger1",
-      "realFileName": "Print_snofanger1.tiff",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he9/hf4/8975183872030/Print-snofanger1tiff"
+      "name": "Print_490189 wireløper",
+      "realFileName": "Print_490189 wireløper.tiff",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha3/hc0/9009921163294/Print-490189-wirelopertiff"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 536828,
+      "mime": "image/png",
+      "name": "Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Icopal ståltakrenne miljøbilde 3.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcc/hdc/9009904123934/Icopal-staltakrenne-miljobilde-3png"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 113935,
+      "format": "Product-Hero-Large-Desktop",
+      "mime": "image/jpeg",
+      "name": "Product-Hero-Large-Desktop_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Hero-Large-Desktop_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h4b/h2d/9009919787038/Product-Hero-Large-Desktop-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 11333,
+      "format": "Product-Color-Selector-Mobile",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Mobile_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Color-Selector-Mobile_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 27886,
+      "format": "Product-Listing-Card-Large-Desktop",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Large-Desktop_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Listing-Card-Large-Desktop_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3c/h27/9009919918110/Product-Listing-Card-Large-Desktop-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 64047,
+      "format": "Product-Hero-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Hero-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Hero-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 18923,
+      "format": "Product-Hero-Mobile",
+      "mime": "image/jpeg",
+      "name": "Product-Hero-Mobile_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Hero-Mobile_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf3/hd1/9009920049182/Product-Hero-Mobile-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 37831,
+      "format": "Product-Color-Selector-Large-Desktop",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Large-Desktop_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Color-Selector-Large-Desktop_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h04/hd5/9009920114718/Product-Color-Selector-Large-Desktop-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 18923,
+      "format": "Product-Color-Selector-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc5/hd5/9009920180254/Product-Color-Selector-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 11855,
+      "format": "Product-Listing-Card-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc3/hd8/9009920245790/Product-Listing-Card-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 13451,
+      "format": "Product-Listing-Card-Mobile",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Mobile_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Listing-Card-Mobile_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd4/hdb/9009920311326/Product-Listing-Card-Mobile-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 48547,
+      "format": "Web",
+      "mime": "image/jpeg",
+      "name": "Web_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Web_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h82/hdc/9009920376862/Web-Icopal-staltakrenne-miljobilde-3jpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 418712,
+      "format": "Print",
+      "mime": "image/tiff",
+      "name": "Print_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Print_Icopal ståltakrenne miljøbilde 3.tiff",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h94/hdf/9009920442398/Print-Icopal-staltakrenne-miljobilde-3tiff"
     }
   ],
-  "longDescription": "<p>Long Dec System 1&nbsp;NO</p>",
+  "longDescription": "Long Dec System 2 NO",
   "name": "NO System 1",
   "shortDescription": "SDescription 1 NO",
-  "systemBenefits": ["Benefit value 1", "Benefit value 2"],
+  "systemBenefits": ["Benefit 3 NO, Benefit 4 NO"],
   "systemLayers": [
     {
       "addon": false,
       "approvalStatus": "approved",
       "code": "Layer_2",
       "layerNumber": 2,
-      "longDescription": "<p>Long Dec System 1&nbsp;NO</p>",
-      "name": "Layer 2 NO",
-      "shortDescription": "Layer SD value",
+      "longDescription": "Long Dec System 2 NO",
+      "shortDescription": "Value",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_6",
+      "layerNumber": 3,
+      "longDescription": "Long Dec System 2 NO",
+      "shortDescription": "SDescription 1 NO",
       "type": "LAYER_ACCESSORIES"
     },
     {
@@ -322,19 +507,9 @@
       "approvalStatus": "approved",
       "code": "Layer_7",
       "layerNumber": 1,
-      "longDescription": "<p>Long Dec System 1&nbsp;NO</p>",
+      "longDescription": "Long Dec System 2 NO",
       "shortDescription": "SDescription 1 NO",
       "type": "LAYER_ACCESSORIES"
-    }
-  ],
-  "systemReferences": [
-    {
-      "referenceType": "CROSSELLING",
-      "target": {
-        "code": "Test_PIM_System2",
-        "name": "NO System 2"
-      },
-      "preselected": true
     }
   ]
 }
