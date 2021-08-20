@@ -703,6 +703,7 @@ describe("Database permissions", () => {
         );
         expect(rows.length).toEqual(1);
         product_id = rows[0].id;
+        await pool.query("delete from product where id = $1", [product_id]);
       });
       it("shouldn't be able to create and read a product", async () => {
         try {
@@ -738,6 +739,7 @@ describe("Database permissions", () => {
         );
         expect(rows.length).toEqual(1);
         system_id = rows[0].id;
+        await pool.query("delete from system where id = $1", [system_id]);
       });
     });
     describe("Installer", () => {
