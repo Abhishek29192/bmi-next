@@ -1,6 +1,11 @@
 import { Project } from "@bmi/intouch-api-types";
+import { GetProjectQuery } from "../../graphql/generated/operations";
 import { DeepPartial } from "./types";
-import { GuaranteeStatus, guaranteePrerequsitesMet } from "./guarantee";
+import {
+  GuaranteeStatus,
+  guaranteePrerequsitesMet,
+  guaranteeSolutionGuaranteeValidate
+} from "./guarantee";
 
 export enum ProjectStatus {
   NOT_STARTED = "Not started",
@@ -52,4 +57,13 @@ export const getProjectGuaranteeStatus = (
   )
     ? guarantee.status
     : "NOT_APPLICABLE";
+};
+
+export const checkProjectGuaranteeReview = (
+  project: GetProjectQuery["project"]
+): boolean => {
+  const solutionGuaranteeValidationResult =
+    guaranteeSolutionGuaranteeValidate(project);
+
+  return solutionGuaranteeValidationResult.isValid;
 };
