@@ -24,7 +24,12 @@ const FiltersSidebar = ({
   const { getMicroCopy } = useSiteContext();
 
   const GTMCheckbox = withGTM<CheckboxProps>(Checkbox);
-  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
+  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(
+    Accordion.Summary,
+    {
+      label: "aria-label"
+    }
+  );
 
   return (
     <PerfectScrollbar
@@ -72,8 +77,6 @@ const FiltersSidebar = ({
           <GTMAccordionSummary
             gtm={{
               id: "filter1",
-              // @ts-ignore
-              label: props.children?.props?.children,
               action: "Selector – Filter"
             }}
             {...props}

@@ -4003,7 +4003,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
+                          aria-label="Colour"
                           class="MuiButtonBase-root MuiAccordionSummary-root"
+                          data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Colour\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
@@ -4035,9 +4037,6 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                                 />
                               </svg>
                             </span>
-                            <span
-                              class="MuiTouchRipple-root"
-                            />
                           </div>
                         </div>
                         <div
@@ -5220,7 +5219,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
+                          aria-label="Size"
                           class="MuiButtonBase-root MuiAccordionSummary-root"
+                          data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Size\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
@@ -5252,9 +5253,6 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                                 />
                               </svg>
                             </span>
-                            <span
-                              class="MuiTouchRipple-root"
-                            />
                           </div>
                         </div>
                         <div
@@ -6483,7 +6481,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
+                          aria-label="Colour"
                           class="MuiButtonBase-root MuiAccordionSummary-root"
+                          data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Colour\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
