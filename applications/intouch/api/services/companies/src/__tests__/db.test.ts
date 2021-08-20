@@ -31,6 +31,48 @@ describe("Database permissions", () => {
   let product_id;
   let market_admin_id;
 
+  // NOTE: These functions help to workaround the interdependency issues with these tests
+  // TODO: Refactor
+  const DELETE_GLOBAL_PROJECT = async () => {
+    await pool.query("delete from project where id = $1", [project_id]);
+  };
+
+  const RE_CREATE_GLOBAL_PROJECT = async () => {
+    const { rows: projects } = await transaction(
+      pool,
+      {
+        role: ROLE_COMPANY_ADMIN,
+        accountUuid: company_admin_id,
+        accountEmail: COMPANY_ADMIN_EMAIL
+      },
+      "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7) returning *",
+      [
+        company_id,
+        "Project name",
+        100,
+        "Joe",
+        "Doe",
+        "2021-01-01",
+        "2021-01-02"
+      ]
+    );
+    project_id = projects[0].id;
+  };
+
+  const RE_CREATE_PROJECT_MEMBER = async () => {
+    const { rows } = await transaction(
+      pool,
+      {
+        role: ROLE_COMPANY_ADMIN,
+        accountUuid: company_admin_id,
+        accountEmail: COMPANY_ADMIN_EMAIL
+      },
+      "insert into project_member (project_id, account_id) values ($1, $2) returning *",
+      [project_id, installer_id]
+    );
+    expect(rows.length).toEqual(1);
+  };
+
   const cleanDbFromTests = async () => {
     try {
       await pool.query("delete from guarantee where id = $1", [guarantee_id]);
@@ -376,6 +418,61 @@ describe("Database permissions", () => {
         expect(rows.length).toEqual(1);
         project_id = rows[0].id;
       });
+      it("should not be able to see a hidden project", async () => {
+        await DELETE_GLOBAL_PROJECT();
+
+        const superAdminConfig = {
+          role: ROLE_SUPER_ADMIN,
+          accountUuid: 0,
+          accountEmail: SUPER_ADMIN_EMAIL
+        };
+
+        const { rows: createdProject } = await transaction(
+          pool,
+          superAdminConfig,
+          "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date, hidden) values ($1, $2, $3, $4, $5, $6, $7, $8) returning *",
+          [
+            company_id,
+            "Project name",
+            100,
+            "Joe",
+            "Doe",
+            "2021-01-01",
+            "2021-01-02",
+            true
+          ]
+        );
+        expect(createdProject.length).toEqual(1);
+
+        const { rows: projectMember } = await transaction(
+          pool,
+          superAdminConfig,
+          "insert into project_member (project_id, account_id) values ($1, $2) returning *",
+          [createdProject[0].id, company_admin_id]
+        );
+        expect(projectMember.length).toEqual(1);
+
+        const { rows: projects } = await transaction(
+          pool,
+          {
+            role: ROLE_COMPANY_ADMIN,
+            accountUuid: company_admin_id,
+            accountEmail: COMPANY_ADMIN_EMAIL
+          },
+          "select * from project",
+          []
+        );
+        expect(projects.length).toEqual(0);
+
+        // CLEANUP
+        await pool.query("delete from project where id = $1", [
+          createdProject[0].id
+        ]);
+        await pool.query("delete from project_member where project_id = $1", [
+          createdProject[0].id
+        ]);
+        await RE_CREATE_GLOBAL_PROJECT();
+      });
       it("shouldn't be able to add a project to another company", async () => {
         try {
           await transaction(
@@ -407,7 +504,7 @@ describe("Database permissions", () => {
       });
     });
     describe("Installer", () => {
-      it("shouldn't be able to see any project", async () => {
+      it("shouldn't be able to see projects of other companies", async () => {
         const { rows } = await transaction(
           pool,
           {
@@ -419,6 +516,64 @@ describe("Database permissions", () => {
           []
         );
         expect(rows.length).toEqual(0);
+      });
+
+      it("shouldn't be able to see hidden project", async () => {
+        await DELETE_GLOBAL_PROJECT();
+
+        const superAdminConfig = {
+          role: ROLE_SUPER_ADMIN,
+          accountUuid: 0,
+          accountEmail: SUPER_ADMIN_EMAIL
+        };
+
+        const createdProjects = await transaction(
+          pool,
+          superAdminConfig,
+          "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date, hidden) values ($1, $2, $3, $4, $5, $6, $7, $8) returning *",
+          [
+            company_id,
+            "Project name",
+            100,
+            "Joe",
+            "Doe",
+            "2021-01-01",
+            "2021-01-02",
+            true
+          ]
+        );
+        expect(createdProjects.rows.length).toEqual(1);
+
+        const createdProjectMembers = await transaction(
+          pool,
+          superAdminConfig,
+          "insert into project_member (project_id, account_id) values ($1, $2) returning *",
+          [createdProjects.rows[0].id, installer_id]
+        );
+        expect(createdProjectMembers.rows.length).toEqual(1);
+
+        const { rows: projects } = await transaction(
+          pool,
+          {
+            role: ROLE_INSTALLER,
+            accountUuid: installer_id,
+            accountEmail: INSTALLER_EMAIL
+          },
+          "select * from project",
+          []
+        );
+        expect(projects.length).toEqual(0);
+
+        // CLEANUP
+        await pool.query("delete from project where id = $1", [
+          createdProjects.rows[0].id
+        ]);
+        await pool.query("delete from project_member where project_id = $1", [
+          createdProjects.rows[0].id
+        ]);
+
+        await RE_CREATE_GLOBAL_PROJECT();
+        await RE_CREATE_PROJECT_MEMBER();
       });
 
       it("shouldn't be able to add an installer to the project", async () => {
@@ -452,17 +607,7 @@ describe("Database permissions", () => {
         expect(deletedRows.length).toEqual(1);
 
         // Recrete the user for next tests
-        const { rows } = await transaction(
-          pool,
-          {
-            role: ROLE_COMPANY_ADMIN,
-            accountUuid: company_admin_id,
-            accountEmail: COMPANY_ADMIN_EMAIL
-          },
-          "insert into project_member (project_id, account_id) values ($1, $2) returning *",
-          [project_id, installer_id]
-        );
-        expect(rows.length).toEqual(1);
+        await RE_CREATE_PROJECT_MEMBER();
       });
     });
   });

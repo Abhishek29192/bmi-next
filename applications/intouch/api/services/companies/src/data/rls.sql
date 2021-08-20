@@ -82,11 +82,12 @@ WITH CHECK (
 );
 
 CREATE POLICY policy_company_admin ON project FOR ALL TO company_admin USING (
-  current_company() = company_id
+  current_company() = company_id AND hidden != TRUE
 ) WITH CHECK (
   current_company() = company_id AND is_project_enabled_by_market()
 );
-CREATE POLICY policy_installer ON project FOR ALL TO installer USING (id IN (SELECT * FROM is_part_of_project()));
+
+CREATE POLICY policy_installer ON project FOR ALL TO installer USING (id IN (SELECT * FROM is_part_of_project() WHERE hidden != TRUE));
 
 
 
