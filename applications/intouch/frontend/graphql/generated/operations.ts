@@ -678,8 +678,15 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
                 readonly guaranteeType?: SchemaTypes.Maybe<
                   { readonly __typename?: "ContentfulGuaranteeType" } & Pick<
                     SchemaTypes.ContentfulGuaranteeType,
-                    "name" | "coverage" | "displayName" | "technology"
+                    | "name"
+                    | "coverage"
+                    | "displayName"
+                    | "technology"
+                    | "tiersAvailable"
                   > & {
+                      readonly sys: {
+                        readonly __typename?: "ContentfulSys";
+                      } & Pick<SchemaTypes.ContentfulSys, "id">;
                       readonly evidenceCategoriesCollection?: SchemaTypes.Maybe<
                         {
                           readonly __typename?: "ContentfulEvidenceCategoryCollection";
@@ -692,7 +699,11 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
                                 } & Pick<
                                   SchemaTypes.ContentfulEvidenceCategory,
                                   "name" | "minimumUploads"
-                                >
+                                > & {
+                                    readonly sys: {
+                                      readonly __typename?: "ContentfulSys";
+                                    } & Pick<SchemaTypes.ContentfulSys, "id">;
+                                  }
                               >
                             >
                           >;

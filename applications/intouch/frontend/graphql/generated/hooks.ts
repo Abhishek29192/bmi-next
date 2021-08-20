@@ -834,12 +834,19 @@ export const GetProjectDocument = gql`
           id
           guaranteeTypeId
           guaranteeType {
+            sys {
+              id
+            }
             name
             coverage
             displayName
             technology
+            tiersAvailable
             evidenceCategoriesCollection {
               items {
+                sys {
+                  id
+                }
                 name
                 minimumUploads
               }
