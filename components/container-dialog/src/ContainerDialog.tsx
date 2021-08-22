@@ -1,9 +1,10 @@
-import React, { isValidElement, useEffect, useMemo } from "react";
+import React, { isValidElement, useMemo } from "react";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Button from "@bmi/button";
 import CloseIcon from "@material-ui/icons/Close";
 import Fade from "@material-ui/core/Fade";
+import { useDisablePortalModalWorkaround } from "@bmi/hooks";
 import styles from "./ContainerDialog.module.scss";
 
 type Props = {
@@ -62,19 +63,7 @@ const ContainerDialog = ({
     return [deconstructedChildren[0], deconstructedChildren[1]];
   }, [children]);
 
-  // TODO: create way to reuse hooks in common components
-  useEffect(() => {
-    if (open && disablePortal) {
-      Array.from(document.body.children).forEach((child) => {
-        const isSkippedTag = ["SCRIPT", "IFRAME", "NOSCRIPT"].some(
-          (tagName) => child.tagName === tagName
-        );
-        if (!isSkippedTag) {
-          child.setAttribute("aria-hidden", "false");
-        }
-      });
-    }
-  }, [open, disablePortal]);
+  useDisablePortalModalWorkaround(open, disablePortal);
 
   return (
     <Modal
