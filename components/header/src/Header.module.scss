@@ -260,7 +260,7 @@ $chevron-margin-left-lg: 3px;
         text-decoration: none;
       }
 
-      & + .nav-item::before {
+      &+.nav-item::before {
         content: "";
         display: block;
         background-color: $color-storm;
@@ -378,6 +378,7 @@ $chevron-margin-left-lg: 3px;
     }
 
     .search-drawer {
+      position: inherit;
       right: 20px;
       width: 566px;
     }
@@ -463,8 +464,7 @@ $chevron-margin-left-lg: 3px;
   logo-width-lg: $logo-width-lg + $logo-margin;
   button-spacing-sm: $button-padding-sides * 2;
   button-spacing-md: $button-padding-sides * 2 + $chevron-width;
-  button-spacing-lg: $button-padding-left-lg + $button-padding-right-lg +
-    $chevron-width-lg + $chevron-margin-left-lg;
+  button-spacing-lg: $button-padding-left-lg + $button-padding-right-lg + $chevron-width-lg + $chevron-margin-left-lg;
   search-icon-width: 48px;
   container-padding: 24px * 2;
 }
