@@ -1,21 +1,26 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Guarantee } from "@bmi/intouch-api-types";
 import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import AlertBanner from "@bmi/alert-banner";
-import Icon, { FilePDF } from "@bmi/icon";
+import Icon, { FilePDF, Arrow } from "@bmi/icon";
 import { ProductRow } from "../ProductRow";
-import { guaranteePrerequsitesMet } from "../../../../lib/utils/guarantee";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
+import AccessControl from "../../../../lib/permissions/AccessControl";
 import styles from "./styles.module.scss";
 
 type SolutionGuaranteesProps = {
   guarantees: GetProjectQuery["project"]["guarantees"]["nodes"];
+  onReviewClick: () => void;
+  canGuaranteeBeSubmitted: boolean;
 };
 
-export const SolutionGuarantee = ({ guarantees }: SolutionGuaranteesProps) => {
+export const SolutionGuarantee = ({
+  guarantees,
+  onReviewClick,
+  canGuaranteeBeSubmitted
+}: SolutionGuaranteesProps) => {
   const { t } = useTranslation(["common", "project-page"]);
   return (
     <div>
@@ -23,7 +28,12 @@ export const SolutionGuarantee = ({ guarantees }: SolutionGuaranteesProps) => {
         {t("project-page:guarantee.type.solution")}
       </Typography>
       {guarantees.map((guarantee) => (
-        <SolutionGuaranteeCard key={guarantee.id} guarantee={guarantee} />
+        <SolutionGuaranteeCard
+          key={guarantee.id}
+          guarantee={guarantee}
+          onReviewClick={onReviewClick}
+          canGuaranteeBeSubmitted={canGuaranteeBeSubmitted}
+        />
       ))}
     </div>
   );
@@ -31,11 +41,15 @@ export const SolutionGuarantee = ({ guarantees }: SolutionGuaranteesProps) => {
 
 type SolutionGuaranteeCardProps = {
   guarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0];
+  onReviewClick: () => void;
+  canGuaranteeBeSubmitted: boolean;
 };
-const SolutionGuaranteeCard = ({ guarantee }: SolutionGuaranteeCardProps) => {
+const SolutionGuaranteeCard = ({
+  guarantee,
+  onReviewClick,
+  canGuaranteeBeSubmitted
+}: SolutionGuaranteeCardProps) => {
   const { t } = useTranslation(["common", "project-page"]);
-
-  const canGuaranteeBeSubmitted = guaranteePrerequsitesMet(guarantee);
 
   const { systemBySystemBmiRef: system } = guarantee;
 
@@ -43,9 +57,11 @@ const SolutionGuaranteeCard = ({ guarantee }: SolutionGuaranteeCardProps) => {
     (member) => member.productByProductBmiRef
   );
 
+  const showAlert = !canGuaranteeBeSubmitted && guarantee.status === "NEW";
+
   return (
     <div className={styles.main}>
-      {!canGuaranteeBeSubmitted && (
+      {showAlert && (
         <AlertBanner severity={"warning"}>
           <AlertBanner.Title>
             {t("project-page:guarantee.incompleteGuaranteeAlert.title")}
@@ -53,6 +69,7 @@ const SolutionGuaranteeCard = ({ guarantee }: SolutionGuaranteeCardProps) => {
           {t("project-page:guarantee.incompleteGuaranteeAlert.description")}
         </AlertBanner>
       )}
+
       <div className={styles.body}>
         <div className={styles.body__title}>
           <Typography component="h2" variant="h6">
@@ -65,12 +82,30 @@ const SolutionGuaranteeCard = ({ guarantee }: SolutionGuaranteeCardProps) => {
           </Typography>
         </div>
         <div className={styles.body__footer}>
-          <Button
-            variant="outlined"
-            startIcon={<Icon className={styles.body__logo} source={FilePDF} />}
-          >
-            {t("common:SavePdf")}
-          </Button>
+          <div>
+            <Button
+              variant="outlined"
+              startIcon={
+                <Icon className={styles.body__logo} source={FilePDF} />
+              }
+            >
+              {t("common:SavePdf")}
+            </Button>
+          </div>
+          <div>
+            <AccessControl dataModel="project" action="submitSolutionGuarantee">
+              <Button
+                onClick={onReviewClick}
+                variant="outlined"
+                startIcon={
+                  <Icon className={styles.body__logo} source={Arrow} />
+                }
+                disabled={!canGuaranteeBeSubmitted}
+              >
+                {t("Submit Solution")}
+              </Button>
+            </AccessControl>
+          </div>
         </div>
         <div>
           <Table>

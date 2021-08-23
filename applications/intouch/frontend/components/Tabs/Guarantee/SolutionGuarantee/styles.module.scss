@@ -12,6 +12,8 @@
     margin: 5px;
   }
   &__footer {
+    display: flex;
+    justify-content: space-between;
     margin: 10px 0px;
   }
   &__logo {

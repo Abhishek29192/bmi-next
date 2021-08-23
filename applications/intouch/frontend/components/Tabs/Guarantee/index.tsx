@@ -3,9 +3,11 @@ import Button from "@bmi/button";
 import Modal from "@bmi/dialog";
 import { useTranslation } from "next-i18next";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
+import { checkProjectGuaranteeReview } from "../../../lib/utils/project";
 import styles from "./styles.module.scss";
 import { ApplyGuaranteeDialog } from "./ApplyGuaranteeDialog";
 import { ProjectGuarantee } from "./ProjectGuarantee";
+import SolutionGuaranteeReviewDialog from "./SolutionGuaranteeReviewDialog";
 
 export type GuaranteeTabProps = {
   project: GetProjectQuery["project"];
@@ -15,6 +17,7 @@ export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
   const { t } = useTranslation("project-page");
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isReviewOpen, setReviewOpen] = useState(false);
 
   const { guarantees } = project;
 
@@ -26,7 +29,11 @@ export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
         </Button>
       </div>
       <div className={styles.body}>
-        <ProjectGuarantee guarantees={guarantees.nodes} />
+        <ProjectGuarantee
+          guarantees={guarantees.nodes}
+          onReviewClick={() => setReviewOpen(true)}
+          canGuaranteeBeSubmitted={checkProjectGuaranteeReview(project)}
+        />
       </div>
       <ApplyGuaranteeDialog
         isOpen={isDialogOpen}
@@ -36,6 +43,11 @@ export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
           setDialogOpen(false);
           setModalOpen(true);
         }}
+      />
+      <SolutionGuaranteeReviewDialog
+        isOpen={isReviewOpen}
+        project={project}
+        onCloseClick={() => setReviewOpen(false)}
       />
       <Modal open={isModalOpen} onCloseClick={() => setModalOpen(false)}>
         <Modal.Title hasUnderline>

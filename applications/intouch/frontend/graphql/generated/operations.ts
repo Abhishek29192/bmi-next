@@ -839,6 +839,23 @@ export type CreateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
+export type UpdateGuaranteeMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateGuaranteeInput;
+}>;
+
+export type UpdateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateGuarantee?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateGuaranteePayload" } & {
+      readonly guarantee?: SchemaTypes.Maybe<
+        { readonly __typename?: "Guarantee" } & Pick<
+          SchemaTypes.Guarantee,
+          "id"
+        >
+      >;
+    }
+  >;
+};
+
 export type DeleteProjectMemberMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.DeleteProjectMemberInput;
 }>;
