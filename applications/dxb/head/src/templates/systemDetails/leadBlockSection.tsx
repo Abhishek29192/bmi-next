@@ -30,8 +30,8 @@ const getBrandLogo = (categories: Category[]): null | ImageData => {
     altText: null,
     image: {
       file: {
-        fileName: brandCategory.image.realFileName,
-        url: brandCategory.image.url
+        fileName: brandCategory.image?.realFileName,
+        url: brandCategory.image?.url
       }
     },
     caption: null,

@@ -1,4 +1,8 @@
-import { Image, Product } from "../../components/types/ProductBaseTypes";
+import {
+  Image,
+  ClassificationFeatureUnit,
+  Product
+} from "../../components/types/ProductBaseTypes";
 
 export type GalleryImageType = {
   mainSource: string;
@@ -21,17 +25,20 @@ export type Category = {
   image?: CategoryImage;
 };
 
+export type FeatureValue = { value: string };
+
 export type Feature = {
-  code:
-    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup"
-    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent"
-    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures";
-  featureValues: { value: string }[];
+  code: string;
+  featureValues: FeatureValue[];
   name: string;
+  featureUnit?: ClassificationFeatureUnit;
 };
 
 export type Classification = {
-  code: "systemAttributes" | "measurementAttributes";
+  code:
+    | "systemAttributes"
+    | "measurementAttributes"
+    | "scoringWeightAttributes";
   features: Feature[];
   name: string;
 };
@@ -42,7 +49,9 @@ export type AssetType =
   | "AWARDS"
   | "GUARANTIES"
   | "CERTIFICATES"
-  | "SPECIFICATION";
+  | "SPECIFICATION"
+  | "CAD"
+  | "DATA_SHEETS";
 
 export type MimeType =
   | "image/jpeg"
@@ -53,7 +62,7 @@ export type MimeType =
 export type Assets = {
   allowedToDownload: boolean;
   assetType: AssetType;
-  fileSize: number;
+  fileSize?: number;
   mime: MimeType;
   name: string;
   realFileName: string; // includes file extension

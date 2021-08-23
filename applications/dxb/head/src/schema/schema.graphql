@@ -1359,6 +1359,7 @@ union ProductDocument = PIMDocument | PIMLinkDocument
 type DataJson implements Node {
   id: String!
   systemLayers: [SystemLayer]
+  categories: [Categories]
 }
 
 type SystemLayer {
@@ -1379,6 +1380,19 @@ type SystemLayer {
 
 type SystemProduct {
   code: String!
+}
+
+type Categories {
+  image: CategoryImage
+}
+
+type CategoryImage {
+  allowedToDownload: Boolean
+  fileSize: Int
+  mime: String
+  name: String
+  realFileName: String
+  url: String
 }
 
 type Products implements Node {

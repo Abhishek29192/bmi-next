@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { compact, first } from "lodash";
+import { compact, first, sortBy } from "lodash";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
 import Page from "../../components/Page";
@@ -12,7 +12,7 @@ import ShareWidgetSection, {
 import { getBimIframeUrl } from "../../components/BimIframe";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
-import { SystemDetails, Assets, Feature } from "./types";
+import { SystemDetails, Assets, Feature, Classification } from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 import SystemLayersSection from "./systemLayersSection";
 import styles from "./styles/systemDetailsPage.module.scss";
@@ -28,6 +28,13 @@ type Props = {
     shareWidget: ShareWidgetSectionData | null;
   };
 };
+
+const IGNORED_ATTRIBUTES = [
+  "scoringweight",
+  "uniquesellingpropositions",
+  "promotionalcontent",
+  "keyfeatures"
+];
 
 const SystemDetailsPage = ({ data }: Props) => {
   const { contentfulSite, dataJson } = data;
@@ -69,6 +76,28 @@ const SystemDetailsPage = ({ data }: Props) => {
   const specification: Assets = useMemo(() => {
     return assets.find(({ assetType }) => assetType === "SPECIFICATION");
   }, []);
+  const technicalSpecClassifications: Classification[] = useMemo(() => {
+    return classifications
+      .filter(
+        ({ code }) =>
+          !IGNORED_ATTRIBUTES.some((attribute) =>
+            code.toLowerCase().includes(attribute)
+          )
+      )
+      .map((classification) => {
+        const filteredFeatures = classification.features
+          .filter(({ code }) => {
+            return !IGNORED_ATTRIBUTES.some((att) => {
+              return code.toLowerCase().includes(att);
+            });
+          })
+          .sort((a, b) => (a.name < b.name ? -1 : 1));
+        classification.features = filteredFeatures;
+        return classification;
+      })
+      .filter(({ features }) => features.length > 0)
+      .sort((a, b) => (a.name < b.name ? -1 : 1));
+  }, []);
 
   return (
     <Page
@@ -109,6 +138,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         keyFeatures={keyFeatures}
         systemBenefits={systemBenefits}
         specification={specification}
+        technicalSpecClassifications={technicalSpecClassifications}
       />
     </Page>
   );
@@ -144,7 +174,6 @@ export const pageQuery = graphql`
           mime
           fileSize
           allowedToDownload
-          realFileName
         }
       }
       classifications {
@@ -155,7 +184,11 @@ export const pageQuery = graphql`
             value
           }
           name
+          featureUnit {
+            symbol
+          }
         }
+        name
       }
       images {
         assetType
