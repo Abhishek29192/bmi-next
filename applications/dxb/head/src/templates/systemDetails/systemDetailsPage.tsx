@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { isEmpty, compact, first, sortBy } from "lodash";
+import { compact, first, sortBy } from "lodash";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
