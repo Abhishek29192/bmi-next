@@ -97,7 +97,17 @@ DROP POLICY IF EXISTS policy_market_admin ON project_member;
 DROP POLICY IF EXISTS policy_company_admin ON project_member;
 DROP POLICY IF EXISTS policy_installer ON project_member;
 CREATE POLICY policy_super_admin ON project_member FOR ALL TO super_admin USING (true) WITH CHECK (true);
-CREATE POLICY policy_market_admin ON project_member FOR ALL TO company_admin 
+
+-- Project visibility cascades via policies on `project`
+CREATE POLICY policy_market_admin ON project_member FOR ALL TO market_admin
+USING (
+  project_id IN (SELECT id FROM project)
+  )
+WITH CHECK (
+  project_id IN (SELECT id FROM project)
+);
+
+CREATE POLICY policy_company_admin ON project_member FOR ALL TO company_admin 
 USING ( 
   project_id IN (select id from project)
 ) 
