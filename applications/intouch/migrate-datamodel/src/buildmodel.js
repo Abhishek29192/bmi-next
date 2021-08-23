@@ -72,13 +72,15 @@ class Attribute extends Value {
     mockValues,
     constraint,
     reference,
-    mandatory
+    mandatory,
+    defaultValue
   ) {
     super(name, description);
     this.type = type;
     this.mockValues = mockValues.split(";");
     this.constraint = constraint;
     this.reference = reference;
+    this.defaultValue = defaultValue;
 
     // "Mandatory" field is optional, but if we get a value, must be a valid one.
     if (mandatory && !["Y", "N"].includes(mandatory)) {
@@ -123,7 +125,8 @@ class Table extends Thing {
     mockValues,
     constraint,
     reference,
-    mandatory
+    mandatory,
+    defaultValue
   ) {
     let attribute = new Attribute(
       name,
@@ -132,7 +135,8 @@ class Table extends Thing {
       mockValues,
       constraint,
       reference,
-      mandatory
+      mandatory,
+      defaultValue
     );
     this.properties.push(attribute);
   }
@@ -148,8 +152,14 @@ ${this.properties
   .map((property) => {
     const isMandatory = property.mandatory ? "NOT NULL" : undefined;
     const type = property.type === "pk" ? "SERIAL PRIMARY KEY" : property.type;
+    // NOTE: Currently only handling explicit default value
+    const defaultValue = property.defaultValue
+      ? `DEFAULT ${property.defaultValue}`
+      : undefined;
 
-    return [property.name, type, isMandatory].filter(Boolean).join(" ");
+    return [property.name, type, isMandatory, defaultValue]
+      .filter(Boolean)
+      .join(" ");
   })
   .concat(additionalColumns)
   .join(",\n")
@@ -379,7 +389,8 @@ const buildModel = (records) => {
           record.Mocks,
           record.Constraint,
           record.Reference,
-          record.Mandatory
+          record.Mandatory,
+          record.Default
         ); // add the new field to the current table based on the current record
         break;
     }
