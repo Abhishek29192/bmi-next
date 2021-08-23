@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeadBlock Section tests should hide systemAttributes post-it Card when no uniqueSellingPropositions feature 1`] = `
+<div>
+  <div
+    class="LeadBlockSection Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+          >
+            <div
+              class="LeadBlockContentSection"
+            >
+              <img
+                class="brandLogo"
+                src="test image Url"
+                style="object-fit: cover; object-position: center;"
+              />
+            </div>
+            <div
+              class="LeadBlockContentSection"
+            >
+              <h1
+                class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+              >
+                test
+              </h1>
+            </div>
+            <div
+              class="LeadBlockContentSection"
+            >
+              <p
+                class="MuiTypography-root Typography MuiTypography-body2"
+              >
+                Sample PC value
+              </p>
+            </div>
+            <div
+              class="ctaContainer LeadBlockContentSection"
+            >
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                href="/"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="icon icon--inverted"
+                  focusable="false"
+                />
+                <span>
+                  Back to your selection
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LeadBlock Section tests should render 1`] = `
+<div>
+  <div
+    class="LeadBlockSection Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+          >
+            <div
+              class="LeadBlockContentSection"
+            >
+              <img
+                class="brandLogo"
+                src="test image Url"
+                style="object-fit: cover; object-position: center;"
+              />
+            </div>
+            <div
+              class="LeadBlockContentSection"
+            >
+              <h1
+                class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+              >
+                test
+              </h1>
+            </div>
+            <div
+              class="LeadBlockContentSection"
+            >
+              <p
+                class="MuiTypography-root Typography MuiTypography-body2"
+              >
+                Sample PC value
+              </p>
+            </div>
+            <div
+              class="ctaContainer LeadBlockContentSection"
+            >
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                href="/"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="icon icon--inverted"
+                  focusable="false"
+                />
+                <span>
+                  Back to your selection
+                </span>
+              </a>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+          >
+            <div
+              class="ColorPair ColorPair--pearl"
+            >
+              <div
+                class="PostItCard"
+              >
+                <div
+                  class="section"
+                >
+                  <div
+                    class="iconList"
+                  >
+                    <ul
+                      class="IconList"
+                    >
+                      <li
+                        class="ListItem ListItem--isCompact"
+                      >
+                        <div
+                          class="icon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            style="color: rgb(0, 159, 227);"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="content"
+                        >
+                          <p
+                            class="MuiTypography-root title Typography MuiTypography-body1"
+                          >
+                            Sample USP value
+                          </p>
+                        </div>
+                      </li>
+                      <li
+                        class="ListItem ListItem--isCompact"
+                      >
+                        <div
+                          class="icon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            style="color: rgb(0, 159, 227);"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="content"
+                        >
+                          <p
+                            class="MuiTypography-root title Typography MuiTypography-body1"
+                          >
+                            Sample USP value 2
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
