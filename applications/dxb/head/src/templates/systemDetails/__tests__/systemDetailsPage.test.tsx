@@ -74,10 +74,13 @@ describe("SystemDetailsPage template component", () => {
   });
 
   describe("should have function to", () => {
-    it("filter technical Spec features correctly", async () => {
+    it("filter and sort technical Spec features correctly", async () => {
       const valueText = "accordion item value 1";
       const valueText2 = "accordion item value 2";
       const valueText3 = "accordion item value 3";
+      const valueText4 = "accordion item value 4";
+      const categoryName2 = "Accoridion Title 2";
+      const categoryName3 = "Accoridion Title 2";
       const newDatajson = {
         ...dataJson,
         classifications: [
@@ -107,6 +110,30 @@ describe("SystemDetailsPage template component", () => {
                     value: valueText3
                   }
                 ]
+              }
+            ],
+            name: categoryName3
+          },
+          {
+            code: "systemAttributes",
+            features: [
+              {
+                code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup",
+                name: "Promotional Content",
+                featureValues: [
+                  {
+                    value: valueText4
+                  }
+                ]
+              },
+              {
+                code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup",
+                name: "A Promotional Content",
+                featureValues: [
+                  {
+                    value: valueText3
+                  }
+                ]
               },
               {
                 code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
@@ -118,12 +145,12 @@ describe("SystemDetailsPage template component", () => {
                 ]
               }
             ],
-            name: "Accoridion Title 2"
+            name: categoryName2
           }
         ],
         systemLayers: []
       };
-      const { container, queryByText, queryAllByText } = renderWithRouter(
+      const { container, queryAllByText } = renderWithRouter(
         <Component
           data={{
             contentfulSite: createMockSiteData(),
@@ -139,12 +166,31 @@ describe("SystemDetailsPage template component", () => {
 
       const contentToBeIngored1 = queryAllByText(valueText, { exact: false });
       const contentToBeIngored2 = queryAllByText(valueText2, { exact: false });
-      const contentToBeExist = queryByText(valueText3, { exact: false });
+      const contentToBeExist = queryAllByText(valueText3, { exact: false });
+      const accordionItems = container.querySelectorAll(
+        ".SystemDetailsTechnicalSpec .Accordion .item"
+      );
+      const secondAccordionItemFeatureItems =
+        accordionItems[1].querySelectorAll("tr td:last-child");
 
       expect(container).toMatchSnapshot();
       expect(contentToBeIngored1.length).toBeFalsy();
       expect(contentToBeIngored2.length).toBeFalsy();
-      expect(contentToBeExist).toBeInTheDocument();
+      expect(contentToBeExist.length).toBeTruthy();
+      //test CategoryName sorting
+      expect(accordionItems[0].querySelector("h6").innerHTML).toBe(
+        categoryName3
+      );
+      expect(accordionItems[1].querySelector("h6").innerHTML).toBe(
+        categoryName2
+      );
+      //test featureName sorting
+      expect(secondAccordionItemFeatureItems[0].innerHTML).toContain(
+        valueText3
+      );
+      expect(secondAccordionItemFeatureItems[1].innerHTML).toContain(
+        valueText4
+      );
     });
   });
 });
