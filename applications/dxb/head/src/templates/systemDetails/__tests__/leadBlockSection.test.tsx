@@ -5,7 +5,7 @@ import {
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import LeadBlockSection from "../LeadBlockSection";
+import LeadBlockSection from "../leadBlockSection";
 import { Data as LinkData } from "../../../components/Link";
 import "@testing-library/jest-dom";
 import { Category, Classification } from "../../systemDetails/types";
