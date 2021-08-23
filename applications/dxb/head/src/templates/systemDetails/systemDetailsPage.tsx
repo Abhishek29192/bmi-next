@@ -1,6 +1,8 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { isEmpty, compact, first } from "lodash";
+import { compact, first } from "lodash";
+import Section from "@bmi/section";
+import Grid from "@bmi/grid";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
@@ -12,6 +14,8 @@ import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import { SystemDetails, Assets, Feature } from "./types";
 import TabLeadBlock from "./tabLeadBlock";
+import SystemLayersSection from "./systemLayersSection";
+import styles from "./styles/systemDetailsPage.module.scss";
 
 type Props = {
   pageContext: {
@@ -35,7 +39,8 @@ const SystemDetailsPage = ({ data }: Props) => {
     images,
     longDescription,
     assets,
-    systemBenefits
+    systemBenefits,
+    systemLayers
   } = dataJson;
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Assets[] = useMemo(() => {
@@ -82,7 +87,19 @@ const SystemDetailsPage = ({ data }: Props) => {
         cta={resources?.sdpLeadBlockCta}
       />
 
-      <ImageGallerySection images={images || []} />
+      <Section
+        backgroundColor="pearl"
+        className={styles["imageGallery-systemLayers-section"]}
+      >
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={12} lg={8}>
+            <ImageGallerySection images={images || []} />
+          </Grid>
+          <Grid item xs={12} md={12} lg={4}>
+            <SystemLayersSection systemLayers={systemLayers || []} />
+          </Grid>
+        </Grid>
+      </Section>
 
       <TabLeadBlock
         longDescription={longDescription}
@@ -149,6 +166,25 @@ export const pageQuery = graphql`
         url
         format
         containerId
+      }
+      systemLayers {
+        layerNumber
+        type
+        name
+        shortDescription
+        relatedProducts {
+          name
+          variantOptions {
+            path
+          }
+        }
+        relatedOptionalProducts {
+          name
+          code
+          variantOptions {
+            path
+          }
+        }
       }
     }
   }

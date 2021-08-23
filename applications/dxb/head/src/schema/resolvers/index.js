@@ -19,6 +19,7 @@ const Products = require("./Products");
 const ContentfulLink = require("./ContentfulLink");
 const ContentfulImage = require("./ContentfulImage");
 const Query = require("./Query");
+const SystemLayer = require("./System");
 
 module.exports = {
   ContentfulDocumentLibraryPage: {
@@ -39,5 +40,6 @@ module.exports = {
   Products,
   ContentfulLink,
   ContentfulImage,
-  Query
+  Query,
+  SystemLayer
 };

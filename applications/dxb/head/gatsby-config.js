@@ -546,6 +546,10 @@ module.exports = {
     }
   ],
   flags: {
-    DEV_SSR: false
+    DEV_SSR: false,
+    FAST_DEV: true,
+    PARALLEL_SOURCING: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PRESERVE_WEBPACK_CACHE: true
   }
 };
