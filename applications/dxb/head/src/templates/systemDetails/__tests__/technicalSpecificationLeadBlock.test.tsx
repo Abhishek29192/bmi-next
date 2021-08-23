@@ -30,6 +30,24 @@ const featureWithUnit: Feature = {
 };
 
 describe("TechnicalSpecificationLeadBlock tests", () => {
+  beforeEach(() => {
+    // resolve useDimensions (useState) hook in ProductFeatureTable
+    jest.mock("react", () => ({
+      ...(jest.requireActual("react") as any),
+      useState: (initial) => [initial, jest.fn()]
+    }));
+    jest
+      .spyOn(window, "requestAnimationFrame")
+      .mockImplementation((callback: FrameRequestCallback): number => {
+        callback(0);
+        return 0;
+      });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe("should render correctly", () => {
     describe("when One classifications provided", () => {
       it("With no feature units", () => {

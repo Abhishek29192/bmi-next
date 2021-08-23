@@ -85,13 +85,9 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
-              <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-              >
-                Key Features
-              </h4>
+              Key Features
             </h4>
             <div
               class="content"
@@ -160,13 +156,9 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
-              <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-              >
-                MC: sdp.leadBlock.systemBenefits
-              </h4>
+              MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
               class="content"
@@ -296,13 +288,9 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
-              <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-              >
-                Key Features
-              </h4>
+              Key Features
             </h4>
             <div
               class="content"
@@ -371,13 +359,9 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
-              <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-              >
-                MC: sdp.leadBlock.systemBenefits
-              </h4>
+              MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
               class="content"
@@ -481,13 +465,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
-              <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-              >
-                MC: sdp.leadBlock.systemBenefits
-              </h4>
+              MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
               class="content"
@@ -641,13 +621,9 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
-              <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-              >
-                MC: sdp.leadBlock.systemBenefits
-              </h4>
+              MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
               class="content"
@@ -841,13 +817,9 @@ exports[`AboutLeadBlock tests should render 1`] = `
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
-              <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-              >
-                Key Features
-              </h4>
+              Key Features
             </h4>
             <div
               class="content"
@@ -916,13 +888,9 @@ exports[`AboutLeadBlock tests should render 1`] = `
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
-              <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-              >
-                MC: sdp.leadBlock.systemBenefits
-              </h4>
+              MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
               class="content"

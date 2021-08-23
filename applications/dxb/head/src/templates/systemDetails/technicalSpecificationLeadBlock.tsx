@@ -39,12 +39,9 @@ const TechnicalSpecificationLeadBlock = ({
       return (
         <div className={styles["SystemDetailsTechnicalSpec"]}>
           <Accordion noInnerPadding>
-            {technicalSpecClassifications.map(({ name, features }) => {
+            {technicalSpecClassifications.map(({ name, features }, id) => {
               return (
-                <Accordion.Item
-                  key={`tech-spec-${name}`}
-                  defaultExpanded={true}
-                >
+                <Accordion.Item key={`tech-spec-${id}`} defaultExpanded={true}>
                   <Accordion.Summary>
                     <Typography variant="h6">{name}</Typography>
                   </Accordion.Summary>

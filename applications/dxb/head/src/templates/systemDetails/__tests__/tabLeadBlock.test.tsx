@@ -26,7 +26,24 @@ const technicalSpecClassifications: Classification[] = [
 ];
 
 describe("TabLeadBlock tests", () => {
-  afterEach(cleanup);
+  beforeEach(() => {
+    // resolve useDimensions (useState) hook in TechnicalSpecificationLeadBlock ProductFeatureTable
+    jest.mock("react", () => ({
+      ...(jest.requireActual("react") as any),
+      useState: (initial) => [initial, jest.fn()]
+    }));
+    jest
+      .spyOn(window, "requestAnimationFrame")
+      .mockImplementation((callback: FrameRequestCallback): number => {
+        callback(0);
+        return 0;
+      });
+  });
+
+  afterEach(() => {
+    cleanup();
+    jest.clearAllMocks();
+  });
 
   it("should render", () => {
     const { container, getByText } = render(

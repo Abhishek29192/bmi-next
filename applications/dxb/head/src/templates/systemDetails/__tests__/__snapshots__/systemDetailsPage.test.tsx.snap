@@ -3299,13 +3299,9 @@ exports[`SystemDetailsPage template component should have function to filter tec
                           class="section"
                         >
                           <h4
-                            class="MuiTypography-root Typography MuiTypography-h4"
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
                           >
-                            <h4
-                              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-                            >
-                              MC: sdp.leadBlock.systemBenefits
-                            </h4>
+                            MC: sdp.leadBlock.systemBenefits
                           </h4>
                           <div
                             class="content"
@@ -7115,13 +7111,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           class="section"
                         >
                           <h4
-                            class="MuiTypography-root Typography MuiTypography-h4"
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
                           >
-                            <h4
-                              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-                            >
-                              Key Features
-                            </h4>
+                            Key Features
                           </h4>
                           <div
                             class="content"
@@ -7190,13 +7182,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           class="section"
                         >
                           <h4
-                            class="MuiTypography-root Typography MuiTypography-h4"
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
                           >
-                            <h4
-                              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-                            >
-                              MC: sdp.leadBlock.systemBenefits
-                            </h4>
+                            MC: sdp.leadBlock.systemBenefits
                           </h4>
                           <div
                             class="content"
