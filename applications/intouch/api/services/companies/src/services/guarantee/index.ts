@@ -2,7 +2,8 @@ import crypto from "crypto";
 import { FileUpload } from "graphql-upload";
 import {
   CreateGuaranteeInput,
-  EvidenceCategoryType
+  EvidenceCategoryType,
+  UpdateGuaranteeInput
 } from "@bmi/intouch-api-types";
 import StorageClient from "../storage-client";
 import { PostGraphileContext } from "../../types";
@@ -90,5 +91,37 @@ export const createGuarantee = async (
     throw e;
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_create_guarantee_mutation");
+  }
+};
+
+export const updateGuarantee = async (
+  resolve,
+  source,
+  args: { input: UpdateGuaranteeInput },
+  context: PostGraphileContext,
+  resolveInfo
+) => {
+  const { pgClient, logger: Logger, user } = context;
+
+  const logger = Logger("service:guarantee");
+
+  await pgClient.query("SAVEPOINT graphql_update_guarantee_mutation");
+
+  try {
+    const { patch } = args.input;
+
+    patch.requestorAccountId = +user.id;
+    patch.bmiReferenceId = `${crypto.randomBytes(10).toString("hex")}`;
+
+    return await resolve(source, args, context, resolveInfo);
+  } catch (e) {
+    logger.error("Error update guarantee");
+
+    await pgClient.query(
+      "ROLLBACK TO SAVEPOINT graphql_update_guarantee_mutation"
+    );
+    throw e;
+  } finally {
+    await pgClient.query("RELEASE SAVEPOINT graphql_update_guarantee_mutation");
   }
 };
