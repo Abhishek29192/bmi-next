@@ -1,0 +1,25 @@
+{
+  "name": "@bmi/gcp-youtube-cache",
+  "private": true,
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "build": "tsc",
+    "dev": "yarn build && functions-framework --source=dist --target=youtubeCache",
+    "deploy": "yarn build && gcloud functions deploy youtube-cache --runtime=nodejs14 --max-instances=5 --region=europe-west3 --entry-point=youtubeCache --env-vars-file=env.yaml"
+  },
+  "dependencies": {
+    "@firebase/app-types": "^0.6.1",
+    "@google-cloud/functions-framework": "^1.7.1",
+    "@google-cloud/secret-manager": "^3.7.3",
+    "dotenv": "^8.2.0",
+    "simple-http-status": "1.1.0",
+    "firebase-admin": "^9.2.0",
+    "node-fetch": "^2.6.1",
+    "googleapis": "67.1.1"
+  }
+}

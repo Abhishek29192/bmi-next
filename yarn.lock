@@ -17968,7 +17968,7 @@ googleapis-common@^5.0.1:
     url-template "^2.0.8"
     uuid "^8.0.0"
 
-googleapis@^67.0.0, googleapis@^67.1.1:
+googleapis@67.1.1, googleapis@^67.0.0, googleapis@^67.1.1:
   version "67.1.1"
   resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-67.1.1.tgz#e67690ca0ed08b84c54b5eb9d66a89e3a80abde4"
   integrity sha512-WLYk8R4dpW/oIxXhj0PQGhu+eOUpQbtWYTCxx/jeENr4arE9UmV5qmz0h1Gs1SPF/O/8PjCQIsPwOuHAlj78GA==
@@ -29781,6 +29781,11 @@ simple-get@^4.0.0:
     decompress-response "^6.0.0"
     once "^1.3.1"
     simple-concat "^1.0.0"
+
+simple-http-status@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/simple-http-status/-/simple-http-status-1.1.0.tgz#8e768964e39394ce4d5758beaf2381b308113d22"
+  integrity sha512-52lMQrRDZT8q4q2Zp44n/TqkFfnoC96olT48k9lweUQ+X/tN4ehVfzs94ZaAwJfJpAIHFx9/KoHQwGw9aiwZ9w==
 
 simple-swizzle@^0.2.2:
   version "0.2.2"
