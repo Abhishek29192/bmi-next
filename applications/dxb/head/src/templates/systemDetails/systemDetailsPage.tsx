@@ -77,27 +77,26 @@ const SystemDetailsPage = ({ data }: Props) => {
     return assets.find(({ assetType }) => assetType === "SPECIFICATION");
   }, []);
   const technicalSpecClassifications: Classification[] = useMemo(() => {
-    return sortBy(
-      classifications
-        .filter(
-          ({ code }) =>
-            !IGNORED_ATTRIBUTES.some((attribute) =>
-              code.toLowerCase().includes(attribute)
-            )
-        )
-        .map((classification) => {
-          const filteredFeatures = classification.features.filter(
-            ({ code }) => {
-              return !IGNORED_ATTRIBUTES.some((att) => {
-                return code.toLowerCase().includes(att);
-              });
-            }
-          );
-          classification.features = filteredFeatures;
-          return classification;
-        })
-        .filter(({ features }) => features.length > 0)
-    );
+    return classifications
+      .filter(
+        ({ code }) =>
+          !IGNORED_ATTRIBUTES.some((attribute) =>
+            code.toLowerCase().includes(attribute)
+          )
+      )
+      .map((classification) => {
+        const filteredFeatures = classification.features
+          .filter(({ code }) => {
+            return !IGNORED_ATTRIBUTES.some((att) => {
+              return code.toLowerCase().includes(att);
+            });
+          })
+          .sort((a, b) => (a.name < b.name ? -1 : 1));
+        classification.features = filteredFeatures;
+        return classification;
+      })
+      .filter(({ features }) => features.length > 0)
+      .sort((a, b) => (a.name < b.name ? -1 : 1));
   }, []);
 
   return (
