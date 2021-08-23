@@ -42,6 +42,7 @@ type EntryData = {
   title: string;
   type: "Question" | "Answer" | "Result";
   description: RichTextData | null;
+  selectedSystem?: string | null;
 } & QuestionData &
   ResultData;
 
@@ -219,7 +220,8 @@ const SystemConfiguratorBlockNoResultsSection = ({
 const SystemConfiguratorBlockResultSection = ({
   title,
   description,
-  recommendedSystems
+  recommendedSystems,
+  selectedSystem
 }: Partial<EntryData>) => {
   const { countryCode } = useSiteContext();
   return (
@@ -248,6 +250,7 @@ const SystemConfiguratorBlockResultSection = ({
                   const newState = { ...stateObject, selectedSystem: system };
                   saveStateToLocalStorage(JSON.stringify(newState));
                 }}
+                isHighlighted={selectedSystem === system}
               />
             </Grid>
           ))}
@@ -400,7 +403,10 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
         ) : null}
       </Section>
       {state.result && (
-        <SystemConfiguratorBlockResultSection {...state.result} />
+        <SystemConfiguratorBlockResultSection
+          {...state.result}
+          selectedSystem={storedAnswers.selectedSystem}
+        />
       )}
       {noResult && <SystemConfiguratorBlockNoResultsSection {...noResult} />}
     </>

@@ -620,5 +620,40 @@ describe("SystemConfiguratorSection component", () => {
       expect(window.history.replaceState).toBeCalled();
       expect(container).toMatchSnapshot();
     });
+
+    it("highlights last selected system", async () => {
+      mockedAxios.get.mockResolvedValue({
+        data: {
+          __typename: "ContentfulSystemConfiguratorBlock",
+          title: "Result Title",
+          description: { raw: JSON.stringify(richTextRaw), references: null },
+          type: "Result",
+          recommendedSystems: ["abcd", "efgh"]
+        }
+      });
+
+      const route = "/jest-test-page?referer=sys_details";
+      const history = createHistory(createMemorySource(route));
+      window.history.replaceState = jest.fn();
+      const { container, findByText, findByLabelText } = render(
+        <SiteContextProvider value={getSiteContext()}>
+          <LocationProvider history={history}>
+            <SystemConfiguratorSection data={initialData} />
+          </LocationProvider>
+        </SiteContextProvider>
+      );
+
+      const label = await findByLabelText("Answer 1c title");
+      fireEvent.click(label);
+
+      await findByText("Result Title");
+
+      const systemCard = await findByText((tex) =>
+        tex.startsWith("System-abcd")
+      );
+
+      expect(window.history.replaceState).toBeCalled();
+      expect(container).toMatchSnapshot();
+    });
   });
 });
