@@ -27,20 +27,17 @@ export type Category = {
 export type FeatureValue = { value: string };
 
 export type Feature = {
-  code:
-    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup"
-    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent"
-    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures"
-    | "bmiSystemsClassificationCatalog/1.0/systemAttributes.scoringweight"
-    | "bmiSystemsClassificationCatalog/1.0/Measurements.width"
-    | "bmiSystemsClassificationCatalog/1.0/Measurements.length";
+  code: string;
   featureValues: FeatureValue[];
   name: string;
   featureUnit?: ClassificationFeatureUnit;
 };
 
 export type Classification = {
-  code: "systemAttributes" | "measurementAttributes";
+  code:
+    | "systemAttributes"
+    | "measurementAttributes"
+    | "scoringWeightAttributes";
   features: Feature[];
   name: string;
 };
@@ -51,7 +48,9 @@ export type AssetType =
   | "AWARDS"
   | "GUARANTIES"
   | "CERTIFICATES"
-  | "SPECIFICATION";
+  | "SPECIFICATION"
+  | "CAD"
+  | "DATA_SHEETS";
 
 export type MimeType =
   | "image/jpeg"
@@ -62,7 +61,7 @@ export type MimeType =
 export type Assets = {
   allowedToDownload: boolean;
   assetType: AssetType;
-  fileSize: number;
+  fileSize?: number;
   mime: MimeType;
   name: string;
   realFileName: string; // includes file extension

@@ -14,9 +14,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
         >
-          <p>
-            Long Dec System 1 NO
-          </p>
+          Long Dec System 2 NO
         </div>
       </div>
       <div
@@ -28,9 +26,9 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
           MC: sdp.leadBlock.guaranteesWarranties
         </h5>
         <img
-          alt="Garanti Test"
+          alt="Monier garanti 30 år"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
         />
       </div>
       <div
@@ -199,34 +197,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
                     <p
                       class="MuiTypography-root title Typography MuiTypography-body1"
                     >
-                      Benefit value 1
-                    </p>
-                  </div>
-                </li>
-                <li
-                  class="ListItem ListItem--isCompact"
-                >
-                  <div
-                    class="icon"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root blueCheckIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="content"
-                  >
-                    <p
-                      class="MuiTypography-root title Typography MuiTypography-body1"
-                    >
-                      Benefit value 2
+                      Benefit 3 NO, Benefit 4 NO
                     </p>
                   </div>
                 </li>
@@ -254,9 +225,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
         >
-          <p>
-            Long Dec System 1 NO
-          </p>
+          Long Dec System 2 NO
         </div>
       </div>
       <div
@@ -268,9 +237,9 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
           MC: sdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Award_Test"
+          alt="Test_Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
         />
       </div>
       <div
@@ -439,34 +408,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
                     <p
                       class="MuiTypography-root title Typography MuiTypography-body1"
                     >
-                      Benefit value 1
-                    </p>
-                  </div>
-                </li>
-                <li
-                  class="ListItem ListItem--isCompact"
-                >
-                  <div
-                    class="icon"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root blueCheckIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="content"
-                  >
-                    <p
-                      class="MuiTypography-root title Typography MuiTypography-body1"
-                    >
-                      Benefit value 2
+                      Benefit 3 NO, Benefit 4 NO
                     </p>
                   </div>
                 </li>
@@ -494,9 +436,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
         >
-          <p>
-            Long Dec System 1 NO
-          </p>
+          Long Dec System 2 NO
         </div>
       </div>
       <div
@@ -508,9 +448,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
           MC: sdp.leadBlock.guaranteesWarranties
         </h5>
         <img
-          alt="Garanti Test"
+          alt="Monier garanti 30 år"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
         />
       </div>
       <div
@@ -522,9 +462,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
           MC: sdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Award_Test"
+          alt="Test_Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
         />
       </div>
     </div>
@@ -578,34 +518,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
                     <p
                       class="MuiTypography-root title Typography MuiTypography-body1"
                     >
-                      Benefit value 1
-                    </p>
-                  </div>
-                </li>
-                <li
-                  class="ListItem ListItem--isCompact"
-                >
-                  <div
-                    class="icon"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root blueCheckIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="content"
-                  >
-                    <p
-                      class="MuiTypography-root title Typography MuiTypography-body1"
-                    >
-                      Benefit value 2
+                      Benefit 3 NO, Benefit 4 NO
                     </p>
                   </div>
                 </li>
@@ -633,9 +546,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
         >
-          <p>
-            Long Dec System 1 NO
-          </p>
+          Long Dec System 2 NO
         </div>
       </div>
       <div
@@ -647,9 +558,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
           MC: sdp.leadBlock.guaranteesWarranties
         </h5>
         <img
-          alt="Garanti Test"
+          alt="Monier garanti 30 år"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
         />
       </div>
       <div
@@ -661,9 +572,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
           MC: sdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Award_Test"
+          alt="Test_Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
         />
       </div>
     </div>
@@ -685,9 +596,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
         >
-          <p>
-            Long Dec System 1 NO
-          </p>
+          Long Dec System 2 NO
         </div>
       </div>
       <div
@@ -699,9 +608,9 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
           MC: sdp.leadBlock.guaranteesWarranties
         </h5>
         <img
-          alt="Garanti Test"
+          alt="Monier garanti 30 år"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
         />
       </div>
       <div
@@ -713,9 +622,9 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
           MC: sdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Award_Test"
+          alt="Test_Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
         />
       </div>
     </div>
@@ -769,34 +678,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
                     <p
                       class="MuiTypography-root title Typography MuiTypography-body1"
                     >
-                      Benefit value 1
-                    </p>
-                  </div>
-                </li>
-                <li
-                  class="ListItem ListItem--isCompact"
-                >
-                  <div
-                    class="icon"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root blueCheckIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="content"
-                  >
-                    <p
-                      class="MuiTypography-root title Typography MuiTypography-body1"
-                    >
-                      Benefit value 2
+                      Benefit 3 NO, Benefit 4 NO
                     </p>
                   </div>
                 </li>
@@ -824,9 +706,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
         >
-          <p>
-            Long Dec System 1 NO
-          </p>
+          Long Dec System 2 NO
         </div>
       </div>
       <div
@@ -838,9 +718,9 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
           MC: sdp.leadBlock.guaranteesWarranties
         </h5>
         <img
-          alt="Garanti Test"
+          alt="Monier garanti 30 år"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
         />
       </div>
       <div
@@ -852,9 +732,9 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
           MC: sdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Award_Test"
+          alt="Test_Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
         />
       </div>
     </div>
@@ -888,9 +768,9 @@ exports[`AboutLeadBlock tests should render 1`] = `
           MC: sdp.leadBlock.guaranteesWarranties
         </h5>
         <img
-          alt="Garanti Test"
+          alt="Monier garanti 30 år"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
         />
       </div>
       <div
@@ -902,9 +782,9 @@ exports[`AboutLeadBlock tests should render 1`] = `
           MC: sdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Award_Test"
+          alt="Test_Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h88/h6b/9020240789534/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
         />
       </div>
       <div
@@ -1073,34 +953,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
                     <p
                       class="MuiTypography-root title Typography MuiTypography-body1"
                     >
-                      Benefit value 1
-                    </p>
-                  </div>
-                </li>
-                <li
-                  class="ListItem ListItem--isCompact"
-                >
-                  <div
-                    class="icon"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root blueCheckIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="content"
-                  >
-                    <p
-                      class="MuiTypography-root title Typography MuiTypography-body1"
-                    >
-                      Benefit value 2
+                      Benefit 3 NO, Benefit 4 NO
                     </p>
                   </div>
                 </li>
