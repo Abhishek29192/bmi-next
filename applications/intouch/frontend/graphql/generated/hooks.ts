@@ -13,6 +13,15 @@ export const ContactDetailsCollectionFragmentFragmentDoc = gql`
     }
   }
 `;
+export const ProjectDetailsProductFragmentFragmentDoc = gql`
+  fragment ProjectDetailsProductFragment on Product {
+    id
+    name
+    brand
+    family
+    description
+  }
+`;
 export const AddressLinesFragmentFragmentDoc = gql`
   fragment AddressLinesFragment on Address {
     firstLine
@@ -836,6 +845,22 @@ export const GetProjectDocument = gql`
               }
             }
           }
+          productByProductBmiRef {
+            ...ProjectDetailsProductFragment
+          }
+          systemBySystemBmiRef {
+            id
+            name
+            description
+            systemMembersBySystemBmiRef {
+              nodes {
+                id
+                productByProductBmiRef {
+                  ...ProjectDetailsProductFragment
+                }
+              }
+            }
+          }
           status
         }
       }
@@ -884,6 +909,7 @@ export const GetProjectDocument = gql`
       }
     }
   }
+  ${ProjectDetailsProductFragmentFragmentDoc}
 `;
 
 /**

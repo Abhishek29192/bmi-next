@@ -35,6 +35,15 @@
       "REVIEW": "Submitted",
       "REJECTED": "Returned",
       "APPROVED": "Approved"
+    },
+    "type": {
+      "product": "Product Guarantee",
+      "system": "System Guarantee",
+      "solution": "Solution Guarantee"
+    },
+    "incompleteGuaranteeAlert": {
+      "title": "Information Required",
+      "description": "To submit your guarantee please addd a certified installer and uplod required evidence."
     }
   },
   "filters": {
@@ -176,5 +185,10 @@
     "contact_detail": "Responsible Installer contact details",
     "email": "Responsible Installer email",
     "address": "Responsible Installer address"
+  },
+  "productDetails": {
+    "name": "Product name",
+    "family": "Family",
+    "brand": "Brand"
   }
 }

@@ -700,6 +700,40 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
                       >;
                     }
                 >;
+                readonly productByProductBmiRef?: SchemaTypes.Maybe<
+                  { readonly __typename?: "Product" } & Pick<
+                    SchemaTypes.Product,
+                    "id" | "name" | "brand" | "family" | "description"
+                  >
+                >;
+                readonly systemBySystemBmiRef?: SchemaTypes.Maybe<
+                  { readonly __typename?: "System" } & Pick<
+                    SchemaTypes.System,
+                    "id" | "name" | "description"
+                  > & {
+                      readonly systemMembersBySystemBmiRef: {
+                        readonly __typename?: "SystemMembersConnection";
+                      } & {
+                        readonly nodes: ReadonlyArray<
+                          { readonly __typename?: "SystemMember" } & Pick<
+                            SchemaTypes.SystemMember,
+                            "id"
+                          > & {
+                              readonly productByProductBmiRef?: SchemaTypes.Maybe<
+                                { readonly __typename?: "Product" } & Pick<
+                                  SchemaTypes.Product,
+                                  | "id"
+                                  | "name"
+                                  | "brand"
+                                  | "family"
+                                  | "description"
+                                >
+                              >;
+                            }
+                        >;
+                      };
+                    }
+                >;
               }
           >;
         };
@@ -769,6 +803,13 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
       }
   >;
 };
+
+export type ProjectDetailsProductFragmentFragment = {
+  readonly __typename?: "Product";
+} & Pick<
+  SchemaTypes.Product,
+  "id" | "name" | "brand" | "family" | "description"
+>;
 
 export type CreateGuaranteeMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.CreateGuaranteeInput;

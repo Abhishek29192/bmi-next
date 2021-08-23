@@ -47,6 +47,7 @@
     "lodash.capitalize": "^4.2.1",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
+    "lodash.groupby": "^4.6.0",
     "mini-css-extract-plugin": "^1.5.1",
     "next": "10.2.3",
     "next-connect": "^0.10.1",
@@ -74,6 +75,7 @@
     "@storybook/addon-essentials": "^6.2.8",
     "@storybook/addon-links": "^6.2.8",
     "@storybook/react": "^6.2.8",
+    "@types/lodash.groupby": "^4.6.6",
     "concurrently": "^6.2.0",
     "graphql-codegen-apollo-next-ssr": "^1.6.1",
     "storybook-addon-next-router": "^2.0.4"

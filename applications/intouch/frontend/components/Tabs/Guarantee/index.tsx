@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Button from "@bmi/button";
 import Modal from "@bmi/dialog";
 import { useTranslation } from "next-i18next";
-import { NoContent } from "../../NoContent";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 import styles from "./styles.module.scss";
 import { ApplyGuaranteeDialog } from "./ApplyGuaranteeDialog";
+import { ProjectGuarantee } from "./ProjectGuarantee";
 
 export type GuaranteeTabProps = {
   project: GetProjectQuery["project"];
@@ -16,6 +16,8 @@ export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
 
+  const { guarantees } = project;
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -24,19 +26,17 @@ export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
         </Button>
       </div>
       <div className={styles.body}>
-        <NoContent message={t("guarantee_tab.nocontent_message")} />
+        <ProjectGuarantee guarantees={guarantees.nodes} />
       </div>
-      {project && (
-        <ApplyGuaranteeDialog
-          isOpen={isDialogOpen}
-          project={project}
-          onCloseClick={() => setDialogOpen(false)}
-          onCompletedClick={() => {
-            setDialogOpen(false);
-            setModalOpen(true);
-          }}
-        />
-      )}
+      <ApplyGuaranteeDialog
+        isOpen={isDialogOpen}
+        project={project}
+        onCloseClick={() => setDialogOpen(false)}
+        onCompletedClick={() => {
+          setDialogOpen(false);
+          setModalOpen(true);
+        }}
+      />
       <Modal open={isModalOpen} onCloseClick={() => setModalOpen(false)}>
         <Modal.Title hasUnderline>
           {t("guarantee_tab.dialog.title")}
