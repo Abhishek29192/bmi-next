@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { isElement } from "react-is";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import CloseIcon from "@material-ui/icons/Close";
+import { useDisablePortalModalWorkaround } from "@bmi/hooks";
 import Fade from "@material-ui/core/Fade";
 import styles from "./Dialog.module.scss";
 
@@ -40,19 +41,7 @@ const Dialog = ({
     (child) => isElement(child) && child.type === Title
   ) as React.ReactElement | undefined;
 
-  // workaround of accessability issue https://github.com/mui-org/material-ui/issues/19450
-  useEffect(() => {
-    if (open && disablePortal) {
-      Array.from(document.body.children).forEach((child) => {
-        const isSkippedTag = ["SCRIPT", "IFRAME", "NOSCRIPT"].some(
-          (tagName) => child.tagName === tagName
-        );
-        if (!isSkippedTag) {
-          child.setAttribute("aria-hidden", "false");
-        }
-      });
-    }
-  }, [open, disablePortal]);
+  useDisablePortalModalWorkaround(open, disablePortal);
 
   const title = rawTitle
     ? React.cloneElement(rawTitle, {
