@@ -11,4 +11,15 @@
   .brandLogo {
     max-width: 85px;
   }
+
+  .iconList {
+    > [class*="IconList"] {
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }

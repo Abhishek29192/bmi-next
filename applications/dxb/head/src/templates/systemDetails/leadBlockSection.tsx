@@ -7,10 +7,11 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import CheckIcon from "@material-ui/icons/Check";
+import { isEmpty } from "lodash";
 import Link, { Data as LinkData } from "../../components/Link";
 import Image, { Data as ImageData } from "../../components/Image";
 import styles from "./styles/leadBlockSection.module.scss";
-import { Category, Classification } from "./types";
+import { Category, Classification, Feature } from "./types";
 
 const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
 
@@ -19,6 +20,7 @@ type Props = {
   categories: Category[];
   classifications: Classification[];
   cta?: LinkData;
+  uniqueSellingPropositions?: Feature;
 };
 
 const getBrandLogo = (categories: Category[]): null | ImageData => {
@@ -63,7 +65,8 @@ const LeadBlockSection = ({
   name,
   categories,
   classifications,
-  cta
+  cta,
+  uniqueSellingPropositions
 }: Props) => {
   const brandLogo = getBrandLogo(categories);
   const promotionalContent = getPromotionalContent(classifications);
@@ -117,27 +120,27 @@ const LeadBlockSection = ({
             )}
           </LeadBlock.Content.Section>
         </LeadBlock.Content>
-        <LeadBlock.Card theme="pearl">
-          <LeadBlock.Card.Section>
-            <IconList>
-              <IconList.Item
-                isCompact
-                icon={BlueCheckIcon}
-                title="Lorem, ipsum dolor sit amet consectetur adipisicing elit"
-              />
-              <IconList.Item
-                isCompact
-                icon={BlueCheckIcon}
-                title="Minoritetsladningsbærerdiffusjonskoeffisientmålingsapparatur"
-              />
-              <IconList.Item
-                isCompact
-                icon={BlueCheckIcon}
-                title="Excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia"
-              />
-            </IconList>
-          </LeadBlock.Card.Section>
-        </LeadBlock.Card>
+        {uniqueSellingPropositions &&
+          !isEmpty(uniqueSellingPropositions.featureValues) && (
+            <LeadBlock.Card theme="pearl">
+              <LeadBlock.Card.Section>
+                <div className={styles["iconList"]}>
+                  <IconList>
+                    {uniqueSellingPropositions.featureValues.map(
+                      ({ value }, id) => (
+                        <IconList.Item
+                          isCompact
+                          icon={BlueCheckIcon}
+                          title={value}
+                          key={`unique-selling-proposition-${id}`}
+                        />
+                      )
+                    )}
+                  </IconList>
+                </div>
+              </LeadBlock.Card.Section>
+            </LeadBlock.Card>
+          )}
       </LeadBlock>
     </Section>
   );
