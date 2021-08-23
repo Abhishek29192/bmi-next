@@ -1,6 +1,7 @@
 import {
   Image,
-  ClassificationFeatureUnit
+  ClassificationFeatureUnit,
+  Product
 } from "../../components/types/ProductBaseTypes";
 
 export type GalleryImageType = {
@@ -71,6 +72,26 @@ export type Assets = {
 
 export type SystemBenefits = string[];
 
+interface ProductCode {
+  code: string;
+}
+
+export type SystemLayer = {
+  addon: boolean;
+  approvalStatus: "approved" | "unapproved";
+  code: string;
+  images: Image[];
+  layerNumber: number;
+  longDescription: string;
+  name: string;
+  optionalProducts: ProductCode[];
+  products: ProductCode[];
+  shortDescription: string;
+  type: string;
+  relatedOptionalProducts: Product[];
+  relatedProducts: Product[];
+};
+
 export interface SystemDetails {
   type?: string;
   approvalStatus?: string;
@@ -83,6 +104,6 @@ export interface SystemDetails {
   longDescription: string;
   shortDescription?: string;
   systemBenefits: SystemBenefits;
-  systemLayers?: any[];
+  systemLayers?: SystemLayer[];
   systemReferences?: any[];
 }

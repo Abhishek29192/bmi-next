@@ -3,239 +3,119 @@
 exports[`ImageGallerySection tests When ONLY master images are provided should render siingle master image 1`] = `
 <div>
   <div
-    class="imageGallery-section Section Section--pearl"
+    class="ImageGallery gallery"
   >
     <div
-      class="Container"
+      class="image-wrapper"
     >
-      <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
-      >
-        <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-        >
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
-          >
-            <div
-              class="ImageGallery gallery"
-            >
-              <div
-                class="image-wrapper"
-              >
-                <img
-                  alt="TBK SN-403 T"
-                  class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
-          >
-            <div
-              style="height: 1500px; background-color: green;"
-            >
-              Layers Accordion will be here
-            </div>
-          </div>
-        </div>
-      </div>
+      <img
+        alt="TBK SN-403 T"
+        class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`ImageGallerySection tests When images are empty array should render empty section 1`] = `
+exports[`ImageGallerySection tests When images are empty array should render empty section 1`] = `<div />`;
+
+exports[`ImageGallerySection tests When images are null should render empty section 1`] = `<div />`;
+
+exports[`ImageGallerySection tests When master images and gallery images are provided should render single master image and multiple gallery images 1`] = `
 <div>
   <div
-    class="imageGallery-section Section Section--pearl"
+    class="ImageGallery gallery"
   >
     <div
-      class="Container"
+      class="image-wrapper"
     >
-      <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+      <img
+        alt="TBK SN-403 T"
+        class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+      />
+    </div>
+    <div
+      class="thumbnails"
+    >
+      <button
+        class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+        tabindex="-1"
+        type="button"
       >
-        <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+          <path
+            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
           />
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
-          >
-            <div
-              style="height: 1500px; background-color: green;"
-            >
-              Layers Accordion will be here
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ImageGallerySection tests When images are null should render empty section 1`] = `
-<div>
-  <div
-    class="imageGallery-section Section Section--pearl"
-  >
-    <div
-      class="Container"
-    >
-      <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        </svg>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <button
+        class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+        tabindex="-1"
+        type="button"
       >
-        <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
           />
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
-          >
-            <div
-              style="height: 1500px; background-color: green;"
-            >
-              Layers Accordion will be here
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ImageGallerySection tests When master images and gallery images are provided should render siingle master image and multiple gallery images 1`] = `
-<div>
-  <div
-    class="imageGallery-section Section Section--pearl"
-  >
-    <div
-      class="Container"
-    >
+        </svg>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="scroller"
+        style="margin-right: 0%;"
       >
-        <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+          tabindex="0"
+          type="button"
         >
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
-          >
-            <div
-              class="ImageGallery gallery"
-            >
-              <div
-                class="image-wrapper"
-              >
-                <img
-                  alt="TBK SN-403 T"
-                  class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
-                />
-              </div>
-              <div
-                class="thumbnails"
-              >
-                <button
-                  class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-                <button
-                  class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-                <div
-                  class="scroller"
-                  style="margin-right: 0%;"
-                >
-                  <button
-                    class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="accessibility-text"
-                    />
-                  </button>
-                  <button
-                    class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                    style="background-image: url(gallery__image_1);"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="accessibility-text"
-                    />
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                    style="background-image: url(gallery__image_2);"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="accessibility-text"
-                    />
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
-          >
-            <div
-              style="height: 1500px; background-color: green;"
-            >
-              Layers Accordion will be here
-            </div>
-          </div>
-        </div>
+          <span
+            class="accessibility-text"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          style="background-image: url(gallery__image_1);"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="accessibility-text"
+          />
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          style="background-image: url(gallery__image_2);"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="accessibility-text"
+          />
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
       </div>
     </div>
   </div>

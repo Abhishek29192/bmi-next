@@ -4,6 +4,8 @@ import { createMockSiteData } from "../../../test/mockSiteData";
 import dataJson from "../../../data/pim-mock-data.json";
 import Component from "../systemDetailsPage";
 import { SystemDetails } from "../types";
+import SystemDetailsPage from "../systemDetailsPage";
+import { systemDetailsMockData } from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 
 const systemPageId = "1234";
@@ -30,13 +32,34 @@ describe("SystemDetailsPage template component", () => {
     jest.clearAllMocks();
   });
 
-  it("should render", async () => {
+  it("should render", () => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
+    process.env.SPACE_MARKET_CODE = "no";
     const { container } = renderWithRouter(
       <Component
         data={{
           contentfulSite: createMockSiteData(),
           shareWidget: null,
-          dataJson: dataJson as SystemDetails
+          dataJson: systemDetailsMockData
+        }}
+        pageContext={{
+          systemPageId,
+          siteId
+        }}
+      />
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("should render without BrandProvider", () => {
+    process.env.SPACE_MARKET_CODE = "no";
+    const { container } = renderWithRouter(
+      <SystemDetailsPage
+        data={{
+          contentfulSite: createMockSiteData(),
+          shareWidget: null,
+          dataJson: systemDetailsMockData
         }}
         pageContext={{
           systemPageId,
@@ -97,7 +120,8 @@ describe("SystemDetailsPage template component", () => {
             ],
             name: "Accoridion Title 2"
           }
-        ]
+        ],
+        systemLayers: []
       };
       const { container, queryByText, queryAllByText } = renderWithRouter(
         <Component

@@ -1358,7 +1358,28 @@ union ProductDocument = PIMDocument | PIMLinkDocument
 
 type DataJson implements Node {
   id: String!
+  systemLayers: [SystemLayer]
   categories: [Categories]
+}
+
+type SystemLayer {
+  addon: Boolean
+  approvalStatus: String!
+  code: String!
+  # images: []
+  layerNumber: Int
+  longDescription: String
+  name: String
+  optionalProducts: [SystemProduct]
+  products: [SystemProduct]
+  shortDescription: String
+  type: String!
+  relatedProducts: [Products] @link(from: "products___NODE")
+  relatedOptionalProducts: [Products] @link(from: "products___NODE")
+}
+
+type SystemProduct {
+  code: String!
 }
 
 type Categories {
@@ -1372,7 +1393,6 @@ type CategoryImage {
   name: String
   realFileName: String
   url: String
-}
 
 type Products implements Node {
   "The documents for this product."
