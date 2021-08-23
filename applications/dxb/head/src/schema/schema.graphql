@@ -1393,6 +1393,7 @@ type CategoryImage {
   name: String
   realFileName: String
   url: String
+}
 
 type Products implements Node {
   "The documents for this product."
