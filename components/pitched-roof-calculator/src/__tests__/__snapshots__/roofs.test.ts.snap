@@ -257,6 +257,9 @@ Array [
         Object {
           "length": 1800,
         },
+        Object {
+          "length": 1819.862878333277,
+        },
       ],
       "rightVerge": Array [
         Object {
@@ -444,6 +447,9 @@ Array [
       "ridge": Array [
         Object {
           "length": 1800,
+        },
+        Object {
+          "length": 1819.862878333277,
         },
       ],
       "rightVerge": Array [
