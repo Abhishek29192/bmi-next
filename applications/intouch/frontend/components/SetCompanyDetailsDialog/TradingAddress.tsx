@@ -131,6 +131,7 @@ export const SetTradingAddress = ({
             )}
             onAddressSelected={onAddressSelected}
             mapProps={googleMapProps}
+            locationBias={market.geoMiddle}
           />
         </Grid>
       </Grid>
