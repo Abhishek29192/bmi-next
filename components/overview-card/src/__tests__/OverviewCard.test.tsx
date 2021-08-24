@@ -139,4 +139,26 @@ describe("OverviewCard component", () => {
 
     expect(onClick.mock.calls).toMatchSnapshot();
   });
+
+  it("removes clickable class when the area is none", () => {
+    const { container } = render(
+      <OverviewCard
+        title="Heading"
+        titleVariant="h4"
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        brandImageSource={mockLogo}
+        footer={
+          <Button component="span" variant="outlined">
+            Go to this
+          </Button>
+        }
+        buttonComponent="div"
+        clickableArea="none"
+      >
+        We do the things
+      </OverviewCard>
+    );
+
+    expect(container).toMatchSnapshot();
+  });
 });
