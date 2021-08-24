@@ -23,6 +23,7 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   isFlat?: boolean;
   buttonComponent?: React.ComponentType<any>;
   clickableArea?: "full" | "body";
+  isHighlighted?: boolean;
 };
 
 const __DeprecatedImageSource = ({
@@ -86,6 +87,7 @@ const OverviewCard = ({
   buttonComponent: Button = ButtonBase,
   className,
   clickableArea = "full",
+  isHighlighted = false,
   ...rest
 }: Props) => {
   const ClickableArea = ({
@@ -113,6 +115,9 @@ const OverviewCard = ({
     <Wrapper
       className={classnames(
         styles["OverviewCard"],
+        {
+          [styles["OverviewCard--highlighted"]!]: isHighlighted
+        },
         styles[`OverviewCard--${isFlat ? "flat" : "clickable"}`],
         className
       )}

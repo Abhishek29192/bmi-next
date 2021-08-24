@@ -128,4 +128,7 @@
       }
     }
   }
+  &--highlighted {
+    border: 3px solid $color-theme-inter;
+  }
 }

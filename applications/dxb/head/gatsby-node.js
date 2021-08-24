@@ -297,7 +297,7 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     }
 
-    if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES) {
+    if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
       await createSystemPages({
         siteId: site.id,
         countryCode: site.countryCode,
