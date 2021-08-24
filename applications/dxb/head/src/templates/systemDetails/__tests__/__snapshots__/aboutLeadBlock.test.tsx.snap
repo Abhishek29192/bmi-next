@@ -23,7 +23,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.guaranteesWarranties
+          MC: pdp.leadBlock.guaranteesWarranties
         </h5>
         <img
           alt="Monier garanti 30 år"
@@ -226,7 +226,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.awardsCertificates
+          MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
           alt="Test_Award"
@@ -429,7 +429,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.guaranteesWarranties
+          MC: pdp.leadBlock.guaranteesWarranties
         </h5>
         <img
           alt="Monier garanti 30 år"
@@ -443,7 +443,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.awardsCertificates
+          MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
           alt="Test_Award"
@@ -535,7 +535,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.guaranteesWarranties
+          MC: pdp.leadBlock.guaranteesWarranties
         </h5>
         <img
           alt="Monier garanti 30 år"
@@ -549,7 +549,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.awardsCertificates
+          MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
           alt="Test_Award"
@@ -585,7 +585,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.guaranteesWarranties
+          MC: pdp.leadBlock.guaranteesWarranties
         </h5>
         <img
           alt="Monier garanti 30 år"
@@ -599,7 +599,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.awardsCertificates
+          MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
           alt="Test_Award"
@@ -691,7 +691,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.guaranteesWarranties
+          MC: pdp.leadBlock.guaranteesWarranties
         </h5>
         <img
           alt="Monier garanti 30 år"
@@ -705,7 +705,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.awardsCertificates
+          MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
           alt="Test_Award"
@@ -741,7 +741,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.guaranteesWarranties
+          MC: pdp.leadBlock.guaranteesWarranties
         </h5>
         <img
           alt="Monier garanti 30 år"
@@ -755,7 +755,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
         <h5
           class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
         >
-          MC: sdp.leadBlock.awardsCertificates
+          MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
           alt="Test_Award"
