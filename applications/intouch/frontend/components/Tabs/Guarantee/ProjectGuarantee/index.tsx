@@ -1,5 +1,5 @@
 import React from "react";
-import groupBy from "lodash.groupby";
+import groupBy from "lodash/groupBy";
 import { useTranslation } from "next-i18next";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";

@@ -1,5 +1,5 @@
-import get from "lodash.get";
-import set from "lodash.set";
+import get from "lodash/get";
+import set from "lodash/set";
 import React, { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { CompanyOperation } from "@bmi/intouch-api-types";
@@ -20,7 +20,7 @@ import { BUSINESS_TYPES } from "../../lib/constants";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
 import { formatCompanyOperations } from "../Pages/Company/RegisteredDetails";
-import { SetTradingAddress } from "./TradingAddress";
+import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
 
 export type OnCompanyUpdateSuccess = (
@@ -207,7 +207,7 @@ export const SetCompanyDetailsDialog = ({
 
           <SetTradingAddress
             existingTradingAddress={company?.tradingAddress}
-            market={market}
+            marketCenterPoint={market.geoMiddle}
           />
 
           <Typography variant="h6" className={styles.sectionText}>

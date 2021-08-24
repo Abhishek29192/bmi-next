@@ -1,13 +1,14 @@
 import React from "react";
-import { Market } from "@bmi/intouch-api-types";
-import MarketContextWrapper from "../../../context/MarketContext";
-import { generateMarket } from "../factories/market";
+import MarketContextWrapper, {
+  ContextProps
+} from "../../../context/MarketContext";
+import { generateMarketContext } from "../factories/market";
 
 const Wrapper = ({
-  market = generateMarket(),
+  market = generateMarketContext(),
   children
 }: {
-  market?: Partial<Market>;
+  market?: ContextProps["market"];
   children: React.ReactNode;
 }) => {
   return (

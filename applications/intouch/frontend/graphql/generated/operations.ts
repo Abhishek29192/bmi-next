@@ -1818,6 +1818,7 @@ export type AccountPageDetailsFragmentFragment = {
 
 export type GetUserProfileQueryVariables = SchemaTypes.Exact<{
   accountId: SchemaTypes.Scalars["Int"];
+  marketDomain: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetUserProfileQuery = { readonly __typename?: "Query" } & {
@@ -1890,6 +1891,20 @@ export type GetUserProfileQuery = { readonly __typename?: "Query" } & {
           >;
         };
       }
+  >;
+  readonly markets?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Market" } & {
+          readonly geoMiddle?: SchemaTypes.Maybe<
+            { readonly __typename?: "Point" } & Pick<
+              SchemaTypes.Point,
+              "x" | "y"
+            >
+          >;
+        }
+      >;
+    }
   >;
 };
 

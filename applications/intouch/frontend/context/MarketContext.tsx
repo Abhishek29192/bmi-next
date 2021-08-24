@@ -1,8 +1,17 @@
 import React, { useState, createContext, useEffect } from "react";
 import { Market } from "@bmi/intouch-api-types";
 
-type ContextProps = {
-  market: Partial<Market>;
+export type ContextProps = {
+  market: Omit<
+    Market,
+    // we don't need all the nested relations for now
+    | "accounts"
+    | "companies"
+    | "companyMembers"
+    | "products"
+    | "systems"
+    | "systemMembers"
+  >;
 };
 
 type ContextWrapperProps = ContextProps & {

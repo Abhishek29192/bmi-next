@@ -2470,9 +2470,17 @@ export type GetPartnerBrandsQueryResult = Apollo.QueryResult<
   OperationTypes.GetPartnerBrandsQueryVariables
 >;
 export const GetUserProfileDocument = gql`
-  query getUserProfile($accountId: Int!) {
+  query getUserProfile($accountId: Int!, $marketDomain: String!) {
     account(id: $accountId) {
       ...AccountPageDetailsFragment
+    }
+    markets(condition: { domain: $marketDomain }) {
+      nodes {
+        geoMiddle {
+          x
+          y
+        }
+      }
     }
   }
   ${AccountPageDetailsFragmentFragmentDoc}
@@ -2491,6 +2499,7 @@ export const GetUserProfileDocument = gql`
  * const { data, loading, error } = useGetUserProfileQuery({
  *   variables: {
  *      accountId: // value for 'accountId'
+ *      marketDomain: // value for 'marketDomain'
  *   },
  * });
  */

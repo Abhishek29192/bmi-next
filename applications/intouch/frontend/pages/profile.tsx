@@ -69,19 +69,29 @@ export const ACCOUNT_PAGE_DETAILS_FRAGMENT = gql`
 `;
 
 export const GET_USER_CONTENT = gql`
-  query getUserProfile($accountId: Int!) {
+  query getUserProfile($accountId: Int!, $marketDomain: String!) {
     account(id: $accountId) {
       ...AccountPageDetailsFragment
+    }
+    markets(condition: { domain: $marketDomain }) {
+      nodes {
+        geoMiddle {
+          x
+          y
+        }
+      }
     }
   }
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, account, res }) => {
+  async ({ locale, apolloClient, globalPageData, account, marketDomain }) => {
     const {
-      props: { data }
+      props: {
+        data: { account: pageAccount, markets }
+      }
     } = await getServerPageGetUserProfile(
-      { variables: { accountId: account.id } },
+      { variables: { accountId: account.id, marketDomain } },
       apolloClient
     );
 
@@ -89,7 +99,8 @@ export const getServerSideProps = withPage(
       props: {
         globalPageData,
         account,
-        pageAccount: data.account,
+        market: markets?.nodes?.[0],
+        pageAccount,
         ...(await serverSideTranslations(locale, [
           "profile",
           "company-page",

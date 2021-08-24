@@ -1,4 +1,4 @@
-import get from "lodash.get";
+import get from "lodash/get";
 import React, {
   useCallback,
   useContext,
@@ -7,6 +7,7 @@ import React, {
   useState
 } from "react";
 import { useTranslation } from "react-i18next";
+import { Point } from "@bmi/intouch-api-types";
 import { FormContext } from "@bmi/form";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
@@ -24,12 +25,12 @@ const ControlledTextInput =
 
 type Props = {
   existingTradingAddress: GetCompanyQuery["company"]["tradingAddress"];
-  market: GetCompanyQuery["markets"]["nodes"][0];
+  marketCenterPoint: Point;
 };
 
 export const SetTradingAddress = ({
   existingTradingAddress,
-  market
+  marketCenterPoint
 }: Props) => {
   const { t } = useTranslation(["common", "company-page"]);
   const { updateFormState, values: formValues } = useContext(FormContext);
@@ -119,13 +120,13 @@ export const SetTradingAddress = ({
           ? { lat, lng }
           : {
               // market geo_middle
-              lat: market.geoMiddle.x,
-              lng: market.geoMiddle.y
+              lat: marketCenterPoint.x,
+              lng: marketCenterPoint.y
             },
       zoom: lat && lng ? 16 : 6,
       draggable: false
     }),
-    [lat, lng, market.geoMiddle]
+    [lat, lng, marketCenterPoint]
   );
 
   return (
@@ -141,7 +142,7 @@ export const SetTradingAddress = ({
             )}
             onAddressSelected={onAddressSelected}
             mapProps={googleMapProps}
-            locationBias={market.geoMiddle}
+            locationBias={marketCenterPoint}
           />
         </Grid>
       </Grid>
