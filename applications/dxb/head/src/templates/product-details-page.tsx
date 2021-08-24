@@ -155,7 +155,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           </Container>
           <Section backgroundColor="white">
             <ProductLeadBlock
-              description={product.longDescription || product.description}
+              description={product.description}
               keyFeatures={product.productBenefits}
               sidebarItems={resources?.pdpSidebarItems}
               guaranteesAndWarranties={product.assets?.filter(
@@ -250,7 +250,6 @@ export const pageQuery = graphql`
       name
       approvalStatus
       description
-      longDescription
       images {
         allowedToDownload
         assetType
