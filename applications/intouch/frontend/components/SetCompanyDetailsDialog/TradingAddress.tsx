@@ -1,5 +1,11 @@
 import get from "lodash.get";
-import React, { useCallback, useContext, useEffect, useMemo } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState
+} from "react";
 import { useTranslation } from "react-i18next";
 import { FormContext } from "@bmi/form";
 import Grid from "@bmi/grid";
@@ -27,6 +33,9 @@ export const SetTradingAddress = ({
 }: Props) => {
   const { t } = useTranslation(["common", "company-page"]);
   const { updateFormState, values: formValues } = useContext(FormContext);
+  const [showInputFields, setShowInputFields] = useState(
+    !!existingTradingAddress
+  );
 
   const { lat, lng } = {
     lat: formValues["tradingAddress.coordinates.x"],
@@ -82,6 +91,7 @@ export const SetTradingAddress = ({
       if (newTradingAddress) {
         updateAddress(newTradingAddress);
       }
+      setShowInputFields(!!(newTradingAddress || existingTradingAddress));
     },
     [updateFormState]
   );
@@ -136,36 +146,40 @@ export const SetTradingAddress = ({
         </Grid>
       </Grid>
 
-      <Grid container xs={12} spacing={3}>
-        <Grid item xs={12}>
-          <Typography variant="h6" className={styles.sectionText}>
-            {t(
-              "company-page:edit_dialog.sections.trading_address_fields_heading"
-            )}
-          </Typography>
+      {showInputFields && (
+        <>
+          <Grid container xs={12} spacing={3}>
+            <Grid item xs={12}>
+              <Typography variant="h6" className={styles.sectionText}>
+                {t(
+                  "company-page:edit_dialog.sections.trading_address_fields_heading"
+                )}
+              </Typography>
 
-          <ControlledTextInput {...getFieldProps("firstLine")} />
-          <ControlledTextInput {...getFieldProps("secondLine")} />
-          <ControlledTextInput {...getFieldProps("town")} />
-          <ControlledTextInput
-            {...getFieldProps("region")}
-            // the Grid below (with more trading address details) is separate in order to get the horizontal spacing right
-            // unfortunately the additional grid causes the vertical spacing to be 2x what is needed
-            // so we are resetting the bottom padding, so that it looks like a single grid
-            style={{ marginBottom: 12 }}
-          />
-        </Grid>
-      </Grid>
+              <ControlledTextInput {...getFieldProps("firstLine")} />
+              <ControlledTextInput {...getFieldProps("secondLine")} />
+              <ControlledTextInput {...getFieldProps("town")} />
+              <ControlledTextInput
+                {...getFieldProps("region")}
+                // the Grid below (with more trading address details) is separate in order to get the horizontal spacing right
+                // unfortunately the additional grid causes the vertical spacing to be 2x what is needed
+                // so we are resetting the bottom padding, so that it looks like a single grid
+                style={{ marginBottom: 12 }}
+              />
+            </Grid>
+          </Grid>
 
-      <Grid container xs={12} spacing={3}>
-        <Grid item xs={12} lg={6}>
-          <ControlledTextInput {...getFieldProps("country")} />
-        </Grid>
+          <Grid container xs={12} spacing={3}>
+            <Grid item xs={12} lg={6}>
+              <ControlledTextInput {...getFieldProps("country")} />
+            </Grid>
 
-        <Grid item xs={12} lg={6}>
-          <ControlledTextInput {...getFieldProps("postcode")} />
-        </Grid>
-      </Grid>
+            <Grid item xs={12} lg={6}>
+              <ControlledTextInput {...getFieldProps("postcode")} />
+            </Grid>
+          </Grid>
+        </>
+      )}
 
       <div className={styles.hidden}>
         <ControlledTextInput
