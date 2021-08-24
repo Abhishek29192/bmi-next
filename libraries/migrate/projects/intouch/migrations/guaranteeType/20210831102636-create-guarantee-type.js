@@ -9,7 +9,7 @@ module.exports.up = (migration) => {
   const guaranteeType = migration
     .createContentType("guaranteeType")
     .name("Guarantee Type")
-    .displayField("name")
+    .displayField("displayName")
     .description("A type of guarantee");
 
   guaranteeType
@@ -31,6 +31,25 @@ module.exports.up = (migration) => {
     .type("Symbol")
     .required(true)
     .validations([{ in: guaranteeCoverage }]);
+
+  guaranteeType
+    .createField("guaranteeReferenceCode")
+    .name("Guarantee Reference Code")
+    .type("Symbol")
+    .required(true)
+    .validations([
+      { unique: true },
+      {
+        in: [
+          "FLAT_PRODUCT",
+          "FLAT_SYSTEM",
+          "FLAT_SOLUTION",
+          "PITCHED_PRODUCT",
+          "PITCHED_SYSTEM",
+          "PITCHED_SOLUTION"
+        ]
+      }
+    ]);
 
   guaranteeType
     .createField("name")
@@ -95,6 +114,15 @@ module.exports.up = (migration) => {
   guaranteeType.changeFieldControl("displayName", "builtin", "singleLine");
   guaranteeType.changeFieldControl("technology", "builtin", "dropdown");
   guaranteeType.changeFieldControl("coverage", "builtin", "dropdown");
+  guaranteeType.changeFieldControl(
+    "guaranteeReferenceCode",
+    "builtin",
+    "dropdown",
+    {
+      helpText:
+        "This field ensures the uniqueness of the entry. Guarantees will reference this field instead of the Contentful ID."
+    }
+  );
   guaranteeType.changeFieldControl("name", "builtin", "singleLine");
   guaranteeType.changeFieldControl("signature", "builtin", "assetLinkEditor");
   guaranteeType.changeFieldControl(

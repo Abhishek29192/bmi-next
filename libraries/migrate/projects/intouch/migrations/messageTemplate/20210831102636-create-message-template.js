@@ -1,6 +1,3 @@
-const messageEvents = require("../../variables/messageEvents/20210222125604");
-const messageFormats = require("../../variables/messageFormats/20210222125604");
-
 module.exports.description = "Create content model for Message Template";
 
 module.exports.up = (migration) => {
@@ -15,7 +12,28 @@ module.exports.up = (migration) => {
     .name("Event")
     .type("Symbol")
     .required(true)
-    .validations([{ unique: true }, { in: messageEvents }]);
+    .validations([
+      { unique: true },
+      {
+        in: [
+          "MEMBER_INVITED",
+          "NEWUSER_INVITED",
+          "PROFILE_REMINDER",
+          "ROLE_ASSIGNED",
+          "ACCOUNT_REGISTERED",
+          "ACCOUNT_ACTIVATED",
+          "CERTIFICATION_EXPIRED",
+          "TIER_ASSIGNED",
+          "REQUEST_AUTOMATICALLY_APPROVED",
+          "REQUEST_APPROVED",
+          "REQUEST_REJECTED",
+          "TEAM_JOINED",
+          "COMPANY_MEMBER_REMOVED",
+          "COMPANY_REGISTERED",
+          "NOTE_ADDED"
+        ]
+      }
+    ]);
 
   messageTemplate
     .createField("format")
@@ -24,7 +42,7 @@ module.exports.up = (migration) => {
     .required(true)
     .items({
       type: "Symbol",
-      validations: [{ in: messageFormats }]
+      validations: [{ in: ["EMAIL", "NOTIFICATION"] }]
     });
 
   messageTemplate

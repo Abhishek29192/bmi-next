@@ -4540,6 +4540,7 @@ type ContentfulGuaranteeType {
   displayName: String
   technology: ContentfulTechnologyType
   coverage: ContentfulGuaranteeCoverageType
+  guaranteeReferenceCode: String
   name: String
   signature: ContentfulAsset
   maximumValidityYears: Int
@@ -4589,6 +4590,7 @@ type ContentfulEvidenceCategory {
   name: String
   description: String
   minimumUploads: Int
+  referenceCode: String
 }
 
 type ContentfulGuaranteeTemplatesCollection {
@@ -4596,6 +4598,9 @@ type ContentfulGuaranteeTemplatesCollection {
 }
 
 type ContentfulGuaranteeTemplate {
+  coverage: String
+  languageCode: String
+  languageDescriptor: String
   approvalMessage: ContentfulMessage
   rejectionMessage: ContentfulMessage
   terms: ContentfulAsset

@@ -69,9 +69,13 @@ export default gql`
     name: String
     description: String
     minimumUploads: Int
+    referenceCode: String
   }
 
   type ContentfulGuaranteeTemplate {
+    coverage: String
+    languageCode: String
+    languageDescriptor: String
     approvalMessage: ContentfulMessage
     rejectionMessage: ContentfulMessage
     terms: ContentfulAsset
@@ -113,6 +117,7 @@ export default gql`
     displayName: String
     technology: ContentfulTechnologyType
     coverage: ContentfulGuaranteeCoverageType
+    guaranteeReferenceCode: String
     name: String
     signature: ContentfulAsset
     maximumValidityYears: Int
