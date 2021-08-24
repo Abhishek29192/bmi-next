@@ -57,6 +57,13 @@ const transformImages = (images) => {
   }));
 };
 
+const getDescription = (product: Product): string => {
+  const variant = product.variantOptions.find(
+    (variant) => variant.longDescription
+  );
+  return variant?.longDescription || product.description;
+};
+
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
 
@@ -155,7 +162,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           </Container>
           <Section backgroundColor="white">
             <ProductLeadBlock
-              description={product.description}
+              description={getDescription(product)}
               keyFeatures={product.productBenefits}
               sidebarItems={resources?.pdpSidebarItems}
               guaranteesAndWarranties={product.assets?.filter(
