@@ -81,7 +81,7 @@ const VariantSelectionRow = ({
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-select-tile-colour",
-                label: tile.color,
+                label: `${tile.color} - Nobb: ${tile.externalProductCode}`,
                 action: "selected"
               });
               select(tile);

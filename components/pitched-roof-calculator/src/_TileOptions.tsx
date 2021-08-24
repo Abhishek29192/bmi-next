@@ -108,7 +108,7 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-options-accessories",
-                label: name,
+                label: `${name} - Nobb: ${externalProductCode}`,
                 action: "selected"
               });
             }}
@@ -163,7 +163,7 @@ const VentilationHoodOptions = ({
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-options-accessories",
-                label: name,
+                label: `${name} - Nobb: ${externalProductCode}`,
                 action: "selected"
               });
             }}
