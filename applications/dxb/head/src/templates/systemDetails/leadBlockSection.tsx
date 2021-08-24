@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Section from "@bmi/section";
 import LeadBlock from "@bmi/lead-block";
 import Typography from "@bmi/typography";
-import AnchorLink from "@bmi/anchor-link";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Button from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import CheckIcon from "@material-ui/icons/Check";
 import { isEmpty } from "lodash";
+import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
 import Image, { Data as ImageData } from "../../components/Image";
 import styles from "./styles/leadBlockSection.module.scss";
@@ -22,6 +23,8 @@ type Props = {
   cta?: LinkData;
   uniqueSellingPropositions?: Feature;
 };
+
+const SYSTEM_CONFIG_QUERY_KEY = "selected_system";
 
 const getBrandLogo = (categories: Category[]): null | ImageData => {
   const brandCategory = categories.find((c) => c.categoryType === "Brand");
@@ -68,8 +71,18 @@ const LeadBlockSection = ({
   cta,
   uniqueSellingPropositions
 }: Props) => {
+  const [selectedSystemId, setSelectedSystemId] = useState("");
   const brandLogo = getBrandLogo(categories);
   const promotionalContent = getPromotionalContent(classifications);
+  const location = useLocation();
+
+  useEffect(() => {
+    const systemId = new URLSearchParams(location.search).get(
+      SYSTEM_CONFIG_QUERY_KEY
+    );
+
+    setSelectedSystemId(systemId);
+  }, []);
 
   return (
     <Section backgroundColor="white" className={styles["LeadBlockSection"]}>
@@ -92,16 +105,20 @@ const LeadBlockSection = ({
               <Typography variant="body2">{promotionalContent}</Typography>
             </LeadBlock.Content.Section>
           )}
-
           <LeadBlock.Content.Section className={styles["ctaContainer"]}>
-            <AnchorLink
-              action={{ model: "htmlLink", href: "/" }}
-              iconStart
-              iconInverted
-            >
-              Back to your selection
-            </AnchorLink>
-
+            {selectedSystemId && (
+              <Button
+                variant="text"
+                action={{
+                  model: "htmlLink",
+                  href: `system-configurator-page?referer=sys_details`,
+                  rel: "noopener noreferrer"
+                }}
+                startIcon={<ArrowBackIcon />}
+              >
+                Back to your selection
+              </Button>
+            )}
             {Boolean(cta) && (
               <Link
                 data={cta}

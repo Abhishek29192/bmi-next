@@ -2832,19 +2832,6 @@ exports[`SystemDetailsPage template component should have function to filter and
                 class="ctaContainer LeadBlockContentSection"
               >
                 <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                  href="/"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="icon icon--inverted"
-                    focusable="false"
-                  />
-                  <span>
-                    Back to your selection
-                  </span>
-                </a>
-                <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-147 MuiButton-contained buttonStyles-contained-149 quotationBtn MuiButton-containedPrimary"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\",\\"label\\":\\"Get a Quotation\\"}"
@@ -6691,19 +6678,6 @@ exports[`SystemDetailsPage template component should render 1`] = `
               <div
                 class="ctaContainer LeadBlockContentSection"
               >
-                <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                  href="/"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="icon icon--inverted"
-                    focusable="false"
-                  />
-                  <span>
-                    Back to your selection
-                  </span>
-                </a>
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 quotationBtn MuiButton-containedPrimary"
@@ -10845,19 +10819,6 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               <div
                 class="ctaContainer LeadBlockContentSection"
               >
-                <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                  href="/"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="icon icon--inverted"
-                    focusable="false"
-                  />
-                  <span>
-                    Back to your selection
-                  </span>
-                </a>
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-83 MuiButton-contained buttonStyles-contained-85 quotationBtn MuiButton-containedPrimary"

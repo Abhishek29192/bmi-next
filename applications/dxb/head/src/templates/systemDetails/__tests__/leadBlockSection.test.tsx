@@ -1,98 +1,236 @@
 import React from "react";
-// import { render } from "../../../test/renderWithRouter";
 import { render } from "@testing-library/react";
-import Component from "../leadBlockSection";
-import { Category, Feature, Classification } from "../types";
+import {
+  createHistory,
+  createMemorySource,
+  LocationProvider
+} from "@reach/router";
+import LeadBlockSection from "../leadBlockSection";
 import { Data as LinkData } from "../../../components/Link";
 import "@testing-library/jest-dom";
+import { Category, Classification } from "../../systemDetails/types";
 
-type Props = {
-  name: string;
-  categories: Category[];
-  classifications: Classification[];
-  cta?: LinkData;
-  uniqueSellingPropositions?: Feature;
-};
-
-const props: Props = {
-  name: "test",
-  categories: [
-    {
-      categoryType: "Brand",
-      name: "Monarflex",
-      image: {
-        allowedToDownload: false,
-        fileSize: 1,
-        mime: "mime",
-        name: "image name",
-        realFileName: "test",
-        url: "test image Url"
-      }
+const leadBlockSectionName = "lead Block section";
+const leadBlockCategories: Category[] = [
+  {
+    categoryType: "Brand",
+    name: "category_1",
+    image: {
+      realFileName: "test",
+      url: "dummy",
+      fileSize: 0,
+      mime: "jpeg",
+      name: "test_img",
+      allowedToDownload: false
     }
-  ],
-  classifications: [
-    {
-      code: "systemAttributes",
-      features: [
-        {
-          code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
-          featureValues: [
-            {
-              value: "Sample PC value"
-            }
-          ],
-          name: "Promotional Content"
-        }
-      ],
-      name: "systemAttributes Classification"
-    }
-  ],
-  uniqueSellingPropositions: {
-    code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.uniquesellingpropositions",
-    featureValues: [
+  }
+];
+const leadBlockClassifications: Classification[] = [
+  {
+    code: "systemAttributes",
+    features: [
       {
-        value: "Sample USP value"
-      },
-      {
-        value: "Sample USP value 2"
+        code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
+        featureValues: [{ value: "fature value 1" }],
+        name: "feature 1"
       }
     ],
-    name: "Unique Selling Propositions"
+    name: "classification 1"
   }
+];
+
+const leadBlockClassificationsNoFeatures: Classification[] = [
+  {
+    code: "systemAttributes",
+    features: [],
+    name: "classification 1"
+  }
+];
+
+const ctaLabel = "cta label";
+const backToYourSelectionLabel = "Back to your selection";
+const linkData: LinkData = {
+  __typename: "ContentfulLink",
+  id: "string",
+  label: ctaLabel,
+  icon: null,
+  isLabelHidden: null,
+  url: "https://www.external.co.uk",
+  linkedPage: null,
+  type: "External",
+  parameters: null,
+  dialogContent: null,
+  hubSpotCTAID: null
 };
 
-describe("LeadBlock Section tests", () => {
+describe("LeadBlockSection tests", () => {
   it("should render", () => {
-    const {
-      categories,
-      classifications,
-      uniqueSellingPropositions: { featureValues }
-    } = props;
-    const { container, queryAllByText } = render(<Component {...props} />);
-
-    const systemAttributesContent = queryAllByText(featureValues[0].value);
-    const promotionalContent = queryAllByText(
-      classifications[0].features[0].featureValues[0].value
+    const { container, queryByText } = render(
+      <LocationProvider>
+        <LeadBlockSection
+          name={leadBlockSectionName}
+          categories={[]}
+          classifications={[]}
+          cta={linkData}
+        />
+      </LocationProvider>
     );
-    const brandLogo = container.querySelector(`.brandLogo`);
 
+    const setionName = queryByText(leadBlockSectionName);
+    const ctaLabelElement = queryByText(ctaLabel);
     expect(container).toMatchSnapshot();
-    expect(systemAttributesContent.length).toBeTruthy();
-    expect(promotionalContent.length).toBeTruthy();
-    expect(brandLogo).toBeInTheDocument();
-    expect(brandLogo).toHaveAttribute("src", categories[0].image.url);
+    expect(setionName).toBeInTheDocument();
+    expect(ctaLabelElement).toBeInTheDocument();
   });
 
-  it("should hide systemAttributes post-it Card when no uniqueSellingPropositions feature", () => {
-    const { container } = render(
-      <Component {...props} uniqueSellingPropositions={null} />
+  it("should render with categories", () => {
+    const { container, queryByText } = render(
+      <LocationProvider>
+        <LeadBlockSection
+          name={leadBlockSectionName}
+          categories={leadBlockCategories}
+          classifications={[]}
+          cta={linkData}
+        />
+      </LocationProvider>
     );
 
+    const setionName = queryByText(leadBlockSectionName);
+    const ctaLabelElement = queryByText(ctaLabel);
+    const brandLogo = container.querySelector(`.brandLogo`);
+    expect(container).toMatchSnapshot();
+    expect(setionName).toBeInTheDocument();
+    expect(ctaLabelElement).toBeInTheDocument();
+    expect(brandLogo).toBeTruthy();
+    expect(brandLogo).toHaveAttribute("src", leadBlockCategories[0].image.url);
+  });
+
+  it("should render with uniqueSellingPropositions", () => {
+    const { container, queryByText } = render(
+      <LocationProvider>
+        <LeadBlockSection
+          name={leadBlockSectionName}
+          categories={[]}
+          classifications={[]}
+          cta={linkData}
+          uniqueSellingPropositions={leadBlockClassifications[0].features[0]}
+        />
+      </LocationProvider>
+    );
+
+    const setionName = queryByText(leadBlockSectionName);
+    const ctaLabelElement = queryByText(ctaLabel);
+    const feature = queryByText(
+      leadBlockClassifications[0].features[0].featureValues[0].value
+    );
+    expect(container).toMatchSnapshot();
+    expect(setionName).toBeInTheDocument();
+    expect(ctaLabelElement).toBeInTheDocument();
+    expect(feature).toBeInTheDocument();
+  });
+
+  it("should not render systemAttributes Card with no uniqueSellingPropositions", () => {
+    const { container, queryByText } = render(
+      <LocationProvider>
+        <LeadBlockSection
+          name={leadBlockSectionName}
+          categories={[]}
+          classifications={[]}
+          cta={linkData}
+        />
+      </LocationProvider>
+    );
+
+    const setionName = queryByText(leadBlockSectionName);
+    const ctaLabelElement = queryByText(ctaLabel);
     const systemAttributesContent = container.querySelectorAll(
       "[class*=PostItCard]"
     );
-
     expect(container).toMatchSnapshot();
+    expect(setionName).toBeInTheDocument();
+    expect(ctaLabelElement).toBeInTheDocument();
     expect(systemAttributesContent.length).toBeFalsy();
+  });
+
+  describe("When classifications are provided", () => {
+    it("should render with classifications", () => {
+      const { container, queryByText } = render(
+        <LocationProvider>
+          <LeadBlockSection
+            name={leadBlockSectionName}
+            categories={leadBlockCategories}
+            classifications={leadBlockClassifications}
+            cta={linkData}
+          />
+        </LocationProvider>
+      );
+
+      const setionName = queryByText(leadBlockSectionName);
+      const ctaLabelElement = queryByText(ctaLabel);
+      expect(container).toMatchSnapshot();
+      expect(setionName).toBeInTheDocument();
+      expect(ctaLabelElement).toBeInTheDocument();
+    });
+
+    it("should render with classifications without features", () => {
+      const { container, queryByText } = render(
+        <LocationProvider>
+          <LeadBlockSection
+            name={leadBlockSectionName}
+            categories={leadBlockCategories}
+            classifications={leadBlockClassificationsNoFeatures}
+            cta={linkData}
+          />
+        </LocationProvider>
+      );
+
+      const setionName = queryByText(leadBlockSectionName);
+      const ctaLabelElement = queryByText(ctaLabel);
+      expect(container).toMatchSnapshot();
+      expect(setionName).toBeInTheDocument();
+      expect(ctaLabelElement).toBeInTheDocument();
+    });
+  });
+
+  describe("When user navigates with selected systems query string", () => {
+    it("should render back to your selection button", () => {
+      const route = "/jest-test-page?selected_system=123";
+      const history = createHistory(createMemorySource(route));
+      const { container, queryByText } = render(
+        <LocationProvider history={history}>
+          <LeadBlockSection
+            name={leadBlockSectionName}
+            categories={[
+              {
+                categoryType: "Brand",
+                name: "category_1",
+                image: {
+                  realFileName: "test",
+                  url: "dummy",
+                  fileSize: 0,
+                  mime: "jpeg",
+                  name: "test_img",
+                  allowedToDownload: false
+                }
+              }
+            ]}
+            classifications={[]}
+            cta={linkData}
+          />
+        </LocationProvider>
+      );
+
+      const setionName = queryByText(leadBlockSectionName);
+      const ctaLabelElement = queryByText(ctaLabel);
+      const backToYourSelectionBtn = queryByText(backToYourSelectionLabel);
+
+      expect(container).toMatchSnapshot();
+      expect(setionName).toBeInTheDocument();
+      expect(ctaLabelElement).toBeInTheDocument();
+      expect(backToYourSelectionBtn).toBeInTheDocument();
+      expect(
+        (backToYourSelectionBtn.parentElement as HTMLAnchorElement).href
+      ).toContain("system-configurator-page?referer=sys_details");
+    });
   });
 });
