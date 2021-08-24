@@ -106,7 +106,7 @@ describe("LeadBlockSection tests", () => {
   });
 
   it("should render with uniqueSellingPropositions", () => {
-    const { container, queryByText } = render(
+    const { container, queryByText, queryByTestId } = render(
       <LocationProvider>
         <LeadBlockSection
           name={leadBlockSectionName}
@@ -120,17 +120,19 @@ describe("LeadBlockSection tests", () => {
 
     const setionName = queryByText(leadBlockSectionName);
     const ctaLabelElement = queryByText(ctaLabel);
+    const systemAttributesContent = queryByTestId("system-attributes-card");
     const feature = queryByText(
       leadBlockClassifications[0].features[0].featureValues[0].value
     );
     expect(container).toMatchSnapshot();
     expect(setionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
+    expect(systemAttributesContent).toBeTruthy();
     expect(feature).toBeInTheDocument();
   });
 
   it("should not render systemAttributes Card with no uniqueSellingPropositions", () => {
-    const { container, queryByText } = render(
+    const { container, queryByText, queryByTestId } = render(
       <LocationProvider>
         <LeadBlockSection
           name={leadBlockSectionName}
@@ -143,13 +145,11 @@ describe("LeadBlockSection tests", () => {
 
     const setionName = queryByText(leadBlockSectionName);
     const ctaLabelElement = queryByText(ctaLabel);
-    const systemAttributesContent = container.querySelectorAll(
-      "[class*=PostItCard]"
-    );
+    const systemAttributesContent = queryByTestId("system-attributes-card");
     expect(container).toMatchSnapshot();
     expect(setionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
-    expect(systemAttributesContent.length).toBeFalsy();
+    expect(systemAttributesContent).toBeFalsy();
   });
 
   describe("When classifications are provided", () => {
