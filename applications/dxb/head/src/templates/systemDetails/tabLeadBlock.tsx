@@ -19,6 +19,7 @@ type Props = {
   systemBenefits?: SystemBenefits;
   specification?: Assets;
   technicalSpecClassifications?: Classification[];
+  documentsAndDownloads?: any;
 };
 
 const GTMTab = withGTM<TabProps>(Tab, {
@@ -33,7 +34,8 @@ const TabLeadBlock = ({
   keyFeatures,
   systemBenefits,
   specification,
-  technicalSpecClassifications
+  technicalSpecClassifications,
+  documentsAndDownloads
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -72,6 +74,17 @@ const TabLeadBlock = ({
               />
             </Tabs.TabPanel>
           )}
+        {documentsAndDownloads && !isEmpty(documentsAndDownloads) && (
+          <Tabs.TabPanel
+            heading={getMicroCopy("sdp.leadBlock.documentsAndDownloads")}
+            index="three"
+          >
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
+              recusandae.
+            </div>
+          </Tabs.TabPanel>
+        )}
         {Boolean(bimIframeUrl) && (
           <Tabs.TabPanel heading={getMicroCopy("sdp.tabs.bim")} index="four">
             <BimIframe url={bimIframeUrl} />
