@@ -623,8 +623,6 @@ describe("SystemConfiguratorSection component", () => {
       await findByText("Result Title");
 
       await findByText((text) => text.startsWith("System-abcd"));
-
-      expect(window.history.replaceState).toBeCalled();
       expect(window.history.replaceState).toHaveBeenLastCalledWith(
         null,
         null,

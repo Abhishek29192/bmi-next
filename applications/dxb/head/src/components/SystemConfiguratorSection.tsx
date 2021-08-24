@@ -52,7 +52,7 @@ type EntryData = {
   title: string;
   type: "Question" | "Answer" | "Result";
   description: RichTextData | null;
-  selectedSystem?: string | null;
+  selectedSystem?: string;
 } & QuestionData &
   ResultData;
 
