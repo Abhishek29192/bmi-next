@@ -3198,7 +3198,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                       <h5
                         class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
                       >
-                        MC: sdp.leadBlock.guaranteesWarranties
+                        MC: pdp.leadBlock.guaranteesWarranties
                       </h5>
                       <img
                         alt="Test_Guarantee"
@@ -3217,7 +3217,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                       <h5
                         class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
                       >
-                        MC: sdp.leadBlock.awardsCertificates
+                        MC: pdp.leadBlock.awardsCertificates
                       </h5>
                       <img
                         alt="test_Certificate"
@@ -7372,7 +7372,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <h5
                         class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
                       >
-                        MC: sdp.leadBlock.guaranteesWarranties
+                        MC: pdp.leadBlock.guaranteesWarranties
                       </h5>
                       <img
                         alt="Test_Guarantee"
@@ -7391,7 +7391,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <h5
                         class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
                       >
-                        MC: sdp.leadBlock.awardsCertificates
+                        MC: pdp.leadBlock.awardsCertificates
                       </h5>
                       <img
                         alt="test_Certificate"
@@ -11617,7 +11617,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <h5
                         class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
                       >
-                        MC: sdp.leadBlock.guaranteesWarranties
+                        MC: pdp.leadBlock.guaranteesWarranties
                       </h5>
                       <img
                         alt="Test_Guarantee"
@@ -11636,7 +11636,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <h5
                         class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
                       >
-                        MC: sdp.leadBlock.awardsCertificates
+                        MC: pdp.leadBlock.awardsCertificates
                       </h5>
                       <img
                         alt="test_Certificate"

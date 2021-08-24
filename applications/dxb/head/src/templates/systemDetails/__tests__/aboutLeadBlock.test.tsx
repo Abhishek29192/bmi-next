@@ -37,6 +37,11 @@ const specification: Assets = {
   url: "test"
 };
 
+const guaranteesWarrantiesMicroCopy = "pdp.leadBlock.guaranteesWarranties";
+const awardsCertificatesMicroCopy = "pdp.leadBlock.awardsCertificates";
+const specificationMicroCopy = "sdp.leadBlock.specification";
+const systemBenefitsMicroCopy = "sdp.leadBlock.systemBenefits";
+
 describe("AboutLeadBlock tests", () => {
   afterEach(cleanup);
 
@@ -54,18 +59,15 @@ describe("AboutLeadBlock tests", () => {
     );
     const longDescriptionText = queryByText(longDescription);
     const guaranteesWarrantiesTitle = queryByText(
-      "sdp.leadBlock.guaranteesWarranties",
+      guaranteesWarrantiesMicroCopy,
       {
         exact: false
       }
     );
-    const awardsCertificatesTitle = queryByText(
-      "sdp.leadBlock.awardsCertificates",
-      {
-        exact: false
-      }
-    );
-    const specificationTitle = queryByText("sdp.leadBlock.specification", {
+    const awardsCertificatesTitle = queryByText(awardsCertificatesMicroCopy, {
+      exact: false
+    });
+    const specificationTitle = queryByText(specificationMicroCopy, {
       exact: false
     });
     const specificationButton = container.querySelector(
@@ -110,7 +112,7 @@ describe("AboutLeadBlock tests", () => {
           specification={specification}
         />
       );
-      const text = queryByText("sdp.leadBlock.awardsCertificates", {
+      const text = queryByText(awardsCertificatesMicroCopy, {
         exact: false
       });
       expect(container).toMatchSnapshot();
@@ -144,7 +146,7 @@ describe("AboutLeadBlock tests", () => {
         />
       );
 
-      const text = queryByText("sdp.leadBlock.systemBenefits", {
+      const text = queryByText(systemBenefitsMicroCopy, {
         exact: false
       });
       expect(container).toMatchSnapshot();
@@ -178,7 +180,7 @@ describe("AboutLeadBlock tests", () => {
         />
       );
 
-      const text = queryByText("sdp.leadBlock.specification", {
+      const text = queryByText(specificationMicroCopy, {
         exact: false
       });
       const specificationButton = container.querySelector(
@@ -227,7 +229,7 @@ describe("AboutLeadBlock tests", () => {
       const descriptionSection = queryByText(longDescription, {
         exact: false
       }).closest(".LeadBlockContentSection");
-      const specificationSection = queryByText("sdp.leadBlock.specification", {
+      const specificationSection = queryByText(specificationMicroCopy, {
         exact: false
       }).closest(".LeadBlockContentSection");
       expect(leadBlockSections[0]).toBe(descriptionSection);
