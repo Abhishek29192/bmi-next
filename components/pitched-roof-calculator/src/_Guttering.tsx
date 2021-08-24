@@ -84,7 +84,7 @@ const GutteringVariantSelection = ({
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-select-guttering",
-                label: name,
+                label: `${name} - Nobb: ${externalProductCode}`,
                 action: "selected"
               });
             }}
@@ -129,7 +129,7 @@ const GutteringHookSelection = ({
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-select-guttering",
-                label: name,
+                label: `${name} - Nobb: ${externalProductCode}`,
                 action: "selected"
               });
             }}
