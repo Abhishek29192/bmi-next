@@ -71,7 +71,7 @@ const AboutLeadBlock = ({
             className={styles["guaranteesAndAwardsAsset"]}
           >
             <LeadBlock.Content.Heading>
-              {getMicroCopy("sdp.leadBlock.guaranteesWarranties")}
+              {getMicroCopy("pdp.leadBlock.guaranteesWarranties")}
             </LeadBlock.Content.Heading>
             {guaranteesAndWarranties.map((item, i) => (
               <img
@@ -88,7 +88,7 @@ const AboutLeadBlock = ({
             className={styles["guaranteesAndAwardsAsset"]}
           >
             <LeadBlock.Content.Heading>
-              {getMicroCopy("sdp.leadBlock.awardsCertificates")}
+              {getMicroCopy("pdp.leadBlock.awardsCertificates")}
             </LeadBlock.Content.Heading>
             {awardsAndCertificates.map((item, i) => (
               <img
