@@ -31,7 +31,7 @@ exports[`Upload component renders correctly 1`] = `
   </div>
   <button
     aria-label="Remove file"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 delete-icon"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 delete-icon"
     data-testid="file-delete"
     tabindex="0"
     type="button"
@@ -88,7 +88,7 @@ exports[`Upload component renders correctly with error 1`] = `
   </div>
   <button
     aria-label="Remove file"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48 delete-icon"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51 delete-icon"
     data-testid="file-delete"
     tabindex="0"
     type="button"
@@ -140,7 +140,7 @@ exports[`Upload component renders correctly with large file size 1`] = `
   </div>
   <button
     aria-label="Remove file"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 delete-icon"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32 delete-icon"
     data-testid="file-delete"
     tabindex="0"
     type="button"

@@ -809,7 +809,7 @@ HTMLCollection [
                     </span>
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-15 iconButtonStyles-medium-21 iconButtonStyles-contained-16 play-button"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-16 iconButtonStyles-medium-22 iconButtonStyles-contained-17 play-button"
                       role="button"
                       tabindex="0"
                     >
@@ -1137,10 +1137,10 @@ HTMLCollection [
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-26 PrivateNotchedOutline-legendNotched-27"
+                        class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
                       >
                         <span>
                           findARoofer.companyFieldLabel
@@ -1289,7 +1289,7 @@ HTMLCollection [
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-28 TabPanelBox"
+                class="MuiBox-root MuiBox-root-29 TabPanelBox"
               >
                 <div
                   class="list"
@@ -1320,7 +1320,7 @@ HTMLCollection [
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-29 TabPanelBox"
+                class="MuiBox-root MuiBox-root-30 TabPanelBox"
               >
                 <div
                   class="map"
@@ -1444,10 +1444,10 @@ HTMLCollection [
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-26 PrivateNotchedOutline-legendNotched-27"
+                        class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
                       >
                         <span>
                           findARoofer.companyFieldLabel
@@ -1638,7 +1638,7 @@ HTMLCollection [
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-30 TabPanelBox"
+                class="MuiBox-root MuiBox-root-31 TabPanelBox"
               >
                 <div
                   class="list"
@@ -2123,7 +2123,7 @@ HTMLCollection [
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-31 TabPanelBox"
+                class="MuiBox-root MuiBox-root-32 TabPanelBox"
               >
                 <div
                   class="map"
@@ -2207,7 +2207,7 @@ HTMLCollection [
                   class="overlay"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-15 iconButtonStyles-medium-21 iconButtonStyles-contained-16 play-button"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-16 iconButtonStyles-medium-22 iconButtonStyles-contained-17 play-button"
                     tabindex="0"
                     type="button"
                   >
@@ -2343,10 +2343,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-26"
+                        class="PrivateNotchedOutline-legendLabelled-27"
                       >
                         <span>
                           First name
@@ -2380,10 +2380,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-26"
+                        class="PrivateNotchedOutline-legendLabelled-27"
                       >
                         <span>
                           Second name
@@ -2417,10 +2417,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-26"
+                        class="PrivateNotchedOutline-legendLabelled-27"
                       >
                         <span>
                           Email address
@@ -2454,10 +2454,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-26"
+                        class="PrivateNotchedOutline-legendLabelled-27"
                       >
                         <span>
                           Company name(if Applicable)
@@ -2491,10 +2491,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-26"
+                        class="PrivateNotchedOutline-legendLabelled-27"
                       >
                         <span>
                           Telephone
@@ -2550,10 +2550,10 @@ HTMLCollection [
                     </svg>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-26"
+                        class="PrivateNotchedOutline-legendLabelled-27"
                       >
                         <span>
                           Type of query
@@ -2642,10 +2642,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-26"
+                        class="PrivateNotchedOutline-legendLabelled-27"
                       >
                         <span>
                           Your message
@@ -2666,13 +2666,13 @@ HTMLCollection [
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-32 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-35"
+                          class="PrivateSwitchBase-input-36"
                           data-indeterminate="false"
                           name="send-copy"
                           type="checkbox"
@@ -2712,13 +2712,13 @@ HTMLCollection [
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-32 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-35"
+                          class="PrivateSwitchBase-input-36"
                           data-indeterminate="false"
                           name="sign-up"
                           type="checkbox"
@@ -2758,13 +2758,13 @@ HTMLCollection [
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-32 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-35"
+                          class="PrivateSwitchBase-input-36"
                           data-indeterminate="false"
                           name="data-protection"
                           type="checkbox"
@@ -2815,13 +2815,13 @@ HTMLCollection [
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-32 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-35"
+                          class="PrivateSwitchBase-input-36"
                           data-indeterminate="false"
                           name="gdpr"
                           type="checkbox"
@@ -3104,7 +3104,7 @@ HTMLCollection [
                           </button>
                         </div>
                         <span
-                          class="PrivateTabIndicator-root-36 PrivateTabIndicator-colorPrimary-37 MuiTabs-indicator"
+                          class="PrivateTabIndicator-root-37 PrivateTabIndicator-colorPrimary-38 MuiTabs-indicator"
                           style="left: 0px; width: 0px;"
                         />
                       </div>
@@ -3120,7 +3120,7 @@ HTMLCollection [
                 role="tabpanel"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-40 TabPanelBox"
+                  class="MuiBox-root MuiBox-root-41 TabPanelBox"
                 >
                   <div
                     class="RichText"
@@ -3340,7 +3340,7 @@ HTMLCollection [
                           </button>
                         </div>
                         <span
-                          class="PrivateTabIndicator-root-41 PrivateTabIndicator-colorPrimary-42 MuiTabs-indicator"
+                          class="PrivateTabIndicator-root-42 PrivateTabIndicator-colorPrimary-43 MuiTabs-indicator"
                           style="left: 0px; width: 0px;"
                         />
                       </div>
@@ -3356,7 +3356,7 @@ HTMLCollection [
                 role="tabpanel"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-45 TabPanelBox"
+                  class="MuiBox-root MuiBox-root-46 TabPanelBox"
                 >
                   <div
                     class="RichText"

@@ -83,12 +83,12 @@ exports[`RichText component closes dialog 1`] = `
     </a>
      
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 EmbeddedLink MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-contained buttonStyles-contained-41 EmbeddedLink MuiButton-containedPrimary"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-40"
+        class="MuiButton-label buttonStyles-label-42"
       >
         Aerodek Robust Plus
       </span>
@@ -125,12 +125,12 @@ exports[`RichText component closes dialog 1`] = `
   </blockquote>
   <hr />
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 EmbeddedLink MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-contained buttonStyles-contained-41 EmbeddedLink MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-40"
+      class="MuiButton-label buttonStyles-label-42"
     >
       Support
     </span>
@@ -179,7 +179,7 @@ exports[`RichText component closes dialog 1`] = `
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51 iconButton"
             tabindex="0"
             type="button"
           >
@@ -491,12 +491,12 @@ exports[`RichText component renders when dialog clicked 1`] = `
     </a>
      
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 EmbeddedLink MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 EmbeddedLink MuiButton-containedPrimary"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-22"
+        class="MuiButton-label buttonStyles-label-23"
       >
         Aerodek Robust Plus
       </span>
@@ -533,12 +533,12 @@ exports[`RichText component renders when dialog clicked 1`] = `
   </blockquote>
   <hr />
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 EmbeddedLink MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 EmbeddedLink MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-22"
+      class="MuiButton-label buttonStyles-label-23"
     >
       Support
     </span>
@@ -590,7 +590,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32 iconButton"
             tabindex="0"
             type="button"
           >

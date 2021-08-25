@@ -43,12 +43,12 @@ exports[`Form component renders with a multiple buttons 1`] = `
     class="ButtonWrapper"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 Button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 Button MuiButton-containedPrimary"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-22"
+        class="MuiButton-label buttonStyles-label-23"
       >
         Cancel
       </span>
@@ -57,12 +57,12 @@ exports[`Form component renders with a multiple buttons 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 Button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 Button MuiButton-containedPrimary"
       tabindex="0"
       type="submit"
     >
       <span
-        class="MuiButton-label buttonStyles-label-22"
+        class="MuiButton-label buttonStyles-label-23"
       >
         Submit
       </span>
@@ -89,12 +89,12 @@ exports[`Form component renders with a right aligned button 1`] = `
     class="ButtonWrapper"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 Button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-contained buttonStyles-contained-41 Button MuiButton-containedPrimary"
       tabindex="0"
       type="submit"
     >
       <span
-        class="MuiButton-label buttonStyles-label-40"
+        class="MuiButton-label buttonStyles-label-42"
       >
         Submit
       </span>

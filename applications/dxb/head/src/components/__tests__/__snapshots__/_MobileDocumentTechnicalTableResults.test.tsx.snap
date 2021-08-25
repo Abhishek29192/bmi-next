@@ -84,7 +84,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-42-45 iconButtonStyles-text-48"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-42-48 iconButtonStyles-text-51"
                           tabindex="0"
                           type="button"
                         >
@@ -114,7 +114,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -156,7 +156,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-42-45 iconButtonStyles-text-48"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-42-48 iconButtonStyles-text-51"
                           tabindex="0"
                           type="button"
                         >
@@ -186,7 +186,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -286,7 +286,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-42-45 iconButtonStyles-text-48"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-42-48 iconButtonStyles-text-51"
                           tabindex="0"
                           type="button"
                         >
@@ -316,7 +316,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -358,7 +358,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-42-45 iconButtonStyles-text-48"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-42-48 iconButtonStyles-text-51"
                           tabindex="0"
                           type="button"
                         >
@@ -388,7 +388,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -560,7 +560,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-42-27 iconButtonStyles-text-30"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-42-29 iconButtonStyles-text-32"
                           tabindex="0"
                           type="button"
                         >
@@ -590,7 +590,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -690,7 +690,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-42-27 iconButtonStyles-text-30"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-42-29 iconButtonStyles-text-32"
                           tabindex="0"
                           type="button"
                         >
@@ -720,7 +720,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -892,7 +892,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-42-9 iconButtonStyles-text-12"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-42-10 iconButtonStyles-text-13"
                           tabindex="0"
                           type="button"
                         >
@@ -922,7 +922,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -1022,7 +1022,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-42-9 iconButtonStyles-text-12"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-42-10 iconButtonStyles-text-13"
                           tabindex="0"
                           type="button"
                         >
@@ -1052,7 +1052,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"

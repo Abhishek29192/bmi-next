@@ -20,12 +20,14 @@ export type IconButtonProps = Omit<MuiIconButtonProps, "action"> & {
   size?: "extra-small" | "small" | 42 | "medium" | "large" | "extra-large";
   component?: undefined;
   classes?: MuiButtonProps["classes"];
+  isColoredOutlinedDarkBg?: true;
 };
 
 export type ButtonProps = Omit<MuiButtonProps, "action"> & {
   isIconButton?: false;
   accessibilityLabel?: string;
   hasDarkBackground?: boolean;
+  isColoredOutlinedDarkBg?: true;
   variant?: Variant;
   component?: React.ElementType<any>;
 };
@@ -41,10 +43,16 @@ const Button = ({
   size,
   disabled,
   component = "button",
+  isColoredOutlinedDarkBg,
   ...rest
 }: ButtonProps | IconButtonProps) => {
-  const { outlinedDarkBg, containedDarkBg, textDarkBg, ...buttonClasses } =
-    useButtonStyles();
+  const {
+    outlinedDarkBg,
+    containedDarkBg,
+    textDarkBg,
+    coloredOutlinedDarkBg,
+    ...buttonClasses
+  } = useButtonStyles();
   const iconButtonClasses = useIconButtonStyles();
 
   return isIconButton ? (
@@ -87,7 +95,8 @@ const Button = ({
         label: classnames(buttonClasses.label, classes?.label),
         startIcon: classnames(buttonClasses.startIcon, classes?.startIcon),
         outlined: classnames(classes?.outlined, {
-          [outlinedDarkBg]: hasDarkBackground
+          [outlinedDarkBg]: hasDarkBackground && !isColoredOutlinedDarkBg,
+          [coloredOutlinedDarkBg]: isColoredOutlinedDarkBg
         })
       }}
     >

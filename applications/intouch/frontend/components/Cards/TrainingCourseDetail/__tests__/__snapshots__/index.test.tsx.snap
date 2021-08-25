@@ -48,17 +48,17 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
         >
           <a
             aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-outlined MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-outlined MuiButton-outlinedPrimary"
             href="/api/docebo-sso"
             rel="noopener noreferrer"
             tabindex="0"
             target="_blank"
           >
             <span
-              class="MuiButton-label buttonStyles-label-40"
+              class="MuiButton-label buttonStyles-label-42"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-41 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-43 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -146,17 +146,17 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
         >
           <a
             aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-outlined MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-outlined MuiButton-outlinedPrimary"
             href="/api/docebo-sso?path=https://intouch.test.com/test-course"
             rel="noopener noreferrer"
             tabindex="0"
             target="_blank"
           >
             <span
-              class="MuiButton-label buttonStyles-label-58"
+              class="MuiButton-label buttonStyles-label-61"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-62 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"

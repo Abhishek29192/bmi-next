@@ -141,6 +141,22 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 </div>
 ```
 
+#### Coloured outline on Dark Background
+
+```jsx
+<div style={{ padding: "10px", background: "#343850", color: "#fff" }}>
+  <Button isColoredOutlinedDarkBg variant="outlined">
+    Caption
+  </Button>
+
+  <p>Disabled</p>
+
+  <Button isColoredOutlinedDarkBg variant="outlined" disabled>
+    Caption
+  </Button>
+</div>
+```
+
 ### Flat
 
 ```jsx

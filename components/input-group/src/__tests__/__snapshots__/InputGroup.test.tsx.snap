@@ -79,10 +79,10 @@ exports[`InputGroup component renders unlocked 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-23 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-25"
+          class="PrivateNotchedOutline-legendLabelled-26"
         >
           <span>
             First name
@@ -92,12 +92,12 @@ exports[`InputGroup component renders unlocked 1`] = `
     </div>
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-27 MuiButton-contained buttonStyles-contained-29 button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-contained buttonStyles-contained-30 button MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-30"
+      class="MuiButton-label buttonStyles-label-31"
     >
       Submit
     </span>
@@ -133,10 +133,10 @@ exports[`InputGroup component renders with an IconButton 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-45 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-47 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-47"
+          class="PrivateNotchedOutline-legendLabelled-49"
         >
           <span>
             First name
@@ -147,7 +147,7 @@ exports[`InputGroup component renders with an IconButton 1`] = `
   </div>
   <button
     aria-label="Submit"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-58 iconButtonStyles-medium-64 iconButtonStyles-contained-59 button"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-61 iconButtonStyles-medium-67 iconButtonStyles-contained-62 button"
     tabindex="0"
     type="button"
   >

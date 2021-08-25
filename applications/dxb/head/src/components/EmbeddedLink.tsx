@@ -20,6 +20,9 @@ const EmbeddedLink = ({
       component={Button}
       variant={theme === "primary" ? "contained" : "outlined"}
       hasDarkBackground={backgroundTheme === "dark"}
+      isColoredOutlinedDarkBg={
+        theme !== "primary" && backgroundTheme === "dark"
+      }
       data={fields}
       className={styles["EmbeddedLink"]}
     >

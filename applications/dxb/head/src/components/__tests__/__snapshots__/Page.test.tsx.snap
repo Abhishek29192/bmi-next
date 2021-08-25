@@ -73,7 +73,7 @@ exports[`Page component renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 close-button"
       tabindex="0"
       type="button"
     >
@@ -332,7 +332,7 @@ exports[`Page component renders correctly 1`] = `
                   </a>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-37 PrivateTabIndicator-colorSecondary-39 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-39 PrivateTabIndicator-colorSecondary-41 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -344,7 +344,7 @@ exports[`Page component renders correctly 1`] = `
         >
           <button
             aria-label="MC: search.label"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 search-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 search-button"
             tabindex="0"
             type="button"
           >
@@ -368,7 +368,7 @@ exports[`Page component renders correctly 1`] = `
           </button>
           <button
             aria-label="MC: menu.open"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 burger-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 burger-button"
             tabindex="0"
             type="button"
           >
@@ -405,7 +405,7 @@ exports[`Page component renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 close-button"
       tabindex="0"
       type="button"
     >
@@ -570,7 +570,7 @@ exports[`Page component renders correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 close-button"
         tabindex="0"
         type="button"
       >

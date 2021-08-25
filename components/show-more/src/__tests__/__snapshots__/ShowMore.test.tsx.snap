@@ -26,12 +26,12 @@ exports[`ShowMore component renders correctly when trigger button is clicked 1`]
     Show more content
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-contained buttonStyles-contained-41 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-40"
+      class="MuiButton-label buttonStyles-label-42"
     >
       Trigger
     </span>
@@ -48,12 +48,12 @@ exports[`ShowMore component renders correctly with close button 1`] = `
     Show more content
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-contained buttonStyles-contained-57 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-contained buttonStyles-contained-60 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-58"
+      class="MuiButton-label buttonStyles-label-61"
     >
       Close
     </span>
@@ -68,12 +68,12 @@ exports[`ShowMore component renders correctly with close button is clicked 1`] =
 <div>
   <div />
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-contained buttonStyles-contained-75 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-77 MuiButton-contained buttonStyles-contained-79 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-76"
+      class="MuiButton-label buttonStyles-label-80"
     >
       Trigger
     </span>
@@ -90,12 +90,12 @@ exports[`ShowMore component renders correctly with content expanded 1`] = `
     Show more content
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-22"
+      class="MuiButton-label buttonStyles-label-23"
     >
       Show more
     </span>

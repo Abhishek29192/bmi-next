@@ -92,7 +92,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                       tabindex="0"
                       type="button"
                     >
@@ -130,7 +130,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                       tabindex="0"
                       type="button"
                     >
@@ -231,7 +231,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                       tabindex="0"
                       type="button"
                     >
@@ -269,7 +269,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                       tabindex="0"
                       type="button"
                     >
@@ -370,7 +370,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                       tabindex="0"
                       type="button"
                     >
@@ -408,7 +408,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                       tabindex="0"
                       type="button"
                     >
@@ -509,7 +509,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                       tabindex="0"
                       type="button"
                     >
@@ -547,7 +547,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                       tabindex="0"
                       type="button"
                     >
@@ -648,7 +648,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                       tabindex="0"
                       type="button"
                     >
@@ -686,7 +686,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                       tabindex="0"
                       type="button"
                     >
@@ -841,7 +841,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               >
                 <button
                   aria-label="Down"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                   tabindex="0"
                   type="button"
                 >
@@ -879,7 +879,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 </div>
                 <button
                   aria-label="Up"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                   tabindex="0"
                   type="button"
                 >
@@ -968,7 +968,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               >
                 <button
                   aria-label="Down"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                   tabindex="0"
                   type="button"
                 >
@@ -1006,7 +1006,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 </div>
                 <button
                   aria-label="Up"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                   tabindex="0"
                   type="button"
                 >
@@ -1095,7 +1095,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               >
                 <button
                   aria-label="Down"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                   tabindex="0"
                   type="button"
                 >
@@ -1133,7 +1133,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 </div>
                 <button
                   aria-label="Up"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                   tabindex="0"
                   type="button"
                 >
@@ -1222,7 +1222,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               >
                 <button
                   aria-label="Down"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                   tabindex="0"
                   type="button"
                 >
@@ -1260,7 +1260,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 </div>
                 <button
                   aria-label="Up"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                   tabindex="0"
                   type="button"
                 >
@@ -1349,7 +1349,7 @@ exports[`QuantityTable component renders correctly 1`] = `
               >
                 <button
                   aria-label="Down"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button-sides"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button-sides"
                   tabindex="0"
                   type="button"
                 >
@@ -1387,7 +1387,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                 </div>
                 <button
                   aria-label="Up"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 button"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 button"
                   tabindex="0"
                   type="button"
                 >

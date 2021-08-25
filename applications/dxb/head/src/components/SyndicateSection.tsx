@@ -37,7 +37,8 @@ const SyndicateSection = ({
         return (
           <Link
             component={Button}
-            hasDarkBackground={type === "dark"}
+            variant="outlined"
+            isColoredOutlinedDarkBg={type === "dark"}
             data={data.cta}
           >
             {data.cta.label}
@@ -47,7 +48,11 @@ const SyndicateSection = ({
 
       if (cta && cta.action) {
         return (
-          <Button action={cta.action} hasDarkBackground={type === "dark"}>
+          <Button
+            action={cta.action}
+            variant="outlined"
+            isColoredOutlinedDarkBg={type === "dark"}
+          >
             {getMicroCopy("page.linkLabel")}
           </Button>
         );
@@ -66,7 +71,11 @@ const SyndicateSection = ({
       media: data.featuredVideo
         ? renderVideo(data.featuredVideo)
         : renderImage(data.featuredMedia, { size: "cover" }),
-      cta: callToAction
+      cta: callToAction,
+      ctaProps: {
+        variant: "outlined",
+        isColoredOutlinedDarkBg: true
+      }
     };
   });
 

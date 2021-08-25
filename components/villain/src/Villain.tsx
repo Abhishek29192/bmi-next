@@ -25,6 +25,7 @@ export type Props = {
   isFullWidth?: boolean;
   isReversed?: boolean;
   cta?: React.ReactNode;
+  ctaProps?: object;
   theme?: Colors;
 };
 
@@ -38,6 +39,7 @@ const FullSizeVillain = ({
   imageSource,
   media,
   cta,
+  ctaProps = {},
   theme
 }: Omit<Props, "isFullWidth">) => {
   const isNestedSection = useContext(SectionContext);
@@ -74,7 +76,8 @@ const FullSizeVillain = ({
           {React.isValidElement(cta) &&
             React.cloneElement(cta, {
               className: classnames(styles["cta"], cta.props.className),
-              hasDarkBackground: hasDarkBg
+              hasDarkBackground: hasDarkBg,
+              ...ctaProps
             })}
         </div>
       </Container>
@@ -102,6 +105,7 @@ const ContainedVillain = ({
   imageSource,
   media,
   cta,
+  ctaProps = {},
   theme
 }: Omit<Props, "isFullWidth">) => {
   const defaultTheme = useTheme();
@@ -149,7 +153,8 @@ const ContainedVillain = ({
               {React.isValidElement(cta) &&
                 React.cloneElement(cta, {
                   className: classnames(styles["cta"], cta.props.className),
-                  hasDarkBackground: hasDarkBg
+                  hasDarkBackground: hasDarkBg,
+                  ...ctaProps
                 })}
             </ColorPair>
           </Grid>

@@ -61,7 +61,7 @@ exports[`InputBanner component renders correctly 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 buttonStyles-containedDarkBg-8 button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 buttonStyles-containedDarkBg-9 button MuiButton-containedPrimary Mui-disabled Mui-disabled"
                   disabled=""
                   tabindex="-1"
                   type="button"

@@ -7,12 +7,12 @@ exports[`BackToTop component handles button click 1`] = `
   <button
     aria-hidden="false"
     aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-contained buttonStyles-contained-57 button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-contained buttonStyles-contained-60 button MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-58"
+      class="MuiButton-label buttonStyles-label-61"
     >
       <svg
         aria-hidden="true"
@@ -39,12 +39,12 @@ exports[`BackToTop component handles scroll 1`] = `
   <button
     aria-hidden="true"
     aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-contained buttonStyles-contained-41 button MuiButton-containedPrimary"
     tabindex="-1"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-40"
+      class="MuiButton-label buttonStyles-label-42"
     >
       <svg
         aria-hidden="true"
@@ -103,12 +103,12 @@ exports[`BackToTop component renders correctly with className 1`] = `
   <button
     aria-hidden="true"
     aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 button MuiButton-containedPrimary"
     tabindex="-1"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-22"
+      class="MuiButton-label buttonStyles-label-23"
     >
       <svg
         aria-hidden="true"

@@ -139,15 +139,15 @@ exports[`SpotlightHero component renders with cta 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-text buttonStyles-text-38 buttonStyles-textDarkBg-42 button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-text buttonStyles-text-40 buttonStyles-textDarkBg-44 button link MuiButton-textPrimary"
                     href="/"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-40"
+                      class="MuiButton-label buttonStyles-label-42"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-41 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-43 MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -201,13 +201,13 @@ exports[`SpotlightHero component renders with cta 1`] = `
             </p>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-outlined buttonStyles-outlinedDarkBg-43 cta MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-outlined buttonStyles-outlinedDarkBg-45 cta MuiButton-outlinedPrimary"
             label="CTA action"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-40"
+              class="MuiButton-label buttonStyles-label-42"
             >
               CTA action
             </span>
@@ -263,15 +263,15 @@ exports[`SpotlightHero component renders with deprecated imageSource 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 button link MuiButton-textPrimary"
                     href="/"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-22"
+                      class="MuiButton-label buttonStyles-label-23"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-23 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-24 MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -365,15 +365,15 @@ exports[`SpotlightHero component renders with keyline for brand 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 buttonStyles-textDarkBg-60 button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-text buttonStyles-text-59 buttonStyles-textDarkBg-63 button link MuiButton-textPrimary"
                     href="/"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-58"
+                      class="MuiButton-label buttonStyles-label-61"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-62 MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"

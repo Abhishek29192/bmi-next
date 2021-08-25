@@ -43,7 +43,7 @@ exports[`CalculatorModal component renders closed 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48 headerSide iconButton"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51 headerSide iconButton"
                 tabindex="0"
                 type="button"
               >
@@ -134,7 +134,7 @@ exports[`CalculatorModal component renders correctly 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 headerSide iconButton"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 headerSide iconButton"
                 tabindex="0"
                 type="button"
               >
@@ -225,7 +225,7 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 headerSide iconButton"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32 headerSide iconButton"
                 tabindex="0"
                 type="button"
               >

@@ -97,7 +97,7 @@ exports[`Footer component renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   aria-label="Facebook"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 iconButtonStyles-textDark-13 icon-link"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 iconButtonStyles-textDark-14 icon-link"
                   href="https://facebook.com/bmigroup"
                   tabindex="0"
                 >
@@ -126,7 +126,7 @@ exports[`Footer component renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   aria-label="LinkedIn"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 iconButtonStyles-textDark-13 icon-link"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 iconButtonStyles-textDark-14 icon-link"
                   href="https://linkedin.com/bmigroup"
                   tabindex="0"
                 >
@@ -155,7 +155,7 @@ exports[`Footer component renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   aria-label="Youtube"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 iconButtonStyles-textDark-13 icon-link"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 iconButtonStyles-textDark-14 icon-link"
                   href="https://youtube.com/bmigroup"
                   tabindex="0"
                 >
@@ -586,15 +586,15 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   href="tel:+4401234567890"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-23 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon buttonStyles-startIcon-24 MuiButton-iconSizeMedium"
                     >
                       <svg
                         aria-hidden="true"
@@ -619,15 +619,15 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   href="mailto:info@bmigroup.com"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-23 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon buttonStyles-startIcon-24 MuiButton-iconSizeMedium"
                     >
                       <svg
                         aria-hidden="true"
@@ -653,7 +653,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 <a
                   aria-disabled="false"
                   aria-label="Facebook"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 iconButtonStyles-textDark-31 icon-link"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32 iconButtonStyles-textDark-33 icon-link"
                   href="https://facebook.com/bmigroup"
                   tabindex="0"
                 >
@@ -682,7 +682,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 <a
                   aria-disabled="false"
                   aria-label="LinkedIn"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 iconButtonStyles-textDark-31 icon-link"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32 iconButtonStyles-textDark-33 icon-link"
                   href="https://linkedin.com/bmigroup"
                   tabindex="0"
                 >
@@ -711,7 +711,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 <a
                   aria-disabled="false"
                   aria-label="Youtube"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 iconButtonStyles-textDark-31 icon-link"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32 iconButtonStyles-textDark-33 icon-link"
                   href="https://youtube.com/bmigroup"
                   tabindex="0"
                 >
@@ -753,12 +753,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     Our Story
                   </span>
@@ -771,12 +771,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     Our Brands
                   </span>
@@ -789,12 +789,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     Diversity
                   </span>
@@ -807,12 +807,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     BMI's CSR Statement
                   </span>
@@ -840,12 +840,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     BMI RoofPro
                   </span>
@@ -858,12 +858,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     Team Icopal
                   </span>
@@ -876,12 +876,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     Training
                   </span>
@@ -894,12 +894,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     Brand Central
                   </span>
@@ -927,12 +927,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     Career Development
                   </span>
@@ -945,12 +945,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 class="list-item"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-22"
+                    class="MuiButton-label buttonStyles-label-23"
                   >
                     Diversity
                   </span>
@@ -978,12 +978,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
             class="list-item"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-22"
+                class="MuiButton-label buttonStyles-label-23"
               >
                 Legal
               </span>
@@ -996,12 +996,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
             class="list-item"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-22"
+                class="MuiButton-label buttonStyles-label-23"
               >
                 Imprint
               </span>
@@ -1014,12 +1014,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
             class="list-item"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-22"
+                class="MuiButton-label buttonStyles-label-23"
               >
                 UK Tax Strategy
               </span>
@@ -1032,12 +1032,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
             class="list-item"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-22"
+                class="MuiButton-label buttonStyles-label-23"
               >
                 UK Modern Slavery Act
               </span>
@@ -1050,12 +1050,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
             class="list-item"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-22"
+                class="MuiButton-label buttonStyles-label-23"
               >
                 Cookie Policy
               </span>
@@ -1068,12 +1068,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
             class="list-item"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-22"
+                class="MuiButton-label buttonStyles-label-23"
               >
                 Priority Notice
               </span>
@@ -1086,12 +1086,12 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
             class="list-item"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 buttonStyles-textDarkBg-24 link MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 buttonStyles-textDarkBg-25 link MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-22"
+                class="MuiButton-label buttonStyles-label-23"
               >
                 Sitemap
               </span>

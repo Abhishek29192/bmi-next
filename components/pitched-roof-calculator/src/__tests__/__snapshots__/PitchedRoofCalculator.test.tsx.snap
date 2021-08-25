@@ -43,7 +43,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32 iconButton"
             tabindex="0"
             type="button"
           >
@@ -116,7 +116,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 iconButton"
             tabindex="0"
             type="button"
           >

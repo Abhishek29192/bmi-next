@@ -15,7 +15,7 @@ exports[`ContactTopics component renders correctly 1`] = `
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 close"
         tabindex="0"
         type="button"
       >
