@@ -19,6 +19,7 @@ import { Link as GatsbyLink } from "gatsby";
 import { useLocation } from "@reach/router";
 import Scrim from "../components/Scrim";
 import ProgressIndicator from "../components/ProgressIndicator";
+import * as storage from "../utils/storage";
 import RichText, { RichTextData } from "./RichText";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
@@ -36,13 +37,22 @@ export type Data = {
 
 export type NextStepData = Partial<EntryData> | TitleWithContentData;
 
+type StoredStateType = {
+  selectedAnswers: Array<string>;
+  selectedSystem: string;
+};
+const initialStorageState: StoredStateType = {
+  selectedAnswers: [],
+  selectedSystem: ""
+};
+
 type EntryData = {
   __typename: "ContentfulSystemConfiguratorBlock";
   id: string;
   title: string;
   type: "Question" | "Answer" | "Result";
   description: RichTextData | null;
-  selectedSystem?: string | null;
+  selectedSystem?: string;
 } & QuestionData &
   ResultData;
 
@@ -74,7 +84,7 @@ type SystemConfiguratorBlockProps = {
 const SystemConfigurtorContext = createContext(undefined);
 
 const saveStateToLocalStorage = (stateToStore: string) => {
-  window?.localStorage?.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
+  storage.local.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
 };
 
 const SystemConfiguratorBlock = ({
@@ -221,9 +231,11 @@ const SystemConfiguratorBlockResultSection = ({
   title,
   description,
   recommendedSystems,
-  selectedSystem
+  selectedSystem: _selectedSystem
 }: Partial<EntryData>) => {
   const { countryCode } = useSiteContext();
+  // put this line at line 258 when implementing card highlight
+  // isHighlighted={selectedSystem === system}
   return (
     <Section backgroundColor="white">
       <Section.Title>{title}</Section.Title>
@@ -243,14 +255,14 @@ const SystemConfiguratorBlockResultSection = ({
                   to: `/${countryCode}/system-details-page?selected_system=${system}`
                 }}
                 onClick={() => {
-                  const storedState = window.localStorage.getItem(
+                  const storedState = storage.local.getItem(
                     SYSTEM_CONFIG_STORAGE_KEY
                   );
                   const stateObject = JSON.parse(storedState || "");
                   const newState = { ...stateObject, selectedSystem: system };
                   saveStateToLocalStorage(JSON.stringify(newState));
                 }}
-                isHighlighted={selectedSystem === system}
+                isHighlighted={false}
               />
             </Grid>
           ))}
@@ -274,7 +286,8 @@ const VALID_REFERER = "sys_details";
 
 const SystemConfiguratorSection = ({ data }: { data: Data }) => {
   const [referer, setReferer] = useState("");
-  const [storedAnswers, setStoredAnswers] = useState(null);
+  const [storedAnswers, setStoredAnswers] =
+    useState<StoredStateType>(undefined);
   const location = useLocation();
 
   // useLayoutEffect for getting value from local storage
@@ -284,13 +297,13 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
     const urlReferer = new URLSearchParams(location.search).get(
       SYSTEM_CONFIG_QUERY_KEY
     );
-
-    const storedValues = window.localStorage.getItem(SYSTEM_CONFIG_STORAGE_KEY);
+    const storedValues = storage.local.getItem(SYSTEM_CONFIG_STORAGE_KEY);
     setReferer(urlReferer);
+
     setStoredAnswers(
       urlReferer === VALID_REFERER && storedValues
         ? JSON.parse(storedValues)
-        : { selectedAnswers: [], selectedSystem: "" }
+        : initialStorageState
     );
   }, []);
 
@@ -329,8 +342,8 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
           {
             headers: { "X-Recaptcha-Token": recaptchaToken },
             params: {
-              answerId: answerId as string,
-              locale: locale as string
+              answerId: answerId,
+              locale: locale
             },
             cancelToken
           }
@@ -371,6 +384,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       (state.result !== null || state.noResult !== null)
     ) {
       history.replaceState(null, null, location.pathname);
+      setStoredAnswers(initialStorageState);
     }
   }, [referer, state]);
 

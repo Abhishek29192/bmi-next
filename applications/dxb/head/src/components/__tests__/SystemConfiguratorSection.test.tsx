@@ -264,6 +264,8 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("stores selected system when a result system card clicked", async () => {
+    jest.spyOn(window.localStorage.__proto__, "setItem");
+    window.localStorage.__proto__.setItem = jest.fn();
     mockedAxios.get.mockResolvedValue({
       data: {
         __typename: "ContentfulSystemConfiguratorBlock",
@@ -289,9 +291,14 @@ describe("SystemConfiguratorSection component", () => {
 
     await findByText("Result Title");
 
-    const label2 = await findByText((tex) => tex.startsWith("System-abcd"));
+    const label2 = await findByText((text) => text.startsWith("System-abcd"));
     fireEvent.click(label2);
 
+    expect(window.localStorage.setItem).toHaveBeenLastCalledWith(
+      "SystemConfiguratorBlock",
+      // eslint-disable-next-line no-useless-escape
+      `{\"selectedAnswers\":[\"A1c\"],\"selectedSystem\":\"abcd\"}`
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -615,9 +622,12 @@ describe("SystemConfiguratorSection component", () => {
 
       await findByText("Result Title");
 
-      await findByText((tex) => tex.startsWith("System-abcd"));
-
-      expect(window.history.replaceState).toBeCalled();
+      await findByText((text) => text.startsWith("System-abcd"));
+      expect(window.history.replaceState).toHaveBeenLastCalledWith(
+        null,
+        null,
+        "/jest-test-page"
+      );
       expect(container).toMatchSnapshot();
     });
 

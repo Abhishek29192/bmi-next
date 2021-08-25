@@ -30452,6 +30452,11 @@ stealthy-require@^1.1.1:
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
+storage-factory@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/storage-factory/-/storage-factory-0.2.0.tgz#910d0f7d3b500447f1aab03c665f85ca0a1cc61a"
+  integrity sha512-/eGSaaR94PTwff79p1pm68G164E+v/GkRSX0w4pbC5h1/S5a1F76HRe9FlgdLlpCoaD4eJAV06hY1CtkSUL2sw==
+
 store2@^2.12.0:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
