@@ -26,11 +26,13 @@ const ControlledTextInput =
 type Props = {
   existingTradingAddress: GetCompanyQuery["company"]["tradingAddress"];
   marketCenterPoint: Point;
+  locationBiasRadiusKm: number;
 };
 
 export const SetTradingAddress = ({
   existingTradingAddress,
-  marketCenterPoint
+  marketCenterPoint,
+  locationBiasRadiusKm
 }: Props) => {
   const { t } = useTranslation(["common", "company-page"]);
   const { updateFormState, values: formValues } = useContext(FormContext);
@@ -142,7 +144,8 @@ export const SetTradingAddress = ({
             )}
             onAddressSelected={onAddressSelected}
             mapProps={googleMapProps}
-            locationBias={marketCenterPoint}
+            searchBiasCenter={marketCenterPoint}
+            searchBiasRadiusKm={locationBiasRadiusKm}
           />
         </Grid>
       </Grid>

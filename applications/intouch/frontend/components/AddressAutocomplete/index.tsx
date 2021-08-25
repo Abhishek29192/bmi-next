@@ -11,23 +11,22 @@ import styles from "./styles.module.scss";
 type AddressAutocompleteProps = GoogleAutocompleteProps & {
   onAddressSelected: (address: Partial<Address>) => any;
   mapProps: GoogleMapProps;
-  locationBias?: Point;
+  searchBiasCenter?: Point;
+  searchBiasRadiusKm?: number;
 };
 
-// One challenges of location biasing is to find an appropriate radius for different markets
-// In order to customize this bias radius, we could potentially in future add a field to the market record, which specifies the radius
-const DEFAULT_LOCATION_BIAS_RADIUS = 100 * 1000; // in metres, currently the same for all markets
+const DEFAULT_SEARCH_BIAS_RADIUS_KM = 100 * 1000;
 
 export const AddressAutocomplete = ({
   onAddressSelected,
-  googleAutocompleteOptions = {},
   mapProps,
-  locationBias,
+  searchBiasCenter,
+  searchBiasRadiusKm,
   ...rest
 }: AddressAutocompleteProps) => {
   const [googleApi, setGoogleApi] = useState(null);
 
-  const initialise = async () => {
+  const initialiseGoogleApi = async () => {
     await loadGoogleApi(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY, [
       "places"
     ]);
@@ -41,7 +40,7 @@ export const AddressAutocomplete = ({
   };
 
   useEffect(() => {
-    initialise();
+    initialiseGoogleApi();
   }, []);
 
   return (
@@ -52,15 +51,18 @@ export const AddressAutocomplete = ({
         onPlaceChange={handlePlaceChange}
         getOptionSelected={(place) => place.description}
         googleAutocompleteOptions={{
-          ...googleAutocompleteOptions,
-          location:
-            googleApi && locationBias
-              ? new googleApi.maps.LatLng(locationBias.x, locationBias.y)
-              : undefined,
-          // radius is just for biasing purposes: locations outside of the center + radius
-          // will be returned anyway, but with lower ranking
-          radius:
-            googleApi && locationBias ? DEFAULT_LOCATION_BIAS_RADIUS : undefined
+          ...(googleApi && searchBiasCenter
+            ? {
+                // the bias area (middle + radius) will not exclude locations
+                location: new googleApi.maps.LatLng(
+                  searchBiasCenter.x,
+                  searchBiasCenter.y
+                ),
+                // radius in metres
+                radius:
+                  (searchBiasRadiusKm || DEFAULT_SEARCH_BIAS_RADIUS_KM) * 1000
+              }
+            : {})
         }}
         startAdornmentIcon="LocationOn"
         {...rest}

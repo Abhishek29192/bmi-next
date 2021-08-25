@@ -73,8 +73,11 @@ export const GET_USER_CONTENT = gql`
     account(id: $accountId) {
       ...AccountPageDetailsFragment
     }
+    # TODO refactor this to retrieve it within the "withPage" middleware
+    # https://bmigroup.atlassian.net/browse/IRP-680
     markets(condition: { domain: $marketDomain }) {
       nodes {
+        locationBiasRadiusKm
         geoMiddle {
           x
           y

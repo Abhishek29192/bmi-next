@@ -208,6 +208,7 @@ export const SetCompanyDetailsDialog = ({
           <SetTradingAddress
             existingTradingAddress={company?.tradingAddress}
             marketCenterPoint={market.geoMiddle}
+            locationBiasRadiusKm={market.locationBiasRadiusKm}
           />
 
           <Typography variant="h6" className={styles.sectionText}>

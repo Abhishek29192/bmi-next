@@ -2356,6 +2356,7 @@ export const GetCompanyDocument = gql`
     }
     markets(condition: { domain: $marketDomain }) {
       nodes {
+        locationBiasRadiusKm
         geoMiddle {
           x
           y
@@ -2531,6 +2532,7 @@ export const GetUserProfileDocument = gql`
     }
     markets(condition: { domain: $marketDomain }) {
       nodes {
+        locationBiasRadiusKm
         geoMiddle {
           x
           y
