@@ -7,7 +7,8 @@ const COMPANY_ADMIN_PERMISSIONS = [
 const MARKET_ADMIN_PERMISSIONS = [
   ...COMPANY_ADMIN_PERMISSIONS,
   "grant:market_admin",
-  "import:products:market"
+  "import:products:market",
+  "update:guarantee"
 ];
 const SUPER_ADMIN_PERMISSIONS = [
   ...MARKET_ADMIN_PERMISSIONS,
