@@ -24,7 +24,6 @@ export const createBaseProduct = (product?: Partial<Product>): Product => {
     code: "product-code",
     externalProductCode: "external-product-code",
     name: "product-name",
-    longDescription: null,
     description: "product-description",
     images: [],
     assets: [],
