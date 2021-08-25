@@ -135,41 +135,43 @@ const ProductLeadBlock = ({
                 </LeadBlock.Content.Section>
               )}
             </LeadBlock.Content>
-            <LeadBlock.Card theme="blue-900">
-              {keyFeatures ? (
-                <LeadBlock.Card.Section>
-                  <LeadBlock.Card.Heading>
-                    {getMicroCopy("pdp.leadBlock.keyFeatures")}
-                  </LeadBlock.Card.Heading>
-                  <LeadBlock.Card.Content>
-                    <IconList>
-                      {keyFeatures.map((feature, index) => (
-                        <IconList.Item
-                          key={index}
-                          icon={BlueCheckIcon}
-                          title={feature}
-                          isCompact
-                        />
-                      ))}
-                    </IconList>
-                  </LeadBlock.Card.Content>
-                </LeadBlock.Card.Section>
-              ) : null}
-              {sidebarItems?.length && (
-                <LeadBlock.Card.Section>
-                  <LeadBlock.Card.Heading variant="h5">
-                    {sidebarItems[0].title}
-                  </LeadBlock.Card.Heading>
-                  <LeadBlock.Card.Content>
-                    <RichText
-                      document={sidebarItems[0].content}
-                      theme="secondary"
-                      backgroundTheme="dark"
-                    />
-                  </LeadBlock.Card.Content>
-                </LeadBlock.Card.Section>
-              )}
-            </LeadBlock.Card>
+            {(keyFeatures || sidebarItems) && (
+              <LeadBlock.Card theme="blue-900">
+                {keyFeatures ? (
+                  <LeadBlock.Card.Section>
+                    <LeadBlock.Card.Heading>
+                      {getMicroCopy("pdp.leadBlock.keyFeatures")}
+                    </LeadBlock.Card.Heading>
+                    <LeadBlock.Card.Content>
+                      <IconList>
+                        {keyFeatures.map((feature, index) => (
+                          <IconList.Item
+                            key={index}
+                            icon={BlueCheckIcon}
+                            title={feature}
+                            isCompact
+                          />
+                        ))}
+                      </IconList>
+                    </LeadBlock.Card.Content>
+                  </LeadBlock.Card.Section>
+                ) : null}
+                {sidebarItems?.length && (
+                  <LeadBlock.Card.Section>
+                    <LeadBlock.Card.Heading variant="h5">
+                      {sidebarItems[0].title}
+                    </LeadBlock.Card.Heading>
+                    <LeadBlock.Card.Content>
+                      <RichText
+                        document={sidebarItems[0].content}
+                        theme="secondary"
+                        backgroundTheme="dark"
+                      />
+                    </LeadBlock.Card.Content>
+                  </LeadBlock.Card.Section>
+                )}
+              </LeadBlock.Card>
+            )}
           </LeadBlock>
         </Tabs.TabPanel>
         <Tabs.TabPanel
