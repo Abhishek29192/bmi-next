@@ -82,11 +82,12 @@ WITH CHECK (
 );
 
 CREATE POLICY policy_company_admin ON project FOR ALL TO company_admin USING (
-  current_company() = company_id
+  current_company() = company_id AND hidden != TRUE
 ) WITH CHECK (
   current_company() = company_id AND is_project_enabled_by_market()
 );
-CREATE POLICY policy_installer ON project FOR ALL TO installer USING (id IN (SELECT * FROM is_part_of_project()));
+
+CREATE POLICY policy_installer ON project FOR ALL TO installer USING (id IN (SELECT * FROM is_part_of_project() WHERE hidden != TRUE));
 
 
 
@@ -96,7 +97,17 @@ DROP POLICY IF EXISTS policy_market_admin ON project_member;
 DROP POLICY IF EXISTS policy_company_admin ON project_member;
 DROP POLICY IF EXISTS policy_installer ON project_member;
 CREATE POLICY policy_super_admin ON project_member FOR ALL TO super_admin USING (true) WITH CHECK (true);
-CREATE POLICY policy_market_admin ON project_member FOR ALL TO company_admin 
+
+-- Project visibility cascades via policies on `project`
+CREATE POLICY policy_market_admin ON project_member FOR ALL TO market_admin
+USING (
+  project_id IN (SELECT id FROM project)
+  )
+WITH CHECK (
+  project_id IN (SELECT id FROM project)
+);
+
+CREATE POLICY policy_company_admin ON project_member FOR ALL TO company_admin 
 USING ( 
   project_id IN (select id from project)
 ) 

@@ -153,6 +153,60 @@ export const AccountPageDetailsFragmentFragmentDoc = gql`
   }
   ${CompanyDetailsFragmentFragmentDoc}
 `;
+export const UpdateProjectHiddenDocument = gql`
+  mutation UpdateProjectHidden($projectId: Int!, $hidden: Boolean!) {
+    updateProject(input: { id: $projectId, patch: { hidden: $hidden } }) {
+      project {
+        id
+        hidden
+      }
+    }
+  }
+`;
+export type UpdateProjectHiddenMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateProjectHiddenMutation,
+  OperationTypes.UpdateProjectHiddenMutationVariables
+>;
+
+/**
+ * __useUpdateProjectHiddenMutation__
+ *
+ * To run a mutation, you first call `useUpdateProjectHiddenMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateProjectHiddenMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateProjectHiddenMutation, { data, loading, error }] = useUpdateProjectHiddenMutation({
+ *   variables: {
+ *      projectId: // value for 'projectId'
+ *      hidden: // value for 'hidden'
+ *   },
+ * });
+ */
+export function useUpdateProjectHiddenMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateProjectHiddenMutation,
+    OperationTypes.UpdateProjectHiddenMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateProjectHiddenMutation,
+    OperationTypes.UpdateProjectHiddenMutationVariables
+  >(UpdateProjectHiddenDocument, options);
+}
+export type UpdateProjectHiddenMutationHookResult = ReturnType<
+  typeof useUpdateProjectHiddenMutation
+>;
+export type UpdateProjectHiddenMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateProjectHiddenMutation>;
+export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateProjectHiddenMutation,
+  OperationTypes.UpdateProjectHiddenMutationVariables
+>;
 export const GetGlobalDataDocument = gql`
   query GetGlobalData {
     marketContentCollection(limit: 1) {
@@ -805,6 +859,7 @@ export const GetProjectDocument = gql`
   query GetProject($projectId: Int!) {
     project(id: $projectId) {
       id
+      hidden
       name
       technology
       roofArea

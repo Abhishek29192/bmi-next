@@ -5,15 +5,17 @@ import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import { Guarantee, Note, ProjectMember } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
-import { ProjectsHeader } from "../../components/Cards/ProjectsHeader";
-import { BuildingOwnerDetails } from "../../components/Cards/BuildingOwnerDetails";
-import { ProjectsInsight } from "../../components/Cards/ProjectsInsight";
-import { TabCard } from "../../components/Cards/TabCard";
-import { TeamTab } from "../../components/Tabs/Team";
-import { GuaranteeTab } from "../../components/Tabs/Guarantee";
-import { UploadsTab } from "../../components/Tabs/Uploads";
-import { NoProjectsCard } from "../../components/Cards/NoProjects";
-import { NoteTab } from "../../components/Tabs/Notes";
+import can from "lib/permissions/can";
+import { ProjectsHeader } from "../Cards/ProjectsHeader";
+import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
+import { ProjectsInsight } from "../Cards/ProjectsInsight";
+import { TabCard } from "../Cards/TabCard";
+import { TeamTab } from "../Tabs/Team";
+import { GuaranteeTab } from "../Tabs/Guarantee";
+import { UploadsTab } from "../Tabs/Uploads";
+import { NoProjectsCard } from "../Cards/NoProjects";
+import { NoteTab } from "../Tabs/Notes";
+import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
 import { useGetProjectQuery } from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import {
@@ -21,9 +23,11 @@ import {
   getProjectGuaranteeStatus
 } from "../../lib/utils/project";
 import log from "../../lib/logger";
+import { useAccountContext } from "../../context/AccountContext";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
   const { t } = useTranslation("project-page");
+  const { account } = useAccountContext();
 
   // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
   const getProjectGuaranteeType = useCallback(
@@ -132,6 +136,14 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           </Tabs.TabPanel>
         </Tabs>
       </Grid>
+      <Grid item xs={12}>
+        {can(account, "project", "adminActions") ? (
+          <ProjectActionsCard
+            projectId={project.id}
+            isArchived={project.hidden}
+          />
+        ) : null}
+      </Grid>
     </>
   );
 };
@@ -204,6 +216,7 @@ export const GET_PROJECT = gql`
   query GetProject($projectId: Int!) {
     project(id: $projectId) {
       id
+      hidden
       name
       technology
       roofArea

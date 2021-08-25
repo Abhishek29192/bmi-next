@@ -91,6 +91,9 @@ describe("Account", () => {
   describe("Update", () => {
     describe("Role", () => {
       it("should throw an error if an installer try to update the role", async () => {
+        const email1 = "joe@email.invalid";
+        const email2 = "jane@email.invalid";
+
         const {
           rows: [installer]
         } = await transaction(
@@ -101,7 +104,7 @@ describe("Account", () => {
             accountEmail: ""
           },
           "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
-          ["INSTALLER", "joe", "doe", "joe@email.invalid"]
+          ["INSTALLER", "joe", "doe", email1]
         );
         await transaction(
           pool,
@@ -111,7 +114,7 @@ describe("Account", () => {
             accountEmail: ""
           },
           "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
-          ["COMPANY_ADMIN", "jane", "doe", "jane@email.invalid"]
+          ["COMPANY_ADMIN", "jane", "doe", email2]
         );
 
         try {
@@ -128,6 +131,11 @@ describe("Account", () => {
         } catch (error) {
           expect(error.message).toEqual("permission denied for table account");
         }
+
+        await pool.query("delete from account where email = $1 OR email=$2", [
+          email1,
+          email2
+        ]);
       });
 
       it("should resolve if a company admin promote a installer", async () => {
