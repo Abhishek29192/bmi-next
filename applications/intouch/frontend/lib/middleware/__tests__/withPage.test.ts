@@ -15,10 +15,9 @@ jest.mock("../../auth0", () => ({
 
 const mockQuery = jest.fn();
 jest.mock("../../apolloClient", () => ({
-  initializeApollo: () =>
-    Promise.resolve({
-      query: mockQuery
-    })
+  initializeApollo: () => ({
+    query: mockQuery
+  })
 }));
 jest.mock("../../../graphql/generated/page", () => ({
   getServerPageGetGlobalData: () => ({

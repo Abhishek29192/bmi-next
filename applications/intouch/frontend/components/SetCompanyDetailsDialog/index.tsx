@@ -1,5 +1,5 @@
-import get from "lodash.get";
-import set from "lodash.set";
+import get from "lodash/get";
+import set from "lodash/set";
 import React, { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { CompanyOperation } from "@bmi/intouch-api-types";
@@ -9,6 +9,7 @@ import Dialog from "@bmi/dialog";
 import Typography from "@bmi/typography";
 import TextField from "@bmi/text-field";
 import Select, { MenuItem } from "@bmi/select";
+import { useMarketContext } from "../../context/MarketContext";
 import {
   validateEmailInput,
   validatePhoneNumberInput,
@@ -19,6 +20,7 @@ import { BUSINESS_TYPES } from "../../lib/constants";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
 import { formatCompanyOperations } from "../Pages/Company/RegisteredDetails";
+import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
 
 export type OnCompanyUpdateSuccess = (
@@ -41,6 +43,8 @@ export const SetCompanyDetailsDialog = ({
   onSubmit
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
+
+  const { market } = useMarketContext();
 
   const [shouldRemoveLogo, setShouldRemoveLogo] = useState(false);
   const [logoUpload, setLogoUpload] = useState(undefined);
@@ -109,8 +113,8 @@ export const SetCompanyDetailsDialog = ({
           <Typography variant="h6" className={styles.sectionText}>
             {t("company-page:edit_dialog.sections.registered_details")}
           </Typography>
-          <Grid container xs={12} alignContent="stretch" spacing={3}>
-            <Grid item xs={12} lg={6} spacing={0}>
+          <Grid container xs={12} spacing={3}>
+            <Grid item xs={12} lg={6}>
               <TextField {...getFieldProps("name")} isRequired />
               <TextField
                 {...getFieldProps("registeredAddress.firstLine")}
@@ -127,7 +131,8 @@ export const SetCompanyDetailsDialog = ({
               />
               <TextField {...getFieldProps("registeredAddress.region")} />
             </Grid>
-            <Grid item xs={12} lg={6} spacing={0}>
+
+            <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("registeredAddress.country")}
                 isRequired
@@ -155,7 +160,6 @@ export const SetCompanyDetailsDialog = ({
                 </InfoPair>
               ) : null}
 
-              {/* read-only values not shown for company registration */}
               {company?.tier ? (
                 <InfoPair
                   title={t("company-page:edit_dialog.form.fields.tier")}
@@ -189,7 +193,6 @@ export const SetCompanyDetailsDialog = ({
           />
 
           <TextField {...getFieldProps("aboutUs")} isTextArea rows={6} />
-
           <Form.Row>
             <Typography variant="h6" className={styles.sectionText}>
               {t("company-page:edit_dialog.sections.trading_address")}
@@ -202,29 +205,17 @@ export const SetCompanyDetailsDialog = ({
             </Typography>
           </Form.Row>
 
-          <Grid container xs={12} alignContent="stretch" spacing={3}>
-            {/* TODO: auto-complete address/location https://bmigroup.atlassian.net/browse/IRP-417 */}
-            <Grid item xs={12} lg={6} spacing={0}>
-              <TextField {...getFieldProps("tradingAddress.firstLine")} />
-              <TextField {...getFieldProps("tradingAddress.secondLine")} />
-              <TextField {...getFieldProps("tradingAddress.town")} />
-              <TextField {...getFieldProps("tradingAddress.postcode")} />
-            </Grid>
-
-            <Grid item xs={12} lg={6} spacing={0}>
-              <TextField {...getFieldProps("tradingAddress.region")} />
-              <TextField {...getFieldProps("tradingAddress.country")} />
-              <TextField {...getFieldProps("tradingAddress.coordinates.x")} />
-              <TextField {...getFieldProps("tradingAddress.coordinates.y")} />
-            </Grid>
-          </Grid>
+          <SetTradingAddress
+            existingTradingAddress={company?.tradingAddress}
+            marketCenterPoint={market.geoMiddle}
+          />
 
           <Typography variant="h6" className={styles.sectionText}>
             {t("company-page:edit_dialog.sections.contact_details")}
           </Typography>
 
           <Grid container xs={12} alignContent="stretch" spacing={3}>
-            <Grid item xs={12} lg={6} spacing={0}>
+            <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("phone")}
                 getValidationError={validatePhoneNumber}
@@ -239,7 +230,7 @@ export const SetCompanyDetailsDialog = ({
               />
             </Grid>
 
-            <Grid item xs={12} lg={6} spacing={0}>
+            <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("publicEmail")}
                 getValidationError={validateEmail}
@@ -254,15 +245,16 @@ export const SetCompanyDetailsDialog = ({
           <Typography variant="h6" className={styles.sectionText}>
             {t("company-page:edit_dialog.sections.owner_details")}
           </Typography>
-          <Grid container xs={12} alignContent="stretch" spacing={3}>
-            <Grid item xs={12} lg={6} spacing={0}>
+
+          <Grid container xs={12} spacing={3}>
+            <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("ownerPhone")}
                 getValidationError={validatePhoneNumber}
               />
             </Grid>
 
-            <Grid item xs={12} lg={6} spacing={0}>
+            <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("ownerEmail")}
                 getValidationError={validateEmail}

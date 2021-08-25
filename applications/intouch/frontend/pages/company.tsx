@@ -110,19 +110,21 @@ const CompanyPage = ({
   );
 };
 
-export const GET_CURRENT_COMPANY = gql`
-  query GetCurrentCompany {
-    currentCompany
-  }
-`;
-
 export const GET_COMPANY_PAGE = gql`
-  query GetCompany($companyId: Int!) {
+  query GetCompany($companyId: Int!, $marketDomain: String!) {
     company(id: $companyId) {
       ...CompanyPageDetailsFragment
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
+    }
+    markets(condition: { domain: $marketDomain }) {
+      nodes {
+        geoMiddle {
+          x
+          y
+        }
+      }
     }
   }
 `;
@@ -139,7 +141,14 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, res, account }) => {
+  async ({
+    locale,
+    apolloClient,
+    globalPageData,
+    res,
+    account,
+    marketDomain
+  }) => {
     const companyId = findAccountCompany(account)?.id;
     if (!companyId) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
@@ -148,17 +157,19 @@ export const getServerSideProps = withPage(
     }
     const {
       props: {
-        data: { company, contactDetailsCollection }
+        data: { company, contactDetailsCollection, markets }
       }
     } = await getServerPageGetCompany(
-      { variables: { companyId } },
+      { variables: { companyId, marketDomain } },
       apolloClient
     );
+
     return {
       props: {
         companySSR: company,
         contactDetailsCollection,
         account,
+        market: markets.nodes?.[0],
         globalPageData,
         ...(await serverSideTranslations(locale, [
           "common",

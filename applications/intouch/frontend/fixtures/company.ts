@@ -21,7 +21,7 @@ export const mockCompany: GetCompanyQuery["company"] = {
   ownerFullname: "Don Cheadle",
   ownerPhone: "1232123",
   ownerEmail: "don@test.com",
-  phone: "843-985-4588",
+  phone: "8439854588",
   publicEmail: "lfoskin0@paypal.com",
   website: "https://sphinn.com",
   facebook: "https://www.facebook.com/WhiteHouse/",

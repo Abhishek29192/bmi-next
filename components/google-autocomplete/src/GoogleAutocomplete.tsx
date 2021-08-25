@@ -11,14 +11,16 @@ import GoogleApi, {
 import CircularProgress from "@material-ui/core/CircularProgress";
 import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 
-type Props = Omit<AutocompleteProps, "options"> & {
+export type Props = Omit<AutocompleteProps, "options"> & {
   onPlaceChange?: (place: GeocoderResult | null) => void;
   controlledValue?: any;
+  googleAutocompleteOptions?: Omit<AutocompletionRequest, "input">;
 };
 
 const GoogleAutocomplete = ({
   onPlaceChange,
   controlledValue = "",
+  googleAutocompleteOptions = {},
   ...props
 }: Props) => {
   const google = useContext<Google | null>(GoogleApi);
@@ -69,9 +71,12 @@ const GoogleAutocomplete = ({
       return;
     }
 
-    getPlacePredictions({ input: inputValue }, (results) => {
-      setOptions(results);
-    });
+    getPlacePredictions(
+      { ...googleAutocompleteOptions, input: inputValue },
+      (results) => {
+        setOptions(results);
+      }
+    );
   }, [value, inputValue]);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import validator from "validator";
-import get from "lodash.get";
+import get from "lodash/get";
 import { ValidationResult } from "@bmi/form";
 
 export type ValidateObjectResult = {
