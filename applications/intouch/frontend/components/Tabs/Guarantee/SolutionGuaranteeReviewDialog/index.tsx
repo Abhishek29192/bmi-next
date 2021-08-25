@@ -50,9 +50,8 @@ const SolutionGuaranteeReviewDialog = ({
       variables: {
         input: {
           id: id,
-          patch: {
-            status: "SUBMITTED"
-          }
+          guaranteeEventType: "SUBMIT_SOLUTION",
+          patch: {}
         }
       }
     });

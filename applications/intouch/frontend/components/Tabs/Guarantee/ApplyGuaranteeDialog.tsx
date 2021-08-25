@@ -1,7 +1,7 @@
 import React from "react";
-import { useTranslation } from "next-i18next";
 import Dialog from "@material-ui/core/Dialog";
 import { gql } from "@apollo/client";
+import { ContentfulGuaranteeCoverageType } from "@bmi/intouch-api-types";
 import {
   CreateGuaranteeMutationVariables,
   GetProjectQuery
@@ -45,8 +45,9 @@ export const ApplyGuaranteeDialog = ({
           systemBmiRef: system?.bmiRef,
           productBmiRef: product?.bmiRef,
           guaranteeTypeId: guaranteeType.sys.id,
+          guaranteeTypeCoverage:
+            guaranteeType.coverage as ContentfulGuaranteeCoverageType,
           guaranteeTemplateId: guaranteeTemplate.sys.id,
-          status: "SUBMITTED",
           evidenceItemsUsingId: {
             create: evidences.map((evidence) => ({
               name: evidence.name,
