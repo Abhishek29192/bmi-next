@@ -1,4 +1,11 @@
-import { transaction, getDbPool } from "../test-utils/db";
+import {
+  transaction,
+  getDbPool,
+  actAs,
+  curryContext,
+  cleanup as dbCleanup,
+  insertOne as dbInsertOne
+} from "../test-utils/db";
 
 const PERMISSION_DENIED = (table) => `permission denied for table ${table}`;
 const RLS_ERROR = (table) =>
@@ -503,6 +510,63 @@ describe("Database permissions", () => {
         expect(rows.length).toEqual(1);
       });
     });
+    describe("Market Admin", () => {
+      it("should not be able to see projects outside of own market", async () => {
+        // Get a connection to maintain the transaction session
+        const client = await pool.connect();
+        const context = {
+          client,
+          cleanupBucket: {}
+        };
+        const insertOne = curryContext(context, dbInsertOne);
+        await client.query("BEGIN");
+
+        try {
+          // NOTE: Projects get market via company
+          const otherMarket = await insertOne("market", {
+            domain: "OTHER_MARKET_DOMAIN"
+          });
+          const company = await insertOne("company", {
+            market_id: otherMarket.id
+          });
+          await insertOne("project", {
+            company_id: company.id
+          });
+
+          // Separate market, separate account
+          const myMarket = await insertOne("market", {
+            domain: "MY_MARKET_DOMAIN"
+          });
+          const myCompany = await insertOne("company", {
+            market_id: myMarket.id
+          });
+          await insertOne("project", {
+            name: "My Project",
+            company_id: myCompany.id
+          });
+          // NOTE: account is not related to company,
+          // market adming sees all projects in own market
+          const account = await insertOne("account", {
+            role: "MARKET_ADMIN",
+            market_id: myMarket.id
+          });
+
+          await actAs(client, account);
+
+          const { rows: visibleProjects } = await client.query(
+            "select * from project"
+          );
+
+          // Verifies that the user sees only one project in their market
+          // and not the other one, not in their market
+          expect(visibleProjects.length).toEqual(1);
+          expect(visibleProjects[0].name).toEqual("My Project");
+        } finally {
+          await client.query("ROLLBACK");
+          client.release();
+        }
+      });
+    });
     describe("Installer", () => {
       it("shouldn't be able to see projects of other companies", async () => {
         const { rows } = await transaction(
@@ -950,6 +1014,7 @@ describe("Database permissions", () => {
             accountUuid: installer_id,
             accountEmail: INSTALLER_EMAIL
           },
+          // TODO: double check if this is validating the right thing
           "update notification set read=$2 where account_id=$1 RETURNING *",
           [installer_id, true]
         );
