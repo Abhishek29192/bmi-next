@@ -38,7 +38,8 @@ export type Classification = {
   code:
     | "systemAttributes"
     | "measurementAttributes"
-    | "scoringWeightAttributes";
+    | "scoringWeightAttributes"
+    | "uniquesellingpropositionsAttributes";
   features: Feature[];
   name: string;
 };

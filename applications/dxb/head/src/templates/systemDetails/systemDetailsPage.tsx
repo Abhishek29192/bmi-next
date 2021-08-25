@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { compact, first, sortBy } from "lodash";
+import { compact, first } from "lodash";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
 import Page from "../../components/Page";
@@ -98,6 +98,20 @@ const SystemDetailsPage = ({ data }: Props) => {
       .filter(({ features }) => features.length > 0)
       .sort((a, b) => (a.name < b.name ? -1 : 1));
   }, []);
+  const uniqueSellingPropositions: Feature = useMemo(() => {
+    return first(
+      compact(
+        classifications.map(({ features }) => {
+          return (
+            features &&
+            features.find(({ code }) =>
+              code.toLocaleLowerCase().includes("uniquesellingpropositions")
+            )
+          );
+        })
+      )
+    );
+  }, []);
 
   return (
     <Page
@@ -114,6 +128,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         categories={categories}
         classifications={classifications}
         cta={resources?.sdpLeadBlockCta}
+        uniqueSellingPropositions={uniqueSellingPropositions}
       />
 
       <Section

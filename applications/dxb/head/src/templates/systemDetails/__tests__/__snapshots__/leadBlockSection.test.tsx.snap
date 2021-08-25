@@ -48,12 +48,12 @@ exports[`LeadBlockSection tests When classifications are provided should render 
               class="ctaContainer LeadBlockContentSection"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-contained buttonStyles-contained-75 quotationBtn MuiButton-containedPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-40"
+                  class="MuiButton-label buttonStyles-label-76"
                 >
                   cta label
                   <span
@@ -75,110 +75,6 @@ exports[`LeadBlockSection tests When classifications are provided should render 
                   class="MuiTouchRipple-root"
                 />
               </button>
-            </div>
-          </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
-          >
-            <div
-              class="ColorPair ColorPair--pearl"
-            >
-              <div
-                class="PostItCard"
-              >
-                <div
-                  class="section"
-                >
-                  <ul
-                    class="IconList"
-                  >
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Minoritetsladningsbærerdiffusjonskoeffisientmålingsapparatur
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -227,12 +123,12 @@ exports[`LeadBlockSection tests When classifications are provided should render 
               class="ctaContainer LeadBlockContentSection"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-contained buttonStyles-contained-57 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-91 MuiButton-contained buttonStyles-contained-93 quotationBtn MuiButton-containedPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-58"
+                  class="MuiButton-label buttonStyles-label-94"
                 >
                   cta label
                   <span
@@ -254,110 +150,6 @@ exports[`LeadBlockSection tests When classifications are provided should render 
                   class="MuiTouchRipple-root"
                 />
               </button>
-            </div>
-          </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
-          >
-            <div
-              class="ColorPair ColorPair--pearl"
-            >
-              <div
-                class="PostItCard"
-              >
-                <div
-                  class="section"
-                >
-                  <ul
-                    class="IconList"
-                  >
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Minoritetsladningsbærerdiffusjonskoeffisientmålingsapparatur
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -407,16 +199,16 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 MuiButton-textPrimary"
                 href="system-configurator-page?referer=sys_details"
                 rel="noopener noreferrer"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-76"
+                  class="MuiButton-label buttonStyles-label-112"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-77 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-113 MuiButton-iconSizeMedium"
                   >
                     <svg
                       aria-hidden="true"
@@ -436,12 +228,12 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                 />
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-contained buttonStyles-contained-75 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-contained buttonStyles-contained-111 quotationBtn MuiButton-containedPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-76"
+                  class="MuiButton-label buttonStyles-label-112"
                 >
                   cta label
                   <span
@@ -465,108 +257,70 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
               </button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LeadBlockSection tests should not render systemAttributes Card with no uniqueSellingPropositions 1`] = `
+<div>
+  <div
+    class="LeadBlockSection Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+        >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+            class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <div
-              class="ColorPair ColorPair--pearl"
+              class="LeadBlockContentSection"
             >
-              <div
-                class="PostItCard"
+              <h1
+                class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
               >
-                <div
-                  class="section"
+                lead Block section
+              </h1>
+            </div>
+            <div
+              class="ctaContainer LeadBlockContentSection"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-contained buttonStyles-contained-57 quotationBtn MuiButton-containedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label buttonStyles-label-58"
                 >
-                  <ul
-                    class="IconList"
+                  cta label
+                  <span
+                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
                   >
-                    <li
-                      class="ListItem ListItem--isCompact"
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
                     >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Minoritetsladningsbærerdiffusjonskoeffisientmålingsapparatur
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -633,110 +387,6 @@ exports[`LeadBlockSection tests should render 1`] = `
                   class="MuiTouchRipple-root"
                 />
               </button>
-            </div>
-          </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
-          >
-            <div
-              class="ColorPair ColorPair--pearl"
-            >
-              <div
-                class="PostItCard"
-              >
-                <div
-                  class="section"
-                >
-                  <ul
-                    class="IconList"
-                  >
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Minoritetsladningsbærerdiffusjonskoeffisientmålingsapparatur
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -814,106 +464,124 @@ exports[`LeadBlockSection tests should render with categories 1`] = `
               </button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`] = `
+<div>
+  <div
+    class="LeadBlockSection Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+        >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+            class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <div
-              class="ColorPair ColorPair--pearl"
+              class="LeadBlockContentSection"
+            >
+              <h1
+                class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+              >
+                lead Block section
+              </h1>
+            </div>
+            <div
+              class="ctaContainer LeadBlockContentSection"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 quotationBtn MuiButton-containedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label buttonStyles-label-40"
+                >
+                  cta label
+                  <span
+                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            data-testid="system-attributes-card"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
             >
               <div
-                class="PostItCard"
+                class="ColorPair ColorPair--pearl"
               >
                 <div
-                  class="section"
+                  class="PostItCard"
                 >
-                  <ul
-                    class="IconList"
+                  <div
+                    class="section"
                   >
-                    <li
-                      class="ListItem ListItem--isCompact"
+                    <div
+                      class="iconList"
                     >
-                      <div
-                        class="icon"
+                      <ul
+                        class="IconList"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
+                        <li
+                          class="ListItem ListItem--isCompact"
                         >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Minoritetsladningsbærerdiffusjonskoeffisientmålingsapparatur
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      class="ListItem ListItem--isCompact"
-                    >
-                      <div
-                        class="icon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          style="color: rgb(0, 159, 227);"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="content"
-                      >
-                        <p
-                          class="MuiTypography-root title Typography MuiTypography-body1"
-                        >
-                          Excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
+                          <div
+                            class="icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              style="color: rgb(0, 159, 227);"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="content"
+                          >
+                            <p
+                              class="MuiTypography-root title Typography MuiTypography-body1"
+                            >
+                              fature value 1
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

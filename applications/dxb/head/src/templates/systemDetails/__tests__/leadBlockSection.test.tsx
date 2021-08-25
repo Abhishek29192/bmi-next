@@ -97,9 +97,59 @@ describe("LeadBlockSection tests", () => {
 
     const setionName = queryByText(leadBlockSectionName);
     const ctaLabelElement = queryByText(ctaLabel);
+    const brandLogo = container.querySelector(`.brandLogo`);
     expect(container).toMatchSnapshot();
     expect(setionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
+    expect(brandLogo).toBeTruthy();
+    expect(brandLogo).toHaveAttribute("src", leadBlockCategories[0].image.url);
+  });
+
+  it("should render with uniqueSellingPropositions", () => {
+    const { container, queryByText, queryByTestId } = render(
+      <LocationProvider>
+        <LeadBlockSection
+          name={leadBlockSectionName}
+          categories={[]}
+          classifications={[]}
+          cta={linkData}
+          uniqueSellingPropositions={leadBlockClassifications[0].features[0]}
+        />
+      </LocationProvider>
+    );
+
+    const setionName = queryByText(leadBlockSectionName);
+    const ctaLabelElement = queryByText(ctaLabel);
+    const systemAttributesContent = queryByTestId("system-attributes-card");
+    const feature = queryByText(
+      leadBlockClassifications[0].features[0].featureValues[0].value
+    );
+    expect(container).toMatchSnapshot();
+    expect(setionName).toBeInTheDocument();
+    expect(ctaLabelElement).toBeInTheDocument();
+    expect(systemAttributesContent).toBeTruthy();
+    expect(feature).toBeInTheDocument();
+  });
+
+  it("should not render systemAttributes Card with no uniqueSellingPropositions", () => {
+    const { container, queryByText, queryByTestId } = render(
+      <LocationProvider>
+        <LeadBlockSection
+          name={leadBlockSectionName}
+          categories={[]}
+          classifications={[]}
+          cta={linkData}
+        />
+      </LocationProvider>
+    );
+
+    const setionName = queryByText(leadBlockSectionName);
+    const ctaLabelElement = queryByText(ctaLabel);
+    const systemAttributesContent = queryByTestId("system-attributes-card");
+    expect(container).toMatchSnapshot();
+    expect(setionName).toBeInTheDocument();
+    expect(ctaLabelElement).toBeInTheDocument();
+    expect(systemAttributesContent).toBeFalsy();
   });
 
   describe("When classifications are provided", () => {
