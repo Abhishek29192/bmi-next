@@ -126,7 +126,11 @@ const CardCollectionItem = ({
                 {transformedCardLabel}
               </CardButton>
             ) : (
-              <Button data-testid={"card-link"} component="span">
+              <Button
+                data-testid={"card-link"}
+                component="span"
+                variant="outlined"
+              >
                 {transformedCardLabel}
               </Button>
             )

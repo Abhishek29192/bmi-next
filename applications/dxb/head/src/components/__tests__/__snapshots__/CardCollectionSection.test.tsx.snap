@@ -182,7 +182,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                                 </h6>
                                 <span
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
                                   data-testid="card-link"
                                   role="button"
                                   tabindex="0"
@@ -277,7 +277,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-contained buttonStyles-contained-111 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -371,7 +371,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -465,7 +465,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -559,7 +559,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-contained buttonStyles-contained-57 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -653,7 +653,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-contained buttonStyles-contained-75 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -747,7 +747,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-91 MuiButton-contained buttonStyles-contained-93 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-91 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -841,7 +841,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-127 MuiButton-contained buttonStyles-contained-129 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-127 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -935,7 +935,7 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-contained buttonStyles-contained-147 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -1127,7 +1127,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-433 MuiButton-contained buttonStyles-contained-435 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-433 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -1180,7 +1180,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-433 MuiButton-contained buttonStyles-contained-435 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-433 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -1233,7 +1233,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-433 MuiButton-contained buttonStyles-contained-435 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-433 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -1369,7 +1369,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-451 MuiButton-contained buttonStyles-contained-453 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-451 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -1422,7 +1422,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-451 MuiButton-contained buttonStyles-contained-453 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-451 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -1475,7 +1475,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-451 MuiButton-contained buttonStyles-contained-453 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-451 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -1635,7 +1635,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-469 MuiButton-contained buttonStyles-contained-471 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-469 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -1688,7 +1688,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-469 MuiButton-contained buttonStyles-contained-471 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-469 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
@@ -1741,7 +1741,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-469 MuiButton-contained buttonStyles-contained-471 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-469 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"

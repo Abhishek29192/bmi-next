@@ -700,7 +700,7 @@ HTMLCollection [
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-6 MuiButton-contained buttonStyles-contained-8 MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-6 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
