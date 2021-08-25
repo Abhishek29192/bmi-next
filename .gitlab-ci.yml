@@ -11,6 +11,8 @@ stages:
   - package
   - deploy
   - deploy_gateway
+  - terraform_plan
+  - terraform_execute
   - dynamic security
   - lighthouse scan
 
