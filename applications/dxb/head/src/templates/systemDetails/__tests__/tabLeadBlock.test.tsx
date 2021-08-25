@@ -63,6 +63,36 @@ describe("TabLeadBlock tests", () => {
     expect(techSpecText).toBeInTheDocument();
   });
 
+  it("should render documents and downloads", () => {
+    const { container } = renderWithRouter(
+      <Component
+        longDescription={dataJson.longDescription}
+        documentsAndDownloads={[{ test: "test" }]}
+      />
+    );
+    expect(container.querySelector("#tabpanel-three")).toMatchSnapshot();
+  });
+
+  it("should not render the documents and downloads", () => {
+    const { container } = renderWithRouter(
+      <Component
+        longDescription={dataJson.longDescription}
+        documentsAndDownloads={null}
+      />
+    );
+    expect(container.querySelector("#tabpanel-three")).toBe(null);
+  });
+
+  it("should not render the documents and downloads when its empty array", () => {
+    const { container } = renderWithRouter(
+      <Component
+        longDescription={dataJson.longDescription}
+        documentsAndDownloads={[]}
+      />
+    );
+    expect(container.querySelector("#tabpanel-three")).toBe(null);
+  });
+
   it("should render the bimIframe tab", () => {
     const { container } = renderWithRouter(
       <Component

@@ -60,7 +60,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-18 PrivateTabIndicator-colorPrimary-19 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-34 PrivateTabIndicator-colorPrimary-35 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -76,7 +76,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-22 TabPanelBox"
+              class="MuiBox-root MuiBox-root-38 TabPanelBox"
             >
               <div
                 class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -294,6 +294,25 @@ exports[`TabLeadBlock tests should render 1`] = `
 </div>
 `;
 
+exports[`TabLeadBlock tests should render documents and downloads 1`] = `
+<div
+  aria-labelledby="tab-three"
+  class="MuiGrid-root TabPanel MuiGrid-item"
+  heading="MC: sdp.leadBlock.documentsAndDownloads"
+  hidden=""
+  id="tabpanel-three"
+  role="tabpanel"
+>
+  <div
+    class="MuiBox-root MuiBox-root-12 TabPanelBox"
+  >
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, recusandae.
+    </div>
+  </div>
+</div>
+`;
+
 exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
 <div
   aria-labelledby="tab-four"
@@ -304,7 +323,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-12 TabPanelBox"
+    class="MuiBox-root MuiBox-root-28 TabPanelBox"
   >
     <iframe
       class="bimIframe"
