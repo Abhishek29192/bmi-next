@@ -7323,6 +7323,7 @@ export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `guarantee` in the `EvidenceItemInput` mutation. */
@@ -7710,6 +7711,14 @@ export type GuaranteeCondition = {
   bmiReferenceId?: Maybe<Scalars["String"]>;
 };
 
+export type GuaranteeEventType =
+  | "SUBMIT_SOLUTION"
+  | "ASSIGN_SOLUTION"
+  | "REASSIGN_SOLUTION"
+  | "UNASSIGN_SOLUTION"
+  | "APPROVE_SOLUTION"
+  | "REJECT_SOLUTION";
+
 /** A filter to be used against `Guarantee` object types. All fields are combined with a logical ‘and.’ */
 export type GuaranteeFilter = {
   /** Filter by the object’s `id` field. */
@@ -7794,6 +7803,7 @@ export type GuaranteeInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -8039,6 +8049,7 @@ export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `product` in the `GuaranteeInput` mutation. */
@@ -8164,6 +8175,7 @@ export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `project` in the `GuaranteeInput` mutation. */
@@ -8297,6 +8309,7 @@ export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `account` in the `GuaranteeInput` mutation. */
@@ -8397,6 +8410,7 @@ export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `account` in the `GuaranteeInput` mutation. */
@@ -8497,6 +8511,7 @@ export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `system` in the `GuaranteeInput` mutation. */
@@ -18086,6 +18101,7 @@ export type UpdateGuaranteeInput = {
   patch: GuaranteePatch;
   /** Primary key - starts at 6100 */
   id: Scalars["Int"];
+  guaranteeEventType?: Maybe<GuaranteeEventType>;
 };
 
 /** The output of our update `Guarantee` mutation. */

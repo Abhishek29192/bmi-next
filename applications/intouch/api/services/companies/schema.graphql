@@ -18705,6 +18705,7 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -18907,6 +18908,7 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -20629,6 +20631,7 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -21238,6 +21241,7 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -21774,6 +21778,7 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -21922,6 +21927,7 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -24064,6 +24070,7 @@ input GuaranteeInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -25770,6 +25777,16 @@ input UpdateGuaranteeInput {
   Primary key - starts at 6100
   """
   id: Int!
+  guaranteeEventType: GuaranteeEventType
+}
+
+enum GuaranteeEventType {
+  SUBMIT_SOLUTION
+  ASSIGN_SOLUTION
+  REASSIGN_SOLUTION
+  UNASSIGN_SOLUTION
+  APPROVE_SOLUTION
+  REJECT_SOLUTION
 }
 
 """
