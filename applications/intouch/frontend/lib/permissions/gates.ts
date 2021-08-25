@@ -62,6 +62,14 @@ const gates = {
       COMPANY_ADMIN: true
     }
   },
+  project: {
+    submitSolutionGuarantee: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: true
+    }
+  },
   page: {
     projects: canSeeProjects
   },

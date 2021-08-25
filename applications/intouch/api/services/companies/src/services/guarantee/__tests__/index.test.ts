@@ -1,11 +1,16 @@
-import { CreateGuaranteeInput } from "@bmi/intouch-api-types";
+import {
+  CreateGuaranteeInput,
+  UpdateGuaranteeInput
+} from "@bmi/intouch-api-types";
 import { Account } from "../../../types";
-import { createGuarantee } from "..";
+import { createGuarantee, updateGuarantee } from "..";
 import { sendEmailWithTemplate } from "../../../services/mailer";
 
 const storage = {
   uploadFileByStream: jest.fn()
 };
+
+const randomPassword = "randomPassword";
 
 jest.mock("../../storage-client", () => {
   return jest.fn().mockImplementation(() => storage);
@@ -15,7 +20,7 @@ jest.mock("../../../services/mailer", () => ({
 }));
 jest.mock("crypto", () => {
   return {
-    randomBytes: () => "password"
+    randomBytes: () => randomPassword
   };
 });
 
@@ -52,6 +57,15 @@ let guaranteeInput: CreateGuaranteeInput = {
     evidenceItemsUsingId: {
       create: evidenceItemInputs
     }
+  }
+};
+
+let guaranteeUpdateInput: UpdateGuaranteeInput = {
+  id: 1,
+  patch: {
+    id: 1,
+    projectId: 1,
+    guaranteeTypeId: "test_guarantee_type_id"
   }
 };
 
@@ -130,5 +144,21 @@ describe("Guarantee", () => {
     expect(storage.uploadFileByStream).toHaveBeenCalledTimes(
       evidenceItemInputs.length
     );
+  });
+
+  it("should update guarantee with bmiReferenceId", async () => {
+    const resolve = jest.fn();
+    const args = {
+      input: guaranteeUpdateInput
+    };
+
+    mockQuery.mockImplementation(() => {});
+
+    await updateGuarantee(resolve, source, args, context, resolveInfo);
+
+    const { patch } = args.input;
+    expect(patch.bmiReferenceId).toEqual(randomPassword);
+
+    expect(resolve).toBeCalledTimes(1);
   });
 });

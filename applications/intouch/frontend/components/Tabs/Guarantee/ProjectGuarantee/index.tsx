@@ -10,9 +10,15 @@ import { GetProjectQuery } from "../../../../graphql/generated/operations";
 
 type ProjectGuaranteeProps = {
   guarantees: GetProjectQuery["project"]["guarantees"]["nodes"];
+  onReviewClick: () => void;
+  canGuaranteeBeSubmitted: boolean;
 };
 
-export const ProjectGuarantee = ({ guarantees }: ProjectGuaranteeProps) => {
+export const ProjectGuarantee = ({
+  guarantees,
+  onReviewClick,
+  canGuaranteeBeSubmitted
+}: ProjectGuaranteeProps) => {
   const { t } = useTranslation("project-page");
 
   const projectGuarantees = groupBy(guarantees, "guaranteeType.coverage");
@@ -37,7 +43,11 @@ export const ProjectGuarantee = ({ guarantees }: ProjectGuaranteeProps) => {
                       <ProductGuarantee guarantees={guarantees} />
                     ) : (
                       // System and solution guarantee have  same view...
-                      <SolutionGuarantee guarantees={guarantees} />
+                      <SolutionGuarantee
+                        guarantees={guarantees}
+                        onReviewClick={onReviewClick}
+                        canGuaranteeBeSubmitted={canGuaranteeBeSubmitted}
+                      />
                     )}
                   </div>
                 </Accordion.Details>

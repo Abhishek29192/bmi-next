@@ -65,6 +65,7 @@ export default gql`
   }
 
   type ContentfulEvidenceCategory {
+    sys: ContentfulSys!
     name: String
     description: String
     minimumUploads: Int
@@ -108,16 +109,21 @@ export default gql`
   }
 
   type ContentfulGuaranteeType {
+    sys: ContentfulSys!
     displayName: String
     technology: ContentfulTechnologyType
     coverage: ContentfulGuaranteeCoverageType
     name: String
     signature: ContentfulAsset
     maximumValidityYears: Int
-    tiersAvailable: ContentfulTiers
+    tiersAvailable: [ContentfulTiers]
     ranking: Int
     evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
     guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
+  }
+
+  type ContentfulSys {
+    id: String!
   }
 
   type PublishOutput {

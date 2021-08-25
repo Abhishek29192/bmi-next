@@ -6794,6 +6794,7 @@ type ContentfulAsset {
 }
 
 type ContentfulEvidenceCategory {
+  sys: ContentfulSys!
   name: String
   description: String
   minimumUploads: Int
@@ -6845,13 +6846,14 @@ type ContentfulGuaranteeTemplatesCollection {
 }
 
 type ContentfulGuaranteeType {
+  sys: ContentfulSys!
   displayName: String
   technology: ContentfulTechnologyType
   coverage: ContentfulGuaranteeCoverageType
   name: String
   signature: ContentfulAsset
   maximumValidityYears: Int
-  tiersAvailable: ContentfulTiers
+  tiersAvailable: [ContentfulTiers]
   ranking: Int
   evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
   guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
@@ -6899,6 +6901,10 @@ input ContentfulMetadataTagsFilter {
   id_contains_all: [String]
   id_contains_some: [String]
   id_contains_none: [String]
+}
+
+type ContentfulSys {
+  id: String!
 }
 
 """

@@ -1,10 +1,13 @@
 import { Source } from "graphql";
 import { makeWrapResolversPlugin } from "graphile-utils";
-import { CreateGuaranteeInput } from "@bmi/intouch-api-types";
+import {
+  CreateGuaranteeInput,
+  UpdateGuaranteeInput
+} from "@bmi/intouch-api-types";
 import { updateCompany, deleteCompanyMember } from "../../services/company";
 import { createAccount, updateAccount } from "../../services/account";
 import { evidenceItemsAdd } from "../../services/evidenceItem";
-import { createGuarantee } from "../../services/guarantee";
+import { createGuarantee, updateGuarantee } from "../../services/guarantee";
 import { PostGraphileContext } from "../../types";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
@@ -82,6 +85,17 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
           resolveInfo
         ) {
           return createGuarantee(resolve, source, args, context, resolveInfo);
+        }
+      },
+      updateGuarantee: {
+        async resolve(
+          resolve,
+          source: Source | string,
+          args: { input: UpdateGuaranteeInput },
+          context: PostGraphileContext,
+          resolveInfo
+        ) {
+          return updateGuarantee(resolve, source, args, context, resolveInfo);
         }
       }
     }

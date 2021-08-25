@@ -834,12 +834,19 @@ export const GetProjectDocument = gql`
           id
           guaranteeTypeId
           guaranteeType {
+            sys {
+              id
+            }
             name
             coverage
             displayName
             technology
+            tiersAvailable
             evidenceCategoriesCollection {
               items {
+                sys {
+                  id
+                }
                 name
                 minimumUploads
               }
@@ -1011,6 +1018,58 @@ export type CreateGuaranteeMutationResult =
 export type CreateGuaranteeMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateGuaranteeMutation,
   OperationTypes.CreateGuaranteeMutationVariables
+>;
+export const UpdateGuaranteeDocument = gql`
+  mutation updateGuarantee($input: UpdateGuaranteeInput!) {
+    updateGuarantee(input: $input) {
+      guarantee {
+        id
+      }
+    }
+  }
+`;
+export type UpdateGuaranteeMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateGuaranteeMutation,
+  OperationTypes.UpdateGuaranteeMutationVariables
+>;
+
+/**
+ * __useUpdateGuaranteeMutation__
+ *
+ * To run a mutation, you first call `useUpdateGuaranteeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateGuaranteeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateGuaranteeMutation, { data, loading, error }] = useUpdateGuaranteeMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateGuaranteeMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateGuaranteeMutation,
+    OperationTypes.UpdateGuaranteeMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateGuaranteeMutation,
+    OperationTypes.UpdateGuaranteeMutationVariables
+  >(UpdateGuaranteeDocument, options);
+}
+export type UpdateGuaranteeMutationHookResult = ReturnType<
+  typeof useUpdateGuaranteeMutation
+>;
+export type UpdateGuaranteeMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateGuaranteeMutation>;
+export type UpdateGuaranteeMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateGuaranteeMutation,
+  OperationTypes.UpdateGuaranteeMutationVariables
 >;
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {

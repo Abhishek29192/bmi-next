@@ -20,6 +20,9 @@ export const getGuarantee = async (id: string) => {
   const query = `
 query guarantee($id:String!) {
   guaranteeType(id:$id) {
+    sys {
+      id
+    }
     name
     displayName
     technology
@@ -28,8 +31,12 @@ query guarantee($id:String!) {
       fileName
       url
     }
+    tiersAvailable
     evidenceCategoriesCollection {
       items {
+        sys {
+          id
+        }
         name
         minimumUploads
       }
