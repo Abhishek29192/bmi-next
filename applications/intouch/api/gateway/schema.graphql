@@ -877,7 +877,12 @@ input AccountMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -4218,7 +4223,12 @@ input CompanyMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -4959,7 +4969,12 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -16200,7 +16215,12 @@ type Market implements Node {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: Point
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -16780,7 +16800,12 @@ input MarketInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -17303,7 +17328,12 @@ input MarketPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -19973,9 +20003,9 @@ type Notification implements Node {
   sendDate: Datetime!
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean!
+  read: Boolean!
 
   """
   The body of the message
@@ -20115,9 +20145,9 @@ input NotificationAccountIdFkeyNotificationCreateInput {
   sendDate: Datetime!
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean!
+  read: Boolean
 
   """
   The body of the message
@@ -20194,9 +20224,9 @@ input NotificationInput {
   sendDate: Datetime!
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean!
+  read: Boolean
 
   """
   The body of the message
@@ -20297,9 +20327,9 @@ input NotificationPatch {
   sendDate: Datetime
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean
+  read: Boolean
 
   """
   The body of the message
@@ -20990,7 +21020,12 @@ input ProductMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -26048,7 +26083,12 @@ input SystemMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -26449,7 +26489,12 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -33259,7 +33304,12 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -33342,7 +33392,12 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -33425,7 +33480,12 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -33508,7 +33568,12 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -33591,7 +33656,12 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -33674,7 +33744,12 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -33748,9 +33823,9 @@ input updateNotificationOnNotificationForNotificationAccountIdFkeyPatch {
   sendDate: Datetime
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean
+  read: Boolean
 
   """
   The body of the message

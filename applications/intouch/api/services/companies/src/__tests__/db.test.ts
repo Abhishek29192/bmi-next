@@ -763,7 +763,7 @@ describe("Database permissions", () => {
   describe("Notification", () => {
     beforeAll(async () => {
       await pool.query(
-        "insert into notification (account_id, send_date, unread, body) VALUES ($1, $2, $3, $4) RETURNING *",
+        "insert into notification (account_id, send_date, read, body) VALUES ($1, $2, $3, $4) RETURNING *",
         [
           installer_id,
           new Date(),
@@ -783,11 +783,11 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into notification (account_id, send_date, unread, body) VALUES ($1, $2, $3, $4) RETURNING *",
+            "insert into notification (account_id, send_date, read, body) VALUES ($1, $2, $3, $4) RETURNING *",
             [
               installer_id,
               new Date(),
-              true,
+              false,
               "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
             ]
           );
@@ -803,10 +803,10 @@ describe("Database permissions", () => {
             accountUuid: installer_id,
             accountEmail: INSTALLER_EMAIL
           },
-          "update notification set unread=$2 where account_id=$1 RETURNING *",
-          [installer_id, false]
+          "update notification set read=$2 where account_id=$1 RETURNING *",
+          [installer_id, true]
         );
-        expect(rows[0].unread).toEqual(false);
+        expect(rows[0].read).toEqual(true);
       });
     });
   });

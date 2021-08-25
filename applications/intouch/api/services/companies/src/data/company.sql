@@ -290,7 +290,8 @@ CREATE TABLE market (
   merchandising_url text,
   projects_enabled boolean,
   gtag text,
-  geo_middle text,
+  geo_middle point,
+  location_bias_radius_km int,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -312,7 +313,7 @@ CREATE TABLE notification (
   id serial PRIMARY KEY,
   account_id int,
   send_date timestamp NOT NULL,
-  unread boolean NOT NULL,
+  read boolean NOT NULL DEFAULT FALSE,
   body text,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
@@ -345,7 +346,7 @@ CREATE TABLE project (
   technology technology,
   name text NOT NULL,
   description text,
-  hidden boolean,
+  hidden boolean DEFAULT FALSE,
   roof_area int NOT NULL,
   building_owner_mail text,
   building_owner_firstname text,
@@ -666,12 +667,12 @@ INSERT INTO invitation (id, sender_account_id, company_id, status, invitee, pers
 TRUNCATE TABLE market RESTART IDENTITY;
 
 INSERT INTO market (id,
-  LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
-  VALUES ('1', 'en', 'en', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'intouch@bmigroup.en', '7', '8', 37, 'https://italy.bmiroofpromerch.com/', TRUE, 'tbc1', '42.7684,-78.8871');
+  LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle, location_bias_radius_km)
+  VALUES ('1', 'en', 'en', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'intouch@bmigroup.en', '7', '8', 37, 'https://italy.bmiroofpromerch.com/', TRUE, 'UA-141761217-2', '51.5014,-0.1419', 200);
 
 INSERT INTO market (id,
-  LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
-  VALUES ('2', 'no', 'no', 'opay6t6wwmup', 'Transatlantia', 'BMI Intouch Mapleland', 'intouch@bmigroup.no', '7', '8', 38, 'https://italy.bmiroofpromerch.com/', TRUE, 'tbc1', '27.9139,-82.7157');
+  LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle, location_bias_radius_km)
+  VALUES ('2', 'no', 'no', 'opay6t6wwmup', 'Transatlantia', 'BMI Intouch Mapleland', 'intouch@bmigroup.no', '7', '8', 38, 'https://italy.bmiroofpromerch.com/', TRUE, 'UA-141761217-6', '59.9139,10.7522', 100);
 
 TRUNCATE TABLE note RESTART IDENTITY;
 
@@ -683,26 +684,26 @@ INSERT INTO note (id, author_id, project_id, body)
 
 TRUNCATE TABLE notification RESTART IDENTITY;
 
-INSERT INTO notification (id, account_id, send_date, unread, body)
-  VALUES ('1', 3, '2021-05-11 21:20:11', FALSE, 'On a dark desert highway');
+INSERT INTO notification (id, account_id, send_date, read, body)
+  VALUES ('1', 3, '2021-08-17 23:20:11', TRUE, 'On a the M6 near Birmingham');
 
-INSERT INTO notification (id, account_id, send_date, unread, body)
-  VALUES ('2', 3, '2021-05-11 21:20:11', TRUE, 'Cool wind in my hair. See project page on the [bbc website](https://bbc.co.uk)');
+INSERT INTO notification (id, account_id, send_date, read, body)
+  VALUES ('2', 3, '2021-08-17 23:20:11', FALSE, 'Cool wind in my hair. See project page on the [bbc website](https://bbc.co.uk)');
 
-INSERT INTO notification (id, account_id, send_date, unread, body)
-  VALUES ('3', 3, '2021-05-11 21:20:11', FALSE, 'Warm smell of colitas rising up through the air');
+INSERT INTO notification (id, account_id, send_date, read, body)
+  VALUES ('3', 3, '2021-08-13 21:20:11', TRUE, 'Warm smell of colitas rising up through the air');
 
-INSERT INTO notification (id, account_id, send_date, unread, body)
-  VALUES ('4', 7, '2021-05-11 21:20:11', TRUE, 'and thence we issued forth to see again the stars');
+INSERT INTO notification (id, account_id, send_date, read, body)
+  VALUES ('4', 7, '2021-05-11 21:20:11', FALSE, 'and thence we issued forth to see again the stars');
 
-INSERT INTO notification (id, account_id, send_date, unread, body)
-  VALUES ('5', 7, '2021-05-11 21:20:11', FALSE, 'All hope abandon, ye who enter here!');
+INSERT INTO notification (id, account_id, send_date, read, body)
+  VALUES ('5', 7, '2021-08-17 21:20:11', TRUE, 'All hope abandon, ye who enter here!');
 
-INSERT INTO notification (id, account_id, send_date, unread, body)
-  VALUES ('6', 7, '2021-05-11 21:20:11', TRUE, 'The wisest are the most annoyed at the loss of time');
+INSERT INTO notification (id, account_id, send_date, read, body)
+  VALUES ('6', 7, '2021-08-17 21:20:11', FALSE, 'The wisest are the most annoyed at the loss of time');
 
-INSERT INTO notification (id, account_id, send_date, unread, body)
-  VALUES ('7', 3, '2021-05-11 21:20:11', FALSE, 'Warm smell of colitas rising up through the air');
+INSERT INTO notification (id, account_id, send_date, read, body)
+  VALUES ('7', 3, '2021-05-17 21:20:11', TRUE, 'Warm smell of Morleys chicken rising up through the air');
 
 TRUNCATE TABLE product RESTART IDENTITY;
 
@@ -1016,9 +1017,6 @@ ALTER TABLE SYSTEM
 
 ALTER TABLE system_member
   ADD UNIQUE (system_bmi_ref, product_bmi_ref, market_id);
-
-ALTER TABLE guarantee
-  ADD UNIQUE (bmi_reference_id);  
 
 ALTER TABLE account
   ADD FOREIGN KEY (market_id) REFERENCES market (id) ON DELETE CASCADE;
@@ -1408,6 +1406,8 @@ COMMENT ON COLUMN market.gtag IS 'Reference to the Google Analytics tracking ID 
 
 COMMENT ON COLUMN market.geo_middle IS 'The coordinates of the middle of the Market on a map';
 
+COMMENT ON COLUMN market.location_bias_radius_km IS 'The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.';
+
 COMMENT ON TABLE note IS 'A note added by a BMI admin. It is likely to be either a short note regarding approval, saying something like, Approved, or Good Job, or a note explaining a rejection, saying  something like, The photographs of the roof are not clear enough.';
 
 COMMENT ON COLUMN note.id IS 'Primary key';
@@ -1426,7 +1426,7 @@ COMMENT ON COLUMN notification.account_id IS 'fk';
 
 COMMENT ON COLUMN notification.send_date IS 'The datetime stamp for when the message was sent';
 
-COMMENT ON COLUMN notification.unread IS 'Whether the message still needs to be read';
+COMMENT ON COLUMN notification.read IS 'Whether the message has been read';
 
 COMMENT ON COLUMN notification.body IS 'The body of the message';
 

@@ -78,7 +78,7 @@ grant select, insert, delete on project_member to company_admin;
 
 -- notification
 grant select on notification to installer;
-grant update (unread) on notification to installer;
+grant update (read) on notification to installer;
 grant select, insert, update, delete on notification to super_admin;
 
 -- invitation

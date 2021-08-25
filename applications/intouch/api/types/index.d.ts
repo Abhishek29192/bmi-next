@@ -407,7 +407,9 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -2337,7 +2339,9 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -2721,7 +2725,9 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -9866,7 +9872,9 @@ export type Market = Node & {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<Point>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads and enables pagination through a set of `Account`. */
@@ -10246,7 +10254,9 @@ export type MarketInput = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -10536,7 +10546,9 @@ export type MarketPatch = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -12521,8 +12533,8 @@ export type Notification = Node & {
   accountId?: Maybe<Scalars["Int"]>;
   /** The datetime stamp for when the message was sent */
   sendDate: Scalars["Datetime"];
-  /** Whether the message still needs to be read */
-  unread: Scalars["Boolean"];
+  /** Whether the message has been read */
+  read: Scalars["Boolean"];
   /** The body of the message */
   body?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
@@ -12589,8 +12601,8 @@ export type NotificationAccountIdFkeyNotificationCreateInput = {
   id?: Maybe<Scalars["Int"]>;
   /** The datetime stamp for when the message was sent */
   sendDate: Scalars["Datetime"];
-  /** Whether the message still needs to be read */
-  unread: Scalars["Boolean"];
+  /** Whether the message has been read */
+  read?: Maybe<Scalars["Boolean"]>;
   /** The body of the message */
   body?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
@@ -12631,8 +12643,8 @@ export type NotificationInput = {
   accountId?: Maybe<Scalars["Int"]>;
   /** The datetime stamp for when the message was sent */
   sendDate: Scalars["Datetime"];
-  /** Whether the message still needs to be read */
-  unread: Scalars["Boolean"];
+  /** Whether the message has been read */
+  read?: Maybe<Scalars["Boolean"]>;
   /** The body of the message */
   body?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
@@ -12690,8 +12702,8 @@ export type NotificationPatch = {
   accountId?: Maybe<Scalars["Int"]>;
   /** The datetime stamp for when the message was sent */
   sendDate?: Maybe<Scalars["Datetime"]>;
-  /** Whether the message still needs to be read */
-  unread?: Maybe<Scalars["Boolean"]>;
+  /** Whether the message has been read */
+  read?: Maybe<Scalars["Boolean"]>;
   /** The body of the message */
   body?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
@@ -13120,7 +13132,9 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -15968,7 +15982,9 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -16170,7 +16186,9 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -20254,7 +20272,9 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -20294,7 +20314,9 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -20334,7 +20356,9 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -20374,7 +20398,9 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -20414,7 +20440,9 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -20454,7 +20482,9 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
   /** The coordinates of the middle of the Market on a map */
-  geoMiddle?: Maybe<Scalars["String"]>;
+  geoMiddle?: Maybe<PointInput>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
@@ -20500,8 +20530,8 @@ export type UpdateNotificationOnNotificationForNotificationAccountIdFkeyPatch =
     id?: Maybe<Scalars["Int"]>;
     /** The datetime stamp for when the message was sent */
     sendDate?: Maybe<Scalars["Datetime"]>;
-    /** Whether the message still needs to be read */
-    unread?: Maybe<Scalars["Boolean"]>;
+    /** Whether the message has been read */
+    read?: Maybe<Scalars["Boolean"]>;
     /** The body of the message */
     body?: Maybe<Scalars["String"]>;
     createdAt?: Maybe<Scalars["Datetime"]>;
