@@ -1528,14 +1528,17 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly markets?: SchemaTypes.Maybe<
     { readonly __typename?: "MarketsConnection" } & {
       readonly nodes: ReadonlyArray<
-        { readonly __typename?: "Market" } & {
-          readonly geoMiddle?: SchemaTypes.Maybe<
-            { readonly __typename?: "Point" } & Pick<
-              SchemaTypes.Point,
-              "x" | "y"
-            >
-          >;
-        }
+        { readonly __typename?: "Market" } & Pick<
+          SchemaTypes.Market,
+          "locationBiasRadiusKm"
+        > & {
+            readonly geoMiddle?: SchemaTypes.Maybe<
+              { readonly __typename?: "Point" } & Pick<
+                SchemaTypes.Point,
+                "x" | "y"
+              >
+            >;
+          }
       >;
     }
   >;
@@ -1916,14 +1919,17 @@ export type GetUserProfileQuery = { readonly __typename?: "Query" } & {
   readonly markets?: SchemaTypes.Maybe<
     { readonly __typename?: "MarketsConnection" } & {
       readonly nodes: ReadonlyArray<
-        { readonly __typename?: "Market" } & {
-          readonly geoMiddle?: SchemaTypes.Maybe<
-            { readonly __typename?: "Point" } & Pick<
-              SchemaTypes.Point,
-              "x" | "y"
-            >
-          >;
-        }
+        { readonly __typename?: "Market" } & Pick<
+          SchemaTypes.Market,
+          "locationBiasRadiusKm"
+        > & {
+            readonly geoMiddle?: SchemaTypes.Maybe<
+              { readonly __typename?: "Point" } & Pick<
+                SchemaTypes.Point,
+                "x" | "y"
+              >
+            >;
+          }
       >;
     }
   >;

@@ -11,6 +11,7 @@ export const generateMarketContext = (
   domain: "en",
   language: "EN",
   cmsSpaceId: "opay6t6wwmup",
+  locationBiasRadiusKm: 100,
   geoMiddle: {
     x: 51.5014,
     y: -0.1419

@@ -118,8 +118,11 @@ export const GET_COMPANY_PAGE = gql`
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
     }
+    # TODO refactor this to retrieve it within the "withPage" middleware
+    # https://bmigroup.atlassian.net/browse/IRP-680
     markets(condition: { domain: $marketDomain }) {
       nodes {
+        locationBiasRadiusKm
         geoMiddle {
           x
           y
