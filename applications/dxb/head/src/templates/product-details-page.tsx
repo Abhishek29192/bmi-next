@@ -57,11 +57,15 @@ const transformImages = (images) => {
   }));
 };
 
-const getDescription = (product: Product): string => {
-  const variant = product.variantOptions.find(
-    (variant) => variant.longDescription
+const getDescription = (product: Product, variantCode?: string): string => {
+  if (!variantCode) return product.description;
+
+  const variantProduct = product.variantOptions.find(
+    ({ code }) => code === variantCode
   );
-  return variant?.longDescription || product.description;
+
+  if (variantProduct) return variantProduct.longDescription;
+  return product.description;
 };
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
@@ -162,7 +166,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           </Container>
           <Section backgroundColor="white">
             <ProductLeadBlock
-              description={getDescription(product)}
+              description={getDescription(product, pageContext.variantCode)}
               keyFeatures={product.productBenefits}
               sidebarItems={resources?.pdpSidebarItems}
               guaranteesAndWarranties={product.assets?.filter(
