@@ -1,10 +1,13 @@
 import React from "react";
 import Typography from "@bmi/typography";
+import Button from "@bmi/button";
+import { GuaranteeEventType } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import {
   GuaranteeStatus,
   guaranteeStatusIcons
 } from "../../../lib/utils/guarantee";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import { formatDate } from "../../../lib/utils/date";
 import { Address, AddressProps } from "../../Address";
 import { InfoPair } from "../../InfoPair";
@@ -22,6 +25,8 @@ export type ProjectsHeaderProps = {
   endDate: string;
   guaranteeType: string;
   guaranteeStatus: GuaranteeStatus;
+  guaranteeEventType?: GuaranteeEventType;
+  guaranteeEventHandler?: (status: GuaranteeEventType) => void;
 };
 
 export const ProjectsHeader = ({
@@ -34,7 +39,9 @@ export const ProjectsHeader = ({
   startDate,
   endDate,
   guaranteeType,
-  guaranteeStatus
+  guaranteeStatus,
+  guaranteeEventType,
+  guaranteeEventHandler
 }: ProjectsHeaderProps) => {
   const { t } = useTranslation("project-page");
 
@@ -73,6 +80,20 @@ export const ProjectsHeader = ({
           </div>
         </InfoPair>
       </div>
+      {guaranteeEventType && (
+        <AccessControl dataModel="project" action="adminActions">
+          <div className={styles.footer}>
+            <Button
+              onClick={() => {
+                guaranteeEventHandler &&
+                  guaranteeEventHandler(guaranteeEventType);
+              }}
+            >
+              {t(`projectDetails.cta.${guaranteeEventType}`)}
+            </Button>
+          </div>
+        </AccessControl>
+      )}
     </SimpleCard>
   );
 };

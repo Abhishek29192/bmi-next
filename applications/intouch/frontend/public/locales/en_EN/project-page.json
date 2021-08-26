@@ -15,7 +15,13 @@
     "startDate": "Project start date",
     "endDate": "Project end date",
     "guaranteeType": "Guarantee",
-    "guaranteeStatus": "Guarantee status"
+    "guaranteeStatus": "Guarantee status",
+    "cta": {
+      "ASSIGN_SOLUTION": "Assign to me",
+      "REASSIGN_SOLUTION": "Reassign to me",
+      "UNASSIGN_SOLUTION": "Unassign to me",
+      "NOT_ASSIGNABLE": "Not Assignable"
+    }
   },
   "buildingOwnerDetails": {
     "title": "Building Owner Details",
