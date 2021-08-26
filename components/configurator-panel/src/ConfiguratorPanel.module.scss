@@ -27,7 +27,7 @@
 
     .title {
       > .selected-title {
-        color: $color-cyan-500;
+        color: $color-theme-inter;
       }
 
       @media (max-width: $breakpoint-sm) {
@@ -40,7 +40,7 @@
 
       .title {
         > .selected-title {
-          color: $color-cyan-600;
+          color: $color-theme-focus;
         }
       }
     }

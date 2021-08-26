@@ -2623,7 +2623,7 @@ exports[`SystemDetailsPage template component should have function to filter and
     </div>
   </header>
   <div
-    class=""
+    class="RoyalBlue"
     data-testid="brand-colors-provider"
   >
     <div
@@ -6470,7 +6470,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     </div>
   </header>
   <div
-    class=""
+    class="RoyalBlue"
     data-testid="brand-colors-provider"
   >
     <div
@@ -10611,7 +10611,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     </div>
   </header>
   <div
-    class=""
+    class="RoyalBlue"
     data-testid="brand-colors-provider"
   >
     <div

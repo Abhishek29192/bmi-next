@@ -561,7 +561,6 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                               aria-hidden="true"
                               class="MuiSvgIcon-root"
                               focusable="false"
-                              style="color: rgb(0, 159, 227);"
                               viewBox="0 0 24 24"
                             >
                               <path
