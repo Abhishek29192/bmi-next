@@ -18,17 +18,20 @@ export type ConfiguratorPanelProps = {
   handleOnChange?: (event: ChangeEvent<{}>, expanded: boolean) => void;
 } & Partial<AccordionProps>;
 
-const ConfiguratorPanel = ({
-  title,
-  selectedOptionTitle,
-  isExpanded,
-  options,
-  children,
-  handleOnChange,
-  ...rest
-}: ConfiguratorPanelProps) => {
+const ConfiguratorPanel = (
+  {
+    title,
+    selectedOptionTitle,
+    isExpanded,
+    options,
+    children,
+    handleOnChange,
+    ...rest
+  }: ConfiguratorPanelProps,
+  forwardedRef?: React.Ref<HTMLDivElement>
+) => {
   return (
-    <div className={styles["ConfiguratorPanel"]}>
+    <div ref={forwardedRef} className={styles["ConfiguratorPanel"]}>
       <Accordion
         square
         className={styles["panel"]}
@@ -68,4 +71,6 @@ const ConfiguratorPanel = ({
   );
 };
 
-export default ConfiguratorPanel;
+const ConfiguratorPanelWithRef = React.forwardRef(ConfiguratorPanel);
+
+export default ConfiguratorPanelWithRef;
