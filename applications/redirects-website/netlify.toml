@@ -13,8 +13,52 @@
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "functions/"
 
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true", NETLIFY_USE_YARN="true" }
+
+[[plugins]]
+  # enable Gatsby.js incremental builds plugin.
+  package = "netlify-plugin-gatsby-cache"
+
 [build.processing]
   skip_processing = true
+
+
+
+[[redirects]]
+ from="http://www.bmi-academy.it/centro-formazione-professionale-tetto-academy/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/academy"
+ force=true
+
+[[redirects]]
+ from="http://www.bmi-academy.it/formazione-professionale-ingegneri-geometri-imprese-rivendite/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/corsi-formazione-professionale"
+ force=true
+
+[[redirects]]
+ from="http://www.bmi-academy.it/corsi-architetti-ingegneri-geometri/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/corsi-formazione-professionale/"
+ force=true
+
+[[redirects]]
+ from="http://www.bmi-academy.it/corsi-imprese-artigiani-carpentieri/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/corsi-formazione-professionale/"
+ force=true
+
+[[redirects]]
+ from="http://www.bmi-academy.it/docenti-bmi-academy/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/docenti-bmi-academy"
+ force=true
+
+[[redirects]]
+ from="http://www.bmi-academy.it/contattaci/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/contatta-bmi-academy/"
+ force=true
+
+[[redirects]]
+ from="http://www.bmi-academy.it"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy"
+ force=true
 
 
 
@@ -2084,67 +2128,7 @@
  force=true
 
 [[redirects]]
- from="/no/catalog/products/70/complements/accessories/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/70/complements/attachment/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/70/complements/roof_tile/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/70/complements/seal/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/70/complements/snow_security/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/70/complements/ventilation/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/no/catalog/products/65"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/65/complements/accessories/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/65/complements/attachment/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/65/complements/roof_tile/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/65/complements/seal/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/65/complements/snow_security/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/65/complements/ventilation/"
  to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
@@ -2154,67 +2138,7 @@
  force=true
 
 [[redirects]]
- from="/no/catalog/products/67/complements/accessories/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/67/complements/attachment/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/67/complements/roof_tile/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/67/complements/seal/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/67/complements/snow_security/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/67/complements/ventilation/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/no/catalog/products/68"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/68/complements/accessories/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/68/complements/attachment/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/68/complements/roof_tile/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/68/complements/seal/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/68/complements/snow_security/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/68/complements/ventilation/"
  to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
@@ -2223,35 +2147,6 @@
  to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
-[[redirects]]
- from="/no/catalog/products/64/complements/accessories/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/64/complements/attachment/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/64/complements/roof_tile/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/64/complements/seal/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/64/complements/snow_security/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/no/catalog/products/64/complements/ventilation/"
- to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
- force=true
 
 [[redirects]]
  from="/no/catalog/products/"
@@ -2270,3 +2165,74 @@
  from="/no"
  to="https://www.bmigroup.com/no?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
  force=true
+
+
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/scarica-guida-bonus-rifacimento-tetto"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-guida-bonus-rifacimento-tetto"
+ force=true
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/survey-fascicolo-tecnico-del-tetto"
+ to="https://tettiecoperture.bmigroup.com/it/survey-fascicolo-tecnico-del-tetto"
+ force=true
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/scarica-guida-sistema-tetto-bmi"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-guida-sistema-tetto-bmi"
+ force=true
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/scarica-fascicolo-tecnico-bmi-expert"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-fascicolo-tecnico-bmi-expert"
+ force=true
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/scarica-fascicolo-tecnico-bmi-expert-edicom"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-fascicolo-tecnico-edicom-bmi-expert"
+ force=true
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/devi-rifare-il-tetto-contattaci-per-un-preventivo"
+ to="https://tettiecoperture.bmigroup.com/it/devi-rifare-il-tetto-contattaci-per-un-preventivo"
+ force=true
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/scarica-check-list-realizzare-preventivo-ristrutturazione-tetto"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-check-list-realizzare-preventivo-ristrutturazione-tetto"
+ force=true
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/contatta-installatore-tetto-certificato-bmi-roofpro"
+ to="https://tettiecoperture.bmigroup.com/it/contatta-installatore-tetto-certificato-bmi-roofpro"
+ force=true
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/chiedi-consulenza-gratuita-di-progettazione-bmi-expert"
+ to="https://tettiecoperture.bmigroup.com/it/chiedi-consulenza-gratuita-di-progettazione-bmi-expert"
+ force=true
+
+[[redirects]]
+ from="https://www.bmigroup.com/it/thearchitecteffect/download?__hstc=24525925.8373275e7816ef64c139cb96b252f1be.1591360697375.1593440271311.1593447882682.12&__hssc=24525925.7.1593447882682&__hsfp=2585151190#id=scarica-la-ricerca"
+ to="https://share.hsforms.com/1UpN-ISMjQJG6mbbSlC1AuA5fsl7"
+ force=true
+
+[[redirects]]
+ from="https://roof.bmigroup.com/it/ristrutturazione-tetto"
+ to="https://tettiecoperture.bmigroup.com/it/ristrutturazione-tetto"
+ force=true
+
+
+
+[[redirects]]
+ from="https://roof.bmigroup.com/:slug"
+ to="https://tettiecoperture.bmigroup.com/:slug"
+ force=true
+
+[[redirects]]
+ from="http://roof.bmigroup.com/:slug"
+ to="https://tettiecoperture.bmigroup.com/:slug"
+ force=true
+
+
