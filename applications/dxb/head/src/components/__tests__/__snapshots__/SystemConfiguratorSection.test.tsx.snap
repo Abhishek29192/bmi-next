@@ -211,90 +211,92 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
       </div>
     </div>
   </div>
-  <div
-    class="Section Section--white"
-  >
+  <div>
     <div
-      class="Container"
+      class="Section Section--white"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="Container"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          Result Title
-        </h2>
         <div
-          class="RichText"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
-          <h3
-            class="MuiTypography-root title Typography MuiTypography-h3"
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
           >
-            Rich Text heading 3
-          </h3>
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-          >
-            Rich Text paragraph text
-          </p>
-        </div>
-        <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-        >
+            Result Title
+          </h2>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            class="RichText"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              href="/no/system-details-page?selected_system=abcd"
-              role="button"
-              tabindex="0"
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
             >
-              <div
-                class="body"
-              >
-                <h5
-                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                >
-                  System-abcd
-                </h5>
-                <div
-                  class="children text"
-                />
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              href="/no/system-details-page?selected_system=efgh"
-              role="button"
-              tabindex="0"
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
             >
-              <div
-                class="body"
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=abcd"
+                role="button"
+                tabindex="0"
               >
-                <h5
-                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                >
-                  System-efgh
-                </h5>
                 <div
-                  class="children text"
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-abcd
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
                 />
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=efgh"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-efgh
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -514,90 +516,92 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
       </div>
     </div>
   </div>
-  <div
-    class="Section Section--white"
-  >
+  <div>
     <div
-      class="Container"
+      class="Section Section--white"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="Container"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          Result Title
-        </h2>
         <div
-          class="RichText"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
-          <h3
-            class="MuiTypography-root title Typography MuiTypography-h3"
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
           >
-            Rich Text heading 3
-          </h3>
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-          >
-            Rich Text paragraph text
-          </p>
-        </div>
-        <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-        >
+            Result Title
+          </h2>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            class="RichText"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              href="/no/system-details-page?selected_system=abcd"
-              role="button"
-              tabindex="0"
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
             >
-              <div
-                class="body"
-              >
-                <h5
-                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                >
-                  System-abcd
-                </h5>
-                <div
-                  class="children text"
-                />
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              href="/no/system-details-page?selected_system=efgh"
-              role="button"
-              tabindex="0"
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
             >
-              <div
-                class="body"
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=abcd"
+                role="button"
+                tabindex="0"
               >
-                <h5
-                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                >
-                  System-efgh
-                </h5>
                 <div
-                  class="children text"
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-abcd
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
                 />
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=efgh"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-efgh
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -882,8 +886,8 @@ exports[`SystemConfiguratorSection component renders a no result section when an
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -1025,33 +1029,35 @@ exports[`SystemConfiguratorSection component renders a no result section when an
       </div>
     </div>
   </div>
-  <div
-    class="Section Section--alabaster"
-  >
+  <div>
     <div
-      class="Container"
+      class="Section Section--alabaster"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="Container"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          No Result Title
-        </h2>
         <div
-          class="RichText"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
-          <h3
-            class="MuiTypography-root title Typography MuiTypography-h3"
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
           >
-            Rich Text heading 3
-          </h3>
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            No Result Title
+          </h2>
+          <div
+            class="RichText"
           >
-            Rich Text paragraph text
-          </p>
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
+            >
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -1127,8 +1133,8 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -1270,90 +1276,92 @@ exports[`SystemConfiguratorSection component renders a result section when answe
       </div>
     </div>
   </div>
-  <div
-    class="Section Section--white"
-  >
+  <div>
     <div
-      class="Container"
+      class="Section Section--white"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="Container"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          Result Title
-        </h2>
         <div
-          class="RichText"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
-          <h3
-            class="MuiTypography-root title Typography MuiTypography-h3"
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
           >
-            Rich Text heading 3
-          </h3>
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-          >
-            Rich Text paragraph text
-          </p>
-        </div>
-        <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-        >
+            Result Title
+          </h2>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            class="RichText"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              href="/no/system-details-page?selected_system=abcd"
-              role="button"
-              tabindex="0"
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
             >
-              <div
-                class="body"
-              >
-                <h5
-                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                >
-                  System-abcd
-                </h5>
-                <div
-                  class="children text"
-                />
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              href="/no/system-details-page?selected_system=efgh"
-              role="button"
-              tabindex="0"
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
             >
-              <div
-                class="body"
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=abcd"
+                role="button"
+                tabindex="0"
               >
-                <h5
-                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                >
-                  System-efgh
-                </h5>
                 <div
-                  class="children text"
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-abcd
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
                 />
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=efgh"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-efgh
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1431,7 +1439,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
             </div>
             <div
               class="MuiCollapse-container"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -1811,8 +1819,8 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -2172,8 +2180,8 @@ exports[`SystemConfiguratorSection component renders no result section while ign
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -2315,23 +2323,25 @@ exports[`SystemConfiguratorSection component renders no result section while ign
       </div>
     </div>
   </div>
-  <div
-    class="Section Section--alabaster"
-  >
+  <div>
     <div
-      class="Container"
+      class="Section Section--alabaster"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="Container"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          No Result Title
-        </h2>
         <div
-          class="RichText"
-        />
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            No Result Title
+          </h2>
+          <div
+            class="RichText"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -2406,8 +2416,8 @@ exports[`SystemConfiguratorSection component renders no result section while ign
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -2549,23 +2559,25 @@ exports[`SystemConfiguratorSection component renders no result section while ign
       </div>
     </div>
   </div>
-  <div
-    class="Section Section--alabaster"
-  >
+  <div>
     <div
-      class="Container"
+      class="Section Section--alabaster"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="Container"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          No Result Title
-        </h2>
         <div
-          class="RichText"
-        />
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            No Result Title
+          </h2>
+          <div
+            class="RichText"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -2640,8 +2652,8 @@ exports[`SystemConfiguratorSection component renders no result section with the 
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -2783,28 +2795,30 @@ exports[`SystemConfiguratorSection component renders no result section with the 
       </div>
     </div>
   </div>
-  <div
-    class="Section Section--alabaster"
-  >
+  <div>
     <div
-      class="Container"
+      class="Section Section--alabaster"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="Container"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          No Result Title
-        </h2>
         <div
-          class="RichText"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
-          <img
-            alt="image 2"
-            class="embedded-asset"
-            src="https:// path to image.jpg"
-          />
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            No Result Title
+          </h2>
+          <div
+            class="RichText"
+          >
+            <img
+              alt="image 2"
+              class="embedded-asset"
+              src="https:// path to image.jpg"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -2880,8 +2894,8 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -3356,7 +3370,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
             </div>
             <div
               class="MuiCollapse-container"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -3752,8 +3766,8 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
-              style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
                 class="MuiCollapse-wrapper"
@@ -3895,90 +3909,92 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
       </div>
     </div>
   </div>
-  <div
-    class="Section Section--white"
-  >
+  <div>
     <div
-      class="Container"
+      class="Section Section--white"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="Container"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          Result Title
-        </h2>
         <div
-          class="RichText"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
-          <h3
-            class="MuiTypography-root title Typography MuiTypography-h3"
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
           >
-            Rich Text heading 3
-          </h3>
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-          >
-            Rich Text paragraph text
-          </p>
-        </div>
-        <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-        >
+            Result Title
+          </h2>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            class="RichText"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              href="/no/system-details-page?selected_system=abcd"
-              role="button"
-              tabindex="0"
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
             >
-              <div
-                class="body"
-              >
-                <h5
-                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                >
-                  System-abcd
-                </h5>
-                <div
-                  class="children text"
-                />
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              href="/no/system-details-page?selected_system=efgh"
-              role="button"
-              tabindex="0"
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
             >
-              <div
-                class="body"
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=abcd"
+                role="button"
+                tabindex="0"
               >
-                <h5
-                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                >
-                  System-efgh
-                </h5>
                 <div
-                  class="children text"
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-abcd
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
                 />
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=efgh"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-efgh
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
