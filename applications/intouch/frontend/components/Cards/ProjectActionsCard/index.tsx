@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import Card, { CardContent, CardActions } from "@bmi/card";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
+import { GuaranteeEventType } from "@bmi/intouch-api-types";
 import { useUpdateProjectHiddenMutation } from "../../../graphql/generated/hooks";
 import log from "../../../lib/logger";
 import styles from "./styles.module.scss";
@@ -11,11 +12,13 @@ import styles from "./styles.module.scss";
 type ProjectActionsCardProps = {
   projectId: number;
   isArchived?: boolean;
+  guaranteeEventHandler?: (eventType: GuaranteeEventType) => void;
 };
 
 export const ProjectActionsCard = ({
   projectId,
-  isArchived
+  isArchived,
+  guaranteeEventHandler
 }: ProjectActionsCardProps) => {
   const { t } = useTranslation("project-page");
 
@@ -56,10 +59,25 @@ export const ProjectActionsCard = ({
             ? t("projectActions.cta.unarchive")
             : t("projectActions.cta.archive")}
         </Button>
-        <Button variant="outlined">
-          {t("projectActions.cta.requestInformation")}
-        </Button>
-        <Button>{t("projectActions.cta.approveGuarantee")}</Button>
+        {guaranteeEventHandler && (
+          <>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                guaranteeEventHandler("REJECT_SOLUTION");
+              }}
+            >
+              {t("projectActions.cta.requestInformation")}
+            </Button>
+            <Button
+              onClick={() => {
+                guaranteeEventHandler("APPROVE_SOLUTION");
+              }}
+            >
+              {t("projectActions.cta.approveGuarantee")}
+            </Button>
+          </>
+        )}
       </CardActions>
     </Card>
   );
