@@ -888,6 +888,7 @@ export const GetProjectDocument = gql`
         nodes {
           id
           guaranteeTypeId
+          reviewerAccountId
           guaranteeType {
             sys {
               id

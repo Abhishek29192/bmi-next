@@ -245,6 +245,7 @@ export const GET_PROJECT = gql`
         nodes {
           id
           guaranteeTypeId
+          reviewerAccountId
           guaranteeType {
             sys {
               id
