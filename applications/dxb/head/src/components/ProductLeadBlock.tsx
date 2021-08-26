@@ -135,7 +135,7 @@ const ProductLeadBlock = ({
                 </LeadBlock.Content.Section>
               )}
             </LeadBlock.Content>
-            {(keyFeatures || sidebarItems) && (
+            {(keyFeatures || sidebarItems?.length) && (
               <LeadBlock.Card theme="blue-900">
                 {keyFeatures ? (
                   <LeadBlock.Card.Section>
