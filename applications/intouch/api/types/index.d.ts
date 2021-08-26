@@ -1850,8 +1850,6 @@ export type Company = Node & {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
@@ -3417,8 +3415,6 @@ export type CompanyPatch = {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
@@ -7309,7 +7305,7 @@ export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -7654,7 +7650,7 @@ export type Guarantee = Node & {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -7780,7 +7776,7 @@ export type GuaranteeInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -7989,7 +7985,7 @@ export type GuaranteePatch = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8025,7 +8021,7 @@ export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8150,7 +8146,7 @@ export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8283,7 +8279,7 @@ export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8383,7 +8379,7 @@ export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8483,7 +8479,7 @@ export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -19420,8 +19416,6 @@ export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
     registeredBy?: Maybe<Scalars["String"]>;
     /** the date that the Company registration form was submitted */
     registeredDate?: Maybe<Scalars["Datetime"]>;
-    /** The Group ID of the company in Docebo */
-    doceboGroupId?: Maybe<Scalars["String"]>;
     /** The registered name of the Company */
     name?: Maybe<Scalars["String"]>;
     /** The Tax number in that Market, such as the VAT number */
@@ -19486,8 +19480,6 @@ export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
@@ -19552,8 +19544,6 @@ export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
@@ -19618,8 +19608,6 @@ export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
@@ -19686,8 +19674,6 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
@@ -19755,8 +19741,6 @@ export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
     registeredBy?: Maybe<Scalars["String"]>;
     /** the date that the Company registration form was submitted */
     registeredDate?: Maybe<Scalars["Datetime"]>;
-    /** The Group ID of the company in Docebo */
-    doceboGroupId?: Maybe<Scalars["String"]>;
     /** The registered name of the Company */
     name?: Maybe<Scalars["String"]>;
     /** The Tax number in that Market, such as the VAT number */
@@ -19823,8 +19807,6 @@ export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
@@ -19891,8 +19873,6 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
@@ -20005,7 +19985,7 @@ export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -20041,7 +20021,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -20077,7 +20057,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -20114,7 +20094,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
     productBmiRef?: Maybe<Scalars["String"]>;
     /** fk */
     reviewerAccountId?: Maybe<Scalars["Int"]>;
-    /** a reference to the guaranteeType sys id in Contentful */
+    /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
     guaranteeTemplateId?: Maybe<Scalars["String"]>;
     /** ek */
     status?: Maybe<RequestStatus>;
@@ -20150,7 +20130,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -20186,7 +20166,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
+  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
