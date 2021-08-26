@@ -43,7 +43,10 @@ const IntegratedPostItCard = ({
           linkType = "button"
         }) => (
           <Component.Section key={id}>
-            <Component.Heading hasUnderline={hasUnderline}>
+            <Component.Heading
+              hasUnderline={hasUnderline}
+              hasDarkBackground={cardTheme === "blue-900"}
+            >
               {title}
             </Component.Heading>
             <Component.Content>

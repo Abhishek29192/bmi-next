@@ -15,6 +15,9 @@
   }
 
   .blueCheckIcon {
-    color: var(--color-theme-accent-300);
+    color: var(--color-theme-accent);
+    &--dark {
+      color: var(--color-theme-accent-300);
+    }
   }
 }

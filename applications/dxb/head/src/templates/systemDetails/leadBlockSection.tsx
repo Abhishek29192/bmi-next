@@ -14,7 +14,9 @@ import Image, { Data as ImageData } from "../../components/Image";
 import styles from "./styles/leadBlockSection.module.scss";
 import { Category, Classification, Feature } from "./types";
 
-const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
+const BlueCheckIcon = (
+  <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
+);
 
 type Props = {
   name: string;

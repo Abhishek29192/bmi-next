@@ -113,8 +113,17 @@ const SystemDetailsPage = ({ data }: Props) => {
     );
   }, []);
 
+  const brandName = useMemo(
+    () =>
+      (categories || []).find(({ categoryType }) => {
+        return categoryType === "Brand";
+      }).name,
+    [categories]
+  );
+
   return (
     <Page
+      brand={brandName}
       title="System Details Page Demo"
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={contentfulSite}
