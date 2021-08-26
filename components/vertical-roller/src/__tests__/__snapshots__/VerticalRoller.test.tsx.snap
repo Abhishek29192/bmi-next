@@ -87,7 +87,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
         >
           <button
             aria-label="previous"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
             tabindex="0"
             type="button"
           >
@@ -133,7 +133,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
           </span>
           <button
             aria-label="next"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
             tabindex="0"
             type="button"
           >

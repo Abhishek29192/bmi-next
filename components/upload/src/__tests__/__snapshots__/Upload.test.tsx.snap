@@ -10,12 +10,12 @@ exports[`Upload component onChange handler is called 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-96 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-99"
+          class="MuiButton-label buttonStyles-label-104"
         >
           <svg
             aria-hidden="true"
@@ -120,12 +120,12 @@ exports[`Upload component renders correctly on mobile 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-153 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-156"
+          class="MuiButton-label buttonStyles-label-164"
         >
           <svg
             aria-hidden="true"
@@ -166,12 +166,12 @@ exports[`Upload component renders correctly with buttonLabel 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-42"
+          class="MuiButton-label buttonStyles-label-44"
         >
           <svg
             aria-hidden="true"
@@ -212,12 +212,12 @@ exports[`Upload component renders correctly with description 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-61"
+          class="MuiButton-label buttonStyles-label-64"
         >
           <svg
             aria-hidden="true"
@@ -263,12 +263,12 @@ exports[`Upload component renders correctly with error 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-23"
+          class="MuiButton-label buttonStyles-label-24"
         >
           <svg
             aria-hidden="true"
@@ -309,12 +309,12 @@ exports[`Upload component renders correctly with restricted file types 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-77 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-80"
+          class="MuiButton-label buttonStyles-label-84"
         >
           <svg
             aria-hidden="true"

@@ -48,12 +48,12 @@ exports[`LeadBlockSection tests When classifications are provided should render 
               class="ctaContainer LeadBlockContentSection"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-77 MuiButton-contained buttonStyles-contained-79 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-contained buttonStyles-contained-83 quotationBtn MuiButton-containedPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-80"
+                  class="MuiButton-label buttonStyles-label-84"
                 >
                   cta label
                   <span
@@ -123,12 +123,12 @@ exports[`LeadBlockSection tests When classifications are provided should render 
               class="ctaContainer LeadBlockContentSection"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-96 MuiButton-contained buttonStyles-contained-98 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-contained buttonStyles-contained-103 quotationBtn MuiButton-containedPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-99"
+                  class="MuiButton-label buttonStyles-label-104"
                 >
                   cta label
                   <span
@@ -199,16 +199,16 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-115 MuiButton-text buttonStyles-text-116 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 MuiButton-textPrimary"
                 href="system-configurator-page?referer=sys_details"
                 rel="noopener noreferrer"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-118"
+                  class="MuiButton-label buttonStyles-label-124"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-119 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-125 MuiButton-iconSizeMedium"
                   >
                     <svg
                       aria-hidden="true"
@@ -228,12 +228,12 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                 />
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-115 MuiButton-contained buttonStyles-contained-117 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-contained buttonStyles-contained-123 quotationBtn MuiButton-containedPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-118"
+                  class="MuiButton-label buttonStyles-label-124"
                 >
                   cta label
                   <span
@@ -294,12 +294,12 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with no 
               class="ctaContainer LeadBlockContentSection"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-contained buttonStyles-contained-60 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 quotationBtn MuiButton-containedPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-61"
+                  class="MuiButton-label buttonStyles-label-64"
                 >
                   cta label
                   <span
@@ -435,12 +435,12 @@ exports[`LeadBlockSection tests should render with categories 1`] = `
               class="ctaContainer LeadBlockContentSection"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 quotationBtn MuiButton-containedPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-23"
+                  class="MuiButton-label buttonStyles-label-24"
                 >
                   cta label
                   <span
@@ -501,12 +501,12 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
               class="ctaContainer LeadBlockContentSection"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-contained buttonStyles-contained-41 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 quotationBtn MuiButton-containedPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-42"
+                  class="MuiButton-label buttonStyles-label-44"
                 >
                   cta label
                   <span

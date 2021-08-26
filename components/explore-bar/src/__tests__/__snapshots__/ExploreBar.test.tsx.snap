@@ -13,7 +13,7 @@ exports[`ExploreBar component renders correctly 1`] = `
   </h2>
   <a
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined link MuiButton-outlinedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
     href="world"
     tabindex="0"
   >
@@ -42,13 +42,13 @@ exports[`ExploreBar component renders with a link using a component 1`] = `
   </h2>
   <div
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-58 MuiButton-outlined link MuiButton-outlinedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined buttonStyles-opaqueOutlined-68 link MuiButton-outlinedPrimary"
     role="button"
     tabindex="0"
     to="/world"
   >
     <span
-      class="MuiButton-label buttonStyles-label-61"
+      class="MuiButton-label buttonStyles-label-64"
     >
       Hello
     </span>
@@ -72,12 +72,12 @@ exports[`ExploreBar component renders with different heading 1`] = `
   </h2>
   <a
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-39 MuiButton-outlined link MuiButton-outlinedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined buttonStyles-opaqueOutlined-48 link MuiButton-outlinedPrimary"
     href="/world"
     tabindex="0"
   >
     <span
-      class="MuiButton-label buttonStyles-label-42"
+      class="MuiButton-label buttonStyles-label-44"
     >
       Hello
     </span>
@@ -101,12 +101,12 @@ exports[`ExploreBar component renders with multiple links 1`] = `
   </h2>
   <a
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined link MuiButton-outlinedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
     href="/tools"
     tabindex="0"
   >
     <span
-      class="MuiButton-label buttonStyles-label-23"
+      class="MuiButton-label buttonStyles-label-24"
     >
       Tools
     </span>
@@ -116,12 +116,12 @@ exports[`ExploreBar component renders with multiple links 1`] = `
   </a>
   <a
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined link MuiButton-outlinedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
     href="/engineering-guides"
     tabindex="0"
   >
     <span
-      class="MuiButton-label buttonStyles-label-23"
+      class="MuiButton-label buttonStyles-label-24"
     >
       Engineering guides
     </span>
@@ -131,12 +131,12 @@ exports[`ExploreBar component renders with multiple links 1`] = `
   </a>
   <a
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined link MuiButton-outlinedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
     href="/training"
     tabindex="0"
   >
     <span
-      class="MuiButton-label buttonStyles-label-23"
+      class="MuiButton-label buttonStyles-label-24"
     >
       Training
     </span>
@@ -146,12 +146,12 @@ exports[`ExploreBar component renders with multiple links 1`] = `
   </a>
   <a
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined link MuiButton-outlinedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
     href="/frequently-asked-questions"
     tabindex="0"
   >
     <span
-      class="MuiButton-label buttonStyles-label-23"
+      class="MuiButton-label buttonStyles-label-24"
     >
       Frequently asked questions
     </span>

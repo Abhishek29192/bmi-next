@@ -34,7 +34,7 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"
             tabindex="0"
             type="button"
           >
@@ -144,7 +144,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
             tabindex="0"
             type="button"
           >
@@ -206,12 +206,12 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
           class="actions"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 actionButton MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 actionButton MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-23"
+              class="MuiButton-label buttonStyles-label-24"
             >
               MC: dialog.close
             </span>

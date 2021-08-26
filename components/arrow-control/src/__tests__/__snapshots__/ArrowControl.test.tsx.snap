@@ -3,7 +3,7 @@
 exports[`ArrowControl component renders correctly 1`] = `
 <button
   aria-label="Move left"
-  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 ArrowControl ArrowControl--left"
+  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 ArrowControl ArrowControl--left"
   tabindex="0"
   type="button"
 >

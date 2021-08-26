@@ -54,7 +54,7 @@ exports[`Contact us page renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
       tabindex="0"
       type="button"
     >
@@ -258,7 +258,7 @@ exports[`Contact us page renders correctly 1`] = `
                   role="tablist"
                 />
                 <span
-                  class="PrivateTabIndicator-root-58 PrivateTabIndicator-colorSecondary-60 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-61 PrivateTabIndicator-colorSecondary-63 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -270,7 +270,7 @@ exports[`Contact us page renders correctly 1`] = `
         >
           <button
             aria-label="MC: search.label"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 search-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 search-button"
             tabindex="0"
             type="button"
           >
@@ -294,7 +294,7 @@ exports[`Contact us page renders correctly 1`] = `
           </button>
           <button
             aria-label="MC: menu.open"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13 burger-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 burger-button"
             tabindex="0"
             type="button"
           >
@@ -331,7 +331,7 @@ exports[`Contact us page renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
       tabindex="0"
       type="button"
     >
@@ -422,7 +422,7 @@ exports[`Contact us page renders correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-contained-12 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
         tabindex="0"
         type="button"
       >

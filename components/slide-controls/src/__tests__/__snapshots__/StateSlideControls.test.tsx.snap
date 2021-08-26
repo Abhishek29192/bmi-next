@@ -6,7 +6,7 @@ exports[`SlideControls component moves backward from 5 to 4 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
     tabindex="0"
     type="button"
   >
@@ -57,7 +57,7 @@ exports[`SlideControls component moves backward from 5 to 4 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
     tabindex="0"
     type="button"
   >
@@ -88,7 +88,7 @@ exports[`SlideControls component moves forward from 1 to 2 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
     tabindex="0"
     type="button"
   >
@@ -139,7 +139,7 @@ exports[`SlideControls component moves forward from 1 to 2 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
     tabindex="0"
     type="button"
   >
@@ -170,7 +170,7 @@ exports[`SlideControls component moves from first to last number 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-87 iconButtonStyles-medium-93 iconButtonStyles-text-89"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94"
     tabindex="0"
     type="button"
   >
@@ -221,7 +221,7 @@ exports[`SlideControls component moves from first to last number 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-87 iconButtonStyles-medium-93 iconButtonStyles-text-89"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94"
     tabindex="0"
     type="button"
   >
@@ -252,7 +252,7 @@ exports[`SlideControls component moves from last to first number 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-68 iconButtonStyles-medium-74 iconButtonStyles-text-70"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74"
     tabindex="0"
     type="button"
   >
@@ -303,7 +303,7 @@ exports[`SlideControls component moves from last to first number 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-68 iconButtonStyles-medium-74 iconButtonStyles-text-70"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74"
     tabindex="0"
     type="button"
   >
@@ -334,7 +334,7 @@ exports[`SlideControls component renders correctly 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
     tabindex="0"
     type="button"
   >
@@ -380,7 +380,7 @@ exports[`SlideControls component renders correctly 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
     tabindex="0"
     type="button"
   >

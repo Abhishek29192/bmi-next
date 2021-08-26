@@ -35,12 +35,7 @@ const SyndicateSection = ({
 
       if (data.__typename == "ContentfulPromo" && data.cta) {
         return (
-          <Link
-            component={Button}
-            variant="outlined"
-            isColoredOutlinedDarkBg={type === "dark"}
-            data={data.cta}
-          >
+          <Link component={Button} variant="opaqueOutlined" data={data.cta}>
             {data.cta.label}
           </Link>
         );
@@ -48,11 +43,7 @@ const SyndicateSection = ({
 
       if (cta && cta.action) {
         return (
-          <Button
-            action={cta.action}
-            variant="outlined"
-            isColoredOutlinedDarkBg={type === "dark"}
-          >
+          <Button action={cta.action} variant="opaqueOutlined">
             {getMicroCopy("page.linkLabel")}
           </Button>
         );
@@ -71,11 +62,7 @@ const SyndicateSection = ({
       media: data.featuredVideo
         ? renderVideo(data.featuredVideo)
         : renderImage(data.featuredMedia, { size: "cover" }),
-      cta: callToAction,
-      ctaProps: {
-        variant: "outlined",
-        isColoredOutlinedDarkBg: true
-      }
+      cta: callToAction
     };
   });
 

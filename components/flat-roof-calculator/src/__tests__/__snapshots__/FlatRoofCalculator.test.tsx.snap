@@ -313,7 +313,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               Capsheet colour
             </h5>
             <button
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-extra-small-15 iconButtonStyles-text-13 iconButton"
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-extra-small-16 iconButtonStyles-text-14 iconButton"
               tabindex="-1"
               type="button"
             >
@@ -470,7 +470,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             Field area
           </h5>
           <button
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-extra-small-15 iconButtonStyles-text-13 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-extra-small-16 iconButtonStyles-text-14 iconButton"
             tabindex="-1"
             type="button"
           >
@@ -533,10 +533,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-22"
+                      class="PrivateNotchedOutline-legendLabelled-23"
                     >
                       <span>
                         Total field area
@@ -561,7 +561,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             Upstand (optional)
           </h5>
           <button
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-extra-small-15 iconButtonStyles-text-13 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-extra-small-16 iconButtonStyles-text-14 iconButton"
             tabindex="-1"
             type="button"
           >
@@ -621,10 +621,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-22"
+                      class="PrivateNotchedOutline-legendLabelled-23"
                     >
                       <span>
                         Upstand Height
@@ -674,10 +674,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-22"
+                      class="PrivateNotchedOutline-legendLabelled-23"
                     >
                       <span>
                         Upstand Length
@@ -744,10 +744,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-22"
+                      class="PrivateNotchedOutline-legendLabelled-23"
                     >
                       <span>
                         Kerb Height
@@ -797,10 +797,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-22"
+                      class="PrivateNotchedOutline-legendLabelled-23"
                     >
                       <span>
                         Kerb Length
@@ -867,10 +867,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-22"
+                      class="PrivateNotchedOutline-legendLabelled-23"
                     >
                       <span>
                         Detail Height
@@ -920,10 +920,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-22"
+                      class="PrivateNotchedOutline-legendLabelled-23"
                     >
                       <span>
                         Detail Length
@@ -990,10 +990,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-22"
+                      class="PrivateNotchedOutline-legendLabelled-23"
                     >
                       <span>
                         Detail Height
@@ -1043,10 +1043,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-22"
+                      class="PrivateNotchedOutline-legendLabelled-23"
                     >
                       <span>
                         Detail Length
@@ -1103,10 +1103,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-22"
+                    class="PrivateNotchedOutline-legendLabelled-23"
                   >
                     <span>
                       Company Name
@@ -1148,10 +1148,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-22"
+                    class="PrivateNotchedOutline-legendLabelled-23"
                   >
                     <span>
                       Project Name

@@ -6,7 +6,7 @@ exports[`SlideControls component doesn't apply the full size class, when vertica
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-106 iconButtonStyles-medium-112 iconButtonStyles-text-108"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114"
     tabindex="0"
     type="button"
   >
@@ -52,7 +52,7 @@ exports[`SlideControls component doesn't apply the full size class, when vertica
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-106 iconButtonStyles-medium-112 iconButtonStyles-text-108"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114"
     tabindex="0"
     type="button"
   >
@@ -90,7 +90,7 @@ exports[`SlideControls component moves backward by one number 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-220 iconButtonStyles-medium-226 iconButtonStyles-text-222"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-232 iconButtonStyles-medium-238 iconButtonStyles-text-234"
     tabindex="0"
     type="button"
   >
@@ -136,7 +136,7 @@ exports[`SlideControls component moves backward by one number 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-220 iconButtonStyles-medium-226 iconButtonStyles-text-222"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-232 iconButtonStyles-medium-238 iconButtonStyles-text-234"
     tabindex="0"
     type="button"
   >
@@ -167,7 +167,7 @@ exports[`SlideControls component moves forward by one number 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-201 iconButtonStyles-medium-207 iconButtonStyles-text-203"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-212 iconButtonStyles-medium-218 iconButtonStyles-text-214"
     tabindex="0"
     type="button"
   >
@@ -213,7 +213,7 @@ exports[`SlideControls component moves forward by one number 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-201 iconButtonStyles-medium-207 iconButtonStyles-text-203"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-212 iconButtonStyles-medium-218 iconButtonStyles-text-214"
     tabindex="0"
     type="button"
   >
@@ -244,7 +244,7 @@ exports[`SlideControls component moves from first to last number 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-258 iconButtonStyles-medium-264 iconButtonStyles-text-260"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-272 iconButtonStyles-medium-278 iconButtonStyles-text-274"
     tabindex="0"
     type="button"
   >
@@ -290,7 +290,7 @@ exports[`SlideControls component moves from first to last number 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-258 iconButtonStyles-medium-264 iconButtonStyles-text-260"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-272 iconButtonStyles-medium-278 iconButtonStyles-text-274"
     tabindex="0"
     type="button"
   >
@@ -321,7 +321,7 @@ exports[`SlideControls component moves from last to first number 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-239 iconButtonStyles-medium-245 iconButtonStyles-text-241"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-252 iconButtonStyles-medium-258 iconButtonStyles-text-254"
     tabindex="0"
     type="button"
   >
@@ -367,7 +367,7 @@ exports[`SlideControls component moves from last to first number 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-239 iconButtonStyles-medium-245 iconButtonStyles-text-241"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-252 iconButtonStyles-medium-258 iconButtonStyles-text-254"
     tabindex="0"
     type="button"
   >
@@ -398,7 +398,7 @@ exports[`SlideControls component renders a dark themed 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-87 iconButtonStyles-medium-93 iconButtonStyles-text-89 iconButtonStyles-textDark-90"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 iconButtonStyles-textDark-95"
     tabindex="0"
     type="button"
   >
@@ -444,7 +444,7 @@ exports[`SlideControls component renders a dark themed 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-87 iconButtonStyles-medium-93 iconButtonStyles-text-89 iconButtonStyles-textDark-90"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 iconButtonStyles-textDark-95"
     tabindex="0"
     type="button"
   >
@@ -475,7 +475,7 @@ exports[`SlideControls component renders correctly 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
     tabindex="0"
     type="button"
   >
@@ -521,7 +521,7 @@ exports[`SlideControls component renders correctly 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-11 iconButtonStyles-medium-17 iconButtonStyles-text-13"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
     tabindex="0"
     type="button"
   >
@@ -552,7 +552,7 @@ exports[`SlideControls component renders full size 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-68 iconButtonStyles-medium-74 iconButtonStyles-text-70"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74"
     tabindex="0"
     type="button"
   >
@@ -598,7 +598,7 @@ exports[`SlideControls component renders full size 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-68 iconButtonStyles-medium-74 iconButtonStyles-text-70"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74"
     tabindex="0"
     type="button"
   >
@@ -629,7 +629,7 @@ exports[`SlideControls component renders the total number when current is more t
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
     tabindex="0"
     type="button"
   >
@@ -675,7 +675,7 @@ exports[`SlideControls component renders the total number when current is more t
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-30 iconButtonStyles-medium-36 iconButtonStyles-text-32"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
     tabindex="0"
     type="button"
   >
@@ -706,7 +706,7 @@ exports[`SlideControls component renders vertically 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
     tabindex="0"
     type="button"
   >
@@ -752,7 +752,7 @@ exports[`SlideControls component renders vertically 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-49 iconButtonStyles-medium-55 iconButtonStyles-text-51"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
     tabindex="0"
     type="button"
   >
