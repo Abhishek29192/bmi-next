@@ -1,4 +1,4 @@
-import { Project } from "@bmi/intouch-api-types";
+import { GuaranteeEventType, Project } from "@bmi/intouch-api-types";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import { DeepPartial } from "./types";
 import {
@@ -57,6 +57,39 @@ export const getProjectGuaranteeStatus = (
   )
     ? guarantee.status
     : "NOT_APPLICABLE";
+};
+
+export const getGuaranteeEventType = (
+  project: DeepPartial<Project>,
+  accountId: number
+): GuaranteeEventType => {
+  const guarantee = project?.guarantees?.nodes?.[0];
+
+  if (!guarantee || !["SUBMITTED", "REVIEW"].includes(guarantee.status)) {
+    return null;
+  }
+
+  if (guarantee.status === "SUBMITTED") return "ASSIGN_SOLUTION";
+  if (guarantee.status === "REVIEW") {
+    if (guarantee.reviewerAccountId !== accountId) {
+      return "REASSIGN_SOLUTION";
+    }
+    return "UNASSIGN_SOLUTION";
+  }
+};
+export const isProjectApprovable = (
+  project: DeepPartial<Project>,
+  accountId: number
+): boolean => {
+  const guarantee = project?.guarantees?.nodes?.[0];
+
+  if (!guarantee) {
+    return false;
+  }
+
+  return (
+    guarantee.status === "REVIEW" && guarantee.reviewerAccountId === accountId
+  );
 };
 
 export const checkProjectGuaranteeReview = (
