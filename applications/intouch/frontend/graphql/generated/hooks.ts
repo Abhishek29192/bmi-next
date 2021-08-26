@@ -2203,6 +2203,75 @@ export type CreateSsoUrlMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateSsoUrlMutation,
   OperationTypes.CreateSsoUrlMutationVariables
 >;
+export const GetMarketsByDomainDocument = gql`
+  query getMarketsByDomain($domain: String!) {
+    markets(condition: { domain: $domain }) {
+      nodes {
+        cmsSpaceId
+        domain
+        merchandisingUrl
+        projectsEnabled
+        projectsEnabled
+        locationBiasRadiusKm
+        geoMiddle {
+          x
+          y
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetMarketsByDomainQuery__
+ *
+ * To run a query within a React component, call `useGetMarketsByDomainQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMarketsByDomainQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMarketsByDomainQuery({
+ *   variables: {
+ *      domain: // value for 'domain'
+ *   },
+ * });
+ */
+export function useGetMarketsByDomainQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetMarketsByDomainQuery,
+    OperationTypes.GetMarketsByDomainQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetMarketsByDomainQuery,
+    OperationTypes.GetMarketsByDomainQueryVariables
+  >(GetMarketsByDomainDocument, options);
+}
+export function useGetMarketsByDomainLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetMarketsByDomainQuery,
+    OperationTypes.GetMarketsByDomainQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetMarketsByDomainQuery,
+    OperationTypes.GetMarketsByDomainQueryVariables
+  >(GetMarketsByDomainDocument, options);
+}
+export type GetMarketsByDomainQueryHookResult = ReturnType<
+  typeof useGetMarketsByDomainQuery
+>;
+export type GetMarketsByDomainLazyQueryHookResult = ReturnType<
+  typeof useGetMarketsByDomainLazyQuery
+>;
+export type GetMarketsByDomainQueryResult = Apollo.QueryResult<
+  OperationTypes.GetMarketsByDomainQuery,
+  OperationTypes.GetMarketsByDomainQueryVariables
+>;
 export const GetContentArticleContentDocument = gql`
   query getContentArticleContent($relativePath: String!) {
     contentArticleCollection(where: { relativePath: $relativePath }, limit: 1) {
@@ -2347,21 +2416,12 @@ export type ProductsAndSystemsQueryResult = Apollo.QueryResult<
   OperationTypes.ProductsAndSystemsQueryVariables
 >;
 export const GetCompanyDocument = gql`
-  query GetCompany($companyId: Int!, $marketDomain: String!) {
+  query GetCompany($companyId: Int!) {
     company(id: $companyId) {
       ...CompanyPageDetailsFragment
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
-    }
-    markets(condition: { domain: $marketDomain }) {
-      nodes {
-        locationBiasRadiusKm
-        geoMiddle {
-          x
-          y
-        }
-      }
     }
   }
   ${CompanyPageDetailsFragmentFragmentDoc}
@@ -2381,7 +2441,6 @@ export const GetCompanyDocument = gql`
  * const { data, loading, error } = useGetCompanyQuery({
  *   variables: {
  *      companyId: // value for 'companyId'
- *      marketDomain: // value for 'marketDomain'
  *   },
  * });
  */
@@ -2526,18 +2585,9 @@ export type GetPartnerBrandsQueryResult = Apollo.QueryResult<
   OperationTypes.GetPartnerBrandsQueryVariables
 >;
 export const GetUserProfileDocument = gql`
-  query getUserProfile($accountId: Int!, $marketDomain: String!) {
+  query getUserProfile($accountId: Int!) {
     account(id: $accountId) {
       ...AccountPageDetailsFragment
-    }
-    markets(condition: { domain: $marketDomain }) {
-      nodes {
-        locationBiasRadiusKm
-        geoMiddle {
-          x
-          y
-        }
-      }
     }
   }
   ${AccountPageDetailsFragmentFragmentDoc}
@@ -2556,7 +2606,6 @@ export const GetUserProfileDocument = gql`
  * const { data, loading, error } = useGetUserProfileQuery({
  *   variables: {
  *      accountId: // value for 'accountId'
- *      marketDomain: // value for 'marketDomain'
  *   },
  * });
  */

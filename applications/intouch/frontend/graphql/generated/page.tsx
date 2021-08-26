@@ -445,6 +445,48 @@ export const ssrInvitations = {
   usePage: useInvitations
 };
 
+export async function getServerPageGetMarketsByDomain(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetMarketsByDomainQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetMarketsByDomainQuery>(
+    { ...options, query: Operations.GetMarketsByDomainDocument }
+  );
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetMarketsByDomain = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetMarketsByDomainQuery,
+    OperationTypes.GetMarketsByDomainQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetMarketsByDomainDocument, options);
+};
+export type PageGetMarketsByDomainComp = React.FC<{
+  data?: OperationTypes.GetMarketsByDomainQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetMarketsByDomain = {
+  getServerPage: getServerPageGetMarketsByDomain,
+
+  usePage: useGetMarketsByDomain
+};
 export async function getServerPageGetContentArticleContent(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetContentArticleContentQueryVariables>,

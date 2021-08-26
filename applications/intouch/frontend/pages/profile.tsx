@@ -69,32 +69,21 @@ export const ACCOUNT_PAGE_DETAILS_FRAGMENT = gql`
 `;
 
 export const GET_USER_CONTENT = gql`
-  query getUserProfile($accountId: Int!, $marketDomain: String!) {
+  query getUserProfile($accountId: Int!) {
     account(id: $accountId) {
       ...AccountPageDetailsFragment
-    }
-    # TODO refactor this to retrieve it within the "withPage" middleware
-    # https://bmigroup.atlassian.net/browse/IRP-680
-    markets(condition: { domain: $marketDomain }) {
-      nodes {
-        locationBiasRadiusKm
-        geoMiddle {
-          x
-          y
-        }
-      }
     }
   }
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, account, marketDomain }) => {
+  async ({ locale, apolloClient, globalPageData, account, market }) => {
     const {
       props: {
-        data: { account: pageAccount, markets }
+        data: { account: pageAccount }
       }
     } = await getServerPageGetUserProfile(
-      { variables: { accountId: account.id, marketDomain } },
+      { variables: { accountId: account.id } },
       apolloClient
     );
 
@@ -102,7 +91,7 @@ export const getServerSideProps = withPage(
       props: {
         globalPageData,
         account,
-        market: markets?.nodes?.[0],
+        market,
         pageAccount,
         ...(await serverSideTranslations(locale, [
           "profile",

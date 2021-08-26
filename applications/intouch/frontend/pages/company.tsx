@@ -111,23 +111,12 @@ const CompanyPage = ({
 };
 
 export const GET_COMPANY_PAGE = gql`
-  query GetCompany($companyId: Int!, $marketDomain: String!) {
+  query GetCompany($companyId: Int!) {
     company(id: $companyId) {
       ...CompanyPageDetailsFragment
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
-    }
-    # TODO refactor this to retrieve it within the "withPage" middleware
-    # https://bmigroup.atlassian.net/browse/IRP-680
-    markets(condition: { domain: $marketDomain }) {
-      nodes {
-        locationBiasRadiusKm
-        geoMiddle {
-          x
-          y
-        }
-      }
     }
   }
 `;
@@ -144,14 +133,7 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({
-    locale,
-    apolloClient,
-    globalPageData,
-    res,
-    account,
-    marketDomain
-  }) => {
+  async ({ locale, apolloClient, globalPageData, res, account, market }) => {
     const companyId = findAccountCompany(account)?.id;
     if (!companyId) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
@@ -160,10 +142,10 @@ export const getServerSideProps = withPage(
     }
     const {
       props: {
-        data: { company, contactDetailsCollection, markets }
+        data: { company, contactDetailsCollection }
       }
     } = await getServerPageGetCompany(
-      { variables: { companyId, marketDomain } },
+      { variables: { companyId } },
       apolloClient
     );
 
@@ -172,7 +154,7 @@ export const getServerSideProps = withPage(
         companySSR: company,
         contactDetailsCollection,
         account,
-        market: markets.nodes?.[0],
+        market,
         globalPageData,
         ...(await serverSideTranslations(locale, [
           "common",
