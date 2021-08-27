@@ -1,11 +1,10 @@
 import React from "react";
-import { render, cleanup, queryAllByText } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import AboutLeadBlock from "../aboutLeadBlock";
 import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
 import { Assets, Feature } from "../types";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
-import { first } from "lodash";
 
 const guaranteesAndWarranties: Assets[] = dataJson.assets.filter(
   ({ assetType }) => assetType === "WARRANTIES"
