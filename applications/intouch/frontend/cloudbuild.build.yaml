@@ -1,8 +1,7 @@
 # build the container image
 steps:
   - name: "gcr.io/cloud-builders/docker"
-    args:
-      [
+    args: [
         "build",
         ".",
         "-t",
@@ -12,7 +11,10 @@ steps:
         "--build-arg",
         "NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}",
         "--build-arg",
-        "AUTH0_COOKIE_DOMAIN=intouch.dddev.io"
+        "AUTH0_COOKIE_DOMAIN=intouch.dddev.io",
+        # This key is not a secret (needs to be available on the client, and is sent on every Place API request)
+        "--build-arg",
+        "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyAgm19YJTafOD1jKkLDsx1n0XtVKjpgIQs"
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
