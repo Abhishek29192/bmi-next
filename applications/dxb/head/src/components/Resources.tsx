@@ -19,6 +19,7 @@ export type Data = {
   pdpShareWidget: ShareWidgetSectionData | null;
   sdpShareWidget: ShareWidgetSectionData | null;
   sdpLeadBlockCta: LinkData | null;
+  sdpSidebarItems: TitleWithContentData[] | null;
   visualiserShareWidget: ShareWidgetSectionData | null;
   pdpInputBanner: InputBannerData | null;
   searchPageSearchTips: TitleWithContentData | null;
@@ -83,6 +84,9 @@ export const query = graphql`
     }
     errorGeneral {
       ...PromoFragment
+    }
+    sdpSidebarItems {
+      ...TitleWithContentFragment
     }
     ...WelcomeDialogFragment
     ...HeaderLanguageFragment

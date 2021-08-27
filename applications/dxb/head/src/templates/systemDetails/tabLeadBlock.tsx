@@ -6,6 +6,7 @@ import { isEmpty } from "lodash";
 import { useSiteContext } from "../../components/Site";
 import withGTM from "../../utils/google-tag-manager";
 import BimIframe from "../../components/BimIframe";
+import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import { Assets, Feature, SystemBenefits, Classification } from "./types";
 import AboutLeadBlock from "./aboutLeadBlock";
 import TechnicalSpecificationLeadBlock from "./technicalSpecificationLeadBlock";
@@ -20,6 +21,7 @@ type Props = {
   specification?: Assets;
   technicalSpecClassifications?: Classification[];
   documentsAndDownloads?: any;
+  aboutLeadBlockGenericContent?: ContentfulTitleWithContent;
 };
 
 const GTMTab = withGTM<TabProps>(Tab, {
@@ -35,7 +37,8 @@ const TabLeadBlock = ({
   systemBenefits,
   specification,
   technicalSpecClassifications,
-  documentsAndDownloads
+  documentsAndDownloads,
+  aboutLeadBlockGenericContent
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -61,6 +64,7 @@ const TabLeadBlock = ({
             keyFeatures={keyFeatures}
             systemBenefits={systemBenefits}
             specification={specification}
+            sidebarItem={aboutLeadBlockGenericContent}
           />
         </Tabs.TabPanel>
         {technicalSpecClassifications &&

@@ -74,6 +74,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
     </div>
     <div
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      data-testid="sidebar"
     >
       <div
         class="ColorPair ColorPair--pearl"
@@ -277,6 +278,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
     </div>
     <div
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      data-testid="sidebar"
     >
       <div
         class="ColorPair ColorPair--pearl"
@@ -454,6 +456,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
     </div>
     <div
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      data-testid="sidebar"
     >
       <div
         class="ColorPair ColorPair--pearl"
@@ -558,6 +561,57 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         />
       </div>
     </div>
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      data-testid="sidebar"
+    >
+      <div
+        class="ColorPair ColorPair--pearl"
+      >
+        <div
+          class="PostItCard"
+        >
+          <div
+            class="section"
+          >
+            <h4
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+            >
+              siderBarItem
+            </h4>
+            <div
+              class="content"
+            >
+              <div
+                class="RichText"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and systemBenefits 1`] = `
+<div>
+  <div
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          Long Dec System 2 NO
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -610,6 +664,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
     </div>
     <div
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      data-testid="sidebar"
     >
       <div
         class="ColorPair ColorPair--pearl"
@@ -806,6 +861,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
     </div>
     <div
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      data-testid="sidebar"
     >
       <div
         class="ColorPair ColorPair--pearl"
@@ -926,6 +982,22 @@ exports[`AboutLeadBlock tests should render 1`] = `
                   </div>
                 </li>
               </ul>
+            </div>
+          </div>
+          <div
+            class="section"
+          >
+            <h4
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+            >
+              siderBarItem
+            </h4>
+            <div
+              class="content"
+            >
+              <div
+                class="RichText"
+              />
             </div>
           </div>
         </div>

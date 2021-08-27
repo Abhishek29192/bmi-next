@@ -22,56 +22,61 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
 
   return (
     <Accordion>
-      {systemLayers
-        .filter((layer) => layer?.relatedProducts[0])
-        .sort((a, b) => a.layerNumber - b.layerNumber)
-        .map((layer, index) => {
-          const [mandatoryProduct] = layer.relatedProducts;
+      {systemLayers &&
+        systemLayers
+          .filter((layer) => layer?.relatedProducts[0])
+          .sort((a, b) => a.layerNumber - b.layerNumber)
+          .map((layer, index) => {
+            const [mandatoryProduct] = layer.relatedProducts;
 
-          return (
-            <Accordion.Item key={index}>
-              <Accordion.Summary>
-                <Typography variant="default">
-                  {`${layer.layerNumber}. ${layer.type}: ${layer.name}`}
-                </Typography>
-              </Accordion.Summary>
+            return (
+              <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
+                <Accordion.Summary>
+                  <Typography variant="default">
+                    {`${layer.layerNumber}. ${layer.type}: ${layer.name}`}
+                  </Typography>
+                </Accordion.Summary>
 
-              <Accordion.Details>
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={12} lg={12}>
-                    <AnchorLink action={createLinkAction(mandatoryProduct)}>
-                      {mandatoryProduct.name}
-                    </AnchorLink>
-                  </Grid>
-
-                  <Grid item xs={12} md={12} lg={12}>
-                    <Typography variant="default">
-                      {layer.shortDescription}
-                    </Typography>
-                  </Grid>
-
-                  {layer.relatedOptionalProducts?.length > 0 && (
+                <Accordion.Details>
+                  <Grid container spacing={3}>
                     <Grid item xs={12} md={12} lg={12}>
-                      <Typography variant="h5">
-                        {getMicroCopy("sdp.optionalProductsTitle")}
+                      <AnchorLink action={createLinkAction(mandatoryProduct)}>
+                        {mandatoryProduct.name}
+                      </AnchorLink>
+                    </Grid>
+
+                    <Grid item xs={12} md={12} lg={12}>
+                      <Typography variant="default">
+                        {layer.shortDescription}
                       </Typography>
                     </Grid>
-                  )}
 
-                  {layer.relatedOptionalProducts?.map((product) => (
-                    <>
-                      <Grid item xs={12} md={12} lg={12} key={product.code}>
+                    {layer.relatedOptionalProducts?.length > 0 && (
+                      <Grid item xs={12} md={12} lg={12}>
+                        <Typography variant="h5">
+                          {getMicroCopy("sdp.optionalProductsTitle")}
+                        </Typography>
+                      </Grid>
+                    )}
+
+                    {layer.relatedOptionalProducts?.map((product, id) => (
+                      <Grid
+                        item
+                        xs={12}
+                        md={12}
+                        lg={12}
+                        key={`related-optional-product-${id}`}
+                      >
                         <AnchorLink action={createLinkAction(product)}>
                           {product.name}
                         </AnchorLink>
                       </Grid>
-                    </>
-                  ))}
-                </Grid>
-              </Accordion.Details>
-            </Accordion.Item>
-          );
-        })}
+                    ))}
+                  </Grid>
+                </Accordion.Details>
+              </Accordion.Item>
+            );
+          })}
     </Accordion>
   );
 };

@@ -8,8 +8,8 @@ import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../components/ShareWidgetSection";
-
 import { getBimIframeUrl } from "../../components/BimIframe";
+import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import { SystemDetails, Assets, Feature, Classification } from "./types";
@@ -85,15 +85,15 @@ const SystemDetailsPage = ({ data }: Props) => {
           )
       )
       .map((classification) => {
-        const filteredFeatures = classification.features
+        const filteredClassification = Object.assign({}, classification);
+        filteredClassification.features = filteredClassification.features
           .filter(({ code }) => {
             return !IGNORED_ATTRIBUTES.some((att) => {
               return code.toLowerCase().includes(att);
             });
           })
           .sort((a, b) => (a.name < b.name ? -1 : 1));
-        classification.features = filteredFeatures;
-        return classification;
+        return filteredClassification;
       })
       .filter(({ features }) => features.length > 0)
       .sort((a, b) => (a.name < b.name ? -1 : 1));
@@ -112,7 +112,6 @@ const SystemDetailsPage = ({ data }: Props) => {
       )
     );
   }, []);
-
   const brandName = useMemo(
     () =>
       (categories || []).find(({ categoryType }) => {
@@ -120,6 +119,8 @@ const SystemDetailsPage = ({ data }: Props) => {
       }).name,
     [categories]
   );
+  const aboutLeadBlockGenericContent: TitleWithContentData =
+    resources?.sdpSidebarItems?.length > 0 && resources?.sdpSidebarItems[0];
 
   return (
     <Page
@@ -163,6 +164,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         systemBenefits={systemBenefits}
         specification={specification}
         technicalSpecClassifications={technicalSpecClassifications}
+        aboutLeadBlockGenericContent={aboutLeadBlockGenericContent}
       />
     </Page>
   );

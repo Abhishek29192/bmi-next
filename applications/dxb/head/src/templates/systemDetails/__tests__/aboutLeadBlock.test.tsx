@@ -4,6 +4,7 @@ import AboutLeadBlock from "../aboutLeadBlock";
 import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
 import { Assets, Feature } from "../types";
+import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
 
 const guaranteesAndWarranties: Assets[] = dataJson.assets.filter(
   ({ assetType }) => assetType === "WARRANTIES"
@@ -41,6 +42,15 @@ const guaranteesWarrantiesMicroCopy = "pdp.leadBlock.guaranteesWarranties";
 const awardsCertificatesMicroCopy = "pdp.leadBlock.awardsCertificates";
 const specificationMicroCopy = "sdp.leadBlock.specification";
 const systemBenefitsMicroCopy = "sdp.leadBlock.systemBenefits";
+const aboutLeadBlockSidebarTitle = "siderBarItem";
+const sidebarItem: TitleWithContentData = {
+  __typename: "ContentfulTitleWithContent",
+  title: aboutLeadBlockSidebarTitle,
+  content: {
+    raw: '{"nodeType":"document","data":{},"content":[]}',
+    references: []
+  }
+};
 
 describe("AboutLeadBlock tests", () => {
   afterEach(cleanup);
@@ -55,6 +65,7 @@ describe("AboutLeadBlock tests", () => {
         keyFeatures={keyFeatures}
         systemBenefits={systemBenefits}
         specification={specification}
+        sidebarItem={sidebarItem}
       />
     );
     const longDescriptionText = queryByText(longDescription);
@@ -73,6 +84,9 @@ describe("AboutLeadBlock tests", () => {
     const specificationButton = container.querySelector(
       `[rel="noopener noreferrer"]`
     );
+    const genericContentTitle = queryByText(aboutLeadBlockSidebarTitle, {
+      exact: false
+    });
 
     expect(container).toMatchSnapshot();
     expect(longDescriptionText).toBeInTheDocument();
@@ -80,6 +94,7 @@ describe("AboutLeadBlock tests", () => {
     expect(awardsCertificatesTitle).toBeInTheDocument();
     expect(specificationTitle).toBeInTheDocument();
     expect(specificationButton).toBeInTheDocument();
+    expect(genericContentTitle).toBeInTheDocument();
   });
 
   describe("should not render", () => {
@@ -154,19 +169,37 @@ describe("AboutLeadBlock tests", () => {
     });
 
     it("if no keyFeatures and systemBenefits", () => {
-      const { container } = render(
+      const { container, queryByTestId } = render(
         <AboutLeadBlock
           longDescription={dataJson.longDescription}
           guaranteesAndWarranties={guaranteesAndWarranties}
           awardsAndCertificates={awardsAndCertificates}
           keyFeatures={null}
           systemBenefits={null}
+          sidebarItem={sidebarItem}
         />
       );
-      const card = container.querySelector('[class^="PostItCard"]');
+      const sidebar = queryByTestId("sidebar");
+      console.log(sidebar);
+      expect(container).toMatchSnapshot();
+      expect(sidebar.querySelector("h4").innerHTML).toBe(
+        aboutLeadBlockSidebarTitle
+      );
+    });
+
+    it("if no siderbar, keyFeatures and systemBenefits", () => {
+      const { container, queryByTestId } = render(
+        <AboutLeadBlock
+          longDescription={dataJson.longDescription}
+          guaranteesAndWarranties={[]}
+          awardsAndCertificates={[]}
+          keyFeatures={null}
+          systemBenefits={null}
+        />
+      );
 
       expect(container).toMatchSnapshot();
-      expect(card).not.toBeInTheDocument();
+      expect(queryByTestId("sidebar")).toBeFalsy();
     });
 
     it("if no specification asset", () => {

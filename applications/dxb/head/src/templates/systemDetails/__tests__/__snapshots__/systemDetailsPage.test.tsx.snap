@@ -3169,6 +3169,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   </div>
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                    data-testid="sidebar"
                   >
                     <div
                       class="ColorPair ColorPair--pearl"
@@ -6676,6 +6677,15 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 </h1>
               </div>
               <div
+                class="LeadBlockContentSection"
+              >
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body2"
+                >
+                  Test Value
+                </p>
+              </div>
+              <div
                 class="ctaContainer LeadBlockContentSection"
               >
                 <a
@@ -6709,6 +6719,85 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="MuiTouchRipple-root"
                   />
                 </a>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              data-testid="system-attributes-card"
+            >
+              <div
+                class="ColorPair ColorPair--pearl"
+              >
+                <div
+                  class="PostItCard"
+                >
+                  <div
+                    class="section"
+                  >
+                    <div
+                      class="iconList"
+                    >
+                      <ul
+                        class="IconList"
+                      >
+                        <li
+                          class="ListItem ListItem--isCompact"
+                        >
+                          <div
+                            class="icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="content"
+                          >
+                            <p
+                              class="MuiTypography-root title Typography MuiTypography-body1"
+                            >
+                              Test Value 1
+                            </p>
+                          </div>
+                        </li>
+                        <li
+                          class="ListItem ListItem--isCompact"
+                        >
+                          <div
+                            class="icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="content"
+                          >
+                            <p
+                              class="MuiTypography-root title Typography MuiTypography-body1"
+                            >
+                              Test Value 2
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -7239,6 +7328,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </div>
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                    data-testid="sidebar"
                   >
                     <div
                       class="ColorPair ColorPair--pearl"
@@ -10817,6 +10907,15 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 </h1>
               </div>
               <div
+                class="LeadBlockContentSection"
+              >
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body2"
+                >
+                  Test Value
+                </p>
+              </div>
+              <div
                 class="ctaContainer LeadBlockContentSection"
               >
                 <a
@@ -10850,6 +10949,85 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     class="MuiTouchRipple-root"
                   />
                 </a>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              data-testid="system-attributes-card"
+            >
+              <div
+                class="ColorPair ColorPair--pearl"
+              >
+                <div
+                  class="PostItCard"
+                >
+                  <div
+                    class="section"
+                  >
+                    <div
+                      class="iconList"
+                    >
+                      <ul
+                        class="IconList"
+                      >
+                        <li
+                          class="ListItem ListItem--isCompact"
+                        >
+                          <div
+                            class="icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="content"
+                          >
+                            <p
+                              class="MuiTypography-root title Typography MuiTypography-body1"
+                            >
+                              Test Value 1
+                            </p>
+                          </div>
+                        </li>
+                        <li
+                          class="ListItem ListItem--isCompact"
+                        >
+                          <div
+                            class="icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="content"
+                          >
+                            <p
+                              class="MuiTypography-root title Typography MuiTypography-body1"
+                            >
+                              Test Value 2
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -11380,6 +11558,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </div>
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                    data-testid="sidebar"
                   >
                     <div
                       class="ColorPair ColorPair--pearl"
@@ -11387,6 +11566,77 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <div
                         class="PostItCard"
                       >
+                        <div
+                          class="section"
+                        >
+                          <h4
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                          >
+                            Key Features
+                          </h4>
+                          <div
+                            class="content"
+                          >
+                            <ul
+                              class="IconList"
+                            >
+                              <li
+                                class="ListItem ListItem--isCompact"
+                              >
+                                <div
+                                  class="icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root blueCheckIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class="content"
+                                >
+                                  <p
+                                    class="MuiTypography-root title Typography MuiTypography-body1"
+                                  >
+                                    Test Value 1
+                                  </p>
+                                </div>
+                              </li>
+                              <li
+                                class="ListItem ListItem--isCompact"
+                              >
+                                <div
+                                  class="icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root blueCheckIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class="content"
+                                >
+                                  <p
+                                    class="MuiTypography-root title Typography MuiTypography-body1"
+                                  >
+                                    Test Value 2
+                                  </p>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                         <div
                           class="section"
                         >
