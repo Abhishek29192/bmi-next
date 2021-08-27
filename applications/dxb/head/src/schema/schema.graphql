@@ -955,6 +955,10 @@ type ContentfulResources implements Node {
   "The lead block cta for the system details page for these resources."
   sdpLeadBlockCta: ContentfulLink @link(from: "sdpLeadBlockCta___NODE")
 
+  "The product details page sidebar"
+  sdpSidebarItems: [ContentfulTitleWithContent]
+    @link(from: "sdpSidebarItems___NODE")
+
   "The input banner for the product details page for these resources."
   pdpInputBanner: ContentfulInputBanner @link(from: "pdpInputBanner___NODE")
 

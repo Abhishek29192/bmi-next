@@ -7,6 +7,8 @@ import CheckIcon from "@material-ui/icons/Check";
 import Button from "@bmi/button";
 import { Launch } from "@material-ui/icons";
 import { useSiteContext } from "../../components/Site";
+import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
+import RichText from "../../components/RichText";
 import { Assets, Feature, SystemBenefits } from "./types";
 import styles from "./styles/aboutLeadBlock.module.scss";
 
@@ -17,6 +19,7 @@ type Props = {
   keyFeatures?: Feature;
   systemBenefits?: SystemBenefits;
   specification?: Assets;
+  sidebarItem?: ContentfulTitleWithContent;
 };
 
 const BlueCheckIcon = (
@@ -53,7 +56,8 @@ const AboutLeadBlock = ({
   awardsAndCertificates,
   keyFeatures,
   systemBenefits,
-  specification
+  specification,
+  sidebarItem
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -134,6 +138,16 @@ const AboutLeadBlock = ({
               title={getMicroCopy("sdp.leadBlock.systemBenefits")}
               contents={systemBenefits}
             />
+          )}
+          {sidebarItem && (
+            <LeadBlock.Card.Section>
+              <LeadBlock.Card.Heading variant="h5">
+                {sidebarItem.title}
+              </LeadBlock.Card.Heading>
+              <LeadBlock.Card.Content>
+                <RichText document={sidebarItem.content} />
+              </LeadBlock.Card.Content>
+            </LeadBlock.Card.Section>
           )}
         </LeadBlock.Card>
       )}
