@@ -575,7 +575,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               siderBarItem
             </h4>
@@ -988,7 +988,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
             class="section"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               siderBarItem
             </h4>

@@ -121,7 +121,7 @@ const SystemDetailsPage = ({ data }: Props) => {
   );
   const aboutLeadBlockGenericContent: TitleWithContentData =
     resources?.sdpSidebarItems?.length > 0 && resources?.sdpSidebarItems[0];
-  console.log(aboutLeadBlockGenericContent);
+
   return (
     <Page
       brand={brandName}

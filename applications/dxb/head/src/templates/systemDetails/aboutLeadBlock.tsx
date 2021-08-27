@@ -141,11 +141,14 @@ const AboutLeadBlock = ({
           )}
           {sidebarItem && (
             <LeadBlock.Card.Section>
-              <LeadBlock.Card.Heading>
+              <LeadBlock.Card.Heading hasUnderline>
                 {sidebarItem.title}
               </LeadBlock.Card.Heading>
               <LeadBlock.Card.Content>
-                <RichText document={sidebarItem.content} theme="primary" />
+                <RichText
+                  document={sidebarItem.content}
+                  hyperlinkColor="default"
+                />
               </LeadBlock.Card.Content>
             </LeadBlock.Card.Section>
           )}

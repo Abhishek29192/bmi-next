@@ -25,6 +25,7 @@ type Settings = {
   theme?: "primary" | "secondary";
   backgroundTheme?: "light" | "dark";
   underlineHeadings?: ("h2" | "h3" | "h4" | "h5" | "h6")[];
+  hyperlinkColor?: "default" | "black" | "white";
 };
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
@@ -118,6 +119,7 @@ const getOptions = (settings: Settings): Options => {
             label: children[0][1],
             action: node.data.uri
           }}
+          color={settings.hyperlinkColor}
         >
           {children}
         </GTMAnchorLink>
