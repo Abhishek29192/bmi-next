@@ -85,15 +85,15 @@ const SystemDetailsPage = ({ data }: Props) => {
           )
       )
       .map((classification) => {
-        const filteredFeatures = classification.features
+        const filteredClassification = Object.assign({}, classification);
+        filteredClassification.features = filteredClassification.features
           .filter(({ code }) => {
             return !IGNORED_ATTRIBUTES.some((att) => {
               return code.toLowerCase().includes(att);
             });
           })
           .sort((a, b) => (a.name < b.name ? -1 : 1));
-        classification.features = filteredFeatures;
-        return classification;
+        return filteredClassification;
       })
       .filter(({ features }) => features.length > 0)
       .sort((a, b) => (a.name < b.name ? -1 : 1));
@@ -121,7 +121,7 @@ const SystemDetailsPage = ({ data }: Props) => {
   );
   const aboutLeadBlockGenericContent: TitleWithContentData =
     resources?.sdpSidebarItems?.length > 0 && resources?.sdpSidebarItems[0];
-
+  console.log(aboutLeadBlockGenericContent);
   return (
     <Page
       brand={brandName}
