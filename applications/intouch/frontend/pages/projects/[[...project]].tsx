@@ -12,22 +12,18 @@ import {
   generatePageError,
   withPageError
 } from "../../lib/error";
-import { withPage } from "../../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import GridStyles from "../../styles/Grid.module.scss";
 import { ProjectSidePanel } from "../../components/ProjectSidePanel";
 import ProjectDetail from "../../components/ProjectDetail";
 import { Layout } from "../../components/Layout";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
-import {
-  GetProjectsQuery,
-  GetGlobalDataQuery
-} from "../../graphql/generated/operations";
+import { GetProjectsQuery } from "../../graphql/generated/operations";
 
 import { getServerPageGetProjects } from "../../graphql/generated/page";
 
-export type ProjectsPageProps = {
+export type ProjectsPageProps = GlobalPageProps & {
   projects: GetProjectsQuery["projects"];
-  globalPageData: GetGlobalDataQuery;
 };
 
 const sortProjects = (projects: GetProjectsQuery["projects"]["nodes"]) => {
@@ -131,19 +127,17 @@ export const getServerSideProps = withPage(
       return res.end();
     }
 
-    const props = {
-      account,
-      globalPageData,
-      projects,
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "sidebar",
-        "footer",
-        "project-page"
-      ]))
+    return {
+      props: {
+        projects,
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "footer",
+          "project-page"
+        ]))
+      }
     };
-
-    return { props };
   }
 );
 

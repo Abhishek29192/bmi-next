@@ -4,12 +4,12 @@ import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../components/Layout";
-import { withPage } from "../../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import ProductImport from "../../components/Pages/ProductSystem";
 import { getServerPageProductsAndSystems } from "../../graphql/generated/page";
 import { ProductsAndSystemsQuery } from "../../graphql/generated/operations";
 
-type ProductsAndSystemsPageProps = {
+type ProductsAndSystemsPageProps = GlobalPageProps & {
   ssrProducts: ProductsAndSystemsQuery["products"];
   ssrSystems: ProductsAndSystemsQuery["systems"];
 };

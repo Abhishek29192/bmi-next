@@ -1,3 +1,4 @@
+import merge from "lodash/merge";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { Session } from "@auth0/nextjs-auth0";
@@ -30,6 +31,12 @@ type PageContext = {
   globalPageData: GetGlobalDataQuery;
 };
 
+export type GlobalPageProps = {
+  account: Account;
+  market: GetMarketsByDomainQuery["markets"]["nodes"][0];
+  globalPageData: GetGlobalDataQuery;
+};
+
 export const innerGetServerSideProps = async (
   getServerSideProps,
   auth0,
@@ -41,7 +48,7 @@ export const innerGetServerSideProps = async (
   const apolloClient = initializeApollo(null, { req, res });
 
   const {
-    data: { accountByEmail }
+    data: { accountByEmail: account }
   } = await apolloClient.query({
     query: queryAccountByEmail,
     variables: {
@@ -53,15 +60,15 @@ export const innerGetServerSideProps = async (
   // we will redirect the user to the company registration after landed
   // on the right market
 
-  let redirect = marketRedirect(req, accountByEmail);
+  let redirect = marketRedirect(req, account);
   if (redirect) return redirect;
 
   // Redirect to user registration if missing data in the user profile
-  redirect = userRegistration(ctx.resolvedUrl, accountByEmail);
+  redirect = userRegistration(ctx.resolvedUrl, account);
   if (redirect) return redirect;
 
   // Redirect to company registration if new company
-  redirect = redirectCompanyRegistration(ctx.resolvedUrl, accountByEmail);
+  redirect = redirectCompanyRegistration(ctx.resolvedUrl, account);
   if (redirect) return redirect;
 
   const domain = isSingleMarket ? "en" : req.headers.host?.split(".")?.[0];
@@ -83,15 +90,28 @@ export const innerGetServerSideProps = async (
     props: { data: globalPageData }
   } = await getServerPageGetGlobalData({}, apolloClient);
 
-  return await getServerSideProps({
-    ...ctx,
-    auth0,
-    apolloClient,
-    session: session,
-    account: accountByEmail as Account,
-    market,
-    globalPageData
-  });
+  return merge(
+    await getServerSideProps({
+      ...ctx,
+      // enhanced context
+      // these properties are available on every "withPage" getServerSideProps
+      auth0,
+      apolloClient,
+      session,
+      account,
+      market,
+      globalPageData
+    }),
+    {
+      props: {
+        // these props will be available to every "withPage" component
+        // without having to manually pass them
+        account,
+        market,
+        globalPageData
+      }
+    }
+  );
 };
 
 export const withPage =

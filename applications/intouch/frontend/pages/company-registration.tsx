@@ -3,20 +3,16 @@ import BmiThemeProvider from "@bmi/theme-provider";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getServerPageGetCompany } from "../graphql/generated/page";
-import {
-  GetCompanyQuery,
-  GetMarketsByDomainQuery
-} from "../graphql/generated/operations";
+import { GetCompanyQuery } from "../graphql/generated/operations";
 import { findAccountCompany } from "../lib/account";
-import { withPage } from "../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { EditCompanyDialog } from "../components/Pages/Company/EditCompany/Dialog";
 
-type Props = {
+type Props = GlobalPageProps & {
   company: GetCompanyQuery["company"];
-  market: GetMarketsByDomainQuery["markets"]["nodes"][0];
 };
 
-const CompanyRegistrationPage = ({ company, market }: Props) => {
+const CompanyRegistrationPage = ({ company }: Props) => {
   // The company is created when we create the user in the db
   // through an sql procedure (create_account) here we just
   // need to update it with the new values
@@ -36,7 +32,7 @@ const CompanyRegistrationPage = ({ company, market }: Props) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, globalPageData, market, res }) => {
+  async ({ apolloClient, locale, account }) => {
     const companyId = findAccountCompany(account)?.id;
 
     if (!companyId) {
@@ -67,8 +63,6 @@ export const getServerSideProps = withPage(
     return {
       props: {
         company,
-        market,
-        account,
         ...(await serverSideTranslations(locale, ["common", "company-page"]))
       }
     };

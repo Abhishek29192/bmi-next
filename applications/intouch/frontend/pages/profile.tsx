@@ -3,18 +3,14 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageError } from "../lib/error";
-import {
-  GetUserProfileQuery,
-  GetGlobalDataQuery
-} from "../graphql/generated/operations";
+import { GetUserProfileQuery } from "../graphql/generated/operations";
 import { getServerPageGetUserProfile } from "../graphql/generated/page";
-import { withPage } from "../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
 import { UserProfilePageContent } from "../components/Pages/UserProfile";
 
-type UserProfilePageProps = {
+type UserProfilePageProps = GlobalPageProps & {
   pageAccount: GetUserProfileQuery["account"];
-  globalPageData: GetGlobalDataQuery;
 };
 
 const UserProfilePage = ({
@@ -77,7 +73,7 @@ export const GET_USER_CONTENT = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, account, market }) => {
+  async ({ locale, apolloClient, account }) => {
     const {
       props: {
         data: { account: pageAccount }
@@ -89,9 +85,8 @@ export const getServerSideProps = withPage(
 
     return {
       props: {
-        globalPageData,
-        account,
-        market,
+        // called "pageAccount" so that it doesn't override "account", which is passed via "withPage"
+        // the "account" property is needed for the context
         pageAccount,
         ...(await serverSideTranslations(locale, [
           "profile",

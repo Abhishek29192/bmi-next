@@ -5,10 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Grid from "@bmi/grid";
 import { useCallback } from "react";
-import {
-  GetCompanyQuery,
-  GetGlobalDataQuery
-} from "../graphql/generated/operations";
+import { GetCompanyQuery } from "../graphql/generated/operations";
 import { getServerPageGetCompany } from "../graphql/generated/page";
 import { findAccountCompany } from "../lib/account";
 import { ROLES } from "../lib/constants";
@@ -17,7 +14,7 @@ import {
   generatePageError,
   withPageError
 } from "../lib/error";
-import { withPage } from "../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { validateCompanyProfile } from "../lib/validations/company";
 import { Layout } from "../components/Layout";
 import { CompanyIncompleteProfileAlert } from "../components/Pages/Company/IncompleteProfileAlert";
@@ -29,10 +26,9 @@ import { EditCompanyButton } from "../components/Pages/Company/EditCompany/Butto
 import { CompanyAdmins } from "../components/Pages/Company/Admins";
 import GridStyles from "../styles/Grid.module.scss";
 
-type CompanyPageProps = {
+type CompanyPageProps = GlobalPageProps & {
   companySSR: GetCompanyQuery["company"];
   contactDetailsCollection: GetCompanyQuery["contactDetailsCollection"];
-  globalPageData: GetGlobalDataQuery;
 };
 
 const CompanyPage = ({
@@ -133,7 +129,7 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, res, account, market }) => {
+  async ({ locale, apolloClient, globalPageData, res, account }) => {
     const companyId = findAccountCompany(account)?.id;
     if (!companyId) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
@@ -153,9 +149,6 @@ export const getServerSideProps = withPage(
       props: {
         companySSR: company,
         contactDetailsCollection,
-        account,
-        market,
-        globalPageData,
         ...(await serverSideTranslations(locale, [
           "common",
           "sidebar",

@@ -2211,7 +2211,6 @@ export const GetMarketsByDomainDocument = gql`
         domain
         merchandisingUrl
         projectsEnabled
-        projectsEnabled
         locationBiasRadiusKm
         geoMiddle {
           x

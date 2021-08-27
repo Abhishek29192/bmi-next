@@ -8,7 +8,6 @@ export const queryMarketByDomain = gql`
         domain
         merchandisingUrl
         projectsEnabled
-        projectsEnabled
         locationBiasRadiusKm
         geoMiddle {
           x
