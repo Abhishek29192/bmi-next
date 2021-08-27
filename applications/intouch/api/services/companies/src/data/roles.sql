@@ -35,7 +35,6 @@ grant usage on schema public to installer;
 -- market
 grant select on market to installer;
 grant select, update on market to market_admin;
-grant select, insert, update, delete on market to super_admin;
 
 -- company
 grant select, insert on company to installer;
