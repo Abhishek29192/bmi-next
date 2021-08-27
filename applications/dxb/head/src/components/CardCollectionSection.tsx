@@ -16,15 +16,13 @@ import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
 import { useSiteContext } from "./Site";
-import Link, { getClickableActionFromUrl, Data as LinkData } from "./Link";
+import Link, { Data as LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/CardCollectionSection.module.scss";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
-import { VisualiserContext } from "./Visualiser";
 import { TagData } from "./Tag";
-import { CalculatorContext } from "./PitchedRoofCalcualtor";
 
 type Card = PageInfoData | PromoData;
 
@@ -220,9 +218,7 @@ const CardCollectionSection = ({
   const groupKeys = moveRestKeyLast(allKeysGrouped.map((c) => c.title));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const [showMoreIterator, setShowMoreIterator] = useState(1);
-  const { getMicroCopy, countryCode, node_locale } = useSiteContext();
-  const { open: openVisualiser } = useContext(VisualiserContext);
-  const { open: openCalculator } = useContext(CalculatorContext);
+  const { getMicroCopy, node_locale } = useSiteContext();
 
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
 
@@ -423,27 +419,14 @@ const CardCollectionSection = ({
           </Grid>
         )}
         {link && (
-          <Button
-            action={getClickableActionFromUrl(
-              link?.linkedPage,
-              link?.url,
-              countryCode,
-              null,
-              link?.label,
-              link?.type,
-              () => {
-                if (link?.type === "Visualiser" && openVisualiser) {
-                  openVisualiser(link?.parameters);
-                } else if (link?.type === "Calculator" && openCalculator) {
-                  openCalculator(link?.parameters);
-                }
-              }
-            )}
+          <Link
+            component={Button}
+            data={link}
             className={styles["link"]}
             endIcon={<ArrowForwardIcon />}
           >
             {link.label}
-          </Button>
+          </Link>
         )}
       </Section>
     </div>
