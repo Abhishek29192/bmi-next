@@ -34,7 +34,7 @@ exports[`Dialog component renders closed 1`] = `
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 iconButton"
             tabindex="0"
             type="button"
           >
@@ -66,12 +66,12 @@ exports[`Dialog component renders closed 1`] = `
           class="actions"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 actionButton MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 actionButton MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-40"
+              class="MuiButton-label buttonStyles-label-44"
             >
               Close
             </span>
@@ -124,7 +124,7 @@ exports[`Dialog component renders correctly 1`] = `
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"
             tabindex="0"
             type="button"
           >
@@ -209,7 +209,7 @@ exports[`Dialog component renders without a heading 1`] = `
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-64 iconButtonStyles-medium-70 iconButtonStyles-text-66 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 iconButton"
             tabindex="0"
             type="button"
           >
@@ -241,12 +241,12 @@ exports[`Dialog component renders without a heading 1`] = `
           class="actions"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-contained buttonStyles-contained-57 actionButton MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 actionButton MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-58"
+              class="MuiButton-label buttonStyles-label-64"
             >
               Close
             </span>
@@ -347,7 +347,7 @@ exports[`Dialog component renders without confirm label 1`] = `
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
             tabindex="0"
             type="button"
           >

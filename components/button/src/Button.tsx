@@ -9,7 +9,7 @@ import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
 import { useButtonStyles, useIconButtonStyles } from "./styles";
 
-type Variant = "text" | "outlined" | "contained";
+type Variant = "text" | "outlined" | "contained" | "opaqueOutlined";
 
 export type IconButtonProps = Omit<MuiIconButtonProps, "action"> & {
   isIconButton: true;
@@ -43,9 +43,9 @@ const Button = ({
   component = "button",
   ...rest
 }: ButtonProps | IconButtonProps) => {
-  const { outlinedDarkBg, containedDarkBg, textDarkBg, ...buttonClasses } =
-    useButtonStyles();
+  const buttonClasses = useButtonStyles();
   const iconButtonClasses = useIconButtonStyles();
+  const buttonVariant = variant === "opaqueOutlined" ? "outlined" : variant;
 
   return isIconButton ? (
     <MaterialIconButton
@@ -54,7 +54,7 @@ const Button = ({
           iconButtonClasses.root,
           iconButtonClasses[size || "medium"],
           {
-            [iconButtonClasses[`${variant}`]!]: variant !== "outlined",
+            [iconButtonClasses[`${buttonVariant}`]!]: variant !== "outlined",
             [iconButtonClasses.textDark]:
               variant === "text" && hasDarkBackground
           }
@@ -69,7 +69,7 @@ const Button = ({
     </MaterialIconButton>
   ) : (
     <MaterialButton
-      variant={variant}
+      variant={buttonVariant}
       color={color}
       size={size}
       component={component}
@@ -79,15 +79,19 @@ const Button = ({
         ...classes,
         root: classnames(buttonClasses.root, classes?.root),
         text: classnames(buttonClasses.text, classes?.text, {
-          [textDarkBg]: hasDarkBackground
+          [buttonClasses.textDarkBg]: hasDarkBackground
         }),
         contained: classnames(buttonClasses.contained, classes?.contained, {
-          [containedDarkBg]: hasDarkBackground
+          [buttonClasses.containedDarkBg]: hasDarkBackground
         }),
         label: classnames(buttonClasses.label, classes?.label),
         startIcon: classnames(buttonClasses.startIcon, classes?.startIcon),
         outlined: classnames(classes?.outlined, {
-          [outlinedDarkBg]: hasDarkBackground
+          [buttonClasses.opaqueOutlined]: variant === "opaqueOutlined",
+          [buttonClasses.outlinedDarkBg]:
+            hasDarkBackground && variant !== "opaqueOutlined",
+          [buttonClasses.opaqueOutlinedDarkBg]:
+            variant === "opaqueOutlined" && hasDarkBackground
         })
       }}
     >

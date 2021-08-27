@@ -66,8 +66,8 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
           >
             <button
               aria-label=\\"previous\\"
--             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-82 iconButtonStyles-medium-88 iconButtonStyles-text-84\\"
-+             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-100 iconButtonStyles-medium-106 iconButtonStyles-text-102\\"
+-             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94\\"
++             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114\\"
               tabindex=\\"0\\"
               type=\\"button\\"
             >
@@ -103,8 +103,8 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
             </span>
             <button
               aria-label=\\"next\\"
--             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-82 iconButtonStyles-medium-88 iconButtonStyles-text-84\\"
-+             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-100 iconButtonStyles-medium-106 iconButtonStyles-text-102\\"
+-             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94\\"
++             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114\\"
               tabindex=\\"0\\"
               type=\\"button\\"
             >
@@ -175,8 +175,8 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
           >
             <button
               aria-label=\\"previous\\"
--             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-136 iconButtonStyles-medium-142 iconButtonStyles-text-138\\"
-+             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-154 iconButtonStyles-medium-160 iconButtonStyles-text-156\\"
+-             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154\\"
++             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-172 iconButtonStyles-medium-178 iconButtonStyles-text-174\\"
               tabindex=\\"0\\"
               type=\\"button\\"
             >
@@ -209,8 +209,8 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
             </span>
             <button
               aria-label=\\"next\\"
--             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-136 iconButtonStyles-medium-142 iconButtonStyles-text-138\\"
-+             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-154 iconButtonStyles-medium-160 iconButtonStyles-text-156\\"
+-             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154\\"
++             class=\\"MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-172 iconButtonStyles-medium-178 iconButtonStyles-text-174\\"
               tabindex=\\"0\\"
               type=\\"button\\"
             >
@@ -330,7 +330,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
         >
           <button
             aria-label="previous"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
             tabindex="0"
             type="button"
           >
@@ -376,7 +376,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
           </span>
           <button
             aria-label="next"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
             tabindex="0"
             type="button"
           >
@@ -565,7 +565,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
     >
       <button
         aria-label="previous"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
         tabindex="0"
         type="button"
       >
@@ -611,7 +611,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
       </span>
       <button
         aria-label="next"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
         tabindex="0"
         type="button"
       >

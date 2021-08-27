@@ -74,7 +74,7 @@ exports[`Header component renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
       tabindex="0"
       type="button"
     >
@@ -333,7 +333,7 @@ exports[`Header component renders correctly 1`] = `
                   </a>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-19 PrivateTabIndicator-colorSecondary-21 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorSecondary-23 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -345,7 +345,7 @@ exports[`Header component renders correctly 1`] = `
         >
           <button
             aria-label="MC: search.label"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 search-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 search-button"
             tabindex="0"
             type="button"
           >
@@ -369,7 +369,7 @@ exports[`Header component renders correctly 1`] = `
           </button>
           <button
             aria-label="MC: menu.open"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12 burger-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 burger-button"
             tabindex="0"
             type="button"
           >
@@ -406,7 +406,7 @@ exports[`Header component renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
       tabindex="0"
       type="button"
     >
@@ -693,7 +693,7 @@ exports[`Header component renders correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
         tabindex="0"
         type="button"
       >
@@ -748,13 +748,13 @@ exports[`Header component toggles search 1`] = `
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 utilities-button MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 utilities-button MuiButton-textPrimary"
               href="/gb/landing-page"
               role="button"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-26"
+                class="MuiButton-label buttonStyles-label-28"
               >
                 Our story
               </span>
@@ -768,12 +768,12 @@ exports[`Header component toggles search 1`] = `
           >
             <button
               aria-label="MC: menu.language"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 utilities-button language-selection-button MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 utilities-button language-selection-button MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-26"
+                class="MuiButton-label buttonStyles-label-28"
               >
                 <img
                   class="language-icon"
@@ -801,7 +801,7 @@ exports[`Header component toggles search 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 close-button"
       tabindex="0"
       type="button"
     >
@@ -827,15 +827,15 @@ exports[`Header component toggles search 1`] = `
       class="back-navigation"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-26"
+          class="MuiButton-label buttonStyles-label-28"
         >
           <span
-            class="MuiButton-startIcon buttonStyles-startIcon-27 MuiButton-iconSizeMedium"
+            class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
           >
             <svg
               aria-hidden="true"
@@ -881,15 +881,15 @@ exports[`Header component toggles search 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                   href="/al"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-26"
+                    class="MuiButton-label buttonStyles-label-28"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-27 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
                     >
                       <img
                         class="LanguageIcon"
@@ -908,15 +908,15 @@ exports[`Header component toggles search 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                   href="/at"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-26"
+                    class="MuiButton-label buttonStyles-label-28"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-27 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
                     >
                       <img
                         class="LanguageIcon"
@@ -935,15 +935,15 @@ exports[`Header component toggles search 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                   href="/gb"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-26"
+                    class="MuiButton-label buttonStyles-label-28"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-27 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
                     >
                       <img
                         class="LanguageIcon"
@@ -1060,7 +1060,7 @@ exports[`Header component toggles search 1`] = `
                   </a>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-41 PrivateTabIndicator-colorSecondary-43 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-45 PrivateTabIndicator-colorSecondary-47 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -1072,7 +1072,7 @@ exports[`Header component toggles search 1`] = `
         >
           <button
             aria-label="MC: search.label"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 search-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 search-button"
             tabindex="0"
             type="button"
           >
@@ -1096,7 +1096,7 @@ exports[`Header component toggles search 1`] = `
           </button>
           <button
             aria-label="MC: menu.open"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 burger-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-text-38 burger-button"
             tabindex="0"
             type="button"
           >
@@ -1133,7 +1133,7 @@ exports[`Header component toggles search 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 close-button"
       tabindex="0"
       type="button"
     >
@@ -1172,13 +1172,13 @@ exports[`Header component toggles search 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
               href="tel:+4401234567890"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-26"
+                class="MuiButton-label buttonStyles-label-28"
               >
                 Get in touch
               </span>
@@ -1311,14 +1311,14 @@ exports[`Header component toggles search 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page\\"}"
               href="/gb/landing-page"
               role="button"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-26"
+                class="MuiButton-label buttonStyles-label-28"
               >
                 About BMI
               </span>
@@ -1330,13 +1330,13 @@ exports[`Header component toggles search 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
               href="https://www.external.co.uk"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-26"
+                class="MuiButton-label buttonStyles-label-28"
               >
                 string
               </span>
@@ -1351,14 +1351,14 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page\\"}"
                 href="/gb/landing-page"
                 role="button"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-26"
+                  class="MuiButton-label buttonStyles-label-28"
                 >
                   Our story
                 </span>
@@ -1370,13 +1370,13 @@ exports[`Header component toggles search 1`] = `
           </ul>
           <li>
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-text buttonStyles-text-24 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-26"
+                class="MuiButton-label buttonStyles-label-28"
               >
                 <span
                   class="LanguageButtonContent"
@@ -1420,7 +1420,7 @@ exports[`Header component toggles search 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 close-button"
         tabindex="0"
         type="button"
       >
@@ -1477,7 +1477,7 @@ exports[`Header component toggles search 1`] = `
           </div>
           <button
             aria-label="MC: search.label"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 button"
             data-gtm="{\\"id\\":\\"search1\\",\\"label\\":\\"MC: search.label\\"}"
             tabindex="0"
             type="submit"

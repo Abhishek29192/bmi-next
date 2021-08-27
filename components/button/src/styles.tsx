@@ -52,6 +52,36 @@ export const useButtonStyles = makeStyles(
         borderColor: fade(variables["color-white"]!, 0.3)
       }
     },
+    opaqueOutlined: {
+      backgroundColor: variables["color-white"],
+      position: "relative",
+      "&:hover": {
+        backgroundColor: variables["color-white"],
+        position: "relative",
+        "&:after": {
+          content: "''",
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          backgroundColor: fade(palette.primary.dark, 0.04)
+        }
+      },
+      "&.Mui-disabled": {
+        backgroundColor: variables["color-white"]
+      }
+    },
+    opaqueOutlinedDarkBg: {
+      color: variables["color-inter-dark"],
+      borderColor: variables["color-outlined-dark-border"],
+      "&:hover": {
+        borderColor: variables["color-inter-dark"],
+        "&:after": {
+          backgroundColor: variables["color-outlined-hovered-dark-bg"]
+        }
+      }
+    },
     containedDarkBg: {
       backgroundColor: variables["color-inter-dark"],
       "&:hover": {

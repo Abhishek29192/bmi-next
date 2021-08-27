@@ -28,7 +28,7 @@ const ExploreBar = ({ heading, links }: Props) => {
         <Button
           key={`link-${key}`}
           className={styles["link"]}
-          variant="outlined"
+          variant="opaqueOutlined"
           action={action}
         >
           {label}

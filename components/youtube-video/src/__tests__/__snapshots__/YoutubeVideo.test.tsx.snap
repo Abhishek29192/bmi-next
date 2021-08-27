@@ -27,7 +27,7 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
         </span>
         <div
           aria-disabled="false"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-contained-47 play-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-contained-53 play-button"
           role="button"
           tabindex="0"
         >
@@ -72,7 +72,7 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
           >
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48 iconButton"
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 iconButton"
               tabindex="0"
               type="button"
             >
@@ -134,7 +134,7 @@ exports[`YoutubeVideo component renders in dialog layout correctly 1`] = `
     </span>
     <div
       aria-disabled="false"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 play-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
       role="button"
       tabindex="0"
     >
@@ -181,7 +181,7 @@ exports[`YoutubeVideo component renders inline layout correctly 1`] = `
       class="overlay"
     >
       <button
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-contained-29 play-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
         tabindex="0"
         type="button"
       >

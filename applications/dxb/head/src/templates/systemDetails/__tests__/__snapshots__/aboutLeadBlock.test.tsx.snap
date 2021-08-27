@@ -41,14 +41,14 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
         </h5>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
           href="test"
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-40"
+            class="MuiButton-label buttonStyles-label-44"
           >
             Spec Test
             <span
@@ -244,14 +244,14 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
         </h5>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
           href="test"
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-22"
+            class="MuiButton-label buttonStyles-label-24"
           >
             Spec Test
             <span
@@ -962,14 +962,14 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
         </h5>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
           href="test"
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-76"
+            class="MuiButton-label buttonStyles-label-84"
           >
             Spec Test
             <span

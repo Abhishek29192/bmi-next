@@ -15,7 +15,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     >
       <button
         aria-label="Close me"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-118 iconButtonStyles-medium-124 iconButtonStyles-text-120 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
         tabindex="0"
         type="button"
       >
@@ -71,7 +71,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-118 iconButtonStyles-medium-124 iconButtonStyles-text-120 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
         tabindex="0"
         type="button"
       >
@@ -127,7 +127,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-118 iconButtonStyles-medium-124 iconButtonStyles-text-120 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
         tabindex="0"
         type="button"
       >
@@ -183,7 +183,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-118 iconButtonStyles-medium-124 iconButtonStyles-text-120 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
         tabindex="0"
         type="button"
       >
@@ -239,7 +239,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-118 iconButtonStyles-medium-124 iconButtonStyles-text-120 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
         tabindex="0"
         type="button"
       >
@@ -302,7 +302,7 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-100 iconButtonStyles-medium-106 iconButtonStyles-text-102 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
         tabindex="0"
         type="button"
       >
@@ -358,7 +358,7 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-100 iconButtonStyles-medium-106 iconButtonStyles-text-102 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
         tabindex="0"
         type="button"
       >
@@ -414,7 +414,7 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-100 iconButtonStyles-medium-106 iconButtonStyles-text-102 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
         tabindex="0"
         type="button"
       >
@@ -470,7 +470,7 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-100 iconButtonStyles-medium-106 iconButtonStyles-text-102 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
         tabindex="0"
         type="button"
       >
@@ -533,7 +533,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-64 iconButtonStyles-medium-70 iconButtonStyles-text-66 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
         tabindex="0"
         type="button"
       >
@@ -589,7 +589,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-64 iconButtonStyles-medium-70 iconButtonStyles-text-66 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
         tabindex="0"
         type="button"
       >
@@ -645,7 +645,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-64 iconButtonStyles-medium-70 iconButtonStyles-text-66 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
         tabindex="0"
         type="button"
       >
@@ -701,7 +701,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-64 iconButtonStyles-medium-70 iconButtonStyles-text-66 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
         tabindex="0"
         type="button"
       >
@@ -757,7 +757,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-64 iconButtonStyles-medium-70 iconButtonStyles-text-66 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
         tabindex="0"
         type="button"
       >
@@ -820,7 +820,7 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
         tabindex="0"
         type="button"
       >
@@ -876,7 +876,7 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
         tabindex="0"
         type="button"
       >
@@ -932,7 +932,7 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-text-30 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
         tabindex="0"
         type="button"
       >
@@ -995,7 +995,7 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
         tabindex="0"
         type="button"
       >
@@ -1051,7 +1051,7 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
         tabindex="0"
         type="button"
       >
@@ -1107,7 +1107,7 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
         tabindex="0"
         type="button"
       >
@@ -1163,7 +1163,7 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-46 iconButtonStyles-medium-52 iconButtonStyles-text-48 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
         tabindex="0"
         type="button"
       >
@@ -1226,7 +1226,7 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-82 iconButtonStyles-medium-88 iconButtonStyles-text-84 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
         tabindex="0"
         type="button"
       >
@@ -1283,7 +1283,7 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-82 iconButtonStyles-medium-88 iconButtonStyles-text-84 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
         tabindex="0"
         type="button"
       >
@@ -1339,7 +1339,7 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-82 iconButtonStyles-medium-88 iconButtonStyles-text-84 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
         tabindex="0"
         type="button"
       >
@@ -1395,7 +1395,7 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-82 iconButtonStyles-medium-88 iconButtonStyles-text-84 close"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
         tabindex="0"
         type="button"
       >

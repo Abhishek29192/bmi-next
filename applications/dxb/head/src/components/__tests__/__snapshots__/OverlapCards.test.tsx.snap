@@ -286,7 +286,7 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
                     </span>
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-28 iconButtonStyles-medium-34 iconButtonStyles-contained-29 play-button"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
                       role="button"
                       tabindex="0"
                     >
@@ -606,7 +606,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                     </span>
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-contained-11 play-button"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
                       role="button"
                       tabindex="0"
                     >

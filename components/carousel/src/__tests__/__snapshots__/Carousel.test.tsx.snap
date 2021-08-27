@@ -201,7 +201,7 @@ exports[`Carousel component renders correctly 1`] = `
   >
     <button
       aria-label="previous"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
       tabindex="0"
       type="button"
     >
@@ -247,7 +247,7 @@ exports[`Carousel component renders correctly 1`] = `
     </span>
     <button
       aria-label="next"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-10 iconButtonStyles-medium-16 iconButtonStyles-text-12"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
       tabindex="0"
       type="button"
     >
@@ -322,7 +322,7 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
   </div>
   <button
     aria-label="Move left"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-100 iconButtonStyles-medium-106 iconButtonStyles-contained-101 ArrowControl ArrowControl--left"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-contained-113 ArrowControl ArrowControl--left"
     tabindex="0"
     type="button"
   >
@@ -346,7 +346,7 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
   </button>
   <button
     aria-label="Move right"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-100 iconButtonStyles-medium-106 iconButtonStyles-contained-101 ArrowControl ArrowControl--right"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-contained-113 ArrowControl ArrowControl--right"
     tabindex="0"
     type="button"
   >

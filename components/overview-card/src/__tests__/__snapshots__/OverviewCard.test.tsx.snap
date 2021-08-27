@@ -76,12 +76,12 @@ exports[`OverviewCard component removes clickable class when the area is none 1`
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-91 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-94"
+            class="MuiButton-label buttonStyles-label-104"
           >
             Go to this
           </span>
@@ -135,12 +135,12 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-58"
+          class="MuiButton-label buttonStyles-label-64"
         >
           Go to this
         </span>
@@ -371,12 +371,12 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-22"
+          class="MuiButton-label buttonStyles-label-24"
         >
           Go to this
         </span>
@@ -424,12 +424,12 @@ exports[`OverviewCard component renders with deprecated imageSource 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-40"
+          class="MuiButton-label buttonStyles-label-44"
         >
           Go to this
         </span>
