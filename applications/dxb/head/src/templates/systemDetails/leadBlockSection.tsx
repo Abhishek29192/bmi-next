@@ -11,6 +11,7 @@ import { isEmpty } from "lodash";
 import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
 import Image, { Data as ImageData } from "../../components/Image";
+import { useSiteContext } from "../../components/Site";
 import styles from "./styles/leadBlockSection.module.scss";
 import { Category, Classification, Feature } from "./types";
 
@@ -73,6 +74,7 @@ const LeadBlockSection = ({
   cta,
   uniqueSellingPropositions
 }: Props) => {
+  const { getMicroCopy } = useSiteContext();
   const [selectedSystemId, setSelectedSystemId] = useState("");
   const brandLogo = getBrandLogo(categories);
   const promotionalContent = getPromotionalContent(classifications);
@@ -118,7 +120,7 @@ const LeadBlockSection = ({
                 }}
                 startIcon={<ArrowBackIcon />}
               >
-                Back to your selection
+                {getMicroCopy("sdp.leadBlock.backToYourSelection")}
               </Button>
             )}
             {Boolean(cta) && (

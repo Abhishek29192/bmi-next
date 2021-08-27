@@ -48,7 +48,7 @@ const leadBlockClassificationsNoFeatures: Classification[] = [
 ];
 
 const ctaLabel = "cta label";
-const backToYourSelectionLabel = "Back to your selection";
+const backToYourSelectionLabel = "MC: sdp.leadBlock.backToYourSelection";
 const linkData: LinkData = {
   __typename: "ContentfulLink",
   id: "string",

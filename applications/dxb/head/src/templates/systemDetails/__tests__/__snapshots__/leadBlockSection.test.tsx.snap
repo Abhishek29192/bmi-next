@@ -221,7 +221,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                       />
                     </svg>
                   </span>
-                  Back to your selection
+                  MC: sdp.leadBlock.backToYourSelection
                 </span>
                 <span
                   class="MuiTouchRipple-root"
