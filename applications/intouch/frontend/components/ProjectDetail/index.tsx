@@ -3,7 +3,12 @@ import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
-import { Guarantee, Note, ProjectMember } from "@bmi/intouch-api-types";
+import {
+  Guarantee,
+  GuaranteeEventType,
+  Note,
+  ProjectMember
+} from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import can from "lib/permissions/can";
 import { ProjectsHeader } from "../Cards/ProjectsHeader";
@@ -16,11 +21,17 @@ import { UploadsTab } from "../Tabs/Uploads";
 import { NoProjectsCard } from "../Cards/NoProjects";
 import { NoteTab } from "../Tabs/Notes";
 import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
-import { useGetProjectQuery } from "../../graphql/generated/hooks";
+import {
+  GetProjectDocument,
+  useGetProjectQuery,
+  useUpdateGuaranteeMutation
+} from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import {
   getProjectStatus,
-  getProjectGuaranteeStatus
+  getProjectGuaranteeStatus,
+  getGuaranteeEventType,
+  isProjectApprovable
 } from "../../lib/utils/project";
 import log from "../../lib/logger";
 import { useAccountContext } from "../../context/AccountContext";
@@ -28,6 +39,28 @@ import { useAccountContext } from "../../context/AccountContext";
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
   const { t } = useTranslation("project-page");
   const { account } = useAccountContext();
+  const [updateGuarantee] = useUpdateGuaranteeMutation({
+    onError: (error) => {
+      log({
+        severity: "ERROR",
+        message: `There was an error updating guarantee status: ${error.toString()}`
+      });
+    },
+    onCompleted: ({ updateGuarantee: { guarantee } }) => {
+      log({
+        severity: "INFO",
+        message: `Guarantee ID [${guarantee.id}] status updated`
+      });
+    },
+    refetchQueries: [
+      {
+        query: GetProjectDocument,
+        variables: {
+          projectId: projectId
+        }
+      }
+    ]
+  });
 
   // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
   const getProjectGuaranteeType = useCallback(
@@ -39,6 +72,19 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     },
     [t]
   );
+
+  const guaranteeUpdateHandler = (guaranteeEventType: GuaranteeEventType) => {
+    const id = project?.guarantees?.nodes?.[0]?.id;
+    updateGuarantee({
+      variables: {
+        input: {
+          id,
+          guaranteeEventType,
+          patch: {}
+        }
+      }
+    });
+  };
 
   if (!projectId) {
     return (
@@ -90,6 +136,8 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           endDate={project.endDate}
           guaranteeType={getProjectGuaranteeType(project)}
           guaranteeStatus={getProjectGuaranteeStatus(project)}
+          guaranteeEventType={getGuaranteeEventType(project, account.id)}
+          guaranteeEventHandler={guaranteeUpdateHandler}
         />
 
         <BuildingOwnerDetails
@@ -141,6 +189,9 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           <ProjectActionsCard
             projectId={project.id}
             isArchived={project.hidden}
+            guaranteeEventHandler={
+              isProjectApprovable(project, account.id) && guaranteeUpdateHandler
+            }
           />
         ) : null}
       </Grid>
@@ -245,6 +296,7 @@ export const GET_PROJECT = gql`
         nodes {
           id
           guaranteeTypeId
+          reviewerAccountId
           guaranteeType {
             sys {
               id

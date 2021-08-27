@@ -143,6 +143,21 @@ export default gql`
     signedPhotoUrl: String
   }
 
+  enum GuaranteeEventType {
+    SUBMIT_SOLUTION
+    ASSIGN_SOLUTION
+    REASSIGN_SOLUTION
+    UNASSIGN_SOLUTION
+    APPROVE_SOLUTION
+    REJECT_SOLUTION
+  }
+  extend input UpdateGuaranteeInput {
+    guaranteeEventType: GuaranteeEventType
+  }
+  extend input GuaranteeInput {
+    guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
+  }
+
   extend input AccountInput {
     marketCode: String
   }

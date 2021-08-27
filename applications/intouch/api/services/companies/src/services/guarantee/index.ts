@@ -3,8 +3,10 @@ import { FileUpload } from "graphql-upload";
 import {
   CreateGuaranteeInput,
   EvidenceCategoryType,
+  Guarantee,
   UpdateGuaranteeInput
 } from "@bmi/intouch-api-types";
+import { PoolClient } from "pg";
 import StorageClient from "../storage-client";
 import { PostGraphileContext } from "../../types";
 import { sendEmailWithTemplate } from "../mailer";
@@ -24,18 +26,13 @@ export const createGuarantee = async (
   await pgClient.query("SAVEPOINT graphql_create_guarantee_mutation");
 
   try {
-    args.input.guarantee.requestorAccountId = +user.id;
-    args.input.guarantee.bmiReferenceId = `${crypto
-      .randomBytes(10)
-      .toString("hex")}`;
+    const { guarantee } = args.input;
+    const { projectId, guaranteeTypeCoverage, evidenceItemsUsingId } =
+      guarantee;
 
-    const { projectId, evidenceItemsUsingId } = args.input.guarantee;
-
-    const {
-      rows: [{ name: projectName }]
-    } = await pgClient.query("select name from project where project.id=$1", [
-      projectId
-    ]);
+    guarantee.requestorAccountId = +user.id;
+    guarantee.bmiReferenceId = `${crypto.randomBytes(10).toString("hex")}`;
+    guarantee.status = "NEW";
 
     const evidenceCategoryType: EvidenceCategoryType = "PROOF_OF_PURCHASE";
 
@@ -56,29 +53,39 @@ export const createGuarantee = async (
       }
     }
 
-    await sendEmailWithTemplate(context, "REQUEST_APPROVED", {
-      email: user.email,
-      firstname: user.firstName,
-      role: user.role,
-      project: `${projectName}`
-    });
+    if (guaranteeTypeCoverage !== "SOLUTION") {
+      guarantee.status = "APPROVED";
 
-    //Get all company admins and send mail
-    const { rows: accounts } = await pgClient.query(
-      `select account.* from account 
-      join company_member on company_member.account_id =account.id 
-      where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
-      [user.company.id]
-    );
+      const {
+        rows: [{ name: projectName }]
+      } = await pgClient.query("select name from project where project.id=$1", [
+        projectId
+      ]);
 
-    for (let i = 0; i < accounts?.length; i++) {
-      const account = accounts[+i];
       await sendEmailWithTemplate(context, "REQUEST_APPROVED", {
-        email: account.email,
-        firstname: account.first_name,
-        role: account.role,
+        email: user.email,
+        firstname: user.firstName,
+        role: user.role,
         project: `${projectName}`
       });
+
+      //Get all company admins and send mail
+      const { rows: accounts } = await pgClient.query(
+        `select account.* from account 
+      join company_member on company_member.account_id =account.id 
+      where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
+        [user.company.id]
+      );
+
+      for (let i = 0; i < accounts?.length; i++) {
+        const account = accounts[+i];
+        await sendEmailWithTemplate(context, "REQUEST_APPROVED", {
+          email: account.email,
+          firstname: account.first_name,
+          role: account.role,
+          project: `${projectName}`
+        });
+      }
     }
 
     return await resolve(source, args, context, resolveInfo);
@@ -108,10 +115,72 @@ export const updateGuarantee = async (
   await pgClient.query("SAVEPOINT graphql_update_guarantee_mutation");
 
   try {
-    const { patch } = args.input;
+    if (!user.can("update:guarantee")) {
+      logger.error(
+        `User with id: ${user.id} and role: ${user.role} is trying to update guarantee ${args.input.id}`
+      );
+      throw new Error("unauthorized");
+    }
 
-    patch.requestorAccountId = +user.id;
-    patch.bmiReferenceId = `${crypto.randomBytes(10).toString("hex")}`;
+    const { id, patch, guaranteeEventType } = args.input;
+
+    const currentGuarantee = await getGuarantee(id, pgClient);
+
+    if (
+      guaranteeEventType === "SUBMIT_SOLUTION" &&
+      currentGuarantee.status === "NEW"
+    ) {
+      patch.requestorAccountId = +user.id;
+      patch.bmiReferenceId = `${crypto.randomBytes(10).toString("hex")}`;
+      patch.status = "SUBMITTED";
+    }
+
+    if (
+      guaranteeEventType === "SUBMIT_SOLUTION" &&
+      currentGuarantee.status === "REJECTED"
+    ) {
+      patch.requestorAccountId = +user.id;
+      patch.status = "SUBMITTED";
+    }
+
+    if (
+      guaranteeEventType === "ASSIGN_SOLUTION" &&
+      currentGuarantee.status === "SUBMITTED"
+    ) {
+      patch.reviewerAccountId = +user.id;
+      patch.status = "REVIEW";
+    }
+
+    if (
+      guaranteeEventType === "REASSIGN_SOLUTION" &&
+      currentGuarantee.status === "REVIEW"
+    ) {
+      patch.reviewerAccountId = +user.id;
+      patch.status = "REVIEW";
+    }
+
+    if (
+      guaranteeEventType === "UNASSIGN_SOLUTION" &&
+      currentGuarantee.status === "REVIEW"
+    ) {
+      patch.reviewerAccountId = null;
+      patch.status = "SUBMITTED";
+    }
+
+    if (
+      guaranteeEventType === "APPROVE_SOLUTION" &&
+      currentGuarantee.status === "REVIEW"
+    ) {
+      patch.status = "APPROVED";
+    }
+    if (
+      guaranteeEventType === "REJECT_SOLUTION" &&
+      currentGuarantee.status === "REVIEW"
+    ) {
+      //TODO: The Requestor receives a message telling them that their request has been rejected.
+      patch.reviewerAccountId = null;
+      patch.status = "REJECTED";
+    }
 
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
@@ -124,4 +193,16 @@ export const updateGuarantee = async (
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_update_guarantee_mutation");
   }
+};
+
+const getGuarantee = async (
+  id: number,
+  pgClient: PoolClient
+): Promise<Guarantee> => {
+  const { rows } = await pgClient.query<Guarantee>(
+    "SELECT guarantee.* FROM guarantee where guarantee.id=$1",
+    [id]
+  );
+  //TODO:We have to map
+  return rows[0];
 };

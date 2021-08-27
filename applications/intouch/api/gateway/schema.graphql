@@ -12168,6 +12168,7 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -12927,6 +12928,15 @@ input GuaranteeCondition {
   bmiReferenceId: String
 }
 
+enum GuaranteeEventType {
+  SUBMIT_SOLUTION
+  ASSIGN_SOLUTION
+  REASSIGN_SOLUTION
+  UNASSIGN_SOLUTION
+  APPROVE_SOLUTION
+  REJECT_SOLUTION
+}
+
 """
 A filter to be used against `Guarantee` object types. All fields are combined with a logical ‘and.’
 """
@@ -13098,6 +13108,7 @@ input GuaranteeInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -13539,6 +13550,7 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -13787,6 +13799,7 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -14049,6 +14062,7 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -14247,6 +14261,7 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -14445,6 +14460,7 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -29279,6 +29295,7 @@ input UpdateGuaranteeInput {
   Primary key - starts at 6100
   """
   id: Int!
+  guaranteeEventType: GuaranteeEventType
 }
 
 """
