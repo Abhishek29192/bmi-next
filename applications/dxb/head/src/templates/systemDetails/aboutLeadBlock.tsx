@@ -126,32 +126,30 @@ const AboutLeadBlock = ({
         )}
       </LeadBlock.Content>
       {(keyFeatures || systemBenefits || sidebarItem) && (
-        <div data-testid="sidebar">
-          <LeadBlock.Card theme="pearl">
-            {keyFeatures && (
-              <LeadBlockCardContent
-                title={keyFeatures.name}
-                contents={keyFeatures.featureValues.map(({ value }) => value)}
-              />
-            )}
-            {systemBenefits && (
-              <LeadBlockCardContent
-                title={getMicroCopy("sdp.leadBlock.systemBenefits")}
-                contents={systemBenefits}
-              />
-            )}
-            {sidebarItem && (
-              <LeadBlock.Card.Section>
-                <LeadBlock.Card.Heading>
-                  {sidebarItem.title}
-                </LeadBlock.Card.Heading>
-                <LeadBlock.Card.Content>
-                  <RichText document={sidebarItem.content} />
-                </LeadBlock.Card.Content>
-              </LeadBlock.Card.Section>
-            )}
-          </LeadBlock.Card>
-        </div>
+        <LeadBlock.Card theme="pearl" data-testid="sidebar">
+          {keyFeatures && (
+            <LeadBlockCardContent
+              title={keyFeatures.name}
+              contents={keyFeatures.featureValues.map(({ value }) => value)}
+            />
+          )}
+          {systemBenefits && (
+            <LeadBlockCardContent
+              title={getMicroCopy("sdp.leadBlock.systemBenefits")}
+              contents={systemBenefits}
+            />
+          )}
+          {sidebarItem && (
+            <LeadBlock.Card.Section>
+              <LeadBlock.Card.Heading>
+                {sidebarItem.title}
+              </LeadBlock.Card.Heading>
+              <LeadBlock.Card.Content>
+                <RichText document={sidebarItem.content} theme="primary" />
+              </LeadBlock.Card.Content>
+            </LeadBlock.Card.Section>
+          )}
+        </LeadBlock.Card>
       )}
     </LeadBlock>
   );

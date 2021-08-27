@@ -3168,60 +3168,57 @@ exports[`SystemDetailsPage template component should have function to filter and
                     </div>
                   </div>
                   <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
                     data-testid="sidebar"
                   >
                     <div
-                      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                      class="ColorPair ColorPair--pearl"
                     >
                       <div
-                        class="ColorPair ColorPair--pearl"
+                        class="PostItCard"
                       >
                         <div
-                          class="PostItCard"
+                          class="section"
                         >
-                          <div
-                            class="section"
+                          <h4
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
                           >
-                            <h4
-                              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                            MC: sdp.leadBlock.systemBenefits
+                          </h4>
+                          <div
+                            class="content"
+                          >
+                            <ul
+                              class="IconList"
                             >
-                              MC: sdp.leadBlock.systemBenefits
-                            </h4>
-                            <div
-                              class="content"
-                            >
-                              <ul
-                                class="IconList"
+                              <li
+                                class="ListItem ListItem--isCompact"
                               >
-                                <li
-                                  class="ListItem ListItem--isCompact"
+                                <div
+                                  class="icon"
                                 >
-                                  <div
-                                    class="icon"
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root blueCheckIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root blueCheckIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                                      />
-                                    </svg>
-                                  </div>
-                                  <div
-                                    class="content"
+                                    <path
+                                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class="content"
+                                >
+                                  <p
+                                    class="MuiTypography-root title Typography MuiTypography-body1"
                                   >
-                                    <p
-                                      class="MuiTypography-root title Typography MuiTypography-body1"
-                                    >
-                                      Benefit 3 NO, Benefit 4 NO
-                                    </p>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
+                                    Benefit 3 NO, Benefit 4 NO
+                                  </p>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
                         </div>
                       </div>
@@ -7242,131 +7239,128 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
                     data-testid="sidebar"
                   >
                     <div
-                      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                      class="ColorPair ColorPair--pearl"
                     >
                       <div
-                        class="ColorPair ColorPair--pearl"
+                        class="PostItCard"
                       >
                         <div
-                          class="PostItCard"
+                          class="section"
                         >
-                          <div
-                            class="section"
+                          <h4
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
                           >
-                            <h4
-                              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                            Key Features
+                          </h4>
+                          <div
+                            class="content"
+                          >
+                            <ul
+                              class="IconList"
                             >
-                              Key Features
-                            </h4>
-                            <div
-                              class="content"
-                            >
-                              <ul
-                                class="IconList"
+                              <li
+                                class="ListItem ListItem--isCompact"
                               >
-                                <li
-                                  class="ListItem ListItem--isCompact"
+                                <div
+                                  class="icon"
                                 >
-                                  <div
-                                    class="icon"
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root blueCheckIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root blueCheckIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                                      />
-                                    </svg>
-                                  </div>
-                                  <div
-                                    class="content"
-                                  >
-                                    <p
-                                      class="MuiTypography-root title Typography MuiTypography-body1"
-                                    >
-                                      Test Value 1
-                                    </p>
-                                  </div>
-                                </li>
-                                <li
-                                  class="ListItem ListItem--isCompact"
+                                    <path
+                                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class="content"
                                 >
-                                  <div
-                                    class="icon"
+                                  <p
+                                    class="MuiTypography-root title Typography MuiTypography-body1"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root blueCheckIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                                      />
-                                    </svg>
-                                  </div>
-                                  <div
-                                    class="content"
+                                    Test Value 1
+                                  </p>
+                                </div>
+                              </li>
+                              <li
+                                class="ListItem ListItem--isCompact"
+                              >
+                                <div
+                                  class="icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root blueCheckIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <p
-                                      class="MuiTypography-root title Typography MuiTypography-body1"
-                                    >
-                                      Test Value 2
-                                    </p>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
+                                    <path
+                                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class="content"
+                                >
+                                  <p
+                                    class="MuiTypography-root title Typography MuiTypography-body1"
+                                  >
+                                    Test Value 2
+                                  </p>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
-                          <div
-                            class="section"
+                        </div>
+                        <div
+                          class="section"
+                        >
+                          <h4
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
                           >
-                            <h4
-                              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                            MC: sdp.leadBlock.systemBenefits
+                          </h4>
+                          <div
+                            class="content"
+                          >
+                            <ul
+                              class="IconList"
                             >
-                              MC: sdp.leadBlock.systemBenefits
-                            </h4>
-                            <div
-                              class="content"
-                            >
-                              <ul
-                                class="IconList"
+                              <li
+                                class="ListItem ListItem--isCompact"
                               >
-                                <li
-                                  class="ListItem ListItem--isCompact"
+                                <div
+                                  class="icon"
                                 >
-                                  <div
-                                    class="icon"
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root blueCheckIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root blueCheckIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                                      />
-                                    </svg>
-                                  </div>
-                                  <div
-                                    class="content"
+                                    <path
+                                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class="content"
+                                >
+                                  <p
+                                    class="MuiTypography-root title Typography MuiTypography-body1"
                                   >
-                                    <p
-                                      class="MuiTypography-root title Typography MuiTypography-body1"
-                                    >
-                                      Benefit 3 NO, Benefit 4 NO
-                                    </p>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
+                                    Benefit 3 NO, Benefit 4 NO
+                                  </p>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
                         </div>
                       </div>
@@ -11387,60 +11381,57 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
                     data-testid="sidebar"
                   >
                     <div
-                      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                      class="ColorPair ColorPair--pearl"
                     >
                       <div
-                        class="ColorPair ColorPair--pearl"
+                        class="PostItCard"
                       >
                         <div
-                          class="PostItCard"
+                          class="section"
                         >
-                          <div
-                            class="section"
+                          <h4
+                            class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
                           >
-                            <h4
-                              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                            MC: sdp.leadBlock.systemBenefits
+                          </h4>
+                          <div
+                            class="content"
+                          >
+                            <ul
+                              class="IconList"
                             >
-                              MC: sdp.leadBlock.systemBenefits
-                            </h4>
-                            <div
-                              class="content"
-                            >
-                              <ul
-                                class="IconList"
+                              <li
+                                class="ListItem ListItem--isCompact"
                               >
-                                <li
-                                  class="ListItem ListItem--isCompact"
+                                <div
+                                  class="icon"
                                 >
-                                  <div
-                                    class="icon"
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root blueCheckIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root blueCheckIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                                      />
-                                    </svg>
-                                  </div>
-                                  <div
-                                    class="content"
+                                    <path
+                                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                    />
+                                  </svg>
+                                </div>
+                                <div
+                                  class="content"
+                                >
+                                  <p
+                                    class="MuiTypography-root title Typography MuiTypography-body1"
                                   >
-                                    <p
-                                      class="MuiTypography-root title Typography MuiTypography-body1"
-                                    >
-                                      Benefit 3 NO, Benefit 4 NO
-                                    </p>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
+                                    Benefit 3 NO, Benefit 4 NO
+                                  </p>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
                         </div>
                       </div>

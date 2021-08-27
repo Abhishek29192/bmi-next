@@ -141,26 +141,24 @@ const LeadBlockSection = ({
         </LeadBlock.Content>
         {uniqueSellingPropositions &&
           !isEmpty(uniqueSellingPropositions.featureValues) && (
-            <div data-testid="system-attributes-card">
-              <LeadBlock.Card theme="pearl">
-                <LeadBlock.Card.Section>
-                  <div className={styles["iconList"]}>
-                    <IconList>
-                      {uniqueSellingPropositions.featureValues.map(
-                        ({ value }, id) => (
-                          <IconList.Item
-                            isCompact
-                            icon={BlueCheckIcon}
-                            title={value}
-                            key={`unique-selling-proposition-${id}`}
-                          />
-                        )
-                      )}
-                    </IconList>
-                  </div>
-                </LeadBlock.Card.Section>
-              </LeadBlock.Card>
-            </div>
+            <LeadBlock.Card theme="pearl" data-testid="system-attributes-card">
+              <LeadBlock.Card.Section>
+                <div className={styles["iconList"]}>
+                  <IconList>
+                    {uniqueSellingPropositions.featureValues.map(
+                      ({ value }, id) => (
+                        <IconList.Item
+                          isCompact
+                          icon={BlueCheckIcon}
+                          title={value}
+                          key={`unique-selling-proposition-${id}`}
+                        />
+                      )
+                    )}
+                  </IconList>
+                </div>
+              </LeadBlock.Card.Section>
+            </LeadBlock.Card>
           )}
       </LeadBlock>
     </Section>
