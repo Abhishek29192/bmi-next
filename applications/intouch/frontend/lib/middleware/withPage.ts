@@ -85,7 +85,7 @@ export const innerGetServerSideProps = async (
     apolloClient
   );
 
-  // TODO: we could pass market.cmsSpaceId to this query when we have multiple Contentful spaces
+  // TODO: get all in 1 query (the previous one)?
   const {
     props: { data: globalPageData }
   } = await getServerPageGetGlobalData({}, apolloClient);

@@ -1207,12 +1207,7 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
         readonly market?: SchemaTypes.Maybe<
           { readonly __typename?: "Market" } & Pick<
             SchemaTypes.Market,
-            | "domain"
-            | "language"
-            | "doceboCompanyAdminBranchId"
-            | "doceboInstallersBranchId"
-            | "merchandisingUrl"
-            | "projectsEnabled"
+            "id" | "domain" | "projectsEnabled"
           >
         >;
         readonly companyMembers: {

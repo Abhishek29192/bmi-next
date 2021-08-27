@@ -102,31 +102,15 @@ const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, account, locale }) => {
-    const {
-      doceboUserId,
-      market: { domain }
-    } = account;
+  async ({ apolloClient, account, locale, market }) => {
+    const { doceboUserId } = account;
 
     let trainingData = {};
     try {
-      const {
-        props: {
-          data: { marketByDomain = {} }
-        }
-      } = await getServerPageDoceboCatalogIdByMarketDomain(
-        {
-          variables: {
-            domain: domain
-          }
-        },
-        apolloClient
-      );
-
       const pageQuery = await getServerPageTraining(
         {
           variables: {
-            catalogueId: marketByDomain?.doceboCatalogueId || null,
+            catalogueId: market.doceboCatalogueId || null,
             userId: doceboUserId
           }
         },

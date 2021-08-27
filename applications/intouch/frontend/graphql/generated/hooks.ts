@@ -1784,11 +1784,8 @@ export const AccountByEmailDocument = gql`
       email
       doceboUserId
       market {
+        id
         domain
-        language
-        doceboCompanyAdminBranchId
-        doceboInstallersBranchId
-        merchandisingUrl
         projectsEnabled
       }
       companyMembers {
