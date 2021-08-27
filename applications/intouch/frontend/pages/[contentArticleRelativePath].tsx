@@ -3,7 +3,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Document } from "@contentful/rich-text-types";
-import { withPage } from "../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
 import { RichText } from "../components/RichText";
 import {
@@ -28,10 +28,9 @@ export const GET_CONTENT_ARTICLE_CONTENT = gql`
   }
 `;
 
-type ContentArticlePageProps = {
+type ContentArticlePageProps = GlobalPageProps & {
   title: string;
   body: Document;
-  globalPageData: GetGlobalDataQuery;
 };
 
 const ContentArticlePage = ({
@@ -49,7 +48,7 @@ const ContentArticlePage = ({
 };
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, res, params, account }) => {
+  async ({ locale, apolloClient, globalPageData, res, params }) => {
     const { contentArticleRelativePath } = params;
 
     const {
@@ -85,8 +84,6 @@ export const getServerSideProps = withPage(
       props: {
         title: pageContent.title,
         body: pageContent.body.json,
-        globalPageData,
-        account,
         ...(await serverSideTranslations(locale, ["common"]))
       }
     };

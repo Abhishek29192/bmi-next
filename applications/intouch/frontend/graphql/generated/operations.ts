@@ -1351,6 +1351,34 @@ export type CreateSsoUrlMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
+export type GetMarketsByDomainQueryVariables = SchemaTypes.Exact<{
+  domain: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetMarketsByDomainQuery = { readonly __typename?: "Query" } & {
+  readonly markets?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Market" } & Pick<
+          SchemaTypes.Market,
+          | "cmsSpaceId"
+          | "domain"
+          | "merchandisingUrl"
+          | "projectsEnabled"
+          | "locationBiasRadiusKm"
+        > & {
+            readonly geoMiddle?: SchemaTypes.Maybe<
+              { readonly __typename?: "Point" } & Pick<
+                SchemaTypes.Point,
+                "x" | "y"
+              >
+            >;
+          }
+      >;
+    }
+  >;
+};
+
 export type GetContentArticleContentQueryVariables = SchemaTypes.Exact<{
   relativePath: SchemaTypes.Scalars["String"];
 }>;
@@ -1424,7 +1452,6 @@ export type ProductsAndSystemsQuery = { readonly __typename?: "Query" } & {
 
 export type GetCompanyQueryVariables = SchemaTypes.Exact<{
   companyId: SchemaTypes.Scalars["Int"];
-  marketDomain: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetCompanyQuery = { readonly __typename?: "Query" } & {
@@ -1522,23 +1549,6 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
             "fullName" | "subHeading" | "email" | "phoneNumber"
           >
         >
-      >;
-    }
-  >;
-  readonly markets?: SchemaTypes.Maybe<
-    { readonly __typename?: "MarketsConnection" } & {
-      readonly nodes: ReadonlyArray<
-        { readonly __typename?: "Market" } & Pick<
-          SchemaTypes.Market,
-          "locationBiasRadiusKm"
-        > & {
-            readonly geoMiddle?: SchemaTypes.Maybe<
-              { readonly __typename?: "Point" } & Pick<
-                SchemaTypes.Point,
-                "x" | "y"
-              >
-            >;
-          }
       >;
     }
   >;
@@ -1842,7 +1852,6 @@ export type AccountPageDetailsFragmentFragment = {
 
 export type GetUserProfileQueryVariables = SchemaTypes.Exact<{
   accountId: SchemaTypes.Scalars["Int"];
-  marketDomain: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetUserProfileQuery = { readonly __typename?: "Query" } & {
@@ -1915,23 +1924,6 @@ export type GetUserProfileQuery = { readonly __typename?: "Query" } & {
           >;
         };
       }
-  >;
-  readonly markets?: SchemaTypes.Maybe<
-    { readonly __typename?: "MarketsConnection" } & {
-      readonly nodes: ReadonlyArray<
-        { readonly __typename?: "Market" } & Pick<
-          SchemaTypes.Market,
-          "locationBiasRadiusKm"
-        > & {
-            readonly geoMiddle?: SchemaTypes.Maybe<
-              { readonly __typename?: "Point" } & Pick<
-                SchemaTypes.Point,
-                "x" | "y"
-              >
-            >;
-          }
-      >;
-    }
   >;
 };
 

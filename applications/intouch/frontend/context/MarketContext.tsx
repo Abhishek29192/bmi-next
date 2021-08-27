@@ -1,17 +1,8 @@
 import React, { useState, createContext, useEffect } from "react";
-import { Market } from "@bmi/intouch-api-types";
+import { GetMarketsByDomainQuery } from "../graphql/generated/operations";
 
 export type ContextProps = {
-  market: Omit<
-    Market,
-    // we don't need all the nested relations for now
-    | "accounts"
-    | "companies"
-    | "companyMembers"
-    | "products"
-    | "systems"
-    | "systemMembers"
-  >;
+  market: GetMarketsByDomainQuery["markets"]["nodes"][0];
 };
 
 type ContextWrapperProps = ContextProps & {

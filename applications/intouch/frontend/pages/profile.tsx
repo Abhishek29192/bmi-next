@@ -3,18 +3,14 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageError } from "../lib/error";
-import {
-  GetUserProfileQuery,
-  GetGlobalDataQuery
-} from "../graphql/generated/operations";
+import { GetUserProfileQuery } from "../graphql/generated/operations";
 import { getServerPageGetUserProfile } from "../graphql/generated/page";
-import { withPage } from "../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
 import { UserProfilePageContent } from "../components/Pages/UserProfile";
 
-type UserProfilePageProps = {
+type UserProfilePageProps = GlobalPageProps & {
   pageAccount: GetUserProfileQuery["account"];
-  globalPageData: GetGlobalDataQuery;
 };
 
 const UserProfilePage = ({
@@ -69,40 +65,28 @@ export const ACCOUNT_PAGE_DETAILS_FRAGMENT = gql`
 `;
 
 export const GET_USER_CONTENT = gql`
-  query getUserProfile($accountId: Int!, $marketDomain: String!) {
+  query getUserProfile($accountId: Int!) {
     account(id: $accountId) {
       ...AccountPageDetailsFragment
-    }
-    # TODO refactor this to retrieve it within the "withPage" middleware
-    # https://bmigroup.atlassian.net/browse/IRP-680
-    markets(condition: { domain: $marketDomain }) {
-      nodes {
-        locationBiasRadiusKm
-        geoMiddle {
-          x
-          y
-        }
-      }
     }
   }
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, account, marketDomain }) => {
+  async ({ locale, apolloClient, account }) => {
     const {
       props: {
-        data: { account: pageAccount, markets }
+        data: { account: pageAccount }
       }
     } = await getServerPageGetUserProfile(
-      { variables: { accountId: account.id, marketDomain } },
+      { variables: { accountId: account.id } },
       apolloClient
     );
 
     return {
       props: {
-        globalPageData,
-        account,
-        market: markets?.nodes?.[0],
+        // called "pageAccount" so that it doesn't override "account", which is passed via "withPage"
+        // the "account" property is needed for the context
         pageAccount,
         ...(await serverSideTranslations(locale, [
           "profile",

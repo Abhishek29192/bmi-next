@@ -20,16 +20,12 @@ const Toolkit = ({ globalPageData }: ToolkitPageProps) => {
   );
 };
 
-export const getServerSideProps = withPage(
-  async ({ locale, account, globalPageData }) => {
-    return {
-      props: {
-        account,
-        globalPageData,
-        ...(await serverSideTranslations(locale, ["common"]))
-      }
-    };
-  }
-);
+export const getServerSideProps = withPage(async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"]))
+    }
+  };
+});
 
 export default withPageAuthRequired(Toolkit);

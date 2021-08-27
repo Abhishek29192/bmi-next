@@ -10,12 +10,9 @@ import Typography from "@bmi/typography";
 import Carousel from "@bmi/carousel";
 import OverviewCard from "@bmi/overview-card";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import {
-  GetPartnerBrandsQuery,
-  GetGlobalDataQuery
-} from "../graphql/generated/operations";
+import { GetPartnerBrandsQuery } from "../graphql/generated/operations";
 import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
-import { withPage } from "../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
 import { SimpleCard } from "../components/Cards/SimpleCard";
 import { RichText } from "../components/RichText";
@@ -25,11 +22,10 @@ import { findAccountCompany, findAccountTier } from "../lib/account";
 import { useAccountContext } from "../context/AccountContext";
 import styles from "../styles/Homepage.module.scss";
 
-type HomePageProps = {
+type HomePageProps = GlobalPageProps & {
   marketContentCollection: GetPartnerBrandsQuery["marketContentCollection"];
   carouselCollection: GetPartnerBrandsQuery["carouselCollection"];
   tierBenefitCollection: GetPartnerBrandsQuery["tierBenefitCollection"];
-  globalPageData: GetGlobalDataQuery;
 };
 
 const mapPartnerBrands = (
@@ -302,7 +298,7 @@ export const GET_PARTNER_BRANDS = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, globalPageData, account }) => {
+  async ({ apolloClient, locale, account }) => {
     const {
       props: {
         data: {
@@ -318,11 +314,9 @@ export const getServerSideProps = withPage(
 
     return {
       props: {
-        globalPageData,
         marketContentCollection,
         carouselCollection,
         tierBenefitCollection,
-        account,
         ...(await serverSideTranslations(locale, [
           "common",
           "home-page",

@@ -5,15 +5,17 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getServerPageGetCompany } from "../graphql/generated/page";
 import { GetCompanyQuery } from "../graphql/generated/operations";
 import { findAccountCompany } from "../lib/account";
-import { ErrorStatusCode, generatePageError } from "../lib/error";
-import { withPage } from "../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { EditCompanyDialog } from "../components/Pages/Company/EditCompany/Dialog";
 
-const Company = ({ company }: { company: GetCompanyQuery["company"] }) => {
+type Props = GlobalPageProps & {
+  company: GetCompanyQuery["company"];
+};
+
+const CompanyRegistrationPage = ({ company }: Props) => {
   // The company is created when we create the user in the db
   // through an sql procedure (create_account) here we just
   // need to update it with the new values
-
   return (
     <BmiThemeProvider>
       <EditCompanyDialog
@@ -30,28 +32,26 @@ const Company = ({ company }: { company: GetCompanyQuery["company"] }) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({
-    apolloClient,
-    locale,
-    account,
-    globalPageData,
-    marketDomain,
-    res
-  }) => {
+  async ({ apolloClient, locale, account }) => {
     const companyId = findAccountCompany(account)?.id;
+
     if (!companyId) {
-      const statusCode = ErrorStatusCode.UNAUTHORISED;
-      res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/"
+        }
+      };
     }
     const {
       props: {
-        data: { company, markets }
+        data: { company }
       }
     } = await getServerPageGetCompany(
-      { variables: { companyId, marketDomain } },
+      { variables: { companyId } },
       apolloClient
     );
+
     if (company.status !== "NEW") {
       return {
         redirect: {
@@ -63,12 +63,10 @@ export const getServerSideProps = withPage(
     return {
       props: {
         company,
-        market: markets.nodes?.[0],
-        account,
         ...(await serverSideTranslations(locale, ["common", "company-page"]))
       }
     };
   }
 );
 
-export default withPageAuthRequired(Company);
+export default withPageAuthRequired(CompanyRegistrationPage);
