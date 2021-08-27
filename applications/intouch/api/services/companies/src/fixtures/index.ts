@@ -35,7 +35,6 @@ export const company = {
   status: "ACTIVE",
   registered_by: "1",
   registered_date: "2021-06-29 10:31:36.497913",
-  docebo_group_id: 12,
   name: "Cool company name",
   tax_number: 132134,
   phone: 7949732635,

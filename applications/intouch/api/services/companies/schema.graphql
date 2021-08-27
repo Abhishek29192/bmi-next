@@ -2559,11 +2559,6 @@ type Company implements Node {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -3700,7 +3695,7 @@ type Guarantee implements Node {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -8242,11 +8237,6 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -9138,11 +9128,6 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -9514,11 +9499,6 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
-
-  """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
 
   """
   The registered name of the Company
@@ -10038,11 +10018,6 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -10381,11 +10356,6 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
-
-  """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
 
   """
   The registered name of the Company
@@ -11612,11 +11582,6 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -11955,11 +11920,6 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
-
-  """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
 
   """
   The registered name of the Company
@@ -12506,7 +12466,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -12817,7 +12777,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   productBmiRef: String
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -13885,7 +13845,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -14869,7 +14829,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -15147,7 +15107,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -15575,11 +15535,6 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
-
-  """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
 
   """
   The registered name of the Company
@@ -18143,11 +18098,6 @@ input CompanyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -18538,7 +18488,7 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -18646,7 +18596,7 @@ input GuaranteePatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -18724,7 +18674,7 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -18926,7 +18876,7 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -20648,7 +20598,7 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -21257,7 +21207,7 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -21793,7 +21743,7 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   productBmiRef: String
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -21941,7 +21891,7 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
@@ -24083,7 +24033,7 @@ input GuaranteeInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
   """
   guaranteeTemplateId: String
 
