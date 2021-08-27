@@ -125,31 +125,33 @@ const AboutLeadBlock = ({
           </LeadBlock.Content.Section>
         )}
       </LeadBlock.Content>
-      {(keyFeatures || systemBenefits) && (
-        <LeadBlock.Card theme="pearl">
-          {keyFeatures && (
-            <LeadBlockCardContent
-              title={keyFeatures.name}
-              contents={keyFeatures.featureValues.map(({ value }) => value)}
-            />
-          )}
-          {systemBenefits && (
-            <LeadBlockCardContent
-              title={getMicroCopy("sdp.leadBlock.systemBenefits")}
-              contents={systemBenefits}
-            />
-          )}
-          {sidebarItem && (
-            <LeadBlock.Card.Section>
-              <LeadBlock.Card.Heading variant="h5">
-                {sidebarItem.title}
-              </LeadBlock.Card.Heading>
-              <LeadBlock.Card.Content>
-                <RichText document={sidebarItem.content} />
-              </LeadBlock.Card.Content>
-            </LeadBlock.Card.Section>
-          )}
-        </LeadBlock.Card>
+      {(keyFeatures || systemBenefits || sidebarItem) && (
+        <div data-testid="sidebar">
+          <LeadBlock.Card theme="pearl">
+            {keyFeatures && (
+              <LeadBlockCardContent
+                title={keyFeatures.name}
+                contents={keyFeatures.featureValues.map(({ value }) => value)}
+              />
+            )}
+            {systemBenefits && (
+              <LeadBlockCardContent
+                title={getMicroCopy("sdp.leadBlock.systemBenefits")}
+                contents={systemBenefits}
+              />
+            )}
+            {sidebarItem && (
+              <LeadBlock.Card.Section>
+                <LeadBlock.Card.Heading>
+                  {sidebarItem.title}
+                </LeadBlock.Card.Heading>
+                <LeadBlock.Card.Content>
+                  <RichText document={sidebarItem.content} />
+                </LeadBlock.Card.Content>
+              </LeadBlock.Card.Section>
+            )}
+          </LeadBlock.Card>
+        </div>
       )}
     </LeadBlock>
   );
