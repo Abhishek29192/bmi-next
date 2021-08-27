@@ -20,6 +20,7 @@ import { useLocation } from "@reach/router";
 import Scrim from "../components/Scrim";
 import ProgressIndicator from "../components/ProgressIndicator";
 import * as storage from "../utils/storage";
+import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import RichText, { RichTextData } from "./RichText";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
@@ -80,6 +81,8 @@ type SystemConfiguratorBlockProps = {
   storedAnswers?: string[];
   stateSoFar?: string[];
 };
+
+const ACCORDION_TRANSITION = 500;
 
 const SystemConfigurtorContext = createContext(undefined);
 
@@ -144,15 +147,23 @@ const SystemConfiguratorBlock = ({
     };
   }, [data]);
 
-  if (
-    !data ||
-    data.__typename !== "ContentfulSystemConfiguratorBlock" ||
-    data.type !== "Question"
-  ) {
+  const questionData =
+    data &&
+    data.__typename === "ContentfulSystemConfiguratorBlock" &&
+    data.type === "Question"
+      ? data
+      : null;
+
+  const ref = useScrollToOnLoad(
+    index === 0 || !questionData,
+    ACCORDION_TRANSITION
+  );
+
+  if (!questionData) {
     return null;
   }
 
-  const { type, title, ...rest } = data;
+  const { type, title, ...rest } = questionData;
 
   const { answers = [], description } = rest;
 
@@ -172,6 +183,7 @@ const SystemConfiguratorBlock = ({
   return (
     <>
       <ConfiguratorPanel
+        ref={ref}
         title={title}
         selectedOptionTitle={selectedAnswer?.title}
         isExpanded={!selectedAnswer?.id || openIndex === index}
@@ -198,6 +210,9 @@ const SystemConfiguratorBlock = ({
             </RadioPane>
           );
         })}
+        TransitionProps={{
+          timeout: ACCORDION_TRANSITION
+        }}
       >
         {description && <RichText document={description} />}
       </ConfiguratorPanel>
@@ -219,11 +234,15 @@ const SystemConfiguratorBlockNoResultsSection = ({
   title,
   content
 }: Partial<TitleWithContentData>) => {
+  const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
+
   return (
-    <Section backgroundColor="alabaster">
-      <Section.Title>{title}</Section.Title>
-      {content && <RichText document={content} />}
-    </Section>
+    <div ref={ref}>
+      <Section backgroundColor="alabaster">
+        <Section.Title>{title}</Section.Title>
+        {content && <RichText document={content} />}
+      </Section>
+    </div>
   );
 };
 
@@ -233,42 +252,45 @@ const SystemConfiguratorBlockResultSection = ({
   recommendedSystems,
   selectedSystem: _selectedSystem
 }: Partial<EntryData>) => {
+  const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
   // put this line at line 258 when implementing card highlight
   // isHighlighted={selectedSystem === system}
   return (
-    <Section backgroundColor="white">
-      <Section.Title>{title}</Section.Title>
-      {description && <RichText document={description} />}
-      {recommendedSystems && (
-        <Grid container spacing={3}>
-          {recommendedSystems.map((system) => (
-            <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
-              <OverviewCard
-                title={`System-${system}`}
-                titleVariant="h5"
-                subtitleVariant="h6"
-                imageSize="contain"
-                action={{
-                  model: "routerLink",
-                  linkComponent: GatsbyLink,
-                  to: `/${countryCode}/system-details-page?selected_system=${system}`
-                }}
-                onClick={() => {
-                  const storedState = storage.local.getItem(
-                    SYSTEM_CONFIG_STORAGE_KEY
-                  );
-                  const stateObject = JSON.parse(storedState || "");
-                  const newState = { ...stateObject, selectedSystem: system };
-                  saveStateToLocalStorage(JSON.stringify(newState));
-                }}
-                isHighlighted={false}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      )}
-    </Section>
+    <div ref={ref}>
+      <Section backgroundColor="white">
+        <Section.Title>{title}</Section.Title>
+        {description && <RichText document={description} />}
+        {recommendedSystems && (
+          <Grid container spacing={3}>
+            {recommendedSystems.map((system) => (
+              <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
+                <OverviewCard
+                  title={`System-${system}`}
+                  titleVariant="h5"
+                  subtitleVariant="h6"
+                  imageSize="contain"
+                  action={{
+                    model: "routerLink",
+                    linkComponent: GatsbyLink,
+                    to: `/${countryCode}/system-details-page?selected_system=${system}`
+                  }}
+                  onClick={() => {
+                    const storedState = storage.local.getItem(
+                      SYSTEM_CONFIG_STORAGE_KEY
+                    );
+                    const stateObject = JSON.parse(storedState || "");
+                    const newState = { ...stateObject, selectedSystem: system };
+                    saveStateToLocalStorage(JSON.stringify(newState));
+                  }}
+                  isHighlighted={false}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        )}
+      </Section>
+    </div>
   );
 };
 
