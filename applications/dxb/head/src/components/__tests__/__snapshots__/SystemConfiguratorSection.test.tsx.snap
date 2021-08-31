@@ -2174,7 +2174,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-container MuiCollapse-hidden"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -2646,7 +2646,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-container MuiCollapse-hidden"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -3957,9 +3957,6 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
                     class="children text"
                   />
                 </div>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </a>
             </div>
             <div
@@ -3984,9 +3981,6 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
                     class="children text"
                   />
                 </div>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </a>
             </div>
           </div>
