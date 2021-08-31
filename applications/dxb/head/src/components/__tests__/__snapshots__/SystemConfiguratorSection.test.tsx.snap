@@ -886,7 +886,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-container MuiCollapse-hidden"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -1330,9 +1330,6 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                     class="children text"
                   />
                 </div>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </a>
             </div>
             <div
@@ -1357,9 +1354,6 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                     class="children text"
                   />
                 </div>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </a>
             </div>
           </div>
@@ -2894,7 +2888,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-container MuiCollapse-hidden"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
