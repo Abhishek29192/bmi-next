@@ -1132,6 +1132,58 @@ export type UpdateGuaranteeMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateGuaranteeMutation,
   OperationTypes.UpdateGuaranteeMutationVariables
 >;
+export const AddProjectNoteDocument = gql`
+  mutation addProjectNote($input: CreateNoteInput!) {
+    createNote(input: $input) {
+      note {
+        id
+      }
+    }
+  }
+`;
+export type AddProjectNoteMutationFn = Apollo.MutationFunction<
+  OperationTypes.AddProjectNoteMutation,
+  OperationTypes.AddProjectNoteMutationVariables
+>;
+
+/**
+ * __useAddProjectNoteMutation__
+ *
+ * To run a mutation, you first call `useAddProjectNoteMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddProjectNoteMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addProjectNoteMutation, { data, loading, error }] = useAddProjectNoteMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useAddProjectNoteMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.AddProjectNoteMutation,
+    OperationTypes.AddProjectNoteMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.AddProjectNoteMutation,
+    OperationTypes.AddProjectNoteMutationVariables
+  >(AddProjectNoteDocument, options);
+}
+export type AddProjectNoteMutationHookResult = ReturnType<
+  typeof useAddProjectNoteMutation
+>;
+export type AddProjectNoteMutationResult =
+  Apollo.MutationResult<OperationTypes.AddProjectNoteMutation>;
+export type AddProjectNoteMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.AddProjectNoteMutation,
+  OperationTypes.AddProjectNoteMutationVariables
+>;
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {

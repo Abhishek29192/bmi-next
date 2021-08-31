@@ -884,6 +884,20 @@ export type UpdateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
+export type AddProjectNoteMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateNoteInput;
+}>;
+
+export type AddProjectNoteMutation = { readonly __typename?: "Mutation" } & {
+  readonly createNote?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateNotePayload" } & {
+      readonly note?: SchemaTypes.Maybe<
+        { readonly __typename?: "Note" } & Pick<SchemaTypes.Note, "id">
+      >;
+    }
+  >;
+};
+
 export type DeleteProjectMemberMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.DeleteProjectMemberInput;
 }>;
