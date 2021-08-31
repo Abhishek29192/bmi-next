@@ -27,7 +27,7 @@ steps:
         "--set-env-vars=GATEWAY_URL=https://gateway-rfwslk3zjq-nw.a.run.app/graphql",
         "--set-env-vars=CONTENTFUL_API_HOST=https://graphql.contentful.com/content/v1",
         "--set-env-vars=CONTENTFUL_SPACE_ID=opay6t6wwmup",
-        "--set-env-vars=CONTENTFUL_ENVIRONMENT=develop",
+        "--set-env-vars=CONTENTFUL_ENVIRONMENT=development",
         "--set-env-vars=GCP_SECRET_PROJECT=734962646925",
         "--set-env-vars=GCP_PRIVATE_BUCKET_NAME=intouch-file-storage-bucket",
         "--set-env-vars=GCP_PUBLIC_BUCKET_NAME=intouch-public-assets"

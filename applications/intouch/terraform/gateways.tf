@@ -77,7 +77,7 @@ resource "google_cloud_run_service" "tf-gateway" {
         }
         env {
           name  = "CONTENTFUL_ENVIRONMENT"
-          value = "develop"
+          value = "development"
         }
         env {
           name  = "GCP_SECRET_PROJECT"

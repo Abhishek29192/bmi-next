@@ -1210,22 +1210,15 @@ export type AssetFilter = {
 export type AssetLinkingCollections = {
   __typename?: "AssetLinkingCollections";
   entryCollection?: Maybe<EntryCollection>;
-  mediaToolCollection?: Maybe<MediaToolCollection>;
   guaranteeTemplateCollection?: Maybe<GuaranteeTemplateCollection>;
   guaranteeTypeCollection?: Maybe<GuaranteeTypeCollection>;
+  mediaToolCollection?: Maybe<MediaToolCollection>;
   carouselItemCollection?: Maybe<CarouselItemCollection>;
   trainingContentCollection?: Maybe<TrainingContentCollection>;
   partnerBrandCollection?: Maybe<PartnerBrandCollection>;
 };
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type AssetLinkingCollectionsMediaToolCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -1240,6 +1233,13 @@ export type AssetLinkingCollectionsGuaranteeTemplateCollectionArgs = {
 };
 
 export type AssetLinkingCollectionsGuaranteeTypeCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type AssetLinkingCollectionsMediaToolCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -3888,6 +3888,7 @@ export type ContentfulEvidenceCategory = {
   name?: Maybe<Scalars["String"]>;
   description?: Maybe<Scalars["String"]>;
   minimumUploads?: Maybe<Scalars["Int"]>;
+  referenceCode?: Maybe<Scalars["String"]>;
 };
 
 export type ContentfulEvidenceCategoryCollection = {
@@ -3899,6 +3900,9 @@ export type ContentfulGuaranteeCoverageType = "PRODUCT" | "SYSTEM" | "SOLUTION";
 
 export type ContentfulGuaranteeTemplate = {
   __typename?: "ContentfulGuaranteeTemplate";
+  coverage?: Maybe<Scalars["String"]>;
+  languageCode?: Maybe<Scalars["String"]>;
+  languageDescriptor?: Maybe<Scalars["String"]>;
   approvalMessage?: Maybe<ContentfulMessage>;
   rejectionMessage?: Maybe<ContentfulMessage>;
   terms?: Maybe<ContentfulAsset>;
@@ -3940,6 +3944,7 @@ export type ContentfulGuaranteeType = {
   displayName?: Maybe<Scalars["String"]>;
   technology?: Maybe<ContentfulTechnologyType>;
   coverage?: Maybe<ContentfulGuaranteeCoverageType>;
+  guaranteeReferenceCode?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   signature?: Maybe<ContentfulAsset>;
   maximumValidityYears?: Maybe<Scalars["Int"]>;
@@ -7075,6 +7080,7 @@ export type EvidenceCategory = Entry & {
   contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<EvidenceCategoryLinkingCollections>;
   name?: Maybe<Scalars["String"]>;
+  referenceCode?: Maybe<Scalars["String"]>;
   description?: Maybe<EvidenceCategoryDescription>;
   minimumUploads?: Maybe<Scalars["Int"]>;
 };
@@ -7086,6 +7092,11 @@ export type EvidenceCategoryLinkedFromArgs = {
 
 /** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategoryNameArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
+export type EvidenceCategoryReferenceCodeArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -7142,6 +7153,13 @@ export type EvidenceCategoryFilter = {
   name_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   name_contains?: Maybe<Scalars["String"]>;
   name_not_contains?: Maybe<Scalars["String"]>;
+  referenceCode_exists?: Maybe<Scalars["Boolean"]>;
+  referenceCode?: Maybe<Scalars["String"]>;
+  referenceCode_not?: Maybe<Scalars["String"]>;
+  referenceCode_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  referenceCode_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  referenceCode_contains?: Maybe<Scalars["String"]>;
+  referenceCode_not_contains?: Maybe<Scalars["String"]>;
   description_exists?: Maybe<Scalars["Boolean"]>;
   description_contains?: Maybe<Scalars["String"]>;
   description_not_contains?: Maybe<Scalars["String"]>;
@@ -7181,6 +7199,8 @@ export type EvidenceCategoryLinkingCollectionsGuaranteeTypeCollectionArgs = {
 export type EvidenceCategoryOrder =
   | "name_ASC"
   | "name_DESC"
+  | "referenceCode_ASC"
+  | "referenceCode_DESC"
   | "minimumUploads_ASC"
   | "minimumUploads_DESC"
   | "sys_id_ASC"
@@ -8606,10 +8626,15 @@ export type GuaranteeTemplate = Entry & {
   contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<GuaranteeTemplateLinkingCollections>;
   displayName?: Maybe<Scalars["String"]>;
+  technology?: Maybe<Scalars["String"]>;
+  coverage?: Maybe<Scalars["String"]>;
+  languageCode?: Maybe<Scalars["String"]>;
   languageDescriptor?: Maybe<Scalars["String"]>;
   approvalMessage?: Maybe<MessageTemplate>;
   rejectionMessage?: Maybe<MessageTemplate>;
   logo?: Maybe<Asset>;
+  titleLine1?: Maybe<Scalars["String"]>;
+  titleLine2?: Maybe<Scalars["String"]>;
   signatory?: Maybe<Scalars["String"]>;
   headingGuarantee?: Maybe<Scalars["String"]>;
   headingScope?: Maybe<Scalars["String"]>;
@@ -8619,6 +8644,7 @@ export type GuaranteeTemplate = Entry & {
   headingBuildingAddress?: Maybe<Scalars["String"]>;
   headingRoofArea?: Maybe<Scalars["String"]>;
   headingRoofType?: Maybe<Scalars["String"]>;
+  roofType?: Maybe<Scalars["String"]>;
   headingContractor?: Maybe<Scalars["String"]>;
   headingContractorName?: Maybe<Scalars["String"]>;
   headingContractorId?: Maybe<Scalars["String"]>;
@@ -8632,9 +8658,6 @@ export type GuaranteeTemplate = Entry & {
   terms?: Maybe<Asset>;
   mailBody?: Maybe<Scalars["String"]>;
   filenamePrefix?: Maybe<Scalars["String"]>;
-  titleLine1?: Maybe<Scalars["String"]>;
-  titleLine2?: Maybe<Scalars["String"]>;
-  roofType?: Maybe<Scalars["String"]>;
 };
 
 /** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
@@ -8644,6 +8667,21 @@ export type GuaranteeTemplateLinkedFromArgs = {
 
 /** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateDisplayNameArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateTechnologyArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateCoverageArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateLanguageCodeArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -8667,6 +8705,16 @@ export type GuaranteeTemplateRejectionMessageArgs = {
 /** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateLogoArgs = {
   preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateTitleLine1Args = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateTitleLine2Args = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -8712,6 +8760,11 @@ export type GuaranteeTemplateHeadingRoofAreaArgs = {
 
 /** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingRoofTypeArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateRoofTypeArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -8782,21 +8835,6 @@ export type GuaranteeTemplateFilenamePrefixArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
-export type GuaranteeTemplateTitleLine1Args = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
-export type GuaranteeTemplateTitleLine2Args = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
-export type GuaranteeTemplateRoofTypeArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
 export type GuaranteeTemplateCollection = {
   __typename?: "GuaranteeTemplateCollection";
   total: Scalars["Int"];
@@ -8817,6 +8855,27 @@ export type GuaranteeTemplateFilter = {
   displayName_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   displayName_contains?: Maybe<Scalars["String"]>;
   displayName_not_contains?: Maybe<Scalars["String"]>;
+  technology_exists?: Maybe<Scalars["Boolean"]>;
+  technology?: Maybe<Scalars["String"]>;
+  technology_not?: Maybe<Scalars["String"]>;
+  technology_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  technology_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  technology_contains?: Maybe<Scalars["String"]>;
+  technology_not_contains?: Maybe<Scalars["String"]>;
+  coverage_exists?: Maybe<Scalars["Boolean"]>;
+  coverage?: Maybe<Scalars["String"]>;
+  coverage_not?: Maybe<Scalars["String"]>;
+  coverage_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  coverage_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  coverage_contains?: Maybe<Scalars["String"]>;
+  coverage_not_contains?: Maybe<Scalars["String"]>;
+  languageCode_exists?: Maybe<Scalars["Boolean"]>;
+  languageCode?: Maybe<Scalars["String"]>;
+  languageCode_not?: Maybe<Scalars["String"]>;
+  languageCode_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  languageCode_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  languageCode_contains?: Maybe<Scalars["String"]>;
+  languageCode_not_contains?: Maybe<Scalars["String"]>;
   languageDescriptor_exists?: Maybe<Scalars["Boolean"]>;
   languageDescriptor?: Maybe<Scalars["String"]>;
   languageDescriptor_not?: Maybe<Scalars["String"]>;
@@ -8827,6 +8886,20 @@ export type GuaranteeTemplateFilter = {
   approvalMessage_exists?: Maybe<Scalars["Boolean"]>;
   rejectionMessage_exists?: Maybe<Scalars["Boolean"]>;
   logo_exists?: Maybe<Scalars["Boolean"]>;
+  titleLine1_exists?: Maybe<Scalars["Boolean"]>;
+  titleLine1?: Maybe<Scalars["String"]>;
+  titleLine1_not?: Maybe<Scalars["String"]>;
+  titleLine1_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  titleLine1_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  titleLine1_contains?: Maybe<Scalars["String"]>;
+  titleLine1_not_contains?: Maybe<Scalars["String"]>;
+  titleLine2_exists?: Maybe<Scalars["Boolean"]>;
+  titleLine2?: Maybe<Scalars["String"]>;
+  titleLine2_not?: Maybe<Scalars["String"]>;
+  titleLine2_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  titleLine2_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  titleLine2_contains?: Maybe<Scalars["String"]>;
+  titleLine2_not_contains?: Maybe<Scalars["String"]>;
   signatory_exists?: Maybe<Scalars["Boolean"]>;
   signatory?: Maybe<Scalars["String"]>;
   signatory_not?: Maybe<Scalars["String"]>;
@@ -8890,6 +8963,13 @@ export type GuaranteeTemplateFilter = {
   headingRoofType_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   headingRoofType_contains?: Maybe<Scalars["String"]>;
   headingRoofType_not_contains?: Maybe<Scalars["String"]>;
+  roofType_exists?: Maybe<Scalars["Boolean"]>;
+  roofType?: Maybe<Scalars["String"]>;
+  roofType_not?: Maybe<Scalars["String"]>;
+  roofType_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  roofType_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  roofType_contains?: Maybe<Scalars["String"]>;
+  roofType_not_contains?: Maybe<Scalars["String"]>;
   headingContractor_exists?: Maybe<Scalars["Boolean"]>;
   headingContractor?: Maybe<Scalars["String"]>;
   headingContractor_not?: Maybe<Scalars["String"]>;
@@ -8969,27 +9049,6 @@ export type GuaranteeTemplateFilter = {
   filenamePrefix_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   filenamePrefix_contains?: Maybe<Scalars["String"]>;
   filenamePrefix_not_contains?: Maybe<Scalars["String"]>;
-  titleLine1_exists?: Maybe<Scalars["Boolean"]>;
-  titleLine1?: Maybe<Scalars["String"]>;
-  titleLine1_not?: Maybe<Scalars["String"]>;
-  titleLine1_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  titleLine1_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  titleLine1_contains?: Maybe<Scalars["String"]>;
-  titleLine1_not_contains?: Maybe<Scalars["String"]>;
-  titleLine2_exists?: Maybe<Scalars["Boolean"]>;
-  titleLine2?: Maybe<Scalars["String"]>;
-  titleLine2_not?: Maybe<Scalars["String"]>;
-  titleLine2_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  titleLine2_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  titleLine2_contains?: Maybe<Scalars["String"]>;
-  titleLine2_not_contains?: Maybe<Scalars["String"]>;
-  roofType_exists?: Maybe<Scalars["Boolean"]>;
-  roofType?: Maybe<Scalars["String"]>;
-  roofType_not?: Maybe<Scalars["String"]>;
-  roofType_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  roofType_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  roofType_contains?: Maybe<Scalars["String"]>;
-  roofType_not_contains?: Maybe<Scalars["String"]>;
   OR?: Maybe<Array<Maybe<GuaranteeTemplateFilter>>>;
   AND?: Maybe<Array<Maybe<GuaranteeTemplateFilter>>>;
 };
@@ -9017,8 +9076,18 @@ export type GuaranteeTemplateLinkingCollectionsGuaranteeTypeCollectionArgs = {
 export type GuaranteeTemplateOrder =
   | "displayName_ASC"
   | "displayName_DESC"
+  | "technology_ASC"
+  | "technology_DESC"
+  | "coverage_ASC"
+  | "coverage_DESC"
+  | "languageCode_ASC"
+  | "languageCode_DESC"
   | "languageDescriptor_ASC"
   | "languageDescriptor_DESC"
+  | "titleLine1_ASC"
+  | "titleLine1_DESC"
+  | "titleLine2_ASC"
+  | "titleLine2_DESC"
   | "signatory_ASC"
   | "signatory_DESC"
   | "headingGuarantee_ASC"
@@ -9037,6 +9106,8 @@ export type GuaranteeTemplateOrder =
   | "headingRoofArea_DESC"
   | "headingRoofType_ASC"
   | "headingRoofType_DESC"
+  | "roofType_ASC"
+  | "roofType_DESC"
   | "headingContractor_ASC"
   | "headingContractor_DESC"
   | "headingContractorName_ASC"
@@ -9055,12 +9126,6 @@ export type GuaranteeTemplateOrder =
   | "guaranteeScope_DESC"
   | "filenamePrefix_ASC"
   | "filenamePrefix_DESC"
-  | "titleLine1_ASC"
-  | "titleLine1_DESC"
-  | "titleLine2_ASC"
-  | "titleLine2_DESC"
-  | "roofType_ASC"
-  | "roofType_DESC"
   | "sys_id_ASC"
   | "sys_id_DESC"
   | "sys_publishedAt_ASC"
@@ -9079,6 +9144,7 @@ export type GuaranteeType = Entry & {
   displayName?: Maybe<Scalars["String"]>;
   technology?: Maybe<Scalars["String"]>;
   coverage?: Maybe<Scalars["String"]>;
+  guaranteeReferenceCode?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   signature?: Maybe<Asset>;
   maximumValidityYears?: Maybe<Scalars["Int"]>;
@@ -9105,6 +9171,11 @@ export type GuaranteeTypeTechnologyArgs = {
 
 /** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeCoverageArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
+export type GuaranteeTypeGuaranteeReferenceCodeArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -9190,6 +9261,13 @@ export type GuaranteeTypeFilter = {
   coverage_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   coverage_contains?: Maybe<Scalars["String"]>;
   coverage_not_contains?: Maybe<Scalars["String"]>;
+  guaranteeReferenceCode_exists?: Maybe<Scalars["Boolean"]>;
+  guaranteeReferenceCode?: Maybe<Scalars["String"]>;
+  guaranteeReferenceCode_not?: Maybe<Scalars["String"]>;
+  guaranteeReferenceCode_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  guaranteeReferenceCode_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  guaranteeReferenceCode_contains?: Maybe<Scalars["String"]>;
+  guaranteeReferenceCode_not_contains?: Maybe<Scalars["String"]>;
   name_exists?: Maybe<Scalars["Boolean"]>;
   name?: Maybe<Scalars["String"]>;
   name_not?: Maybe<Scalars["String"]>;
@@ -9253,6 +9331,8 @@ export type GuaranteeTypeOrder =
   | "technology_DESC"
   | "coverage_ASC"
   | "coverage_DESC"
+  | "guaranteeReferenceCode_ASC"
+  | "guaranteeReferenceCode_DESC"
   | "name_ASC"
   | "name_DESC"
   | "maximumValidityYears_ASC"

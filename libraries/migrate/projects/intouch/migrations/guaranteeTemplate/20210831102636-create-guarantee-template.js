@@ -1,4 +1,6 @@
 const { MAX_FILE_SIZES } = require("../../variables/mediaSizes/20210222125604");
+const guaranteeCoverage = require("../../variables/guaranteeCoverage/20210222125604");
+const technologies = require("../../variables/technologies/20210222125604");
 
 module.exports.description = "Create content model for Guarantee Template";
 
@@ -14,6 +16,44 @@ module.exports.up = (migration) => {
     .name("Display Name")
     .type("Symbol")
     .required(true);
+
+  guaranteeTemplate
+    .createField("technology")
+    .name("Technology")
+    .type("Symbol")
+    .required(true)
+    .validations([{ in: technologies }]);
+
+  guaranteeTemplate
+    .createField("coverage")
+    .name("Coverage")
+    .type("Symbol")
+    .required(true)
+    .validations([{ in: guaranteeCoverage }]);
+
+  guaranteeTemplate
+    .createField("languageCode")
+    .name("Language Code")
+    .type("Symbol")
+    .required(true)
+    .validations([
+      {
+        in: [
+          "da",
+          "no",
+          "en",
+          "sv",
+          "pt",
+          "de",
+          "nl",
+          "sk",
+          "fr",
+          "pl",
+          "es",
+          "fi"
+        ]
+      }
+    ]);
 
   guaranteeTemplate
     .createField("languageDescriptor")
@@ -206,13 +246,19 @@ module.exports.up = (migration) => {
     .required(true);
 
   guaranteeTemplate.changeFieldControl("displayName", "builtin", "singleLine");
+  guaranteeTemplate.changeFieldControl("technology", "builtin", "dropdown");
+  guaranteeTemplate.changeFieldControl("coverage", "builtin", "dropdown");
+  guaranteeTemplate.changeFieldControl("languageCode", "builtin", "dropdown", {
+    helpText:
+      "Language code for the template. It is used to reference a template in the database by language. Combined with technology & coverage, it will be the key instead of the Contentful ID."
+  });
   guaranteeTemplate.changeFieldControl(
     "languageDescriptor",
     "builtin",
     "singleLine",
     {
       helpText:
-        "For Company Admins to see when they select a template in Intouch"
+        "The text which is presented to the Company Admins to select templates by language on Intouch"
     }
   );
   guaranteeTemplate.changeFieldControl(
