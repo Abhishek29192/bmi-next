@@ -352,6 +352,11 @@ export const GET_PROJECT = gql`
         nodes {
           id
           body
+          authorId
+          author {
+            firstName
+            lastName
+          }
           createdAt
         }
       }

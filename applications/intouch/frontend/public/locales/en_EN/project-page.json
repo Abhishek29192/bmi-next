@@ -205,5 +205,13 @@
       "requestInformation": "Request more information",
       "approveGuarantee": "Approve guarantee"
     }
+  },
+  "noteTab": {
+    "header": "Add Note",
+    "table": {
+      "author": "Author",
+      "note": "Note",
+      "date": "Date"
+    }
   }
 }

@@ -944,6 +944,11 @@ export const GetProjectDocument = gql`
         nodes {
           id
           body
+          authorId
+          author {
+            firstName
+            lastName
+          }
           createdAt
         }
       }

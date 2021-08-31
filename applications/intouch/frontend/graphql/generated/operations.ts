@@ -794,8 +794,15 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "Note" } & Pick<
               SchemaTypes.Note,
-              "id" | "body" | "createdAt"
-            >
+              "id" | "body" | "authorId" | "createdAt"
+            > & {
+                readonly author?: SchemaTypes.Maybe<
+                  { readonly __typename?: "Account" } & Pick<
+                    SchemaTypes.Account,
+                    "firstName" | "lastName"
+                  >
+                >;
+              }
           >;
         };
         readonly projectMembers: {
