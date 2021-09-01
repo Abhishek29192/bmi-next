@@ -2979,99 +2979,99 @@ exports[`SystemDetailsPage template component should have function to filter and
       </div>
     </div>
     <div
-      class="Section Section--white"
+      class="Tabs Tabs--primary sdpTabLeadBlock"
     >
       <div
-        class="Container"
+        class="TabsBar"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="Container"
         >
           <div
-            class="Tabs Tabs--primary"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="TabsBar"
+              class="MuiTabs-root"
             >
               <div
-                class="Container"
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl"
+                  aria-label="tabs"
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
                 >
-                  <div
-                    class="MuiTabs-root"
+                  <button
+                    aria-controls="tabpanel-one"
+                    aria-selected="true"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    id="tab-one"
+                    role="tab"
+                    tabindex="0"
+                    type="button"
                   >
-                    <div
-                      class="MuiTabs-scrollable"
-                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                    />
-                    <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
-                      style="margin-bottom: 0px;"
+                    <span
+                      class="MuiTab-wrapper"
                     >
-                      <div
-                        aria-label="tabs"
-                        class="MuiTabs-flexContainer"
-                        role="tablist"
-                      >
-                        <button
-                          aria-controls="tabpanel-one"
-                          aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                          data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
-                          id="tab-one"
-                          role="tab"
-                          tabindex="0"
-                          type="button"
-                        >
-                          <span
-                            class="MuiTab-wrapper"
-                          >
-                            MC: sdp.leadBlock.about
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </button>
-                        <button
-                          aria-controls="tabpanel-two"
-                          aria-selected="false"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
-                          data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
-                          id="tab-two"
-                          role="tab"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          <span
-                            class="MuiTab-wrapper"
-                          >
-                            MC: sdp.leadBlock.technicalSpecification
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </button>
-                      </div>
-                      <span
-                        class="PrivateTabIndicator-root-181 PrivateTabIndicator-colorPrimary-182 MuiTabs-indicator"
-                        style="left: 0px; width: 0px;"
-                      />
-                    </div>
-                  </div>
+                      MC: sdp.leadBlock.about
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-two"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    id="tab-two"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: sdp.leadBlock.technicalSpecification
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
+                <span
+                  class="PrivateTabIndicator-root-181 PrivateTabIndicator-colorPrimary-182 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-one"
+        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        heading="MC: sdp.leadBlock.about"
+        id="tabpanel-one"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-185 TabPanelBox"
+        >
+          <div
+            class="section Section Section--white"
+          >
             <div
-              aria-labelledby="tab-one"
-              class="MuiGrid-root TabPanel MuiGrid-item"
-              heading="MC: sdp.leadBlock.about"
-              id="tabpanel-one"
-              role="tabpanel"
+              class="Container"
             >
               <div
-                class="MuiBox-root MuiBox-root-185 TabPanelBox"
+                class="MuiContainer-root MuiContainer-maxWidthXl"
               >
                 <div
                   class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -3227,16 +3227,28 @@ exports[`SystemDetailsPage template component should have function to filter and
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-two"
+        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        heading="MC: sdp.leadBlock.technicalSpecification"
+        hidden=""
+        id="tabpanel-two"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-186 TabPanelBox"
+        >
+          <div
+            class="section Section Section--white"
+          >
             <div
-              aria-labelledby="tab-two"
-              class="MuiGrid-root TabPanel MuiGrid-item"
-              heading="MC: sdp.leadBlock.technicalSpecification"
-              hidden=""
-              id="tabpanel-two"
-              role="tabpanel"
+              class="Container"
             >
               <div
-                class="MuiBox-root MuiBox-root-186 TabPanelBox"
+                class="MuiContainer-root MuiContainer-maxWidthXl"
               >
                 <div
                   class="section"
@@ -7138,99 +7150,99 @@ exports[`SystemDetailsPage template component should render 1`] = `
       </div>
     </div>
     <div
-      class="Section Section--white"
+      class="Tabs Tabs--primary sdpTabLeadBlock"
     >
       <div
-        class="Container"
+        class="TabsBar"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="Container"
         >
           <div
-            class="Tabs Tabs--primary"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="TabsBar"
+              class="MuiTabs-root"
             >
               <div
-                class="Container"
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl"
+                  aria-label="tabs"
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
                 >
-                  <div
-                    class="MuiTabs-root"
+                  <button
+                    aria-controls="tabpanel-one"
+                    aria-selected="true"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    id="tab-one"
+                    role="tab"
+                    tabindex="0"
+                    type="button"
                   >
-                    <div
-                      class="MuiTabs-scrollable"
-                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                    />
-                    <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
-                      style="margin-bottom: 0px;"
+                    <span
+                      class="MuiTab-wrapper"
                     >
-                      <div
-                        aria-label="tabs"
-                        class="MuiTabs-flexContainer"
-                        role="tablist"
-                      >
-                        <button
-                          aria-controls="tabpanel-one"
-                          aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                          data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
-                          id="tab-one"
-                          role="tab"
-                          tabindex="0"
-                          type="button"
-                        >
-                          <span
-                            class="MuiTab-wrapper"
-                          >
-                            MC: sdp.leadBlock.about
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </button>
-                        <button
-                          aria-controls="tabpanel-two"
-                          aria-selected="false"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
-                          data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
-                          id="tab-two"
-                          role="tab"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          <span
-                            class="MuiTab-wrapper"
-                          >
-                            MC: sdp.leadBlock.technicalSpecification
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </button>
-                      </div>
-                      <span
-                        class="PrivateTabIndicator-root-41 PrivateTabIndicator-colorPrimary-42 MuiTabs-indicator"
-                        style="left: 0px; width: 0px;"
-                      />
-                    </div>
-                  </div>
+                      MC: sdp.leadBlock.about
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-two"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    id="tab-two"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: sdp.leadBlock.technicalSpecification
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
+                <span
+                  class="PrivateTabIndicator-root-41 PrivateTabIndicator-colorPrimary-42 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-one"
+        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        heading="MC: sdp.leadBlock.about"
+        id="tabpanel-one"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-45 TabPanelBox"
+        >
+          <div
+            class="section Section Section--white"
+          >
             <div
-              aria-labelledby="tab-one"
-              class="MuiGrid-root TabPanel MuiGrid-item"
-              heading="MC: sdp.leadBlock.about"
-              id="tabpanel-one"
-              role="tabpanel"
+              class="Container"
             >
               <div
-                class="MuiBox-root MuiBox-root-45 TabPanelBox"
+                class="MuiContainer-root MuiContainer-maxWidthXl"
               >
                 <div
                   class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -7457,16 +7469,28 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-two"
+        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        heading="MC: sdp.leadBlock.technicalSpecification"
+        hidden=""
+        id="tabpanel-two"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-46 TabPanelBox"
+        >
+          <div
+            class="section Section Section--white"
+          >
             <div
-              aria-labelledby="tab-two"
-              class="MuiGrid-root TabPanel MuiGrid-item"
-              heading="MC: sdp.leadBlock.technicalSpecification"
-              hidden=""
-              id="tabpanel-two"
-              role="tabpanel"
+              class="Container"
             >
               <div
-                class="MuiBox-root MuiBox-root-46 TabPanelBox"
+                class="MuiContainer-root MuiContainer-maxWidthXl"
               >
                 <div
                   class="section"
@@ -11368,99 +11392,99 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       </div>
     </div>
     <div
-      class="Section Section--white"
+      class="Tabs Tabs--primary sdpTabLeadBlock"
     >
       <div
-        class="Container"
+        class="TabsBar"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="Container"
         >
           <div
-            class="Tabs Tabs--primary"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="TabsBar"
+              class="MuiTabs-root"
             >
               <div
-                class="Container"
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl"
+                  aria-label="tabs"
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
                 >
-                  <div
-                    class="MuiTabs-root"
+                  <button
+                    aria-controls="tabpanel-one"
+                    aria-selected="true"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    id="tab-one"
+                    role="tab"
+                    tabindex="0"
+                    type="button"
                   >
-                    <div
-                      class="MuiTabs-scrollable"
-                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                    />
-                    <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
-                      style="margin-bottom: 0px;"
+                    <span
+                      class="MuiTab-wrapper"
                     >
-                      <div
-                        aria-label="tabs"
-                        class="MuiTabs-flexContainer"
-                        role="tablist"
-                      >
-                        <button
-                          aria-controls="tabpanel-one"
-                          aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                          data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
-                          id="tab-one"
-                          role="tab"
-                          tabindex="0"
-                          type="button"
-                        >
-                          <span
-                            class="MuiTab-wrapper"
-                          >
-                            MC: sdp.leadBlock.about
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </button>
-                        <button
-                          aria-controls="tabpanel-two"
-                          aria-selected="false"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
-                          data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
-                          id="tab-two"
-                          role="tab"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          <span
-                            class="MuiTab-wrapper"
-                          >
-                            MC: sdp.leadBlock.technicalSpecification
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </button>
-                      </div>
-                      <span
-                        class="PrivateTabIndicator-root-111 PrivateTabIndicator-colorPrimary-112 MuiTabs-indicator"
-                        style="left: 0px; width: 0px;"
-                      />
-                    </div>
-                  </div>
+                      MC: sdp.leadBlock.about
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-two"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    id="tab-two"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: sdp.leadBlock.technicalSpecification
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
+                <span
+                  class="PrivateTabIndicator-root-111 PrivateTabIndicator-colorPrimary-112 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-one"
+        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        heading="MC: sdp.leadBlock.about"
+        id="tabpanel-one"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-115 TabPanelBox"
+        >
+          <div
+            class="section Section Section--white"
+          >
             <div
-              aria-labelledby="tab-one"
-              class="MuiGrid-root TabPanel MuiGrid-item"
-              heading="MC: sdp.leadBlock.about"
-              id="tabpanel-one"
-              role="tabpanel"
+              class="Container"
             >
               <div
-                class="MuiBox-root MuiBox-root-115 TabPanelBox"
+                class="MuiContainer-root MuiContainer-maxWidthXl"
               >
                 <div
                   class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -11687,16 +11711,28 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-two"
+        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        heading="MC: sdp.leadBlock.technicalSpecification"
+        hidden=""
+        id="tabpanel-two"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-116 TabPanelBox"
+        >
+          <div
+            class="section Section Section--white"
+          >
             <div
-              aria-labelledby="tab-two"
-              class="MuiGrid-root TabPanel MuiGrid-item"
-              heading="MC: sdp.leadBlock.technicalSpecification"
-              hidden=""
-              id="tabpanel-two"
-              role="tabpanel"
+              class="Container"
             >
               <div
-                class="MuiBox-root MuiBox-root-116 TabPanelBox"
+                class="MuiContainer-root MuiContainer-maxWidthXl"
               >
                 <div
                   class="section"

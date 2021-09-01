@@ -20,6 +20,7 @@ export type Data = {
   sdpShareWidget: ShareWidgetSectionData | null;
   sdpLeadBlockCta: LinkData | null;
   sdpSidebarItems: TitleWithContentData[] | null;
+  sdpBimDescription: RichTextData | null;
   visualiserShareWidget: ShareWidgetSectionData | null;
   pdpInputBanner: InputBannerData | null;
   searchPageSearchTips: TitleWithContentData | null;
@@ -90,5 +91,8 @@ export const query = graphql`
     }
     ...WelcomeDialogFragment
     ...HeaderLanguageFragment
+    sdpBimDescription {
+      ...RichTextFragment
+    }
   }
 `;

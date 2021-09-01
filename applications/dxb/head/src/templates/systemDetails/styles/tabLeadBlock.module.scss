@@ -1,0 +1,32 @@
+@import "@bmi/styles";
+
+.sdpTabLeadBlock {
+  :global {
+    .MuiTabs-root {
+      border-bottom: 1px solid $color-pearl;
+    }
+    .MuiBox-root {
+      padding-top: 0;
+    }
+    [class*="Section-module"] {
+      @media (min-width: $breakpoint-xl) {
+        padding-top: 48px;
+      }
+    }
+    .MuiGrid-root {
+      margin-top: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .MuiContainer-root {
+      @media (min-width: $breakpoint-xl) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.bmiIframe {
+  margin-top: 0;
+}

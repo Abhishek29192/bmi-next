@@ -16,6 +16,7 @@ import { SystemDetails, Assets, Feature, Classification } from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 import SystemLayersSection from "./systemLayersSection";
 import styles from "./styles/systemDetailsPage.module.scss";
+import { BimContent } from "./tabLeadBlock";
 
 type Props = {
   pageContext: {
@@ -121,7 +122,13 @@ const SystemDetailsPage = ({ data }: Props) => {
   );
   const aboutLeadBlockGenericContent: TitleWithContentData =
     resources?.sdpSidebarItems?.length > 0 && resources?.sdpSidebarItems[0];
-
+  const bimContent: BimContent = useMemo(() => {
+    return {
+      title: assets.find(({ assetType }) => assetType === "BIM")?.name,
+      description: resources?.sdpBimDescription,
+      bimIframeUrl
+    };
+  }, []);
   return (
     <Page
       brand={brandName}
@@ -159,12 +166,12 @@ const SystemDetailsPage = ({ data }: Props) => {
         longDescription={longDescription}
         guaranteesAndWarranties={guaranteesAndWarranties}
         awardsAndCertificates={awardsAndCertificates}
-        bimIframeUrl={bimIframeUrl}
         keyFeatures={keyFeatures}
         systemBenefits={systemBenefits}
         specification={specification}
         technicalSpecClassifications={technicalSpecClassifications}
         aboutLeadBlockGenericContent={aboutLeadBlockGenericContent}
+        bimContent={bimContent}
       />
     </Page>
   );

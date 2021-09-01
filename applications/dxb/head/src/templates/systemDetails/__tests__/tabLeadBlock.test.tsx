@@ -5,6 +5,7 @@ import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { Classification } from "../types";
+import { BimContent } from "../tabLeadBlock";
 
 const techSpecValue = "accordion item value 1";
 const technicalSpecClassifications: Classification[] = [
@@ -24,6 +25,14 @@ const technicalSpecClassifications: Classification[] = [
     name: "Accoridion Title 1"
   }
 ];
+const bimContent: BimContent = {
+  title: "bmi iframe title",
+  description: {
+    raw: '{"nodeType":"document","data":{},"content":[]}',
+    references: []
+  },
+  bimIframeUrl: "https://google.com"
+};
 
 describe("TabLeadBlock tests", () => {
   beforeEach(() => {
@@ -94,20 +103,26 @@ describe("TabLeadBlock tests", () => {
   });
 
   it("should render the bimIframe tab", () => {
-    const { container } = renderWithRouter(
+    const { container, queryByText, queryByTestId } = renderWithRouter(
       <Component
         longDescription={dataJson.longDescription}
-        bimIframeUrl="https://google.com"
+        bimContent={bimContent}
       />
     );
     expect(container.querySelector("#tabpanel-four")).toMatchSnapshot();
+    expect(queryByText(bimContent.title)).toBeTruthy();
+    expect(container.querySelector("#tabpanel-four .RichText")).toBeTruthy();
+    expect(queryByTestId("bmi-iframe")).toHaveAttribute(
+      "src",
+      bimContent.bimIframeUrl
+    );
   });
 
   it("should not render the bimIframe tab", () => {
     const { container } = renderWithRouter(
       <Component
         longDescription={dataJson.longDescription}
-        bimIframeUrl={null}
+        bimContent={{ ...bimContent, bimIframeUrl: null }}
       />
     );
     expect(container.querySelector("#tabpanel-four")).toBe(null);
