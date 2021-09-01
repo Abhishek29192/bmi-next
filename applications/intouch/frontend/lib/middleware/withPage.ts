@@ -13,6 +13,7 @@ import {
   GetMarketsByDomainQuery
 } from "../../graphql/generated/operations";
 import { isSingleMarket } from "../../lib/config";
+import { queryMarketsByDomain } from "../../lib/market";
 import { getAuth0Instance } from "../auth0";
 import { initializeApollo } from "../apolloClient";
 import { marketRedirect } from "../redirects/market";
@@ -73,17 +74,15 @@ export const innerGetServerSideProps = async (
 
   const domain = isSingleMarket ? "en" : req.headers.host?.split(".")?.[0];
   const {
-    props: {
-      data: {
-        markets: {
-          nodes: [market]
-        }
+    data: {
+      markets: {
+        nodes: [market]
       }
     }
-  } = await getServerPageGetMarketsByDomain(
-    { variables: { domain } },
-    apolloClient
-  );
+  } = await apolloClient.query({
+    query: queryMarketsByDomain,
+    variables: { domain }
+  });
 
   // TODO: get all in 1 query (the previous one)?
   const {

@@ -106,6 +106,7 @@ export const CompanyPageDetailsFragmentFragmentDoc = gql`
     ...CompanyAdminsFragment
     ...CompanyCertifications
     status
+    isProfileComplete
   }
   ${CompanyDetailsFragmentFragmentDoc}
   ${CompanyRegisteredDetailsFragmentFragmentDoc}
@@ -2262,6 +2263,7 @@ export const GetMarketsByDomainDocument = gql`
   query getMarketsByDomain($domain: String!) {
     markets(condition: { domain: $domain }) {
       nodes {
+        id
         cmsSpaceId
         domain
         merchandisingUrl
@@ -2468,6 +2470,71 @@ export type ProductsAndSystemsLazyQueryHookResult = ReturnType<
 export type ProductsAndSystemsQueryResult = Apollo.QueryResult<
   OperationTypes.ProductsAndSystemsQuery,
   OperationTypes.ProductsAndSystemsQueryVariables
+>;
+export const GetCompaniesByMarketDocument = gql`
+  query GetCompaniesByMarket($marketId: Int!) {
+    companies(condition: { marketId: $marketId }, orderBy: NAME_ASC) {
+      nodes {
+        ...CompanyPageDetailsFragment
+      }
+    }
+    contactDetailsCollection {
+      ...ContactDetailsCollectionFragment
+    }
+  }
+  ${CompanyPageDetailsFragmentFragmentDoc}
+  ${ContactDetailsCollectionFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetCompaniesByMarketQuery__
+ *
+ * To run a query within a React component, call `useGetCompaniesByMarketQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCompaniesByMarketQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetCompaniesByMarketQuery({
+ *   variables: {
+ *      marketId: // value for 'marketId'
+ *   },
+ * });
+ */
+export function useGetCompaniesByMarketQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetCompaniesByMarketQuery,
+    OperationTypes.GetCompaniesByMarketQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetCompaniesByMarketQuery,
+    OperationTypes.GetCompaniesByMarketQueryVariables
+  >(GetCompaniesByMarketDocument, options);
+}
+export function useGetCompaniesByMarketLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetCompaniesByMarketQuery,
+    OperationTypes.GetCompaniesByMarketQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetCompaniesByMarketQuery,
+    OperationTypes.GetCompaniesByMarketQueryVariables
+  >(GetCompaniesByMarketDocument, options);
+}
+export type GetCompaniesByMarketQueryHookResult = ReturnType<
+  typeof useGetCompaniesByMarketQuery
+>;
+export type GetCompaniesByMarketLazyQueryHookResult = ReturnType<
+  typeof useGetCompaniesByMarketLazyQuery
+>;
+export type GetCompaniesByMarketQueryResult = Apollo.QueryResult<
+  OperationTypes.GetCompaniesByMarketQuery,
+  OperationTypes.GetCompaniesByMarketQueryVariables
 >;
 export const GetCompanyDocument = gql`
   query GetCompany($companyId: Int!) {

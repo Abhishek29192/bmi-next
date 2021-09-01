@@ -1866,7 +1866,7 @@ export type Company = Node & {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -1984,13 +1984,13 @@ export type CompanyCompanyPkeyDelete = {
 
 /** The fields on `company` to look up the row to connect. */
 export type CompanyCompanyReferenceNumberKeyConnect = {
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber: Scalars["String"];
 };
 
 /** The fields on `company` to look up the row to delete. */
 export type CompanyCompanyReferenceNumberKeyDelete = {
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber: Scalars["String"];
 };
 
@@ -2939,7 +2939,7 @@ export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyR
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -2972,7 +2972,7 @@ export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKey
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3007,7 +3007,7 @@ export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferen
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3042,7 +3042,7 @@ export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceN
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3077,7 +3077,7 @@ export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyRefer
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3113,7 +3113,7 @@ export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyR
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3148,7 +3148,7 @@ export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNu
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3181,7 +3181,7 @@ export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKe
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber: Scalars["String"];
   };
 
@@ -3432,7 +3432,7 @@ export type CompanyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -5885,7 +5885,7 @@ export type DeleteCompanyByReferenceNumberInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber: Scalars["String"];
 };
 
@@ -17504,7 +17504,7 @@ export type UpdateCompanyByReferenceNumberInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** An object where the defined keys will be set on the `Company` being updated. */
   patch: CompanyPatch;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber: Scalars["String"];
 };
 
@@ -19541,7 +19541,7 @@ export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
     facebook?: Maybe<Scalars["String"]>;
     /** Their Company LinkedIn page URL */
     linkedIn?: Maybe<Scalars["String"]>;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber?: Maybe<Scalars["String"]>;
     /** A reference to the logo image */
     logo?: Maybe<Scalars["String"]>;
@@ -19605,7 +19605,7 @@ export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19669,7 +19669,7 @@ export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19733,7 +19733,7 @@ export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19799,7 +19799,7 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19866,7 +19866,7 @@ export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
     facebook?: Maybe<Scalars["String"]>;
     /** Their Company LinkedIn page URL */
     linkedIn?: Maybe<Scalars["String"]>;
-    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
     referenceNumber?: Maybe<Scalars["String"]>;
     /** A reference to the logo image */
     logo?: Maybe<Scalars["String"]>;
@@ -19932,7 +19932,7 @@ export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -19998,7 +19998,7 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;

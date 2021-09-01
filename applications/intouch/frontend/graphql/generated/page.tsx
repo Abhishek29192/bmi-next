@@ -573,6 +573,50 @@ export const ssrProductsAndSystems = {
 
   usePage: useProductsAndSystems
 };
+export async function getServerPageGetCompaniesByMarket(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetCompaniesByMarketQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetCompaniesByMarketQuery>({
+      ...options,
+      query: Operations.GetCompaniesByMarketDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetCompaniesByMarket = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetCompaniesByMarketQuery,
+    OperationTypes.GetCompaniesByMarketQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetCompaniesByMarketDocument, options);
+};
+export type PageGetCompaniesByMarketComp = React.FC<{
+  data?: OperationTypes.GetCompaniesByMarketQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetCompaniesByMarket = {
+  getServerPage: getServerPageGetCompaniesByMarket,
+
+  usePage: useGetCompaniesByMarket
+};
 export async function getServerPageGetCompany(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetCompanyQueryVariables>,

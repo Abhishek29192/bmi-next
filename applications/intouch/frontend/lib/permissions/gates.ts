@@ -1,17 +1,22 @@
 import { Account, Market } from "@bmi/intouch-api-types";
 import { ROLES } from "../../lib/constants";
-import { findAccountCompany, findAccountTier, hasProjects } from "../account";
-
-const isSuperOrMarketAdmin = (account: Account) =>
-  [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role);
+import {
+  findAccountCompany,
+  findAccountTier,
+  hasProjects,
+  isSuperOrMarketAdmin
+} from "../account";
 
 const isCompanyMember = (
-  user: Account,
-  extraData: { companyMemberIds: number[] }
+  account: Account,
+  extraData: { companyId: number }
 ) => {
-  const { companyMemberIds } = extraData;
-
-  return companyMemberIds.includes(user.id);
+  const { companyId } = extraData;
+  return (
+    companyId &&
+    companyId ===
+      account?.companyMembers?.nodes.find((m) => m.company.id)?.company?.id
+  );
 };
 
 const canSeeProjects = (account) => {
@@ -38,6 +43,12 @@ const canSeeProjects = (account) => {
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
 const gates = {
   company: {
+    viewAll: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
+    },
     view: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,

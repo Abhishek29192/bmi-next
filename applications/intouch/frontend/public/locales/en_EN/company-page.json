@@ -1,5 +1,6 @@
 {
-  "title": "Company",
+  "titleMember": "Company",
+  "titleAdmin": "Companies",
   "details": {
     "title": "Company Details",
     "name": "Company name",
@@ -12,6 +13,11 @@
     "registeredAddress": "Registered Address",
     "taxNumber": "Company VAT number",
     "phone": "Phone"
+  },
+  "search": {
+    "inputLabel": "Search for a company",
+    "profileComplete": "Profile complete",
+    "profileIncomplete": "Profile incomplete"
   },
   "supportTitle": "Roofpro Support",
   "incompleteProfile": {

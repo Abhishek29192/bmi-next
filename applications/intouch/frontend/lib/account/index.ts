@@ -2,6 +2,7 @@ import { Logger } from "winston";
 import { Account, Tier } from "@bmi/intouch-api-types";
 import { ApolloClient, NormalizedCacheObject, gql } from "@apollo/client";
 import { GetUserProfileQuery } from "../../graphql/generated/operations";
+import { ROLES } from "../../lib/constants";
 import { randomPassword } from "../utils/account";
 
 const { AUTH0_NAMESPACE } = process.env;
@@ -131,6 +132,10 @@ const mutationDoceboCreateSSOUrl = gql`
     }
   }
 `;
+
+export const isSuperOrMarketAdmin = (account: Account) => {
+  return [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN].includes(account.role);
+};
 
 // TODO: Company can be partial... use generic or fallback to full company, or for Account in fact
 export const findAccountCompany = (account: Account) => {

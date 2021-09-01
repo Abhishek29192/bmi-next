@@ -6,21 +6,21 @@ import {
   screen,
   waitFor
 } from "../../../../../lib/tests/utils";
-import { CompanyIncompleteProfileAlert } from "..";
+import { IncompleteProfileAlert } from "..";
 
 const phoneFieldText = "incompleteProfile.fields.phone";
 
 describe("CompanyIncompleteProfile", () => {
   it("should show missing information", () => {
     renderWithI18NProvider(
-      <CompanyIncompleteProfileAlert missingFields={["phone"]} />
+      <IncompleteProfileAlert missingFields={["phone"]} />
     );
     expect(screen.getByText(phoneFieldText)).toBeInTheDocument();
   });
 
   it("should be dismissable", async () => {
     renderWithI18NProvider(
-      <CompanyIncompleteProfileAlert missingFields={["phone"]} />
+      <IncompleteProfileAlert missingFields={["phone"]} />
     );
     expect(screen.getByText(phoneFieldText)).toBeInTheDocument();
 
@@ -35,7 +35,7 @@ describe("CompanyIncompleteProfile", () => {
 
   it("should match snapshot", () => {
     const { container } = renderWithI18NProvider(
-      <CompanyIncompleteProfileAlert
+      <IncompleteProfileAlert
         missingFields={["phone", "aboutUs", "tradingAddress"]}
       />
     );
