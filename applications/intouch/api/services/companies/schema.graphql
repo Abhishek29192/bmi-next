@@ -2869,7 +2869,8 @@ type Company implements Node {
     """
     filter: ProjectFilter
   ): ProjectsConnection!
-  certifications: [Technology]
+  certifications: [Technology]!
+  isProfileComplete: Boolean!
 }
 
 enum BusinessType {

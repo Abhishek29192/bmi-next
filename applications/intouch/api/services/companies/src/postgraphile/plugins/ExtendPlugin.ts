@@ -5,6 +5,7 @@ import { publish, TOPICS } from "../../services/events";
 import { getGuarantee, getEvidenceCategory } from "../../services/contentful";
 import {
   getCompanyCertifications,
+  getCompanyIsProfileComplete,
   guaranteeResolver
 } from "../../services/company/customResolvers";
 import Auth0 from "../../services/auth0";
@@ -24,6 +25,11 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
       Company: {
         certifications: async (parent, args, context, info) => {
           return getCompanyCertifications(parent, args, context);
+        },
+        // NOTE: this resolver currently requires the parent to have all the fields which are being check in the query
+        // if the query doesn't include the necessary sub-fields, the resolver will return `false`
+        isProfileComplete: (parent) => {
+          return getCompanyIsProfileComplete(parent);
         }
       },
       Guarantee: {

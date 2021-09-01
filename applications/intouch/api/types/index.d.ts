@@ -1894,7 +1894,8 @@ export type Company = Node & {
   invitations: InvitationsConnection;
   /** Reads and enables pagination through a set of `Project`. */
   projects: ProjectsConnection;
-  certifications?: Maybe<Array<Maybe<Technology>>>;
+  certifications: Array<Maybe<Technology>>;
+  isProfileComplete: Scalars["Boolean"];
 };
 
 /** A company that has been registered in InTouch */
