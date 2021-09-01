@@ -6,7 +6,6 @@ import Typography from "@bmi/typography";
 import {
   Guarantee,
   GuaranteeEventType,
-  Note,
   ProjectMember
 } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
@@ -179,7 +178,11 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Notes" index="four">
             <TabCard>
-              <NoteTab notes={project.notes?.nodes as Note[]} />
+              <NoteTab
+                accountId={account.id}
+                projectId={project.id}
+                notes={project.notes?.nodes}
+              />
             </TabCard>
           </Tabs.TabPanel>
         </Tabs>

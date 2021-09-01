@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
-import { Note } from "@bmi/intouch-api-types";
+import AccessControl from "../../../lib/permissions/AccessControl";
+import { GetProjectQuery } from "../../../graphql/generated/operations";
 import styles from "./styles.module.scss";
+import { AddNoteDialog } from "./AddNoteDialog";
 
 type NoteItemProps = {
   body: string;
@@ -19,17 +21,33 @@ const NoteItem = ({ body, author, createdAt }: NoteItemProps) => (
 );
 
 export type NoteTabProps = {
-  notes: Note[];
+  accountId: number;
+  projectId: number;
+  notes: GetProjectQuery["project"]["notes"]["nodes"];
 };
 
-export const NoteTab = ({ notes }: NoteTabProps) => {
+export const NoteTab = ({ accountId, projectId, notes }: NoteTabProps) => {
   const { t } = useTranslation("project-page");
+  const [isAddNoteDialogOpen, setIsAddNoteDialogOpen] = useState(false);
   return (
-    notes.length > 0 && (
-      <div className={styles.main}>
+    <div className={styles.main}>
+      <AccessControl dataModel="project" action="addNote">
         <div className={styles.header}>
-          <Button variant="outlined">{t("noteTab.header")}</Button>
+          <Button
+            variant="outlined"
+            onClick={() => setIsAddNoteDialogOpen(true)}
+          >
+            {t("noteTab.header")}
+          </Button>
+          <AddNoteDialog
+            isOpen={isAddNoteDialogOpen}
+            accountId={accountId}
+            projectId={projectId}
+            onCloseClick={() => setIsAddNoteDialogOpen(false)}
+          />
         </div>
+      </AccessControl>
+      {notes.length > 0 && (
         <div className={styles.body}>
           <Table>
             <Table.Head>
@@ -40,7 +58,7 @@ export const NoteTab = ({ notes }: NoteTabProps) => {
               </Table.Row>
             </Table.Head>
             <Table.Body>
-              {(notes || []).map(({ id, body, author, createdAt }) => (
+              {notes.map(({ id, body, author, createdAt }) => (
                 <NoteItem
                   key={id}
                   body={body}
@@ -53,7 +71,7 @@ export const NoteTab = ({ notes }: NoteTabProps) => {
             </Table.Body>
           </Table>
         </div>
-      </div>
-    )
+      )}
+    </div>
   );
 };
