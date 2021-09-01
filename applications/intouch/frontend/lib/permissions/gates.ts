@@ -1,7 +1,14 @@
+import { Account, Market } from "@bmi/intouch-api-types";
 import { ROLES } from "../../lib/constants";
 import { findAccountCompany, findAccountTier, hasProjects } from "../account";
 
-const isCompanyMember = (user, extraData: { companyMemberIds: number[] }) => {
+const isSuperOrMarketAdmin = (account: Account) =>
+  [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role);
+
+const isCompanyMember = (
+  user: Account,
+  extraData: { companyMemberIds: number[] }
+) => {
   const { companyMemberIds } = extraData;
 
   return companyMemberIds.includes(user.id);
@@ -100,28 +107,22 @@ const gates = {
         ROLES.SUPER_ADMIN
       ].includes(account?.role);
     },
+    companies: isSuperOrMarketAdmin,
     // Company (Available to All Company Members and Market Admins)
     // NOTE: company active status does not affect this
     company: (account) => {
-      return (
-        !!findAccountCompany(account) ||
-        [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role)
-      );
+      return !!findAccountCompany(account) || isSuperOrMarketAdmin(account);
     },
     // Tools (Available to all Company Members at Tier T2, T3 and T4, and Market Admin)
     tools: (account) => {
       return (
         ["T2", "T3", "T4"].includes(findAccountTier(account)) ||
-        [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role)
+        isSuperOrMarketAdmin(account)
       );
     },
     // Inventory (Available to Market Admins)
-    inventory: (account) => {
-      return [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role);
-    },
-    productsAdmin: (account) => {
-      return [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role);
-    }
+    inventory: isSuperOrMarketAdmin,
+    productsAdmin: isSuperOrMarketAdmin
   }
 };
 

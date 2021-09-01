@@ -56,7 +56,7 @@ export const getServerSideProps = withPage(
       return {
         redirect: {
           permanent: false,
-          destination: "/company"
+          destination: `/companies/${companyId}`
         }
       };
     }

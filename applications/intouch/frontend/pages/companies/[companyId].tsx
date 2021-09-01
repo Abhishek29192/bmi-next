@@ -5,26 +5,26 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Grid from "@bmi/grid";
 import { useCallback } from "react";
-import { GetCompanyQuery } from "../graphql/generated/operations";
-import { getServerPageGetCompany } from "../graphql/generated/page";
-import { findAccountCompany } from "../lib/account";
-import { ROLES } from "../lib/constants";
+import { GetCompanyQuery } from "../../graphql/generated/operations";
+import { getServerPageGetCompany } from "../../graphql/generated/page";
+import { findAccountCompany } from "../../lib/account";
+import { ROLES } from "../../lib/constants";
 import {
   ErrorStatusCode,
   generatePageError,
   withPageError
-} from "../lib/error";
-import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
-import { validateCompanyProfile } from "../lib/validations/company";
-import { Layout } from "../components/Layout";
-import { CompanyIncompleteProfileAlert } from "../components/Pages/Company/IncompleteProfileAlert";
-import { CompanyDetails } from "../components/Pages/Company/Details";
-import { CompanyRegisteredDetails } from "../components/Pages/Company/RegisteredDetails";
-import { CertificationsCard } from "../components/Cards/Certifications";
-import { SupportContactCard } from "../components/Cards/SupportContactCard";
-import { EditCompanyButton } from "../components/Pages/Company/EditCompany/Button";
-import { CompanyAdmins } from "../components/Pages/Company/Admins";
-import GridStyles from "../styles/Grid.module.scss";
+} from "../../lib/error";
+import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
+import { validateCompanyProfile } from "../../lib/validations/company";
+import { Layout } from "../../components/Layout";
+import { CompanyIncompleteProfileAlert } from "../../components/Pages/Company/IncompleteProfileAlert";
+import { CompanyDetails } from "../../components/Pages/Company/Details";
+import { CompanyRegisteredDetails } from "../../components/Pages/Company/RegisteredDetails";
+import { CertificationsCard } from "../../components/Cards/Certifications";
+import { SupportContactCard } from "../../components/Cards/SupportContactCard";
+import { EditCompanyButton } from "../../components/Pages/Company/EditCompany/Button";
+import { CompanyAdmins } from "../../components/Pages/Company/Admins";
+import GridStyles from "../../styles/Grid.module.scss";
 
 type CompanyPageProps = GlobalPageProps & {
   companySSR: GetCompanyQuery["company"];
@@ -129,13 +129,18 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, res, account }) => {
-    const companyId = findAccountCompany(account)?.id;
-    if (!companyId) {
+  async ({ locale, apolloClient, globalPageData, res, account, params }) => {
+    const companyId = parseInt(params.companyId);
+
+    if (
+      ![ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN].includes(account.role) &&
+      companyId !== findAccountCompany(account)?.id
+    ) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
       return generatePageError(statusCode, {}, { globalPageData });
     }
+
     const {
       props: {
         data: { company, contactDetailsCollection }

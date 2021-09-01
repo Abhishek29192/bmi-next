@@ -107,5 +107,6 @@ export const mockCompany: GetCompanyQuery["company"] = {
       }
     ]
   },
-  certifications: ["FLAT", "PITCHED"]
+  certifications: ["FLAT", "PITCHED"],
+  isProfileComplete: true
 };
