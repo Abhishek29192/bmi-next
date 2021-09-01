@@ -3,6 +3,7 @@ import {
   ClassificationFeatureUnit,
   Product
 } from "../../components/types/ProductBaseTypes";
+import { Format } from "../../components/types";
 
 export type GalleryImageType = {
   mainSource: string;
@@ -54,11 +55,7 @@ export type AssetType =
   | "CAD"
   | "DATA_SHEETS";
 
-export type MimeType =
-  | "image/jpeg"
-  | "image/png"
-  | "image/tiff"
-  | "application/pdf";
+export type MimeType = Format;
 
 export type Assets = {
   allowedToDownload: boolean;
@@ -91,6 +88,11 @@ export type SystemLayer = {
   type: string;
   relatedOptionalProducts: Product[];
   relatedProducts: Product[];
+};
+
+export type DocumentData = Assets & {
+  __typename: "SDPDocument";
+  id: string;
 };
 
 export interface SystemDetails {

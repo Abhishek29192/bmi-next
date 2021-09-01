@@ -12,7 +12,13 @@ import { getBimIframeUrl } from "../../components/BimIframe";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
-import { SystemDetails, Assets, Feature, Classification } from "./types";
+import {
+  SystemDetails,
+  Assets,
+  Feature,
+  Classification,
+  DocumentData
+} from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 import SystemLayersSection from "./systemLayersSection";
 import styles from "./styles/systemDetailsPage.module.scss";
@@ -35,6 +41,14 @@ const IGNORED_ATTRIBUTES = [
   "uniquesellingpropositions",
   "promotionalcontent",
   "keyfeatures"
+];
+
+const IGNORED_DOCUMENTS_ASSETS = [
+  "BIM",
+  "CERTIFICATES",
+  "AWARDS",
+  "GUARANTIES",
+  "WARRANTIES"
 ];
 
 const SystemDetailsPage = ({ data }: Props) => {
@@ -129,6 +143,17 @@ const SystemDetailsPage = ({ data }: Props) => {
       bimIframeUrl
     };
   }, []);
+  const documentsAndDownloads: DocumentData[] = useMemo(() => {
+    return assets
+      .filter(
+        ({ assetType, allowedToDownload }) =>
+          !IGNORED_DOCUMENTS_ASSETS.includes(assetType) && allowedToDownload
+      )
+      .map((asset, index) => {
+        return { __typename: "SDPDocument", id: index.toString(), ...asset };
+      });
+  }, []);
+
   return (
     <Page
       brand={brandName}
@@ -172,6 +197,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         technicalSpecClassifications={technicalSpecClassifications}
         aboutLeadBlockGenericContent={aboutLeadBlockGenericContent}
         bimContent={bimContent}
+        documentsAndDownloads={documentsAndDownloads}
       />
     </Page>
   );

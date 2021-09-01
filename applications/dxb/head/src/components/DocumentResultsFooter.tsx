@@ -57,7 +57,13 @@ export const handleDownloadClick = async (
     const assetFileCountMap: AssetUniqueFileCountMap =
       createAssetFileCountMap(assets);
     const documents = assets.map(
-      ({ __typename, asset, extension, title, url }, index) => {
+      ({ __typename, asset, extension, title, url, realFileName }, index) => {
+        if (__typename === "SDPDocument") {
+          return {
+            href: url,
+            name: realFileName
+          };
+        }
         return {
           href:
             __typename === "ContentfulDocument"

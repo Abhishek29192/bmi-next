@@ -12,6 +12,7 @@ import {
   PIMDocumentData,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
+import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
 import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
@@ -20,7 +21,11 @@ import fileIconsMap from "./FileIconsMap";
 
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
-type Document = DocumentData | PIMDocumentData | PIMLinkDocumentData;
+interface Document
+  extends DocumentData,
+    PIMDocumentData,
+    PIMLinkDocumentData,
+    SDPDocumentData {}
 
 type Props = {
   documents: Document[];
@@ -37,7 +42,7 @@ const GTMButton =
   >(Button);
 
 const mapAssetToFileDownload = (
-  data: DocumentData | PIMDocumentData
+  data: DocumentData | PIMDocumentData | SDPDocumentData
 ): FileDownloadButtonProps => {
   if (data.__typename === "PIMDocument") {
     const { url, format, fileSize: size } = data;
@@ -47,6 +52,15 @@ const mapAssetToFileDownload = (
       // @ts-ignore: Format to string
       format,
       size
+    };
+  }
+
+  if (data.__typename === "SDPDocument") {
+    const { url, mime, fileSize }: SDPDocumentData = data;
+    return {
+      url,
+      format: mime,
+      size: fileSize
     };
   }
 
@@ -132,7 +146,17 @@ const DocumentSimpleTableResults = ({
         </Table.Head>
         <Table.Body>
           {paginatedDocuments.map((document, index) => {
-            const { id, title } = document;
+            const isSdpDocument = document.__typename === "SDPDocument";
+            const { id, title, assetTypeCode, assetTypeName } = {
+              id: document.id,
+              title: isSdpDocument
+                ? (document as SDPDocumentData).realFileName
+                : document.title,
+              assetTypeCode: isSdpDocument ? null : document.assetType.code,
+              assetTypeName: isSdpDocument
+                ? document.name
+                : document.assetType.name
+            };
 
             return (
               <Table.Row
@@ -147,9 +171,7 @@ const DocumentSimpleTableResults = ({
                   if (header === "typeCode") {
                     return (
                       <Table.Cell className={styles["table-cell"]} key={key}>
-                        <abbr title={document.assetType.name}>
-                          {document.assetType.code}
-                        </abbr>
+                        <abbr title={assetTypeName}>{assetTypeCode}</abbr>
                       </Table.Cell>
                     );
                   }
@@ -157,7 +179,7 @@ const DocumentSimpleTableResults = ({
                   if (header === "type") {
                     return (
                       <Table.Cell className={styles["table-cell"]} key={key}>
-                        {document.assetType.name}
+                        {assetTypeName}
                       </Table.Cell>
                     );
                   }
