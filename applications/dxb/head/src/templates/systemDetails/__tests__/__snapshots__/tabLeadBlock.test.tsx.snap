@@ -384,7 +384,9 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           >
                             <td
                               class="MuiTableCell-root MuiTableCell-body table-cell"
-                            />
+                            >
+                              CAD Display Name
+                            </td>
                             <td
                               class="MuiTableCell-root MuiTableCell-body table-cell"
                             >

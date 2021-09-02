@@ -37,6 +37,7 @@ const documents: DocumentData[] = [
   {
     __typename: "SDPDocument",
     id: "0",
+    assetTypeDisplayName: "CAD Display Name",
     allowedToDownload: true,
     assetType: "CAD",
     fileSize: 270539,
