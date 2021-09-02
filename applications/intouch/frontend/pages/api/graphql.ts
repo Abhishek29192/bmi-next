@@ -15,6 +15,7 @@ export const config = {
 };
 
 const handler = async function (req: Request, res: NextApiResponse, next: any) {
+  const { GRAPHQL_URL } = process.env;
   const logger = req.logger("graphql");
 
   if (!req.headers.authorization) {
@@ -43,8 +44,9 @@ const handler = async function (req: Request, res: NextApiResponse, next: any) {
       req.headers["x-apigateway-api-userinfo"] = jwtPayload;
     }
   }
+
   createProxyMiddleware({
-    target: process.env.GRAPHQL_URL,
+    target: GRAPHQL_URL,
     changeOrigin: true,
     proxyTimeout: 5000,
     secure: false,

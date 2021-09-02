@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
-import { render, screen } from "@testing-library/react";
 import { Note } from "@bmi/intouch-api-types";
+import { renderWithI18NProvider, screen } from "../../../../lib/tests/utils";
+import { GetProjectQuery } from "../../../../graphql/generated/operations";
+import AccountContextWrapper from "../../../../lib/tests/fixtures/account";
 import { NoteTab } from "..";
 
 jest.mock("@bmi/use-dimensions", () => ({
@@ -8,23 +10,39 @@ jest.mock("@bmi/use-dimensions", () => ({
   default: () => [useRef(), jest.fn()]
 }));
 
+jest.mock("../../../../graphql/generated/hooks", () => ({
+  useAddProjectNoteMutation: () => [jest.fn()]
+}));
+
 describe("NoteTab Components", () => {
   describe("render correct number of notes", () => {
     it("none", () => {
-      render(<NoteTab notes={[]} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <NoteTab accountId={1} projectId={1} notes={[]} />
+        </AccountContextWrapper>
+      );
+
       expect(screen.queryByTestId("note-item")).toBeNull();
     });
     it("one note", () => {
-      const notes: Note[] = [
+      const notes: GetProjectQuery["project"]["notes"]["nodes"] = [
         {
-          nodeId: "1",
           id: 1,
           body: "Note body",
-          createdAt: "01/01/01",
-          updatedAt: "01/01/01"
+          authorId: 1,
+          author: {
+            firstName: "firstName",
+            lastName: "lastName"
+          },
+          createdAt: "01/01/01"
         }
       ];
-      render(<NoteTab notes={notes} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <NoteTab accountId={1} projectId={1} notes={notes} />
+        </AccountContextWrapper>
+      );
       expect(screen.getAllByTestId("note-item")).toHaveLength(1);
     });
     it("3 notes", () => {
@@ -51,7 +69,11 @@ describe("NoteTab Components", () => {
           updatedAt: "01/01/01"
         }
       ];
-      render(<NoteTab notes={notes} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <NoteTab accountId={1} projectId={1} notes={notes} />
+        </AccountContextWrapper>
+      );
       expect(screen.getAllByTestId("note-item")).toHaveLength(3);
     });
   });

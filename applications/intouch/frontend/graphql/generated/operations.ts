@@ -794,8 +794,15 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "Note" } & Pick<
               SchemaTypes.Note,
-              "id" | "body" | "createdAt"
-            >
+              "id" | "body" | "authorId" | "createdAt"
+            > & {
+                readonly author?: SchemaTypes.Maybe<
+                  { readonly __typename?: "Account" } & Pick<
+                    SchemaTypes.Account,
+                    "firstName" | "lastName"
+                  >
+                >;
+              }
           >;
         };
         readonly projectMembers: {
@@ -872,6 +879,20 @@ export type UpdateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
           SchemaTypes.Guarantee,
           "id"
         >
+      >;
+    }
+  >;
+};
+
+export type AddProjectNoteMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateNoteInput;
+}>;
+
+export type AddProjectNoteMutation = { readonly __typename?: "Mutation" } & {
+  readonly createNote?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateNotePayload" } & {
+      readonly note?: SchemaTypes.Maybe<
+        { readonly __typename?: "Note" } & Pick<SchemaTypes.Note, "id">
       >;
     }
   >;
