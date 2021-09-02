@@ -214,7 +214,11 @@ describe("SystemDetailsPage template component", () => {
       };
       const ignoredDocument: DocumentData[] = IGNORED_DOCUMENTS_ASSETS.map(
         (ignoredAssetType: AssetType): DocumentData => {
-          return { ...document, assetType: ignoredAssetType };
+          return {
+            ...document,
+            assetType: ignoredAssetType,
+            realFileName: ignoredAssetType
+          };
         }
       );
       const documents: DocumentData[] = [
