@@ -135,7 +135,9 @@ export const bulkImport = async (args, context: PostGraphileContext) => {
           description: item.description,
           maximum_validity_years: parseInt(item.maximum_validity_years),
           published:
-            item.published?.toLowerCase() === "true" || item.published === "1"
+            item.published === true ||
+            item.published?.toLowerCase() === "true" ||
+            item.published === "1"
         };
       });
     } else if (filename.indexOf(PRODUCTS_FILE) !== -1) {
@@ -163,10 +165,10 @@ export const bulkImport = async (args, context: PostGraphileContext) => {
     }
   }
 
-  const errorSystemsToUpdate = validateItems(systemsToUpdate);
-  const errorSystemsToInsert = validateItems(systemsToInsert);
-  const errorProductsToUpdate = validateItems(productsToUpdate);
-  const errorProductsToInsert = validateItems(productsToInsert);
+  const errorSystemsToUpdate = validateItems(systemsToUpdate, "SYSTEM");
+  const errorSystemsToInsert = validateItems(systemsToInsert, "SYSTEM");
+  const errorProductsToUpdate = validateItems(productsToUpdate, "PRODUCT");
+  const errorProductsToInsert = validateItems(productsToInsert, "PRODUCT");
   const errorSystemMembersInsert = validateProductsAndSystems(
     systemMemberToInsert,
     productsToInsert,

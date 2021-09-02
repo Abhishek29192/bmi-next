@@ -278,7 +278,7 @@ CREATE TABLE market (
   id serial PRIMARY KEY,
   LANGUAGE
   LANGUAGE,
-  domain text,
+  domain text NOT NULL,
   cms_space_id text,
   name text,
   send_name text,
@@ -397,7 +397,7 @@ CREATE TABLE system_member (
 TRUNCATE TABLE account RESTART IDENTITY;
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('1', 'ACTIVE', 1, 'SUPER_ADMIN', 'devs+1@digitaldetox.co.uk', '1234567', 'Chris', 'Evans', '2020-06-12 10:19:47', 13999, 'devs+1@digitaldetox.co.uk', 'https://media.spokesman.com/photos/2020/08/28/5f49c8a43a16d.hires.jpg', NULL);
+  VALUES ('1', 'ACTIVE', NULL, 'SUPER_ADMIN', 'devs+1@digitaldetox.co.uk', '1234567', 'Chris', 'Evans', '2020-06-12 10:19:47', 13999, 'devs+1@digitaldetox.co.uk', 'https://media.spokesman.com/photos/2020/08/28/5f49c8a43a16d.hires.jpg', NULL);
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
   VALUES ('2', 'ACTIVE', 1, 'MARKET_ADMIN', 'devs+2@digitaldetox.co.uk', '1234567', 'Kim', 'Jong Un', '2020-06-12 10:19:47', 14000, 'devs+2@digitaldetox.co.uk', 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/1244D/production/_117892847_tv066659879.jpg', NULL);
@@ -1349,7 +1349,7 @@ COMMENT ON COLUMN guarantee.product_bmi_ref IS 'fk';
 
 COMMENT ON COLUMN guarantee.reviewer_account_id IS 'fk';
 
-COMMENT ON COLUMN guarantee.guarantee_template_id IS 'language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids';
+COMMENT ON COLUMN guarantee.guarantee_template_id IS 'a reference to the guaranteeType sys id in Contentful';
 
 COMMENT ON COLUMN guarantee.status IS 'ek';
 
@@ -1734,5 +1734,9 @@ CREATE INDEX invitation_invitee_idx ON invitation USING btree (invitee);
 
 CREATE INDEX market_domain_idx ON market USING btree (DOMAIN);
 
+CREATE INDEX product_name_idx ON product USING btree (name);
+
 CREATE INDEX project_member_is_responsible_installer_idx ON project_member USING btree (is_responsible_installer);
+
+CREATE INDEX system_name_idx ON SYSTEM USING btree (name);
 

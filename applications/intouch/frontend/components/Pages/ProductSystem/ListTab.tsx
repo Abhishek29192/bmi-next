@@ -53,6 +53,7 @@ const systemDetailToShow = [
 const getValue = (t, type, value) => {
   switch (type) {
     case "text":
+    case "textarea":
       return value;
     case "bool":
       return value === true ? t("published") : t("unpublished");
@@ -246,7 +247,7 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
                     fullWidth
                     name="name"
                     label={t("name")}
-                    value={selectedItem.name}
+                    value={selectedItem.name || ""}
                     onChange={(value) => onItemChange("name", value)}
                   />
                 </Grid>
@@ -257,7 +258,7 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
                     rows={5}
                     name="description"
                     label={t("description")}
-                    value={selectedItem.description}
+                    value={selectedItem.description || ""}
                     onChange={(value) => onItemChange("description", value)}
                   />
                 </Grid>
@@ -265,7 +266,7 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
                   <Checkbox
                     name="published"
                     label={t("published")}
-                    checked={selectedItem.published}
+                    checked={selectedItem.published || false}
                     onChange={(value) => onItemChange("published", value)}
                   />
                 </Grid>
@@ -331,7 +332,7 @@ export const updateProduct = gql`
   mutation updateProduct($input: UpdateProductInput!) {
     updateProduct(input: $input) {
       query {
-        products {
+        products(orderBy: NAME_ASC) {
           nodes {
             id
             name
@@ -354,7 +355,7 @@ export const updateSystem = gql`
   mutation updateSystem($input: UpdateSystemInput!) {
     updateSystem(input: $input) {
       query {
-        systems {
+        systems(orderBy: NAME_ASC) {
           nodes {
             id
             name

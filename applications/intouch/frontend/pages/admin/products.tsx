@@ -52,7 +52,7 @@ export const getServerSideProps = withPage(
 // TODO: fetch product by market
 export const GetProductsAndSystems = gql`
   query ProductsAndSystems {
-    products {
+    products(orderBy: NAME_ASC) {
       nodes {
         id
         name
@@ -66,7 +66,7 @@ export const GetProductsAndSystems = gql`
         maximumValidityYears
       }
     }
-    systems {
+    systems(orderBy: NAME_ASC) {
       nodes {
         id
         name

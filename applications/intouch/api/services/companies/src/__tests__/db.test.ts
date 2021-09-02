@@ -799,8 +799,8 @@ describe("Database permissions", () => {
             accountUuid: 0,
             accountEmail: SUPER_ADMIN_EMAIL
           },
-          "insert into market (name) VALUES ($1) RETURNING *",
-          ["Name"]
+          "insert into market (name, domain) VALUES ($1, $2) RETURNING *",
+          ["Name", "es"]
         );
         expect(rows.length).toEqual(1);
         market_id = rows[0].id;
@@ -816,8 +816,8 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into market (name) VALUES ($1)",
-            ["Name"]
+            "insert into market (name, domain) VALUES ($1, $2)",
+            ["Name", "es"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -861,8 +861,8 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into market (name) VALUES ($1)",
-            ["Name"]
+            "insert into market (name, domain) VALUES ($1, $2)",
+            ["Name", "es"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -879,8 +879,8 @@ describe("Database permissions", () => {
               accountUuid: 0,
               accountEmail: MARKET_ADMIN_EMAIL
             },
-            "insert into market (name) VALUES ($1)",
-            ["Name"]
+            "insert into market (name, domain) VALUES ($1, $2)",
+            ["Name", "es"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -961,8 +961,8 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into market (name) VALUES ($1)",
-            ["Name"]
+            "insert into market (name, domain) VALUES ($1, $2)",
+            ["Name", "es"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));

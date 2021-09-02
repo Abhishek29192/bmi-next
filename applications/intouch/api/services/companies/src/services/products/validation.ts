@@ -2,11 +2,66 @@ import { Product, System, SystemMember } from "@bmi/intouch-api-types";
 
 const ALLOWED_TECHNOLOGIES = ["FLAT", "PITCHED"];
 
-export const validateItems = (items: Product[] | System[]) => {
-  const errors = [];
+const SYSTEM_MEMBER_KEYS = ["systemBmiRef", "productBmiRef"];
+const SYSTEM_KEYS = [
+  "technology",
+  "bmiRef",
+  "name",
+  "description",
+  "maximumValidityYears",
+  "published"
+];
+const PRODUCT_KEYS = [
+  "technology",
+  "bmiRef",
+  "brand",
+  "name",
+  "description",
+  "family",
+  "published",
+  "maximumValidityYears"
+];
+
+const checkMandatoryFields = (item, keys) =>
+  keys.reduce((result, key) => {
+    if (item[`${key}`] === null || item[`${key}`] === undefined) {
+      result.push({
+        ref: item.bmiRef,
+        message: `${key} is mandatory`
+      });
+    }
+
+    return result;
+  }, []);
+
+const checkMandatoryFieldsMembers = (item, keys) =>
+  keys.reduce((result, key) => {
+    if (item[`${key}`] === null || item[`${key}`] === undefined) {
+      result.push({
+        ref: `${item.systemBmiRef} ${item.productBmiRef}`,
+        message: `${key} is mandatory`
+      });
+    }
+
+    return result;
+  }, []);
+
+export const validateItems = (
+  items: Product[] | System[],
+  type: "SYSTEM" | "PRODUCT"
+) => {
+  let errors = [];
   const productsMap = {};
 
   items.forEach((item) => {
+    if (type == "SYSTEM") {
+      const res = checkMandatoryFields(item, SYSTEM_KEYS);
+      errors = [...errors, ...res];
+    } else {
+      const res = checkMandatoryFields(item, PRODUCT_KEYS);
+      errors = [...errors, ...res];
+    }
+
     if (!ALLOWED_TECHNOLOGIES.includes(item.technology)) {
       errors.push({
         ref: item.bmiRef,
@@ -41,7 +96,7 @@ export const validateProductsAndSystems = (
   products: Product[],
   systems: System[]
 ) => {
-  const errors = [];
+  let errors = [];
 
   if (!products.length && !systems.length) return [];
 
@@ -63,6 +118,9 @@ export const validateProductsAndSystems = (
   systemMember.forEach((current: SystemMember) => {
     const currentProd: Product = productsMap[current.productBmiRef];
     const currentSystem: System = systemsMap[current.systemBmiRef];
+
+    const res = checkMandatoryFieldsMembers(current, SYSTEM_MEMBER_KEYS);
+    errors = [...errors, ...res];
 
     if (!currentProd) {
       errors.push({

@@ -1,5 +1,25 @@
 import * as importer from "../bulkImport";
 
+import { item } from "./validation.test";
+
+export const itemSnake = (
+  index: number,
+  replace = null,
+  type = "product"
+): any => ({
+  technology: replace?.technology || "FLAT",
+  bmi_ref: replace?.bmi_ref || `ref-${type}-${index}`,
+  brand: "Braas",
+  family: "Asoka",
+  name: `Super Tile ${index}`,
+  description: "This is some test data.  There is no such physical product",
+  published: true,
+  maximum_validity_years:
+    replace?.maximum_validity_years !== undefined
+      ? replace?.maximum_validity_years
+      : 4
+});
+
 describe("Bulk importer", () => {
   let context: any = {
     pgClient: {
@@ -17,6 +37,10 @@ describe("Bulk importer", () => {
   beforeEach(() => {
     jest.resetAllMocks();
     jest.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   it("shouldn't import the products if no env or market", async () => {
@@ -78,22 +102,30 @@ describe("Bulk importer", () => {
 
     context.pgClient.query
       .mockReturnValueOnce({ rows: [{ id: 1 }] }) // market
-      .mockReturnValueOnce({ rows: [{ bmi_ref: "12" }] }) // system
+      .mockReturnValueOnce({ rows: [{ bmi_ref: "ref-system-12" }] }) // system
       .mockReturnValueOnce({ rows: [{ id: 1 }] }) // market
-      .mockReturnValueOnce({ rows: [{ bmi_ref: "21" }] }); // product
+      .mockReturnValueOnce({ rows: [{ bmi_ref: "ref-product-21" }] }); // product
 
     jest
       .spyOn(importer, "singleImport")
       .mockReturnValueOnce(
         Promise.resolve([
-          { bmi_ref: "12", maximumValidityYears: 1, technology: "FLAT" },
-          { bmi_ref: "123", maximumValidityYears: 1, technology: "FLAT" }
+          itemSnake(
+            12,
+            { maximum_validity_years: 1, technology: "FLAT" },
+            "system"
+          ),
+          itemSnake(
+            123,
+            { maximum_validity_years: 1, technology: "FLAT" },
+            "system"
+          )
         ]) // system
       )
       .mockReturnValueOnce(
         Promise.resolve([
-          { bmi_ref: "21", maximumValidityYears: 1, technology: "FLAT" },
-          { bmi_ref: "321", maximumValidityYears: 1, technology: "FLAT" }
+          itemSnake(21, { maximum_validity_years: 1, technology: "FLAT" }),
+          itemSnake(321, { maximum_validity_years: 1, technology: "FLAT" })
         ]) // products
       );
 
@@ -108,16 +140,16 @@ describe("Bulk importer", () => {
       errorSystemsToInsert: [],
       errorSystemsToUpdate: [],
       systemsToUpdate: [
-        { bmiRef: "12", maximumValidityYears: 1, technology: "FLAT" }
+        item(12, { maximumValidityYears: 1, technology: "FLAT" }, "system")
       ],
       systemsToInsert: [
-        { bmiRef: "123", maximumValidityYears: 1, technology: "FLAT" }
+        item(123, { maximumValidityYears: 1, technology: "FLAT" }, "system")
       ],
       productsToUpdate: [
-        { bmiRef: "21", maximumValidityYears: 1, technology: "FLAT" }
+        item(21, { maximumValidityYears: 1, technology: "FLAT" })
       ],
       productsToInsert: [
-        { bmiRef: "321", maximumValidityYears: 1, technology: "FLAT" }
+        item(321, { maximumValidityYears: 1, technology: "FLAT" })
       ]
     });
   });

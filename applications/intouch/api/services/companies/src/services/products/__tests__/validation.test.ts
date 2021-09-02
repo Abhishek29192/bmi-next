@@ -1,7 +1,7 @@
 import { Product, System, SystemMember } from "@bmi/intouch-api-types";
 import { validateItems, validateProductsAndSystems } from "../validation";
 
-const item = (index: number, replace = null, type = "product"): any => ({
+export const item = (index: number, replace = null, type = "product"): any => ({
   technology: replace?.technology || "FLAT",
   bmiRef: replace?.bmiRef || `ref-${type}-${index}`,
   brand: "Braas",
@@ -34,14 +34,31 @@ const systemMembers: SystemMember[] = Array.from(Array(10).keys()).map(
 describe("Validation", () => {
   describe("Product and Systems", () => {
     it("should return 0 error if all good", async () => {
-      const errors = validateItems(products);
+      const errors = validateItems(products, "PRODUCT");
       expect(errors).toHaveLength(0);
     });
-    it("should return an error if wrong technology", async () => {
-      const errors = validateItems([
-        ...products,
-        item(11, { technology: "WRONG_TECH" })
+    it("should return an error if missing field", async () => {
+      const newItem = item(11);
+      delete newItem.brand;
+      delete newItem.family;
+      const errors = validateItems([...products, newItem], "PRODUCT");
+      expect(errors).toHaveLength(2);
+      expect(errors).toEqual([
+        {
+          ref: "ref-product-11",
+          message: "brand is mandatory"
+        },
+        {
+          ref: "ref-product-11",
+          message: "family is mandatory"
+        }
       ]);
+    });
+    it("should return an error if wrong technology", async () => {
+      const errors = validateItems(
+        [...products, item(11, { technology: "WRONG_TECH" })],
+        "PRODUCT"
+      );
       expect(errors).toHaveLength(1);
       expect(errors).toEqual([
         {
@@ -51,10 +68,10 @@ describe("Validation", () => {
       ]);
     });
     it("should return an error if double ref", async () => {
-      const errors = validateItems([
-        ...products,
-        item(11, { bmiRef: "ref-product-1" })
-      ]);
+      const errors = validateItems(
+        [...products, item(11, { bmiRef: "ref-product-1" })],
+        "PRODUCT"
+      );
       expect(errors).toHaveLength(1);
       expect(errors).toEqual([
         {
@@ -64,10 +81,10 @@ describe("Validation", () => {
       ]);
     });
     it("should return an error if wrong validity data", async () => {
-      const errors = validateItems([
-        ...products,
-        item(11, { bmiRef: "ref-product-1" })
-      ]);
+      const errors = validateItems(
+        [...products, item(11, { bmiRef: "ref-product-1" })],
+        "PRODUCT"
+      );
       expect(errors).toHaveLength(1);
       expect(errors).toEqual([
         {
@@ -76,14 +93,17 @@ describe("Validation", () => {
         }
       ]);
     });
-    it("should return an error if wrong tach and double ref", async () => {
-      const errors = validateItems([
-        ...products,
-        item(11, { maximumValidityYears: "foo" }),
-        item(12, { maximumValidityYears: -1 }),
-        item(13, { maximumValidityYears: null })
-      ]);
-      expect(errors).toHaveLength(3);
+    it("should return an error if wrong tech and double ref", async () => {
+      const errors = validateItems(
+        [
+          ...products,
+          item(11, { maximumValidityYears: "foo" }),
+          item(12, { maximumValidityYears: -1 }),
+          item(13, { maximumValidityYears: null })
+        ],
+        "PRODUCT"
+      );
+      expect(errors).toHaveLength(4);
       expect(errors).toEqual([
         {
           ref: "ref-product-11",
@@ -93,6 +113,7 @@ describe("Validation", () => {
           ref: "ref-product-12",
           message: "Wrong maximum validity years"
         },
+        { message: "maximumValidityYears is mandatory", ref: "ref-product-13" },
         {
           ref: "ref-product-13",
           message: "Wrong maximum validity years"
