@@ -9,6 +9,7 @@ const documents: DocumentData[] = [
     __typename: "SDPDocument",
     id: "0",
     allowedToDownload: true,
+    assetTypeDisplayName: "CAD Display Name",
     assetType: "CAD",
     fileSize: 270539,
     mime: "application/pdf",
@@ -23,8 +24,10 @@ describe("DocumentsLeadBlock tests", () => {
     const { container, queryByText } = render(
       <Component documents={documents} />
     );
+    const tableRows = container.querySelectorAll(".tableContainer tbody tr");
 
     expect(container).toMatchSnapshot();
-    expect(queryByText(documents[0].realFileName)).toBeTruthy();
+    expect(queryByText(documents[0].assetTypeDisplayName)).toBeTruthy();
+    expect(tableRows.length).toBe(1);
   });
 });

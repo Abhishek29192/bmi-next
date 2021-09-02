@@ -60,12 +60,12 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body table-cell"
                     >
-                      1344416763
+                      CAD Display Name
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body table-cell"
                     >
-                      1344416763.pdf
+                      1344416763
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -116,7 +116,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                                 class="MuiIconButton-label"
                               >
                                 <input
-                                  aria-label="MC: documentLibrary.download 1344416763.pdf"
+                                  aria-label="MC: documentLibrary.download 1344416763"
                                   class="PrivateSwitchBase-input-24"
                                   data-indeterminate="false"
                                   name="0"

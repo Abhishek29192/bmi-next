@@ -384,13 +384,11 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                           >
                             <td
                               class="MuiTableCell-root MuiTableCell-body table-cell"
-                            >
-                              1344416763
-                            </td>
+                            />
                             <td
                               class="MuiTableCell-root MuiTableCell-body table-cell"
                             >
-                              1344416763.pdf
+                              1344416763
                             </td>
                             <td
                               class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -441,7 +439,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                                         class="MuiIconButton-label"
                                       >
                                         <input
-                                          aria-label="MC: documentLibrary.download 1344416763.pdf"
+                                          aria-label="MC: documentLibrary.download 1344416763"
                                           class="PrivateSwitchBase-input-36"
                                           data-indeterminate="false"
                                           name="0"
