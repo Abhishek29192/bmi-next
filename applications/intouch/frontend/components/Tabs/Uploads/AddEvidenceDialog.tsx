@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import Dialog from "@bmi/dialog";
 import Upload from "@bmi/upload";
 import Select, { MenuItem } from "@bmi/select";
-import { EvidenceCategoryType } from "@bmi/intouch-api-types";
+import {
+  CustomEvidenceCategoryKey,
+  EvidenceCategoryType
+} from "@bmi/intouch-api-types";
 
 export type EvidenceCategory = {
   id: string;
   name: string;
+  referenceCode: string;
 };
 
 type AddEvidenceDialogProps = {
@@ -16,12 +20,14 @@ type AddEvidenceDialogProps = {
   onCloseClick: () => void;
   onConfirmClick: (
     evidenceCategoryType: EvidenceCategoryType,
-    customEvidenceCategoryId: string,
+    customEvidenceCategoryKey: CustomEvidenceCategoryKey,
     files: File[]
   ) => void;
 };
 //You cannot upload  files larger than <MAX_FILE_SIZE> MB (It's megabyte)
 const MAX_FILE_SIZE: number = 25;
+
+type EvidenceCategoryKey = CustomEvidenceCategoryKey | "MISCELLANEOUS";
 
 export const AddEvidenceDialog = ({
   isOpen,
@@ -31,26 +37,25 @@ export const AddEvidenceDialog = ({
 }: AddEvidenceDialogProps) => {
   const { t } = useTranslation("project-page");
   const [files, setFiles] = useState<File[]>([]);
-  const [evidenceCategoryId, setEvidenceCategoryId] = useState("MISCELLANEOUS");
+  const [evidenceCategoryKey, setEvidenceCategoryKey] =
+    useState<EvidenceCategoryKey>("MISCELLANEOUS");
 
-  const onSelectChangeHandler = (id) => {
-    setEvidenceCategoryId(id);
+  const onSelectChangeHandler = (id: EvidenceCategoryKey) => {
+    setEvidenceCategoryKey(id);
   };
 
   const addEvidenceHandler = () => {
-    let evidenceCategoryType: EvidenceCategoryType = "MISCELLANEOUS";
-    let customEvidenceCategoryId: string = null;
+    const evidenceCategoryType: EvidenceCategoryType =
+      evidenceCategoryKey === "MISCELLANEOUS" ? "MISCELLANEOUS" : "CUSTOM";
+    const customEvidenceCategoryKey: CustomEvidenceCategoryKey =
+      evidenceCategoryKey === "MISCELLANEOUS" ? null : evidenceCategoryKey;
 
-    if (
-      evidenceCategories.length > 0 &&
-      evidenceCategoryId !== "MISCELLANEOUS"
-    ) {
-      customEvidenceCategoryId = evidenceCategoryId;
-      evidenceCategoryType = "CUSTOM";
-    }
-
-    onConfirmClick(evidenceCategoryType, customEvidenceCategoryId, files);
+    onConfirmClick(evidenceCategoryType, customEvidenceCategoryKey, files);
   };
+
+  useEffect(() => {
+    setEvidenceCategoryKey("MISCELLANEOUS");
+  }, [isOpen]);
 
   return (
     <Dialog open={isOpen} onCloseClick={onCloseClick}>
@@ -65,17 +70,19 @@ export const AddEvidenceDialog = ({
               label={t("upload_tab.add_evidence_modal.evidence_category")}
               isRequired
               onChange={onSelectChangeHandler}
-              value={evidenceCategoryId}
+              value={evidenceCategoryKey}
               fullWidth={true}
             >
               <MenuItem value={"MISCELLANEOUS"} key={"MISCELLANEOUS"}>
                 {t("MISCELLANEOUS")}
               </MenuItem>
-              {(evidenceCategories || []).map(({ id, name }, index) => (
-                <MenuItem value={id} key={id}>
-                  {name}
-                </MenuItem>
-              ))}
+              {(evidenceCategories || []).map(
+                ({ id, referenceCode, name }, index) => (
+                  <MenuItem value={referenceCode} key={id}>
+                    {name}
+                  </MenuItem>
+                )
+              )}
             </Select>
           )}
         </div>

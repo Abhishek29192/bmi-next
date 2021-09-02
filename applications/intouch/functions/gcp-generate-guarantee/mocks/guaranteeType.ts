@@ -3,10 +3,12 @@ import {
   mockTemplateEnglish,
   mockTemplateEsperanto
 } from "./guaranteeTemplate";
-import { mockContentfulAsset, mockContentfulEntry } from "./utils/contentful";
+import { mockContentfulAsset } from "./utils/contentful";
 
 export const mockGuaranteeType: ContentfulGuaranteeType = {
-  ...mockContentfulEntry({ id: "7uSy0NeVTgPiJbOiVYW4DX" }),
+  sys: {
+    id: "7uSy0NeVTgPiJbOiVYW4DX"
+  },
   name: "Product guarantee (flat)",
   displayName: "Product guarantee",
   technology: "FLAT",

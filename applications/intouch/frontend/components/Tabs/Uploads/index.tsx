@@ -7,7 +7,7 @@ import Typography from "@bmi/typography";
 import { gql } from "@apollo/client";
 import {
   EvidenceCategoryType,
-  EvidenceItemInput
+  CustomEvidenceCategoryKey
 } from "@bmi/intouch-api-types";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import {
@@ -51,17 +51,20 @@ export const UploadsTab = ({
   const [getEvidenceCategory] = useContentfulEvidenceCategoriesLazyQuery({
     fetchPolicy: "network-only",
     onCompleted: ({ evidenceCategoryCollection }) => {
-      const result = evidenceCategoryCollection.items?.map(({ sys, name }) => ({
-        id: sys.id,
-        name: name
-      }));
+      const result = evidenceCategoryCollection.items?.map(
+        ({ sys, name, referenceCode }) => ({
+          id: sys.id,
+          name: name,
+          referenceCode: referenceCode
+        })
+      );
       setEvidenceCategories(result);
     }
   });
 
   const evidenceDialogConfirmHandler = async (
     evidenceCategoryType: EvidenceCategoryType,
-    customEvidenceCategoryId: string,
+    customEvidenceCategoryKey: string,
     uploadedFiles: File[]
   ) => {
     if (uploadedFiles.length > 0) {
@@ -69,7 +72,8 @@ export const UploadsTab = ({
         projectId,
         guaranteeId,
         attachmentUpload,
-        customEvidenceCategoryId,
+        customEvidenceCategoryKey:
+          customEvidenceCategoryKey as CustomEvidenceCategoryKey,
         evidenceCategoryType,
         // NOTE: mandatory in DB but resolver updates it with cloud URL
         attachment: "",
@@ -164,6 +168,8 @@ export const GET_CONTENTFUL_EVIDENCE_CATEGORIES = gql`
           id
         }
         name
+        referenceCode
+        minimumUploads
       }
     }
   }

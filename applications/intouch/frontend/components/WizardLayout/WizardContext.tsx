@@ -1,10 +1,10 @@
 import React, { useState, createContext } from "react";
 import {
-  GuaranteeType,
   Product,
   Project,
   System,
-  GuaranteeTemplate
+  GuaranteeTemplate,
+  GuaranteeType
 } from "@bmi/intouch-api-types";
 
 export type GuaranteeWizardData = {

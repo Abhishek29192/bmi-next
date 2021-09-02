@@ -140,9 +140,9 @@ const checkEvidence = (
   //TODO: Find an alternative way to define parameter type.
   evidenceCategories: GetProjectQuery["project"]["guarantees"]["nodes"][0]["guaranteeType"]["evidenceCategoriesCollection"]["items"]
 ) => {
-  for (const { sys, minimumUploads } of evidenceCategories) {
+  for (const { referenceCode, minimumUploads } of evidenceCategories) {
     const uploadedFileCount = guaranteEvidenceItems.filter(
-      (e) => e.customEvidenceCategoryId === sys.id
+      (e) => e.customEvidenceCategoryKey === referenceCode
     ).length;
 
     if (uploadedFileCount < minimumUploads) return false;
