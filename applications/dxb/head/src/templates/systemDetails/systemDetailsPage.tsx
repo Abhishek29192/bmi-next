@@ -33,6 +33,12 @@ type Props = {
     contentfulSite: SiteData;
     dataJson: SystemDetails;
     shareWidget: ShareWidgetSectionData | null;
+    allContentfulAssetType: {
+      nodes: ReadonlyArray<{
+        name: string;
+        pimCode: string;
+      }>;
+    };
   };
 };
 
@@ -52,7 +58,7 @@ export const IGNORED_DOCUMENTS_ASSETS = [
 ];
 
 const SystemDetailsPage = ({ data }: Props) => {
-  const { contentfulSite, dataJson } = data;
+  const { contentfulSite, dataJson, allContentfulAssetType } = data;
   const { resources } = contentfulSite;
   const {
     name,
@@ -150,7 +156,18 @@ const SystemDetailsPage = ({ data }: Props) => {
           !IGNORED_DOCUMENTS_ASSETS.includes(assetType) && allowedToDownload
       )
       .map((asset, index) => {
-        return { __typename: "SDPDocument", id: index.toString(), ...asset };
+        const assetTypeDisplayName = allContentfulAssetType.nodes.find(
+          ({ pimCode }) => pimCode === asset.assetType
+        )?.name;
+        return Object.assign(
+          {},
+          {
+            __typename: "SDPDocument",
+            id: index.toString(),
+            assetTypeDisplayName,
+            ...asset
+          }
+        ) as DocumentData;
       });
   }, []);
 
@@ -209,6 +226,12 @@ export const pageQuery = graphql`
   query SystemDetailsPage($siteId: String!, $systemPageId: String!) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
+    }
+    allContentfulAssetType {
+      nodes {
+        name
+        pimCode
+      }
     }
     dataJson(id: { eq: $systemPageId }) {
       name

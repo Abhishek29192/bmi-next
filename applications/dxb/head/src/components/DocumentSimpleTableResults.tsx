@@ -151,13 +151,13 @@ const DocumentSimpleTableResults = ({
             const { id, title, assetTypeCode, assetTypeName } = {
               id: document.id,
               title: isSdpDocument
-                ? get(document, "realFileName")
+                ? get(document, "name")
                 : get(document, "title"),
               assetTypeCode: isSdpDocument
                 ? null
                 : get(document, "assetType.code"),
               assetTypeName: isSdpDocument
-                ? get(document, "name")
+                ? get(document, "assetTypeDisplayName")
                 : get(document, "assetType.name")
             };
 

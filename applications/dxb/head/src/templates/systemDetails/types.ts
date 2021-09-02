@@ -93,6 +93,7 @@ export type SystemLayer = {
 export type DocumentData = Assets & {
   __typename: "SDPDocument";
   id: string;
+  assetTypeDisplayName: string;
 };
 
 export interface SystemDetails {
