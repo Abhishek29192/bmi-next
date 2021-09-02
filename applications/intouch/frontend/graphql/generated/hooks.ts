@@ -517,7 +517,7 @@ export const UpdateProductDocument = gql`
   mutation updateProduct($input: UpdateProductInput!) {
     updateProduct(input: $input) {
       query {
-        products {
+        products(orderBy: NAME_ASC) {
           nodes {
             id
             name
@@ -582,7 +582,7 @@ export const UpdateSystemDocument = gql`
   mutation updateSystem($input: UpdateSystemInput!) {
     updateSystem(input: $input) {
       query {
-        systems {
+        systems(orderBy: NAME_ASC) {
           nodes {
             id
             name
@@ -2394,7 +2394,7 @@ export type GetContentArticleContentQueryResult = Apollo.QueryResult<
 >;
 export const ProductsAndSystemsDocument = gql`
   query ProductsAndSystems {
-    products {
+    products(orderBy: NAME_ASC) {
       nodes {
         id
         name
@@ -2408,7 +2408,7 @@ export const ProductsAndSystemsDocument = gql`
         maximumValidityYears
       }
     }
-    systems {
+    systems(orderBy: NAME_ASC) {
       nodes {
         id
         name

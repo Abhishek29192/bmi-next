@@ -385,9 +385,9 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   /** ek */
   language?: Maybe<Language>;
   /** the country code used for example as the subdomain */
-  domain?: Maybe<Scalars["String"]>;
+  domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId?: Maybe<Scalars["String"]>;
+  cmsSpaceId: Scalars["String"];
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -2315,9 +2315,9 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   /** ek */
   language?: Maybe<Language>;
   /** the country code used for example as the subdomain */
-  domain?: Maybe<Scalars["String"]>;
+  domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId?: Maybe<Scalars["String"]>;
+  cmsSpaceId: Scalars["String"];
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -2701,9 +2701,9 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   /** ek */
   language?: Maybe<Language>;
   /** the country code used for example as the subdomain */
-  domain?: Maybe<Scalars["String"]>;
+  domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId?: Maybe<Scalars["String"]>;
+  cmsSpaceId: Scalars["String"];
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -7325,7 +7325,7 @@ export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -7671,7 +7671,7 @@ export type Guarantee = Node & {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -7805,7 +7805,7 @@ export type GuaranteeInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8015,7 +8015,7 @@ export type GuaranteePatch = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8051,7 +8051,7 @@ export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8177,7 +8177,7 @@ export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8311,7 +8311,7 @@ export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8412,7 +8412,7 @@ export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -8513,7 +8513,7 @@ export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -9941,9 +9941,9 @@ export type Market = Node & {
   /** ek */
   language?: Maybe<Language>;
   /** the country code used for example as the subdomain */
-  domain?: Maybe<Scalars["String"]>;
+  domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId?: Maybe<Scalars["String"]>;
+  cmsSpaceId: Scalars["String"];
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -10323,9 +10323,9 @@ export type MarketInput = {
   /** ek */
   language?: Maybe<Language>;
   /** the country code used for example as the subdomain */
-  domain?: Maybe<Scalars["String"]>;
+  domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId?: Maybe<Scalars["String"]>;
+  cmsSpaceId: Scalars["String"];
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -13085,6 +13085,8 @@ export type ProductCondition = {
   marketId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `bmiRef` field. */
   bmiRef?: Maybe<Scalars["String"]>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars["String"]>;
 };
 
 /** A filter to be used against `Product` object types. All fields are combined with a logical ‘and.’ */
@@ -13095,6 +13097,8 @@ export type ProductFilter = {
   marketId?: Maybe<IntFilter>;
   /** Filter by the object’s `bmiRef` field. */
   bmiRef?: Maybe<StringFilter>;
+  /** Filter by the object’s `name` field. */
+  name?: Maybe<StringFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<ProductFilter>>;
   /** Checks for any expressions in this list. */
@@ -13201,9 +13205,9 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   /** ek */
   language?: Maybe<Language>;
   /** the country code used for example as the subdomain */
-  domain?: Maybe<Scalars["String"]>;
+  domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId?: Maybe<Scalars["String"]>;
+  cmsSpaceId: Scalars["String"];
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -13437,6 +13441,8 @@ export type ProductsOrderBy =
   | "MARKET_ID_DESC"
   | "BMI_REF_ASC"
   | "BMI_REF_DESC"
+  | "NAME_ASC"
+  | "NAME_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
@@ -15939,6 +15945,8 @@ export type SystemCondition = {
   marketId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `bmiRef` field. */
   bmiRef?: Maybe<Scalars["String"]>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars["String"]>;
 };
 
 /** A filter to be used against `System` object types. All fields are combined with a logical ‘and.’ */
@@ -15949,6 +15957,8 @@ export type SystemFilter = {
   marketId?: Maybe<IntFilter>;
   /** Filter by the object’s `bmiRef` field. */
   bmiRef?: Maybe<StringFilter>;
+  /** Filter by the object’s `name` field. */
+  name?: Maybe<StringFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<SystemFilter>>;
   /** Checks for any expressions in this list. */
@@ -16051,9 +16061,9 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   /** ek */
   language?: Maybe<Language>;
   /** the country code used for example as the subdomain */
-  domain?: Maybe<Scalars["String"]>;
+  domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId?: Maybe<Scalars["String"]>;
+  cmsSpaceId: Scalars["String"];
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -16255,9 +16265,9 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   /** ek */
   language?: Maybe<Language>;
   /** the country code used for example as the subdomain */
-  domain?: Maybe<Scalars["String"]>;
+  domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId?: Maybe<Scalars["String"]>;
+  cmsSpaceId: Scalars["String"];
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -16869,6 +16879,8 @@ export type SystemsOrderBy =
   | "MARKET_ID_DESC"
   | "BMI_REF_ASC"
   | "BMI_REF_DESC"
+  | "NAME_ASC"
+  | "NAME_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
@@ -20081,7 +20093,7 @@ export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -20117,7 +20129,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -20153,7 +20165,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -20190,7 +20202,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
     productBmiRef?: Maybe<Scalars["String"]>;
     /** fk */
     reviewerAccountId?: Maybe<Scalars["Int"]>;
-    /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+    /** a reference to the guaranteeType sys id in Contentful */
     guaranteeTemplateId?: Maybe<Scalars["String"]>;
     /** ek */
     status?: Maybe<RequestStatus>;
@@ -20226,7 +20238,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
@@ -20262,7 +20274,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids */
+  /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
