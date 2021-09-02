@@ -4874,10 +4874,32 @@
     "@material/typography" "^11.0.0"
     tslib "^2.1.0"
 
+"@material/checkbox@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@material/checkbox/-/checkbox-12.0.0.tgz#0d822fd6e15e5fe6c7c16c7d1238602b18a03b1e"
+  integrity sha512-lYPhS+6la2f6E8xsmAQtTCb6gKFqlSPMzvlnf/2+BS6P9iOracRYcWeO9jeze60m0gFiF8rk4Y1Z32Mkx7yPQw==
+  dependencies:
+    "@material/animation" "^12.0.0"
+    "@material/base" "^12.0.0"
+    "@material/density" "^12.0.0"
+    "@material/dom" "^12.0.0"
+    "@material/feature-targeting" "^12.0.0"
+    "@material/ripple" "^12.0.0"
+    "@material/theme" "^12.0.0"
+    "@material/touch-target" "^12.0.0"
+    tslib "^2.1.0"
+
 "@material/density@^11.0.0":
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/@material/density/-/density-11.0.0.tgz#862b345007f218ab856ba39f2cb8c59712f18270"
   integrity sha512-FuSx0UukH7p9cIAxEg78zwL5iYuoa/YovyHuuEEudyhWsRH+u0KBSQlYWr+ykg//qZF6urlDrVmu7WAKi1SiCw==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/density@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@material/density/-/density-12.0.0.tgz#badb014ea90968a603f2042287e8974d6caa814b"
+  integrity sha512-7kWsFPiiTcw5FKdm6zvMp3ygLhHINXMScrUcRTW9RoIzC6EgWrzF/UC1XEt48Yg4Ux6K/98QJ4B53CoVv1Z/OQ==
   dependencies:
     tslib "^2.1.0"
 
@@ -4906,6 +4928,17 @@
     "@material/base" "^11.0.0"
     "@material/feature-targeting" "^11.0.0"
     "@material/theme" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/elevation@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@material/elevation/-/elevation-12.0.0.tgz#6c87f0eca516582c1331c58739b92625fec491d9"
+  integrity sha512-PWTACGNus2cdNL6V6+AhT3tC+YKyP2ujQn+izXNGXLXFc/FHk+lHLvwwr71D7bApy2hPMndHJ4DtF36qfAM1tw==
+  dependencies:
+    "@material/animation" "^12.0.0"
+    "@material/base" "^12.0.0"
+    "@material/feature-targeting" "^12.0.0"
+    "@material/theme" "^12.0.0"
     tslib "^2.1.0"
 
 "@material/feature-targeting@^11.0.0":
@@ -5038,6 +5071,16 @@
     "@material/theme" "^11.0.0"
     tslib "^2.1.0"
 
+"@material/shape@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@material/shape/-/shape-12.0.0.tgz#903cd4d38fc98f7c0435322261351f387e258850"
+  integrity sha512-0mvRUPq2esbyivJl3NMdYtHTFOV7EOU+Tob2Y6F2sQ+PJJYpONfEHRo8nakN7fDM3aNSuQUdhG3nbwJghAN1IA==
+  dependencies:
+    "@material/feature-targeting" "^12.0.0"
+    "@material/rtl" "^12.0.0"
+    "@material/theme" "^12.0.0"
+    tslib "^2.1.0"
+
 "@material/textfield@^11.0.0":
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/@material/textfield/-/textfield-11.0.0.tgz#8b937bddfa1268206b62b924e3bf7f3bae1d313d"
@@ -5074,6 +5117,22 @@
     "@material/feature-targeting" "^12.0.0"
     tslib "^2.1.0"
 
+"@material/tooltip@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@material/tooltip/-/tooltip-12.0.0.tgz#d74383b42cc6eb489bfe4b09ba1062a19e8e2f1f"
+  integrity sha512-YpXlidnWbymm5WdbteU4dSb+hdRMCrgsn1gO6xZ2HXfyiKX+2oqWvMZoSHMnCEc7oUvQteKybKrtD94T7CUeoA==
+  dependencies:
+    "@material/animation" "^12.0.0"
+    "@material/base" "^12.0.0"
+    "@material/dom" "^12.0.0"
+    "@material/elevation" "^12.0.0"
+    "@material/feature-targeting" "^12.0.0"
+    "@material/rtl" "^12.0.0"
+    "@material/shape" "^12.0.0"
+    "@material/theme" "^12.0.0"
+    "@material/typography" "^12.0.0"
+    tslib "^2.1.0"
+
 "@material/touch-target@^11.0.0":
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/@material/touch-target/-/touch-target-11.0.0.tgz#4f0cc0b928c90114f8b9b4538688215a1769e629"
@@ -5081,6 +5140,15 @@
   dependencies:
     "@material/base" "^11.0.0"
     "@material/feature-targeting" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/touch-target@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@material/touch-target/-/touch-target-12.0.0.tgz#dd7e13e3f426ba7a710be25fd11c4d5d8398d236"
+  integrity sha512-DArz1xm00iI6adyhBEFR+g2xmS6Jh5jMI1692YsjiL09lgXTvQwVbXCsp1FtHK21D+/KoblaT0L9sfBgnP2sAQ==
+  dependencies:
+    "@material/base" "^12.0.0"
+    "@material/feature-targeting" "^12.0.0"
     tslib "^2.1.0"
 
 "@material/typography@^11.0.0":
@@ -8676,10 +8744,10 @@
   dependencies:
     envinfo "^7.7.3"
 
-"@webpack-cli/serve@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@webpack-cli/serve/-/serve-1.5.1.tgz#b5fde2f0f79c1e120307c415a4c1d5eb15a6f278"
-  integrity sha512-4vSVUiOPJLmr45S8rMGy7WDvpWxfFxfP/Qx/cxZFCfvoypTYpPPL1X8VIZMe0WTA+Jr7blUxwUSEZNkjoMTgSw==
+"@webpack-cli/serve@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@webpack-cli/serve/-/serve-1.5.2.tgz#ea584b637ff63c5a477f6f21604b5a205b72c9ec"
+  integrity sha512-vgJ5OLWadI8aKjDlOH3rb+dYyPd2GTZuQC/Tihjct6F9GpXGZINo3Y/IVuZVTM1eDQB+/AOsjPUWH/WySDaXvw==
 
 "@wry/context@^0.6.0":
   version "0.6.0"
@@ -34939,15 +35007,15 @@ webpack-bundle-analyzer@^4.4.2:
     sirv "^1.0.7"
     ws "^7.3.1"
 
-webpack-cli@^4.7.2:
-  version "4.7.2"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-4.7.2.tgz#a718db600de6d3906a4357e059ae584a89f4c1a5"
-  integrity sha512-mEoLmnmOIZQNiRl0ebnjzQ74Hk0iKS5SiEEnpq3dRezoyR3yPaeQZCMCe+db4524pj1Pd5ghZXjT41KLzIhSLw==
+webpack-cli@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-4.8.0.tgz#5fc3c8b9401d3c8a43e2afceacfa8261962338d1"
+  integrity sha512-+iBSWsX16uVna5aAYN6/wjhJy1q/GKk4KjKvfg90/6hykCTSgozbfz5iRgDTSJt/LgSbYxdBX3KBHeobIs+ZEw==
   dependencies:
     "@discoveryjs/json-ext" "^0.5.0"
     "@webpack-cli/configtest" "^1.0.4"
     "@webpack-cli/info" "^1.3.0"
-    "@webpack-cli/serve" "^1.5.1"
+    "@webpack-cli/serve" "^1.5.2"
     colorette "^1.2.1"
     commander "^7.0.0"
     execa "^5.0.0"

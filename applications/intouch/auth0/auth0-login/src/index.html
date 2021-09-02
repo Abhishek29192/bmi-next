@@ -338,6 +338,7 @@
           terms_and_conditions: "Terms & Conditions",
           and: "and",
           privacy_policy: "Privacy Policy",
+          terms_missing: "Please accept terms & condition"
         },
         it: {
           intouch_title: "In Touch - Login/Registrazione",
@@ -370,6 +371,7 @@
           terms_and_conditions: "Terms & Conditions",
           and: "and",
           privacy_policy: "Privacy Policy",
+          terms_missing: "Please accept terms & condition"
         }
       };
 
@@ -459,7 +461,15 @@
         function signup() {
           // Get the form
           const form = document.querySelectorAll("#signup-form")[0];
+          const terms = document.querySelectorAll("#terms-and-conditions")[0];
           const radios = form.elements["intouch_role"];
+
+
+          if(!document.querySelectorAll("#terms-and-conditions")[0].checked) {
+            displayError({ description: AlpineI18n.t('terms_missing') }, "form-signup");
+            return;
+          }
+        
 
           var button = this;
           button.disabled = true;
