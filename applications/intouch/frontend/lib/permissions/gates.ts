@@ -74,6 +74,12 @@ const gates = {
       MARKET_ADMIN: true,
       COMPANY_ADMIN: false,
       INSTALLER: false
+    },
+    addNote: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
     }
   },
   page: {

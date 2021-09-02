@@ -65,16 +65,16 @@ export const UploadsTab = ({
     uploadedFiles: File[]
   ) => {
     if (uploadedFiles.length > 0) {
-      const evidences = uploadedFiles.map(
-        (attachmentUpload) =>
-          ({
-            projectId,
-            guaranteeId,
-            attachmentUpload,
-            customEvidenceCategoryId,
-            evidenceCategoryType
-          } as EvidenceItemInput)
-      );
+      const evidences = uploadedFiles.map((attachmentUpload) => ({
+        projectId,
+        guaranteeId,
+        attachmentUpload,
+        customEvidenceCategoryId,
+        evidenceCategoryType,
+        // NOTE: mandatory in DB but resolver updates it with cloud URL
+        attachment: "",
+        name: attachmentUpload.name
+      }));
       await addEvidences({
         variables: {
           input: {

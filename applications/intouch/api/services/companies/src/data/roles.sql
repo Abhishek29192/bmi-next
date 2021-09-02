@@ -91,6 +91,7 @@ grant select on guarantee to installer;
 grant select, insert on guarantee to company_admin;
 grant update (id, requestor_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
 grant update (requestor_account_id, expiry_date) on guarantee to market_admin;
+grant select, insert, update on guarantee to super_admin;
 
 -- account_certification
 grant select on certification to installer;
@@ -100,6 +101,7 @@ grant select, insert, update, delete on certification to company_admin;
 -- evidence_item
 grant select on evidence_item to installer;
 grant select, insert, update, delete on evidence_item to company_admin;
+grant select, insert, update, delete on evidence_item to super_admin;
 
 -- product
 grant select on product to installer;
@@ -111,6 +113,7 @@ grant select, insert, update, delete on product to market_admin;
 grant select on note to installer;
 grant select, insert on note to market_admin;
 grant select, insert, update, delete on note to super_admin;
+grant select, insert on note to super_admin;
 
 
 

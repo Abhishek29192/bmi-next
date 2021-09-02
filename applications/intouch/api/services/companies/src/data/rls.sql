@@ -188,6 +188,17 @@ DROP POLICY IF EXISTS policy_market_admin ON guarantee;
 DROP POLICY IF EXISTS policy_company_admin ON guarantee;
 DROP POLICY IF EXISTS policy_installer_select ON guarantee;
 CREATE POLICY policy_super_admin ON guarantee FOR ALL TO super_admin USING (true) WITH CHECK (true);
+CREATE POLICY policy_market_admin ON guarantee FOR ALL TO market_admin 
+USING (
+  current_market() = (
+    SELECT market_id FROM company JOIN project ON project.company_id = company.id WHERE project.id = project_id
+  )
+  ) 
+WITH CHECK ( 
+   current_market() = (
+    SELECT market_id FROM company JOIN project ON project.company_id = company.id WHERE project.id = project_id
+  )
+);
 CREATE POLICY policy_company_admin ON guarantee FOR ALL TO company_admin USING (
   current_company() = (SELECT company_id FROM project WHERE project.id = project_id)
 ) WITH CHECK (
@@ -228,5 +239,11 @@ CREATE POLICY policy_market_admin ON note FOR ALL TO market_admin USING (true) W
     SELECT market_id FROM company JOIN project ON project.company_id = company.id WHERE project.id = project_id
   )
 );
-CREATE POLICY policy_company_admin ON note FOR SELECT TO company_admin USING (true);
+CREATE POLICY policy_company_admin ON note FOR ALL TO company_admin 
+  USING (
+     current_company() IN (SELECT company_id FROM project WHERE project.id = project_id)
+  )
+  WITH CHECK (
+    current_company() IN (SELECT company_id FROM project WHERE project.id = project_id)
+  );
 CREATE POLICY policy_installer ON note FOR SELECT TO installer USING (true);
