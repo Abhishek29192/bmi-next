@@ -14,11 +14,19 @@ import { EditCompanyButton } from "./EditCompany/Button";
 import { CompanyRegisteredDetails } from "./RegisteredDetails";
 import { CompanyAdmins } from "./Admins";
 import { IncompleteProfileAlert } from "./IncompleteProfileAlert";
+import styles from "./styles.module.scss";
 
 type Props = GlobalPageProps & {
   company: GetCompanyQuery["company"];
   contactDetailsCollection: GetCompanyQuery["contactDetailsCollection"];
   onCompanyUpdateSuccess: OnCompanyUpdateSuccess;
+};
+
+export const NoCompanies = () => {
+  const { t } = useTranslation("company-page");
+  return (
+    <div className={styles.container}>{t("company-page:noCompanies")}</div>
+  );
 };
 
 export const CompanyPage = ({

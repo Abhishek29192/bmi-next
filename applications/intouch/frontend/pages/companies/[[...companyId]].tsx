@@ -25,7 +25,7 @@ import {
 import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import { Layout } from "../../components/Layout";
 import { CompaniesSidePanel } from "../../components/Pages/Company/SidePanel";
-import { CompanyPage } from "../../components/Pages/Company";
+import { CompanyPage, NoCompanies } from "../../components/Pages/Company";
 
 type CompaniesPageProps = GlobalPageProps & {
   companies?: GetCompaniesByMarketQuery["companies"]["nodes"];
@@ -103,8 +103,7 @@ const CompaniesPage = ({
               companies={companiesList}
               onItemSelected={selectCompany}
             />
-            {/* TODO: no results screen */}
-            {!!company && companyScreen}
+            {company ? companyScreen : <NoCompanies />}
           </>
         ) : (
           companyScreen
