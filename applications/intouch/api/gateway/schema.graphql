@@ -822,12 +822,12 @@ input AccountMarketIdFkeyMarketCreateInput {
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
   """
-  cmsSpaceId: String
+  cmsSpaceId: String!
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -4163,12 +4163,12 @@ input CompanyMarketIdFkeyMarketCreateInput {
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
   """
-  cmsSpaceId: String
+  cmsSpaceId: String!
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -4909,12 +4909,12 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
   """
-  cmsSpaceId: String
+  cmsSpaceId: String!
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -12152,7 +12152,7 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -12803,7 +12803,7 @@ type Guarantee implements Node {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -13092,7 +13092,7 @@ input GuaranteeInput {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -13461,7 +13461,7 @@ input GuaranteePatch {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -13534,7 +13534,7 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -13783,7 +13783,7 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -14046,7 +14046,7 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -14245,7 +14245,7 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   productBmiRef: String
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -14444,7 +14444,7 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -16221,12 +16221,12 @@ type Market implements Node {
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
   """
-  cmsSpaceId: String
+  cmsSpaceId: String!
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -16806,12 +16806,12 @@ input MarketInput {
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
   """
-  cmsSpaceId: String
+  cmsSpaceId: String!
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -20782,6 +20782,11 @@ input ProductCondition {
   Checks for equality with the object’s `bmiRef` field.
   """
   bmiRef: String
+
+  """
+  Checks for equality with the object’s `name` field.
+  """
+  name: String
 }
 
 """
@@ -20802,6 +20807,11 @@ input ProductFilter {
   Filter by the object’s `bmiRef` field.
   """
   bmiRef: StringFilter
+
+  """
+  Filter by the object’s `name` field.
+  """
+  name: StringFilter
 
   """
   Checks for all expressions in this list.
@@ -21026,12 +21036,12 @@ input ProductMarketIdFkeyMarketCreateInput {
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
   """
-  cmsSpaceId: String
+  cmsSpaceId: String!
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -21458,6 +21468,8 @@ enum ProductsOrderBy {
   MARKET_ID_DESC
   BMI_REF_ASC
   BMI_REF_DESC
+  NAME_ASC
+  NAME_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -25855,6 +25867,11 @@ input SystemCondition {
   Checks for equality with the object’s `bmiRef` field.
   """
   bmiRef: String
+
+  """
+  Checks for equality with the object’s `name` field.
+  """
+  name: String
 }
 
 """
@@ -25875,6 +25892,11 @@ input SystemFilter {
   Filter by the object’s `bmiRef` field.
   """
   bmiRef: StringFilter
+
+  """
+  Filter by the object’s `name` field.
+  """
+  name: StringFilter
 
   """
   Checks for all expressions in this list.
@@ -26089,12 +26111,12 @@ input SystemMarketIdFkeyMarketCreateInput {
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
   """
-  cmsSpaceId: String
+  cmsSpaceId: String!
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -26495,12 +26517,12 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
   """
-  cmsSpaceId: String
+  cmsSpaceId: String!
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -27609,6 +27631,8 @@ enum SystemsOrderBy {
   MARKET_ID_DESC
   BMI_REF_ASC
   BMI_REF_DESC
+  NAME_ASC
+  NAME_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -32788,7 +32812,7 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -32861,7 +32885,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -32934,7 +32958,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -33007,7 +33031,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -33080,7 +33104,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   productBmiRef: String
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
@@ -33153,7 +33177,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   reviewerAccountId: Int
 
   """
-  language of the guarantee template (identifies the template, together with technology & coverage). This is to not use Contentful Ids
+  a reference to the guaranteeType sys id in Contentful
   """
   guaranteeTemplateId: String
 
