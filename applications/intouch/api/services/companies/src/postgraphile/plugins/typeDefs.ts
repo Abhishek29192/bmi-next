@@ -117,7 +117,7 @@ export default gql`
     displayName: String
     technology: ContentfulTechnologyType
     coverage: ContentfulGuaranteeCoverageType
-    guaranteeReferenceCode: String
+    guaranteeReferenceCode: GuaranteeReferenceCode
     name: String
     signature: ContentfulAsset
     maximumValidityYears: Int
@@ -125,6 +125,9 @@ export default gql`
     ranking: Int
     evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
     guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
+  }
+  type ContentfulGuaranteeTypeCollection {
+    items: [ContentfulGuaranteeType]
   }
 
   type ContentfulSys {
@@ -140,6 +143,7 @@ export default gql`
   }
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType
+    guaranteeTypes: ContentfulGuaranteeTypeCollection
   }
   extend type EvidenceItem {
     customEvidenceCategory: ContentfulEvidenceCategory
@@ -159,9 +163,6 @@ export default gql`
   }
   extend input UpdateGuaranteeInput {
     guaranteeEventType: GuaranteeEventType
-  }
-  extend input GuaranteeInput {
-    guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
   }
 
   extend input AccountInput {

@@ -686,8 +686,8 @@ describe("Database permissions", () => {
             accountUuid: company_admin_id,
             accountEmail: COMPANY_ADMIN_EMAIL
           },
-          "insert into guarantee (requestor_account_id, project_id, guarantee_type_id) VALUES($1, $2, $3) RETURNING *",
-          [company_admin_id, project_id, "randomGuaranteeTypeId"]
+          "insert into guarantee (requestor_account_id, project_id, guarantee_reference_code) VALUES($1, $2, $3) RETURNING *",
+          [company_admin_id, project_id, "PITCHED_PRODUCT"]
         );
         expect(rows.length).toEqual(1);
         guarantee_id = rows[0].id;
@@ -703,8 +703,8 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into guarantee (requestor_account_id, project_id, guarantee_type_id) VALUES($1, $2, $3)",
-            [installer_id, 1, "randomGuaranteeTypeId"]
+            "insert into guarantee (requestor_account_id, project_id, guarantee_reference_code) VALUES($1, $2, $3)",
+            [installer_id, 1, "PITCHED_PRODUCT"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("guarantee"));
