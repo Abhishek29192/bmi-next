@@ -43,7 +43,7 @@ const IGNORED_ATTRIBUTES = [
   "keyfeatures"
 ];
 
-const IGNORED_DOCUMENTS_ASSETS = [
+export const IGNORED_DOCUMENTS_ASSETS = [
   "BIM",
   "CERTIFICATES",
   "AWARDS",

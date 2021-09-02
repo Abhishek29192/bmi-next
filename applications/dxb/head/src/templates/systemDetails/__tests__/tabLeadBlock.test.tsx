@@ -4,7 +4,7 @@ import Component from "../tabLeadBlock";
 import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
-import { Classification } from "../types";
+import { Classification, DocumentData } from "../types";
 import { BimContent } from "../tabLeadBlock";
 
 const techSpecValue = "accordion item value 1";
@@ -33,6 +33,19 @@ const bimContent: BimContent = {
   },
   bimIframeUrl: "https://google.com"
 };
+const documents: DocumentData[] = [
+  {
+    __typename: "SDPDocument",
+    id: "0",
+    allowedToDownload: true,
+    assetType: "CAD",
+    fileSize: 270539,
+    mime: "application/pdf",
+    name: "1344416763",
+    realFileName: "1344416763.pdf",
+    url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
+  }
+];
 
 describe("TabLeadBlock tests", () => {
   beforeEach(() => {
@@ -76,7 +89,7 @@ describe("TabLeadBlock tests", () => {
     const { container } = renderWithRouter(
       <Component
         longDescription={dataJson.longDescription}
-        documentsAndDownloads={[{ test: "test" }]}
+        documentsAndDownloads={documents}
       />
     );
     expect(container.querySelector("#tabpanel-three")).toMatchSnapshot();

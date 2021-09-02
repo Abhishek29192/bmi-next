@@ -3,8 +3,10 @@ import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import dataJson from "../../../data/pim-mock-data.json";
 import Component from "../systemDetailsPage";
-import { SystemDetails } from "../types";
-import SystemDetailsPage from "../systemDetailsPage";
+import { SystemDetails, DocumentData, AssetType } from "../types";
+import SystemDetailsPage, {
+  IGNORED_DOCUMENTS_ASSETS
+} from "../systemDetailsPage";
 import { systemDetailsMockData } from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 
@@ -191,6 +193,53 @@ describe("SystemDetailsPage template component", () => {
       expect(secondAccordionItemFeatureItems[1].innerHTML).toContain(
         valueText4
       );
+    });
+
+    it("filter documentsAndDownload by assetsType and allowedToDownload", () => {
+      const document: DocumentData = {
+        __typename: "SDPDocument",
+        id: "0",
+        allowedToDownload: true,
+        assetType: "CAD",
+        fileSize: 270539,
+        mime: "application/pdf",
+        name: "1344416763",
+        realFileName: "1344416763.pdf",
+        url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
+      };
+      const notAllowToDownload: DocumentData = {
+        ...document,
+        allowedToDownload: false,
+        realFileName: "notallow.pdf"
+      };
+      const ignoredDocument: DocumentData[] = IGNORED_DOCUMENTS_ASSETS.map(
+        (ignoredAssetType: AssetType): DocumentData => {
+          return { ...document, assetType: ignoredAssetType };
+        }
+      );
+      const documents: DocumentData[] = [
+        document,
+        notAllowToDownload,
+        ...ignoredDocument
+      ];
+      const { container, queryByText } = renderWithRouter(
+        <Component
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            dataJson: { ...systemDetailsMockData, assets: documents }
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      );
+      const tableRows = container.querySelectorAll(".tableContainer tbody tr");
+
+      expect(container).toMatchSnapshot();
+      expect(queryByText(documents[0].realFileName)).toBeTruthy();
+      expect(tableRows.length).toBe(1);
     });
   });
 });

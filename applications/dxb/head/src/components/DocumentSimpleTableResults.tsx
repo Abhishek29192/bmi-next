@@ -21,11 +21,11 @@ import fileIconsMap from "./FileIconsMap";
 
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
-interface Document
-  extends DocumentData,
-    PIMDocumentData,
-    PIMLinkDocumentData,
-    SDPDocumentData {}
+type Document =
+  | DocumentData
+  | PIMDocumentData
+  | PIMLinkDocumentData
+  | SDPDocumentData;
 
 type Props = {
   documents: Document[];
@@ -111,7 +111,8 @@ export const getCount = (documents: Document[]) => {
 const typenameToSizeMap: Record<Document["__typename"], string | number> = {
   ContentfulDocument: "asset.file.details.size",
   PIMDocument: "fileSize",
-  PIMLinkDocument: 0
+  PIMLinkDocument: 0,
+  SDPDocument: "fileSize"
 };
 
 const DocumentSimpleTableResults = ({
@@ -150,12 +151,14 @@ const DocumentSimpleTableResults = ({
             const { id, title, assetTypeCode, assetTypeName } = {
               id: document.id,
               title: isSdpDocument
-                ? (document as SDPDocumentData).realFileName
-                : document.title,
-              assetTypeCode: isSdpDocument ? null : document.assetType.code,
+                ? get(document, "realFileName")
+                : get(document, "title"),
+              assetTypeCode: isSdpDocument
+                ? null
+                : get(document, "assetType.code"),
               assetTypeName: isSdpDocument
-                ? document.name
-                : document.assetType.name
+                ? get(document, "name")
+                : get(document, "assetType.name")
             };
 
             return (
