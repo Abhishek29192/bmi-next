@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const getBimIframeUrl = (assets?: ReadonlyArray<Asset>): string | null =>
-  assets?.find((asset) => asset.assetType === "BIM")?.url || null;
+  assets?.find((asset) => asset.assetType === "BIM" && asset.url)?.url || null;
 
 const BimIframe = ({ url, className, ...rest }: Props) => (
   <iframe

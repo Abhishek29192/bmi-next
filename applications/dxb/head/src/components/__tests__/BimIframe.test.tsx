@@ -67,4 +67,12 @@ describe("getBimIframeUrl", () => {
 
     expect(result).toBe(assets[0].url);
   });
+
+  it("2 bim asset types but one url", () => {
+    const assets: Asset[] = [{ ...allAssets[0], url: undefined }, allAssets[0]];
+
+    const result = getBimIframeUrl(assets);
+
+    expect(result).toBe(assets[1].url);
+  });
 });
