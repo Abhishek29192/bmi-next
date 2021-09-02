@@ -695,7 +695,7 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "Guarantee" } & Pick<
               SchemaTypes.Guarantee,
-              "id" | "guaranteeTypeId" | "reviewerAccountId" | "status"
+              "id" | "guaranteeReferenceCode" | "reviewerAccountId" | "status"
             > & {
                 readonly guaranteeType?: SchemaTypes.Maybe<
                   { readonly __typename?: "ContentfulGuaranteeType" } & Pick<
@@ -720,7 +720,7 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
                                   readonly __typename?: "ContentfulEvidenceCategory";
                                 } & Pick<
                                   SchemaTypes.ContentfulEvidenceCategory,
-                                  "name" | "minimumUploads"
+                                  "referenceCode" | "name" | "minimumUploads"
                                 > & {
                                     readonly sys: {
                                       readonly __typename?: "ContentfulSys";
@@ -780,7 +780,7 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
               | "name"
               | "guaranteeId"
               | "evidenceCategoryType"
-              | "customEvidenceCategoryId"
+              | "customEvidenceCategoryKey"
             > & {
                 readonly customEvidenceCategory?: SchemaTypes.Maybe<
                   { readonly __typename?: "ContentfulEvidenceCategory" } & Pick<
@@ -1045,7 +1045,7 @@ export type ContentfulEvidenceCategoriesQuery = {
         SchemaTypes.Maybe<
           { readonly __typename?: "EvidenceCategory" } & Pick<
             SchemaTypes.EvidenceCategory,
-            "name"
+            "name" | "referenceCode" | "minimumUploads"
           > & {
               readonly sys: { readonly __typename?: "Sys" } & Pick<
                 SchemaTypes.Sys,
@@ -1138,6 +1138,7 @@ export type GetProductGuaranteeTypesQuery = {
         SchemaTypes.Maybe<
           { readonly __typename?: "GuaranteeType" } & Pick<
             SchemaTypes.GuaranteeType,
+            | "guaranteeReferenceCode"
             | "name"
             | "displayName"
             | "technology"
@@ -1157,7 +1158,7 @@ export type GetProductGuaranteeTypesQuery = {
                     SchemaTypes.Maybe<
                       { readonly __typename?: "GuaranteeTemplate" } & Pick<
                         SchemaTypes.GuaranteeTemplate,
-                        "displayName"
+                        "displayName" | "languageCode" | "coverage"
                       > & {
                           readonly sys: { readonly __typename?: "Sys" } & Pick<
                             SchemaTypes.Sys,
@@ -1176,7 +1177,7 @@ export type GetProductGuaranteeTypesQuery = {
                     SchemaTypes.Maybe<
                       { readonly __typename?: "EvidenceCategory" } & Pick<
                         SchemaTypes.EvidenceCategory,
-                        "name"
+                        "name" | "referenceCode" | "minimumUploads"
                       >
                     >
                   >;

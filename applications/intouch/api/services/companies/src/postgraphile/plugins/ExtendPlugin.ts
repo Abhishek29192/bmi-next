@@ -1,8 +1,15 @@
 import { GraphQLUpload } from "graphql-upload";
 import { makeExtendSchemaPlugin } from "graphile-utils";
+import {
+  ContentfulGuaranteeTypeCollection,
+  EvidenceCategoryCollection
+} from "@bmi/intouch-api-types";
 import { invite, completeInvitation } from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
-import { getGuarantee, getEvidenceCategory } from "../../services/contentful";
+import {
+  getGuaranteeTypeCollection,
+  getEvidenceCategory
+} from "../../services/contentful";
 import {
   getCompanyCertifications,
   getCompanyIsProfileComplete,
@@ -34,28 +41,40 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
       },
       Guarantee: {
         guaranteeType: async (_query, args, context) => {
-          const { guaranteeTypeId } = _query;
-          const {
-            data: { guaranteeType }
-          } = await getGuarantee(context.clientGateway, guaranteeTypeId);
+          const { guaranteeReferenceCode } = _query;
 
-          return guaranteeType;
+          if (!guaranteeReferenceCode) return null;
+
+          const {
+            data: { guaranteeTypeCollection }
+          }: {
+            data: {
+              guaranteeTypeCollection: ContentfulGuaranteeTypeCollection;
+            };
+          } = await getGuaranteeTypeCollection(
+            context.clientGateway,
+            guaranteeReferenceCode
+          );
+
+          return guaranteeTypeCollection?.items[0];
         }
       },
       EvidenceItem: {
         customEvidenceCategory: async (_query, args, context) => {
-          const { customEvidenceCategoryId } = _query;
+          const { customEvidenceCategoryKey } = _query;
 
-          if (!customEvidenceCategoryId) return null;
+          if (!customEvidenceCategoryKey) return null;
 
           const {
-            data: { evidenceCategory }
+            data: { evidenceCategoryCollection }
+          }: {
+            data: { evidenceCategoryCollection: EvidenceCategoryCollection };
           } = await getEvidenceCategory(
             context.clientGateway,
-            customEvidenceCategoryId
+            customEvidenceCategoryKey
           );
 
-          return evidenceCategory;
+          return evidenceCategoryCollection?.items[0];
         }
       },
       Account: {

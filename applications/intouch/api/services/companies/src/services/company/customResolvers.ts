@@ -85,7 +85,7 @@ export const guaranteeResolver = async ({
         startDate
         expiryDate
         bmiReferenceId
-        guaranteeTypeId
+        guaranteeReferenceCode
         guaranteeType {
           name
           displayName
@@ -97,6 +97,7 @@ export const guaranteeResolver = async ({
           }
           guaranteeTemplatesCollection {
             items {
+              languageCode
               logo {
                 title
                 url
