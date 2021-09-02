@@ -16,7 +16,7 @@ const DOCUMENTS_PER_PAGE = 24;
 const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
   +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
-const TechnicalSpecificationLeadBlock = ({ documents }: Props) => {
+const DocumnetsLeadBlock = ({ documents }: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(1);
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
@@ -54,4 +54,4 @@ const TechnicalSpecificationLeadBlock = ({ documents }: Props) => {
   );
 };
 
-export default TechnicalSpecificationLeadBlock;
+export default DocumnetsLeadBlock;
