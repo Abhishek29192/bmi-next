@@ -37,14 +37,21 @@ const documents: DocumentData[] = [
   {
     __typename: "SDPDocument",
     id: "0",
-    assetTypeDisplayName: "CAD Display Name",
-    allowedToDownload: true,
-    assetType: "CAD",
-    fileSize: 270539,
-    mime: "application/pdf",
-    name: "1344416763",
-    realFileName: "1344416763.pdf",
-    url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
+    title: "title",
+    assetType: {
+      name: "CAD name",
+      pimCode: "CAD"
+    },
+    asset: {
+      file: {
+        fileName: "1344416763.pdf",
+        url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf",
+        contentType: "application/pdf",
+        details: {
+          size: 270539
+        }
+      }
+    }
   }
 ];
 

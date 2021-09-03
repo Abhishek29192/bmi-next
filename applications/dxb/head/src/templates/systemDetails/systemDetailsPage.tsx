@@ -155,19 +155,32 @@ const SystemDetailsPage = ({ data }: Props) => {
         ({ assetType, allowedToDownload }) =>
           !IGNORED_DOCUMENTS_ASSETS.includes(assetType) && allowedToDownload
       )
-      .map((asset, index) => {
-        const assetTypeDisplayName = allContentfulAssetType.nodes.find(
-          ({ pimCode }) => pimCode === asset.assetType
-        )?.name;
+      .map(({ name, assetType, url, fileSize, realFileName, mime }, index) => {
+        const contentfulAssetType = allContentfulAssetType.nodes.find(
+          ({ pimCode }) => pimCode === assetType
+        );
         return Object.assign(
           {},
           {
-            __typename: "SDPDocument",
+            __typename: "SDPDocument" as const,
             id: index.toString(),
-            assetTypeDisplayName,
-            ...asset
+            title: name,
+            assetType: {
+              pimCode: contentfulAssetType?.pimCode,
+              name: contentfulAssetType?.name
+            },
+            asset: {
+              file: {
+                url,
+                fileName: realFileName,
+                contentType: mime,
+                details: {
+                  size: fileSize
+                }
+              }
+            }
           }
-        ) as DocumentData;
+        );
       });
   }, []);
 

@@ -4,6 +4,8 @@ import {
   Product
 } from "../../components/types/ProductBaseTypes";
 import { Format } from "../../components/types";
+import { Data as ContentfulDocument } from "../../components/Document";
+import { Data as ContentfulAssetType } from "../../components/AssetType";
 
 export type GalleryImageType = {
   mainSource: string;
@@ -90,10 +92,19 @@ export type SystemLayer = {
   relatedProducts: Product[];
 };
 
-export type DocumentData = Assets & {
+export type DocumentData = Pick<ContentfulDocument, "title" | "id"> & {
   __typename: "SDPDocument";
-  id: string;
-  assetTypeDisplayName: string;
+  assetType: Pick<ContentfulAssetType, "pimCode" | "name">;
+  asset: {
+    file: {
+      url: string;
+      fileName: string;
+      contentType: Format;
+      details: {
+        size: number;
+      };
+    };
+  };
 };
 
 export interface SystemDetails {

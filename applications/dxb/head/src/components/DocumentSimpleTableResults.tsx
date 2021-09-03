@@ -55,15 +55,6 @@ const mapAssetToFileDownload = (
     };
   }
 
-  if (data.__typename === "SDPDocument") {
-    const { url, mime, fileSize }: SDPDocumentData = data;
-    return {
-      url,
-      format: mime,
-      size: fileSize
-    };
-  }
-
   const {
     asset: { file }
   } = data;
@@ -147,19 +138,7 @@ const DocumentSimpleTableResults = ({
         </Table.Head>
         <Table.Body>
           {paginatedDocuments.map((document, index) => {
-            const isSdpDocument = document.__typename === "SDPDocument";
-            const { id, title, assetTypeCode, assetTypeName } = {
-              id: document.id,
-              title: isSdpDocument
-                ? get(document, "name")
-                : get(document, "title"),
-              assetTypeCode: isSdpDocument
-                ? null
-                : get(document, "assetType.code"),
-              assetTypeName: isSdpDocument
-                ? get(document, "assetTypeDisplayName")
-                : get(document, "assetType.name")
-            };
+            const { id, title } = document;
 
             return (
               <Table.Row
@@ -174,7 +153,12 @@ const DocumentSimpleTableResults = ({
                   if (header === "typeCode") {
                     return (
                       <Table.Cell className={styles["table-cell"]} key={key}>
-                        <abbr title={assetTypeName}>{assetTypeCode}</abbr>
+                        <abbr title={document.assetType.name}>
+                          {
+                            (document.assetType as DocumentData["assetType"])
+                              .code
+                          }
+                        </abbr>
                       </Table.Cell>
                     );
                   }
@@ -182,7 +166,7 @@ const DocumentSimpleTableResults = ({
                   if (header === "type") {
                     return (
                       <Table.Cell className={styles["table-cell"]} key={key}>
-                        {assetTypeName}
+                        {document.assetType.name}
                       </Table.Cell>
                     );
                   }
