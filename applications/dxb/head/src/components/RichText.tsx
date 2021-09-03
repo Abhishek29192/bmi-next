@@ -130,10 +130,6 @@ const getOptions = (settings: Settings): Options => {
       [MARKS.BOLD]: (text) => <strong>{text}</strong>
     },
     renderText: (text) => {
-      //the json text objects return empty strings where there should be spaces. This will fix it.
-      if (text.length == 0) {
-        return <br />;
-      }
       return text.split("\n").reduce((children, textSegment, index) => {
         return [...children, index > 0 && <br key={index} />, textSegment];
       }, []);

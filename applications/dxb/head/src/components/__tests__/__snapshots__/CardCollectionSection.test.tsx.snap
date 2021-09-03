@@ -803,7 +803,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               <p
                 class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
               >
-                <br />
+                
               </p>
             </div>
             <div
