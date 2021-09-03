@@ -387,7 +387,7 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -2317,7 +2317,7 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -2703,7 +2703,7 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -9943,7 +9943,7 @@ export type Market = Node & {
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -10325,7 +10325,7 @@ export type MarketInput = {
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -13207,7 +13207,7 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -16063,7 +16063,7 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -16267,7 +16267,7 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */

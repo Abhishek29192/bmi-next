@@ -2,10 +2,10 @@ import crypto from "crypto";
 import camelcaseKeys from "camelcase-keys";
 import { FileUpload } from "graphql-upload";
 import { AccountPatch, InviteInput, Role } from "@bmi/intouch-api-types";
-import { UpdateAccountInput } from "@bmi/intouch-api-types";
+import { UpdateAccountInput, Market } from "@bmi/intouch-api-types";
 import { sendEmailWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
-import { Account } from "../../types";
+import { Account, PostGraphileContext } from "../../types";
 
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
@@ -17,7 +17,7 @@ export const createAccount = async (
   resolve,
   source,
   args,
-  context,
+  context: PostGraphileContext,
   resolveInfo
 ) => {
   const { pgSql: sql } = resolveInfo.graphile.build;
@@ -58,14 +58,14 @@ export const createAccount = async (
 
     // When the request started the user wasn't in the db so the parseUSer middleware didn't
     // append any information to the request object
-    const updatedContext = {
+    const updatedContext: PostGraphileContext = {
       ...context,
       user: {
         ...context.user,
         id: result.data.$account_id,
         market: {
           sendMailbox: markets[0].send_mailbox
-        }
+        } as Market
       }
     };
 
@@ -100,7 +100,7 @@ export const updateAccount = async (
   resolve,
   source,
   args: { input: UpdateAccountInput },
-  context,
+  context: PostGraphileContext,
   resolveInfo
 ) => {
   const { GCP_PRIVATE_BUCKET_NAME } = process.env;
@@ -161,7 +161,7 @@ export const updateAccount = async (
         const level =
           role === "COMPANY_ADMIN" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
 
-        await updateUser({
+        await updateUser(context.clientGateway, {
           userid: `${result.data.$docebo_user_id}`,
           level
         });

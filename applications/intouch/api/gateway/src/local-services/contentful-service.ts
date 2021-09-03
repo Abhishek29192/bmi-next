@@ -3,7 +3,8 @@ import { GraphQLSchema, print } from "graphql";
 import { wrapSchema, introspectSchema } from "@graphql-tools/wrap";
 import { AsyncExecutor, ExecutionParams } from "@graphql-tools/delegate";
 import { transformSchemaFederation } from "graphql-transform-federation";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+
+import { getSecret } from "../utils/secrets";
 
 const {
   CONTENTFUL_API_HOST,
@@ -12,35 +13,38 @@ const {
   GCP_SECRET_PROJECT
 } = process.env;
 
-const client = new SecretManagerServiceClient();
-
-const getSecret = async (client, project, key) => {
-  const values = await client.accessSecretVersion({
-    name: `projects/${project}/secrets/${key}/versions/latest`
-  });
-  return values[0].payload.data.toString();
-};
-
-const CONTENTFUL_SERVICE = `${CONTENTFUL_API_HOST}/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`;
+let contentfulConfigs;
 
 const executor: AsyncExecutor = async ({
   document,
-  variables
+  variables,
+  context = {}
 }: ExecutionParams) => {
+  if (!contentfulConfigs) {
+    contentfulConfigs = await getSecret(
+      GCP_SECRET_PROJECT,
+      "CONTENTFUL_CONFIG"
+    );
+  }
+
+  const { market = "en" } = context;
+  const parsedContentfulConfigs = JSON.parse(contentfulConfigs);
+
   const query = print(document);
-  const CONTENTFUL_TOKEN = await getSecret(
-    client,
-    GCP_SECRET_PROJECT,
-    "CONTENTFUL_TOKEN"
+  const { space = CONTENTFUL_SPACE_ID, token } =
+    parsedContentfulConfigs[`${market}`];
+
+  const fetchResult = await fetch(
+    `${CONTENTFUL_API_HOST}/spaces/${space}/environments/${CONTENTFUL_ENVIRONMENT}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({ query, variables })
+    }
   );
-  const fetchResult = await fetch(CONTENTFUL_SERVICE, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${CONTENTFUL_TOKEN}`
-    },
-    body: JSON.stringify({ query, variables })
-  });
   return fetchResult.json();
 };
 

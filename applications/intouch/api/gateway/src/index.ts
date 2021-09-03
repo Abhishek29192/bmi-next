@@ -21,7 +21,9 @@ const { PORT = 4000 } = process.env;
     const server = new ApolloServer({
       gateway,
       context: ({ req }) => {
-        const { headers } = req;
+        const { headers, subdomains } = req;
+        const market = subdomains.length ? subdomains[0] : "en";
+        const headerMarket = headers["x-request-market-domain"];
 
         /**
          * https://cloud.google.com/api-gateway/docs/authenticate-service-account
@@ -34,6 +36,7 @@ const { PORT = 4000 } = process.env;
          * the different services
          * */
         return {
+          market: headerMarket || market,
           "x-request-id": headers["x-request-id"],
           "x-apigateway-api-userinfo": headers["x-apigateway-api-userinfo"]
         };

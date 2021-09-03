@@ -29,6 +29,7 @@ export type Account = {
 
 export type PostGraphileContext = {
   pubSub: any;
+  clientGateway: any;
   user: Account;
   logger: (modue: string) => import("winston").Logger;
   pgRootPool: PoolClient;

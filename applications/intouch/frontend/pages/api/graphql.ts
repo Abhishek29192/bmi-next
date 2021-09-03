@@ -47,7 +47,6 @@ const handler = async function (req: Request, res: NextApiResponse, next: any) {
 
   createProxyMiddleware({
     target: GRAPHQL_URL,
-    changeOrigin: true,
     proxyTimeout: 5000,
     secure: false,
     headers: {

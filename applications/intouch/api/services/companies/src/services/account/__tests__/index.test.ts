@@ -12,6 +12,7 @@ const mockAuth0Update = jest.fn();
 const mockAuth0GetUserByEmail = jest.fn();
 const mockAuth0CreateUser = jest.fn();
 const mockCreateResetPasswordTicket = jest.fn();
+const mockClientGateway = jest.fn();
 
 jest.mock("../../../services/events");
 jest.mock("../../../services/mailer");
@@ -59,6 +60,7 @@ describe("Account", () => {
       can: userCanMock
     },
     pubSub: mockPubSub,
+    clientGateway: mockClientGateway,
     pgClient: { query: mockQuery },
     pgRootPool: { query: mockRootQuery },
     logger
@@ -175,10 +177,13 @@ describe("Account", () => {
         await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
 
         expect(mockResolve).toBeCalled();
-        expect(trainingSrv.updateUser).toBeCalledWith({
-          userid: "123456",
-          level: 4
-        });
+        expect(trainingSrv.updateUser).toBeCalledWith(
+          contextMock.clientGateway,
+          {
+            userid: "123456",
+            level: 4
+          }
+        );
         expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
           contextMock,
           "ROLE_ASSIGNED",
@@ -230,10 +235,13 @@ describe("Account", () => {
         await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
 
         expect(mockResolve).toBeCalled();
-        expect(trainingSrv.updateUser).toBeCalledWith({
-          userid: "123456",
-          level: 6
-        });
+        expect(trainingSrv.updateUser).toBeCalledWith(
+          contextMock.clientGateway,
+          {
+            userid: "123456",
+            level: 6
+          }
+        );
         expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
           contextMock,
           "ROLE_ASSIGNED",
