@@ -97,11 +97,11 @@ export type DocumentData = Pick<ContentfulDocument, "title" | "id"> & {
   assetType: Pick<ContentfulAssetType, "pimCode" | "name">;
   asset: {
     file: {
-      url: string;
-      fileName: string;
-      contentType: Format;
+      url: Assets["url"];
+      fileName: Assets["realFileName"];
+      contentType: Assets["mime"];
       details: {
-        size: number;
+        size: Assets["fileSize"];
       };
     };
   };
