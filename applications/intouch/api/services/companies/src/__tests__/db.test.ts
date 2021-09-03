@@ -800,7 +800,7 @@ describe("Database permissions", () => {
             accountEmail: SUPER_ADMIN_EMAIL
           },
           "insert into market (name, domain) VALUES ($1, $2) RETURNING *",
-          ["Name", "es"]
+          ["Name", "de"]
         );
         expect(rows.length).toEqual(1);
         market_id = rows[0].id;
@@ -817,7 +817,7 @@ describe("Database permissions", () => {
               accountEmail: INSTALLER_EMAIL
             },
             "insert into market (name, domain) VALUES ($1, $2)",
-            ["Name", "es"]
+            ["Name", "de"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -862,7 +862,7 @@ describe("Database permissions", () => {
               accountEmail: INSTALLER_EMAIL
             },
             "insert into market (name, domain) VALUES ($1, $2)",
-            ["Name", "es"]
+            ["Name", "de"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -880,7 +880,7 @@ describe("Database permissions", () => {
               accountEmail: MARKET_ADMIN_EMAIL
             },
             "insert into market (name, domain) VALUES ($1, $2)",
-            ["Name", "es"]
+            ["Name", "de"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -962,7 +962,7 @@ describe("Database permissions", () => {
               accountEmail: INSTALLER_EMAIL
             },
             "insert into market (name, domain) VALUES ($1, $2)",
-            ["Name", "es"]
+            ["Name", "de"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));

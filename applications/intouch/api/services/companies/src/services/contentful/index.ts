@@ -1,5 +1,3 @@
-import { fetch } from "cross-fetch";
-
 export type EventMessage =
   | "COMPANY_MEMBER_REMOVED"
   | "COMPANY_REGISTERED"
@@ -15,7 +13,7 @@ export type EventMessage =
   | "REQUEST_APPROVED"
   | "TEAM_JOINED";
 
-export const getGuarantee = async (id: string) => {
+export const getGuarantee = async (client, id: string) => {
   const variables = { id: id };
   const query = `
 query guarantee($id:String!) {
@@ -97,10 +95,10 @@ query guarantee($id:String!) {
   }
 }`;
 
-  return contentfulHandler(query, variables);
+  return client(query, variables);
 };
 
-export const getEvidenceCategory = async (id: string) => {
+export const getEvidenceCategory = async (client, id: string) => {
   const query = `
 query EvidenceCategory($id: String!) {
   evidenceCategory(id: $id) {
@@ -110,10 +108,10 @@ query EvidenceCategory($id: String!) {
 }`;
 
   const variables = { id: id };
-  return contentfulHandler(query, variables);
+  return client(query, variables);
 };
 
-export const messageTemplate = async (event: EventMessage) => {
+export const messageTemplate = async (client, event: EventMessage) => {
   const query = `
   query messageTemplateCollection($event: String!) {
     messageTemplateCollection(where: { event: $event }) {
@@ -124,26 +122,5 @@ export const messageTemplate = async (event: EventMessage) => {
     }
   }`;
 
-  return contentfulHandler(query, { event });
-};
-
-const contentfulHandler = async (query: string, variables: Object) => {
-  const {
-    CONTENTFUL_API_HOST,
-    CONTENTFUL_SPACE_ID,
-    CONTENTFUL_ENVIRONMENT,
-    CONTENTFUL_TOKEN
-  } = process.env;
-
-  const CONTENTFUL_SERVICE = `${CONTENTFUL_API_HOST}/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`;
-
-  const fetchResult = await fetch(CONTENTFUL_SERVICE, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${CONTENTFUL_TOKEN}`
-    },
-    body: JSON.stringify({ query, variables })
-  });
-  return fetchResult.json();
+  return client(query, { event });
 };

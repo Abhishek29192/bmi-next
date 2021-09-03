@@ -827,7 +827,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -4168,7 +4168,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -4914,7 +4914,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -16226,7 +16226,7 @@ type Market implements Node {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -16811,7 +16811,7 @@ input MarketInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -21041,7 +21041,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -26116,7 +26116,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -26522,7 +26522,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands

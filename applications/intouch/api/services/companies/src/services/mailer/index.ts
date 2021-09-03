@@ -13,7 +13,7 @@ export const sendEmailWithTemplate = async (
   event: EventMessage,
   body: any
 ) => {
-  const { data } = await messageTemplate(event);
+  const { data } = await messageTemplate(context.clientGateway, event);
   const { messageTemplateCollection } = data;
 
   if (!messageTemplateCollection.items.length) {

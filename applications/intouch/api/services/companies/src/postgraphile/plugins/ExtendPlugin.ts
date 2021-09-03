@@ -31,7 +31,7 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           const { guaranteeTypeId } = _query;
           const {
             data: { guaranteeType }
-          } = await getGuarantee(guaranteeTypeId);
+          } = await getGuarantee(context.clientGateway, guaranteeTypeId);
 
           return guaranteeType;
         }
@@ -44,7 +44,10 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
 
           const {
             data: { evidenceCategory }
-          } = await getEvidenceCategory(customEvidenceCategoryId);
+          } = await getEvidenceCategory(
+            context.clientGateway,
+            customEvidenceCategoryId
+          );
 
           return evidenceCategory;
         }

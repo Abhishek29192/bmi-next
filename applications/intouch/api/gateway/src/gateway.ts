@@ -25,18 +25,30 @@ const createGateway = async () => {
           willSendRequest: async ({ request, context }) => {
             const bearer = await getGCPToken(url);
 
+            // Send gcp auth token to comunicate between services in gcp
             if (bearer) {
               request.http.headers.set("authorization", bearer);
             }
 
+            // Send the user token information
             if (context["x-apigateway-api-userinfo"]) {
               request.http.headers.set(
                 "x-apigateway-api-userinfo",
                 context["x-apigateway-api-userinfo"]
               );
             }
+
+            // Send a uuid throught the request to track it
             if (context["x-request-id"]) {
               request.http.headers.set("x-request-id", context["x-request-id"]);
+            }
+
+            // Send the market throught the request
+            if (context.market) {
+              request.http.headers.set(
+                "x-request-market-domain",
+                context.market
+              );
             }
           }
         });
