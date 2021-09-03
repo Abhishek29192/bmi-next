@@ -40,27 +40,35 @@ export default async (req, res, next) => {
       aud: user.aud
     };
 
-    const { rows: users } = await dbPool.query(
-      "SELECT account.*, market.domain, market.send_mailbox FROM account JOIN market on account.market_id = market.id WHERE email = $1",
-      [req.user.email]
-    );
+    const {
+      rows: [account]
+    } = await dbPool.query("SELECT * FROM account WHERE email = $1", [
+      req.user.email
+    ]);
 
-    if (users.length) {
+    if (account) {
+      const {
+        rows: [market]
+      } = await dbPool.query(
+        "SELECT id, domain, send_mailbox FROM market where domain = $1",
+        [req.headers["x-request-market-domain"]]
+      );
+
       req.user = {
         ...req.user,
-        id: users[0].id,
-        role: users[0].role,
-        firstName: users[0].first_name,
-        lastName: users[0].last_name,
-        status: users[0].status,
-        doceboUserId: users[0].docebo_user_id,
-        doceboUsername: users[0].docebo_username,
-        migrationId: users[0].migration_id,
-        marketId: users[0].market_id,
+        id: account.id,
+        role: account.role,
+        firstName: account.first_name,
+        lastName: account.last_name,
+        status: account.status,
+        doceboUserId: account.docebo_user_id,
+        doceboUsername: account.docebo_username,
+        migrationId: account.migration_id,
+        marketId: market?.id,
         market: camelcaseKeys({
-          id: users[0].market_id,
-          domain: users[0].domain,
-          send_mailbox: users[0].send_mailbox
+          id: market?.id,
+          domain: market?.domain,
+          send_mailbox: market?.send_mailbox
         })
       };
     }
