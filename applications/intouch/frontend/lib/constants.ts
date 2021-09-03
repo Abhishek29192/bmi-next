@@ -1,4 +1,4 @@
-import { BusinessType, Operation, Role } from "@bmi/intouch-api-types";
+import { BusinessType, Operation, Role, Tier } from "@bmi/intouch-api-types";
 
 export const ROLES: { [key: string]: Role } = {
   COMPANY_ADMIN: "COMPANY_ADMIN",
@@ -22,4 +22,11 @@ export const OPERATION_TYPES: { [key: string]: Operation } = {
   TILE: "TILE",
   COATER: "COATER",
   GREEN: "GREEN"
+};
+
+export const TIERS: { [key: string]: Tier } = {
+  T1: "T1",
+  T2: "T2",
+  T3: "T3",
+  T4: "T4"
 };

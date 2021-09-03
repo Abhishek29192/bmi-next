@@ -49,8 +49,12 @@ export const EditCompanyDialog = ({
 
   const onSubmit = useCallback(
     (values) => {
-      const { registeredAddress, tradingAddress, ...editCompanyValues } =
-        values;
+      const {
+        registeredAddress,
+        tradingAddress,
+        operationTypes,
+        ...editCompanyValues
+      } = values;
 
       const addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput =
         // address already exists?
@@ -82,12 +86,34 @@ export const EditCompanyDialog = ({
               create: values.tradingAddress
             };
 
+      const removedOperations = [];
+      const newOperations = [];
+
+      const existingOperations =
+        company?.companyOperationsByCompany?.nodes || [];
+
+      Object.entries(operationTypes).forEach(([operationType, value]) => {
+        const existingOperation = existingOperations.find(
+          (o) => o.operation === operationType
+        );
+        if (existingOperation && value === false) {
+          removedOperations.push({ id: existingOperation.id });
+        }
+        if (!existingOperation && value === true) {
+          newOperations.push({ operation: operationType });
+        }
+      });
+
       updateCompany({
         variables: {
           input: {
             id: company.id,
             patch: {
               ...editCompanyValues,
+              companyOperationsUsingId: {
+                create: newOperations,
+                deleteById: removedOperations
+              },
               addressToRegisteredAddressId,
               addressToTradingAddressId
             }

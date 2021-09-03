@@ -216,7 +216,7 @@ export type UpdateCompanyDetailsMutation = {
               readonly nodes: ReadonlyArray<
                 { readonly __typename?: "CompanyOperation" } & Pick<
                   SchemaTypes.CompanyOperation,
-                  "operation"
+                  "id" | "operation"
                 >
               >;
             };
@@ -309,7 +309,7 @@ export type CompanyRegisteredDetailsFragmentFragment = {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "CompanyOperation" } & Pick<
           SchemaTypes.CompanyOperation,
-          "operation"
+          "id" | "operation"
         >
       >;
     };
@@ -1530,7 +1530,7 @@ export type CompanyPageDetailsFragmentFragment = {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "CompanyOperation" } & Pick<
           SchemaTypes.CompanyOperation,
-          "operation"
+          "id" | "operation"
         >
       >;
     };
@@ -1623,7 +1623,7 @@ export type GetCompaniesByMarketQuery = { readonly __typename?: "Query" } & {
               readonly nodes: ReadonlyArray<
                 { readonly __typename?: "CompanyOperation" } & Pick<
                   SchemaTypes.CompanyOperation,
-                  "operation"
+                  "id" | "operation"
                 >
               >;
             };
@@ -1730,7 +1730,7 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "CompanyOperation" } & Pick<
               SchemaTypes.CompanyOperation,
-              "operation"
+              "id" | "operation"
             >
           >;
         };
