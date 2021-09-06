@@ -64,7 +64,7 @@ export const SupportContactCard = ({
   );
 };
 
-export const ContactDetailsCollectionFragment = gql`
+export const CONTACT_DETAILS_COLLECTION_FRAGMENT = gql`
   fragment ContactDetailsCollectionFragment on ContactDetailsCollection {
     items {
       fullName

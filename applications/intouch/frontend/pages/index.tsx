@@ -103,7 +103,8 @@ const Homepage = ({
   marketContentCollection,
   carouselCollection,
   tierBenefitCollection,
-  globalPageData
+  globalPageData,
+  market
 }: HomePageProps) => {
   const { t } = useTranslation("home-page");
   const { account } = useAccountContext();
@@ -128,7 +129,7 @@ const Homepage = ({
       mapHeroCarouselItems(
         carouselCollection,
         findAccountTier(account),
-        account.market.merchandisingUrl
+        market.merchandisingUrl
       ),
     [carouselCollection, account]
   );

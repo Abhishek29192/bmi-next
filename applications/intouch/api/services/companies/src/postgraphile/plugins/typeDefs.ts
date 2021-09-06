@@ -135,7 +135,8 @@ export default gql`
     messageId: String
   }
   extend type Company {
-    certifications: [Technology]
+    certifications: [Technology]!
+    isProfileComplete: Boolean!
   }
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType

@@ -35,7 +35,7 @@ grant usage on schema public to installer;
 -- market
 grant select on market to installer;
 grant select, update on market to market_admin;
-grant select, insert, update, delete on market to super_admin;
+grant select, update, insert, delete on market to super_admin;
 
 -- company
 grant select, insert on company to installer;
@@ -54,6 +54,8 @@ grant select, insert, update, delete on company_operation to super_admin;
 grant select, insert, delete on account to installer;
 grant update (email, phone, first_name, last_name, docebo_user_id, docebo_username, photo) on account to installer;
 grant select, insert, update, delete on account to company_admin;
+grant select, insert, update, delete on account to market_admin;
+grant select, insert, update, delete on account to super_admin;
 
 
 -- address

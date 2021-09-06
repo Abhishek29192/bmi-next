@@ -122,9 +122,12 @@ export const getServerSideProps = withPage(
       // Otherwise, redirect to first accessible project, if any
     } else if (projects?.nodes.length) {
       const sortedProjects = sortProjects(projects?.nodes);
-
-      res.writeHead(302, { Location: `/projects/${sortedProjects[0]?.id}` });
-      return res.end();
+      return {
+        redirect: {
+          permanent: false,
+          destination: `/projects/${sortedProjects[0]?.id}`
+        }
+      };
     }
 
     return {

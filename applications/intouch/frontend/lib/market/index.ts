@@ -1,9 +1,10 @@
 import { gql } from "@apollo/client";
 
-export const queryMarketByDomain = gql`
+export const queryMarketsByDomain = gql`
   query getMarketsByDomain($domain: String!) {
     markets(condition: { domain: $domain }) {
       nodes {
+        id
         cmsSpaceId
         domain
         merchandisingUrl

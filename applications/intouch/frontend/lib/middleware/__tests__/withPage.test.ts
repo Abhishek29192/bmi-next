@@ -23,9 +23,6 @@ jest.mock("../../apolloClient", () => ({
 jest.mock("../../../graphql/generated/page", () => ({
   getServerPageGetGlobalData: () => ({
     props: { data: {} }
-  }),
-  getServerPageGetMarketsByDomain: () => ({
-    props: { data: { markets: { nodes: [generateMarketContext()] } } }
   })
 }));
 
@@ -141,6 +138,9 @@ describe("Middleware withPage", () => {
         })
       }
     });
+    mockQuery.mockResolvedValueOnce({
+      data: { markets: { nodes: [generateMarketContext()] } }
+    });
 
     await innerGetServerSideProps(getServerSideProps, auth0Mock, ctx);
 
@@ -161,6 +161,9 @@ describe("Middleware withPage", () => {
           }
         })
       }
+    });
+    mockQuery.mockResolvedValueOnce({
+      data: { markets: { nodes: [generateMarketContext()] } }
     });
 
     await innerGetServerSideProps(getServerSideProps, auth0Mock, ctx);
@@ -219,6 +222,9 @@ describe("Middleware withPage", () => {
           }
         })
       }
+    });
+    mockQuery.mockResolvedValueOnce({
+      data: { markets: { nodes: [generateMarketContext()] } }
     });
 
     await innerGetServerSideProps(getServerSideProps, auth0Mock, ctx);
