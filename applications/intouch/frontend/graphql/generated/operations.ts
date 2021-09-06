@@ -1380,10 +1380,18 @@ export type GetMarketsByDomainQuery = { readonly __typename?: "Query" } & {
         { readonly __typename?: "Market" } & Pick<
           SchemaTypes.Market,
           | "id"
+          | "name"
           | "cmsSpaceId"
+          | "language"
           | "domain"
+          | "doceboCatalogueId"
+          | "doceboInstallersBranchId"
+          | "doceboCompanyAdminBranchId"
           | "merchandisingUrl"
           | "projectsEnabled"
+          | "gtag"
+          | "sendName"
+          | "sendMailbox"
           | "locationBiasRadiusKm"
         > & {
             readonly geoMiddle?: SchemaTypes.Maybe<
