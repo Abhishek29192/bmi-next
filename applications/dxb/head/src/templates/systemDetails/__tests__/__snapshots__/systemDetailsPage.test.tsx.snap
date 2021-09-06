@@ -3116,14 +3116,14 @@ exports[`SystemDetailsPage template component should have function to filter and
                         MC: pdp.leadBlock.guaranteesWarranties
                       </h5>
                       <img
-                        alt="Test_Guarantee"
-                        class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h69/h32/9012208009246/Test-Guaranteepng"
-                      />
-                      <img
                         alt="Monier garanti 30 år"
                         class="image"
                         src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
+                      />
+                      <img
+                        alt="Test_Guarantee"
+                        class="image"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h6c/hba/9021243785246/Test-Guaranteepng"
                       />
                     </div>
                     <div
@@ -3135,14 +3135,14 @@ exports[`SystemDetailsPage template component should have function to filter and
                         MC: pdp.leadBlock.awardsCertificates
                       </h5>
                       <img
-                        alt="test_Certificate"
+                        alt="Test Award"
                         class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha1/h3c/9012208304158/test-Certificatepng"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
                       />
                       <img
-                        alt="Test_Award"
+                        alt="test_Certificate"
                         class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/haf/hf3/9021244080158/test-Certificatepng"
                       />
                     </div>
                     <div
@@ -3156,7 +3156,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-outlined MuiButton-outlinedPrimary"
-                        href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd0/h35/9012208107550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
+                        href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd4/hbd/9021243883550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
                         rel="noopener noreferrer"
                         tabindex="0"
                         target="_blank"
@@ -3164,7 +3164,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         <span
                           class="MuiButton-label buttonStyles-label-166"
                         >
-                          Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg
+                          Spec Test
                           <span
                             class="MuiButton-endIcon MuiButton-iconSizeMedium"
                           >
@@ -3520,7 +3520,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                           <h2
                             class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
                           >
-                            BIM_Test
+                            BIM Test
                           </h2>
                         </h5>
                       </div>
@@ -6771,7 +6771,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <p
                   class="MuiTypography-root Typography MuiTypography-body2"
                 >
-                  Test Value
+                  Promotional Content Value
                 </p>
               </div>
               <div
@@ -6852,7 +6852,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                             <p
                               class="MuiTypography-root title Typography MuiTypography-body1"
                             >
-                              Test Value 1
+                              Value 1
                             </p>
                           </div>
                         </li>
@@ -6879,7 +6879,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                             <p
                               class="MuiTypography-root title Typography MuiTypography-body1"
                             >
-                              Test Value 2
+                              Value 2
                             </p>
                           </div>
                         </li>
@@ -7014,7 +7014,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        1. LAYER_VAPOR_BARRIER: Layer Id NO
+                        1. LAYER_ACCESSORIES: undefined
                       </p>
                     </div>
                     <div
@@ -7078,7 +7078,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 <p
                                   class="MuiTypography-root Typography MuiTypography-body1"
                                 >
-                                  SD NO
+                                  SDescription 1 NO
                                 </p>
                               </div>
                               <div
@@ -7125,7 +7125,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        2. LAYER_ACCESSORIES: Layer 2 NO
+                        2. LAYER_ACCESSORIES: undefined
                       </p>
                     </div>
                     <div
@@ -7189,7 +7189,1117 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 <p
                                   class="MuiTypography-root Typography MuiTypography-body1"
                                 >
-                                  Layer SD value
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        3. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        4. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        5. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        6. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        7. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        8. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        9. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        10. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        11. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        12. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
                                 </p>
                               </div>
                               <div
@@ -7364,14 +8474,14 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         MC: pdp.leadBlock.guaranteesWarranties
                       </h5>
                       <img
-                        alt="Test_Guarantee"
-                        class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h69/h32/9012208009246/Test-Guaranteepng"
-                      />
-                      <img
                         alt="Monier garanti 30 år"
                         class="image"
                         src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
+                      />
+                      <img
+                        alt="Test_Guarantee"
+                        class="image"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h6c/hba/9021243785246/Test-Guaranteepng"
                       />
                     </div>
                     <div
@@ -7383,14 +8493,14 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         MC: pdp.leadBlock.awardsCertificates
                       </h5>
                       <img
-                        alt="test_Certificate"
+                        alt="Test Award"
                         class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha1/h3c/9012208304158/test-Certificatepng"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
                       />
                       <img
-                        alt="Test_Award"
+                        alt="test_Certificate"
                         class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/haf/hf3/9021244080158/test-Certificatepng"
                       />
                     </div>
                     <div
@@ -7404,7 +8514,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
-                        href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd0/h35/9012208107550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
+                        href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd4/hbd/9021243883550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
                         rel="noopener noreferrer"
                         tabindex="0"
                         target="_blank"
@@ -7412,7 +8522,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         <span
                           class="MuiButton-label buttonStyles-label-24"
                         >
-                          Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg
+                          Spec Test
                           <span
                             class="MuiButton-endIcon MuiButton-iconSizeMedium"
                           >
@@ -7481,7 +8591,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                   <p
                                     class="MuiTypography-root title Typography MuiTypography-body1"
                                   >
-                                    Test Value 1
+                                    Value 1
                                   </p>
                                 </div>
                               </li>
@@ -7508,7 +8618,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                   <p
                                     class="MuiTypography-root title Typography MuiTypography-body1"
                                   >
-                                    Test Value 2
+                                    Value 2
                                   </p>
                                 </div>
                               </li>
@@ -7600,6 +8710,95 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <div
                         class="Accordion Accordion--no-inner-padding"
                       >
+                        <div
+                          class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                        >
+                          <div
+                            aria-disabled="false"
+                            aria-expanded="true"
+                            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div
+                              class="MuiAccordionSummary-content Mui-expanded"
+                            >
+                              <h6
+                                class="MuiTypography-root Typography MuiTypography-h6"
+                              >
+                                France Flat System Attributes
+                              </h6>
+                            </div>
+                            <div
+                              aria-disabled="false"
+                              aria-hidden="true"
+                              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+                            >
+                              <span
+                                class="MuiIconButton-label"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                class="MuiTouchRipple-root"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="MuiCollapse-container MuiCollapse-entered"
+                            style="min-height: 0px;"
+                          >
+                            <div
+                              class="MuiCollapse-wrapper"
+                            >
+                              <div
+                                class="MuiCollapse-wrapperInner"
+                              >
+                                <div
+                                  role="region"
+                                >
+                                  <div
+                                    class="MuiAccordionDetails-root accordion-details"
+                                  >
+                                    <div>
+                                      <table
+                                        class="MuiTable-root Table Table--row-even-color Table--no-border"
+                                      >
+                                        <tbody
+                                          class="MuiTableBody-root"
+                                        >
+                                          <tr
+                                            class="MuiTableRow-root"
+                                          >
+                                            <td
+                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                            >
+                                              Brooft3 classification
+                                            </td>
+                                            <td
+                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                            >
+                                              44 
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <div
                           class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                         >
@@ -7780,7 +8979,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                             <td
                                               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                             >
-                                              Value 
+                                              Yes 
                                             </td>
                                           </tr>
                                         </tbody>
@@ -7839,7 +9038,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           <h2
                             class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
                           >
-                            BIM_Test
+                            BIM Test
                           </h2>
                         </h5>
                       </div>
@@ -11090,7 +12289,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <p
                   class="MuiTypography-root Typography MuiTypography-body2"
                 >
-                  Test Value
+                  Promotional Content Value
                 </p>
               </div>
               <div
@@ -11171,7 +12370,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             <p
                               class="MuiTypography-root title Typography MuiTypography-body1"
                             >
-                              Test Value 1
+                              Value 1
                             </p>
                           </div>
                         </li>
@@ -11198,7 +12397,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             <p
                               class="MuiTypography-root title Typography MuiTypography-body1"
                             >
-                              Test Value 2
+                              Value 2
                             </p>
                           </div>
                         </li>
@@ -11333,7 +12532,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        1. LAYER_VAPOR_BARRIER: Layer Id NO
+                        1. LAYER_ACCESSORIES: undefined
                       </p>
                     </div>
                     <div
@@ -11397,7 +12596,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 <p
                                   class="MuiTypography-root Typography MuiTypography-body1"
                                 >
-                                  SD NO
+                                  SDescription 1 NO
                                 </p>
                               </div>
                               <div
@@ -11444,7 +12643,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        2. LAYER_ACCESSORIES: Layer 2 NO
+                        2. LAYER_ACCESSORIES: undefined
                       </p>
                     </div>
                     <div
@@ -11508,7 +12707,1117 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 <p
                                   class="MuiTypography-root Typography MuiTypography-body1"
                                 >
-                                  Layer SD value
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        3. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        4. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        5. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        6. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        7. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        8. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        9. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        10. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        11. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
+                                </p>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <h5
+                                  class="MuiTypography-root Typography MuiTypography-h5"
+                                >
+                                  MC: sdp.optionalProductsTitle
+                                </h5>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content"
+                    >
+                      <p
+                        class="MuiTypography-root Typography MuiTypography-body1"
+                      >
+                        12. LAYER_ACCESSORIES: undefined
+                      </p>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-container MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root details"
+                          >
+                            <div
+                              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                            >
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                >
+                                  <span>
+                                    Zanda Protector normalstein
+                                  </span>
+                                </a>
+                              </div>
+                              <div
+                                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                              >
+                                <p
+                                  class="MuiTypography-root Typography MuiTypography-body1"
+                                >
+                                  SDescription 1 NO
                                 </p>
                               </div>
                               <div
@@ -11683,14 +13992,14 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         MC: pdp.leadBlock.guaranteesWarranties
                       </h5>
                       <img
-                        alt="Test_Guarantee"
-                        class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h69/h32/9012208009246/Test-Guaranteepng"
-                      />
-                      <img
                         alt="Monier garanti 30 år"
                         class="image"
                         src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
+                      />
+                      <img
+                        alt="Test_Guarantee"
+                        class="image"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h6c/hba/9021243785246/Test-Guaranteepng"
                       />
                     </div>
                     <div
@@ -11702,14 +14011,14 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         MC: pdp.leadBlock.awardsCertificates
                       </h5>
                       <img
-                        alt="test_Certificate"
+                        alt="Test Award"
                         class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha1/h3c/9012208304158/test-Certificatepng"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
                       />
                       <img
-                        alt="Test_Award"
+                        alt="test_Certificate"
                         class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/haf/hf3/9021244080158/test-Certificatepng"
                       />
                     </div>
                     <div
@@ -11723,7 +14032,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-92 MuiButton-outlined MuiButton-outlinedPrimary"
-                        href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd0/h35/9012208107550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
+                        href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd4/hbd/9021243883550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
                         rel="noopener noreferrer"
                         tabindex="0"
                         target="_blank"
@@ -11731,7 +14040,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         <span
                           class="MuiButton-label buttonStyles-label-95"
                         >
-                          Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg
+                          Spec Test
                           <span
                             class="MuiButton-endIcon MuiButton-iconSizeMedium"
                           >
@@ -11800,7 +14109,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                   <p
                                     class="MuiTypography-root title Typography MuiTypography-body1"
                                   >
-                                    Test Value 1
+                                    Value 1
                                   </p>
                                 </div>
                               </li>
@@ -11827,7 +14136,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                   <p
                                     class="MuiTypography-root title Typography MuiTypography-body1"
                                   >
-                                    Test Value 2
+                                    Value 2
                                   </p>
                                 </div>
                               </li>
@@ -11919,6 +14228,95 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <div
                         class="Accordion Accordion--no-inner-padding"
                       >
+                        <div
+                          class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                        >
+                          <div
+                            aria-disabled="false"
+                            aria-expanded="true"
+                            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div
+                              class="MuiAccordionSummary-content Mui-expanded"
+                            >
+                              <h6
+                                class="MuiTypography-root Typography MuiTypography-h6"
+                              >
+                                France Flat System Attributes
+                              </h6>
+                            </div>
+                            <div
+                              aria-disabled="false"
+                              aria-hidden="true"
+                              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+                            >
+                              <span
+                                class="MuiIconButton-label"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                class="MuiTouchRipple-root"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="MuiCollapse-container MuiCollapse-entered"
+                            style="min-height: 0px;"
+                          >
+                            <div
+                              class="MuiCollapse-wrapper"
+                            >
+                              <div
+                                class="MuiCollapse-wrapperInner"
+                              >
+                                <div
+                                  role="region"
+                                >
+                                  <div
+                                    class="MuiAccordionDetails-root accordion-details"
+                                  >
+                                    <div>
+                                      <table
+                                        class="MuiTable-root Table Table--row-even-color Table--no-border"
+                                      >
+                                        <tbody
+                                          class="MuiTableBody-root"
+                                        >
+                                          <tr
+                                            class="MuiTableRow-root"
+                                          >
+                                            <td
+                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                            >
+                                              Brooft3 classification
+                                            </td>
+                                            <td
+                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                            >
+                                              44 
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <div
                           class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                         >
@@ -12099,7 +14497,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                             <td
                                               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                             >
-                                              Value 
+                                              Yes 
                                             </td>
                                           </tr>
                                         </tbody>
@@ -12158,7 +14556,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           <h2
                             class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
                           >
-                            BIM_Test
+                            BIM Test
                           </h2>
                         </h5>
                       </div>

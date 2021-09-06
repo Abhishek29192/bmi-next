@@ -230,9 +230,9 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
           MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Test_Award"
+          alt="Test Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
         />
       </div>
       <div
@@ -448,9 +448,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
           MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Test_Award"
+          alt="Test Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
         />
       </div>
     </div>
@@ -555,9 +555,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
           MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Test_Award"
+          alt="Test Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
         />
       </div>
     </div>
@@ -656,9 +656,9 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
           MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Test_Award"
+          alt="Test Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
         />
       </div>
     </div>
@@ -763,9 +763,9 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
           MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Test_Award"
+          alt="Test Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
         />
       </div>
     </div>
@@ -813,9 +813,9 @@ exports[`AboutLeadBlock tests should render 1`] = `
           MC: pdp.leadBlock.awardsCertificates
         </h5>
         <img
-          alt="Test_Award"
+          alt="Test Award"
           class="image"
-          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+          src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
         />
       </div>
       <div
