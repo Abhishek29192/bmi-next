@@ -271,128 +271,132 @@ const getGuaranteeEvidence = (
 export default ProjectDetail;
 
 export const GET_PROJECT = gql`
-  query GetProject($projectId: Int!) {
-    project(id: $projectId) {
-      id
-      hidden
-      name
-      technology
-      roofArea
-      startDate
-      endDate
-      description
-      siteAddress {
-        firstLine
-        secondLine
-        town
-        region
-        postcode
-      }
-      buildingOwnerFirstname
-      buildingOwnerLastname
-      buildingOwnerCompany
-      buildingOwnerMail
-      buildingOwnerAddress {
-        firstLine
-        secondLine
-        town
-        region
-        postcode
-      }
-      guarantees {
-        nodes {
-          id
-          guaranteeReferenceCode
-          reviewerAccountId
-          coverage
-          languageCode
-          guaranteeType {
-            sys {
-              id
-            }
-            name
-            coverage
-            displayName
-            technology
-            tiersAvailable
-            evidenceCategoriesCollection {
-              items {
-                sys {
-                  id
-                }
-                referenceCode
-                name
-                minimumUploads
-              }
-            }
-          }
-          productByProductBmiRef {
-            ...ProjectDetailsProductFragment
-          }
-          systemBySystemBmiRef {
+  fragment ProjectDetailsFragment on Project {
+    id
+    hidden
+    name
+    technology
+    roofArea
+    startDate
+    endDate
+    description
+    siteAddress {
+      firstLine
+      secondLine
+      town
+      region
+      postcode
+    }
+    buildingOwnerFirstname
+    buildingOwnerLastname
+    buildingOwnerCompany
+    buildingOwnerMail
+    buildingOwnerAddress {
+      firstLine
+      secondLine
+      town
+      region
+      postcode
+    }
+    guarantees {
+      nodes {
+        id
+        guaranteeReferenceCode
+        reviewerAccountId
+        coverage
+        languageCode
+        guaranteeType {
+          sys {
             id
-            name
-            description
-            systemMembersBySystemBmiRef {
-              nodes {
+          }
+          name
+          coverage
+          displayName
+          technology
+          tiersAvailable
+          evidenceCategoriesCollection {
+            items {
+              sys {
                 id
-                productByProductBmiRef {
-                  ...ProjectDetailsProductFragment
-                }
               }
+              referenceCode
+              name
+              minimumUploads
             }
           }
-          status
         }
-      }
-      evidenceItems {
-        nodes {
+        productByProductBmiRef {
+          ...ProjectDetailsProductFragment
+        }
+        systemBySystemBmiRef {
           id
           name
-          guaranteeId
-          evidenceCategoryType
-          customEvidenceCategoryKey
-          customEvidenceCategory {
-            name
-            minimumUploads
-          }
-        }
-      }
-      notes(orderBy: ID_DESC) {
-        nodes {
-          id
-          body
-          authorId
-          author {
-            firstName
-            lastName
-          }
-          createdAt
-        }
-      }
-      projectMembers {
-        nodes {
-          id
-          accountId
-          account {
-            firstName
-            lastName
-            role
-            certificationsByDoceboUserId {
-              nodes {
-                name
-                technology
+          description
+          systemMembersBySystemBmiRef {
+            nodes {
+              id
+              productByProductBmiRef {
+                ...ProjectDetailsProductFragment
               }
             }
           }
-          isResponsibleInstaller
         }
+        status
       }
-      company {
+    }
+    evidenceItems {
+      nodes {
         id
         name
-        tier
+        guaranteeId
+        evidenceCategoryType
+        customEvidenceCategoryKey
+        customEvidenceCategory {
+          name
+          minimumUploads
+        }
       }
+    }
+    notes(orderBy: ID_DESC) {
+      nodes {
+        id
+        body
+        authorId
+        author {
+          firstName
+          lastName
+        }
+        createdAt
+      }
+    }
+    projectMembers {
+      nodes {
+        id
+        accountId
+        account {
+          firstName
+          lastName
+          role
+          certificationsByDoceboUserId {
+            nodes {
+              name
+              technology
+            }
+          }
+        }
+        isResponsibleInstaller
+      }
+    }
+    company {
+      id
+      name
+      tier
+    }
+  }
+
+  query GetProject($projectId: Int!) {
+    project(id: $projectId) {
+      ...ProjectDetailsFragment
     }
   }
 `;
