@@ -73,8 +73,11 @@ export const handler = async function (
     const authHeader = req.headers.authorization;
 
     if (authHeader) {
-      const [, jwtPayload] = authHeader.split(".");
-      req.headers["x-apigateway-api-userinfo"] = jwtPayload;
+      const jwtPayloads = authHeader.split(".");
+
+      if (jwtPayloads.length > 1) {
+        req.headers["x-apigateway-api-userinfo"] = jwtPayloads[1];
+      }
     }
   }
 
