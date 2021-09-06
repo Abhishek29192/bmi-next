@@ -204,6 +204,7 @@ const CompanyMembers = ({ data }: PageProps) => {
                 variant="outlined"
                 onClick={() => setDialogOpen(true)}
                 data-testid="footer-btn"
+                className={styles.sidePanelFooterButton}
               >
                 {t("sidePanel.inviteLabel")}
               </Button>
