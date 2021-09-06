@@ -2272,10 +2272,18 @@ export const GetMarketsByDomainDocument = gql`
     markets(condition: { domain: $domain }) {
       nodes {
         id
+        name
         cmsSpaceId
+        language
         domain
+        doceboCatalogueId
+        doceboInstallersBranchId
+        doceboCompanyAdminBranchId
         merchandisingUrl
         projectsEnabled
+        gtag
+        sendName
+        sendMailbox
         locationBiasRadiusKm
         geoMiddle {
           x
