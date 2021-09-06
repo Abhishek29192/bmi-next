@@ -3531,7 +3531,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                     <iframe
                       class="bimIframe bmiIframe"
                       data-testid="bmi-iframe"
-                      src="https://www.bimobject.com/en-us/bmi_siplast_fr/product/spl010108"
+                      src="https://www.bimobject.com/en/bmi_siplast_fr/product/spl30030"
                     />
                   </div>
                 </div>
@@ -7014,7 +7014,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        1. LAYER_ACCESSORIES: undefined
+                        1. LAYER_ACCESSORIES: SName 1
                       </p>
                     </div>
                     <div
@@ -7125,7 +7125,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        2. LAYER_ACCESSORIES: undefined
+                        2. LAYER_ACCESSORIES: SName 2
                       </p>
                     </div>
                     <div
@@ -7236,7 +7236,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        3. LAYER_ACCESSORIES: undefined
+                        3. LAYER_ACCESSORIES: SName 3
                       </p>
                     </div>
                     <div
@@ -7347,7 +7347,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        4. LAYER_ACCESSORIES: undefined
+                        4. LAYER_ACCESSORIES: SName 4
                       </p>
                     </div>
                     <div
@@ -7458,7 +7458,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        5. LAYER_ACCESSORIES: undefined
+                        5. LAYER_ACCESSORIES: SName 5
                       </p>
                     </div>
                     <div
@@ -7569,7 +7569,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        6. LAYER_ACCESSORIES: undefined
+                        6. LAYER_ACCESSORIES: SName 6
                       </p>
                     </div>
                     <div
@@ -7680,7 +7680,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        7. LAYER_ACCESSORIES: undefined
+                        7. LAYER_ACCESSORIES: SName 7
                       </p>
                     </div>
                     <div
@@ -7791,7 +7791,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        8. LAYER_ACCESSORIES: undefined
+                        8. LAYER_ACCESSORIES: SName 8
                       </p>
                     </div>
                     <div
@@ -7902,7 +7902,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        9. LAYER_ACCESSORIES: undefined
+                        9. LAYER_ACCESSORIES: SName 9
                       </p>
                     </div>
                     <div
@@ -8013,7 +8013,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        10. LAYER_ACCESSORIES: undefined
+                        10. LAYER_ACCESSORIES: SName 10
                       </p>
                     </div>
                     <div
@@ -8124,7 +8124,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        11. LAYER_ACCESSORIES: undefined
+                        11. LAYER_ACCESSORIES: SName 11
                       </p>
                     </div>
                     <div
@@ -8235,7 +8235,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        12. LAYER_ACCESSORIES: undefined
+                        12. LAYER_ACCESSORIES: SName 12
                       </p>
                     </div>
                     <div
@@ -9049,7 +9049,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     <iframe
                       class="bimIframe bmiIframe"
                       data-testid="bmi-iframe"
-                      src="https://www.bimobject.com/en-us/bmi_siplast_fr/product/spl010108"
+                      src="https://www.bimobject.com/en/bmi_siplast_fr/product/spl30030"
                     />
                   </div>
                 </div>
@@ -12532,7 +12532,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        1. LAYER_ACCESSORIES: undefined
+                        1. LAYER_ACCESSORIES: SName 1
                       </p>
                     </div>
                     <div
@@ -12643,7 +12643,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        2. LAYER_ACCESSORIES: undefined
+                        2. LAYER_ACCESSORIES: SName 2
                       </p>
                     </div>
                     <div
@@ -12754,7 +12754,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        3. LAYER_ACCESSORIES: undefined
+                        3. LAYER_ACCESSORIES: SName 3
                       </p>
                     </div>
                     <div
@@ -12865,7 +12865,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        4. LAYER_ACCESSORIES: undefined
+                        4. LAYER_ACCESSORIES: SName 4
                       </p>
                     </div>
                     <div
@@ -12976,7 +12976,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        5. LAYER_ACCESSORIES: undefined
+                        5. LAYER_ACCESSORIES: SName 5
                       </p>
                     </div>
                     <div
@@ -13087,7 +13087,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        6. LAYER_ACCESSORIES: undefined
+                        6. LAYER_ACCESSORIES: SName 6
                       </p>
                     </div>
                     <div
@@ -13198,7 +13198,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        7. LAYER_ACCESSORIES: undefined
+                        7. LAYER_ACCESSORIES: SName 7
                       </p>
                     </div>
                     <div
@@ -13309,7 +13309,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        8. LAYER_ACCESSORIES: undefined
+                        8. LAYER_ACCESSORIES: SName 8
                       </p>
                     </div>
                     <div
@@ -13420,7 +13420,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        9. LAYER_ACCESSORIES: undefined
+                        9. LAYER_ACCESSORIES: SName 9
                       </p>
                     </div>
                     <div
@@ -13531,7 +13531,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        10. LAYER_ACCESSORIES: undefined
+                        10. LAYER_ACCESSORIES: SName 10
                       </p>
                     </div>
                     <div
@@ -13642,7 +13642,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        11. LAYER_ACCESSORIES: undefined
+                        11. LAYER_ACCESSORIES: SName 11
                       </p>
                     </div>
                     <div
@@ -13753,7 +13753,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       <p
                         class="MuiTypography-root Typography MuiTypography-body1"
                       >
-                        12. LAYER_ACCESSORIES: undefined
+                        12. LAYER_ACCESSORIES: SName 12
                       </p>
                     </div>
                     <div
@@ -14567,7 +14567,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     <iframe
                       class="bimIframe bmiIframe"
                       data-testid="bmi-iframe"
-                      src="https://www.bimobject.com/en-us/bmi_siplast_fr/product/spl010108"
+                      src="https://www.bimobject.com/en/bmi_siplast_fr/product/spl30030"
                     />
                   </div>
                 </div>

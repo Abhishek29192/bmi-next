@@ -9,19 +9,33 @@ function createResolver(field) {
 
       if (!sourceField) return [];
 
+      const variantCodes = sourceField.map(
+        (productVariant) => productVariant.code
+      );
+
       const products = await context.nodeModel.runQuery({
         query: {
           filter: {
-            // eslint-disable-next-line security/detect-object-injection
-            code: { in: sourceField.map((product) => product.code) },
+            variantOptions: {
+              elemMatch: {
+                // eslint-disable-next-line security/detect-object-injection
+                code: { in: variantCodes }
+              }
+            },
             approvalStatus: { eq: "approved" }
           }
         },
         type: "Products"
       });
 
-      if (products.length !== sourceField.length) {
-        console.warn(`Couldn't find ${field} that match ${sourceField}`);
+      if (products.length !== variantCodes.length) {
+        console.warn(
+          `Couldn't find ${field} that match ${JSON.stringify(
+            variantCodes,
+            null,
+            2
+          )}\n`
+        );
       }
 
       return products;
