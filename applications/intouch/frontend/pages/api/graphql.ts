@@ -29,6 +29,10 @@ const handler = async function (req: Request, res: NextApiResponse, next: any) {
     }
   }
 
+  // The redirect middleware run before everything so it should never happen to
+  // arrive at this point without a subdomain
+  let market = req.headers.host?.split(".")[0];
+
   /**
    * If we are working locally we are not able to use the gcp api-gateway
    * so we need to replicate it sending the paylod base64.
@@ -43,10 +47,18 @@ const handler = async function (req: Request, res: NextApiResponse, next: any) {
       const [, jwtPayload] = authHeader.split(".");
       req.headers["x-apigateway-api-userinfo"] = jwtPayload;
     }
+
+    // This code need to run only in dev
+    if (market.indexOf("localhost") !== -1) {
+      market = "en";
+    }
   }
+
+  if (market) req.headers["x-request-market-domain"] = market;
 
   createProxyMiddleware({
     target: GRAPHQL_URL,
+    changeOrigin: true,
     proxyTimeout: 5000,
     secure: false,
     headers: {
