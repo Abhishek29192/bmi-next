@@ -13,101 +13,123 @@ export type EventMessage =
   | "REQUEST_APPROVED"
   | "TEAM_JOINED";
 
-export const getGuarantee = async (client, id: string) => {
-  const variables = { id: id };
+export const getGuaranteeTypeCollection = async (
+  client,
+  guaranteeReferenceCode: string
+) => {
+  const variables = { guaranteeReferenceCode };
   const query = `
-query guarantee($id:String!) {
-  guaranteeType(id:$id) {
-    sys {
-      id
-    }
-    name
-    displayName
-    technology
-    coverage
-    signature {
-      fileName
-      url
-    }
-    tiersAvailable
-    evidenceCategoriesCollection {
+  query guarantee($guaranteeReferenceCode: String!) {
+    guaranteeTypeCollection(
+      limit: 1
+      where: { guaranteeReferenceCode: $guaranteeReferenceCode }
+    ) {
+      total
       items {
         sys {
           id
         }
+        guaranteeReferenceCode
         name
-        minimumUploads
-      }
-    }
-    guaranteeTemplatesCollection {
-      items {
-        approvalMessage {
-          event
-          format
-          subject
-          notificationBody
-          emailBody
-        }
-        rejectionMessage {
-          event
-          format
-          subject
-          notificationBody
-          emailBody
-        }
-        logo {
-          title
-          url
-        }
-        maintenanceTemplate {
+        displayName
+        technology
+        coverage
+        signature {
           fileName
           url
         }
-        terms{
-          fileName
-          url
+        tiersAvailable
+        evidenceCategoriesCollection {
+          items {
+            sys {
+              id
+            }
+            referenceCode
+            name
+            minimumUploads
+          }
         }
-        guaranteeScope
-        signatory
-        headingGuarantee
-        headingScope
-        headingProducts
-        headingBeneficiary
-        headingBuildingOwnerName
-        headingBuildingAddress
-        headingRoofArea
-        headingRoofType
-        headingContractor
-        headingContractorName
-        headingContractorId
-        headingStartDate
-        headingGuaranteeId
-        headingValidity
-        headingExpiry
-        footer
-        mailBody
-        filenamePrefix
-        titleLine1
-        titleLine2
-        roofType
+        guaranteeTemplatesCollection {
+          total
+          items {
+            languageCode
+            approvalMessage {
+              event
+              format
+              subject
+              notificationBody
+              emailBody
+            }
+            rejectionMessage {
+              event
+              format
+              subject
+              notificationBody
+              emailBody
+            }
+            logo {
+              title
+              url
+            }
+            maintenanceTemplate {
+              fileName
+              url
+            }
+            terms {
+              fileName
+              url
+            }
+            guaranteeScope
+            signatory
+            headingGuarantee
+            headingScope
+            headingProducts
+            headingBeneficiary
+            headingBuildingOwnerName
+            headingBuildingAddress
+            headingRoofArea
+            headingRoofType
+            headingContractor
+            headingContractorName
+            headingContractorId
+            headingStartDate
+            headingGuaranteeId
+            headingValidity
+            headingExpiry
+            footer
+            mailBody
+            filenamePrefix
+            titleLine1
+            titleLine2
+            roofType
+          }
+        }
       }
     }
   }
-}`;
+`;
 
   return client(query, variables);
 };
 
-export const getEvidenceCategory = async (client, id: string) => {
+export const getEvidenceCategory = async (client, referenceCode: string) => {
   const query = `
-query EvidenceCategory($id: String!) {
-  evidenceCategory(id: $id) {
-    name
-    minimumUploads
+  query EvidenceCategory($referenceCode: String!) {
+    evidenceCategoryCollection(
+    limit: 1
+    where: { referenceCode: $referenceCode }
+  ) {
+    items {
+      sys {
+        id
+      }
+      name
+      minimumUploads
+    }
   }
 }`;
 
-  const variables = { id: id };
+  const variables = { referenceCode: referenceCode };
   return client(query, variables);
 };
 

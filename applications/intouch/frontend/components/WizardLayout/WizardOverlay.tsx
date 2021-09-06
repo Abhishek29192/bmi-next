@@ -47,6 +47,7 @@ export const GET_PRODUCT_GUARANTEE_TYPES = gql`
         sys {
           id
         }
+        guaranteeReferenceCode
         name
         displayName
         technology
@@ -59,11 +60,15 @@ export const GET_PRODUCT_GUARANTEE_TYPES = gql`
               id
             }
             displayName
+            languageCode
+            coverage
           }
         }
         evidenceCategoriesCollection {
           items {
             name
+            referenceCode
+            minimumUploads
           }
         }
       }

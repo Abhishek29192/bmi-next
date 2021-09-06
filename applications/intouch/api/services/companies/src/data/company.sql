@@ -23,12 +23,61 @@ CREATE TYPE company_status AS ENUM (
   'DEACTIVATED'
 );
 
+DROP TYPE IF EXISTS custom_evidence_category_key CASCADE;
+
+CREATE TYPE custom_evidence_category_key AS ENUM (
+  'PITCHED_DETAILS',
+  'PITCHED_TILES',
+  'PITCHED_BASE',
+  'PITCHED_UNDERLAY',
+  'PITCHED_VENTILATION',
+  'PITCHED_PENETRATIONS',
+  'PITCHED_FIXINGS',
+  'PITCHED_INSULATION',
+  'PITCHED_INSPECTION',
+  'PITCHED_SAFETY',
+  'PITCHED_PLAN',
+  'FLAT_DETAILS',
+  'FLAT_TOP',
+  'FLAT_BASE',
+  'FLAT_LAYER',
+  'FLAT_VENTILATION',
+  'FLAT_PENETRATIONS',
+  'FLAT_FIXINGS',
+  'FLAT_INSULATION',
+  'FLAT_SAFETY',
+  'FLAT_PLAN',
+  'MISC_1',
+  'MISC_2',
+  'MISC_3',
+  'MISC_4'
+);
+
 DROP TYPE IF EXISTS evidence_category_type CASCADE;
 
 CREATE TYPE evidence_category_type AS ENUM (
   'PROOF_OF_PURCHASE',
   'MISCELLANEOUS',
   'CUSTOM'
+);
+
+DROP TYPE IF EXISTS guarantee_coverage CASCADE;
+
+CREATE TYPE guarantee_coverage AS ENUM (
+  'PRODUCT',
+  'SYSTEM',
+  'SOLUTION'
+);
+
+DROP TYPE IF EXISTS guarantee_reference_code CASCADE;
+
+CREATE TYPE guarantee_reference_code AS ENUM (
+  'FLAT_PRODUCT',
+  'FLAT_SYSTEM',
+  'FLAT_SOLUTION',
+  'PITCHED_PRODUCT',
+  'PITCHED_SYSTEM',
+  'PITCHED_SOLUTION'
 );
 
 DROP TYPE IF EXISTS invitation_status CASCADE;
@@ -208,9 +257,9 @@ DROP TABLE IF EXISTS company_member CASCADE;
 
 CREATE TABLE company_member (
   id serial PRIMARY KEY,
-  market_id int,
-  account_id int,
-  company_id int,
+  market_id int NOT NULL,
+  account_id int NOT NULL,
+  company_id int NOT NULL,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -219,8 +268,8 @@ DROP TABLE IF EXISTS company_operation CASCADE;
 
 CREATE TABLE company_operation (
   id serial PRIMARY KEY,
-  company int,
-  operation operation,
+  company int NOT NULL,
+  operation operation NOT NULL,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -229,8 +278,8 @@ DROP TABLE IF EXISTS evidence_item CASCADE;
 
 CREATE TABLE evidence_item (
   id serial PRIMARY KEY,
-  custom_evidence_category_id text,
-  project_id int,
+  custom_evidence_category_key custom_evidence_category_key,
+  project_id int NOT NULL,
   guarantee_id int,
   evidence_category_type evidence_category_type,
   name text NOT NULL,
@@ -245,12 +294,14 @@ CREATE TABLE guarantee (
   id serial PRIMARY KEY,
   file_storage_id text,
   requestor_account_id int,
-  project_id int,
-  guarantee_type_id text NOT NULL,
+  project_id int NOT NULL,
+  guarantee_reference_code guarantee_reference_code NOT NULL,
   system_bmi_ref text,
   product_bmi_ref text,
   reviewer_account_id int,
-  guarantee_template_id text,
+  coverage guarantee_coverage,
+  language_code
+  LANGUAGE,
   status request_status,
   start_date timestamp,
   expiry_date timestamp,
@@ -264,8 +315,8 @@ DROP TABLE IF EXISTS invitation CASCADE;
 CREATE TABLE invitation (
   id serial PRIMARY KEY,
   sender_account_id int,
-  company_id int,
-  status invitation_status,
+  company_id int NOT NULL,
+  status invitation_status NOT NULL,
   invitee text NOT NULL,
   personal_note text,
   created_at timestamp NOT NULL DEFAULT now(),
@@ -277,7 +328,8 @@ DROP TABLE IF EXISTS market CASCADE;
 CREATE TABLE market (
   id serial PRIMARY KEY,
   LANGUAGE
-  LANGUAGE,
+  LANGUAGE NOT
+  NULL,
   domain text NOT NULL,
   cms_space_id text,
   name text,
@@ -300,7 +352,7 @@ DROP TABLE IF EXISTS note CASCADE;
 CREATE TABLE note (
   id serial PRIMARY KEY,
   author_id int,
-  project_id int,
+  project_id int NOT NULL,
   body text,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
@@ -322,8 +374,8 @@ DROP TABLE IF EXISTS product CASCADE;
 
 CREATE TABLE product (
   id serial PRIMARY KEY,
-  market_id int,
-  technology technology,
+  market_id int NOT NULL,
+  technology technology NOT NULL,
   bmi_ref text NOT NULL,
   brand text NOT NULL,
   name text NOT NULL,
@@ -339,10 +391,10 @@ DROP TABLE IF EXISTS project CASCADE;
 
 CREATE TABLE project (
   id serial PRIMARY KEY,
-  company_id int,
+  company_id int NOT NULL,
   site_address_id int,
   building_owner_address_id int,
-  technology technology,
+  technology technology NOT NULL,
   name text NOT NULL,
   description text,
   hidden boolean DEFAULT FALSE,
@@ -361,7 +413,7 @@ DROP TABLE IF EXISTS project_member CASCADE;
 
 CREATE TABLE project_member (
   id serial PRIMARY KEY,
-  project_id int,
+  project_id int NOT NULL,
   account_id int,
   is_responsible_installer boolean,
   created_at timestamp NOT NULL DEFAULT now(),
@@ -372,8 +424,8 @@ DROP TABLE IF EXISTS SYSTEM CASCADE;
 
 CREATE TABLE SYSTEM (
   id serial PRIMARY KEY,
-  market_id int,
-  technology technology,
+  market_id int NOT NULL,
+  technology technology NOT NULL,
   bmi_ref text NOT NULL,
   name text NOT NULL,
   description text,
@@ -387,9 +439,9 @@ DROP TABLE IF EXISTS system_member CASCADE;
 
 CREATE TABLE system_member (
   id serial PRIMARY KEY,
-  system_bmi_ref text,
-  product_bmi_ref text,
-  market_id int,
+  system_bmi_ref text NOT NULL,
+  product_bmi_ref text NOT NULL,
+  market_id int NOT NULL,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -596,64 +648,64 @@ INSERT INTO company_operation (id, company, operation)
 
 TRUNCATE TABLE evidence_item RESTART IDENTITY;
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
   VALUES ('1', NULL, 1, 1, 'PROOF_OF_PURCHASE', 'stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg', 'https://image.shutterstock.com/z/stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
   VALUES ('2', NULL, 1, 2, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
   VALUES ('3', NULL, 3, 3, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('4', '3ka17lbEy4ENxBKQC4CY4V', 3, 3, 'CUSTOM', 'gargoyle-images-manchester-600w-71247169.jpg', 'https://c7.alamy.com/comp/FK32Y4/st-matthews-church-in-brixton-hill-south-london-FK32Y4.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('4', 'PITCHED_DETAILS', 3, 3, 'CUSTOM', 'gargoyle-images-manchester-600w-71247169.jpg', 'https://c7.alamy.com/comp/FK32Y4/st-matthews-church-in-brixton-hill-south-london-FK32Y4.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('5', '3ka17lbEy4ENxBKQC4CY4V', 3, 3, 'CUSTOM', 'gargoyle-fountain-detail-close-600w-499048789.jpg', 'https://image.shutterstock.com/image-photo/gargoyle-fountain-detail-close-600w-499048789.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('5', 'PITCHED_DETAILS', 3, 3, 'CUSTOM', 'gargoyle-fountain-detail-close-600w-499048789.jpg', 'https://image.shutterstock.com/image-photo/gargoyle-fountain-detail-close-600w-499048789.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('6', '7j0FaWCBSVanXJqaZrDyvP', 3, 3, 'CUSTOM', 'dancing-friends-600w-717409222.jpg', 'https://image.shutterstock.com/image-photo/dancing-friends-600w-717409222.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('6', 'PITCHED_VENTILATION', 3, 3, 'CUSTOM', 'dancing-friends-600w-717409222.jpg', 'https://image.shutterstock.com/image-photo/dancing-friends-600w-717409222.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('7', '5FbxiRcMYuY6txgoVAnWJm', 3, 3, 'CUSTOM', 'Army_Photography_Contest_-_2007_-_FMWRC_-_Arts_and_Crafts_-_A_Plumpish_Proportion_%284930276154%29.jpg', 'https://image.shutterstock.com/image-photo/dramatic-picture-frozen-medieval-dragon-600w-131654306.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('7', 'PITCHED_VENTILATION', 3, 3, 'CUSTOM', 'Army_Photography_Contest_-_2007_-_FMWRC_-_Arts_and_Crafts_-_A_Plumpish_Proportion_%284930276154%29.jpg', 'https://image.shutterstock.com/image-photo/dramatic-picture-frozen-medieval-dragon-600w-131654306.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('8', '3ka17lbEy4ENxBKQC4CY4V', NULL, 4, 'CUSTOM', 'ministry-of-sound-24-1.jpg', 'https://paradise.london/wp-content/uploads/2019/08/ministry-of-sound-24-1.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('8', 'PITCHED_DETAILS', 4, 4, 'CUSTOM', 'ministry-of-sound-24-1.jpg', 'https://paradise.london/wp-content/uploads/2019/08/ministry-of-sound-24-1.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('9', '3ka17lbEy4ENxBKQC4CY4V', 4, 4, 'CUSTOM', 'prague-czech-republic-august-172019-600w-1722304249.jpg', 'https://image.shutterstock.com/image-photo/prague-czech-republic-august-172019-600w-1722304249.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('9', 'PITCHED_DETAILS', 4, 4, 'CUSTOM', 'prague-czech-republic-august-172019-600w-1722304249.jpg', 'https://image.shutterstock.com/image-photo/prague-czech-republic-august-172019-600w-1722304249.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('10', '7j0FaWCBSVanXJqaZrDyvP', 4, 4, 'CUSTOM', 'rooftop-party.html', 'https://depositphotos.com/stock-photos/rooftop-party.html');
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('10', 'PITCHED_VENTILATION', 4, 4, 'CUSTOM', 'rooftop-party.html', 'https://depositphotos.com/stock-photos/rooftop-party.html');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('11', '5FbxiRcMYuY6txgoVAnWJm', 4, 4, 'CUSTOM', 'Ceiling-leak.jpg', 'https://rennisonroofing.com/wp-content/uploads/2020/04/Ceiling-leak.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('11', 'PITCHED_VENTILATION', 4, 4, 'CUSTOM', 'Ceiling-leak.jpg', 'https://rennisonroofing.com/wp-content/uploads/2020/04/Ceiling-leak.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
   VALUES ('12', NULL, 4, NULL, 'MISCELLANEOUS', '2880px-Dunvegan_Castle_in_the_mist01editcrop_2007-08-22.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Dunvegan_Castle_in_the_mist01editcrop_2007-08-22.jpg/2880px-Dunvegan_Castle_in_the_mist01editcrop_2007-08-22.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
   VALUES ('13', NULL, 4, NULL, 'MISCELLANEOUS', '1920px-Eichenberg_01.JPG', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Eichenberg_01.JPG/1920px-Eichenberg_01.JPG');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
   VALUES ('14', NULL, 2, NULL, 'MISCELLANEOUS', '1024px-Convento_Cristo_December_2008-2a.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Convento_Cristo_December_2008-2a.jpg/1024px-Convento_Cristo_December_2008-2a.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+INSERT INTO evidence_item (id, custom_evidence_category_key, project_id, guarantee_id, evidence_category_type, name, attachment)
   VALUES ('15', NULL, 2, NULL, 'MISCELLANEOUS', '1920px-02.Trinidad_%2859%29.JPG', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/02.Trinidad_%2859%29.JPG/1920px-02.Trinidad_%2859%29.JPG');
 
 TRUNCATE TABLE guarantee RESTART IDENTITY;
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('1', 'http://www.africau.edu/images/default/sample.pdf', 3, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'BMI-NO-PROD-001', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2061-04-20 12:00:00', 'C1P1G1');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_reference_code, system_bmi_ref, product_bmi_ref, reviewer_account_id, coverage, language_code, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('1', 'http://www.africau.edu/images/default/sample.pdf', 3, 1, 'PITCHED_PRODUCT', NULL, 'BMI-NO-PROD-001', NULL, 'PRODUCT', 'en', 'APPROVED', '2021-04-20 12:00:00', '2061-04-20 12:00:00', 'C1P1G1');
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('2', 'http://www.africau.edu/images/default/sample.pdf', 3, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'BMI-NO-PROD-002', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2051-04-20 12:00:00', 'C1P2G2');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_reference_code, system_bmi_ref, product_bmi_ref, reviewer_account_id, coverage, language_code, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('2', 'http://www.africau.edu/images/default/sample.pdf', 3, 1, 'PITCHED_PRODUCT', NULL, 'BMI-NO-PROD-002', NULL, 'PRODUCT', 'en', 'APPROVED', '2021-04-20 12:00:00', '2051-04-20 12:00:00', 'C1P2G2');
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('3', 'http://www.africau.edu/images/default/sample.pdf', 7, 3, '54S9J770q5T2jPYxptah89', 'BMI-NO-PC21-01', NULL, NULL, '2cH694AWInJSZIdKHDKfJO', 'REJECTED', NULL, NULL, 'C2P3G3');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_reference_code, system_bmi_ref, product_bmi_ref, reviewer_account_id, coverage, language_code, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('3', 'http://www.africau.edu/images/default/sample.pdf', 7, 3, 'FLAT_SOLUTION', 'BMI-NO-PC21-01', NULL, NULL, 'SOLUTION', 'en', 'REJECTED', NULL, NULL, 'C2P3G3');
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('4', 'http://www.africau.edu/images/default/sample.pdf', 13, 4, '54S9J770q5T2jPYxptah89', 'BMI-NO-PC21-02', NULL, 1, '2cH694AWInJSZIdKHDKfJO', 'APPROVED', '2020-12-29 12:00:00', '2050-12-29 12:00:00', 'C3P4G4');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_reference_code, system_bmi_ref, product_bmi_ref, reviewer_account_id, coverage, language_code, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('4', 'http://www.africau.edu/images/default/sample.pdf', 13, 4, 'FLAT_SOLUTION', 'BMI-NO-PC21-02', NULL, 1, 'SOLUTION', 'en', 'APPROVED', '2020-12-29 12:00:00', '2050-12-29 12:00:00', 'C3P4G4');
 
 TRUNCATE TABLE invitation RESTART IDENTITY;
 
@@ -1319,7 +1371,7 @@ COMMENT ON TABLE evidence_item IS 'A file uploaded to a project, usually as evid
 
 COMMENT ON COLUMN evidence_item.id IS 'Primary key';
 
-COMMENT ON COLUMN evidence_item.custom_evidence_category_id IS 'a reference to the evidenceCategory sys id in Contentful';
+COMMENT ON COLUMN evidence_item.custom_evidence_category_key IS 'ek';
 
 COMMENT ON COLUMN evidence_item.project_id IS 'fk';
 
@@ -1341,7 +1393,7 @@ COMMENT ON COLUMN guarantee.requestor_account_id IS 'fk';
 
 COMMENT ON COLUMN guarantee.project_id IS 'fk';
 
-COMMENT ON COLUMN guarantee.guarantee_type_id IS 'a reference to the guaranteeType sys id in Contentful';
+COMMENT ON COLUMN guarantee.guarantee_reference_code IS 'ek';
 
 COMMENT ON COLUMN guarantee.system_bmi_ref IS 'fk';
 
@@ -1349,7 +1401,9 @@ COMMENT ON COLUMN guarantee.product_bmi_ref IS 'fk';
 
 COMMENT ON COLUMN guarantee.reviewer_account_id IS 'fk';
 
-COMMENT ON COLUMN guarantee.guarantee_template_id IS 'a reference to the guaranteeType sys id in Contentful';
+COMMENT ON COLUMN guarantee.coverage IS 'ek';
+
+COMMENT ON COLUMN guarantee.language_code IS 'ek';
 
 COMMENT ON COLUMN guarantee.status IS 'ek';
 

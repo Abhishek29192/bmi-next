@@ -8,6 +8,11 @@ export const mockProduct: Product = {
   technology: "PITCHED",
   createdAt: Date.now(),
   updatedAt: Date.now(),
+  bmiRef: "",
+  brand: "",
+  family: "",
+  maximumValidityYears: 2,
+  published: true,
   systemMembersByProductBmiRef: emptyNodes,
   guaranteesByProductBmiRef: emptyNodes
 };

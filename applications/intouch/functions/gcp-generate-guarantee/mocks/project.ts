@@ -18,5 +18,7 @@ export const mockProject: Project = {
   buildingOwnerLastname: "Buildmaster",
   buildingOwnerMail: "owner@building.com",
   roofArea: 50,
-  siteAddress: mockSiteAddress
+  siteAddress: mockSiteAddress,
+  endDate: Date.now(),
+  startDate: Date.now()
 };

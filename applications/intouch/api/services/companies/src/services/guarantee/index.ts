@@ -27,8 +27,7 @@ export const createGuarantee = async (
 
   try {
     const { guarantee } = args.input;
-    const { projectId, guaranteeTypeCoverage, evidenceItemsUsingId } =
-      guarantee;
+    const { projectId, coverage, evidenceItemsUsingId } = guarantee;
 
     guarantee.requestorAccountId = +user.id;
     guarantee.bmiReferenceId = `${crypto.randomBytes(10).toString("hex")}`;
@@ -53,7 +52,7 @@ export const createGuarantee = async (
       }
     }
 
-    if (guaranteeTypeCoverage !== "SOLUTION") {
+    if (coverage !== "SOLUTION") {
       guarantee.status = "APPROVED";
 
       const {

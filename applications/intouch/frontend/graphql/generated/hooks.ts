@@ -888,7 +888,7 @@ export const GetProjectDocument = gql`
       guarantees {
         nodes {
           id
-          guaranteeTypeId
+          guaranteeReferenceCode
           reviewerAccountId
           guaranteeType {
             sys {
@@ -904,6 +904,7 @@ export const GetProjectDocument = gql`
                 sys {
                   id
                 }
+                referenceCode
                 name
                 minimumUploads
               }
@@ -934,7 +935,7 @@ export const GetProjectDocument = gql`
           name
           guaranteeId
           evidenceCategoryType
-          customEvidenceCategoryId
+          customEvidenceCategoryKey
           customEvidenceCategory {
             name
             minimumUploads
@@ -1489,6 +1490,8 @@ export const ContentfulEvidenceCategoriesDocument = gql`
           id
         }
         name
+        referenceCode
+        minimumUploads
       }
     }
   }
@@ -1700,6 +1703,7 @@ export const GetProductGuaranteeTypesDocument = gql`
         sys {
           id
         }
+        guaranteeReferenceCode
         name
         displayName
         technology
@@ -1712,11 +1716,15 @@ export const GetProductGuaranteeTypesDocument = gql`
               id
             }
             displayName
+            languageCode
+            coverage
           }
         }
         evidenceCategoriesCollection {
           items {
             name
+            referenceCode
+            minimumUploads
           }
         }
       }
