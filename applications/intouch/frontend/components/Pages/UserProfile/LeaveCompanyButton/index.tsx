@@ -55,7 +55,7 @@ export const LeaveCompanyButton = ({
       <Button variant="outlined" onClick={() => setIsLeaveDialogOpen(true)}>
         {t("profile:leaveCompany.cta")}
       </Button>
-      <Dialog open={isLeaveDialogOpen}>
+      <Dialog open={isLeaveDialogOpen} disablePortal={false}>
         <Dialog.Title hasUnderline>
           {t("profile:leaveCompany.dialog.title")}
         </Dialog.Title>
