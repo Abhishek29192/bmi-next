@@ -1,0 +1,31 @@
+@import "@bmi/styles";
+
+.main {
+  background-color: $color-white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+}
+
+.logo {
+  max-width: 100%;
+}
+
+.defaultLogo {
+  height: 120px;
+  width: 120px;
+}
+
+.body {
+  padding: 1.5rem 0;
+}
+
+.businessType {
+  margin-top: 1rem !important;
+}
+
+.editContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+}

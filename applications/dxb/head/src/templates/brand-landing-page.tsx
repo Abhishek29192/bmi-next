@@ -3,12 +3,10 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Hero, { HeroItem } from "@bmi/hero";
 import Section from "@bmi/section";
-import { getSrc } from "gatsby-plugin-image";
-import { Data as SiteData, SiteContext } from "../components/Site";
+import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
-// import Search from "@bmi/search";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -87,6 +85,15 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     seo
   };
 
+  const firstSlide: HeroItem = {
+    title: <BrandLogo brandName={brandLogo} />,
+    children: description?.description,
+    media: featuredVideo
+      ? renderVideo(featuredVideo)
+      : renderImage(featuredMedia, { size: "cover" }),
+    hasUnderline: false
+  };
+
   return (
     <Page
       brand={brandLogo}
@@ -96,36 +103,27 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
     >
-      <SiteContext.Consumer>
-        {(context) => {
-          // const { getMicroCopy } = context;
-          const heroItems = getHeroItemsWithContext(context, slides);
-          const firstSlide: HeroItem = {
-            title: <BrandLogo brandName={brandLogo} />,
-            children: description?.description,
-            imageSource: featuredVideo
-              ? renderVideo(featuredVideo)
-              : renderImage(featuredMedia),
-            hasUnderline: false
-          };
+      {({ siteContext }) => {
+        const heroItems = getHeroItemsWithContext(siteContext, slides);
 
-          return (
+        return (
+          <>
             <Hero
               level={0}
               brand={brandLogo}
               breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
-            ></Hero>
-          );
-        }}
-      </SiteContext.Consumer>
+            />
 
-      {overlapCards && <OverlapCards data={overlapCards} />}
-      {sections && <Sections data={sections} />}
-      <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs data={breadcrumbs} />
-      </Section>
+            {overlapCards && <OverlapCards data={overlapCards} />}
+            {sections && <Sections data={sections} />}
+            <Section backgroundColor="alabaster" isSlim>
+              <Breadcrumbs data={breadcrumbs} />
+            </Section>
+          </>
+        );
+      }}
     </Page>
   );
 };

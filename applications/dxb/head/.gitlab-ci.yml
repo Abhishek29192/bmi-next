@@ -1,7 +1,7 @@
 test_head:
   extends: .test_jest
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -26,10 +26,10 @@ test_mr_coverage_head:
   variables:
     WORKSPACE: "@bmi/head"
 
-build_head:
+build_head_mr:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -57,12 +57,51 @@ build_head:
       paths:
         - "**/node_modules"
         - ".yarn_cache"
-    - key: build_head
+    - key: build_head_mr
       policy: pull-push
       untracked: false
       paths:
         - "applications/dxb/head/.cache"
         - "applications/dxb/head/public"
+
+# TODO: Set to use pre-prod environment data
+# build_head_hotfix_mr:
+#   stage: build
+#   rules:
+#     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+#       changes:
+#         - applications/dxb/head/**/*
+#         - components/**/*
+#         - libraries/**/*
+#         - package.json
+#         - "**/package.json"
+#   needs:
+#     - install
+#   variables:
+#     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
+#   before_script:
+#     - yarn config set cache-folder ${PWD}/.yarn_cache
+#   script:
+#     - yarn workspace @bmi/head check:ts
+#     - yarn workspace @bmi/head build
+#   artifacts:
+#     paths:
+#       - applications/dxb/head/public
+#   cache:
+#     - key:
+#         files:
+#           - yarn.lock
+#       policy: pull
+#       untracked: false
+#       paths:
+#         - "**/node_modules"
+#         - ".yarn_cache"
+#     - key: build_head_hotfix_mr
+#       policy: pull-push
+#       untracked: false
+#       paths:
+#         - "applications/dxb/head/.cache"
+#         - "applications/dxb/head/public"
 
 deploy_head_preview:
   stage: deploy
@@ -73,7 +112,7 @@ deploy_head_preview:
         - components/**/*
         - libraries/**/*
   needs:
-    - build_head
+    - build_head_mr
   before_script:
     - yarn config set cache-folder ~/.yarn
     - apt-get update
@@ -87,7 +126,7 @@ deploy_head_preview:
       DEPLOY_RESULT=$(npx netlify deploy --dir applications/dxb/head/public --site "${NETLIFY_HEAD_SITE_ID}" --auth "${NETLIFY_AUTH_TOKEN}" --json) || exit 0
       echo ${DEPLOY_RESULT}
       SITE_URL=$(echo ${DEPLOY_RESULT} | jq -r '.deploy_url')
-      curl --request POST --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" -H "Content-Type: application/json" \
+      curl --request POST --header "PRIVATE-TOKEN: ${NETLIFY_GITLAB_TOKEN}" -H "Content-Type: application/json" \
         -d "{\"body\":\"Deployed to: ${SITE_URL}\"}" \
         "https://gitlab.com/api/v4/projects/19163612/merge_requests/${CI_MERGE_REQUEST_IID}/notes"
       echo "${SITE_URL}" > deploy_head

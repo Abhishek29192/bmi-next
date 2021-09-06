@@ -1,4 +1,9 @@
 version: 2
+registries:
+  npm-npmjs:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    token: ${{NPM_AUTH_READ_TOKEN}}
 updates:
   - package-ecosystem: "npm"
     directory: "/"

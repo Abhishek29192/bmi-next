@@ -89,6 +89,7 @@ export const renderImage = (data?: Data, options: Options = {}) => {
         position,
         focalPoint: data.focalPoint
       })}
+      className={className}
     />
   );
 };

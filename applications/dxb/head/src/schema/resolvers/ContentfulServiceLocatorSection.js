@@ -1,12 +1,18 @@
 "use strict";
 
 module.exports = {
-  roofers: {
-    type: ["ContentfulRoofer"],
+  services: {
+    type: ["ContentfulService"],
     async resolve(source, args, context) {
-      return context.nodeModel.getAllNodes(
-        { type: "ContentfulRoofer" },
-        { connectionType: "ContentfulRoofer" }
+      return context.nodeModel.runQuery(
+        {
+          query: {
+            filter: { entryType: { eq: source.type } }
+          },
+          type: "ContentfulService",
+          firstOnly: false
+        },
+        { connectionType: "ContentfulService" }
       );
     }
   }

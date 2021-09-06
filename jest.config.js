@@ -22,7 +22,8 @@ module.exports = {
   roots: [
     "<rootDir>/components",
     "<rootDir>/applications",
-    "<rootDir>/functions"
+    "<rootDir>/functions",
+    "<rootDir>/libraries"
   ],
   testMatch: ["**/__tests__/**/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],

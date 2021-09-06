@@ -4,183 +4,115 @@ import { render, fireEvent, act } from "@testing-library/react";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../ServiceLocatorSection";
-import { rooferTypes } from "../../components/Roofer";
-import createRoofer from "../../__tests__/RooferHelper";
+import { serviceTypes } from "../Service";
+import createService from "../../__tests__/ServiceHelper";
+
+let callMarkerOnClick;
+
+jest.mock("@bmi/google-map", () => {
+  const GoogleMap = jest
+    .fn()
+    .mockImplementation(({ children, onMarkerClick }) => {
+      callMarkerOnClick = onMarkerClick;
+      return (
+        <div className="GoogleMap">
+          <div className="map"></div>
+          {children && <div className="popup">{children}</div>}
+        </div>
+      );
+    });
+
+  return {
+    __esModule: true,
+    default: GoogleMap
+  };
+});
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
 
 describe("ServiceLocatorSection component", () => {
-  it("renders correctly with NO roofer", () => {
+  it("renders correctly with NO service", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
       title: "service locator section",
       label: "Main",
       body: null,
       position: 1,
       centre: null,
       zoom: 8,
-      roofers: null
+      services: null
     };
 
     const { container } = render(<ServiceLocatorSection data={data} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  describe("renders single roofer", () => {
-    it("with No roofer type", () => {
+  describe("renders single service", () => {
+    it("with No service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
         title: "service locator section",
         label: "Main",
         body: null,
         position: 1,
         centre: null,
         zoom: 8,
-        roofers: [createRoofer()]
+        services: [createService()]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
       expect(container.firstChild).toMatchSnapshot();
     });
 
-    it("with single roofer type", () => {
+    it("with empty service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
         title: "service locator section",
         label: "Main",
         body: null,
         position: 1,
         centre: null,
         zoom: 8,
-        roofers: [createRoofer({ type: [rooferTypes[0]] })]
+        services: [createService({ type: [] })]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
       expect(container.firstChild).toMatchSnapshot();
     });
 
-    it("with multiple roofer type", () => {
+    it("with single service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
         title: "service locator section",
         label: "Main",
         body: null,
         position: 1,
         centre: null,
         zoom: 8,
-        roofers: [createRoofer({ type: [rooferTypes[0], rooferTypes[0]] })]
-      };
-
-      const { container } = render(<ServiceLocatorSection data={data} />);
-      expect(container.firstChild).toMatchSnapshot();
-    });
-  });
-
-  describe("renders multiple roofers", () => {
-    it("with No roofer type", () => {
-      const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
-        title: "service locator section",
-        label: "Main",
-        body: null,
-        position: 1,
-        centre: null,
-        zoom: 8,
-        roofers: [
-          createRoofer({ id: "roofer_1", name: "roofer 1" }),
-          createRoofer({ id: "roofer_2", name: "roofer 1" })
-        ]
+        services: [createService({ type: [serviceTypes[0]] })]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
       expect(container.firstChild).toMatchSnapshot();
     });
 
-    it("with single roofer type", () => {
+    it("with multiple service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
         title: "service locator section",
         label: "Main",
         body: null,
         position: 1,
         centre: null,
         zoom: 8,
-        roofers: [
-          createRoofer({
-            id: "roofer_1",
-            name: "roofer 1",
-            type: [rooferTypes[0]]
-          }),
-          createRoofer({
-            id: "roofer_2",
-            name: "roofer 2",
-            type: [rooferTypes[0]]
-          })
-        ]
-      };
-
-      const { container } = render(<ServiceLocatorSection data={data} />);
-      expect(container.firstChild).toMatchSnapshot();
-    });
-
-    it("with multiple roofer type", () => {
-      const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
-        title: "service locator section",
-        label: "Main",
-        body: null,
-        position: 1,
-        centre: null,
-        zoom: 8,
-        roofers: [
-          createRoofer({
-            id: "roofer_1",
-            name: "roofer 1",
-            type: [rooferTypes[0], rooferTypes[1]]
-          }),
-          createRoofer({
-            id: "roofer_2",
-            name: "roofer 2",
-            type: [rooferTypes[0], rooferTypes[1]]
-          })
-        ]
-      };
-
-      const { container } = render(<ServiceLocatorSection data={data} />);
-      expect(container.firstChild).toMatchSnapshot();
-    });
-
-    it("with ALL roofer type", () => {
-      const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
-        title: "service locator section",
-        label: "Main",
-        body: null,
-        position: 1,
-        centre: null,
-        zoom: 8,
-        roofers: [
-          createRoofer({
-            id: "roofer_1",
-            name: "roofer 1",
-            type: [
-              rooferTypes[0],
-              rooferTypes[1],
-              rooferTypes[2],
-              rooferTypes[3],
-              rooferTypes[4]
-            ]
-          }),
-          createRoofer({
-            id: "roofer_2",
-            name: "roofer 2",
-            type: [
-              rooferTypes[0],
-              rooferTypes[1],
-              rooferTypes[2],
-              rooferTypes[3],
-              rooferTypes[4]
-            ]
-          })
-        ]
+        services: [createService({ type: [serviceTypes[0], serviceTypes[0]] })]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
@@ -188,16 +120,354 @@ describe("ServiceLocatorSection component", () => {
     });
   });
 
-  it("selects roofer", () => {
+  describe("renders multiple services", () => {
+    it("with No service type", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({ id: "roofer_1", name: "roofer 1" }),
+          createService({ id: "roofer_2", name: "roofer 1" })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("with single service type", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({
+            id: "roofer_1",
+            name: "roofer 1",
+            type: [serviceTypes[0]]
+          }),
+          createService({
+            id: "roofer_2",
+            name: "roofer 2",
+            type: [serviceTypes[0]]
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("for Branches", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: "Branch",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({
+            entryType: "Branch",
+            id: "roofer_1",
+            name: "roofer 1",
+            type: [serviceTypes[0]],
+            fax: "222222"
+          }),
+          createService({
+            entryType: "Branch",
+            id: "roofer_2",
+            name: "roofer 2",
+            type: [serviceTypes[0]]
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("for Merchants", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: "Merchant",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({
+            entryType: "Merchant",
+            id: "roofer_1",
+            name: "roofer 1",
+            type: [serviceTypes[0]]
+          }),
+          createService({
+            entryType: "Merchant",
+            id: "roofer_2",
+            name: "roofer 2",
+            type: [serviceTypes[0]]
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("with no fields for invalid type", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        // @ts-expect-error
+        type: "Invalid type",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({
+            entryType: "Merchant",
+            id: "roofer_1",
+            name: "roofer 1",
+            type: [serviceTypes[0]]
+          }),
+          createService({
+            entryType: "Merchant",
+            id: "roofer_2",
+            name: "roofer 2",
+            type: [serviceTypes[0]]
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("with multiple service type", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({
+            id: "roofer_1",
+            name: "roofer 1",
+            type: [serviceTypes[0], serviceTypes[1]]
+          }),
+          createService({
+            id: "roofer_2",
+            name: "roofer 2",
+            type: [serviceTypes[0], serviceTypes[1]]
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("with ALL service type", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({
+            id: "roofer_1",
+            name: "roofer 1",
+            type: [
+              serviceTypes[0],
+              serviceTypes[1],
+              serviceTypes[2],
+              serviceTypes[3],
+              serviceTypes[4]
+            ]
+          }),
+          createService({
+            id: "roofer_2",
+            name: "roofer 2",
+            type: [
+              serviceTypes[0],
+              serviceTypes[1],
+              serviceTypes[2],
+              serviceTypes[3],
+              serviceTypes[4]
+            ]
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+  });
+
+  it("searchs for a service", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
       title: "service locator section",
       label: "Main",
       body: null,
       position: 1,
       centre: null,
       zoom: 8,
-      roofers: [createRoofer({ name: "roofer 1" })]
+      services: [
+        createService({ name: "roofer 1" }),
+        createService({ name: "some other name" })
+      ]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const nameInput = wrapper.container.querySelector("#company-autocomplete");
+
+    fireEvent.change(nameInput, { target: { value: "roofer" } });
+
+    expect(wrapper.container.parentElement).toMatchSnapshot(
+      "Filtered option list"
+    );
+
+    const option0 = wrapper.container.parentElement.querySelector(
+      "#company-autocomplete-option-0"
+    );
+
+    fireEvent.click(option0);
+
+    expect(wrapper.container.parentElement).toMatchSnapshot(
+      "Filtered main list"
+    );
+  });
+
+  it("doesn't search on entring the first letter", () => {
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [createService({ name: "roofer 1" })]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const nameInput = wrapper.container.querySelector("#company-autocomplete");
+
+    fireEvent.change(nameInput, { target: { value: "r" } });
+
+    expect(wrapper.container.parentElement).toMatchSnapshot();
+  });
+
+  it("sets current location", () => {
+    Object.defineProperty(global.navigator, "geolocation", {
+      value: {
+        getCurrentPosition: jest.fn().mockImplementation((success) =>
+          act(() =>
+            success({
+              coords: {
+                latitude: 60,
+                longitude: 20
+              }
+            })
+          )
+        )
+      },
+      configurable: true
+    });
+
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [createService({ name: "roofer 1" })]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+
+    const geolocationButton = wrapper.getByRole("button", {
+      name: `MC: findARoofer.geolocationButton`
+    });
+
+    fireEvent.click(geolocationButton);
+
+    expect(wrapper.container.parentElement).toMatchSnapshot();
+
+    Object.defineProperty(global.navigator, "geolocation", {
+      value: undefined,
+      configurable: true
+    });
+  });
+
+  it("changes selected service with marker click", () => {
+    const roofer1 = createService({ name: "roofer 1" });
+    const roofer2 = createService({ name: "roofer 2" });
+
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [roofer1, roofer2]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+
+    act(() => {
+      callMarkerOnClick(roofer2);
+    });
+
+    expect(wrapper.container.parentElement).toMatchSnapshot();
+  });
+
+  it("selects service", () => {
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [createService({ name: "roofer 1" })]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
@@ -206,16 +476,17 @@ describe("ServiceLocatorSection component", () => {
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
-  it("selects and unselects roofer", () => {
+  it("selects and unselects service", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
       title: "service locator section",
       label: "Main",
       body: null,
       position: 1,
       centre: null,
       zoom: 8,
-      roofers: [createRoofer({ name: "roofer 1" })]
+      services: [createService({ name: "roofer 1" })]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
@@ -228,26 +499,27 @@ describe("ServiceLocatorSection component", () => {
   it("filters using chip click", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
       title: "service locator section",
       label: "Main",
       body: null,
       position: 1,
       centre: null,
       zoom: 8,
-      roofers: [
-        createRoofer({
+      services: [
+        createService({
           id: "roofer_1",
           name: "roofer 1",
           distance: 10,
-          type: [rooferTypes[0]]
+          type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
           distance: 5,
-          type: [rooferTypes[1]]
+          type: [serviceTypes[1]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_3",
           name: "roofer 3",
           distance: 15,
@@ -258,7 +530,7 @@ describe("ServiceLocatorSection component", () => {
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
+      name: `MC: findARoofer.filters.${camelCase(serviceTypes[0])}`
     });
     chipButton.click();
     expect(wrapper.container.firstChild).toMatchSnapshot();
@@ -267,29 +539,30 @@ describe("ServiceLocatorSection component", () => {
   it("click and unclick chip", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
       title: "service locator section",
       label: "Main",
       body: null,
       position: 1,
       centre: null,
       zoom: 8,
-      roofers: [
-        createRoofer({
+      services: [
+        createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [rooferTypes[1]]
+          type: [serviceTypes[1]]
         })
       ]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
+      name: `MC: findARoofer.filters.${camelCase(serviceTypes[0])}`
     });
     chipButton.click();
     chipButton.click();
@@ -299,32 +572,33 @@ describe("ServiceLocatorSection component", () => {
   it("click all chips", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
       title: "service locator section",
       label: "Main",
       body: null,
       position: 1,
       centre: null,
       zoom: 8,
-      roofers: [
-        createRoofer({
+      services: [
+        createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [rooferTypes[1]]
+          type: [serviceTypes[1]]
         })
       ]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const chipButton1 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
+      name: `MC: findARoofer.filters.${camelCase(serviceTypes[0])}`
     });
     const chipButton2 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[1])}`
+      name: `MC: findARoofer.filters.${camelCase(serviceTypes[1])}`
     });
     chipButton1.click();
     chipButton2.click();
@@ -341,22 +615,23 @@ describe("ServiceLocatorSection component", () => {
 
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
       title: "service locator section",
       label: "Main",
       body: null,
       position: 1,
       centre: null,
       zoom: 8,
-      roofers: [
-        createRoofer({
+      services: [
+        createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [rooferTypes[1]]
+          type: [serviceTypes[1]]
         })
       ]
     };
@@ -376,17 +651,48 @@ describe("ServiceLocatorSection component", () => {
 
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
       title: "service locator section",
       label: "Main",
       body: null,
       position: 1,
       centre: null,
       zoom: 8,
-      roofers: [
-        createRoofer({
+      services: [
+        createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          type: [serviceTypes[0]]
+        })
+      ]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+    expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it("can selects all chips by default", () => {
+    // Might affect other tests in this file
+    Object.defineProperty(global.window, "location", {
+      value: {
+        search: `?chip=${encodeURIComponent(serviceTypes.join(","))}`
+      }
+    });
+
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [
+        createService({
+          id: "roofer_1",
+          name: "roofer 1",
+          type: [...serviceTypes]
         })
       ]
     };
@@ -398,22 +704,23 @@ describe("ServiceLocatorSection component", () => {
   it("filters using autocomplete", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
       title: "service locator section",
       label: "Main",
       body: null,
       position: 1,
       centre: null,
       zoom: 8,
-      roofers: [
-        createRoofer({
+      services: [
+        createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          type: [serviceTypes[0]]
         }),
-        createRoofer({
+        createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [rooferTypes[0]]
+          type: [serviceTypes[0]]
         })
       ]
     };

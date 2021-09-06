@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getProjectStatus utility returns status COMPLETED correctly 1`] = `"Completed"`;
+
+exports[`getProjectStatus utility returns status IN PROGRESS correctly 1`] = `"In progress"`;
+
+exports[`getProjectStatus utility returns status NOT STARTED correctly 1`] = `"Not started"`;

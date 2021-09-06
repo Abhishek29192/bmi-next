@@ -57,4 +57,4 @@ deploy_gcp-intouch-handle-message:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud builds submit . --config=applications/intouch/functions/gcp-handle-message/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_SENDGRID_API_KEY_DEV=$INTOUCH_SENDGRID_API_KEY_DEV,_INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM
+    - gcloud builds submit . --config=applications/intouch/functions/gcp-handle-message/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT

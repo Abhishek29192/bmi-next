@@ -13,15 +13,13 @@ const getSecret = async (client, project, key) => {
 export const getAuth0Instance = async (req, res) => {
   // Only server side
   if (req) {
-    const { headers } = req;
-    const protocol = headers["x-forwarded-proto"] || "http";
-
     // Process exist only on server side, so In eed to be sure req exists
     const {
       GCP_SECRET_PROJECT,
       AUTH0_ISSUER_BASE_URL,
       AUTH0_CLIENT_ID,
-      AUTH0_COOKIE_DOMAIN
+      AUTH0_COOKIE_DOMAIN,
+      FRONTEND_BASE_URL
     } = process.env;
 
     if (!auth0) {
@@ -38,8 +36,11 @@ export const getAuth0Instance = async (req, res) => {
         "AUTH0_SECRET"
       );
 
+      // dynamically redirecting to the request host using `req.headers.host`
+      // is currently problematic with the Load Balancer (or the WAF) directing requests to the frontend
+      // using a less dynamic fixed URL approach for now
       auth0 = initAuth0({
-        baseURL: `${protocol}://${req.headers.host}`,
+        baseURL: FRONTEND_BASE_URL,
         issuerBaseURL: AUTH0_ISSUER_BASE_URL,
         clientID: AUTH0_CLIENT_ID,
         clientSecret: AUTH0_CLIENT_SECRET,

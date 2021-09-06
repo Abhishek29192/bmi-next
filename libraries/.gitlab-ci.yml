@@ -1,0 +1,2 @@
+include:
+  - local: "/libraries/contentful-upload/.gitlab-ci.yml"

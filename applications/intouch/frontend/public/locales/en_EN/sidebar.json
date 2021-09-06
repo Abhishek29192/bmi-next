@@ -25,14 +25,5 @@
   "Team Member": "Team Member",
   "Role": "Role",
   "Certification": "Certification",
-  "Remove": "Remove",
-  "Project code": "Project code",
-  "Project status": "Project status",
-  "Building address": "Building address",
-  "Project description": "Project description",
-  "Project start date": "Project start date",
-  "Project end date": "Project end date",
-  "Guarantee": "Guarantee",
-  "Guarantee status": "Guarantee status",
-  "Building Owner Details": "Building Owner Details"
+  "Remove": "Remove"
 }

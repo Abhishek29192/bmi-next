@@ -93,7 +93,9 @@ const Hero = ({
         styles["Hero"],
         styles["Hero--slim"],
         styles["Hero--carousel"],
-        brand && styles["Hero--keyline"],
+        !!process.env.GATSBY_ENABLE_BRAND_PROVIDER &&
+          brand &&
+          styles["Hero--keyline"],
         hasSpaceBottom && styles["Hero--space-bottom"],
         className
       )}
@@ -124,7 +126,15 @@ const Hero = ({
                       >
                         {title}
                       </Typography>
-                      <div className={styles["text"]}>{children}</div>
+                      <div
+                        className={
+                          hasUnderline
+                            ? styles["text"]
+                            : styles["text-no-underline"]
+                        }
+                      >
+                        {children}
+                      </div>
                       {React.isValidElement(cta) &&
                         React.cloneElement(cta, {
                           className: classnames(
@@ -184,7 +194,9 @@ const SingleHero = ({
     <div
       className={classnames(
         styles["Hero"],
-        brand && styles["Hero--keyline"],
+        !!process.env.GATSBY_ENABLE_BRAND_PROVIDER &&
+          brand &&
+          styles["Hero--keyline"],
         levelProps.level === 3 && styles["Hero--light"],
         levelProps.level !== 1 && styles["Hero--slim"],
         !!levelProps.level && styles[`Hero--lvl-${levelProps.level}`],
@@ -199,7 +211,10 @@ const SingleHero = ({
               variant="h1"
               hasUnderline
               hasDarkBackground={levelProps.level !== 3}
-              className={styles["title"]}
+              className={classnames(
+                styles["title"],
+                styles["title--truncated"]
+              )}
             >
               {title}
             </Typography>

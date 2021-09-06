@@ -1,5 +1,6 @@
 import AlternativeContent from "@bmi/alternative-content";
 import Button from "@bmi/button";
+import Clickable from "@bmi/clickable";
 import ContainerDialog from "@bmi/container-dialog";
 import Icon, { iconMap } from "@bmi/icon";
 import Typography from "@bmi/typography";
@@ -17,7 +18,7 @@ export type Props = {
   label: React.ReactNode;
   subtitle?: React.ReactNode;
   videoId: string;
-  previewImageSource?: string;
+  previewImageSource?: string | React.ReactNode;
   className?: string;
   embedHeight: number;
   embedWidth: number;
@@ -59,6 +60,22 @@ const playerStyle: CSSProperties = {
   transform: "translate(-50%, -50%)"
 };
 
+const getValidPrevieImage = (
+  previewImageSource: string | React.ReactNode,
+  label: React.ReactNode
+) => {
+  return React.isValidElement(previewImageSource) ? (
+    React.cloneElement(previewImageSource, {
+      className: styles["preview-image"]
+    })
+  ) : (
+    <img
+      className={styles["preview-image"]}
+      src={String(previewImageSource)}
+      alt={String(label)}
+    />
+  );
+};
 const DialogVideo = ({
   videoId,
   className,
@@ -88,22 +105,22 @@ const DialogVideo = ({
   if (calculatedHeight == 0 && height == 0) {
     calculatedHeight = window.innerHeight - 120;
   }
-
+  const validImageComponent = getValidPrevieImage(previewImageSource, label);
   return (
-    <div
-      className={classnames(styles["YoutubeVideo"], className)}
-      style={{ backgroundImage: `url(${previewImageSource})` }}
-    >
-      <AlternativeContent>{label}</AlternativeContent>
-      <Button
-        isIconButton
-        onClick={(e: any) => {
+    <div className={classnames(styles["YoutubeVideo"], className)}>
+      <Clickable
+        className={styles["thumbnail"]}
+        aria-label={label}
+        onClick={(_) => {
           setDialogOpen(true);
         }}
-        className={styles["play-button"]}
       >
-        <Icon source={iconMap.PlayArrow} />
-      </Button>
+        {validImageComponent}
+        <AlternativeContent>{label}</AlternativeContent>
+        <Button isIconButton className={styles["play-button"]} component="div">
+          <Icon source={iconMap.PlayArrow} />
+        </Button>
+      </Clickable>
       <ContainerDialog
         maxWidth={"xl"}
         open={isDialogOpen}
@@ -181,7 +198,7 @@ const InlineVideo = ({
   embedHeight = 9
 }: Props) => {
   const [isPlaying, setIsPlaying] = useState(false);
-
+  const validImageComponent = getValidPrevieImage(previewImageSource, label);
   return (
     <div
       className={classnames(
@@ -194,11 +211,7 @@ const InlineVideo = ({
       onClick={() => setIsPlaying(true)}
     >
       <div>
-        <img
-          className={styles["preview-image"]}
-          src={previewImageSource}
-          alt={String(label)}
-        />
+        {validImageComponent}
         <div className={styles["overlay"]}>
           <Button isIconButton className={styles["play-button"]}>
             <Icon source={iconMap.PlayArrow} />

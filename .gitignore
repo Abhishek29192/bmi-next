@@ -58,3 +58,6 @@ tsconfig.tsbuildinfo
 **/content-types-with-relationships.json
 **/content-types.json
 **/graph.svg
+
+# Firebase hosting
+.firebase/

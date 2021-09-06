@@ -20,16 +20,6 @@ describe("Google Storage", () => {
         expect(error.message).toEqual("A file name must be specified.");
       }
     });
-    it("if no expire date", async () => {
-      try {
-        const client = new StorageClient();
-        await client.getFileSignedUrl("bucket", "file", null);
-      } catch (error) {
-        expect(error.message).toEqual(
-          "An expiration date cannot be in the past."
-        );
-      }
-    });
   });
   describe("shouldn't upload File", () => {
     it("if no bucket name", async () => {

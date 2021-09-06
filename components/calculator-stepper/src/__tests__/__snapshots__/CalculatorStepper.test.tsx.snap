@@ -185,15 +185,15 @@ exports[`CalculatorStepper component renders as a div 1`] = `
         class="breakableRow"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button rowItem MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined rowItem MuiButton-outlinedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-24"
           >
             <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
             >
               <svg
                 aria-hidden="true"
@@ -217,12 +217,12 @@ exports[`CalculatorStepper component renders as a div 1`] = `
         class="breakableRow"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button rowItem MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 rowItem MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-24"
           >
             Skip
           </span>
@@ -231,12 +231,12 @@ exports[`CalculatorStepper component renders as a div 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button rowItem MuiButton-containedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 rowItem MuiButton-containedPrimary"
           tabindex="0"
           type="submit"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-24"
           >
             Calculate
           </span>
@@ -289,15 +289,15 @@ exports[`CalculatorStepper component renders correctly 1`] = `
         class="breakableRow"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button rowItem MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined rowItem MuiButton-outlinedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
             >
               <svg
                 aria-hidden="true"
@@ -321,12 +321,12 @@ exports[`CalculatorStepper component renders correctly 1`] = `
         class="breakableRow"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button rowItem MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 rowItem MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             Skip
           </span>
@@ -335,12 +335,12 @@ exports[`CalculatorStepper component renders correctly 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button rowItem MuiButton-containedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 rowItem MuiButton-containedPrimary"
           tabindex="0"
           type="submit"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             Calculate
           </span>

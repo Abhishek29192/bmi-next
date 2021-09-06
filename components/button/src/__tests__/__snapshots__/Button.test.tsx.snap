@@ -3,7 +3,7 @@
 exports[`Button component renders a disabled icon button 1`] = `
 <button
   aria-label="UserIcon"
-  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained IconButton--disabled Mui-disabled Mui-disabled"
+  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-contained-133 Mui-disabled Mui-disabled"
   disabled=""
   tabindex="-1"
   type="button"
@@ -27,12 +27,12 @@ exports[`Button component renders a disabled icon button 1`] = `
 
 exports[`Button component renders a flat button on dark background 1`] = `
 <button
-  class="MuiButtonBase-root MuiButton-root MuiButton-text Button Button--dark-background MuiButton-textPrimary"
+  class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-text buttonStyles-text-62 buttonStyles-textDarkBg-66 MuiButton-textPrimary"
   tabindex="0"
   type="button"
 >
   <span
-    class="MuiButton-label"
+    class="MuiButton-label buttonStyles-label-64"
   >
     Caption
   </span>
@@ -45,7 +45,7 @@ exports[`Button component renders a flat button on dark background 1`] = `
 exports[`Button component renders a small icon button 1`] = `
 <button
   aria-label="UserIcon"
-  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--small IconButton--contained"
+  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-small-117 iconButtonStyles-contained-113"
   tabindex="0"
   type="button"
 >
@@ -72,7 +72,7 @@ exports[`Button component renders a small icon button 1`] = `
 exports[`Button component renders an icon button 1`] = `
 <button
   aria-label="User"
-  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained"
+  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-contained-93"
   tabindex="0"
   type="button"
 >
@@ -87,14 +87,31 @@ exports[`Button component renders an icon button 1`] = `
 </button>
 `;
 
-exports[`Button component renders an outlined button on dark background 1`] = `
+exports[`Button component renders an opaque outlined button on dark background 1`] = `
 <button
-  class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button Button--dark-background MuiButton-outlinedPrimary"
+  class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined buttonStyles-opaqueOutlined-48 MuiButton-outlinedPrimary"
   tabindex="0"
   type="button"
 >
   <span
-    class="MuiButton-label"
+    class="MuiButton-label buttonStyles-label-44"
+  >
+    Caption
+  </span>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`Button component renders an outlined button on dark background 1`] = `
+<button
+  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-outlinedDarkBg-27 MuiButton-outlinedPrimary"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="MuiButton-label buttonStyles-label-24"
   >
     Caption
   </span>
@@ -106,12 +123,12 @@ exports[`Button component renders an outlined button on dark background 1`] = `
 
 exports[`Button component renders correctly 1`] = `
 <button
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
+  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
   tabindex="0"
   type="button"
 >
   <span
-    class="MuiButton-label"
+    class="MuiButton-label buttonStyles-label-4"
   >
     Caption
   </span>

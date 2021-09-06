@@ -199,7 +199,9 @@ describe("Account", () => {
           lastname: "Name",
           language: "en",
           level: 4,
+          valid: 1,
           email_validation_status: 1,
+          can_manage_subordinates: false,
           send_notification_email: false,
           select_orgchart: {
             branch_id: 1

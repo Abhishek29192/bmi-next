@@ -349,7 +349,16 @@ describe("Contact us page", () => {
       scriptOnetrust: null,
       scriptHotJar: null,
       scriptGOptLoad: null,
-      regions: regions.slice(-1)
+      regions: [
+        {
+          label: "Europe",
+          menu: [
+            { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+            { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+            { code: "no", label: "Norge", icon: "/icons/flags/no.svg" }
+          ]
+        }
+      ]
     }
   };
 

@@ -1,7 +1,34 @@
 import { Storage } from "@google-cloud/storage";
 import { FileUpload } from "graphql-upload";
 
-export default class StorageClient {
+export interface StorageClientType {
+  readonly constructor: Function;
+
+  uploadFileByStream(
+    bucketName: string,
+    fileName: string,
+    uploadFile: FileUpload
+  ): Promise<boolean>;
+
+  deleteFile(bucketName: string, fileName: string): Promise<any>;
+
+  getPublicFileUrl(fileName: string): string;
+  getFileNameFromPublicUrl(url: string): string;
+
+  getFileSignedUrl(
+    bucketName: string,
+    fileName: string,
+    expiryDate?: Date
+  ): Promise<string | undefined>;
+
+  getPrivateAssetSignedUrl(
+    fileName: string,
+    expiryDate?: Date
+  ): Promise<string | undefined>;
+}
+
+const STORAGE_BASE_URL = "https://storage.googleapis.com";
+export default class StorageClient implements StorageClientType {
   private readonly storage: Storage;
 
   constructor() {
@@ -35,18 +62,58 @@ export default class StorageClient {
     });
   }
 
+  async deleteFile(bucketName: string, fileName: string): Promise<any> {
+    return this.storage.bucket(bucketName).file(fileName).delete();
+  }
+
+  getPublicFileUrl(fileName: string): string {
+    return `${STORAGE_BASE_URL}/${process.env.GCP_PUBLIC_BUCKET_NAME}/${fileName}`;
+  }
+
+  getFileNameFromPublicUrl(url: string): string {
+    return url.replace(
+      `${STORAGE_BASE_URL}/${process.env.GCP_PUBLIC_BUCKET_NAME}/`,
+      ""
+    );
+  }
+
   async getFileSignedUrl(
     bucketName: string,
     fileName: string,
-    expireDate: Date
-  ) {
+    expiryDate?: Date
+  ): Promise<string | undefined> {
+    // if we try to sign an externally hosted image
+    // Cloud Storage wouldn't find the image
+    if (
+      !fileName ||
+      // externally-hosted or null images should not be signed
+      fileName.startsWith("http")
+    ) {
+      return fileName;
+    }
+    if (!expiryDate) {
+      expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 1);
+    }
+
     const [url] = await this.storage
       .bucket(bucketName)
       .file(fileName)
       .getSignedUrl({
-        expires: expireDate,
+        expires: expiryDate,
         action: "read"
       });
     return url;
+  }
+
+  async getPrivateAssetSignedUrl(
+    fileName: string,
+    expiryDate?: Date
+  ): Promise<string | undefined> {
+    return this.getFileSignedUrl(
+      process.env.GCP_PRIVATE_BUCKET_NAME,
+      fileName,
+      expiryDate
+    );
   }
 }

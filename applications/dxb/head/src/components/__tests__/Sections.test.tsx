@@ -2,13 +2,13 @@ import React from "react";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
-import { SiteContext } from "../Site";
-import { rooferTypes } from "../../components/Roofer";
-import createRoofer from "../../__tests__/RooferHelper";
+import { SiteContextProvider } from "../Site";
+import { serviceTypes } from "../Service";
+import createService from "../../__tests__/ServiceHelper";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
-    <SiteContext.Provider
+    <SiteContextProvider
       value={{
         node_locale: "en-UK",
         homePage: { title: "Home Page" },
@@ -19,7 +19,7 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       {children}
-    </SiteContext.Provider>
+    </SiteContextProvider>
   );
 };
 
@@ -388,29 +388,31 @@ describe("Sections component", () => {
       },
       {
         __typename: "ContentfulServiceLocatorSection",
+        type: "Roofer",
         title: "Service Locator",
         label: "Find A Roofer",
         body: null,
-        roofers: null,
+        services: null,
         position: 0,
         centre: null,
         zoom: null
       },
       {
         __typename: "ContentfulServiceLocatorSection",
-        title: "Service Locator - with roofers",
+        type: "Roofer",
+        title: "Service Locator - with services",
         label: "Find A Roofer",
         body: null,
-        roofers: [
-          createRoofer({
+        services: [
+          createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [rooferTypes[0], rooferTypes[1]]
+            type: [serviceTypes[0], serviceTypes[1]]
           }),
-          createRoofer({
+          createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [rooferTypes[0], rooferTypes[1]]
+            type: [serviceTypes[0], serviceTypes[1]]
           })
         ],
         position: 0,

@@ -21,12 +21,12 @@ exports[`Page component renders correctly 1`] = `
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
               href="link-to-page"
               tabindex="0"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-4"
               >
                 string
               </span>
@@ -34,6 +34,34 @@ exports[`Page component renders correctly 1`] = `
                 class="MuiTouchRipple-root"
               />
             </a>
+          </li>
+          <li
+            class="nav-item"
+          >
+            <button
+              aria-label="MC: menu.language"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button language-selection-button MuiButton-textPrimary"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label buttonStyles-label-4"
+              >
+                <img
+                  class="language-icon"
+                  src="/icons/flags/uk.svg"
+                />
+                UK
+                <span
+                  class="down-arrow"
+                >
+                  ▾
+                </span>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
           </li>
         </ul>
       </div>
@@ -45,7 +73,7 @@ exports[`Page component renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
       tabindex="0"
       type="button"
     >
@@ -71,15 +99,15 @@ exports[`Page component renders correctly 1`] = `
       class="back-navigation"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-4"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium"
+            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
           >
             <svg
               aria-hidden="true"
@@ -115,86 +143,86 @@ exports[`Page component renders correctly 1`] = `
             <h6
               class="MuiTypography-root heading Typography MuiTypography-h6"
             >
-              Global
+              Europe
             </h6>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                  href="/"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  href="/al"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label-4"
                   >
                     <span
-                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/al.svg"
+                      />
+                    </span>
+                    Albania
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  href="/at"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-4"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        src="/icons/flags/at.svg"
+                      />
+                    </span>
+                    Österreich
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  href="/uk"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-4"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
                     >
                       <img
                         class="LanguageIcon"
                         src="/icons/flags/uk.svg"
                       />
                     </span>
-                    English
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </div>
-              <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-              >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                  href="/de-de"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiButton-label"
-                  >
-                    <span
-                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                    >
-                      <img
-                        class="LanguageIcon"
-                        src="/icons/flags/de.svg"
-                      />
-                    </span>
-                    Deutsch
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </div>
-              <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
-              >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
-                  href="/fr-fr"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiButton-label"
-                  >
-                    <span
-                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                    >
-                      <img
-                        class="LanguageIcon"
-                        src="/icons/flags/fr.svg"
-                      />
-                    </span>
-                    Français
+                    United Kingdom
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -304,7 +332,7 @@ exports[`Page component renders correctly 1`] = `
                   </a>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorSecondary-3 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-41 PrivateTabIndicator-colorSecondary-43 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -316,7 +344,7 @@ exports[`Page component renders correctly 1`] = `
         >
           <button
             aria-label="MC: search.label"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 search-button"
             tabindex="0"
             type="button"
           >
@@ -340,7 +368,7 @@ exports[`Page component renders correctly 1`] = `
           </button>
           <button
             aria-label="MC: menu.open"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 burger-button"
             tabindex="0"
             type="button"
           >
@@ -377,7 +405,7 @@ exports[`Page component renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
       tabindex="0"
       type="button"
     >
@@ -416,13 +444,13 @@ exports[`Page component renders correctly 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
               href="tel:+4401234567890"
               tabindex="0"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-4"
               >
                 Get in touch
               </span>
@@ -434,14 +462,14 @@ exports[`Page component renders correctly 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/uk/landing-page\\"}"
               href="/uk/landing-page"
               role="button"
               tabindex="0"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-4"
               >
                 About BMI
               </span>
@@ -453,13 +481,13 @@ exports[`Page component renders correctly 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
               href="link-to-page"
               tabindex="0"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-4"
               >
                 string
               </span>
@@ -474,13 +502,13 @@ exports[`Page component renders correctly 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="link-to-page"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label"
+                  class="MuiButton-label buttonStyles-label-4"
                 >
                   string
                 </span>
@@ -492,15 +520,23 @@ exports[`Page component renders correctly 1`] = `
           </ul>
           <li>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-              data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.language\\"}"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-4"
               >
-                MC: menu.language
+                <span
+                  class="LanguageButtonContent"
+                >
+                  <img
+                    class="LanguageIcon"
+                    src="/icons/flags/uk.svg"
+                  />
+                  UK
+                </span>
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -534,7 +570,7 @@ exports[`Page component renders correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
         tabindex="0"
         type="button"
       >

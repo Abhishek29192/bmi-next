@@ -1,9 +1,10 @@
-import React, { isValidElement, RefObject, useMemo } from "react";
+import React, { isValidElement, useMemo } from "react";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Button from "@bmi/button";
 import CloseIcon from "@material-ui/icons/Close";
 import Fade from "@material-ui/core/Fade";
+import { useDisablePortalModalWorkaround } from "@bmi/hooks";
 import styles from "./ContainerDialog.module.scss";
 
 type Props = {
@@ -19,6 +20,7 @@ type Props = {
   allowOverflow?: boolean;
   className?: string;
   containerClassName?: string;
+  disablePortal?: boolean;
 };
 
 const ContainerDialog = ({
@@ -33,7 +35,8 @@ const ContainerDialog = ({
   children,
   allowOverflow,
   className,
-  containerClassName
+  containerClassName,
+  disablePortal = true
 }: Props) => {
   const [header, content] = useMemo(() => {
     const deconstructedChildren = React.Children.toArray(children).reduce<
@@ -60,6 +63,8 @@ const ContainerDialog = ({
     return [deconstructedChildren[0], deconstructedChildren[1]];
   }, [children]);
 
+  useDisablePortalModalWorkaround(open, disablePortal);
+
   return (
     <Modal
       open={open}
@@ -67,6 +72,7 @@ const ContainerDialog = ({
       BackdropProps={backdropProps}
       aria-labelledby={areaLabelledby}
       aria-describedby={areaDescribedby}
+      disablePortal={disablePortal}
     >
       <Fade in={open}>
         <div

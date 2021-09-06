@@ -1,0 +1,292 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NextBestActions component renders correctly 1`] = `
+<div>
+  <div
+    class="Section Section--alabaster"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: nba.title
+        </h2>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere\\",\\"label\\":\\"MC: page.linkLabel\\"}"
+              href="/en/somewhere"
+              role="button"
+              tabindex="0"
+            >
+              <h4
+                class="MuiTypography-root title Typography MuiTypography-h4"
+              >
+                test
+              </h4>
+              <div
+                class="body"
+              />
+              <div
+                class="footer"
+              >
+                <div
+                  style="font-size: 1rem;"
+                >
+                  <span
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="icon"
+                      focusable="false"
+                    />
+                    <span>
+                      MC: page.linkLabel
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-2"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              href="https://www.external.co.uk"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+            >
+              <h4
+                class="MuiTypography-root title Typography MuiTypography-h4"
+              >
+                test
+              </h4>
+              <div
+                class="body"
+              >
+                I am a subtitle
+              </div>
+              <div
+                class="footer"
+              >
+                <div
+                  style="font-size: 1rem;"
+                >
+                  <span
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="icon"
+                      focusable="false"
+                    />
+                    <span>
+                      string
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NextBestActions component renders name with no title 1`] = `
+<div>
+  <div
+    class="Section Section--alabaster"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: nba.title
+        </h2>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              href="https://www.external.co.uk"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+            >
+              <h4
+                class="MuiTypography-root title Typography MuiTypography-h4"
+              >
+                test name
+              </h4>
+              <div
+                class="body"
+              >
+                I am a subtitle
+              </div>
+              <div
+                class="footer"
+              >
+                <div
+                  style="font-size: 1rem;"
+                >
+                  <span
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="icon"
+                      focusable="false"
+                    />
+                    <span>
+                      string
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NextBestActions component renders with no promo cta 1`] = `
+<div>
+  <div
+    class="Section Section--alabaster"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: nba.title
+        </h2>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+          >
+            <div
+              class="NBACard ColorPair ColorPair--color-theme-secondary-1"
+              type="button"
+            >
+              <h4
+                class="MuiTypography-root title Typography MuiTypography-h4"
+              >
+                test
+              </h4>
+              <div
+                class="body"
+              >
+                I am a subtitle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NextBestActions component renders with no promo cta label 1`] = `
+<div>
+  <div
+    class="Section Section--alabaster"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: nba.title
+        </h2>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":null}"
+              href="https://www.external.co.uk"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+            >
+              <h4
+                class="MuiTypography-root title Typography MuiTypography-h4"
+              >
+                test
+              </h4>
+              <div
+                class="body"
+              >
+                I am a subtitle
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

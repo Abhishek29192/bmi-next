@@ -7,10 +7,11 @@
   "private": true,
   "scripts": {
     "build": "tsc --build tsconfig.prod.json",
-    "dev": "tsc --build && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema\"",
+    "dev": "tsc --build && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema:watch\"",
     "gcp-build": "tsc",
     "migrate-db": "node scripts/init-db.js",
-    "prettify-schema": "onchange \"schema.graphql\" -- prettier --write schema.graphql",
+    "prettify-schema": "prettier --write schema.graphql",
+    "prettify-schema:watch": "onchange \"schema.graphql\" -- yarn prettify-schema",
     "start": "node dist/index.js",
     "test": "jest --reporters=default --reporters=jest-junit",
     "coverage": "yarn test --coverage"
@@ -22,8 +23,8 @@
     "@google-cloud/storage": "^5.7.0",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",
-    "@graphql-tools/utils": "^7.10.0",
-    "apollo-server": "^2.19.2",
+    "@graphql-tools/utils": "^8.0.0",
+    "apollo-server": "^3.1.2",
     "auth0": "^2.33.0",
     "axios": "^0.21.1",
     "camelcase-keys": "^6.2.2",
@@ -33,6 +34,7 @@
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
     "fast-csv": "^4.3.6",
+    "google-auth-library": "^7.5.0",
     "graphile-utils": "^4.12.1",
     "graphql": "^15.5.0",
     "graphql-upload": "^12.0.0",
@@ -43,6 +45,7 @@
     "postgraphile": "^4.12.3",
     "postgraphile-apollo-server": "0.1.1",
     "postgraphile-plugin-connection-filter": "^2.2.1",
+    "postgraphile-plugin-nested-mutations": "^1.1.0",
     "typescript": "^3.9.3"
   },
   "devDependencies": {

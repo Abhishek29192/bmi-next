@@ -33,4 +33,18 @@ describe("YoutubeVideo component", () => {
     const { container } = render(<YoutubeVideo layout="inline" {...props} />);
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("opens dialog on click", () => {
+    const props = {
+      label: "test video",
+      videoId: "A-RfHC91Ewc",
+      embedWidth: 1280,
+      embedHeight: 720
+    };
+    const { container, getByRole } = render(
+      <YoutubeVideo layout="dialog" {...props} />
+    );
+    const thumbnailButton = getByRole("button", { name: props.label });
+    thumbnailButton.click();
+    expect(container.parentElement).toMatchSnapshot();
+  });
 });

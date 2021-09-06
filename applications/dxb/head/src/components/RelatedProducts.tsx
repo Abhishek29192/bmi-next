@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import Tabs from "@bmi/tabs";
 import { Link, graphql } from "gatsby";
 import { Tab, TabProps } from "@material-ui/core";
@@ -21,7 +21,7 @@ import {
 } from "../utils/product-details-transforms";
 import { Product, VariantOption } from "./types/ProductBaseTypes"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 const ProductListing = ({
   countryCode,
@@ -37,7 +37,7 @@ const ProductListing = ({
   pageSize?: number;
 }) => {
   const [numberShown, setNumberShown] = useState(initialNumberShown);
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   const onLoadMore = () => {
     setNumberShown((numberShown) => numberShown + pageSize);
@@ -123,7 +123,6 @@ const ProductListing = ({
                 imageSize="contain"
                 imageSource={mainImage}
                 brandImageSource={brandLogo}
-                component={Link}
                 action={{
                   model: "routerLink",
                   linkComponent: Link,
@@ -177,7 +176,7 @@ const RelatedProducts = ({
   classificationNamespace,
   products
 }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   if (Object.entries(products).length === 0) {
     return null;

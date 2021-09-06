@@ -69,20 +69,31 @@ export const Team = ({ title }: LayoutProps) => (
             title="Old Brompton Library"
             projectCode="PROFLO-d1847"
             projectStatus="In progress"
-            buildingAddress="8 Old Brompton Road, South Kensington, London, SW7 3SS"
+            roofArea={100}
+            buildingAddress={{
+              firstLine: "8 Old Brompton Road",
+              secondLine: "South Kensington",
+              town: "London",
+              postcode: "SW7 3SS"
+            }}
             projectDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum
             dolor sit amet..."
             startDate="24 Feb 2021"
             endDate="30 March 2022"
-            guarantee="Not requested"
-            guaranteeStatus="N/A"
+            guaranteeType="Not requested"
+            guaranteeStatus={"NOT_APPLICABLE"}
           />
 
           <BuildingOwnerDetails
             name="Lewis Hamilton"
             email="l.hamilton@f1mercedes.com"
             company="JP Morgan"
-            address="2 Flanton Road, Bow, London, E1 4FG"
+            address={{
+              firstLine: "2 Flanton Road",
+              town: "Bow",
+              region: "London",
+              postcode: "E1 4FG"
+            }}
           />
         </Grid>
 
@@ -100,7 +111,7 @@ export const Team = ({ title }: LayoutProps) => (
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Guarantee" index="two">
               <TabCard>
-                <GuaranteeTab />
+                <GuaranteeTab project={null} />
               </TabCard>
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Uploads" index="three">

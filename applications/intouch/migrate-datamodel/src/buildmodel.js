@@ -65,12 +65,30 @@ class Value {
 }
 
 class Attribute extends Value {
-  constructor(name, description, type, mockValues, constraint, reference) {
+  constructor(
+    name,
+    description,
+    type,
+    mockValues,
+    constraint,
+    reference,
+    mandatory,
+    defaultValue
+  ) {
     super(name, description);
     this.type = type;
     this.mockValues = mockValues.split(";");
     this.constraint = constraint;
     this.reference = reference;
+    this.defaultValue = defaultValue;
+
+    // "Mandatory" field is optional, but if we get a value, must be a valid one.
+    if (mandatory && !["Y", "N"].includes(mandatory)) {
+      throw new Error(
+        `Mandatory field valid values are [Y, N]. Found ${mandatory}.`
+      );
+    }
+    this.mandatory = mandatory === "Y" ? true : false;
   }
 }
 
@@ -100,14 +118,25 @@ class Table extends Thing {
     ];
   }
 
-  addColumn(name, description, type, mockValues, constraint, reference) {
+  addColumn(
+    name,
+    description,
+    type,
+    mockValues,
+    constraint,
+    reference,
+    mandatory,
+    defaultValue
+  ) {
     let attribute = new Attribute(
       name,
       description,
       type,
       mockValues,
       constraint,
-      reference
+      reference,
+      mandatory,
+      defaultValue
     );
     this.properties.push(attribute);
   }
@@ -121,11 +150,16 @@ class Table extends Thing {
 CREATE TABLE ${this.name} (
 ${this.properties
   .map((property) => {
-    const column =
-      property.type === "pk"
-        ? `${property.name} SERIAL PRIMARY KEY`
-        : `${property.name} ${property.type}`;
-    return column;
+    const isMandatory = property.mandatory ? "NOT NULL" : undefined;
+    const type = property.type === "pk" ? "SERIAL PRIMARY KEY" : property.type;
+    // NOTE: Currently only handling explicit default value
+    const defaultValue = property.defaultValue
+      ? `DEFAULT ${property.defaultValue}`
+      : undefined;
+
+    return [property.name, type, isMandatory, defaultValue]
+      .filter(Boolean)
+      .join(" ");
   })
   .concat(additionalColumns)
   .join(",\n")
@@ -354,7 +388,9 @@ const buildModel = (records) => {
           record.Type,
           record.Mocks,
           record.Constraint,
-          record.Reference
+          record.Reference,
+          record.Mandatory,
+          record.Default
         ); // add the new field to the current table based on the current record
         break;
     }

@@ -104,6 +104,7 @@ export const pageQuery = graphql`
   query TeamPageById($pageId: String!, $siteId: String!) {
     contentfulTeamPage(id: { eq: $pageId }) {
       title
+      brandLogo
       # Check length allowed and define right field type
       teamCategories {
         title

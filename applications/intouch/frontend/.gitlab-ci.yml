@@ -14,6 +14,7 @@ test_intouch_frontend:
 
 build_intouch_frontend_dev:
   needs: []
+  cache: {}
   image: google/cloud-sdk
   stage: build
   services:
@@ -30,10 +31,11 @@ build_intouch_frontend_dev:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/frontend/cloudbuild.yaml --substitutions _NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
+    - gcloud builds submit . --config=applications/intouch/frontend/cloudbuild.build.yaml --substitutions _NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
 
 deploy_intouch_frontend_dev_to_cloudrun:
   stage: deploy
+  cache: {}
   needs:
     - build_intouch_frontend_dev
     - test_intouch_frontend
@@ -48,4 +50,4 @@ deploy_intouch_frontend_dev_to_cloudrun:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud run deploy tf-frontend --image=eu.gcr.io/automated-style-303709/intouch-frontend:$CI_COMMIT_SHORT_SHA --platform=managed --region=europe-west2 --project=automated-style-303709
+    - gcloud builds submit . --config=applications/intouch/frontend/cloudbuild.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA

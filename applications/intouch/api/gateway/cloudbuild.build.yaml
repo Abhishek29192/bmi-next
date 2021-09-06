@@ -12,6 +12,7 @@ steps:
         "--build-arg",
         "NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}"
       ]
+
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
     args:

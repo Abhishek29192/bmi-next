@@ -82,6 +82,17 @@
       max-width: 100%;
       padding: 0 10px;
     }
+
+    .LanguageButtonContent {
+      display: flex;
+      justify-content: center;
+      font-weight: 500;
+    }
+
+    .LanguageIcon {
+      margin-right: 10px;
+      width: 20px;
+    }
   }
 
   & > .NavigationList {
@@ -169,6 +180,14 @@
         [data-name="bg block"] {
           fill: none;
         }
+      }
+    }
+
+    &--outline {
+      color: $color-cyan-500;
+      border-color: rgba($color-cyan-500, 0.5);
+      &:hover {
+        background-color: rgba($color-cyan-600, 0.04);
       }
     }
   }

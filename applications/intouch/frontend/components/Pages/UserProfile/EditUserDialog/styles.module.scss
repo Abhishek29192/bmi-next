@@ -1,0 +1,34 @@
+@import "@bmi/styles";
+
+.dialog {
+  background: $color-alabaster;
+}
+
+.dialogContent {
+  background: $color-white;
+  margin: 0 30px;
+}
+
+.editForm {
+  margin-top: 1.5rem;
+}
+
+.submitButton {
+  margin: 24px 0;
+}
+
+.editFormSubtitle {
+  border-bottom: 1px solid $color-storm;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.inputFields {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: calc(1rem - 8px);
+
+  & > * + * {
+    margin-top: 1.5rem;
+  }
+}

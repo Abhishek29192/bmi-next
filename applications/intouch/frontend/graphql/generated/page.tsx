@@ -140,6 +140,180 @@ export const ssrGetProjectCompanyMembers = {
   usePage: useGetProjectCompanyMembers
 };
 
+export async function getServerPageContentfulEvidenceCategories(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.ContentfulEvidenceCategoriesQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.ContentfulEvidenceCategoriesQuery>({
+      ...options,
+      query: Operations.ContentfulEvidenceCategoriesDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useContentfulEvidenceCategories = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.ContentfulEvidenceCategoriesQuery,
+    OperationTypes.ContentfulEvidenceCategoriesQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.ContentfulEvidenceCategoriesDocument, options);
+};
+export type PageContentfulEvidenceCategoriesComp = React.FC<{
+  data?: OperationTypes.ContentfulEvidenceCategoriesQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrContentfulEvidenceCategories = {
+  getServerPage: getServerPageContentfulEvidenceCategories,
+
+  usePage: useContentfulEvidenceCategories
+};
+export async function getServerPageSearchProducts(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.SearchProductsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.SearchProductsQuery>({
+    ...options,
+    query: Operations.SearchProductsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useSearchProducts = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.SearchProductsQuery,
+    OperationTypes.SearchProductsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.SearchProductsDocument, options);
+};
+export type PageSearchProductsComp = React.FC<{
+  data?: OperationTypes.SearchProductsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrSearchProducts = {
+  getServerPage: getServerPageSearchProducts,
+
+  usePage: useSearchProducts
+};
+export async function getServerPageSearchSystems(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.SearchSystemsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.SearchSystemsQuery>({
+    ...options,
+    query: Operations.SearchSystemsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useSearchSystems = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.SearchSystemsQuery,
+    OperationTypes.SearchSystemsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.SearchSystemsDocument, options);
+};
+export type PageSearchSystemsComp = React.FC<{
+  data?: OperationTypes.SearchSystemsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrSearchSystems = {
+  getServerPage: getServerPageSearchSystems,
+
+  usePage: useSearchSystems
+};
+export async function getServerPageGetProductGuaranteeTypes(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetProductGuaranteeTypesQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetProductGuaranteeTypesQuery>({
+      ...options,
+      query: Operations.GetProductGuaranteeTypesDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetProductGuaranteeTypes = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetProductGuaranteeTypesDocument, options);
+};
+export type PageGetProductGuaranteeTypesComp = React.FC<{
+  data?: OperationTypes.GetProductGuaranteeTypesQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetProductGuaranteeTypes = {
+  getServerPage: getServerPageGetProductGuaranteeTypes,
+
+  usePage: useGetProductGuaranteeTypes
+};
 export async function getServerPageAccountByEmail(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.AccountByEmailQueryVariables>,
@@ -271,6 +445,48 @@ export const ssrInvitations = {
   usePage: useInvitations
 };
 
+export async function getServerPageGetMarketsByDomain(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetMarketsByDomainQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetMarketsByDomainQuery>(
+    { ...options, query: Operations.GetMarketsByDomainDocument }
+  );
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetMarketsByDomain = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetMarketsByDomainQuery,
+    OperationTypes.GetMarketsByDomainQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetMarketsByDomainDocument, options);
+};
+export type PageGetMarketsByDomainComp = React.FC<{
+  data?: OperationTypes.GetMarketsByDomainQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetMarketsByDomain = {
+  getServerPage: getServerPageGetMarketsByDomain,
+
+  usePage: useGetMarketsByDomain
+};
 export async function getServerPageGetContentArticleContent(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetContentArticleContentQueryVariables>,
@@ -356,93 +572,6 @@ export const ssrProductsAndSystems = {
   getServerPage: getServerPageProductsAndSystems,
 
   usePage: useProductsAndSystems
-};
-
-export async function getServerPageCurrentCompany(
-  options: Omit<
-    Apollo.QueryOptions<OperationTypes.CurrentCompanyQueryVariables>,
-    "query"
-  >,
-  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
-) {
-  const data = await apolloClient.query<OperationTypes.CurrentCompanyQuery>({
-    ...options,
-    query: Operations.CurrentCompanyDocument
-  });
-
-  const apolloState = apolloClient.cache.extract();
-
-  return {
-    props: {
-      apolloState: apolloState,
-      data: data?.data,
-      error: data?.error ?? data?.errors ?? null
-    }
-  };
-}
-export const useCurrentCompany = (
-  optionsFunc?: (
-    router: NextRouter
-  ) => QueryHookOptions<
-    OperationTypes.CurrentCompanyQuery,
-    OperationTypes.CurrentCompanyQueryVariables
-  >
-) => {
-  const router = useRouter();
-  const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.CurrentCompanyDocument, options);
-};
-export type PageCurrentCompanyComp = React.FC<{
-  data?: OperationTypes.CurrentCompanyQuery;
-  error?: Apollo.ApolloError;
-}>;
-export const ssrCurrentCompany = {
-  getServerPage: getServerPageCurrentCompany,
-
-  usePage: useCurrentCompany
-};
-export async function getServerPageGetCurrentCompany(
-  options: Omit<
-    Apollo.QueryOptions<OperationTypes.GetCurrentCompanyQueryVariables>,
-    "query"
-  >,
-  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
-) {
-  const data = await apolloClient.query<OperationTypes.GetCurrentCompanyQuery>({
-    ...options,
-    query: Operations.GetCurrentCompanyDocument
-  });
-
-  const apolloState = apolloClient.cache.extract();
-
-  return {
-    props: {
-      apolloState: apolloState,
-      data: data?.data,
-      error: data?.error ?? data?.errors ?? null
-    }
-  };
-}
-export const useGetCurrentCompany = (
-  optionsFunc?: (
-    router: NextRouter
-  ) => QueryHookOptions<
-    OperationTypes.GetCurrentCompanyQuery,
-    OperationTypes.GetCurrentCompanyQueryVariables
-  >
-) => {
-  const router = useRouter();
-  const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.GetCurrentCompanyDocument, options);
-};
-export type PageGetCurrentCompanyComp = React.FC<{
-  data?: OperationTypes.GetCurrentCompanyQuery;
-  error?: Apollo.ApolloError;
-}>;
-export const ssrGetCurrentCompany = {
-  getServerPage: getServerPageGetCurrentCompany,
-
-  usePage: useGetCurrentCompany
 };
 export async function getServerPageGetCompany(
   options: Omit<

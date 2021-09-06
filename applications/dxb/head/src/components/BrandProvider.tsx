@@ -1,11 +1,13 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useLayoutEffect, createContext } from "react";
 import classnames from "classnames";
 import type { ThemeOptions } from "@material-ui/core";
 import BmiThemeProvider from "@bmi/theme-provider";
 
 import styles from "./styles/BrandProvider.module.scss";
 
-const BRANDS_CLASSES = {
+export const BrandClassNameContext = createContext<string | null>(null);
+
+const BRANDS_CLASSES: { [key: string]: string | undefined } = {
   AeroDek: styles["AeroDeck"],
   Awak: styles["AeroDeck"],
   Braas: styles["BrandRed"],
@@ -39,8 +41,9 @@ type BrandProviderProps = {
 };
 
 const BrandProvider = ({ brand, children }: BrandProviderProps) => {
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement | null>(null);
   const [interColor, setInterColor] = useState<string | null>(null);
+  const [focusColor, setFocusColor] = useState<string | undefined>();
 
   const className = getBrandClassName(brand);
 
@@ -48,32 +51,48 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
     if (ref.current) {
       const style = getComputedStyle(ref.current);
       const interColor = style.getPropertyValue("--color-theme-inter").trim();
+      const focusColor = style.getPropertyValue("--color-theme-focus").trim();
       if (interColor) {
         setInterColor(interColor);
+      }
+      if (focusColor) {
+        setFocusColor(focusColor);
       }
     }
   }, []);
 
   const modifyThemePrimaryColor = (theme: ThemeOptions) => {
     if (interColor) {
-      theme.palette.primary = { main: interColor };
+      theme.palette = theme.palette || {};
+      theme.palette.primary = { main: interColor, dark: focusColor };
     }
     return theme;
   };
 
-  return (
+  const featureToggle = process.env.GATSBY_ENABLE_BRAND_PROVIDER as
+    | boolean // styleguidist's webpack returns boolean value
+    | string
+    | undefined;
+
+  return featureToggle === "true" || featureToggle === true ? (
     <div
       ref={ref}
       className={classnames(className)}
       data-testid="brand-colors-provider"
     >
-      <BmiThemeProvider
-        longText={Boolean(process.env.GATSBY_LONG_TEXT)}
-        modifyTheme={modifyThemePrimaryColor}
-      >
-        {children}
-      </BmiThemeProvider>
+      <BrandClassNameContext.Provider value={className}>
+        <BmiThemeProvider
+          longText={Boolean(process.env.GATSBY_LONG_TEXT)}
+          modifyTheme={modifyThemePrimaryColor}
+        >
+          {children}
+        </BmiThemeProvider>
+      </BrandClassNameContext.Provider>
     </div>
+  ) : (
+    <BmiThemeProvider longText={Boolean(process.env.GATSBY_LONG_TEXT)}>
+      {children}
+    </BmiThemeProvider>
   );
 };
 

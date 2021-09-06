@@ -20,7 +20,7 @@ export const SupportContactCard = ({
   return (
     <SimpleCard>
       <Typography variant="h4" hasUnderline className={styles.title}>
-        {t("support.title")}
+        {t("supportTitle")}
       </Typography>
 
       {contactDetailsCollection.items.map(

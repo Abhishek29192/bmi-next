@@ -1,0 +1,30 @@
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: [
+        "run",
+        "deploy",
+        "tf-frontend",
+        "--image",
+        "eu.gcr.io/$PROJECT_ID/intouch-frontend:${_CI_COMMIT_SHORT_SHA}",
+        "--region",
+        "europe-west2",
+        "--platform",
+        "managed"
+      ]
+
+  # promote to latest
+  # Terraform does not have the commit hash context
+  # and needs tag "latest" to execute the TF plan and deploy a new revision to Cloud Run
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "container",
+        "images",
+        "add-tag",
+        "eu.gcr.io/$PROJECT_ID/intouch-frontend:${_CI_COMMIT_SHORT_SHA}",
+        "eu.gcr.io/$PROJECT_ID/intouch-frontend:latest"
+      ]
+
+timeout: 1200s
+
+logsBucket: "gs://intouch-replaform-bucket"

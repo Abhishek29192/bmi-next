@@ -1,0 +1,393 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Merchants contentful upload checks for first line to be empty: createEntry 1`] = `Array []`;
+
+exports[`Merchants contentful upload checks for first line to be empty: error 1`] = `
+Array [
+  Array [
+    [Error: First line must be empty to match the template],
+  ],
+  Array [
+    "Process failed",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload checks for first line to be empty: log 1`] = `
+Array [
+  Array [
+    "Looking in data/first-line-non-empty/merchants.tsv",
+  ],
+  Array [
+    "Uploadng to roofer, using:
+SPACE: SPACE_ID:value
+ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
+  ],
+  Array [
+    "Reading data/first-line-non-empty/merchants.tsv",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload checks that header line matches the template: createEntry 1`] = `Array []`;
+
+exports[`Merchants contentful upload checks that header line matches the template: error 1`] = `
+Array [
+  Array [
+    [Error: Second line doesn't match header template
+Expected: Company Name, Latitude, Longitude, Address, City, Postcode, PhoneNumber, Email, Company Website, Summary of Company
+Found: Company Name with incorrect label,Latitude,Longitude,Address,City,Postcode,PhoneNumber,Email,Company Website],
+  ],
+  Array [
+    "Process failed",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload checks that header line matches the template: log 1`] = `
+Array [
+  Array [
+    "Looking in data/incorrect-header-line/merchants.tsv",
+  ],
+  Array [
+    "Uploadng to roofer, using:
+SPACE: SPACE_ID:value
+ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
+  ],
+  Array [
+    "Reading data/incorrect-header-line/merchants.tsv",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload checks that the file must be called "merchants": createEntry 1`] = `Array []`;
+
+exports[`Merchants contentful upload checks that the file must be called "merchants": error 1`] = `
+Array [
+  Array [
+    [Error: The file must be named the same as the template name:
+Expected: merchants Found: not-merchants],
+  ],
+  Array [
+    "Process failed",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload checks that the file must be called "merchants": log 1`] = `
+Array [
+  Array [
+    "Looking in data/not-merchants.tsv",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload continues when answered with "y": createClient 1`] = `
+Array [
+  Array [
+    Object {
+      "accessToken": "MANAGEMENT_ACCESS_TOKEN:value",
+    },
+  ],
+]
+`;
+
+exports[`Merchants contentful upload continues when answered with "y": createEntry 1`] = `
+Array [
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "LOCALE:value": "Test address 1, London, SW1 1AA",
+        },
+        "email": Object {
+          "LOCALE:value": "test@someemail.com",
+        },
+        "entryType": Object {
+          "LOCALE:value": "Merchant",
+        },
+        "location": Object {
+          "LOCALE:value": Object {
+            "lat": 60,
+            "lon": 23,
+          },
+        },
+        "name": Object {
+          "LOCALE:value": "Test company",
+        },
+        "phone": Object {
+          "LOCALE:value": "075 0000 0000",
+        },
+        "summary": Object {
+          "LOCALE:value": "Test summary",
+        },
+        "website": Object {
+          "LOCALE:value": "https://test-website.test",
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "LOCALE:value": "Test address 1",
+        },
+        "email": Object {
+          "LOCALE:value": "test@someemail.com",
+        },
+        "entryType": Object {
+          "LOCALE:value": "Merchant",
+        },
+        "name": Object {
+          "LOCALE:value": "Test company 2",
+        },
+        "phone": Object {
+          "LOCALE:value": "075 0000 0000",
+        },
+        "summary": Object {
+          "LOCALE:value": "Test summary",
+        },
+        "website": Object {
+          "LOCALE:value": "https://test-website.test",
+        },
+      },
+    },
+  ],
+]
+`;
+
+exports[`Merchants contentful upload continues when answered with "y": error 1`] = `Array []`;
+
+exports[`Merchants contentful upload continues when answered with "y": getEnvironment 1`] = `
+Array [
+  Array [
+    "CONTENTFUL_ENVIRONMENT:value",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload continues when answered with "y": getSpace 1`] = `
+Array [
+  Array [
+    "SPACE_ID:value",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload continues when answered with "y": log 1`] = `
+Array [
+  Array [
+    "Looking in data/merchants.tsv",
+  ],
+  Array [
+    "Uploadng to roofer, using:
+SPACE: SPACE_ID:value
+ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
+  ],
+  Array [
+    "Reading data/merchants.tsv",
+  ],
+  Array [
+    "Uploading 4 lines to columns: Company Name, Latitude, Longitude, Address, City, Postcode, PhoneNumber, Email, Company Website, Summary of Company",
+  ],
+  Array [
+    "Skipping empty line: 1",
+  ],
+  Array [
+    "Skipping empty line: 4",
+  ],
+  Array [
+    "All done",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload exits when answered with not "y": error 1`] = `Array []`;
+
+exports[`Merchants contentful upload exits when answered with not "y": log 1`] = `
+Array [
+  Array [
+    "Looking in data/merchants.tsv",
+  ],
+  Array [
+    "Uploadng to roofer, using:
+SPACE: SPACE_ID:value
+ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
+  ],
+  Array [
+    "Exiting...",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload handles if the file doesn't exist: createEntry 1`] = `Array []`;
+
+exports[`Merchants contentful upload handles if the file doesn't exist: error 1`] = `
+Array [
+  Array [
+    [Error: Couldn't read data/a-non-existent-file/merchants.tsv],
+  ],
+  Array [
+    "Process failed",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload handles if the file doesn't exist: log 1`] = `
+Array [
+  Array [
+    "Looking in data/a-non-existent-file/merchants.tsv",
+  ],
+  Array [
+    "Uploadng to roofer, using:
+SPACE: SPACE_ID:value
+ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
+  ],
+  Array [
+    "Reading data/a-non-existent-file/merchants.tsv",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload logs error when creating entry fails: createEntry 1`] = `
+Array [
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "LOCALE:value": "Test address 1, London, SW1 1AA",
+        },
+        "email": Object {
+          "LOCALE:value": "test@someemail.com",
+        },
+        "entryType": Object {
+          "LOCALE:value": "Merchant",
+        },
+        "location": Object {
+          "LOCALE:value": Object {
+            "lat": 60,
+            "lon": 23,
+          },
+        },
+        "name": Object {
+          "LOCALE:value": "Test company",
+        },
+        "phone": Object {
+          "LOCALE:value": "075 0000 0000",
+        },
+        "summary": Object {
+          "LOCALE:value": "Test summary",
+        },
+        "website": Object {
+          "LOCALE:value": "https://test-website.test",
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "LOCALE:value": "Test address 1",
+        },
+        "email": Object {
+          "LOCALE:value": "test@someemail.com",
+        },
+        "entryType": Object {
+          "LOCALE:value": "Merchant",
+        },
+        "name": Object {
+          "LOCALE:value": "Test company 2",
+        },
+        "phone": Object {
+          "LOCALE:value": "075 0000 0000",
+        },
+        "summary": Object {
+          "LOCALE:value": "Test summary",
+        },
+        "website": Object {
+          "LOCALE:value": "https://test-website.test",
+        },
+      },
+    },
+  ],
+]
+`;
+
+exports[`Merchants contentful upload logs error when creating entry fails: error 1`] = `
+Array [
+  Array [
+    "Failed to upload line: 2",
+    [Error: Connection intrrupted],
+  ],
+]
+`;
+
+exports[`Merchants contentful upload logs error when creating entry fails: log 1`] = `
+Array [
+  Array [
+    "Looking in data/merchants.tsv",
+  ],
+  Array [
+    "Uploadng to roofer, using:
+SPACE: SPACE_ID:value
+ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
+  ],
+  Array [
+    "Reading data/merchants.tsv",
+  ],
+  Array [
+    "Uploading 4 lines to columns: Company Name, Latitude, Longitude, Address, City, Postcode, PhoneNumber, Email, Company Website, Summary of Company",
+  ],
+  Array [
+    "Skipping empty line: 1",
+  ],
+  Array [
+    "Skipping empty line: 4",
+  ],
+  Array [
+    "All done",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload throws if the file path is missing: createEntry 1`] = `Array []`;
+
+exports[`Merchants contentful upload throws if the file path is missing: error 1`] = `
+Array [
+  Array [
+    [Error: file path is missing],
+  ],
+  Array [
+    "Process failed",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload throws if the file path is missing: log 1`] = `Array []`;
+
+exports[`Merchants contentful upload throws on missing env vars: createEntry 1`] = `Array []`;
+
+exports[`Merchants contentful upload throws on missing env vars: error 1`] = `
+Array [
+  Array [
+    [Error: Missing Env vars],
+  ],
+  Array [
+    "Process failed",
+  ],
+]
+`;
+
+exports[`Merchants contentful upload throws on missing env vars: log 1`] = `
+Array [
+  Array [
+    "Looking in data/merchants.tsv",
+  ],
+]
+`;

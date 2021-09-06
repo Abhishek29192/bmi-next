@@ -1,6 +1,7 @@
 import { Logger } from "winston";
 import { Account, Tier } from "@bmi/intouch-api-types";
 import { ApolloClient, NormalizedCacheObject, gql } from "@apollo/client";
+import { GetUserProfileQuery } from "../../graphql/generated/operations";
 import { randomPassword } from "../utils/account";
 
 const { AUTH0_NAMESPACE } = process.env;
@@ -136,6 +137,14 @@ const mutationDoceboCreateSSOUrl = gql`
 
 // TODO: Company can be partial... use generic or fallback to full company, or for Account in fact
 export const findAccountCompany = (account: Account) => {
+  return account?.companyMembers?.nodes?.[0]?.company;
+};
+
+// Couldn't find a way to use findAccountCompany
+// to accept both Account and GetUserProfileQuery["account"]
+export const findAccountCompanyFromAccountQuery = (
+  account: GetUserProfileQuery["account"]
+) => {
   return account?.companyMembers?.nodes?.[0]?.company;
 };
 
@@ -359,7 +368,9 @@ export default class AccountService {
             lastname: lastName,
             language,
             level,
+            valid: 1,
             email_validation_status: 1,
+            can_manage_subordinates: false,
             send_notification_email: false,
             select_orgchart: {
               branch_id: branchId

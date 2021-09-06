@@ -13,7 +13,7 @@ import {
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
 import { Data as DocumentData } from "./Document";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 import { Format } from "./types";
 import fileIconsMap from "./FileIconsMap";
@@ -106,7 +106,7 @@ const DocumentSimpleTableResults = ({
   documentsPerPage,
   headers = ["typeCode", "title", "download", "add"]
 }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const { list } = useContext(DownloadListContext);
   const paginatedDocuments = documents.slice(
     (page - 1) * documentsPerPage,

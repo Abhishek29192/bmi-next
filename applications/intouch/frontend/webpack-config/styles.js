@@ -1,5 +1,6 @@
 "use strict";
 
+const webpack = require("webpack");
 const MiniCssExtract = require("mini-css-extract-plugin");
 
 const createStyleLoaders = (isModule, isSass = true, dev, isServer) =>
@@ -52,6 +53,9 @@ const styleRules = ({ dev, isServer, exclude = {} } = {}) => {
             filename: "static/chunks/[name].[contenthash:8].css",
             chunkFilename: "static/chunks/[name].[contenthash:8].chunk.css",
             ignoreOrder: true // Enable to remove warnings about conflicting order
+          }),
+          new webpack.optimize.LimitChunkCountPlugin({
+            maxChunks: 10
           })
         ],
     rules: [

@@ -10,7 +10,7 @@ module.exports = (market) => {
           auth0Tenant: "intouch-dev",
           clientConfigurationBaseUrl: "https://cdn.eu.auth0.com/",
           callbackOnLocationHash: false,
-          callbackURL: "http://intouch.dddev.io/api/auth/callback",
+          callbackURL: "https://intouch.dddev.io/api/auth/callback",
           cdn: "https://cdn.auth0.com/",
           clientID: "W4gH2YagDOBdMpEUESoC4xZhsZbc3W1S",
           dict: {

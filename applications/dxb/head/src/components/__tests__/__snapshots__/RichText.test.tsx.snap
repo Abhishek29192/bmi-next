@@ -1,5 +1,238 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RichText component closes dialog 1`] = `
+<div
+  class="RichText"
+>
+  <h2
+    class="MuiTypography-root title Typography MuiTypography-h2"
+  >
+    Heading 2
+  </h2>
+  <h3
+    class="MuiTypography-root title Typography MuiTypography-h3"
+  >
+    Heading 3
+  </h3>
+  <h4
+    class="MuiTypography-root title Typography MuiTypography-h4"
+  >
+    Heading 4
+  </h4>
+  <h5
+    class="MuiTypography-root title Typography MuiTypography-h5"
+  >
+    Heading 5
+  </h5>
+  <h6
+    class="MuiTypography-root title Typography MuiTypography-h6"
+  >
+    Heading 6
+  </h6>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+  >
+    <br />
+  </p>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+  >
+    Paragraph 
+    <strong>
+      bold 
+    </strong>
+    <i>
+      italic 
+    </i>
+    <u>
+      underline
+    </u>
+      
+    <a
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
+      href="https://google.co.uk"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <span>
+        External
+      </span>
+    </a>
+     
+    <a
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
+      href="/testing-simple-page/"
+    >
+      <span>
+        Entry
+      </span>
+    </a>
+     
+    <a
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
+      href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <span>
+        Asset
+      </span>
+    </a>
+     
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 EmbeddedLink MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-44"
+      >
+        Aerodek Robust Plus
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <br />
+  </p>
+  <ul>
+    <li>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      >
+        UL
+      </p>
+    </li>
+  </ul>
+  <ol>
+    <li>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      >
+        OL
+      </p>
+    </li>
+  </ol>
+  <blockquote>
+    <p
+      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+    >
+      Blockquote
+    </p>
+  </blockquote>
+  <hr />
+  <button
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 EmbeddedLink MuiButton-containedPrimary"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiButton-label buttonStyles-label-44"
+    >
+      Support
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <img
+    alt="Customer Support"
+    class="embedded-asset"
+    src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
+  />
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+  >
+    <br />
+  </p>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+  >
+    <a
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
+      type="button"
+    >
+      <span>
+        Open dialog
+      </span>
+    </a>
+    <div
+      aria-hidden="true"
+      role="presentation"
+      style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+    >
+      <div
+        data-test="sentinelStart"
+        tabindex="0"
+      />
+      <div
+        class="Dialog Dialog--bg-white Dialog--width-md"
+        style="opacity: 0; webkit-transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+        tabindex="-1"
+      >
+        <div
+          class="header"
+        >
+          <button
+            aria-label="Close"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 iconButton"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="Link--dialog"
+        >
+          <div
+            class="Section"
+          >
+            <div
+              class="Container"
+            >
+              <div
+                class="MuiContainer-root MuiContainer-maxWidthXl"
+              >
+                <div
+                  class="Form--hubSpot"
+                  id="bmi-hubspot-form-dialog-section-6"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-test="sentinelEnd"
+        tabindex="0"
+      />
+    </div>
+    <br />
+  </p>
+</div>
+`;
+
 exports[`RichText component falls back with incorrect data 1`] = `
 <div
   class="RichText"
@@ -93,12 +326,12 @@ exports[`RichText component renders correctly 1`] = `
     </a>
      
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained Button EmbeddedLink MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 EmbeddedLink MuiButton-containedPrimary"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label"
+        class="MuiButton-label buttonStyles-label-4"
       >
         Aerodek Robust Plus
       </span>
@@ -135,12 +368,12 @@ exports[`RichText component renders correctly 1`] = `
   </blockquote>
   <hr />
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button EmbeddedLink MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 EmbeddedLink MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-4"
     >
       Support
     </span>
@@ -156,6 +389,256 @@ exports[`RichText component renders correctly 1`] = `
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
   >
+    <br />
+  </p>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+  >
+    <a
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
+      type="button"
+    >
+      <span>
+        Open dialog
+      </span>
+    </a>
+    <br />
+  </p>
+</div>
+`;
+
+exports[`RichText component renders when dialog clicked 1`] = `
+<div
+  class="RichText"
+>
+  <h2
+    class="MuiTypography-root title Typography MuiTypography-h2"
+  >
+    Heading 2
+  </h2>
+  <h3
+    class="MuiTypography-root title Typography MuiTypography-h3"
+  >
+    Heading 3
+  </h3>
+  <h4
+    class="MuiTypography-root title Typography MuiTypography-h4"
+  >
+    Heading 4
+  </h4>
+  <h5
+    class="MuiTypography-root title Typography MuiTypography-h5"
+  >
+    Heading 5
+  </h5>
+  <h6
+    class="MuiTypography-root title Typography MuiTypography-h6"
+  >
+    Heading 6
+  </h6>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+  >
+    <br />
+  </p>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+  >
+    Paragraph 
+    <strong>
+      bold 
+    </strong>
+    <i>
+      italic 
+    </i>
+    <u>
+      underline
+    </u>
+      
+    <a
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
+      href="https://google.co.uk"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <span>
+        External
+      </span>
+    </a>
+     
+    <a
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
+      href="/testing-simple-page/"
+    >
+      <span>
+        Entry
+      </span>
+    </a>
+     
+    <a
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
+      href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <span>
+        Asset
+      </span>
+    </a>
+     
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 EmbeddedLink MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-24"
+      >
+        Aerodek Robust Plus
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <br />
+  </p>
+  <ul>
+    <li>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      >
+        UL
+      </p>
+    </li>
+  </ul>
+  <ol>
+    <li>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      >
+        OL
+      </p>
+    </li>
+  </ol>
+  <blockquote>
+    <p
+      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+    >
+      Blockquote
+    </p>
+  </blockquote>
+  <hr />
+  <button
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 EmbeddedLink MuiButton-containedPrimary"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiButton-label buttonStyles-label-24"
+    >
+      Support
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <img
+    alt="Customer Support"
+    class="embedded-asset"
+    src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
+  />
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+  >
+    <br />
+  </p>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+  >
+    <a
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
+      type="button"
+    >
+      <span>
+        Open dialog
+      </span>
+    </a>
+    <div
+      role="presentation"
+      style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+    >
+      <div
+        aria-hidden="true"
+        style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      />
+      <div
+        data-test="sentinelStart"
+        tabindex="0"
+      />
+      <div
+        class="Dialog Dialog--bg-white Dialog--width-md"
+        style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+        tabindex="-1"
+      >
+        <div
+          class="header"
+        >
+          <button
+            aria-label="Close"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="Link--dialog"
+        >
+          <div
+            class="Section"
+          >
+            <div
+              class="Container"
+            >
+              <div
+                class="MuiContainer-root MuiContainer-maxWidthXl"
+              >
+                <div
+                  class="Form--hubSpot"
+                  id="bmi-hubspot-form-dialog-section-3"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-test="sentinelEnd"
+        tabindex="0"
+      />
+    </div>
     <br />
   </p>
 </div>

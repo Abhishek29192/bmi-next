@@ -18,6 +18,31 @@ This, with `primary` colour, is the BMI default button
 </>
 ```
 
+### Styled Button
+
+```tsx
+import ThemeProvider from "@bmi/theme-provider";
+
+const modifyTheme = (theme) => {
+  theme.palette = theme.palette || {};
+  theme.palette.primary = { main: "#201e5b", dark: "#161542" };
+
+  return theme;
+};
+
+<ThemeProvider modifyTheme={modifyTheme}>
+  <Button>Caption</Button>
+
+  <p>Disabled</p>
+  <Button disabled>Caption</Button>
+
+  <p>On Dark background with color fallback</p>
+  <div style={{ padding: "10px", background: "#343850", color: "#fff" }}>
+    <Button hasDarkBackground>Caption</Button>
+  </div>
+</ThemeProvider>;
+```
+
 #### Leading icon
 
 ```tsx
@@ -111,6 +136,20 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
   <p>Disabled</p>
 
   <Button hasDarkBackground variant="outlined" disabled>
+    Caption
+  </Button>
+</div>
+```
+
+#### Opaque outlined
+
+```jsx
+<div style={{ padding: "10px", background: "#fafafa" }}>
+  <Button variant="opaqueOutlined">Caption</Button>
+
+  <p>Disabled</p>
+
+  <Button variant="opaqueOutlined" disabled>
     Caption
   </Button>
 </div>

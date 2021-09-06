@@ -1,5 +1,4 @@
 import { completeInvitation, createAccount, invite, updateAccount } from "../";
-import * as eventsSrv from "../../../services/events";
 import * as mailerSrv from "../../../services/mailer";
 import * as trainingSrv from "../../../services/training";
 import { transaction, getDbPool } from "../../../test-utils/db";
@@ -30,6 +29,8 @@ let logger = () => ({
   error: () => {},
   info: () => {}
 });
+
+process.env.FRONTEND_URL = "intouch.dddev.io";
 
 describe("Account", () => {
   let args;
@@ -90,6 +91,9 @@ describe("Account", () => {
   describe("Update", () => {
     describe("Role", () => {
       it("should throw an error if an installer try to update the role", async () => {
+        const email1 = "joe@email.invalid";
+        const email2 = "jane@email.invalid";
+
         const {
           rows: [installer]
         } = await transaction(
@@ -99,8 +103,8 @@ describe("Account", () => {
             accountUuid: -1,
             accountEmail: ""
           },
-          "insert into account (role) VALUES($1) RETURNING *",
-          ["INSTALLER"]
+          "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
+          ["INSTALLER", "joe", "doe", email1]
         );
         await transaction(
           pool,
@@ -109,8 +113,8 @@ describe("Account", () => {
             accountUuid: -1,
             accountEmail: ""
           },
-          "insert into account (role) VALUES($1) RETURNING *",
-          ["COMPANY_ADMIN"]
+          "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
+          ["COMPANY_ADMIN", "jane", "doe", email2]
         );
 
         try {
@@ -127,6 +131,11 @@ describe("Account", () => {
         } catch (error) {
           expect(error.message).toEqual("permission denied for table account");
         }
+
+        await pool.query("delete from account where email = $1 OR email=$2", [
+          email1,
+          email2
+        ]);
       });
 
       it("should resolve if a company admin promote a installer", async () => {
@@ -143,7 +152,9 @@ describe("Account", () => {
           }
         };
 
-        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+        (mailerSrv.sendEmailWithTemplate as jest.Mock).mockResolvedValueOnce(
+          {}
+        );
 
         mockQuery
           .mockImplementationOnce(() => ({
@@ -168,11 +179,15 @@ describe("Account", () => {
           userid: "123456",
           level: 4
         });
-        expect(mailerSrv.sendChangeRoleEmail).toBeCalledWith(mockPubSub, {
-          email: "email@email.co.uk",
-          role: "company admin",
-          firstname: "Name"
-        });
+        expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+          contextMock,
+          "ROLE_ASSIGNED",
+          {
+            email: "email@email.co.uk",
+            role: "company admin",
+            firstname: "Name"
+          }
+        );
       });
 
       it("should resolve if a company admin downgrade an installer", async () => {
@@ -189,7 +204,9 @@ describe("Account", () => {
           }
         };
 
-        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+        (mailerSrv.sendEmailWithTemplate as jest.Mock).mockResolvedValueOnce(
+          {}
+        );
 
         mockQuery
           .mockImplementationOnce(() => ({
@@ -217,11 +234,15 @@ describe("Account", () => {
           userid: "123456",
           level: 6
         });
-        expect(mailerSrv.sendChangeRoleEmail).toBeCalledWith(mockPubSub, {
-          email: "email@email.co.uk",
-          role: "installer",
-          firstname: "Name"
-        });
+        expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+          contextMock,
+          "ROLE_ASSIGNED",
+          {
+            email: "email@email.co.uk",
+            role: "installer",
+            firstname: "Name"
+          }
+        );
       });
 
       it("should trown an error if last admin", async () => {
@@ -238,7 +259,9 @@ describe("Account", () => {
           }
         };
 
-        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+        (mailerSrv.sendEmailWithTemplate as jest.Mock).mockResolvedValueOnce(
+          {}
+        );
 
         mockQuery
           .mockImplementationOnce(() => ({
@@ -287,7 +310,12 @@ describe("Account", () => {
 
     it("Should be able to register as company_admin", async () => {
       mockResolve.mockResolvedValueOnce({
-        data: { $account_id: 1 }
+        data: {
+          $account_id: 1,
+          $market_id: 1,
+          $email: "email",
+          $first_name: "first_name"
+        }
       });
 
       resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
@@ -297,10 +325,35 @@ describe("Account", () => {
       mockQuery
         .mockResolvedValueOnce({}) // savepoint
         .mockResolvedValueOnce({}) // set user
-        .mockResolvedValueOnce({ rows: [] }); // get company
+        .mockResolvedValueOnce({ rows: [] }) // get company
+        .mockResolvedValueOnce({ rows: [] }) // create company
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              send_mailbox: "send_mailbox",
+              domain: "domain"
+            }
+          ]
+        }); // get market
 
       await createAccount(mockResolve, null, args, contextMock, resolveInfo);
 
+      expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+        {
+          ...contextMock,
+          user: {
+            ...contextMock.user,
+            market: { sendMailbox: "send_mailbox" },
+            id: 1
+          }
+        },
+        "ACCOUNT_ACTIVATED",
+        {
+          email: "email",
+          firstname: "first_name",
+          marketUrl: `https://domain.intouch.dddev.io`
+        }
+      );
       expect(mockResolve.mock.calls).toMatchSnapshot();
     });
     it("Should be able to register as installer", async () => {
@@ -316,7 +369,15 @@ describe("Account", () => {
       mockQuery
         .mockResolvedValueOnce({}) // savepoint
         .mockResolvedValueOnce({}) // set user
-        .mockResolvedValueOnce({ rows: [] }); // get company
+        .mockResolvedValueOnce({ rows: [] }) // get company
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              send_mailbox: "send_mailbox",
+              domain: "domain"
+            }
+          ]
+        }); // get market
 
       await createAccount(mockResolve, null, args, contextMock, resolveInfo);
 
@@ -349,7 +410,7 @@ describe("Account", () => {
           id: null,
           role: "INSTALLER",
           email: "email@email.com",
-          marketDomain: "en",
+          market: { domain: "en" },
           company: {
             ...company
           },
@@ -390,7 +451,7 @@ describe("Account", () => {
         ticket: "my-ticket"
       });
 
-      const spy = jest.spyOn(eventsSrv, "publish");
+      const spy = jest.spyOn(mailerSrv, "sendEmailWithTemplate");
 
       mockRootQuery
         // get user
@@ -411,7 +472,7 @@ describe("Account", () => {
         verify_email: false,
         user_metadata: {
           intouch_role: args.input.role,
-          market: contextMock.user.marketDomain,
+          market: contextMock.user.market.domain,
           first_name: args.input.firstName,
           last_name: args.input.lastName
         }
@@ -426,7 +487,7 @@ describe("Account", () => {
         email: "email@email.co.uk"
       });
 
-      const spy = jest.spyOn(eventsSrv, "publish");
+      const spy = jest.spyOn(mailerSrv, "sendEmailWithTemplate");
 
       mockRootQuery
         // get user
@@ -512,13 +573,31 @@ describe("Account", () => {
       mockRootQuery
         // invitation
         .mockResolvedValueOnce({
-          rows: [{ id: 1, market_id: 1, company_id: 1 }]
+          rows: [
+            {
+              id: 1,
+              market_id: 1,
+              company_id: 1
+            }
+          ]
         });
 
       mockQuery
         .mockResolvedValueOnce({ rows: [] }) // savepoint
-        .mockResolvedValueOnce({ rows: [{ id: 1, market_id: 1 }] }) // account
+        .mockResolvedValueOnce({
+          rows: [
+            { id: 1, market_id: 1, email: "email", first_name: "first_name" }
+          ]
+        }) // account
         .mockResolvedValueOnce({ rows: [] }) // config
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              send_mailbox: "send_mailbox",
+              domain: "domain"
+            }
+          ]
+        }) // market
         .mockResolvedValueOnce({
           rows: [{ id: 2, account_id: 1, market_id: 1, company_id: 1 }]
         }); // company_member
@@ -530,6 +609,23 @@ describe("Account", () => {
         resolveInfo,
         auth0,
         build
+      );
+
+      expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+        {
+          ...contextMock,
+          user: {
+            ...contextMock.user,
+            market: { sendMailbox: "send_mailbox" },
+            id: 1
+          }
+        },
+        "ACCOUNT_ACTIVATED",
+        {
+          email: "email",
+          firstname: "first_name",
+          marketUrl: `https://domain.intouch.dddev.io`
+        }
       );
 
       expect(mockQuery.mock.calls).toMatchSnapshot();

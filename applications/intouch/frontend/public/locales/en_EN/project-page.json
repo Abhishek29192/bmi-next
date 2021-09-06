@@ -3,6 +3,75 @@
   "MISCELLANEOUS": "Supporting files",
   "PROOF_OF_PURCHASE": "Proof of purchase",
   "CUSTOM": "Custom Files",
+  "search": {
+    "inputLabel": "Search for a project"
+  },
+  "projectDetails": {
+    "code": "Project code",
+    "status": "Project status",
+    "roofArea": "Total roof measurement",
+    "buildingAddress": "Building address",
+    "description": "Project description",
+    "startDate": "Project start date",
+    "endDate": "Project end date",
+    "guaranteeType": "Guarantee",
+    "guaranteeStatus": "Guarantee status",
+    "cta": {
+      "ASSIGN_SOLUTION": "Assign to me",
+      "REASSIGN_SOLUTION": "Reassign to me",
+      "UNASSIGN_SOLUTION": "Unassign to me",
+      "NOT_ASSIGNABLE": "Not Assignable"
+    }
+  },
+  "buildingOwnerDetails": {
+    "title": "Building Owner Details",
+    "noContent": "Building Owner details have not been added to this project",
+    "name": "Name",
+    "email": "Email",
+    "Company": "Company",
+    "address": "Building Owner address"
+  },
+  "guarantee": {
+    "notRequested": "Not requested",
+    "status": {
+      "NOT_APPLICABLE": "N/A",
+      "STARTED": "Started",
+      "READY": "Ready",
+      "SUBMITTED": "Submitted",
+      "REVIEW": "Submitted",
+      "REJECTED": "Returned",
+      "APPROVED": "Approved"
+    },
+    "type": {
+      "product": "Product Guarantee",
+      "system": "System Guarantee",
+      "solution": "Solution Guarantee"
+    },
+    "incompleteGuaranteeAlert": {
+      "title": "Information Required",
+      "description": "To submit your guarantee please addd a certified installer and uplod required evidence."
+    }
+  },
+  "filters": {
+    "labels": {
+      "ALL": "All",
+      "NOT_STARTED": "Not started",
+      "IN_PROGRESS": "In progress",
+      "COMPLETED": "Completed",
+      "FLAT": "Flat",
+      "PITCHED": "Pitched"
+    }
+  },
+  "noProjects": {
+    "title": "No projects to display",
+    "body1": "You have not added any new projects yet!",
+    "body2": "Select the \"Add new project\" button below to get started."
+  },
+  "noProjectSelected": {
+    "title": "No projects to display",
+    "body1": "You have not select any project yet!",
+    "body2": "Select the &quot;project&quot; from sidebar to get started."
+  },
   "teamTab": {
     "header": "Add team member",
     "table": {
@@ -35,7 +104,120 @@
       },
       "instruction": "You can add files",
       "confirm_label": "Add Evidences",
-      "cancel_label": "Cancel"
+      "cancel_label": "Cancel",
+      "file_validation_message": "You cannot upload  files larger than",
+      "evidence_category": "Evidence Category"
+    }
+  },
+  "guarantee_tab": {
+    "header": "Apply for a guarantee",
+    "nocontent_message": "No guarantee has been added yet",
+    "apply_guarantee": {
+      "title": "Register for a guarantee",
+      "confirm_label": "Register",
+      "cancel_label": "Cancel",
+      "message": {
+        "not_available_tier": "This guarantee type is not available in your Tier",
+        "guarantee_exists_error": "You cannot have a Solution or System Guarantee for a project that already has a Product Guarantee"
+      },
+      "review": {
+        "preferred_language": "Preferred Language",
+        "header": "Guarantee Documentation",
+        "product_title": "Product Details",
+        "system_title": "System Details",
+        "receipt_title": "Receipt Details",
+        "receipt_subTitle": "Receipt of purchase",
+        "alert_banner": {
+          "title": "Need to know",
+          "description": "Once the guarantee has been approved, the building owner will receive the guarantee documentation automatically, to the email address provided."
+        },
+        "responsible_installer": {
+          "title": "A responsible installer",
+          "description": "Please select an installer from the Project Team who is acting as the Responsible Installer. They should hold a certificate in the same technology as the Project that you want to guarantee."
+        },
+        "required": {
+          "title": "Please complete your application by providing the following:",
+          "evidence": "Provide supporting evidence"
+        }
+      },
+      "wizard": {
+        "step1": {
+          "title": "Register for a guarantee",
+          "subTitle": "Select required level of guarantee"
+        },
+        "step2": {
+          "title": "Register for a guarantee",
+          "subTitle": "Select the preferrred language for the guarantee documentation"
+        },
+        "step3": {
+          "product_title": "Product Guarantee",
+          "product_subTitle": "Select the Product for the guarantee documentation",
+          "system_title": "System Guarantee",
+          "system_subTitle": "Select the System for the guarantee documentation"
+        },
+        "step4": {
+          "title": "Receipt details",
+          "subTitle": "Please upload a copy of the receipt for the product(s) you would like to guarantee"
+        },
+        "step5": {
+          "title": "Review",
+          "subTitle": "Please review the information that you have provided, before submitting your application."
+        },
+        "stepDefault": {
+          "title": "Guarantee Application",
+          "subTitle": "Guarantee Application"
+        },
+        "footer": {
+          "goBack": "Go Back",
+          "next": "Next",
+          "submit": " Submit application"
+        }
+      }
+    },
+    "dialog": {
+      "title": "Your guarantee has been processed",
+      "description": "A certificate for your guarantee will be available to view on the Projects page.",
+      "confirm_label": "Close"
+    }
+  },
+  "building_owner": {
+    "title": "Building Owner Details",
+    "contact_detail": "Building contact details",
+    "email": "Building owner email",
+    "address": "Building owner address"
+  },
+  "responsible_installer": {
+    "title": "Responsible Installer details",
+    "contact_detail": "Responsible Installer contact details",
+    "email": "Responsible Installer email",
+    "address": "Responsible Installer address"
+  },
+  "productDetails": {
+    "name": "Product name",
+    "family": "Family",
+    "brand": "Brand"
+  },
+  "projectActions": {
+    "heading": "Project Actions",
+    "cta": {
+      "archive": "Archive project",
+      "unarchive": "Un-archive project",
+      "requestInformation": "Request more information",
+      "approveGuarantee": "Approve guarantee"
+    }
+  },
+  "noteTab": {
+    "header": "Add Note",
+    "table": {
+      "author": "Author",
+      "note": "Note",
+      "date": "Date"
+    },
+    "addNoteDialog": {
+      "title": "Add a note",
+      "detailHeading": "Please fill in the details below to share information on this project",
+      "cancel": "Cancel",
+      "send": "Send"
     }
   }
 }

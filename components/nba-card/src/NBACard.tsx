@@ -1,18 +1,44 @@
 import React from "react";
+import classnames from "classnames";
 import ColorPair, { Colors } from "@bmi/color-pair";
 import Typography from "@bmi/typography";
+import { withClickable } from "@bmi/clickable";
+import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import styles from "./NBACard.module.scss";
 
-type Props = {
+export type Props = Omit<ButtonBaseProps, "action"> & {
   theme: Colors;
   title: React.ReactNode;
   children: React.ReactNode;
   footer?: React.ReactNode;
+  className?: string;
+  buttonComponent?: React.ComponentType<any>;
+  isClickable?: boolean;
 };
 
-const NBACard = ({ theme, title, children, footer }: Props) => {
+const NBACard = ({
+  theme,
+  title,
+  children,
+  footer,
+  className,
+  buttonComponent: Button = ButtonBase,
+  isClickable = true,
+  ...rest
+}: Props) => {
   return (
-    <ColorPair className={styles["NBACard"]} theme={theme}>
+    <ColorPair
+      markupComponent={isClickable ? Button : "div"}
+      className={classnames(
+        styles["NBACard"],
+        {
+          [`${styles["NBACard--clickable"]}`]: isClickable
+        },
+        className
+      )}
+      {...rest}
+      theme={theme}
+    >
       <Typography className={styles["title"]} variant="h4">
         {title}
       </Typography>
@@ -22,4 +48,4 @@ const NBACard = ({ theme, title, children, footer }: Props) => {
   );
 };
 
-export default NBACard;
+export default withClickable<Props>(NBACard);

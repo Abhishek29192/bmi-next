@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import classnames from "classnames";
 import Media, { AcceptedNode } from "@bmi/media";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
@@ -22,8 +22,8 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   footer?: React.ReactNode;
   isFlat?: boolean;
   buttonComponent?: React.ComponentType<any>;
-  component?: React.ElementType<any>;
-  clickableArea?: "full" | "body";
+  clickableArea?: "full" | "body" | "none";
+  isHighlighted?: boolean;
 };
 
 const __DeprecatedImageSource = ({
@@ -87,6 +87,7 @@ const OverviewCard = ({
   buttonComponent: Button = ButtonBase,
   className,
   clickableArea = "full",
+  isHighlighted = false,
   ...rest
 }: Props) => {
   const ClickableArea = ({
@@ -103,12 +104,24 @@ const OverviewCard = ({
 
   const Wrapper = isFlat || clickableArea === "body" ? "div" : ClickableArea;
   const Body = !isFlat && clickableArea === "body" ? ClickableArea : "div";
+  const Title = ({ ...rest }): JSX.Element =>
+    isFlat && title ? (
+      <ClickableArea className={styles["clickable"]} {...rest} />
+    ) : (
+      <Fragment {...rest} />
+    );
 
   return (
     <Wrapper
       className={classnames(
         styles["OverviewCard"],
-        styles[`OverviewCard--${isFlat ? "flat" : "clickable"}`],
+        {
+          [styles["OverviewCard--highlighted"]!]: isHighlighted
+        },
+        isFlat && styles[`OverviewCard--flat`],
+        !isFlat &&
+          clickableArea !== "none" &&
+          styles[`OverviewCard--clickable`],
         className
       )}
     >
@@ -132,7 +145,7 @@ const OverviewCard = ({
             !brandImageSource && styles["title--no-brand-logo"]
           )}
         >
-          {title}
+          <Title>{title}</Title>
         </Typography>
         {subtitle && (
           <Typography variant={subtitleVariant} className={styles["text"]}>

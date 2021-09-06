@@ -1,11 +1,10 @@
 import crypto from "crypto";
-import { InviteInput, Role } from "@bmi/intouch-api-types";
+import camelcaseKeys from "camelcase-keys";
 import { FileUpload } from "graphql-upload";
+import { AccountPatch, InviteInput, Role } from "@bmi/intouch-api-types";
 import { UpdateAccountInput } from "@bmi/intouch-api-types";
-import { publish, TOPICS } from "../../services/events";
-import { sendChangeRoleEmail } from "../../services/mailer";
+import { sendEmailWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
-import StorageClient from "../storage-client";
 import { Account } from "../../types";
 
 const INSTALLER: Role = "INSTALLER";
@@ -46,8 +45,35 @@ export const createAccount = async (
 
     // If row = 0 I don't have a company so I'll create one
     if (rows.length === 0 && args.input.account.role === COMPANY_ADMIN) {
-      await pgClient.query(`SELECT * FROM create_company()`, []);
+      await pgClient.query(
+        `SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`,
+        ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
+      );
     }
+
+    const { rows: markets } = await pgClient.query(
+      `SELECT * FROM market WHERE id = $1`,
+      [result.data.$market_id]
+    );
+
+    // When the request started the user wasn't in the db so the parseUSer middleware didn't
+    // append any information to the request object
+    const updatedContext = {
+      ...context,
+      user: {
+        ...context.user,
+        id: result.data.$account_id,
+        market: {
+          sendMailbox: markets[0].send_mailbox
+        }
+      }
+    };
+
+    await sendEmailWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+      email: result.data.$email,
+      firstname: result.data.$first_name,
+      marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`
+    });
 
     // Query the requested value
     const [row] = await resolveInfo.graphile.selectGraphQLResultFromTable(
@@ -77,10 +103,11 @@ export const updateAccount = async (
   context,
   resolveInfo
 ) => {
-  const { GCP_BUCKET_NAME } = process.env;
+  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
 
-  const { pgClient, user, logger: Logger, pubSub } = context;
-  const { photoUpload, role } = args.input.patch;
+  const { pgClient, user, logger: Logger, storageClient } = context;
+  const { photoUpload, role, shouldRemovePhoto }: AccountPatch =
+    args.input.patch;
 
   const logger = Logger("service:account");
 
@@ -139,7 +166,7 @@ export const updateAccount = async (
           level
         });
 
-        await sendChangeRoleEmail(pubSub, {
+        await sendEmailWithTemplate(context, "ROLE_ASSIGNED", {
           email: result.data.$email,
           firstname: result.data.$first_name,
           role: role?.toLowerCase().replace("_", " ")
@@ -149,25 +176,46 @@ export const updateAccount = async (
       }
     }
 
-    if (photoUpload) {
-      const { rows: accounts } = await pgClient.query(
-        `select photo from account WHERE id = $1`,
-        [args.input.id]
-      );
+    if (!photoUpload && shouldRemovePhoto) {
+      args.input.patch.photo = null;
+    }
 
-      const newFileName =
-        accounts[0].photo || `profile/${args.input.id}-${Date.now()}`;
+    if (photoUpload) {
+      const newFileName = `profile/${args.input.id}-${Date.now()}`;
 
       const uploadedFile: FileUpload = await photoUpload;
 
-      args.input.patch.photo = newFileName;
+      try {
+        await storageClient.uploadFileByStream(
+          GCP_PRIVATE_BUCKET_NAME,
+          newFileName,
+          uploadedFile
+        );
+        // update the photo only if successful
+        args.input.patch.photo = newFileName;
+        logger.info(`Succesfully uploaded profile picture file ${newFileName}`);
+      } catch (error) {
+        logger.error(
+          `Could not upload profile picture file ${newFileName}`,
+          error.toString()
+        );
+      }
+    }
 
-      const storageClient = new StorageClient();
-      await storageClient.uploadFileByStream(
-        GCP_BUCKET_NAME,
-        newFileName,
-        uploadedFile
+    // if the user wants to remove the image OR a new photo has been uploaded
+    if ((!photoUpload && shouldRemovePhoto) || photoUpload) {
+      const {
+        rows: [{ photo: currentPhoto }]
+      } = await pgClient.query(
+        "select account.photo from account where id = $1",
+        [user.id]
       );
+
+      // delete the previous image if it exists & is hosted on GCP Cloud storage
+      // if the current image is externally hosted (i.e. starts with https://) it is probably mock data
+      if (currentPhoto && !/^http(s):\/\//.test(currentPhoto)) {
+        await storageClient.deleteFile(GCP_PRIVATE_BUCKET_NAME, currentPhoto);
+      }
     }
 
     return await resolve(source, args, context, resolveInfo);
@@ -185,7 +233,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
   const logger = context.logger("service:account");
 
   const user: Account = context.user;
-  const { pubSub, pgClient, pgRootPool } = context;
+  const { pgClient, pgRootPool } = context;
 
   const {
     emails,
@@ -225,7 +273,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         verify_email: false,
         user_metadata: {
           intouch_role: INSTALLER,
-          market: user.marketDomain,
+          market: user.market.domain,
           first_name: firstName,
           last_name: lastName
         }
@@ -267,52 +315,36 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         invitations
       );
 
+      // When the request started the user wasn't in the db so the parseUSer middleware didn't
+      // append any information to the request object
+      const updatedContext = {
+        ...context,
+        user: {
+          ...context.user,
+          market: {
+            sendMailbox: user.market.sendMailbox
+          }
+        }
+      };
+
       if (invetees.length === 0) {
         // Creating a passsword reset ticket
         const ticket = await auth0.createResetPasswordTicket({
           user_id: auth0User?.user_id,
-          result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
+          result_url: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
         });
-
-        // Send the email with the link to reset the password to the user
-        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-          title: `You have been invited by ${user.company.id}`,
-          text: `
-            You are invited by company ${user.company.id}.
-            Please follow this link to set your password:
-            ${ticket.ticket}
-            <br/>
-            ${personalNote}
-          `,
-          html: `
-            You are invited by company ${user.company.id}.
-            Please follow this link to set your password:
-            ${ticket.ticket}
-            <br/>
-            ${personalNote}
-          `,
+        await sendEmailWithTemplate(updatedContext, "NEWUSER_INVITED", {
+          firstname: invetee,
+          company: user.company.name,
+          registerlink: ticket.ticket,
           email: invetee
         });
-
         logger.info("Reset password email sent");
       } else {
-        // Send the email with the invitation link
-        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-          title: `You have been invited by ${user.company.id}`,
-          text: `
-            You are invited by company ${user.company.id}.
-            Please follow this link to set your password:
-            ${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
-            <br/>
-            ${personalNote}
-          `,
-          html: `
-            You are invited by company ${user.company.id}.
-            Please follow this link to set your password:
-            ${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
-            <br/>
-            ${personalNote}
-          `,
+        await sendEmailWithTemplate(updatedContext, "NEWUSER_INVITED", {
+          firstname: invetees[0].first_name,
+          company: user.company.name,
+          registerlink: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
           email: invetee
         });
         logger.info("Invitation email sent");
@@ -387,7 +419,31 @@ export const completeInvitation = async (
         [rows[0].id]
       );
 
-      user = rows[0];
+      user = camelcaseKeys(rows[0]);
+
+      const { rows: markets } = await pgClient.query(
+        `SELECT * FROM market WHERE id = $1`,
+        [user.marketId]
+      );
+
+      // When the request started the user wasn't in the db so the parseUSer middleware didn't
+      // append any information to the request object
+      const updatedContext = {
+        ...context,
+        user: {
+          ...context.user,
+          id: user.id,
+          market: {
+            sendMailbox: markets[0].send_mailbox
+          }
+        }
+      };
+
+      await sendEmailWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+        email: user.email,
+        firstname: user.firstName,
+        marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`
+      });
     }
 
     // Add the user to the company
@@ -427,19 +483,21 @@ export const completeInvitation = async (
   }
 };
 
-export const getAccountSignedPhotoUrl = async (photoName: string) => {
-  const { GCP_BUCKET_NAME } = process.env;
-  if (!photoName) {
-    return "";
+export const resetPassword = async (
+  _query,
+  args,
+  context,
+  resolveInfo,
+  auth0
+) => {
+  const { user } = context;
+  const logger = context.logger("service:reset-password");
+
+  try {
+    await auth0.changePassword(user.email);
+    return "ok";
+  } catch (error) {
+    logger.error("Email not sent", error);
+    return "fail";
   }
-
-  const expireDate = new Date();
-  expireDate.setDate(expireDate.getDate() + 1);
-
-  const storageClient = new StorageClient();
-  return await storageClient.getFileSignedUrl(
-    GCP_BUCKET_NAME,
-    photoName,
-    expireDate
-  );
 };

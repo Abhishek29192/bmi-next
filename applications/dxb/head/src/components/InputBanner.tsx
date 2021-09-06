@@ -1,5 +1,5 @@
 /* eslint-disable no-unreachable */
-import React, { useState, useCallback, useContext } from "react";
+import React, { useState, useCallback } from "react";
 import { graphql } from "gatsby";
 import InputBanner from "@bmi/input-banner";
 import Dialog from "@bmi/dialog";
@@ -11,7 +11,7 @@ import Button, { ButtonProps } from "@bmi/button";
 import Typography from "@bmi/typography";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import FormInputs, { Data as FormInputsData } from "./FormInputs";
 import RichText, { RichTextData } from "./RichText";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
@@ -35,17 +35,13 @@ export type Data = {
 };
 
 const IntegratedInputBanner = ({ data }: { data?: Data }) => {
-  if (!data) {
-    return null;
-  }
-
   const [email, setEmail] = useState("");
   const [additionalFields, setAdditionalFields] = useState(null);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [secondDialogOpen, setSecondDialogOpen] = useState(false);
   const [retryDialogOpen, setRetryDialogOpen] = useState(false);
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const {
     title,
     description,
@@ -97,13 +93,45 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
       }
       setDialogOpen(false);
     },
-    [email]
+    [email, errorTitle, errorBody]
   );
+
+  if (!data) {
+    return null;
+  }
 
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
     <div className={styles["InputBanner"]}>
+      <InputBanner
+        title={title}
+        description={description.description}
+        inputLabel={inputLabel}
+        inputCallToAction={submitButtonLabel}
+        inputGroupSuffix={<RecaptchaPrivacyLinks />}
+        buttonComponent={(props: ButtonProps) => (
+          <GTMButton
+            gtm={{
+              id: "cta-click1",
+              label: submitButtonLabel,
+              action: "Opens dialog"
+            }}
+            {...props}
+          />
+        )}
+        onSubmit={(email) => {
+          setEmail(email);
+
+          if (additionalInputs) {
+            setDialogOpen(true);
+
+            return;
+          }
+
+          setSecondDialogOpen(true);
+        }}
+      />
       {additionalInputs && (
         <Dialog open={dialogOpen} onCloseClick={() => setDialogOpen(false)}>
           <Dialog.Title hasUnderline>{title}</Dialog.Title>
@@ -191,34 +219,6 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
           }}
         />
       </Dialog>
-      <InputBanner
-        title={title}
-        description={description.description}
-        inputLabel={inputLabel}
-        inputCallToAction={submitButtonLabel}
-        inputGroupSuffix={<RecaptchaPrivacyLinks />}
-        buttonComponent={(props: ButtonProps) => (
-          <GTMButton
-            gtm={{
-              id: "cta-click1",
-              label: submitButtonLabel,
-              action: "Opens dialog"
-            }}
-            {...props}
-          />
-        )}
-        onSubmit={(email) => {
-          setEmail(email);
-
-          if (additionalInputs) {
-            setDialogOpen(true);
-
-            return;
-          }
-
-          setSecondDialogOpen(true);
-        }}
-      />
     </div>
   );
 };

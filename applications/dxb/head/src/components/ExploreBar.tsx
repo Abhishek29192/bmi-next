@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import ExploreBar from "@bmi/explore-bar";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   label: string;
@@ -10,7 +10,7 @@ export type Data = {
 };
 
 const IntegratedExploreBar = ({ data }: { data: Data }) => {
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode } = useSiteContext();
   const { label, links } = data;
 
   return (

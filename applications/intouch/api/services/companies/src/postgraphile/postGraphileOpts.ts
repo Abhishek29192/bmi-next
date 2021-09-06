@@ -1,11 +1,13 @@
 import { Request, Response } from "express";
 import { PostGraphileOptions } from "postgraphile";
 import ConnectionFilterPlugin from "postgraphile-plugin-connection-filter";
+import PostGraphileNestedMutations from "postgraphile-plugin-nested-mutations";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import { TagsFilePlugin } from "postgraphile/plugins";
 import { Role } from "@bmi/intouch-api-types";
 import config from "../config";
+import StorageClient from "../services/storage-client";
 import { Account } from "../types/index";
 import { getDbPool } from "../db";
 import { ExtendPlugin, WrapPlugin } from "./plugins";
@@ -29,18 +31,21 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     pgSimplifyInflector,
     FederationPlugin,
     TagsFilePlugin,
+    PostGraphileNestedMutations,
     ExtendPlugin,
     WrapPlugin
   ],
   handleErrors,
   additionalGraphQLContextFromRequest: async (req: Request, res: Response) => {
     const dbPool = getDbPool();
+    const storageClient = new StorageClient();
 
     return {
       user: req.user,
       logger: req.logger,
       pubSub: req.pubSub,
-      pgRootPool: dbPool
+      pgRootPool: dbPool,
+      storageClient
     };
   },
   pgSettings: async ({ user }: Props) => {

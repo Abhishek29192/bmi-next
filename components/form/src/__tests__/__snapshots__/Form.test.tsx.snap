@@ -12,12 +12,12 @@ exports[`Form component renders correctly 1`] = `
     </p>
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary"
     tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-4"
     >
       Submit
     </span>
@@ -43,12 +43,12 @@ exports[`Form component renders with a multiple buttons 1`] = `
     class="ButtonWrapper"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label"
+        class="MuiButton-label buttonStyles-label-24"
       >
         Cancel
       </span>
@@ -57,12 +57,12 @@ exports[`Form component renders with a multiple buttons 1`] = `
       />
     </button>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
       tabindex="0"
       type="submit"
     >
       <span
-        class="MuiButton-label"
+        class="MuiButton-label buttonStyles-label-24"
       >
         Submit
       </span>
@@ -89,12 +89,12 @@ exports[`Form component renders with a right aligned button 1`] = `
     class="ButtonWrapper"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 Button MuiButton-containedPrimary"
       tabindex="0"
       type="submit"
     >
       <span
-        class="MuiButton-label"
+        class="MuiButton-label buttonStyles-label-44"
       >
         Submit
       </span>

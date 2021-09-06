@@ -11,8 +11,8 @@ exports[`CompanyIncompleteProfile should match snapshot 1`] = `
       class="closeButtonContainer"
     >
       <button
-        aria-label="company.incomplete_profile.closeAlertAccessibilityLabel"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        aria-label="incompleteProfile.closeAlertAccessibilityLabel"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
         data-testid="CloseButton"
         tabindex="0"
         type="button"
@@ -49,9 +49,9 @@ exports[`CompanyIncompleteProfile should match snapshot 1`] = `
             d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
           />
         </svg>
-        company.incomplete_profile.warning
+        incompleteProfile.warning
       </h5>
-      company.incomplete_profile.phone, company.incomplete_profile.description, company.incomplete_profile.address
+      incompleteProfile.fields.phone, incompleteProfile.fields.aboutUs, incompleteProfile.fields.tradingAddress
     </div>
   </div>
 </div>

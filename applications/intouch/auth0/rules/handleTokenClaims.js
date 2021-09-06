@@ -1,8 +1,6 @@
 async function handleTokenClaims(user, context, callback) {
   if (!user.email_verified) {
-    return callback(
-      new UnauthorizedError("Please verify your email before logging in.")
-    );
+    return callback(new UnauthorizedError("email_not_verified"));
   }
 
   const { namespace } = configuration;

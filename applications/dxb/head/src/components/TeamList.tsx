@@ -1,14 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
-import { getSrc, getSrcSet } from "gatsby-plugin-image";
 import Grid from "@bmi/grid";
 import ProfileCard from "@bmi/profile-card";
 import EqualHeights from "@bmi/equal-heights";
 import Button from "@bmi/button";
 import { iconMap } from "./Icon";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import { getClickableActionFromUrl, Data as LinkData } from "./Link";
-import { Data as ImageData } from "./Image";
+import Image, { Data as ImageData } from "./Image";
 
 export type Data = {
   name: string;
@@ -20,7 +19,7 @@ export type Data = {
 const TEAM_MEMBERS_PER_PAGE = 8;
 
 const TeamList = ({ data }: { data: Data | null }) => {
-  const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { countryCode, getMicroCopy } = useSiteContext();
   const showMoreText = getMicroCopy("global.showMore");
   const [numberVisible, setNumberVisible] = useState(TEAM_MEMBERS_PER_PAGE);
   return (
@@ -29,12 +28,11 @@ const TeamList = ({ data }: { data: Data | null }) => {
         <Grid container justify="center" spacing={3}>
           {data?.slice(0, numberVisible).map((teamMember, index) => {
             const { name, jobTitle, profileImage, links } = teamMember;
-            const src = getSrc(profileImage?.image.gatsbyImageData);
 
             return (
               <Grid item xs={12} sm={6} lg={3} key={index}>
                 <ProfileCard
-                  imageSource={src}
+                  imageSource={profileImage && <Image data={profileImage} />}
                   body={
                     <EqualHeights.Consumer shouldDisableBoxSizing>
                       {({ addRef, equalHeight }) => {

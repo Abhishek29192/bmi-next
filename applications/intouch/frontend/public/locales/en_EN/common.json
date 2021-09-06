@@ -16,11 +16,28 @@
   "ARCHITECT": "Architect",
   "MERCHANT": "Merchant",
   "CORP_DEVELOPER": "Developer",
-  "COMPANY_ADMIN": "Company administrator",
+  "roles": {
+    "INSTALLER": "Installer",
+    "COMPANY_ADMIN": "Company administrator",
+    "MARKET_ADMIN": "Market administrator",
+    "SUPER_ADMIN": "Super admin"
+  },
   "tier": {
     "T1": "Member",
     "T2": "Partner",
     "T3": "Expert",
     "T4": "Elite"
-  }
+  },
+  "error_messages": {
+    "required": "Required",
+    "url_format": "Invalid URL",
+    "email_format": "Invalid email address",
+    "phone_number_format": "Invalid phone number"
+  },
+  "Products": "Products",
+  "fallback": {
+    "notAdded": "Not added"
+  },
+  "Download": "Download",
+  "SavePdf": "Save to PDF"
 }

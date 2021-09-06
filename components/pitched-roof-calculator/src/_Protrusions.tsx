@@ -48,6 +48,7 @@ const SelectProtrusion = ({
               illustratedImage={illustration}
               onChange={(e) => {
                 pushEvent({
+                  event: "dxb.button_click",
                   id: "rc-dimensions-protrusions-type",
                   label: type,
                   action: "selected"
@@ -176,6 +177,7 @@ const ProtrusionDimensions = ({
                   variant="text"
                   onClick={() => {
                     pushEvent({
+                      event: "dxb.button_click",
                       id: "rc-dimensions-protrusions",
                       label: getMicroCopy(
                         copy,
@@ -193,6 +195,7 @@ const ProtrusionDimensions = ({
                 variant="text"
                 onClick={() => {
                   pushEvent({
+                    event: "dxb.button_click",
                     id: "rc-dimensions-protrusions",
                     label: getMicroCopy(
                       copy,
@@ -277,6 +280,7 @@ const Protrusion = ({
           variant="text"
           onClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-dimensions-protrusions",
               label: getMicroCopy(copy, "roofDimensions.protrusions.remove"),
               action: "removed"
@@ -374,6 +378,7 @@ const Protrusions = ({
           accessibilityLabel={"Add protrusions"}
           onClick={() => {
             pushEvent({
+              event: "dxb.button_click",
               id: "rc-dimensions-protrusions",
               label: getMicroCopy(copy, "roofDimensions.protrusions.add"),
               action: "selected"

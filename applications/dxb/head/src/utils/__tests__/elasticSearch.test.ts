@@ -199,7 +199,7 @@ describe("compileElasticSearchQuery function", () => {
                     "texturefamilyValue.keyword",
                     "measurementValue.keyword",
                     "categories.value.keyword",
-                    "plpCategories.value.keyword",
+                    "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
                   "query": "*bar*",
@@ -208,7 +208,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "plpCategories.code.keyword": "foo",
+                  "allCategories.code.keyword": "foo",
                 },
               },
               Object {
@@ -281,7 +281,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "term": Object {
-                  "plpCategories.code.keyword": "foo",
+                  "allCategories.code.keyword": "foo",
                 },
               },
               Object {

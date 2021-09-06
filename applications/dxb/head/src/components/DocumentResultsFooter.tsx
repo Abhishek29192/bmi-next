@@ -11,7 +11,7 @@ import createAssetFileCountMap, {
   generateFileNamebyTitle,
   AssetUniqueFileCountMap
 } from "./DocumentFileUtils";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import styles from "./styles/DocumentResultsFooter.module.scss";
 
@@ -98,7 +98,7 @@ const DocumentResultsFooter = ({
   onPageChange,
   onDownloadClick
 }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
 

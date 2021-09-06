@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  render,
-  RenderResult,
-  waitFor,
-  screen,
-  act
-} from "@testing-library/react";
+import { render, RenderResult, waitFor } from "@testing-library/react";
 import {
   createHistory,
   createMemorySource,
@@ -24,7 +18,6 @@ import { Data as LinkData } from "../../components/Link";
 import regions from "../../countries/region.json";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
-import createProduct from "../../__tests__/PimDocumentProductHelper";
 import ProvideStyles from "./utils/StylesProvider";
 
 window.alert = jest.fn();
@@ -144,7 +137,16 @@ const siteData: SiteData = {
   menuUtilities: mockNavigation,
   resources: null,
   scriptGOptLoad: null,
-  regions: regions.slice(-1)
+  regions: [
+    {
+      label: "Europe",
+      menu: [
+        { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+        { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+        { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
+      ]
+    }
+  ]
 };
 
 const pageData = {
@@ -277,11 +279,18 @@ const renderWithStylesAndLocationProvider = (
   );
 };
 
+const OLD_ENV = process.env;
+
 afterEach(() => {
+  process.env = OLD_ENV; // Restore old environment
+
   jest.restoreAllMocks();
 });
 
 beforeEach(() => {
+  jest.resetModules(); // Most important - it clears the cache
+  process.env = { ...OLD_ENV }; // Make a copy
+  process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
   mockUseDimensions({
     containerWidth: 400,
     normalTableWidth: 400,
@@ -290,6 +299,20 @@ beforeEach(() => {
 });
 
 describe("ProductListerPage template", () => {
+  describe("ProductListerPage without initialProducts without BrandProvider", () => {
+    it("renders basic ProductListerPage", async () => {
+      process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
+      pageData.initialProducts = [];
+      pageData.productFilters = [];
+      const { container, findByText } = renderWithStylesAndLocationProvider(
+        pageData,
+        pageContext
+      );
+      await findByText(heroTitle);
+      await waitFor(() => expect(container.parentElement).toMatchSnapshot());
+    });
+  });
+
   describe("ProductListerPage without initialProducts", () => {
     it("renders basic ProductListerPage", async () => {
       pageData.initialProducts = [];
@@ -418,11 +441,13 @@ describe("ProductListerPage template", () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.contentfulProductListerPage.heroType = "Level 1";
 
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const { container } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
-        await waitFor(() => expect(findByText("Hero--lvl-1")).not.toBeNull());
+        await waitFor(() =>
+          expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(1)
+        );
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });

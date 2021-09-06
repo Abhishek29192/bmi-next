@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import { useRouter } from "next/router";
@@ -6,48 +6,64 @@ import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
-import { withPage } from "../../lib/middleware/withPage";
+import can from "../../lib/permissions/can";
+import {
+  ErrorStatusCode,
+  generatePageError,
+  withPageError
+} from "../../lib/error";
+import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import GridStyles from "../../styles/Grid.module.scss";
 import { ProjectSidePanel } from "../../components/ProjectSidePanel";
 import ProjectDetail from "../../components/ProjectDetail";
 import { Layout } from "../../components/Layout";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
-import {
-  GetProjectsQuery,
-  GetGlobalDataQuery
-} from "../../graphql/generated/operations";
+import { GetProjectsQuery } from "../../graphql/generated/operations";
 
 import { getServerPageGetProjects } from "../../graphql/generated/page";
 
-export type PageProps = {
+export type ProjectsPageProps = GlobalPageProps & {
   projects: GetProjectsQuery["projects"];
-  globalPageData: GetGlobalDataQuery;
 };
 
-const Projects = ({ projects, globalPageData }: PageProps) => {
-  const { t } = useTranslation("common");
+const sortProjects = (projects: GetProjectsQuery["projects"]["nodes"]) => {
+  const now = Date.now();
+
+  return [...(projects || [])].sort((a, b) => {
+    return (
+      Math.abs(now - new Date(a.endDate).getTime()) -
+      Math.abs(now - new Date(b.endDate).getTime())
+    );
+  });
+};
+
+const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
+  const { t } = useTranslation(["common", "project-page"]);
   const router = useRouter();
 
-  const [activeProjectId, setActiveProjectId] = useState<number>(null);
+  const sortedProjects = useMemo(
+    () => sortProjects(projects?.nodes),
+    [projects?.nodes]
+  );
 
-  useEffect(() => {
+  const activeProjectId = useMemo(() => {
     const { project } = router.query;
     if (project && project.length) {
-      setActiveProjectId(parseInt(project[0]));
+      return parseInt(project[0]);
     }
-  }, [router.query]);
+  }, [router.query, sortedProjects]);
 
-  const sidePanelHandler = (projectId: number) => {
-    //setActiveProjectId(projectId);
+  const handleProjectSelection = (projectId: number) => {
     router.push(`/projects/${projectId}`, undefined, { shallow: true });
   };
 
   return (
-    <Layout title={t("Projects")} pageData={globalPageData}>
-      <div style={{ display: "flex" }}>
+    <Layout title={t("common:Projects")} pageData={globalPageData}>
+      <div style={{ display: "flex", height: "100%" }}>
         <ProjectSidePanel
-          projects={projects}
-          onProjectSelected={sidePanelHandler}
+          projects={sortedProjects}
+          onProjectSelected={handleProjectSelection}
+          selectedProjectId={activeProjectId}
         />
 
         <Grid
@@ -56,21 +72,19 @@ const Projects = ({ projects, globalPageData }: PageProps) => {
           className={GridStyles.outerGrid}
           alignItems="stretch"
         >
-          {projects?.nodes?.length > 0 && (
-            <ProjectDetail projectId={activeProjectId} />
-          )}
-          {!projects?.nodes?.length && (
+          {sortedProjects.length === 0 ? (
             <Grid item xs={12}>
-              <NoProjectsCard title="No projects to display">
+              <NoProjectsCard title={t("project-page:noProjects.title")}>
                 <Typography variant="subtitle2">
-                  You have not added any new projects yet!
+                  {t("project-page:noProjects.body1")}
                 </Typography>
                 <Typography variant="subtitle2">
-                  Select the &quot;Add new project&quot; button below to get
-                  started.
+                  {t("project-page:noProjects.body2")}
                 </Typography>
               </NoProjectsCard>
             </Grid>
+          ) : (
+            <ProjectDetail projectId={activeProjectId} />
           )}
         </Grid>
       </div>
@@ -79,30 +93,55 @@ const Projects = ({ projects, globalPageData }: PageProps) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, globalPageData }) => {
+  async ({ apolloClient, locale, account, globalPageData, res, params }) => {
+    // Check if user can generally access the page
+    if (!can(account, "page", "projects")) {
+      const statusCode = ErrorStatusCode.UNAUTHORISED;
+      res.statusCode = statusCode;
+      return generatePageError(statusCode, {}, { globalPageData });
+    }
+
+    // Retrieve all the projects accessible to the user
     const {
       props: {
         data: { projects }
       }
     } = await getServerPageGetProjects({}, apolloClient);
 
-    const props = {
-      account,
-      globalPageData,
-      projects,
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "sidebar",
-        "footer",
-        "project-page"
-      ]))
-    };
+    // If trying to access a specific project, check if it's accessible
+    if (params?.project && params?.project.length) {
+      const found = projects?.nodes.find(
+        ({ id }) => id === parseInt(params.project[0])
+      );
 
-    return { props };
+      if (!found) {
+        const statusCode = ErrorStatusCode.NOT_FOUND;
+        res.statusCode = statusCode;
+        return generatePageError(statusCode, {}, { globalPageData });
+      }
+      // Otherwise, redirect to first accessible project, if any
+    } else if (projects?.nodes.length) {
+      const sortedProjects = sortProjects(projects?.nodes);
+
+      res.writeHead(302, { Location: `/projects/${sortedProjects[0]?.id}` });
+      return res.end();
+    }
+
+    return {
+      props: {
+        projects,
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "footer",
+          "project-page"
+        ]))
+      }
+    };
   }
 );
 
-export default withPageAuthRequired(Projects);
+export default withPageAuthRequired(withPageError<ProjectsPageProps>(Projects));
 
 export const GET_PROJECTS = gql`
   query GetProjects {

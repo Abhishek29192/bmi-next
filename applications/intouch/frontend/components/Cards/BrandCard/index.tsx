@@ -1,21 +1,24 @@
 import React from "react";
+import { Document } from "@contentful/rich-text-types";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { RichText } from "../../RichText";
 import styles from "./styles.module.scss";
 
 export type BrandCardProps = {
+  id: string;
   title: string;
-  content: string;
   link: string;
   logo: string;
   bannerImage: string;
+  description: Document;
 };
 
 export const BrandCard = ({
+  id,
   title,
-  content,
+  description,
   link,
   logo,
   bannerImage
@@ -23,9 +26,11 @@ export const BrandCard = ({
   const { t } = useTranslation("common");
 
   return (
-    <div className={styles.main}>
+    <div className={styles.main} id={id}>
       <div className={styles.header}>
-        <img src={bannerImage} />
+        <div className={styles.banner}>
+          <img src={bannerImage} />
+        </div>
         <div className={styles.logo}>
           <img src={logo} />
         </div>
@@ -36,14 +41,12 @@ export const BrandCard = ({
         </Typography>
 
         <div className={styles.content}>
-          <Typography>{content}</Typography>
+          <RichText content={description} />
         </div>
       </div>
 
       <div className={styles.footer}>
-        <Button endIcon={<ArrowForwardIcon />} variant="outlined">
-          {t("Read More")}
-        </Button>
+        <Button href={link}>{t("Visit Website")}</Button>
       </div>
     </div>
   );

@@ -36,4 +36,4 @@ If `PG_PASSWORD` and `PG_HOST` are set as env variable the app will pick these v
 
 ## GCP Pub/Sub
 
-In order to publish any event to pub/sub you need to doenload the account_service key from gcp
+In order to publish any event to pub/sub you need to doenload the account_service key from gcp.

@@ -1,3 +1,5 @@
+@import "./utils.scss";
+
 $color-alabaster: #f0f0f0;
 $color-alert: #ffc72c;
 $color-aqua-100: #d9f0ed;
@@ -63,8 +65,13 @@ $color-siplast-black: #1a171b;
 :root {
   --color-theme-accent-300: #{$color-cyan-400};
   --color-theme-accent: #{$color-cyan-400};
+  --color-theme-accent-rgb: #{hexToRGB($color-cyan-400)};
   --color-theme-inter: #{$color-cyan-500};
+  --color-theme-inter-rgb: #{hexToRGB($color-cyan-500)};
   --color-theme-focus: #{$color-cyan-600};
+  --color-theme-inter-dark: #{$color-cyan-500};
+  --color-theme-inter-dark-rgb: #{hexToRGB($color-cyan-500)};
+  --color-theme-focus-dark: #{$color-cyan-600};
 
   // Secondary(action cards colors)
   --color-theme-secondary-1: #{$color-cyan-700};
@@ -76,8 +83,13 @@ $color-siplast-black: #1a171b;
 // brand variables
 $color-theme-accent-300: var(--color-theme-accent-300);
 $color-theme-accent: var(--color-theme-accent);
+$color-theme-accent-rgb: var(--color-theme-accent-rgb);
 $color-theme-inter: var(--color-theme-inter);
+$color-theme-inter-rgb: var(--color-theme-inter-rgb);
 $color-theme-focus: var(--color-theme-focus);
+$color-theme-inter-dark: var(--color-theme-inter-dark);
+$color-theme-inter-dark-rgb: var(--color-theme-inter-dark-rgb);
+$color-theme-focus-dark: var(--color-theme-focus-dark);
 
 // Secondary(action cards colors)
 $color-theme-secondary-1: var(--color-theme-secondary-1);

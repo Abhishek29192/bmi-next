@@ -1,5 +1,5 @@
 import { Buffer } from "buffer";
-import { PubSub } from "@google-cloud/pubsub";
+import { PostGraphileContext } from "../../types";
 
 export const enum TOPICS {
   TRANSACTIONAL_EMAIL = "transactional-email",
@@ -7,24 +7,31 @@ export const enum TOPICS {
 }
 
 export const publish = async (
-  pubSub: PubSub,
+  context: PostGraphileContext,
   topicName: TOPICS,
   payload: any
 ) => {
+  const { pubSub } = context;
+  const logger = context.logger("event:publisher");
+
   if (!topicName || !payload) {
     const errorMEssage =
       'Missing parameter(s); include "topic" and "message" properties in your request.';
     // eslint-disable-next-line no-console
-    console.error(errorMEssage);
+    logger.error(errorMEssage);
     throw new Error(errorMEssage);
   }
 
   try {
     const data = Buffer.from(JSON.stringify(payload), "utf8");
-    return pubSub.topic(topicName).publish(data);
+    const result = await pubSub.topic(topicName).publish(data);
+    logger.info(
+      `Event with topic: ${topicName} pusblished by user: ${context.user.id}`
+    );
+    return result;
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error(
+    logger.error(
       `Error pusblishing an event in pubSub with topic: ${topicName}`,
       error
     );

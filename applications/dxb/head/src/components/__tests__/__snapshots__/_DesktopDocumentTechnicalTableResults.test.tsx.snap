@@ -31,7 +31,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                   class="Tooltip"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--42 IconButton--text"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-42-59 iconButtonStyles-text-62"
                     tabindex="0"
                     type="button"
                   >
@@ -88,7 +88,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               >
                 <button
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-text-62 external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://localhost/pim-document-id\\\\\\",\\\\\\"http://localhost/pim-document-id\\\\\\"]\\"}"
                   tabindex="0"
                   type="button"
@@ -119,14 +119,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-9 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-69 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
                             aria-label="MC: documentLibrary.download product1"
-                            class="PrivateSwitchBase-input-12"
+                            class="PrivateSwitchBase-input-72"
                             data-indeterminate="false"
                             name="product-code-0"
                             type="checkbox"
@@ -168,7 +168,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               >
                 <button
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-text-62 external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://localhost/pim-link-document-id\\\\\\",\\\\\\"http://localhost/pim-link-document-id\\\\\\"]\\"}"
                   tabindex="0"
                   type="button"
@@ -247,7 +247,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                   class="Tooltip"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--42 IconButton--text"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-42-35 iconButtonStyles-text-38"
                     tabindex="0"
                     type="button"
                   >
@@ -280,7 +280,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                   class="Tooltip"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--42 IconButton--text"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-42-35 iconButtonStyles-text-38"
                     tabindex="0"
                     type="button"
                   >
@@ -368,14 +368,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-45 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
                             aria-label="MC: documentLibrary.download product1"
-                            class="PrivateSwitchBase-input-8"
+                            class="PrivateSwitchBase-input-48"
                             data-indeterminate="false"
                             name="product-code-0"
                             type="checkbox"
@@ -425,7 +425,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 <a
                   aria-disabled="false"
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-text-38 external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                   href="http://localhost/pim-link-document-id"
                   rel="noopener noreferrer"
@@ -513,7 +513,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                   class="Tooltip"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--42 IconButton--text"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-42-11 iconButtonStyles-text-14"
                     tabindex="0"
                     type="button"
                   >
@@ -594,14 +594,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
                             aria-label="MC: documentLibrary.download product1"
-                            class="PrivateSwitchBase-input-4"
+                            class="PrivateSwitchBase-input-24"
                             data-indeterminate="false"
                             name="product-code-0"
                             type="checkbox"
@@ -644,7 +644,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                 <a
                   aria-disabled="false"
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                   href="http://localhost/pim-link-document-id"
                   rel="noopener noreferrer"

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import classnames from "classnames";
 import AnchorLink from "@bmi/anchor-link";
 import MasonryGrid from "@bmi/masonry-grid";
@@ -9,7 +9,7 @@ import {
   getClickableActionFromUrl,
   NavigationItem
 } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import styles from "./styles/SitemapBlock.module.scss";
 
 type Props = {
@@ -58,7 +58,7 @@ const WrapperComponent = ({
 );
 
 const SitemapBlock = ({ links, label, level = 0 }: Props) => {
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode } = useSiteContext();
 
   const validSitemapLinks = links?.filter(isValidSitemapType);
 

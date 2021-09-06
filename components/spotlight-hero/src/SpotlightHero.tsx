@@ -45,7 +45,9 @@ const SpotlightHero = ({
     <div
       className={classnames(
         styles["SpotlightHero"],
-        brand && styles["SpotlightHero--keyline"]
+        !!process.env.GATSBY_ENABLE_BRAND_PROVIDER &&
+          brand &&
+          styles["SpotlightHero--keyline"]
       )}
     >
       <div

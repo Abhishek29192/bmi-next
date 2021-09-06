@@ -17,3 +17,5 @@ exports[`BrandProvider renders with brand 1`] = `
   Test
 </div>
 `;
+
+exports[`BrandProvider renders without BrandProvider 1`] = `Test`;

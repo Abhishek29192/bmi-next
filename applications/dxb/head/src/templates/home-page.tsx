@@ -12,11 +12,12 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
-import { Data as SiteData, SiteContext } from "../components/Site";
+import { Data as SiteData } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
 import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -97,11 +98,12 @@ const HomePage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={slides?.[0]?.featuredMedia.image?.file.url}
     >
-      <SiteContext.Consumer>
-        {(context) => {
-          const { countryCode, getMicroCopy } = context;
-          const heroItems = getHeroItemsWithContext(context, slides);
-          return (
+      {({ siteContext }) => {
+        const { countryCode, getMicroCopy } = siteContext;
+        const heroItems = getHeroItemsWithContext(siteContext, slides);
+
+        return (
+          <>
             <Hero level={0} heroes={heroItems} hasSpaceBottom>
               <Search
                 buttonComponent={(props) => (
@@ -110,24 +112,24 @@ const HomePage = ({ data, pageContext }: Props) => {
                     {...props}
                   />
                 )}
-                action={`/${countryCode}/search`}
+                action={getPathWithCountryCode(countryCode, "search")}
                 label={getMicroCopy("search.label")}
                 placeholder={getMicroCopy("search.placeholder.hero")}
               />
             </Hero>
-          );
-        }}
-      </SiteContext.Consumer>
-      {overlapCards && <OverlapCards data={overlapCards} />}
-      {brands?.length ? <Brands data={brands} /> : null}
-      {sections && <Sections data={sections} pageTypename={__typename} />}
-      <WelcomeDialog
-        data={{
-          welcomeDialogTitle,
-          welcomeDialogBody,
-          welcomeDialogBrands
-        }}
-      />
+            {overlapCards && <OverlapCards data={overlapCards} />}
+            {brands?.length ? <Brands data={brands} /> : null}
+            {sections && <Sections data={sections} pageTypename={__typename} />}
+            <WelcomeDialog
+              data={{
+                welcomeDialogTitle,
+                welcomeDialogBody,
+                welcomeDialogBrands
+              }}
+            />
+          </>
+        );
+      }}
     </Page>
   );
 };

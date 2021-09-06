@@ -1,4 +1,6 @@
-import { Role, Company } from "@bmi/intouch-api-types";
+import { PoolClient } from "pg";
+import { Role, Company, Market } from "@bmi/intouch-api-types";
+import { StorageClientType } from "../services/storage-client";
 
 export type Account = {
   id: string;
@@ -15,12 +17,21 @@ export type Account = {
   invited: boolean;
   firstName: string;
   lastName: string;
-  marketId: string;
-  marketDomain: string;
+  market: Market;
   status: string;
   doceboUserId: string;
   doceboUsername: string;
   migrationId: string;
+  marketId: string;
   company: Company;
   can: (permissions: string | string[]) => boolean;
+};
+
+export type PostGraphileContext = {
+  pubSub: any;
+  user: Account;
+  logger: (modue: string) => import("winston").Logger;
+  pgRootPool: PoolClient;
+  pgClient: PoolClient;
+  storageClient: StorageClientType;
 };

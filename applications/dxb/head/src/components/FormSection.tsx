@@ -16,15 +16,16 @@ import InputBase from "@material-ui/core/InputBase";
 import { withFormControl } from "@bmi/form";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
-import React, { FormEvent, useContext, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import withGTM from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 // TODO: FormInputs should be updated and used here.
 import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
 import { Data as LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import styles from "./styles/FormSection.module.scss";
 
 const InputTypes = [
@@ -73,7 +74,7 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const mapBody = (file: File) => file;
@@ -255,7 +256,7 @@ const FormSection = ({
   data: Data;
   backgroundColor: "pearl" | "white";
 }) => {
-  const { countryCode, getMicroCopy, node_locale } = useContext(SiteContext);
+  const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -306,7 +307,7 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            `/${countryCode}/${successRedirect.linkedPage.path}`
+            getPathWithCountryCode(countryCode, successRedirect.linkedPage.path)
         );
       } else {
         navigate("/");
@@ -400,7 +401,7 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            `/${countryCode}/${successRedirect.linkedPage.path}`
+            getPathWithCountryCode(countryCode, successRedirect.linkedPage.path)
         );
       } else {
         navigate("/");

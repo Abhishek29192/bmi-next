@@ -1,7 +1,6 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
-import regions from "../../countries/region.json";
 import { Data as LinkData, NavigationData } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
@@ -10,6 +9,17 @@ import Header from "../Header";
 beforeAll(() => {
   mockConsole();
 });
+
+const regions = [
+  {
+    label: "Europe",
+    menu: [
+      { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+      { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+      { code: "gb", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
+    ]
+  }
+];
 
 const card1: PromoData = {
   __typename: "ContentfulPromo",
@@ -64,8 +74,8 @@ const card1: PromoData = {
 const card2: PromoData = {
   __typename: "ContentfulPromo",
   id: "card2",
-  name: "cardTitle2",
-  title: "cardTitle2",
+  name: "cardName2",
+  title: null,
   subtitle: null,
   body: null,
   brandLogo: null,
@@ -215,7 +225,7 @@ describe("Header component", () => {
         countryCode="gb"
         navigationData={navigationData}
         utilitiesData={utilitiesData}
-        regions={regions.slice(-1)}
+        regions={regions}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -227,7 +237,7 @@ describe("Header component", () => {
         countryCode="gb"
         navigationData={null}
         utilitiesData={null}
-        regions={regions.slice(-1)}
+        regions={regions}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -239,7 +249,7 @@ describe("Header component", () => {
         countryCode="gb"
         navigationData={navigationData}
         utilitiesData={utilitiesData}
-        regions={regions.slice(-1)}
+        regions={regions}
       />
     );
 

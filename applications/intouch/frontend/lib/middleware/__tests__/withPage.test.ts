@@ -1,5 +1,6 @@
 import { withPage, innerGetServerSideProps } from "../withPage";
 import { generateAccount } from "../../tests/factories/account";
+import { generateMarketContext } from "../../tests/factories/market";
 
 jest.mock("../../../lib/config", () => ({
   baseUrlDomain: "local.intouch",
@@ -15,14 +16,16 @@ jest.mock("../../auth0", () => ({
 
 const mockQuery = jest.fn();
 jest.mock("../../apolloClient", () => ({
-  initializeApollo: () =>
-    Promise.resolve({
-      query: mockQuery
-    })
+  initializeApollo: () => ({
+    query: mockQuery
+  })
 }));
 jest.mock("../../../graphql/generated/page", () => ({
   getServerPageGetGlobalData: () => ({
     props: { data: {} }
+  }),
+  getServerPageGetMarketsByDomain: () => ({
+    props: { data: { markets: { nodes: [generateMarketContext()] } } }
   })
 }));
 
@@ -220,7 +223,7 @@ describe("Middleware withPage", () => {
 
     await innerGetServerSideProps(getServerSideProps, auth0Mock, ctx);
 
-    const { apolloClient, auth0, session, account } =
+    const { apolloClient, auth0, session, account, market } =
       getServerSideProps.mock.calls[0][0];
 
     expect(apolloClient).toEqual({
@@ -249,6 +252,12 @@ describe("Middleware withPage", () => {
             })
           ])
         })
+      })
+    );
+
+    expect(market).toEqual(
+      expect.objectContaining({
+        ...generateMarketContext()
       })
     );
   });

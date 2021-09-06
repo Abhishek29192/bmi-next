@@ -8,12 +8,13 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=nextStep --port=9058",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && NODE_ENV=development env-cmd -r ./.env.json functions-framework --source=dist --target=nextStep --port=9059",
     "deploy": "yarn build && gcloud functions deploy system-configurator --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=5 --region=europe-west3 --entry-point=nextStep --env-vars-file=env.yaml",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^1.7.1",
+    "@google-cloud/secret-manager": "^3.7.3",
     "contentful-management": "^6.1.2",
     "node-fetch": "^2.6.1",
     "qs": "^6.10.1"

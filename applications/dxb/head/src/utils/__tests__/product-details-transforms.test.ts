@@ -1540,7 +1540,7 @@ describe("product-details-transforms tests", () => {
             categories: [
               createCategory({
                 code: "ICOPAL",
-                parentCategoryCode: "BMI_Brands"
+                categoryType: "Brands"
               })
             ]
           })

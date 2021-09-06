@@ -7,17 +7,21 @@ NBA (Next best action) cards have no elevation and are used in a collection at t
 ```jsx
 import Typography from "@bmi/typography";
 import AnchorLink from "@bmi/anchor-link";
+import Clickable from "@bmi/clickable";
 
 <NBACard
   theme="blue-900"
   title="H4 Heading"
   footer={
     <div style={{ fontSize: "1rem" }}>
-      <AnchorLink action={{ model: "htmlLink", href: "/" }} iconStart>
+      <AnchorLink component="span" iconStart>
         Call to action
       </AnchorLink>
     </div>
   }
+  component={(props) => (
+    <Clickable {...props} {...{ model: "htmlLink", href: "/" }} />
+  )}
 >
   <Typography>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum
@@ -41,6 +45,7 @@ import Button from "@bmi/button";
       Call to action
     </Button>
   }
+  component="div"
 >
   <Typography>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum

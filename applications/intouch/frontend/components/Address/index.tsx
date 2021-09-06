@@ -9,17 +9,22 @@ export type AddressProps = {
   >;
 };
 
-export const Address = ({ address }: AddressProps) => (
-  <div data-testid="address">
-    {["firstLine", "secondLine", "postcode", "town", "region", "country"]
-      .filter((addressLine) => !!address[addressLine])
-      .map((addressLine) => (
-        <div key={addressLine} data-testid={`addressLine-${addressLine}`}>
-          {address[addressLine]}
-        </div>
-      ))}
-  </div>
-);
+export const Address = ({ address }: AddressProps) => {
+  if (!address) {
+    return null;
+  }
+  return (
+    <div data-testid="address">
+      {["firstLine", "secondLine", "postcode", "town", "region", "country"]
+        .filter((addressLine) => !!address[addressLine])
+        .map((addressLine) => (
+          <div key={addressLine} data-testid={`addressLine-${addressLine}`}>
+            {address[addressLine]}
+          </div>
+        ))}
+    </div>
+  );
+};
 
 export const AddressLinesFragment = gql`
   fragment AddressLinesFragment on Address {

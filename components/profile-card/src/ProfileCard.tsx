@@ -6,7 +6,7 @@ import classnames from "classnames";
 import styles from "./ProfileCard.module.scss";
 
 type Props = {
-  imageSource?: string;
+  imageSource?: string | React.ReactNode;
   children?: React.ReactNode;
   className?: string;
   body?: React.ReactNode;
@@ -47,7 +47,12 @@ const ProfileCard = ({ imageSource, children, className, body }: Props) => {
   return (
     <div className={classnames(styles["ProfileCard"], className)}>
       <div className={styles["head"]}>
-        <Avatar className={styles["profile-picture"]} src={imageSource} />
+        <Avatar
+          className={styles["profile-picture"]}
+          src={typeof imageSource === "string" ? imageSource : undefined}
+        >
+          {typeof imageSource !== "string" && imageSource}
+        </Avatar>
       </div>
       {body}
       {hasFooter && <div className={styles["footer"]}>{children}</div>}

@@ -102,7 +102,16 @@ const siteData: SiteData = {
   menuUtilities: mockNavigation,
   resources: null,
   scriptGOptLoad: null,
-  regions: regions.slice(-1)
+  regions: [
+    {
+      label: "Europe",
+      menu: [
+        { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+        { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+        { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
+      ]
+    }
+  ]
 };
 
 const pageData: Data = {
@@ -142,5 +151,24 @@ describe("Page component", () => {
     expect(ogImageTag.getAttribute("content")).toEqual(
       "https://example.com/image.png"
     );
+  });
+
+  it("og:image converts webp to jpeg", () => {
+    render(
+      <LocationProvider>
+        <Page
+          title="Lorem ipsum"
+          pageData={pageData}
+          siteData={siteData}
+          ogImageUrl="//images.ctfassets.net/example.webp"
+        >
+          Lorem ipsum
+        </Page>
+      </LocationProvider>
+    );
+    const ogImageTag = Array.from(document.getElementsByTagName("meta")).find(
+      (meta) => meta.getAttribute("property") === "og:image"
+    );
+    expect(ogImageTag.getAttribute("content")).toContain("fm=jpg");
   });
 });

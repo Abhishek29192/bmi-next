@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bmi-np-dxb-compute-qa": {
+      "hosting": {
+        "styleguide": [
+          "bmi-dxb-styleguide"
+        ]
+      }
+    }
+  }
+}

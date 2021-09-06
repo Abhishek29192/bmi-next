@@ -43,4 +43,10 @@ describe("Section component", () => {
     const { container } = render(<Section isSlim>Hello world.</Section>);
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders as with overflow visible", () => {
+    const { container } = render(
+      <Section overflowVisible>Hey, I like to over flow.</Section>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

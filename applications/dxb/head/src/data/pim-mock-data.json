@@ -4,76 +4,92 @@
   "assets": [
     {
       "allowedToDownload": true,
-      "assetType": "BIM",
-      "name": "BIM URL Sample",
-      "url": "https://www.bimobject.com/fr/bmi_siplast_fr/product/spl010108"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "WARRANTIES",
-      "fileSize": 8470,
-      "mime": "image/jpeg",
-      "name": "Garanti Test",
-      "realFileName": "Monier garanti 30 år.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "AWARDS",
-      "fileSize": 7454,
-      "mime": "image/png",
-      "name": "test award",
-      "realFileName": "Test_Award.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GUARANTIES",
-      "fileSize": 12750,
-      "mime": "image/png",
-      "name": "Test Guarentee (NO)",
-      "realFileName": "Test_Guarantee.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h05/h5f/9006918336542/Test-Guaranteepng"
+      "assetType": "CAD",
+      "fileSize": 270539,
+      "mime": "application/pdf",
+      "name": "1344416763",
+      "realFileName": "1344416763.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
     },
     {
       "allowedToDownload": true,
       "assetType": "CERTIFICATES",
       "fileSize": 8364,
       "mime": "image/png",
-      "name": "Test Certificate (NO)",
+      "name": "test_Certificate",
       "realFileName": "test_Certificate.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf4/h5b/9006918402078/test-Certificatepng"
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha1/h3c/9012208304158/test-Certificatepng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "AWARDS",
+      "fileSize": 7454,
+      "mime": "image/png",
+      "name": "Test_Award",
+      "realFileName": "Test_Award.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "BIM",
+      "mime": "application/octet-stream",
+      "name": "BIM_Test",
+      "realFileName": "BIM_Test.bin"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "SPECIFICATION",
+      "fileSize": 689490,
+      "mime": "application/pdf",
+      "name": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg",
+      "realFileName": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd0/h35/9012208107550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "DATA_SHEETS",
+      "fileSize": 390375,
+      "mime": "application/pdf",
+      "name": "Icopal Ventura",
+      "realFileName": "Icopal Ventura.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h4f/h3d/9012208369694/Icopal-Venturapdf"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GUARANTIES",
+      "fileSize": 12750,
+      "mime": "image/png",
+      "name": "Test_Guarantee",
+      "realFileName": "Test_Guarantee.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h69/h32/9012208009246/Test-Guaranteepng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "WARRANTIES",
+      "fileSize": 8470,
+      "mime": "image/jpeg",
+      "name": "Monier garanti 30 år",
+      "realFileName": "Monier garanti 30 år.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "BIM",
+      "name": "BIM_Test",
+      "url": "https://www.bimobject.com/en-us/bmi_siplast_fr/product/spl010108"
     }
   ],
   "categories": [
     {
       "categoryType": "Brand",
-      "code": "Icopal",
-      "image": {
-        "allowedToDownload": true,
-        "altText": "Icopal RGB logo",
-        "assetType": "MASTER_IMAGE",
-        "containerId": "container_Icopal_RGB_Logo",
-        "fileSize": 6144,
-        "mime": "image/png",
-        "name": "bmi_icopal",
-        "realFileName": "bmi_icopal.png",
-        "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h77/h56/8801873297438/bmi-icopal.png"
-      },
-      "name": "Icopal",
-      "parentCategoryCode": "BMI"
+      "code": "MONARFLEX",
+      "name": "Monarflex"
     },
     {
       "categoryType": "SystemType",
-      "code": "SYSTEM_FAST_TRACK",
-      "name": "Fast Track",
-      "parentCategoryCode": "SYSTEM_FLAT_ROOF"
-    },
-    {
-      "categoryType": "SystemType",
-      "code": "SYSTEM_FLAT_ROOF",
-      "name": "Flat Roof",
-      "parentCategoryCode": "SYSTEM_TYPES"
+      "code": "SYSTEM_TYPES",
+      "name": "System Types",
+      "parentCategoryCode": ""
     }
   ],
   "classifications": [
@@ -84,7 +100,7 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup",
           "featureValues": [
             {
-              "value": "N/A"
+              "value": "Value"
             }
           ],
           "name": "Roof build-up"
@@ -93,303 +109,380 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
           "featureValues": [
             {
-              "value": "Test Promotional Content NO locale"
+              "value": "Test Value"
             }
           ],
           "name": "Promotional Content"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.uniquesellingpropositions",
+          "featureValues": [
+            {
+              "value": "Test Value 1"
+            },
+            {
+              "value": "Test Value 2"
+            }
+          ],
+          "name": "Unique Selling Propositions"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.uniquesellingpropositions",
+          "featureValues": [
+            {
+              "value": "Test Value 1"
+            },
+            {
+              "value": "Test Value 2"
+            }
+          ],
+          "name": "Unique Selling Propositions"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
+          "featureValues": [
+            {
+              "value": "Test Value 1"
+            },
+            {
+              "value": "Test Value 2"
+            }
+          ],
+          "name": "Key Features"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
+          "featureValues": [
+            {
+              "value": "Test Value 1"
+            },
+            {
+              "value": "Test Value 2"
+            }
+          ],
+          "name": "Key Features"
         }
       ],
       "name": "System Attributes"
     },
     {
-      "code": "measurementAttributes",
+      "code": "Measurements",
       "features": [
         {
-          "code": "bmiSystemsClassificationCatalog/1.0/measurementAttributes.width",
+          "code": "bmiSystemsClassificationCatalog/1.0/Measurements.width",
           "featureUnit": {
-            "name": "mm",
+            "name": "millimeter",
             "symbol": "mm",
-            "unitType": "uom"
+            "unitType": "space"
           },
           "featureValues": [
             {
-              "value": "55"
+              "value": "33"
+            }
+          ],
+          "name": "Width NO"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/Measurements.length",
+          "featureUnit": {
+            "name": "centimeter",
+            "symbol": "cm",
+            "unitType": "space"
+          },
+          "featureValues": [
+            {
+              "value": "22"
+            }
+          ],
+          "name": "Length NO"
+        }
+      ],
+      "name": "Measurements"
+    },
+    {
+      "code": "scoringWeightAttributes",
+      "features": [
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
+          "featureValues": [
+            {
+              "value": "3"
             }
           ]
         }
       ],
-      "name": "Measurement"
+      "name": "Scoring Weight"
     }
   ],
-  "code": "Test_PIM",
+  "code": "Test_PIM_System1",
   "images": [
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 185391,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 1852238,
       "mime": "image/jpeg",
-      "name": "TBK SN-403 T",
-      "realFileName": "TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+      "name": "490189 wireløper",
+      "realFileName": "490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/hdd/9009904189470/490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 50546,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 172262,
       "format": "Product-Hero-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Large-Desktop_TBK SN-403 T",
-      "realFileName": "Product-Hero-Large-Desktop_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h8f/h39/9004357943326/Product-Hero-Large-Desktop-TBK-SN-403-Tjpg"
+      "name": "Product-Hero-Large-Desktop_490189 wireløper",
+      "realFileName": "Product-Hero-Large-Desktop_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h91/he2/9009920507934/Product-Hero-Large-Desktop-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 4797,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 37747,
       "format": "Product-Color-Selector-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Mobile_TBK SN-403 T",
-      "realFileName": "Product-Color-Selector-Mobile_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h19/h11/9004358008862/Product-Color-Selector-Mobile-TBK-SN-403-Tjpg"
+      "name": "Product-Color-Selector-Mobile_490189 wireløper",
+      "realFileName": "Product-Color-Selector-Mobile_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 11351,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 48469,
       "format": "Product-Listing-Card-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Large-Desktop_TBK SN-403 T",
-      "realFileName": "Product-Listing-Card-Large-Desktop_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hda/h11/9004358074398/Product-Listing-Card-Large-Desktop-TBK-SN-403-Tjpg"
+      "name": "Product-Listing-Card-Large-Desktop_490189 wireløper",
+      "realFileName": "Product-Listing-Card-Large-Desktop_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h51/he6/9009920639006/Product-Listing-Card-Large-Desktop-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 27074,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 91097,
       "format": "Product-Hero-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Small-Desktop-Tablet_TBK SN-403 T",
-      "realFileName": "Product-Hero-Small-Desktop-Tablet_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd8/h14/9004358139934/Product-Hero-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
+      "name": "Product-Hero-Small-Desktop-Tablet_490189 wireløper",
+      "realFileName": "Product-Hero-Small-Desktop-Tablet_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 7445,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 79391,
       "format": "Product-Hero-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Mobile_TBK SN-403 T",
-      "realFileName": "Product-Hero-Mobile_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he9/h17/9004358205470/Product-Hero-Mobile-TBK-SN-403-Tjpg"
+      "name": "Product-Hero-Mobile_490189 wireløper",
+      "realFileName": "Product-Hero-Mobile_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h23/hea/9009920770078/Product-Hero-Mobile-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 13076,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 85285,
       "format": "Product-Color-Selector-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Large-Desktop_TBK SN-403 T",
-      "realFileName": "Product-Color-Selector-Large-Desktop_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hab/h18/9004358271006/Product-Color-Selector-Large-Desktop-TBK-SN-403-Tjpg"
+      "name": "Product-Color-Selector-Large-Desktop_490189 wireløper",
+      "realFileName": "Product-Color-Selector-Large-Desktop_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h21/hed/9009920835614/Product-Color-Selector-Large-Desktop-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 7445,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 51384,
       "format": "Product-Color-Selector-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Small-Desktop-Tablet_TBK SN-403 T",
-      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha9/h1b/9004358336542/Product-Color-Selector-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
+      "name": "Product-Color-Selector-Small-Desktop-Tablet_490189 wireløper",
+      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h32/hf0/9009920901150/Product-Color-Selector-Small-Desktop-Tablet-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 5631,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 30099,
       "format": "Product-Listing-Card-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Small-Desktop-Tablet_TBK SN-403 T",
-      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hba/h1e/9004358402078/Product-Listing-Card-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
+      "name": "Product-Listing-Card-Small-Desktop-Tablet_490189 wireløper",
+      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he0/hf0/9009920966686/Product-Listing-Card-Small-Desktop-Tablet-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 6142,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 31599,
       "format": "Product-Listing-Card-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Mobile_TBK SN-403 T",
-      "realFileName": "Product-Listing-Card-Mobile_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h68/h1f/9004358467614/Product-Listing-Card-Mobile-TBK-SN-403-Tjpg"
+      "name": "Product-Listing-Card-Mobile_490189 wireløper",
+      "realFileName": "Product-Listing-Card-Mobile_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/hc4/9009921032222/Product-Listing-Card-Mobile-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 46347,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 656011,
       "format": "Web",
       "mime": "image/jpeg",
-      "name": "Web_TBK SN-403 T",
-      "realFileName": "Web_TBK SN-403 T.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h79/h22/9004358533150/Web-TBK-SN-403-Tjpg"
+      "name": "Web_490189 wireløper",
+      "realFileName": "Web_490189 wireløper.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb4/hc3/9009921097758/Web-490189-wireloperjpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "MASTER_IMAGE",
-      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
-      "fileSize": 511725,
+      "containerId": "container_490189 wireløper.jpg",
+      "fileSize": 1675344,
       "format": "Print",
       "mime": "image/tiff",
-      "name": "Print_TBK SN-403 T",
-      "realFileName": "Print_TBK SN-403 T.tiff",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h27/h23/9004358598686/Print-TBK-SN-403-Ttiff"
+      "name": "Print_490189 wireløper",
+      "realFileName": "Print_490189 wireløper.tiff",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha3/hc0/9009921163294/Print-490189-wirelopertiff"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 572987,
-      "mime": "image/jpeg",
-      "name": "Test Image NO",
-      "realFileName": "system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h46/h55/9006939373598/system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 536828,
+      "mime": "image/png",
+      "name": "Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Icopal ståltakrenne miljøbilde 3.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcc/hdc/9009904123934/Icopal-staltakrenne-miljobilde-3png"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 65517,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 113935,
       "format": "Product-Hero-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Hero-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h27/hc5/9006940422174/Product-Hero-Large-Desktop-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Hero-Large-Desktop_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Hero-Large-Desktop_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h4b/h2d/9009919787038/Product-Hero-Large-Desktop-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 28759,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 11333,
       "format": "Product-Color-Selector-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Color-Selector-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd5/hc5/9006940487710/Product-Color-Selector-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Color-Selector-Mobile_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Color-Selector-Mobile_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 31442,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 27886,
       "format": "Product-Listing-Card-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Listing-Card-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he6/hc8/9006940553246/Product-Listing-Card-Large-Desktop-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Listing-Card-Large-Desktop_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Listing-Card-Large-Desktop_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3c/h27/9009919918110/Product-Listing-Card-Large-Desktop-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 43301,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 64047,
       "format": "Product-Hero-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Hero-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he4/hcb/9006940618782/Product-Hero-Small-Desktop-Tablet-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Hero-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Hero-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 32497,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 18923,
       "format": "Product-Hero-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Hero-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Hero-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha6/hcc/9006940684318/Product-Hero-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Hero-Mobile_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Hero-Mobile_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf3/hd1/9009920049182/Product-Hero-Mobile-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 41642,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 37831,
       "format": "Product-Color-Selector-Large-Desktop",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Color-Selector-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha3/hcf/9006940749854/Product-Color-Selector-Large-Desktop-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Color-Selector-Large-Desktop_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Color-Selector-Large-Desktop_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h04/hd5/9009920114718/Product-Color-Selector-Large-Desktop-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 32497,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 18923,
       "format": "Product-Color-Selector-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Color-Selector-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb5/hd2/9006940815390/Product-Color-Selector-Small-Desktop-Tablet-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Color-Selector-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc5/hd5/9009920180254/Product-Color-Selector-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 26783,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 11855,
       "format": "Product-Listing-Card-Small-Desktop-Tablet",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h75/hd3/9006940880926/Product-Listing-Card-Small-Desktop-Tablet-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Listing-Card-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc3/hd8/9009920245790/Product-Listing-Card-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 27221,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 13451,
       "format": "Product-Listing-Card-Mobile",
       "mime": "image/jpeg",
-      "name": "Product-Listing-Card-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Product-Listing-Card-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h74/hd6/9006940946462/Product-Listing-Card-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Product-Listing-Card-Mobile_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Product-Listing-Card-Mobile_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd4/hdb/9009920311326/Product-Listing-Card-Mobile-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 76571,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 48547,
       "format": "Web",
       "mime": "image/jpeg",
-      "name": "Web_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Web_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcf/hde/9006941011998/Web-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+      "name": "Web_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Web_Icopal ståltakrenne miljøbilde 3.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h82/hdc/9009920376862/Web-Icopal-staltakrenne-miljobilde-3jpg"
     },
     {
       "allowedToDownload": true,
       "assetType": "GALLERY",
-      "containerId": "container_Test_Image",
-      "fileSize": 1718134,
+      "containerId": "container_Icopal ståltakrenne miljøbilde 3.png",
+      "fileSize": 418712,
       "format": "Print",
       "mime": "image/tiff",
-      "name": "Print_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
-      "realFileName": "Print_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.tiff",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h21/hde/9006941077534/Print-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechtiff"
+      "name": "Print_Icopal ståltakrenne miljøbilde 3",
+      "realFileName": "Print_Icopal ståltakrenne miljøbilde 3.tiff",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h94/hdf/9009920442398/Print-Icopal-staltakrenne-miljobilde-3tiff"
     }
   ],
-  "longDescription": "<p>LDescription NO</p>",
-  "name": "TEST ID NO",
-  "shortDescription": "SD Norway",
-  "systemBenefits": ["windroof NO"],
+  "longDescription": "Long Dec System 2 NO",
+  "name": "NO System 1",
+  "shortDescription": "SDescription 1 NO",
+  "systemBenefits": ["Benefit 3 NO, Benefit 4 NO"],
   "systemLayers": [
     {
       "addon": false,
@@ -543,16 +636,16 @@
       ],
       "shortDescription": "SD NO",
       "type": "LAYER_VAPOR_BARRIER"
-    }
-  ],
-  "systemReferences": [
+    },
     {
-      "referenceType": "CROSSELLING",
-      "target": {
-        "code": "TEST_2",
-        "name": "TEST_IDENTIFIER_NO"
-      },
-      "preselected": true
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_2",
+      "layerNumber": 2,
+      "longDescription": "<p>Long Dec System 1&nbsp;NO</p>",
+      "name": "Layer 2 NO",
+      "shortDescription": "Layer SD value",
+      "type": "LAYER_ACCESSORIES"
     }
   ]
 }

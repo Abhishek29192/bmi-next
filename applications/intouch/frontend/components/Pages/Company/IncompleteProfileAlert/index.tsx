@@ -10,20 +10,10 @@ type CompanyIncompleteProfileAlertProps = {
   missingFields: CompanyProfileMandatoryFields;
 };
 
-const getMissingFieldsLabelMap = (t) => ({
-  tradingAddress: t("company.incomplete_profile.address"),
-  phone: t("company.incomplete_profile.phone"),
-  publicEmail: t("company.incomplete_profile.email"),
-  aboutUs: t("company.incomplete_profile.description"),
-  logo: t("company.incomplete_profile.logo")
-});
-
 export const CompanyIncompleteProfileAlert = ({
   missingFields
 }: CompanyIncompleteProfileAlertProps) => {
   const { t } = useTranslation("company-page");
-  const missingFieldsLabelMap = getMissingFieldsLabelMap(t);
-
   const [isAlertShowing, setIsAlertShowing] = useState(true);
 
   return (
@@ -37,7 +27,7 @@ export const CompanyIncompleteProfileAlert = ({
               isIconButton
               variant="text"
               accessibilityLabel={t(
-                "company.incomplete_profile.closeAlertAccessibilityLabel"
+                "incompleteProfile.closeAlertAccessibilityLabel"
               )}
               onClick={() => setIsAlertShowing(false)}
             >
@@ -46,10 +36,10 @@ export const CompanyIncompleteProfileAlert = ({
           </div>
         }
       >
-        <AlertBanner.Title>
-          {t("company.incomplete_profile.warning")}
-        </AlertBanner.Title>
-        {missingFields.map((field) => missingFieldsLabelMap[field]).join(", ")}
+        <AlertBanner.Title>{t("incompleteProfile.warning")}</AlertBanner.Title>
+        {missingFields
+          .map((field) => t(`incompleteProfile.fields.${field}`))
+          .join(", ")}
       </AlertBanner>
     )
   );

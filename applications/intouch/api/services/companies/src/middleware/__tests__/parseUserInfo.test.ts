@@ -71,7 +71,8 @@ describe("ParseUserInfo", () => {
               first_name: "first_name",
               last_name: "last_name",
               market_id: "market_id",
-              market_domain: "market_domain",
+              domain: "market_domain",
+              send_mailbox: "send_mailbox",
               status: "status",
               docebo_user_id: "docebo_user_id",
               docebo_username: "docebo_username",
@@ -111,7 +112,11 @@ describe("ParseUserInfo", () => {
         firstName: "first_name",
         lastName: "last_name",
         marketId: "market_id",
-        marketDomain: "market_domain",
+        market: {
+          id: "market_id",
+          domain: "market_domain",
+          sendMailbox: "send_mailbox"
+        },
         status: "status",
         doceboUserId: "docebo_user_id",
         doceboUsername: "docebo_username",

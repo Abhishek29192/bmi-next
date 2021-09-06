@@ -1,0 +1,23 @@
+@import "@bmi/styles";
+
+.aboutLeadBlock {
+  :global {
+    .MuiBox-root {
+      padding: 0px;
+    }
+  }
+
+  .guaranteesAndAwardsAsset {
+    .image {
+      height: 60px;
+      padding-right: 10px;
+    }
+  }
+
+  .blueCheckIcon {
+    color: var(--color-theme-accent);
+    &--dark {
+      color: var(--color-theme-accent-300);
+    }
+  }
+}

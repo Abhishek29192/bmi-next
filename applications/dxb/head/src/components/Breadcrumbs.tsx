@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Breadcrumbs, { Props as BreadcrumbsProps } from "@bmi/breadcrumbs";
-import { SiteContext } from "../components/Site";
+import { useSiteContext } from "../components/Site";
 import { getClickableActionFromUrl } from "./Link";
 import { BreadcrumbItem } from "./types/BreadcrumbTypeBase";
 
@@ -43,7 +43,7 @@ const IntegratedBreadcrumbs = ({
 }: {
   data: Data;
 } & BreadcrumbsProps) => {
-  const { countryCode, homePage } = useContext(SiteContext);
+  const { countryCode, homePage } = useSiteContext();
   const [breadcrumbsItems, currentBreadcrumb] = getBreadcrumbsItem(data);
 
   return (

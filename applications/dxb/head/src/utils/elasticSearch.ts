@@ -80,7 +80,7 @@ const searchTerms = {
   productFamily: "allCategories.code.keyword",
   productLine: "allCategories.code.keyword",
   brand: "allCategories.code.keyword",
-  plpBaseCategory: "plpCategories.code.keyword"
+  plpBaseCategory: "allCategories.code.keyword"
 };
 
 export const compileElasticSearchQuery = (
@@ -196,7 +196,7 @@ export const compileElasticSearchQuery = (
                     "texturefamilyValue.keyword",
                     "measurementValue.keyword",
                     "categories.value.keyword",
-                    "plpCategories.value.keyword",
+                    "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6" // boosted - (see confluence documentation, linked above)
                   ]
                 }

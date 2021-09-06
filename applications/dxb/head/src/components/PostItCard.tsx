@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import PostItCard from "@bmi/post-it-card";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import AnchorLink from "@bmi/anchor-link";
 import { getClickableActionFromUrl, Data as LinkData } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 export type Props = {
   cardTheme: "pearl" | "blue-900";
@@ -29,7 +29,7 @@ const IntegratedPostItCard = ({
   cardSections,
   Component = PostItCard
 }: Props) => {
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode } = useSiteContext();
 
   return (
     <Component theme={cardTheme}>
@@ -43,7 +43,10 @@ const IntegratedPostItCard = ({
           linkType = "button"
         }) => (
           <Component.Section key={id}>
-            <Component.Heading hasUnderline={hasUnderline}>
+            <Component.Heading
+              hasUnderline={hasUnderline}
+              hasDarkBackground={cardTheme === "blue-900"}
+            >
               {title}
             </Component.Heading>
             <Component.Content>

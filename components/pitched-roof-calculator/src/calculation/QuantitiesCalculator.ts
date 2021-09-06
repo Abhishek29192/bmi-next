@@ -20,6 +20,7 @@ import {
   Measurements
 } from "../types/roof";
 import { battenCalc, surface } from "./calculate";
+import { CONTINGENCY } from "./constants";
 
 export type ProductRowBase = BaseVariant & {
   category?: ProductCategory; // Needed for accessories
@@ -40,20 +41,23 @@ export const calculateBattensForFaces = (
     battens: battenCalc(face.vertices, [face.pitch], mainTileVariant)
   }));
 
-const convertProductRowToResultsRow = ({
-  name,
-  packSize = 1, // No packs by default
-  baseQuantity,
-  category,
-  externalProductCode,
-  image
-}: ProductRow): ResultsRow => ({
+export const convertProductRowToResultsRow = (
+  {
+    name,
+    packSize = 1, // No packs by default
+    baseQuantity,
+    category,
+    externalProductCode,
+    image
+  }: ProductRow,
+  contingency: number = 0
+): ResultsRow => ({
   category,
   image,
   description: name,
   externalProductCode,
   packSize: packSize === 1 ? "-" : packSize.toString(),
-  quantity: baseQuantity / packSize
+  quantity: Math.ceil(Math.ceil(baseQuantity / packSize) * (1 + contingency))
 });
 
 const LONG_SCREW_PER_METER = 3.2;
@@ -135,7 +139,7 @@ class QuantitiesCalculator {
   ) {
     if (!this.facesBattens) {
       throw new Error(
-        `"calculateSurfaceCoveringProducts" must be called before calculating surface covering products`
+        `"facesBattens" must be assigned by the constructor before calculating surface covering products`
       );
     }
 
@@ -475,7 +479,9 @@ class QuantitiesCalculator {
     };
 
     this.results.forEach((product) =>
-      result[product.category].push(convertProductRowToResultsRow(product))
+      result[product.category].push(
+        convertProductRowToResultsRow(product, CONTINGENCY)
+      )
     );
 
     return result;

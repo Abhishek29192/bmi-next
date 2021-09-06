@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-
 import { PubSub } from "@google-cloud/pubsub";
 
 const pubSub = new PubSub({

@@ -1,0 +1,64 @@
+@import "@bmi/styles";
+
+$wrapper-width: 1395px;
+
+.main {
+  background-color: $color-pearl;
+  min-height: 100vh;
+  max-height: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: $color-white;
+  padding: 0 1rem;
+
+  &__inner {
+    max-width: 100%;
+    width: $wrapper-width;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+}
+
+.wrapper {
+  max-width: 100%;
+  width: $wrapper-width;
+  margin: 0 auto;
+}
+
+.body {
+  max-width: 100%;
+  width: 700px;
+  padding: 3rem 1rem;
+  margin: 0 auto;
+  &__title {
+    text-align: center;
+    margin: 10px;
+  }
+}
+
+.footer {
+  margin-top: auto;
+  padding: 0 1rem;
+  &__inner {
+    max-width: 100%;
+    width: $wrapper-width;
+    border-top: 1px solid $color-storm;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0 2rem;
+  }
+}
+
+.logo {
+  width: 60px;
+  display: block;
+}

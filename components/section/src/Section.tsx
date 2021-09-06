@@ -17,6 +17,7 @@ export type Props = {
   id?: string;
   hasNoPadding?: boolean;
   isSlim?: boolean;
+  overflowVisible?: boolean;
 } & ContainerProps;
 
 const Section = ({
@@ -28,6 +29,7 @@ const Section = ({
   id,
   hasNoPadding = false,
   isSlim = false,
+  overflowVisible = false,
   ...containerProps
 }: Props) => {
   const isNested = useContext(SectionContext);
@@ -54,7 +56,8 @@ const Section = ({
           backgroundColor !== "transparent" &&
             styles[`Section--${backgroundColor}`],
           spacing === "none" && styles["Section--no-spacing"],
-          isSlim && styles["Section--slim"]
+          isSlim && styles["Section--slim"],
+          overflowVisible && styles["Section--overflow-visible"]
         )}
       >
         <Container

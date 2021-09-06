@@ -1,10 +1,11 @@
-import { resolve } from "path";
-import { config } from "dotenv";
-import { transaction, getDbPool } from "../test-utils/db";
-
-config({
-  path: resolve(__dirname, "../../.env")
-});
+import {
+  transaction,
+  getDbPool,
+  actAs,
+  curryContext,
+  cleanup as dbCleanup,
+  insertOne as dbInsertOne
+} from "../test-utils/db";
 
 const PERMISSION_DENIED = (table) => `permission denied for table ${table}`;
 const RLS_ERROR = (table) =>
@@ -36,6 +37,48 @@ describe("Database permissions", () => {
   let system_id;
   let product_id;
   let market_admin_id;
+
+  // NOTE: These functions help to workaround the interdependency issues with these tests
+  // TODO: Refactor
+  const DELETE_GLOBAL_PROJECT = async () => {
+    await pool.query("delete from project where id = $1", [project_id]);
+  };
+
+  const RE_CREATE_GLOBAL_PROJECT = async () => {
+    const { rows: projects } = await transaction(
+      pool,
+      {
+        role: ROLE_COMPANY_ADMIN,
+        accountUuid: company_admin_id,
+        accountEmail: COMPANY_ADMIN_EMAIL
+      },
+      "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7) returning *",
+      [
+        company_id,
+        "Project name",
+        100,
+        "Joe",
+        "Doe",
+        "2021-01-01",
+        "2021-01-02"
+      ]
+    );
+    project_id = projects[0].id;
+  };
+
+  const RE_CREATE_PROJECT_MEMBER = async () => {
+    const { rows } = await transaction(
+      pool,
+      {
+        role: ROLE_COMPANY_ADMIN,
+        accountUuid: company_admin_id,
+        accountEmail: COMPANY_ADMIN_EMAIL
+      },
+      "insert into project_member (project_id, account_id) values ($1, $2) returning *",
+      [project_id, installer_id]
+    );
+    expect(rows.length).toEqual(1);
+  };
 
   const cleanDbFromTests = async () => {
     try {
@@ -179,8 +222,8 @@ describe("Database permissions", () => {
             accountUuid: company_admin_id,
             accountEmail: COMPANY_ADMIN_EMAIL
           },
-          "SELECT * FROM create_company()",
-          []
+          "SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)",
+          ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
         );
         company_id = rows[0].id;
         expect(rows.length).toEqual(1);
@@ -368,11 +411,74 @@ describe("Database permissions", () => {
             accountUuid: company_admin_id,
             accountEmail: COMPANY_ADMIN_EMAIL
           },
-          "insert into project (company_id, name) values ($1, $2) returning *",
-          [company_id, "Project name"]
+          "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7) returning *",
+          [
+            company_id,
+            "Project name",
+            100,
+            "Joe",
+            "Doe",
+            "2021-01-01",
+            "2021-01-02"
+          ]
         );
         expect(rows.length).toEqual(1);
         project_id = rows[0].id;
+      });
+      it("should not be able to see a hidden project", async () => {
+        await DELETE_GLOBAL_PROJECT();
+
+        const superAdminConfig = {
+          role: ROLE_SUPER_ADMIN,
+          accountUuid: 0,
+          accountEmail: SUPER_ADMIN_EMAIL
+        };
+
+        const { rows: createdProject } = await transaction(
+          pool,
+          superAdminConfig,
+          "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date, hidden) values ($1, $2, $3, $4, $5, $6, $7, $8) returning *",
+          [
+            company_id,
+            "Project name",
+            100,
+            "Joe",
+            "Doe",
+            "2021-01-01",
+            "2021-01-02",
+            true
+          ]
+        );
+        expect(createdProject.length).toEqual(1);
+
+        const { rows: projectMember } = await transaction(
+          pool,
+          superAdminConfig,
+          "insert into project_member (project_id, account_id) values ($1, $2) returning *",
+          [createdProject[0].id, company_admin_id]
+        );
+        expect(projectMember.length).toEqual(1);
+
+        const { rows: projects } = await transaction(
+          pool,
+          {
+            role: ROLE_COMPANY_ADMIN,
+            accountUuid: company_admin_id,
+            accountEmail: COMPANY_ADMIN_EMAIL
+          },
+          "select * from project",
+          []
+        );
+        expect(projects.length).toEqual(0);
+
+        // CLEANUP
+        await pool.query("delete from project where id = $1", [
+          createdProject[0].id
+        ]);
+        await pool.query("delete from project_member where project_id = $1", [
+          createdProject[0].id
+        ]);
+        await RE_CREATE_GLOBAL_PROJECT();
       });
       it("shouldn't be able to add a project to another company", async () => {
         try {
@@ -383,8 +489,8 @@ describe("Database permissions", () => {
               accountUuid: company_admin_id,
               accountEmail: COMPANY_ADMIN_EMAIL
             },
-            "insert into project (company_id, name) values ($1, $2) returning *",
-            [1, "Project name"]
+            "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7) returning *",
+            [1, "Project name", 100, "Joe", "Doe", "2021-01-01", "2021-01-02"]
           );
         } catch (error) {
           expect(error.message).toEqual(RLS_ERROR("project"));
@@ -404,8 +510,65 @@ describe("Database permissions", () => {
         expect(rows.length).toEqual(1);
       });
     });
+    describe("Market Admin", () => {
+      it("should not be able to see projects outside of own market", async () => {
+        // Get a connection to maintain the transaction session
+        const client = await pool.connect();
+        const context = {
+          client,
+          cleanupBucket: {}
+        };
+        const insertOne = curryContext(context, dbInsertOne);
+        await client.query("BEGIN");
+
+        try {
+          // NOTE: Projects get market via company
+          const otherMarket = await insertOne("market", {
+            domain: "OTHER_MARKET_DOMAIN"
+          });
+          const company = await insertOne("company", {
+            market_id: otherMarket.id
+          });
+          await insertOne("project", {
+            company_id: company.id
+          });
+
+          // Separate market, separate account
+          const myMarket = await insertOne("market", {
+            domain: "MY_MARKET_DOMAIN"
+          });
+          const myCompany = await insertOne("company", {
+            market_id: myMarket.id
+          });
+          await insertOne("project", {
+            name: "My Project",
+            company_id: myCompany.id
+          });
+          // NOTE: account is not related to company,
+          // market adming sees all projects in own market
+          const account = await insertOne("account", {
+            role: "MARKET_ADMIN",
+            market_id: myMarket.id
+          });
+
+          await actAs(client, account);
+
+          const { rows: visibleProjects } = await client.query(
+            "select * from project"
+          );
+
+          // Verifies that the user sees only one project in their market
+          // and not the other one, not in their market
+          expect(visibleProjects.length).toEqual(1);
+          expect(visibleProjects[0].name).toEqual("My Project");
+        } finally {
+          await client.query("ROLLBACK");
+          client.release();
+        }
+      });
+    });
     describe("Installer", () => {
-      it("shouldn't be able to see any project", async () => {
+      it("shouldn't be able to see projects of other companies", async () => {
         const { rows } = await transaction(
           pool,
           {
@@ -417,6 +580,64 @@ describe("Database permissions", () => {
           []
         );
         expect(rows.length).toEqual(0);
+      });
+
+      it("shouldn't be able to see hidden project", async () => {
+        await DELETE_GLOBAL_PROJECT();
+
+        const superAdminConfig = {
+          role: ROLE_SUPER_ADMIN,
+          accountUuid: 0,
+          accountEmail: SUPER_ADMIN_EMAIL
+        };
+
+        const createdProjects = await transaction(
+          pool,
+          superAdminConfig,
+          "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date, hidden) values ($1, $2, $3, $4, $5, $6, $7, $8) returning *",
+          [
+            company_id,
+            "Project name",
+            100,
+            "Joe",
+            "Doe",
+            "2021-01-01",
+            "2021-01-02",
+            true
+          ]
+        );
+        expect(createdProjects.rows.length).toEqual(1);
+
+        const createdProjectMembers = await transaction(
+          pool,
+          superAdminConfig,
+          "insert into project_member (project_id, account_id) values ($1, $2) returning *",
+          [createdProjects.rows[0].id, installer_id]
+        );
+        expect(createdProjectMembers.rows.length).toEqual(1);
+
+        const { rows: projects } = await transaction(
+          pool,
+          {
+            role: ROLE_INSTALLER,
+            accountUuid: installer_id,
+            accountEmail: INSTALLER_EMAIL
+          },
+          "select * from project",
+          []
+        );
+        expect(projects.length).toEqual(0);
+
+        // CLEANUP
+        await pool.query("delete from project where id = $1", [
+          createdProjects.rows[0].id
+        ]);
+        await pool.query("delete from project_member where project_id = $1", [
+          createdProjects.rows[0].id
+        ]);
+
+        await RE_CREATE_GLOBAL_PROJECT();
+        await RE_CREATE_PROJECT_MEMBER();
       });
 
       it("shouldn't be able to add an installer to the project", async () => {
@@ -450,17 +671,7 @@ describe("Database permissions", () => {
         expect(deletedRows.length).toEqual(1);
 
         // Recrete the user for next tests
-        const { rows } = await transaction(
-          pool,
-          {
-            role: ROLE_COMPANY_ADMIN,
-            accountUuid: company_admin_id,
-            accountEmail: COMPANY_ADMIN_EMAIL
-          },
-          "insert into project_member (project_id, account_id) values ($1, $2) returning *",
-          [project_id, installer_id]
-        );
-        expect(rows.length).toEqual(1);
+        await RE_CREATE_PROJECT_MEMBER();
       });
     });
   });
@@ -475,8 +686,8 @@ describe("Database permissions", () => {
             accountUuid: company_admin_id,
             accountEmail: COMPANY_ADMIN_EMAIL
           },
-          "insert into guarantee (requestor_account_id, project_id) VALUES($1, $2) RETURNING *",
-          [company_admin_id, project_id]
+          "insert into guarantee (requestor_account_id, project_id, guarantee_type_id) VALUES($1, $2, $3) RETURNING *",
+          [company_admin_id, project_id, "randomGuaranteeTypeId"]
         );
         expect(rows.length).toEqual(1);
         guarantee_id = rows[0].id;
@@ -492,8 +703,8 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into guarantee (requestor_account_id) VALUES($1)",
-            [installer_id]
+            "insert into guarantee (requestor_account_id, project_id, guarantee_type_id) VALUES($1, $2, $3)",
+            [installer_id, 1, "randomGuaranteeTypeId"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("guarantee"));
@@ -688,11 +899,20 @@ describe("Database permissions", () => {
             accountUuid: market_admin_id,
             accountEmail: MARKET_ADMIN_EMAIL
           },
-          "insert into product (name, market_id) VALUES ($1, $2) RETURNING *",
-          ["Name", MARKET_ID]
+          "insert into product (name, market_id, bmi_ref, brand, family, published, maximum_validity_years) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+          [
+            "Name",
+            MARKET_ID,
+            "test_bmi_ref",
+            "test_brand",
+            "test_family",
+            true,
+            1
+          ]
         );
         expect(rows.length).toEqual(1);
         product_id = rows[0].id;
+        await pool.query("delete from product where id = $1", [product_id]);
       });
       it("shouldn't be able to create and read a product", async () => {
         try {
@@ -703,8 +923,8 @@ describe("Database permissions", () => {
               accountUuid: market_admin_id,
               accountEmail: MARKET_ADMIN_EMAIL
             },
-            "insert into product (name, market_id) VALUES ($1, $2) RETURNING *",
-            ["Name", 2]
+            "insert into product (name, market_id, bmi_ref, brand, family, published, maximum_validity_years) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+            ["Name", 2, "test_bmi_ref", "test_brand", "test_family", true, 1]
           );
         } catch (error) {
           expect(error.message).toEqual(RLS_ERROR("product"));
@@ -723,11 +943,12 @@ describe("Database permissions", () => {
             accountUuid: 0,
             accountEmail: SUPER_ADMIN_EMAIL
           },
-          "insert into system (name, market_id) VALUES ($1, $2) RETURNING *",
-          ["Name", MARKET_ID]
+          "insert into system (name, market_id, bmi_ref, maximum_validity_years, published) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+          ["Name", MARKET_ID, "test_bmi_ref", 1, true]
         );
         expect(rows.length).toEqual(1);
         system_id = rows[0].id;
+        await pool.query("delete from system where id = $1", [system_id]);
       });
     });
     describe("Installer", () => {
@@ -753,7 +974,7 @@ describe("Database permissions", () => {
   describe("Notification", () => {
     beforeAll(async () => {
       await pool.query(
-        "insert into notification (account_id, send_date, unread, body) VALUES ($1, $2, $3, $4) RETURNING *",
+        "insert into notification (account_id, send_date, read, body) VALUES ($1, $2, $3, $4) RETURNING *",
         [
           installer_id,
           new Date(),
@@ -773,11 +994,11 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into notification (account_id, send_date, unread, body) VALUES ($1, $2, $3, $4) RETURNING *",
+            "insert into notification (account_id, send_date, read, body) VALUES ($1, $2, $3, $4) RETURNING *",
             [
               installer_id,
               new Date(),
-              true,
+              false,
               "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
             ]
           );
@@ -793,10 +1014,11 @@ describe("Database permissions", () => {
             accountUuid: installer_id,
             accountEmail: INSTALLER_EMAIL
           },
-          "update notification set unread=$2 where account_id=$1 RETURNING *",
-          [installer_id, false]
+          // TODO: double check if this is validating the right thing
+          "update notification set read=$2 where account_id=$1 RETURNING *",
+          [installer_id, true]
         );
-        expect(rows[0].unread).toEqual(false);
+        expect(rows[0].read).toEqual(true);
       });
     });
   });

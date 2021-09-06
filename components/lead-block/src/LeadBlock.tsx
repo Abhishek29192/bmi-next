@@ -50,9 +50,9 @@ const LeadBlockContentHeading = ({ children, ...rest }: TypographyProps) => {
   );
 };
 
-const LeadBlockCard = ({ children, theme = "pearl" }: CardProps) => {
+const LeadBlockCard = ({ children, theme = "pearl", ...rest }: CardProps) => {
   return (
-    <Grid item lg={4} xs={12}>
+    <Grid item lg={4} xs={12} {...rest}>
       <PostItCard theme={theme}>{children}</PostItCard>
     </Grid>
   );

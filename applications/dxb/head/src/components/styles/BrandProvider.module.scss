@@ -3,8 +3,13 @@
 .AeroDeck {
   --color-theme-accent-300: #{$color-storm};
   --color-theme-accent: #{$color-slate};
+  --color-theme-accent-rgb: #{hexToRGB($color-slate)};
   --color-theme-inter: #{$color-slate};
+  --color-theme-inter-rgb: #{hexToRGB($color-slate)};
   --color-theme-focus: #{$color-charcoal};
+  --color-theme-inter-dark: #{$color-slate};
+  --color-theme-inter-dark-rgb: #{hexToRGB($color-slate)};
+  --color-theme-focus-dark: #{$color-charcoal};
 
   // Secondary(action cards colors)
   --color-theme-secondary-1: #{$color-blue-900};
@@ -16,8 +21,13 @@
 .BrandRed {
   --color-theme-accent-300: #{$color-brand-red-300};
   --color-theme-accent: #{$color-brand-red};
+  --color-theme-accent-rgb: #{hexToRGB($color-brand-red)};
   --color-theme-inter: #{$color-brand-red-inter};
+  --color-theme-inter-rgb: #{hexToRGB($color-brand-red-inter)};
   --color-theme-focus: #{$color-brand-red-focus};
+  --color-theme-inter-dark: #{$color-brand-red-inter};
+  --color-theme-inter-dark-rgb: #{hexToRGB($color-brand-red-inter)};
+  --color-theme-focus-dark: #{$color-brand-red-focus};
 
   // Secondary(action cards colors)
   --color-theme-secondary-1: #{$color-orange-400};
@@ -29,8 +39,13 @@
 .RoyalBlue {
   --color-theme-accent-300: #{$color-cyan-400};
   --color-theme-accent: #{$color-royal-blue};
+  --color-theme-accent-rgb: #{hexToRGB($color-royal-blue)};
   --color-theme-inter: #{$color-royal-blue};
+  --color-theme-inter-rgb: #{hexToRGB($color-royal-blue)};
   --color-theme-focus: #{$color-royal-blue-focus};
+  --color-theme-inter-dark: #{$color-cyan-500};
+  --color-theme-inter-dark-rgb: #{hexToRGB($color-cyan-500)};
+  --color-theme-focus-dark: #{$color-cyan-600};
 
   // Secondary(action cards colors)
   --color-theme-secondary-1: #{$color-royal-blue-focus};
@@ -42,8 +57,13 @@
 .Purple {
   --color-theme-accent-300: #{$color-purple-300};
   --color-theme-accent: #{$color-purple};
+  --color-theme-accent-rgb: #{hexToRGB($color-purple)};
   --color-theme-inter: #{$color-purple};
+  --color-theme-inter-rgb: #{hexToRGB($color-purple)};
   --color-theme-focus: #{$color-purple-focus};
+  --color-theme-inter-dark: #{$color-cyan-500};
+  --color-theme-inter-dark-rgb: #{hexToRGB($color-cyan-500)};
+  --color-theme-focus-dark: #{$color-cyan-600};
 
   // Secondary(action cards colors)
   --color-theme-secondary-1: #{$color-purple-focus};
@@ -55,8 +75,13 @@
 .NavyBlue {
   --color-theme-accent-300: #{$color-cyan-400};
   --color-theme-accent: #{$color-navy-blue};
+  --color-theme-accent-rgb: #{hexToRGB($color-navy-blue)};
   --color-theme-inter: #{$color-navy-blue};
+  --color-theme-inter-rgb: #{hexToRGB($color-navy-blue)};
   --color-theme-focus: #{$color-navy-blue-focus};
+  --color-theme-inter-dark: #{$color-cyan-500};
+  --color-theme-inter-dark-rgb: #{hexToRGB($color-cyan-500)};
+  --color-theme-focus-dark: #{$color-cyan-600};
 
   // Secondary(action cards colors)
   --color-theme-secondary-1: #{$color-navy-blue-focus};
@@ -68,8 +93,13 @@
 .BrandGreen {
   --color-theme-accent-300: #{$color-brand-green};
   --color-theme-accent: #{$color-brand-green};
+  --color-theme-accent-rgb: #{hexToRGB($color-brand-green)};
   --color-theme-inter: #{$color-brand-green-inter};
+  --color-theme-inter-rgb: #{hexToRGB($color-brand-green-inter)};
   --color-theme-focus: #{$color-brand-green-focus};
+  --color-theme-inter-dark: #{$color-brand-green-inter};
+  --color-theme-inter-dark-rgb: #{hexToRGB($color-brand-green-inter)};
+  --color-theme-focus-dark: #{$color-brand-green-focus};
 
   // Secondary(action cards colors)
   --color-theme-secondary-1: #{$color-brand-green-focus};
@@ -81,6 +111,11 @@
 .SiplastBlack {
   --color-theme-accent-300: #{$color-storm};
   --color-theme-accent: #{$color-siplast-black};
+  --color-theme-accent-rgb: #{hexToRGB($color-siplast-black)};
   --color-theme-inter: #{$color-cyan-500};
+  --color-theme-inter-rgb: #{hexToRGB($color-cyan-500)};
   --color-theme-focus: #{$color-siplast-black};
+  --color-theme-inter-dark: #{$color-cyan-500};
+  --color-theme-inter-dark-rgb: #{hexToRGB($color-cyan-500)};
+  --color-theme-focus-dark: #{$color-siplast-black};
 }

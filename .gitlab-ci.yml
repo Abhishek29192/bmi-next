@@ -1,5 +1,6 @@
 image: node:14.17.0
 
+
 stages:
   - install
   - audit
@@ -11,6 +12,8 @@ stages:
   - package
   - deploy
   - deploy_gateway
+  - terraform_plan
+  - terraform_execute
   - dynamic security
   - lighthouse scan
 
@@ -27,8 +30,10 @@ include:
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/intouch/.gitlab-ci.yml"
+  - local: "/applications/redirects-website/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"
+  - local: "/libraries/.gitlab-ci.yml"
 
 default:
   cache:
@@ -42,16 +47,15 @@ default:
       - ".yarn_cache"
 
 variables:
-  FF_USE_FASTZIP: "false"
   ARTIFACT_COMPRESSION_LEVEL: fastest
   CACHE_COMPRESSION_LEVEL: fastest
-  TRANSFER_METER_FREQUENCY: 5s
+  FF_USE_FASTZIP: "false"
   NODE_OPTIONS: --max-old-space-size=2560
   POSTGRES_DB: custom_db
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: custom_pass
   POSTGRES_HOST_AUTH_METHOD: trust
-  NODE_ICU_DATA: node_modules/full-icu
+  TRANSFER_METER_FREQUENCY: 5s
 
 install:
   stage: install

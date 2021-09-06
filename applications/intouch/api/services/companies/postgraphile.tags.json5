@@ -23,6 +23,11 @@
         tags: {
           omit: true
         }
+      },
+      activate_company: {
+        tags: {
+          omit: true
+        }
       }
     }
   }

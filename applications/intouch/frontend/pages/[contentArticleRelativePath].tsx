@@ -3,7 +3,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Document } from "@contentful/rich-text-types";
-import { withPage } from "../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
 import { RichText } from "../components/RichText";
 import {
@@ -13,6 +13,7 @@ import {
 } from "../lib/error";
 import { GetGlobalDataQuery } from "../graphql/generated/operations";
 import { getServerPageGetContentArticleContent } from "../graphql/generated/page";
+import styles from "../styles/ContentArticle.module.scss";
 
 export const GET_CONTENT_ARTICLE_CONTENT = gql`
   query getContentArticleContent($relativePath: String!) {
@@ -27,10 +28,9 @@ export const GET_CONTENT_ARTICLE_CONTENT = gql`
   }
 `;
 
-type ContentArticlePageProps = {
+type ContentArticlePageProps = GlobalPageProps & {
   title: string;
   body: Document;
-  globalPageData: GetGlobalDataQuery;
 };
 
 const ContentArticlePage = ({
@@ -40,13 +40,15 @@ const ContentArticlePage = ({
 }: ContentArticlePageProps) => {
   return (
     <Layout title={title} pageData={globalPageData}>
-      <RichText content={body} />
+      <div className={styles.container}>
+        <RichText content={body} />
+      </div>
     </Layout>
   );
 };
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, res, params, account }) => {
+  async ({ locale, apolloClient, globalPageData, res, params }) => {
     const { contentArticleRelativePath } = params;
 
     const {
@@ -82,8 +84,6 @@ export const getServerSideProps = withPage(
       props: {
         title: pageContent.title,
         body: pageContent.body.json,
-        globalPageData,
-        account,
         ...(await serverSideTranslations(locale, ["common"]))
       }
     };
