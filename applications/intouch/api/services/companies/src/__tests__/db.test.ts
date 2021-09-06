@@ -37,6 +37,7 @@ describe("Database permissions", () => {
   let system_id;
   let product_id;
   let market_admin_id;
+  let invitation_status;
 
   // NOTE: These functions help to workaround the interdependency issues with these tests
   // TODO: Refactor
@@ -52,10 +53,11 @@ describe("Database permissions", () => {
         accountUuid: company_admin_id,
         accountEmail: COMPANY_ADMIN_EMAIL
       },
-      "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7) returning *",
+      "insert into project (company_id, name, technology, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7, $8) returning *",
       [
         company_id,
         "Project name",
+        "PITCHED",
         100,
         "Joe",
         "Doe",
@@ -108,8 +110,8 @@ describe("Database permissions", () => {
         accountUuid: 0,
         accountEmail: SUPER_ADMIN_EMAIL
       },
-      "insert into market (name, domain, projects_enabled) VALUES ($1, $2, $3) ON CONFLICT (domain) DO UPDATE SET name = excluded.name RETURNING *",
-      ["English market", "en", true]
+      "insert into market (name, domain, language, projects_enabled) VALUES ($1, $2, $3, $4) ON CONFLICT (domain) DO UPDATE SET name = excluded.name RETURNING *",
+      ["English market", "en", "en", true]
     );
     MARKET_ID = markets[0].id;
     const { rows: marketAdmin } = await transaction(
@@ -267,6 +269,7 @@ describe("Database permissions", () => {
           }
         });
         it("should be able to add an invitation", async () => {
+          invitation_status = "NEW";
           const { rows } = await transaction(
             pool,
             {
@@ -274,8 +277,8 @@ describe("Database permissions", () => {
               accountUuid: company_admin_id,
               accountEmail: COMPANY_ADMIN_EMAIL
             },
-            "insert into invitation (sender_account_id, invitee, company_id) VALUES($1, $2, $3) RETURNING *",
-            [company_admin_id, INSTALLER_EMAIL, company_id]
+            "insert into invitation (sender_account_id, invitee, company_id, status) VALUES($1, $2, $3, $4) RETURNING *",
+            [company_admin_id, INSTALLER_EMAIL, company_id, invitation_status]
           );
           expect(rows.length).toEqual(1);
         });
@@ -411,10 +414,11 @@ describe("Database permissions", () => {
             accountUuid: company_admin_id,
             accountEmail: COMPANY_ADMIN_EMAIL
           },
-          "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7) returning *",
+          "insert into project (company_id, name, technology, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7, $8) returning *",
           [
             company_id,
             "Project name",
+            "PITCHED",
             100,
             "Joe",
             "Doe",
@@ -437,10 +441,11 @@ describe("Database permissions", () => {
         const { rows: createdProject } = await transaction(
           pool,
           superAdminConfig,
-          "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date, hidden) values ($1, $2, $3, $4, $5, $6, $7, $8) returning *",
+          "insert into project (company_id, name, technology, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date, hidden) values ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning *",
           [
             company_id,
             "Project name",
+            "PITCHED",
             100,
             "Joe",
             "Doe",
@@ -489,8 +494,17 @@ describe("Database permissions", () => {
               accountUuid: company_admin_id,
               accountEmail: COMPANY_ADMIN_EMAIL
             },
-            "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7) returning *",
-            [1, "Project name", 100, "Joe", "Doe", "2021-01-01", "2021-01-02"]
+            "insert into project (company_id, name, technology, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date) values ($1, $2, $3, $4, $5, $6, $7, $8) returning *",
+            [
+              1,
+              "Project name",
+              "PITCHED",
+              100,
+              "Joe",
+              "Doe",
+              "2021-01-01",
+              "2021-01-02"
+            ]
           );
         } catch (error) {
           expect(error.message).toEqual(RLS_ERROR("project"));
@@ -524,25 +538,29 @@ describe("Database permissions", () => {
         try {
           // NOTE: Projects get market via company
           const otherMarket = await insertOne("market", {
-            domain: "OTHER_MARKET_DOMAIN"
+            domain: "OTHER_MARKET_DOMAIN",
+            language: "en"
           });
           const company = await insertOne("company", {
             market_id: otherMarket.id
           });
           await insertOne("project", {
-            company_id: company.id
+            company_id: company.id,
+            technology: "PITCHED"
           });
 
           // Separate market, separate account
           const myMarket = await insertOne("market", {
-            domain: "MY_MARKET_DOMAIN"
+            domain: "MY_MARKET_DOMAIN",
+            language: "en"
           });
           const myCompany = await insertOne("company", {
             market_id: myMarket.id
           });
           await insertOne("project", {
             name: "My Project",
-            company_id: myCompany.id
+            company_id: myCompany.id,
+            technology: "PITCHED"
           });
           // NOTE: account is not related to company,
           // market adming sees all projects in own market
@@ -594,10 +612,11 @@ describe("Database permissions", () => {
         const createdProjects = await transaction(
           pool,
           superAdminConfig,
-          "insert into project (company_id, name, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date, hidden) values ($1, $2, $3, $4, $5, $6, $7, $8) returning *",
+          "insert into project (company_id, name, technology, roof_area, building_owner_firstname, building_owner_lastname, start_date, end_date, hidden) values ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning *",
           [
             company_id,
             "Project name",
+            "PITCHED",
             100,
             "Joe",
             "Doe",
@@ -799,8 +818,8 @@ describe("Database permissions", () => {
             accountUuid: 0,
             accountEmail: SUPER_ADMIN_EMAIL
           },
-          "insert into market (name, domain) VALUES ($1, $2) RETURNING *",
-          ["Name", "de"]
+          "insert into market (name, domain, language) VALUES ($1, $2, $3) RETURNING *",
+          ["Name", "it", "en"]
         );
         expect(rows.length).toEqual(1);
         market_id = rows[0].id;
@@ -816,8 +835,8 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into market (name, domain) VALUES ($1, $2)",
-            ["Name", "de"]
+            "insert into market (name, domain, language) VALUES ($1, $2, $3)",
+            ["Name", "de", "en"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -861,8 +880,8 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into market (name, domain) VALUES ($1, $2)",
-            ["Name", "de"]
+            "insert into market (name, domain, language) VALUES ($1, $2, $3)",
+            ["Name", "de", "en"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -879,8 +898,8 @@ describe("Database permissions", () => {
               accountUuid: 0,
               accountEmail: MARKET_ADMIN_EMAIL
             },
-            "insert into market (name, domain) VALUES ($1, $2)",
-            ["Name", "de"]
+            "insert into market (name, domain, language) VALUES ($1, $2, $3)",
+            ["Name", "de", "en"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -899,10 +918,11 @@ describe("Database permissions", () => {
             accountUuid: market_admin_id,
             accountEmail: MARKET_ADMIN_EMAIL
           },
-          "insert into product (name, market_id, bmi_ref, brand, family, published, maximum_validity_years) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+          "insert into product (name, market_id, technology, bmi_ref, brand, family, published, maximum_validity_years) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
           [
             "Name",
             MARKET_ID,
+            "PITCHED",
             "test_bmi_ref",
             "test_brand",
             "test_family",
@@ -943,8 +963,8 @@ describe("Database permissions", () => {
             accountUuid: 0,
             accountEmail: SUPER_ADMIN_EMAIL
           },
-          "insert into system (name, market_id, bmi_ref, maximum_validity_years, published) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-          ["Name", MARKET_ID, "test_bmi_ref", 1, true]
+          "insert into system (name, market_id, technology, bmi_ref, maximum_validity_years, published) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+          ["Name", MARKET_ID, "PITCHED", "test_bmi_ref", 1, true]
         );
         expect(rows.length).toEqual(1);
         system_id = rows[0].id;
@@ -961,8 +981,8 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into market (name, domain) VALUES ($1, $2)",
-            ["Name", "de"]
+            "insert into market (name, domain, language) VALUES ($1, $2, $3)",
+            ["Name", "de", "en"]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("market"));
@@ -1026,6 +1046,7 @@ describe("Database permissions", () => {
   describe("Invitation", () => {
     describe("Installer", () => {
       it("shouldn't be able to send an invitation", async () => {
+        invitation_status = "NEW";
         try {
           await transaction(
             pool,
@@ -1034,11 +1055,12 @@ describe("Database permissions", () => {
               accountUuid: installer_id,
               accountEmail: INSTALLER_EMAIL
             },
-            "insert into invitation (sender_account_id, invitee, personal_note) VALUES ($1, $2, $3) RETURNING *",
+            "insert into invitation (sender_account_id, invitee, personal_note, status) VALUES ($1, $2, $3, $4) RETURNING *",
             [
               installer_id,
               "email@email.com",
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+              invitation_status
             ]
           );
         } catch (error) {
