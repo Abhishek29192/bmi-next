@@ -33,7 +33,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
                 <Accordion.Summary>
                   <Typography variant="default">
-                    {`${layer.layerNumber}. ${layer.type}: ${layer.name}`}
+                    {`${layer.layerNumber}. ${layer.type}: ${layer.name || ""}`}
                   </Typography>
                 </Accordion.Summary>
 
