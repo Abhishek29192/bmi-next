@@ -125,7 +125,7 @@ async function* getProducts() {
 
     // eslint-disable-next-line no-console
     console.log(
-      "Message page:",
+      "Products Message page:",
       JSON.stringify({
         currentPage: messageResponse.currentPage,
         productsCount: (messageResponse.products || []).length,
@@ -135,7 +135,34 @@ async function* getProducts() {
       })
     );
 
-    yield { products: messageResponse.products };
+    yield { products: messageResponse.products, currentPage };
+
+    ++currentPage;
+    totalPageCount = messageResponse.totalPageCount;
+  }
+}
+
+async function* getSystems() {
+  let totalPageCount = 1;
+  let currentPage = 0;
+
+  while (currentPage < totalPageCount) {
+    const messageResponse = await fetchData(
+      `/export/systems?currentPage=${currentPage}&approvalStatus=APPROVED`
+    );
+
+    // eslint-disable-next-line no-console
+    console.log(
+      "Systems Message page:",
+      JSON.stringify({
+        currentPage: messageResponse.currentPage,
+        systemsCount: (messageResponse.systems || []).length,
+        totalPageCount: messageResponse.totalPageCount,
+        totalProductCount: messageResponse.totalProductCount
+      })
+    );
+
+    yield { systems: messageResponse.systems, currentPage };
 
     ++currentPage;
     totalPageCount = messageResponse.totalPageCount;
@@ -165,10 +192,37 @@ const handleRequest = async (req, res) => {
     for await (const page of messagePages) {
       if (page.products) {
         // eslint-disable-next-line no-console
-        console.log(`GET: Updating ${(page.products || []).length}`);
+        console.log(
+          `GET: Updating ${(page.products || []).length} products in page ${
+            page.currentPage
+          }`
+        );
 
         try {
           publishMessage("UPDATED", "PRODUCTS", page.products);
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.error(e);
+          break;
+        }
+      }
+    }
+
+    // eslint-disable-next-line no-console
+    console.log(`Getting the whole systems.`);
+
+    const systemMessagePages = getSystems();
+    for await (const page of systemMessagePages) {
+      if (page.systems) {
+        // eslint-disable-next-line no-console
+        console.log(
+          `GET: Updating ${(page.systems || []).length} systems in page ${
+            page.currentPage
+          }`
+        );
+
+        try {
+          publishMessage("UPDATED", "SYSTEM", page.systems);
         } catch (e) {
           // eslint-disable-next-line no-console
           console.error(e);
