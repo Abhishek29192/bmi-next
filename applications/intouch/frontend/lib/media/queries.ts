@@ -2,6 +2,9 @@ import { gql } from "@apollo/client";
 
 export const CONTENTFUL_IMAGE_FRAGMENT = gql`
   fragment ImageFragment on Asset {
+    sys {
+      id
+    }
     title
     description
     contentType
@@ -58,50 +61,40 @@ export const GET_MEDIA_FOLDERS = gql`
   }
 `;
 
-// export const GET_MEDIA_FOLDER_CONTENTS = gql`
-//   query getMediaFolderContents($folderId: Int!) {
-//     mediaFolder(id: $folderId) {
-//       id
-//       childrenCollection {
-//         total
-//         items {
-//           ... on MediaTool {
-//             sys {
-//               id
-//             }
-//             name
-//             thumbnail {
-//               # sys {
-//               #   id
-//               # }
-//               ...ImageFragment
-//             }
-//             media {
-//               # sys {
-//               #   id
-//               # }
-//               ...ImageFragment
-//             }
-//             description
-//             url
-//           }
+export const GET_MEDIA_FOLDER_CONTENTS = gql`
+  query getMediaFolderContents($folderId: String!) {
+    mediaFolder(id: $folderId) {
+      sys {
+        id
+      }
+      name
+      childrenCollection {
+        total
+        items {
+          ... on MediaTool {
+            __typename
+            sys {
+              id
+            }
+            name
+            thumbnail {
+              ...ImageFragment
+            }
+            media {
+              ...ImageFragment
+            }
+            url
+          }
 
-//           ... on MediaFolder {
-//             name
-//             childrenCollection {
-//               total
-//               items {
-//                 ... on MediaFolder {
-//                   sys {
-//                     id
-//                   }
-//                   name
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+          ... on MediaFolder {
+            __typename
+            sys {
+              id
+            }
+            name
+          }
+        }
+      }
+    }
+  }
+`;

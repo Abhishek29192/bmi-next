@@ -24,3 +24,13 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.loading {
+  margin-top: 32px;
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}

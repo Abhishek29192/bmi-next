@@ -149,6 +149,9 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
 `;
 export const ImageFragmentFragmentDoc = gql`
   fragment ImageFragment on Asset {
+    sys {
+      id
+    }
     title
     description
     contentType
@@ -2499,6 +2502,94 @@ export type GetMediaFoldersLazyQueryHookResult = ReturnType<
 export type GetMediaFoldersQueryResult = Apollo.QueryResult<
   OperationTypes.GetMediaFoldersQuery,
   OperationTypes.GetMediaFoldersQueryVariables
+>;
+export const GetMediaFolderContentsDocument = gql`
+  query getMediaFolderContents($folderId: String!) {
+    mediaFolder(id: $folderId) {
+      sys {
+        id
+      }
+      name
+      childrenCollection {
+        total
+        items {
+          ... on MediaTool {
+            __typename
+            sys {
+              id
+            }
+            name
+            thumbnail {
+              ...ImageFragment
+            }
+            media {
+              ...ImageFragment
+            }
+            url
+          }
+          ... on MediaFolder {
+            __typename
+            sys {
+              id
+            }
+            name
+          }
+        }
+      }
+    }
+  }
+  ${ImageFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetMediaFolderContentsQuery__
+ *
+ * To run a query within a React component, call `useGetMediaFolderContentsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMediaFolderContentsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMediaFolderContentsQuery({
+ *   variables: {
+ *      folderId: // value for 'folderId'
+ *   },
+ * });
+ */
+export function useGetMediaFolderContentsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
+  >(GetMediaFolderContentsDocument, options);
+}
+export function useGetMediaFolderContentsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
+  >(GetMediaFolderContentsDocument, options);
+}
+export type GetMediaFolderContentsQueryHookResult = ReturnType<
+  typeof useGetMediaFolderContentsQuery
+>;
+export type GetMediaFolderContentsLazyQueryHookResult = ReturnType<
+  typeof useGetMediaFolderContentsLazyQuery
+>;
+export type GetMediaFolderContentsQueryResult = Apollo.QueryResult<
+  OperationTypes.GetMediaFolderContentsQuery,
+  OperationTypes.GetMediaFolderContentsQueryVariables
 >;
 export const GetContentArticleContentDocument = gql`
   query getContentArticleContent($relativePath: String!) {

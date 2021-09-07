@@ -530,6 +530,50 @@ export const ssrGetMediaFolders = {
 
   usePage: useGetMediaFolders
 };
+export async function getServerPageGetMediaFolderContents(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetMediaFolderContentsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetMediaFolderContentsQuery>({
+      ...options,
+      query: Operations.GetMediaFolderContentsDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetMediaFolderContents = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetMediaFolderContentsDocument, options);
+};
+export type PageGetMediaFolderContentsComp = React.FC<{
+  data?: OperationTypes.GetMediaFolderContentsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetMediaFolderContents = {
+  getServerPage: getServerPageGetMediaFolderContents,
+
+  usePage: useGetMediaFolderContents
+};
 export async function getServerPageGetContentArticleContent(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetContentArticleContentQueryVariables>,

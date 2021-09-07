@@ -231,17 +231,6 @@ const Homepage = ({
 };
 
 export const GET_PARTNER_BRANDS = gql`
-  fragment ImageFragment on Asset {
-    title
-    description
-    contentType
-    fileName
-    size
-    url
-    width
-    height
-  }
-
   query GetPartnerBrands($role: String!, $tier: String!) {
     # Only one relevant market content entry expected, without "limit" we hit query complexity limits
     marketContentCollection(limit: 1) {
