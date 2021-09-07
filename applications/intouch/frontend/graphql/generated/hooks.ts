@@ -147,6 +147,18 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
   }
   ${ProjectDetailsProductFragmentFragmentDoc}
 `;
+export const ImageFragmentFragmentDoc = gql`
+  fragment ImageFragment on Asset {
+    title
+    description
+    contentType
+    fileName
+    size
+    url
+    width
+    height
+  }
+`;
 export const AddressLinesFragmentFragmentDoc = gql`
   fragment AddressLinesFragment on Address {
     firstLine
@@ -238,18 +250,6 @@ export const CompanyPageDetailsFragmentFragmentDoc = gql`
   ${CompanyRegisteredDetailsFragmentFragmentDoc}
   ${CompanyAdminsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
-`;
-export const ImageFragmentFragmentDoc = gql`
-  fragment ImageFragment on Asset {
-    title
-    description
-    contentType
-    fileName
-    size
-    url
-    width
-    height
-  }
 `;
 export const AccountPageDetailsFragmentFragmentDoc = gql`
   fragment AccountPageDetailsFragment on Account {
@@ -2405,6 +2405,100 @@ export type GetMarketsByDomainLazyQueryHookResult = ReturnType<
 export type GetMarketsByDomainQueryResult = Apollo.QueryResult<
   OperationTypes.GetMarketsByDomainQuery,
   OperationTypes.GetMarketsByDomainQueryVariables
+>;
+export const GetMediaFoldersDocument = gql`
+  query getMediaFolders {
+    marketContentCollection(limit: 1) {
+      items {
+        mediaLibraryRootCollection {
+          items {
+            sys {
+              id
+            }
+            name
+          }
+        }
+      }
+    }
+    mediaFolderCollection {
+      total
+      items {
+        sys {
+          id
+        }
+        name
+        childrenCollection {
+          total
+          items {
+            ... on MediaFolder {
+              __typename
+              sys {
+                id
+              }
+              name
+            }
+            ... on MediaTool {
+              __typename
+              sys {
+                id
+              }
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetMediaFoldersQuery__
+ *
+ * To run a query within a React component, call `useGetMediaFoldersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMediaFoldersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMediaFoldersQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetMediaFoldersQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >(GetMediaFoldersDocument, options);
+}
+export function useGetMediaFoldersLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >(GetMediaFoldersDocument, options);
+}
+export type GetMediaFoldersQueryHookResult = ReturnType<
+  typeof useGetMediaFoldersQuery
+>;
+export type GetMediaFoldersLazyQueryHookResult = ReturnType<
+  typeof useGetMediaFoldersLazyQuery
+>;
+export type GetMediaFoldersQueryResult = Apollo.QueryResult<
+  OperationTypes.GetMediaFoldersQuery,
+  OperationTypes.GetMediaFoldersQueryVariables
 >;
 export const GetContentArticleContentDocument = gql`
   query getContentArticleContent($relativePath: String!) {
