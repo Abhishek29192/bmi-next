@@ -4,6 +4,7 @@ import Modal from "@bmi/dialog";
 import { useTranslation } from "next-i18next";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { checkProjectGuaranteeReview } from "../../../lib/utils/project";
+import { isGuaranteeApplicationEnable } from "../../../lib/utils/guarantee";
 import styles from "./styles.module.scss";
 import { ApplyGuaranteeDialog } from "./ApplyGuaranteeDialog";
 import { ProjectGuarantee } from "./ProjectGuarantee";
@@ -11,9 +12,13 @@ import SolutionGuaranteeReviewDialog from "./SolutionGuaranteeReviewDialog";
 
 export type GuaranteeTabProps = {
   project: GetProjectQuery["project"];
+  isApplyGuarantee: boolean;
 };
 
-export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
+export const GuaranteeTab = ({
+  project,
+  isApplyGuarantee
+}: GuaranteeTabProps) => {
   const { t } = useTranslation("project-page");
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
@@ -21,13 +26,21 @@ export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
 
   const { guarantees } = project;
 
+  const guaranteeApplicationEnable = isGuaranteeApplicationEnable(project);
+
   return (
     <div className={styles.main}>
-      <div className={styles.header}>
-        <Button onClick={() => setDialogOpen(true)}>
-          {t("guarantee_tab.header")}
-        </Button>
-      </div>
+      {isApplyGuarantee && (
+        <div className={styles.header}>
+          <Button
+            onClick={() => setDialogOpen(true)}
+            disabled={!guaranteeApplicationEnable}
+          >
+            {t("guarantee_tab.header")}
+          </Button>
+        </div>
+      )}
+
       <div className={styles.body}>
         <ProjectGuarantee
           guarantees={guarantees.nodes}
