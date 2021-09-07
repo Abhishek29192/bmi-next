@@ -890,6 +890,8 @@ export const GetProjectDocument = gql`
           id
           guaranteeReferenceCode
           reviewerAccountId
+          coverage
+          languageCode
           guaranteeType {
             sys {
               id

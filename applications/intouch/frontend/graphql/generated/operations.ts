@@ -695,7 +695,12 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "Guarantee" } & Pick<
               SchemaTypes.Guarantee,
-              "id" | "guaranteeReferenceCode" | "reviewerAccountId" | "status"
+              | "id"
+              | "guaranteeReferenceCode"
+              | "reviewerAccountId"
+              | "coverage"
+              | "languageCode"
+              | "status"
             > & {
                 readonly guaranteeType?: SchemaTypes.Maybe<
                   { readonly __typename?: "ContentfulGuaranteeType" } & Pick<
