@@ -23,6 +23,16 @@ paths:
             type: object
       security:
         - auth0_jwk: []
+  /graphql_api:
+    post:
+      summary: Generate a GraphQL request to the GraphQL Gateway
+      operationId: graphql
+      responses:
+        "200":
+          description: A successful response
+          schema:
+            type: object
+      security:
         - api_key_header: []
 
 securityDefinitions:
