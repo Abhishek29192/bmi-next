@@ -23,6 +23,7 @@ paths:
             type: object
       security:
         - auth0_jwk: []
+        - api_key_header: []
 
 securityDefinitions:
   auth0_jwk:
@@ -32,3 +33,7 @@ securityDefinitions:
     x-google-issuer: "https://intouch-dev.eu.auth0.com/"
     x-google-jwks_uri: "https://intouch-dev.eu.auth0.com/.well-known/jwks.json"
     x-google-audiences: "https://dev-api.intouch.dev"
+  api_key_header:
+    type: "apiKey"
+    name: "key"
+    in: "header"
