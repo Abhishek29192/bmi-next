@@ -129,6 +129,7 @@ export const compileElasticSearchQuery = (
   });
 
   // NOTE: ES Doesn't like an empty query object
+  const queryString = `*${searchQuery.replaceAll("/", "\\/")}*`;
   return {
     size: pageSize,
     from: page * pageSize,
@@ -178,7 +179,7 @@ export const compileElasticSearchQuery = (
           searchQuery
             ? {
                 query_string: {
-                  query: `*${searchQuery}*`,
+                  query: queryString,
                   // when caret boosting multi_match queries, "cross_fields" seems to work the best for us currently
                   // https://bmigroup.atlassian.net/wiki/spaces/DXB/pages/2512847139/Tuning+Search+Relevance
                   type: "cross_fields",
