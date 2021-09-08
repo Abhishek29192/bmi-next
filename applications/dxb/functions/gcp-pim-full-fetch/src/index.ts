@@ -222,7 +222,7 @@ const handleRequest = async (req, res) => {
         );
 
         try {
-          publishMessage("UPDATED", "SYSTEM", page.systems);
+          publishMessage("UPDATED", "SYSTEMS", page.systems);
         } catch (e) {
           // eslint-disable-next-line no-console
           console.error(e);
