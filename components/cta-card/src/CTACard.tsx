@@ -2,7 +2,7 @@ import React from "react";
 import Card from "@bmi/card";
 import Typography from "@bmi/typography";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
 import Media, { AcceptedNode } from "@bmi/media";

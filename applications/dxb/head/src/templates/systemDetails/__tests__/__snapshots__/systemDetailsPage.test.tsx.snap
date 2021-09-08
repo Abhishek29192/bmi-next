@@ -122,8 +122,11 @@ exports[`SystemDetailsPage template component should have function to filter and
                   class="MuiButton-label buttonStyles-label-156"
                 >
                   <img
+                    alt="English"
                     class="language-icon"
+                    height="16px"
                     src="/icons/flags/uk.svg"
+                    width="20px"
                   />
                   EN
                   <span
@@ -239,7 +242,9 @@ exports[`SystemDetailsPage template component should have function to filter and
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/al.svg"
+                          width="20px"
                         />
                       </span>
                       Albania
@@ -266,7 +271,9 @@ exports[`SystemDetailsPage template component should have function to filter and
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/at.svg"
+                          width="20px"
                         />
                       </span>
                       Österreich
@@ -293,7 +300,9 @@ exports[`SystemDetailsPage template component should have function to filter and
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       United Kingdom
@@ -320,7 +329,9 @@ exports[`SystemDetailsPage template component should have function to filter and
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       English
@@ -2554,8 +2565,11 @@ exports[`SystemDetailsPage template component should have function to filter and
                     class="LanguageButtonContent"
                   >
                     <img
+                      alt="English"
                       class="LanguageIcon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     EN
                   </span>
@@ -3407,7 +3421,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -3496,7 +3510,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -4069,7 +4083,7 @@ exports[`SystemDetailsPage template component should have function to filter and
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
           >
             <div
               class="MuiGrid-root item MuiGrid-item"
@@ -4563,8 +4577,11 @@ exports[`SystemDetailsPage template component should have function to filter doc
                   class="MuiButton-label buttonStyles-label-232"
                 >
                   <img
+                    alt="English"
                     class="language-icon"
+                    height="16px"
                     src="/icons/flags/uk.svg"
+                    width="20px"
                   />
                   EN
                   <span
@@ -4680,7 +4697,9 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/al.svg"
+                          width="20px"
                         />
                       </span>
                       Albania
@@ -4707,7 +4726,9 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/at.svg"
+                          width="20px"
                         />
                       </span>
                       Österreich
@@ -4734,7 +4755,9 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       United Kingdom
@@ -4761,7 +4784,9 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       English
@@ -6995,8 +7020,11 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     class="LanguageButtonContent"
                   >
                     <img
+                      alt="English"
                       class="LanguageIcon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     EN
                   </span>
@@ -7605,7 +7633,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -7718,7 +7746,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -7831,7 +7859,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -7944,7 +7972,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -8057,7 +8085,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -8170,7 +8198,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -8283,7 +8311,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -8396,7 +8424,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -8509,7 +8537,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -8622,7 +8650,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -8735,7 +8763,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -8848,7 +8876,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -9323,7 +9351,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -9412,7 +9440,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -9515,7 +9543,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -9984,7 +10012,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
           >
             <div
               class="MuiGrid-root item MuiGrid-item"
@@ -10478,8 +10506,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   class="MuiButton-label buttonStyles-label-4"
                 >
                   <img
+                    alt="English"
                     class="language-icon"
+                    height="16px"
                     src="/icons/flags/uk.svg"
+                    width="20px"
                   />
                   EN
                   <span
@@ -10595,7 +10626,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/al.svg"
+                          width="20px"
                         />
                       </span>
                       Albania
@@ -10622,7 +10655,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/at.svg"
+                          width="20px"
                         />
                       </span>
                       Österreich
@@ -10649,7 +10684,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       United Kingdom
@@ -10676,7 +10713,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       English
@@ -12910,8 +12949,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="LanguageButtonContent"
                   >
                     <img
+                      alt="English"
                       class="LanguageIcon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     EN
                   </span>
@@ -13520,7 +13562,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -13633,7 +13675,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -13746,7 +13788,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -13859,7 +13901,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -13972,7 +14014,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -14085,7 +14127,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -14198,7 +14240,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -14311,7 +14353,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -14424,7 +14466,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -14537,7 +14579,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -14650,7 +14692,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -14763,7 +14805,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -15279,7 +15321,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -15368,7 +15410,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -15471,7 +15513,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -16030,7 +16072,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
           >
             <div
               class="MuiGrid-root item MuiGrid-item"
@@ -16524,8 +16566,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   class="MuiButton-label buttonStyles-label-80"
                 >
                   <img
+                    alt="English"
                     class="language-icon"
+                    height="16px"
                     src="/icons/flags/uk.svg"
+                    width="20px"
                   />
                   EN
                   <span
@@ -16641,7 +16686,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/al.svg"
+                          width="20px"
                         />
                       </span>
                       Albania
@@ -16668,7 +16715,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/at.svg"
+                          width="20px"
                         />
                       </span>
                       Österreich
@@ -16695,7 +16744,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       United Kingdom
@@ -16722,7 +16773,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       English
@@ -18956,8 +19009,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     class="LanguageButtonContent"
                   >
                     <img
+                      alt="English"
                       class="LanguageIcon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     EN
                   </span>
@@ -19566,7 +19622,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -19679,7 +19735,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -19792,7 +19848,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -19905,7 +19961,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -20018,7 +20074,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -20131,7 +20187,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -20244,7 +20300,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -20357,7 +20413,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -20470,7 +20526,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -20583,7 +20639,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -20696,7 +20752,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -20809,7 +20865,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -21325,7 +21381,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -21414,7 +21470,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -21517,7 +21573,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -22076,7 +22132,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
           >
             <div
               class="MuiGrid-root item MuiGrid-item"
@@ -22570,8 +22626,11 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                   class="MuiButton-label buttonStyles-label-308"
                 >
                   <img
+                    alt="English"
                     class="language-icon"
+                    height="16px"
                     src="/icons/flags/uk.svg"
+                    width="20px"
                   />
                   EN
                   <span
@@ -22687,7 +22746,9 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/al.svg"
+                          width="20px"
                         />
                       </span>
                       Albania
@@ -22714,7 +22775,9 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/at.svg"
+                          width="20px"
                         />
                       </span>
                       Österreich
@@ -22741,7 +22804,9 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       United Kingdom
@@ -22768,7 +22833,9 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       >
                         <img
                           class="LanguageIcon"
+                          height="16px"
                           src="/icons/flags/uk.svg"
+                          width="20px"
                         />
                       </span>
                       English
@@ -25002,8 +25069,11 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     class="LanguageButtonContent"
                   >
                     <img
+                      alt="English"
                       class="LanguageIcon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     EN
                   </span>
@@ -25643,7 +25713,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -25756,7 +25826,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -25869,7 +25939,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -25982,7 +26052,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -26095,7 +26165,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -26208,7 +26278,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -26321,7 +26391,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -26434,7 +26504,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -26547,7 +26617,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -26660,7 +26730,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -26773,7 +26843,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -26886,7 +26956,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-container MuiCollapse-hidden"
+                    class="MuiCollapse-root MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -27402,7 +27472,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -27491,7 +27561,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -27594,7 +27664,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                               </div>
                             </div>
                             <div
-                              class="MuiCollapse-container MuiCollapse-entered"
+                              class="MuiCollapse-root MuiCollapse-entered"
                               style="min-height: 0px;"
                             >
                               <div
@@ -28153,7 +28223,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
           >
             <div
               class="MuiGrid-root item MuiGrid-item"

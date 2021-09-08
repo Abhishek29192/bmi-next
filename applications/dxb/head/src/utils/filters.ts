@@ -1,4 +1,3 @@
-import { uniqBy, map } from "lodash";
 import { Filter } from "@bmi/filters";
 import {
   Product,
@@ -10,6 +9,7 @@ import {
 import { Data as DocumentResultsData } from "../components/DocumentResults";
 import {
   PIMDocumentData,
+  PIMDocumentProduct,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
 import { Data as DocumentData } from "../components/Document";
@@ -51,17 +51,21 @@ export const convertToURLFilters = (
   }, []);
 };
 
+const uniqueByCode = (uniqueObjects, object) => {
+  uniqueObjects.find((unique) => unique.code === object.code) ||
+    uniqueObjects.push(object);
+  return uniqueObjects;
+};
+
 const getProductsFromDocuments = (documents: DocumentResultsData) => {
-  return uniqBy(
-    documents
-      .map((document) => {
-        if (isPIMDocument(document)) {
-          return document.product;
-        }
-      })
-      .filter(Boolean),
-    "code"
-  );
+  return documents
+    .map((document) => {
+      if (isPIMDocument(document)) {
+        return document.product;
+      }
+    })
+    .filter(Boolean)
+    .reduce<PIMDocumentProduct[]>(uniqueByCode, []);
 };
 
 export const sortAlphabeticallyBy = (propName) => (a, b) => {
@@ -94,20 +98,21 @@ export const findPIMDocumentBrandCategories = (
 const getBrandCategoryFromProducts = (
   products: readonly Product[]
 ): Category[] => {
-  return uniqBy(
+  return (
     products
       .flatMap((product) => {
         return findPIMProductBrandCategories(product);
       })
-      .filter(Boolean),
-    "code"
-    // We might get a result of an empty filter if documents don't have brand
-  ).filter(({ name }) => name);
+      .filter(Boolean)
+      .reduce<Category[]>(uniqueByCode, [])
+      // We might get a result of an empty filter if documents don't have brand
+      .filter(({ name }) => name)
+  );
 };
 
 // Returns a Category like object
 const findBrandCategoriesFromDocuments = (documents: DocumentResultsData) => {
-  return uniqBy(
+  return (
     documents
       .flatMap((document) => {
         if (isPIMDocument(document)) {
@@ -120,20 +125,21 @@ const findBrandCategoriesFromDocuments = (documents: DocumentResultsData) => {
           code: document.brand
         };
       })
-      .filter(Boolean),
-    "code"
-    // We might get a result of an empty filter if documents don't have brand
-  ).filter(({ name }) => name);
+      .filter(Boolean)
+      .reduce<{ name: string; code: string }[]>(uniqueByCode, [])
+      // We might get a result of an empty filter if documents don't have brand
+      .filter(({ name }) => name)
+  );
 };
 
 export const getAssetTypeFilterFromDocuments = (
   documents: DocumentResultsData
 ) => {
   // Find Unique assetTypes, they're the same as far as TS is concerned
-  const allValues = uniqBy(
-    documents.map(({ assetType }) => assetType).filter(Boolean),
-    "code"
-  );
+  const allValues = documents
+    .map(({ assetType }) => assetType)
+    .filter(Boolean)
+    .reduce(uniqueByCode, []);
 
   if (allValues.length === 0) {
     return;
@@ -211,16 +217,15 @@ export const getCategoryCodesFilterFromDocuments = (
 const getProductFamilyFilter = (
   products: readonly Pick<Product, "categories">[]
 ) => {
-  const allFamilyCategories = uniqBy(
-    products.reduce<Category[]>((allCategories, product) => {
+  const allFamilyCategories = products
+    .reduce<Category[]>((allCategories, product) => {
       const productFamilyCategories = (product.categories || []).filter(
         ({ categoryType }) => categoryType === "ProductFamily"
       );
 
       return [...allCategories, ...productFamilyCategories];
-    }, []),
-    "code"
-  );
+    }, [])
+    .reduce<Category[]>(uniqueByCode, []);
 
   if (allFamilyCategories.length === 0) {
     return;
@@ -242,16 +247,15 @@ const getProductFamilyFilter = (
 const getProductLineFilter = (
   products: readonly Pick<Product, "categories">[]
 ) => {
-  const allProductLineCategories = uniqBy(
-    products.reduce<Category[]>((allCategories, product) => {
+  const allProductLineCategories = products
+    .reduce<Category[]>((allCategories, product) => {
       const productLineCategories = (product.categories || []).filter(
         ({ categoryType }) => categoryType === "ProductLine"
       );
 
       return [...allCategories, ...productLineCategories];
-    }, []),
-    "code"
-  );
+    }, [])
+    .reduce<Category[]>(uniqueByCode, []);
 
   if (allProductLineCategories.length === 0) {
     return;
@@ -296,7 +300,9 @@ const getColorFilter = (
   }
 
   // Assuming all colours have the same label
-  const values = uniqBy(map(colorFilters, "value"), "code");
+  const values = colorFilters
+    .map((colorFilter) => colorFilter.value)
+    .reduce(uniqueByCode, []);
 
   return {
     label: "filterLabels.colour",
@@ -346,7 +352,9 @@ const getTextureFilter = (
   }
 
   // Assuming all texturefamily classifications have the same label
-  const values = uniqBy(map(textures, "value"), "code");
+  const values = textures
+    .map((texture) => texture.value)
+    .reduce(uniqueByCode, []);
 
   return {
     label: "filterLabels.textureFamily",
@@ -387,7 +395,9 @@ const getMaterialsFilter = (
   }
 
   // Assuming all texturefamily classifications have the same label
-  const values = uniqBy(map(materials, "value"), "code");
+  const values = materials
+    .map((material) => material.value)
+    .reduce(uniqueByCode, []);
 
   return {
     label: "filterLabels.materials",
@@ -632,13 +642,27 @@ export const generateUniqueDocuments = (
         : allOtherDocuments.push(document);
     });
 
-    const uniquePIMDocuments = uniqBy(
-      allPIMDocuments,
-      (item) => `${item.title}-${item.url}`
+    const uniquePIMDocuments = allPIMDocuments.reduce(
+      (uniqueDocuments, document) => {
+        uniqueDocuments.find(
+          (unique) =>
+            `${unique.title}-${unique.url}` ===
+            `${document.title}-${document.url}`
+        ) || uniqueDocuments.push(document);
+        return uniqueDocuments;
+      },
+      []
     );
-    const uniqueCMSDocuments = uniqBy(
-      allOtherDocuments,
-      (item) => `${item.asset.file.fileName}`
+    const uniqueCMSDocuments = allOtherDocuments.reduce(
+      (uniqueDocuments, document) => {
+        uniqueDocuments.find(
+          (unique) =>
+            `${unique.asset.file.fileName}` ===
+            `${document.asset.file.fileName}`
+        ) || uniqueDocuments.push(document);
+        return uniqueDocuments;
+      },
+      []
     );
     return [...uniquePIMDocuments, ...uniqueCMSDocuments];
   }

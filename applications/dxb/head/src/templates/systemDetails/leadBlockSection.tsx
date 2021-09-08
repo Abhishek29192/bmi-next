@@ -7,7 +7,6 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Button, { ButtonProps } from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import CheckIcon from "@material-ui/icons/Check";
-import { isEmpty } from "lodash";
 import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
 import { Data as ImageData } from "../../components/Image";
@@ -173,31 +172,30 @@ const LeadBlockSection = ({
             )}
           </LeadBlock.Content.Section>
         </LeadBlock.Content>
-        {uniqueSellingPropositions &&
-          !isEmpty(uniqueSellingPropositions.featureValues) && (
-            <LeadBlock.Card
-              className={styles["card"]}
-              theme="pearl"
-              data-testid="system-attributes-card"
-            >
-              <LeadBlock.Card.Section>
-                <div className={styles["iconList"]}>
-                  <IconList>
-                    {uniqueSellingPropositions.featureValues.map(
-                      ({ value }, id) => (
-                        <IconList.Item
-                          isCompact
-                          icon={BlueCheckIcon}
-                          title={value}
-                          key={`unique-selling-proposition-${id}`}
-                        />
-                      )
-                    )}
-                  </IconList>
-                </div>
-              </LeadBlock.Card.Section>
-            </LeadBlock.Card>
-          )}
+        {uniqueSellingPropositions?.featureValues?.length && (
+          <LeadBlock.Card
+            className={styles["card"]}
+            theme="pearl"
+            data-testid="system-attributes-card"
+          >
+            <LeadBlock.Card.Section>
+              <div className={styles["iconList"]}>
+                <IconList>
+                  {uniqueSellingPropositions.featureValues.map(
+                    ({ value }, id) => (
+                      <IconList.Item
+                        isCompact
+                        icon={BlueCheckIcon}
+                        title={value}
+                        key={`unique-selling-proposition-${id}`}
+                      />
+                    )
+                  )}
+                </IconList>
+              </div>
+            </LeadBlock.Card.Section>
+          </LeadBlock.Card>
+        )}
       </LeadBlock>
     </Section>
   );

@@ -53,9 +53,19 @@ const LanguageSelection = ({
                 startIcon={
                   icon &&
                   (typeof icon === "string" ? (
-                    <img className={styles["LanguageIcon"]} src={icon} />
+                    <img
+                      width="20px"
+                      height="16px"
+                      className={styles["LanguageIcon"]}
+                      src={icon}
+                    />
                   ) : (
-                    <Icon className={styles["LanguageIcon"]} source={icon} />
+                    <Icon
+                      width="20px"
+                      height="16px"
+                      className={styles["LanguageIcon"]}
+                      source={icon}
+                    />
                   ))
                 }
                 action={{

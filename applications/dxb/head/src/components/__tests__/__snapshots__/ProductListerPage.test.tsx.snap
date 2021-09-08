@@ -50,8 +50,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiButton-label buttonStyles-label"
                   >
                     <img
+                      alt="United Kingdom"
                       class="language-icon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     UK
                     <span
@@ -167,7 +170,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/al.svg"
+                            width="20px"
                           />
                         </span>
                         Albania
@@ -194,7 +199,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/at.svg"
+                            width="20px"
                           />
                         </span>
                         Österreich
@@ -221,7 +228,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/uk.svg"
+                            width="20px"
                           />
                         </span>
                         United Kingdom
@@ -461,8 +470,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       class="LanguageButtonContent"
                     >
                       <img
+                        alt="United Kingdom"
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                       UK
                     </span>
@@ -968,7 +980,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item"
@@ -1126,8 +1138,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiButton-label buttonStyles-label"
                   >
                     <img
+                      alt="United Kingdom"
                       class="language-icon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     UK
                     <span
@@ -1243,7 +1258,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/al.svg"
+                            width="20px"
                           />
                         </span>
                         Albania
@@ -1270,7 +1287,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/at.svg"
+                            width="20px"
                           />
                         </span>
                         Österreich
@@ -1297,7 +1316,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/uk.svg"
+                            width="20px"
                           />
                         </span>
                         United Kingdom
@@ -1537,8 +1558,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       class="LanguageButtonContent"
                     >
                       <img
+                        alt="United Kingdom"
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                       UK
                     </span>
@@ -2049,7 +2073,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item"
@@ -2204,8 +2228,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiButton-label buttonStyles-label"
                   >
                     <img
+                      alt="United Kingdom"
                       class="language-icon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     UK
                     <span
@@ -2312,7 +2339,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/al.svg"
+                            width="20px"
                           />
                         </span>
                         Albania
@@ -2336,7 +2365,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/at.svg"
+                            width="20px"
                           />
                         </span>
                         Österreich
@@ -2360,7 +2391,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/uk.svg"
+                            width="20px"
                           />
                         </span>
                         United Kingdom
@@ -2575,8 +2608,11 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       class="LanguageButtonContent"
                     >
                       <img
+                        alt="United Kingdom"
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                       UK
                     </span>
@@ -12022,7 +12058,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item"
@@ -12177,8 +12213,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="MuiButton-label buttonStyles-label"
                   >
                     <img
+                      alt="United Kingdom"
                       class="language-icon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     UK
                     <span
@@ -12285,7 +12324,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/al.svg"
+                            width="20px"
                           />
                         </span>
                         Albania
@@ -12309,7 +12350,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/at.svg"
+                            width="20px"
                           />
                         </span>
                         Österreich
@@ -12333,7 +12376,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/uk.svg"
+                            width="20px"
                           />
                         </span>
                         United Kingdom
@@ -12548,8 +12593,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                       class="LanguageButtonContent"
                     >
                       <img
+                        alt="United Kingdom"
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                       UK
                     </span>
@@ -12905,7 +12953,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                           </div>
                         </div>
                         <div
-                          class="MuiCollapse-container MuiCollapse-hidden"
+                          class="MuiCollapse-root MuiCollapse-hidden"
                           style="min-height: 0px;"
                         >
                           <div
@@ -13242,7 +13290,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item"
@@ -13391,8 +13439,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="MuiButton-label buttonStyles-label"
                   >
                     <img
+                      alt="United Kingdom"
                       class="language-icon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     UK
                     <span
@@ -13499,7 +13550,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/al.svg"
+                            width="20px"
                           />
                         </span>
                         Albania
@@ -13523,7 +13576,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/at.svg"
+                            width="20px"
                           />
                         </span>
                         Österreich
@@ -13547,7 +13602,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/uk.svg"
+                            width="20px"
                           />
                         </span>
                         United Kingdom
@@ -13762,8 +13819,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                       class="LanguageButtonContent"
                     >
                       <img
+                        alt="United Kingdom"
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                       UK
                     </span>
@@ -14119,7 +14179,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                           </div>
                         </div>
                         <div
-                          class="MuiCollapse-container MuiCollapse-hidden"
+                          class="MuiCollapse-root MuiCollapse-hidden"
                           style="min-height: 0px;"
                         >
                           <div
@@ -14450,7 +14510,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item"
@@ -14602,8 +14662,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="MuiButton-label buttonStyles-label"
                   >
                     <img
+                      alt="United Kingdom"
                       class="language-icon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     UK
                     <span
@@ -14719,7 +14782,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/al.svg"
+                            width="20px"
                           />
                         </span>
                         Albania
@@ -14746,7 +14811,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/at.svg"
+                            width="20px"
                           />
                         </span>
                         Österreich
@@ -14773,7 +14840,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/uk.svg"
+                            width="20px"
                           />
                         </span>
                         United Kingdom
@@ -15013,8 +15082,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                       class="LanguageButtonContent"
                     >
                       <img
+                        alt="United Kingdom"
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                       UK
                     </span>
@@ -15382,7 +15454,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                           </div>
                         </div>
                         <div
-                          class="MuiCollapse-container MuiCollapse-hidden"
+                          class="MuiCollapse-root MuiCollapse-hidden"
                           style="min-height: 0px;"
                         >
                           <div
@@ -15731,7 +15803,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item"
@@ -15889,8 +15961,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="MuiButton-label buttonStyles-label"
                   >
                     <img
+                      alt="United Kingdom"
                       class="language-icon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     UK
                     <span
@@ -16006,7 +16081,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/al.svg"
+                            width="20px"
                           />
                         </span>
                         Albania
@@ -16033,7 +16110,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/at.svg"
+                            width="20px"
                           />
                         </span>
                         Österreich
@@ -16060,7 +16139,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/uk.svg"
+                            width="20px"
                           />
                         </span>
                         United Kingdom
@@ -16300,8 +16381,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                       class="LanguageButtonContent"
                     >
                       <img
+                        alt="United Kingdom"
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                       UK
                     </span>
@@ -16727,7 +16811,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item"
@@ -16885,8 +16969,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="MuiButton-label buttonStyles-label"
                   >
                     <img
+                      alt="United Kingdom"
                       class="language-icon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     UK
                     <span
@@ -17002,7 +17089,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/al.svg"
+                            width="20px"
                           />
                         </span>
                         Albania
@@ -17029,7 +17118,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/at.svg"
+                            width="20px"
                           />
                         </span>
                         Österreich
@@ -17056,7 +17147,9 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/uk.svg"
+                            width="20px"
                           />
                         </span>
                         United Kingdom
@@ -17296,8 +17389,11 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                       class="LanguageButtonContent"
                     >
                       <img
+                        alt="United Kingdom"
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                       UK
                     </span>
@@ -17718,7 +17814,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item"
@@ -17876,8 +17972,11 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     class="MuiButton-label buttonStyles-label"
                   >
                     <img
+                      alt="United Kingdom"
                       class="language-icon"
+                      height="16px"
                       src="/icons/flags/uk.svg"
+                      width="20px"
                     />
                     UK
                     <span
@@ -17993,7 +18092,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/al.svg"
+                            width="20px"
                           />
                         </span>
                         Albania
@@ -18020,7 +18121,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/at.svg"
+                            width="20px"
                           />
                         </span>
                         Österreich
@@ -18047,7 +18150,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         >
                           <img
                             class="LanguageIcon"
+                            height="16px"
                             src="/icons/flags/uk.svg"
+                            width="20px"
                           />
                         </span>
                         United Kingdom
@@ -18283,8 +18388,11 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       class="LanguageButtonContent"
                     >
                       <img
+                        alt="United Kingdom"
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                       UK
                     </span>
@@ -18773,7 +18881,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
             >
               <div
                 class="MuiGrid-root item MuiGrid-item"

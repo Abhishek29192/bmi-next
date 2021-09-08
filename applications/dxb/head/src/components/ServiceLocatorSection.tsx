@@ -30,7 +30,7 @@ import Typography from "@bmi/typography";
 import CloseIcon from "@material-ui/icons/Close";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
-import { camelCase, intersectionWith } from "lodash";
+import camelCase from "lodash-es/camelCase";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useLocation } from "@reach/router";
@@ -213,10 +213,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
     const allQueries = userQueryString.split(",");
 
-    const matchingRooferTypes: ServiceType[] = intersectionWith(
-      uniqueRooferTypes,
-      allQueries,
-      (a, b) => a.toLowerCase() === b.toLowerCase()
+    const matchingRooferTypes: ServiceType[] = uniqueRooferTypes.reduce(
+      (types, type) => {
+        allQueries.find(
+          (query) => query.toLowerCase() === type.toLowerCase()
+        ) && types.push(type);
+        return types;
+      },
+      []
     );
     matchingRooferTypes.forEach((serviceType: ServiceType) => {
       updateActiveFilters({ name: serviceType, state: true });

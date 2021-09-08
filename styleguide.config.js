@@ -22,9 +22,7 @@ const babel = {
     ],
     env: {
       production: {
-        // TODO: This complains for already minified libraries (e.g. ThreeJs).
-        // Ideally we should have a specific rule just for that file.
-        // presets: ["minify"]
+        presets: ["minify"]
       },
       test: {
         presets: ["@babel/preset-env", "@babel/preset-react"]

@@ -87,6 +87,8 @@ exports[`Header component closes menu on same tab click 1`] = `
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -204,6 +206,8 @@ exports[`Header component closes menu on same tab click 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -230,6 +234,8 @@ exports[`Header component closes menu on same tab click 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -894,6 +900,8 @@ exports[`Header component closes menu on same tab click 1`] = `
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>
@@ -1049,6 +1057,8 @@ exports[`Header component opens menu two deep 1`] = `
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -1166,6 +1176,8 @@ exports[`Header component opens menu two deep 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -1192,6 +1204,8 @@ exports[`Header component opens menu two deep 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -1856,6 +1870,8 @@ exports[`Header component opens menu two deep 1`] = `
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>
@@ -2011,6 +2027,8 @@ exports[`Header component opens menu when clicked 1`] = `
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -2128,6 +2146,8 @@ exports[`Header component opens menu when clicked 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -2154,6 +2174,8 @@ exports[`Header component opens menu when clicked 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -2818,6 +2840,8 @@ exports[`Header component opens menu when clicked 1`] = `
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>
@@ -2973,6 +2997,8 @@ exports[`Header component renders correctly 1`] = `
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -3090,6 +3116,8 @@ exports[`Header component renders correctly 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -3116,6 +3144,8 @@ exports[`Header component renders correctly 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -3786,6 +3816,8 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>
@@ -3941,6 +3973,8 @@ exports[`Header component toggle menu with buttons 1`] = `
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -4058,6 +4092,8 @@ exports[`Header component toggle menu with buttons 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -4084,6 +4120,8 @@ exports[`Header component toggle menu with buttons 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -4748,6 +4786,8 @@ exports[`Header component toggle menu with buttons 1`] = `
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>
@@ -4903,6 +4943,8 @@ exports[`Header component toggle menu with buttons 2`] = `
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -5020,6 +5062,8 @@ exports[`Header component toggle menu with buttons 2`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -5046,6 +5090,8 @@ exports[`Header component toggle menu with buttons 2`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -5710,6 +5756,8 @@ exports[`Header component toggle menu with buttons 2`] = `
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>
@@ -5865,6 +5913,8 @@ exports[`Header component toggle search 1`] = `
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -5982,6 +6032,8 @@ exports[`Header component toggle search 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -6008,6 +6060,8 @@ exports[`Header component toggle search 1`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -6678,6 +6732,8 @@ exports[`Header component toggle search 1`] = `
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>
@@ -6886,6 +6942,8 @@ exports[`Header component toggle search 2`] = `
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -7003,6 +7061,8 @@ exports[`Header component toggle search 2`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -7029,6 +7089,8 @@ exports[`Header component toggle search 2`] = `
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -7699,6 +7761,8 @@ exports[`Header component toggle search 2`] = `
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>
@@ -7854,6 +7918,8 @@ exports[`Header component toggles language selection: Language selection closed 
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -7971,6 +8037,8 @@ exports[`Header component toggles language selection: Language selection closed 
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -7997,6 +8065,8 @@ exports[`Header component toggles language selection: Language selection closed 
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -8667,6 +8737,8 @@ exports[`Header component toggles language selection: Language selection closed 
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>
@@ -8822,6 +8894,8 @@ exports[`Header component toggles language selection: Language selection open 1`
               >
                 <svg
                   class="language-icon"
+                  height="16px"
+                  width="20px"
                 />
                 AL
                 <span
@@ -8939,6 +9013,8 @@ exports[`Header component toggles language selection: Language selection open 1`
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -8965,6 +9041,8 @@ exports[`Header component toggles language selection: Language selection open 1`
                     >
                       <svg
                         class="LanguageIcon"
+                        height="16px"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -9635,6 +9713,8 @@ exports[`Header component toggles language selection: Language selection open 1`
                 >
                   <svg
                     class="LanguageIcon"
+                    height="16px"
+                    width="20px"
                   />
                   AL
                 </span>

@@ -1,4 +1,3 @@
-import get from "lodash/get";
 import React, {
   useCallback,
   useContext,
@@ -14,7 +13,7 @@ import Typography from "@bmi/typography";
 // if this MR which updates "withFormControl", is compatible with DXB
 // https://gitlab.com/bmi-digital/dxb/-/merge_requests/1672
 // we can just use the controlled "TextField" instead of wrapping it with a forked withFormControl
-import { TextField, Props as TextFieldProps } from "@bmi/text-field";
+import { Props as TextFieldProps, TextField } from "@bmi/text-field";
 import withFormControlWithFormValues from "../withFormControlForked";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
 import { AddressAutocomplete } from "../AddressAutocomplete";
@@ -68,7 +67,7 @@ export const SetTradingAddress = ({
     (updatedAddress) => {
       const formValue = (key) => ({
         // return "" in case of empty field, in order to re-render the input field
-        [`tradingAddress.${key}`]: get(updatedAddress, key) || ""
+        [`tradingAddress.${key}`]: updatedAddress[key] || ""
       });
 
       updateFormState(

@@ -4,7 +4,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
-import { Tab, TabProps } from "@material-ui/core";
+import Tab, { TabProps } from "@material-ui/core/Tab";
 import withGTM from "../utils/google-tag-manager";
 import Image from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";
@@ -12,9 +12,9 @@ import { useBasketContext } from "../contexts/SampleBasketContext";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
+  getCTA,
   NavigationData,
-  NavigationItem,
-  getCTA
+  NavigationItem
 } from "./Link";
 import { useSiteContext } from "./Site";
 import RichText, { RichTextData } from "./RichText";
@@ -56,9 +56,9 @@ const parseNavigation = (
         ),
         ...(promos &&
           promos.length && {
-            footer: promos
-              .map((promo) => getPromoSection(promo, countryCode, getMicroCopy))
-              .flat()
+            footer: promos.flatMap((promo) =>
+              getPromoSection(promo, countryCode, getMicroCopy)
+            )
           })
       };
 

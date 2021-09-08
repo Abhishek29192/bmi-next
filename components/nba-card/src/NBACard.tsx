@@ -3,7 +3,7 @@ import classnames from "classnames";
 import ColorPair, { Colors } from "@bmi/color-pair";
 import Typography from "@bmi/typography";
 import { withClickable } from "@bmi/clickable";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import styles from "./NBACard.module.scss";
 
 export type Props = Omit<ButtonBaseProps, "action"> & {

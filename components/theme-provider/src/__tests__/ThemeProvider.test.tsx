@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import merge from "lodash/merge";
-import type { ThemeOptions } from "@material-ui/core";
+import type { ThemeOptions } from "@material-ui/core/styles";
+import { TypographyOptions } from "@material-ui/core/styles/createTypography";
 import ThemeProvider, { getTheme } from "..";
 
 describe("ThemeProvider component", () => {
@@ -26,15 +26,11 @@ describe("getTheme", () => {
   });
 
   it("should change line-height this expandTheme", () => {
-    const expandTheme = (theme: ThemeOptions) =>
-      merge(theme, {
-        typography: {
-          h1: {
-            lineHeight: 2
-          }
-        }
-      });
-    expect(getTheme(expandTheme).typography.h1).toEqual({
+    const expandTheme = (theme: ThemeOptions) => {
+      (theme.typography as TypographyOptions).h1!.lineHeight = 2;
+      return theme;
+    };
+    expect(getTheme(true, expandTheme).typography.h1).toEqual({
       fontFamily: "Effra Heavy",
       fontSize: "2.125rem",
       fontWeight: 300,

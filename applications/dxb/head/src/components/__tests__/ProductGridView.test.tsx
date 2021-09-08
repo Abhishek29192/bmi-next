@@ -34,6 +34,7 @@ describe("ProductsGridView component", () => {
             parentCategoryCode: "Root"
           }
         ],
+        images: [],
         variantOptions: [
           {
             code: "test1",

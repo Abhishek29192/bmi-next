@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { compact, first } from "lodash";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
 import Page from "../../components/Page";
@@ -22,10 +21,9 @@ import { iconMap } from "../../components/Icon";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import { DocumentData } from "./types";
-import TabLeadBlock from "./tabLeadBlock";
+import TabLeadBlock, { BimContent } from "./tabLeadBlock";
 import SystemLayersSection from "./systemLayersSection";
 import styles from "./styles/systemDetailsPage.module.scss";
-import { BimContent } from "./tabLeadBlock";
 
 type Props = {
   pageContext: {
@@ -92,21 +90,20 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
     );
   }, [assets]);
-  const keyFeatures: Feature | undefined = useMemo(() => {
-    return first(
-      compact(
-        (classifications || []).map(({ features }) => {
-          return (
-            features &&
-            features.find(({ code }) => code.includes("keyfeatures"))
-          );
-        })
-      )
-    );
+  const keyFeatures: Feature = useMemo(() => {
+    return classifications
+      ?.map(({ features }) => {
+        return (
+          features && features.find(({ code }) => code.includes("keyfeatures"))
+        );
+      })
+      .filter(Boolean)
+      .shift();
   }, [classifications]);
-  const specification: Asset | undefined = useMemo(() => {
-    return assets?.find(({ assetType }) => assetType === "SPECIFICATION");
-  }, [assets]);
+  const specification: Asset | undefined = useMemo(
+    () => assets?.find(({ assetType }) => assetType === "SPECIFICATION"),
+    [assets]
+  );
   const technicalSpecClassifications: Classification[] = useMemo(() => {
     return (classifications || [])
       .filter(
@@ -129,19 +126,18 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       .filter(({ features }) => features.length > 0)
       .sort((a, b) => (a.name < b.name ? -1 : 1));
   }, [classifications]);
-  const uniqueSellingPropositions: Feature | undefined = useMemo(() => {
-    return first(
-      compact(
-        (classifications || []).map(({ features }) => {
-          return (
-            features &&
-            features.find(({ code }) =>
-              code.toLocaleLowerCase().includes("uniquesellingpropositions")
-            )
-          );
-        })
-      )
-    );
+  const uniqueSellingPropositions: Feature = useMemo(() => {
+    return (classifications || [])
+      .map(({ features }) => {
+        return (
+          features &&
+          features.find(({ code }) =>
+            code.toLocaleLowerCase().includes("uniquesellingpropositions")
+          )
+        );
+      })
+      .filter(Boolean)
+      .shift();
   }, [classifications]);
   const brandName = useMemo(
     () =>

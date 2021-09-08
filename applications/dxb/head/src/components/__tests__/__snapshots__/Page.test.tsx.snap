@@ -48,8 +48,11 @@ exports[`Page component renders correctly 1`] = `
                 class="MuiButton-label buttonStyles-label-4"
               >
                 <img
+                  alt="United Kingdom"
                   class="language-icon"
+                  height="16px"
                   src="/icons/flags/uk.svg"
+                  width="20px"
                 />
                 UK
                 <span
@@ -165,7 +168,9 @@ exports[`Page component renders correctly 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/al.svg"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -192,7 +197,9 @@ exports[`Page component renders correctly 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/at.svg"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -219,7 +226,9 @@ exports[`Page component renders correctly 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                     </span>
                     United Kingdom
@@ -532,8 +541,11 @@ exports[`Page component renders correctly 1`] = `
                   class="LanguageButtonContent"
                 >
                   <img
+                    alt="United Kingdom"
                     class="LanguageIcon"
+                    height="16px"
                     src="/icons/flags/uk.svg"
+                    width="20px"
                   />
                   UK
                 </span>

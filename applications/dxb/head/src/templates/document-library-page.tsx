@@ -1,6 +1,5 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { graphql } from "gatsby";
-import { sortBy } from "lodash";
 import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import Hero from "@bmi/hero";
@@ -32,11 +31,11 @@ import { getCount as getTechnicalTableCount } from "../components/DocumentTechni
 import { getCount as getCardsCount } from "../components/DocumentCardsResults";
 import RichText, { RichTextData } from "../components/RichText";
 import {
-  ResultType,
+  filterDocuments,
   generateUniqueDocuments,
-  Source,
   getDocumentFilters,
-  filterDocuments
+  ResultType,
+  Source
 } from "../utils/filters";
 import { devLog } from "../utils/devLog";
 import ProgressIndicator from "../components/ProgressIndicator";
@@ -110,11 +109,49 @@ const sourceToSortMap: Record<
   Source,
   (documents: DocumentResultsData) => DocumentResultsData
 > = {
-  ALL: (documents) => sortBy(documents, ["assetType.name", "title"]),
-  PIM: (documents) => sortBy(documents, ["assetType.code", "title"]),
-  CMS: (documents) => sortBy(documents, ["brand", "title"])
+  ALL: (documents) =>
+    documents
+      .concat()
+      .sort((a, b) =>
+        a.assetType.name > b.assetType.name
+          ? a.title > b.title
+            ? 1
+            : a.title < b.title
+            ? -1
+            : 0
+          : a.assetType.name < b.assetType.name
+          ? -1
+          : 0
+      ),
+  PIM: (documents) =>
+    documents
+      .concat()
+      .sort((a, b) =>
+        a.assetType.code > b.assetType.code
+          ? a.title > b.title
+            ? 1
+            : a.title < b.title
+            ? -1
+            : 0
+          : a.assetType.code < b.assetType.code
+          ? -1
+          : 0
+      ),
+  CMS: (documents) =>
+    documents
+      .concat()
+      .sort((a, b) =>
+        a["brand"] > b["brand"]
+          ? a.title > b.title
+            ? 1
+            : a.title < b.title
+            ? -1
+            : 0
+          : a["brand"] < b["brand"]
+          ? -1
+          : 0
+      )
 };
-
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
     title,

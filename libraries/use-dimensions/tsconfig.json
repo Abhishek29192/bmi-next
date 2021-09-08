@@ -3,7 +3,6 @@
   "compilerOptions": {
     "noEmit": false,
     "outDir": "dist",
-    "module": "commonjs",
     "strict": true,
     "strictNullChecks": true
   }

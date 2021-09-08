@@ -326,11 +326,16 @@ const NavigationList = ({
                 {language.icon &&
                   (typeof language.icon === "string" ? (
                     <img
+                      width="20px"
+                      height="16px"
                       className={styles["LanguageIcon"]}
                       src={language.icon}
+                      alt={language.label}
                     />
                   ) : (
                     <Icon
+                      width="20px"
+                      height="16px"
                       source={language.icon}
                       className={styles["LanguageIcon"]}
                     />

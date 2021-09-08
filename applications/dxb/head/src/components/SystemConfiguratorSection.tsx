@@ -1,4 +1,3 @@
-import { graphql } from "gatsby";
 import React, {
   ChangeEvent,
   createContext,
@@ -8,6 +7,7 @@ import React, {
   useLayoutEffect,
   useState
 } from "react";
+import { graphql } from "gatsby";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";
@@ -19,7 +19,7 @@ import { SystemCard } from "../components/RelatedSystems";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
-import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
+import { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { queryElasticSearch } from "../utils/elasticSearch";

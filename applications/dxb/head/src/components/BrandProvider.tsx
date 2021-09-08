@@ -1,6 +1,6 @@
-import React, { useState, useRef, useLayoutEffect, createContext } from "react";
+import React, { createContext, useLayoutEffect, useRef, useState } from "react";
 import classnames from "classnames";
-import type { ThemeOptions } from "@material-ui/core";
+import type { ThemeOptions } from "@material-ui/core/styles";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { DialogClassNameContext } from "@bmi/dialog";
 

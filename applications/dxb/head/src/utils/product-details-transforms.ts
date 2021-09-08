@@ -1,5 +1,4 @@
 import { Link } from "gatsby";
-import { result, uniqBy, groupBy, find, pickBy, sortBy, unionBy } from "lodash";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 import React from "react";
 import {
@@ -17,6 +16,7 @@ import {
 import { GalleryImageType } from "../templates/systemDetails/types";
 import { getPathWithCountryCode } from "./path";
 import { combineVariantClassifications } from "./filters";
+import groupBy from "./groupBy";
 
 export const getProductUrl = (countryCode, path) =>
   getPathWithCountryCode(countryCode, path);
@@ -104,24 +104,16 @@ export const getSizeLabel = (
   );
 };
 
-export const findMasterImageUrl = (images): string => {
-  return result<string>(
-    find(images, {
-      assetType: ImageAssetTypesEnum.MASTER_IMAGE,
-      format: "Product-Listing-Card-Large-Desktop"
-    }),
-    "url"
-  );
-};
+export const findMasterImageUrl = (images): string =>
+  images.find(
+    (image) =>
+      image.assetType === ImageAssetTypesEnum.MASTER_IMAGE &&
+      image.format == "Product-Listing-Card-Large-Desktop"
+  )?.url;
 
-export const findProductBrandLogoCode = (product: Product) => {
-  return result<string>(
-    find(product.categories, {
-      categoryType: "Brands"
-    }),
-    "code"
-  );
-};
+export const findProductBrandLogoCode = (product: Product) =>
+  product.categories.find((category) => category.categoryType === "Brands")
+    ?.code;
 
 export const transformImages = (images) => {
   return images.map(({ mainSource, thumbnail, altText }) => ({
@@ -192,14 +184,12 @@ export const convertImageSetToMediaFormat = (
   }));
 };
 
-export const getColourThumbnailUrl = (images): string =>
-  result(
-    find(images, {
-      format: "Product-Color-Selector-Mobile",
-      assetType: ImageAssetTypesEnum.MASTER_IMAGE
-    }),
-    "url"
-  );
+export const getColourThumbnailUrl = (images): string | undefined =>
+  images.find(
+    (image) =>
+      image.format === "Product-Color-Selector-Mobile" &&
+      image.assetType === ImageAssetTypesEnum.MASTER_IMAGE
+  )?.url;
 
 export type TransformedClassificationValue = {
   name: string;
@@ -821,12 +811,10 @@ export const getValidFeatures = (classificationNamespace: string, features) => {
   const IGNORED_CLASSIFICATIONS = IGNORED_ATTRIBUTES.map(
     (value) => `${classificationNamespace}/${value}`
   );
-  const featureToReturn = sortBy(
-    features.filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code)),
-    "name"
-  );
 
-  return featureToReturn;
+  return features
+    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code))
+    .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
 };
 
 type CategoryPath = readonly Category[];
@@ -949,19 +937,27 @@ const findUniqueClassificationsOnVariant = (
   variantClassifications: TransformedClassificationsMap,
   numberOfVariants = 1
 ): TransformedClassificationsMap => {
-  return pickBy(variantClassifications, (value, code) => {
+  const uniqueClassifications = {};
+  for (const code in variantClassifications) {
     // eslint-disable-next-line security/detect-object-injection
     const getter = getPropIdentifier[code];
     // eslint-disable-next-line security/detect-object-injection
     const baseValues = baseClassifications[code] || [];
-    // If all the values are the same, we'll get a single value
     const allSameValue =
-      getter && uniqBy(baseValues, (value) => getter(value)).length === 1;
-
-    // AND if number of base values is equal to number of variants, all variants have the same value
-    // Therefore it's common
-    return !(baseValues.length === numberOfVariants && allSameValue);
-  });
+      getter &&
+      baseValues.reduce((values, value) => {
+        const key = getter(value);
+        if (!values.has(key)) {
+          values.set(key, value);
+        }
+        return values;
+      }, new Map()).size === 1;
+    if (!(baseValues.length === numberOfVariants && allSameValue)) {
+      // eslint-disable-next-line security/detect-object-injection
+      uniqueClassifications[code] = variantClassifications[code];
+    }
+  }
+  return uniqueClassifications;
 };
 
 // TODO: Is there not a function to get a render value of a classification?
@@ -1035,28 +1031,30 @@ export const getMergedClassifications = (
   selfProduct: Product | VariantOption,
   product: Product
 ) => {
-  const unionClassifications = unionBy(
-    [],
-    selfProduct.classifications || [],
-    product.classifications || []
-  );
+  const unionClassifications = [
+    ...(selfProduct.classifications || []),
+    ...(product.classifications || [])
+  ].reduce((classifications, classification) => {
+    classifications.find((clas) => clas === classification) ||
+      classifications.push(classification);
+    return classifications;
+  }, []);
   const groupedClassifications: {
     [index: string]: Classification[];
-  } = groupBy(unionClassifications, (item) => item.code);
+  } = groupBy(unionClassifications, "code");
 
   const mergedClassifications: Classification[] = Object.values<
     Classification[]
   >(groupedClassifications).map((classifications: Classification[]) =>
     classifications.reduce<Classification>(
       (prevValue, currValue) => {
-        const mergedFeatures = sortBy(
-          unionBy(
-            prevValue.features,
-            currValue.features,
-            (feature) => feature.code
-          ),
-          (feature) => feature.name
-        );
+        const mergedFeatures = [...prevValue.features, ...currValue.features]
+          .reduce((features, feature) => {
+            features.find((feat) => feat.code === feature.code) ||
+              features.push(feature);
+            return features;
+          }, [])
+          .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
         return {
           ...prevValue,
           ...currValue,
@@ -1067,11 +1065,12 @@ export const getMergedClassifications = (
     )
   );
 
-  return sortBy(
-    getValidClassification(
-      pimClassificationCatalogueNamespace,
-      uniqBy(mergedClassifications, (item) => item.code)
-    ),
-    (item) => item.code
-  );
+  return getValidClassification(
+    pimClassificationCatalogueNamespace,
+    mergedClassifications.reduce((classifications, classification) => {
+      classifications.find((clas) => clas.code === classification.code) ||
+        classifications.push(classification);
+      return classifications;
+    }, [])
+  ).sort((a, b) => (a.code > b.code ? 1 : a.code < b.code ? -1 : 0));
 };

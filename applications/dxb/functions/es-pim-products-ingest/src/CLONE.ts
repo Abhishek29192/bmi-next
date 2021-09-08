@@ -1,5 +1,4 @@
 /* eslint-disable security/detect-object-injection */
-import { result, find } from "lodash";
 import { Product, Classification, Category } from "./pim";
 
 type CategoryPath = readonly Category[];
@@ -11,14 +10,10 @@ export type ProductCategoryTree = {
   };
 };
 
-export const findProductBrandLogoCode = (product: Product) => {
-  return result<string>(
-    find(product.categories, {
-      parentCategoryCode: "BMI_Brands"
-    }),
-    "code"
-  );
-};
+export const findProductBrandLogoCode = (product: Product) =>
+  product.categories?.find(
+    (category) => category.parentCategoryCode === "BMI_Brands"
+  )?.code;
 
 // NOTE: Figuring out the category paths is kind of naive.
 // I believe it works with the assumptions that PIM are working with

@@ -50,7 +50,7 @@ const packageContent = `{
     "build": "tsc"
   },
   "dependencies": {
-    "@material-ui/core": "^4.10.1",
+    "@material-ui/core": "^4.12.3",
     "react": "^16.13.1"
   }
 }

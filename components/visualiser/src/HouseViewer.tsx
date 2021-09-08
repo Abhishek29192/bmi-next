@@ -1,4 +1,20 @@
-import * as THREE from "three";
+import {
+  AmbientLight,
+  Box2,
+  DirectionalLight,
+  EquirectangularReflectionMapping,
+  Group,
+  InstancedMesh,
+  Mesh,
+  MeshStandardMaterial,
+  Object3D,
+  PCFSoftShadowMap,
+  PerspectiveCamera,
+  Scene,
+  sRGBEncoding,
+  Vector2,
+  WebGLRenderer
+} from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import tileSlice from "./TileSlice";
@@ -19,9 +35,9 @@ interface State extends ViewerState {
 }
 
 export default class HouseViewer extends Viewer<Props, State> {
-  snowFences?: THREE.Object3D[];
-  roof?: THREE.Group;
-  walls?: THREE.Mesh;
+  snowFences?: Object3D[];
+  roof?: Group;
+  walls?: Mesh;
   houseLoader?: unknown;
   sidingMaterial?: unknown;
 
@@ -53,7 +69,7 @@ export default class HouseViewer extends Viewer<Props, State> {
   async loadHouse(colour: Colour, tileInfo: Tile) {
     // Create roof tile material:
     this.diffuseImage = undefined;
-    const mat = new THREE.MeshStandardMaterial();
+    const mat = new MeshStandardMaterial();
     mat.name = colour.name;
 
     const { options } = this.props;
@@ -149,12 +165,12 @@ export default class HouseViewer extends Viewer<Props, State> {
   /*
    * Finds the first threejs Mesh node in the given gltf
    */
-  findMesh(gltf: GLTF): THREE.Mesh | undefined {
-    let result: THREE.Mesh | undefined;
+  findMesh(gltf: GLTF): Mesh | undefined {
+    let result: Mesh | undefined;
 
     gltf.scene.traverse((node) => {
       if (!result && node && "isMesh" in node && node["isMesh"]) {
-        result = node as THREE.Mesh;
+        result = node as Mesh;
       }
     });
 
@@ -163,10 +179,10 @@ export default class HouseViewer extends Viewer<Props, State> {
 
   generateRoof(
     tileInfo: Tile,
-    material: THREE.MeshStandardMaterial,
-    tileMesh: THREE.Mesh,
-    ridgeMesh: THREE.Mesh,
-    ridgeEndMesh?: THREE.Mesh
+    material: MeshStandardMaterial,
+    tileMesh: Mesh,
+    ridgeMesh: Mesh,
+    ridgeEndMesh?: Mesh
   ) {
     const roofLayout = {
       ridges: [
@@ -281,16 +297,16 @@ export default class HouseViewer extends Viewer<Props, State> {
       this.roof = undefined;
     }
 
-    const roof = new THREE.Group();
+    const roof = new Group();
 
     for (let i = 0; i < segs.length; i++) {
       // eslint-disable-next-line security/detect-object-injection
       const seg = segs[i];
 
       const newRoofSeg = roofSegmentGenerator(
-        new THREE.Box2(
-          new THREE.Vector2(seg.minX, seg.minZ),
-          new THREE.Vector2(seg.maxX, seg.maxZ)
+        new Box2(
+          new Vector2(seg.minX, seg.minZ),
+          new Vector2(seg.maxX, seg.maxZ)
         ),
         tileMesh,
         tileInfo,
@@ -339,12 +355,12 @@ export default class HouseViewer extends Viewer<Props, State> {
           (ridge.length - ridgeEndLength * 2) / ridgeTileLength;
         const intNumberOfRidgeTiles = Math.floor(numberOfRidgeTiles);
 
-        const ridgeInstance = new THREE.InstancedMesh(
+        const ridgeInstance = new InstancedMesh(
           ridgeMesh.geometry.clone(),
           material,
           intNumberOfRidgeTiles
         );
-        const placementHelper = new THREE.Object3D();
+        const placementHelper = new Object3D();
 
         let posZ = 0;
 
@@ -353,7 +369,7 @@ export default class HouseViewer extends Viewer<Props, State> {
           // at the ends of ridges to cap them off.
           posZ += ridgeEndLength;
 
-          const ends = new THREE.InstancedMesh(
+          const ends = new InstancedMesh(
             ridgeEndMesh.geometry.clone(),
             material,
             2
@@ -401,9 +417,9 @@ export default class HouseViewer extends Viewer<Props, State> {
           "right"
         );
 
-        // Note: uses InstancedMesh because materials can't be shared between THREE.Mesh and THREE.InstancedMesh.
+        // Note: uses InstancedMesh because materials can't be shared between Mesh and InstancedMesh.
         // It has no particular performance downside.
-        const ridgeGap = new THREE.InstancedMesh(ridgeGapTile, material, 1);
+        const ridgeGap = new InstancedMesh(ridgeGapTile, material, 1);
         placementHelper.position.set(
           0,
           0,
@@ -430,7 +446,7 @@ export default class HouseViewer extends Viewer<Props, State> {
   }
 
   async loadSiding(siding: Siding) {
-    const mat = new THREE.MeshStandardMaterial();
+    const mat = new MeshStandardMaterial();
 
     const { options } = this.props;
     const { contentSource } = options;
@@ -503,7 +519,7 @@ export default class HouseViewer extends Viewer<Props, State> {
     const size = this.container.getBoundingClientRect();
 
     if (!this.camera) {
-      const camera = new THREE.PerspectiveCamera(
+      const camera = new PerspectiveCamera(
         45,
         size.width / size.height,
         0.25,
@@ -519,11 +535,11 @@ export default class HouseViewer extends Viewer<Props, State> {
     }
 
     if (!this.scene) {
-      const scene = new THREE.Scene();
+      const scene = new Scene();
       this.scene = scene;
 
       // Key light. Directional light is at the given position and looks at the origin. Health warning: Rotating it will do nothing!
-      const light = new THREE.DirectionalLight(0xffffff, 1);
+      const light = new DirectionalLight(0xffffff, 1);
       light.position.set(-20, 20, -20);
       light.castShadow = true;
 
@@ -541,18 +557,18 @@ export default class HouseViewer extends Viewer<Props, State> {
 
       /*
 			// Use this to visualise where the light is and what the above shadow camera numbers do
-			const shadowHelper = new THREE.CameraHelper( light.shadow.camera );
+			const shadowHelper = new CameraHelper( light.shadow.camera );
 			scene.add( shadowHelper );
 			*/
 
       // Backlight. Secondary directional ambient light which acts as slight sky bounce.
       // This just has the job of providing some directional light in the shadows.
-      const secondaryLight = new THREE.DirectionalLight(0x4287f5, 0.5);
+      const secondaryLight = new DirectionalLight(0x4287f5, 0.5);
       secondaryLight.position.set(83.5, 50.1, 75.3);
       scene.add(secondaryLight);
 
       // Fill light. This drives the colour of shadowed areas. Stacks with the environment map.
-      const amb = new THREE.AmbientLight(0x2f4352); // soft slightly blue light
+      const amb = new AmbientLight(0x2f4352); // soft slightly blue light
       scene.add(amb);
 
       window.scene = scene;
@@ -578,8 +594,8 @@ export default class HouseViewer extends Viewer<Props, State> {
           // Mark everything as shadow casting:
           gltf.scene.traverse((node) => {
             if ("isMesh" in node && node["isMesh"]) {
-              (node as THREE.Mesh).castShadow = true;
-              (node as THREE.Mesh).receiveShadow = true;
+              (node as Mesh).castShadow = true;
+              (node as Mesh).receiveShadow = true;
             }
           });
 
@@ -596,14 +612,14 @@ export default class HouseViewer extends Viewer<Props, State> {
 
           const walls = gltf.scene.getObjectByName("Wall");
           if (walls && "isMesh" in walls && walls["isMesh"]) {
-            this.walls = walls as THREE.Mesh;
-            this.sidingMaterial = (walls as THREE.Mesh).material;
+            this.walls = walls as Mesh;
+            this.sidingMaterial = (walls as Mesh).material;
           }
 
           const fences = ["Snow_fence", "Snow_fence.001", "Snow_fence.002"];
           this.snowFences = fences
             .map((fenceName) => gltf.scene.getObjectByName(fenceName))
-            .filter(Boolean) as THREE.Object3D[];
+            .filter(Boolean) as Object3D[];
 
           /*
 				if(this.sidingImage && this.sidingMaterial){
@@ -620,7 +636,7 @@ export default class HouseViewer extends Viewer<Props, State> {
 
       textureCache(`${contentSource}/content/whiteBackdrop.png`).then((tex) => {
         // '/content/HDRI_2k_8bit_graded.jpg' (field image)
-        tex.mapping = THREE.EquirectangularReflectionMapping;
+        tex.mapping = EquirectangularReflectionMapping;
         if (this.scene) {
           this.scene.background = tex;
           this.scene.environment = tex;
@@ -629,16 +645,16 @@ export default class HouseViewer extends Viewer<Props, State> {
     }
 
     if (!this.renderer) {
-      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      const renderer = new WebGLRenderer({ antialias: true });
       this.renderer = renderer;
       renderer.setClearColor("#fff", 1);
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(size.width, size.height);
       renderer.shadowMap.enabled = true;
-      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-      // renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.shadowMap.type = PCFSoftShadowMap;
+      // renderer.toneMapping = ACESFilmicToneMapping;
       // renderer.toneMappingExposure = 1;
-      renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.outputEncoding = sRGBEncoding;
       this.container.appendChild(renderer.domElement);
     }
 
@@ -656,7 +672,7 @@ export default class HouseViewer extends Viewer<Props, State> {
     this.renderFrame();
   }
 
-  deleteObject(scene: THREE.Group, name: string) {
+  deleteObject(scene: Group, name: string) {
     const obj = scene.getObjectByName(name);
     obj?.parent?.remove(obj);
   }

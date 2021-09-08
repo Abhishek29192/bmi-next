@@ -2,7 +2,7 @@ import MuiSelect, { SelectProps } from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import React from "react";
 import InputLabel from "@material-ui/core/InputLabel";
-import { FormControl } from "@material-ui/core";
+import FormControl from "@material-ui/core/FormControl";
 import classnames from "classnames";
 import { withFormControl } from "@bmi/form";
 import FormHelperText from "@material-ui/core/FormHelperText";

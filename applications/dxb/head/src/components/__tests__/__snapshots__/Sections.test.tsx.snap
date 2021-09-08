@@ -216,7 +216,7 @@ HTMLCollection [
                   </div>
                 </div>
                 <div
-                  class="MuiCollapse-container MuiCollapse-hidden"
+                  class="MuiCollapse-root MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -1674,7 +1674,7 @@ HTMLCollection [
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-container details MuiCollapse-hidden"
+                      class="MuiCollapse-root details MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -1907,7 +1907,7 @@ HTMLCollection [
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-container details MuiCollapse-hidden"
+                      class="MuiCollapse-root details MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -3453,7 +3453,7 @@ HTMLCollection [
                   </div>
                 </div>
                 <div
-                  class="MuiCollapse-container MuiCollapse-hidden"
+                  class="MuiCollapse-root MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -3689,7 +3689,7 @@ HTMLCollection [
                   </div>
                 </div>
                 <div
-                  class="MuiCollapse-container MuiCollapse-hidden"
+                  class="MuiCollapse-root MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div

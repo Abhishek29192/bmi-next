@@ -2,8 +2,10 @@
 
 const path = require("path");
 const fs = require("fs");
+const dotenv = require("dotenv");
 const getCredentialData = require("./src/utils/get-credentials-data");
-require("dotenv").config({
+
+dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
@@ -123,8 +125,10 @@ const queries = [
               };
             }
           } catch (error) {
-            console.log(`Error getting file from: ${dataJSONPath}`);
-            console.log(error);
+            // eslint-disable-next-line no-console
+            console.error(`Error getting file from: ${dataJSONPath}`);
+            // eslint-disable-next-line no-console
+            console.error(error);
           }
         })
         .filter(Boolean);
@@ -417,7 +421,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
-        disable: process.env.NODE_ENV !== "development"
+        devMode: process.env.NODE_ENV === "development"
       }
     },
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import LeadBlock from "@bmi/lead-block";
 import { Launch } from "@material-ui/icons";
 import Button from "@bmi/button";
@@ -6,7 +6,7 @@ import IconList from "@bmi/icon-list";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
-import { Tab, TabProps } from "@material-ui/core";
+import Tab, { TabProps } from "@material-ui/core/Tab";
 import DownloadList from "@bmi/download-list";
 import Icon from "@bmi/icon";
 import ImageGallery from "@bmi/image-gallery";

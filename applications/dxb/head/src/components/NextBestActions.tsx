@@ -6,7 +6,7 @@ import NBACard from "@bmi/nba-card";
 import AnchorLink from "@bmi/anchor-link";
 import { Colors } from "@bmi/color-pair";
 import { withClickable } from "@bmi/clickable";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import { Data as PromoData } from "../components/Promo";
 import { Data as PageInfoData } from "../components/PageInfo";
 import { getCTA } from "./Link";

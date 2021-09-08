@@ -11,6 +11,6 @@
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "@material-ui/core": "^4.10.1"
+    "@material-ui/core": "^4.10.2"
   }
 }

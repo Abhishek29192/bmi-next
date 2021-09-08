@@ -1,23 +1,23 @@
 import { Link } from "gatsby";
 import {
+  findAllCategories,
+  findMasterImageUrl,
   findProductBrandLogoCode,
+  findUniqueVariantClassifications,
+  getColourThumbnailUrl,
   getMergedClassifications,
+  getProductAttributes,
   getProductUrl,
+  getSizeLabel,
   getValidClassification,
   getValidFeatures,
-  getSizeLabel,
-  findMasterImageUrl,
-  getColourThumbnailUrl,
-  mapGalleryImages,
   groupProductsByCategory,
   mapClassificationValues,
+  mapGalleryImages,
+  mapProductClassifications,
   TransformedClassificationsMap,
-  TransformedMeasurementValue,
   TransformedClassificationValue,
-  getProductAttributes,
-  findAllCategories,
-  findUniqueVariantClassifications,
-  mapProductClassifications
+  TransformedMeasurementValue
 } from "../product-details-transforms";
 import createClassification, {
   createFeature

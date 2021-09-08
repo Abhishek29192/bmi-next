@@ -1,12 +1,10 @@
 import React from "react";
 import classnames from "classnames";
-import {
-  TableContainer,
-  Table,
-  TableBody,
-  TableRow,
-  TableCell
-} from "@material-ui/core";
+import TableContainer from "@material-ui/core/TableContainer";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import styles from "./FlatRoofCalculator.module.scss";
 import { fieldLabels } from "./FlatRoofCalculator";

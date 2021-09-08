@@ -1,6 +1,5 @@
 "use strict";
 
-const { find, flatten } = require("lodash");
 const {
   generateIdFromString,
   generateDigestFromData
@@ -18,27 +17,24 @@ const getSlugAttributes = (source) => {
     return [];
   }
 
-  return flatten(
-    ["colour", "texturefamily"].map((attribute) => {
-      return (source.classifications || [])
-        .map(({ features }) => {
-          const feature = find(
-            features,
-            ({ code }) => code.split(".").pop() === attribute
-          );
-          if (
-            !feature ||
-            !feature.featureValues ||
-            !feature.featureValues.length
-          ) {
-            return false;
-          }
+  return ["colour", "texturefamily"].flatMap((attribute) => {
+    return (source.classifications || [])
+      .map(({ features }) => {
+        const feature = features.find(
+          ({ code }) => code.split(".").pop() === attribute
+        );
+        if (
+          !feature ||
+          !feature.featureValues ||
+          !feature.featureValues.length
+        ) {
+          return false;
+        }
 
-          return feature.featureValues[0].value;
-        })
-        .filter(Boolean);
-    })
-  );
+        return feature.featureValues[0].value;
+      })
+      .filter(Boolean);
+  });
 };
 
 const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
@@ -115,7 +111,9 @@ module.exports = {
         .map((asset) => {
           const id = generateIdFromString(source.name + asset.name, true);
           const { url, fileSize, realFileName, mime } = asset;
-          const assetType = find(assetTypes, { pimCode: asset.assetType });
+          const assetType = assetTypes.find(
+            (assetType) => assetType.pimCode === asset.assetType
+          );
 
           if (!assetType || !url) {
             return;

@@ -1,9 +1,5 @@
 import React, { useContext, useMemo } from "react";
-import {
-  useTheme,
-  createMuiTheme,
-  ThemeProvider
-} from "@material-ui/core/styles";
+import { createTheme, ThemeProvider, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Container from "@bmi/container";
 import ColorPair, { Colors, darkThemes } from "@bmi/color-pair";
@@ -107,7 +103,7 @@ const ContainedVillain = ({
   const defaultTheme = useTheme();
   const hasDarkBg = useIsDarkBg(theme);
 
-  const customBreakpointsTheme = createMuiTheme({
+  const customBreakpointsTheme = createTheme({
     ...defaultTheme,
     breakpoints: {
       values: {
