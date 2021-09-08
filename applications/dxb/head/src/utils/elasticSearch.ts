@@ -129,7 +129,7 @@ export const compileElasticSearchQuery = (
   });
 
   // NOTE: ES Doesn't like an empty query object
-  const queryString = `*${searchQuery.replaceAll("/", "\\/")}*`;
+  const queryString = `*${searchQuery?.replace(/\//g, "//")}*`;
   return {
     size: pageSize,
     from: page * pageSize,
