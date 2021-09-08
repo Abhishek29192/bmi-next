@@ -48,5 +48,5 @@ securityDefinitions:
     x-google-audiences: "https://dev-api.intouch.dev"
   api_key_header:
     type: "apiKey"
-    name: "key"
+    name: "x-api-key"
     in: "header"

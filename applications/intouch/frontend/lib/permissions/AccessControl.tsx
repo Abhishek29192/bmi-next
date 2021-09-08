@@ -8,9 +8,17 @@ type AccessControlProps = {
   extraData?: any;
   message?: string;
   children: React.ReactNode;
+  fallbackView?: React.ReactNode;
 };
 
-const AccessControl = (props: AccessControlProps) => {
+const AccessControl = ({
+  dataModel,
+  action,
+  extraData,
+  children,
+  message,
+  fallbackView
+}: AccessControlProps) => {
   const { account } = useAccountContext();
 
   if (!account) {
@@ -18,15 +26,15 @@ const AccessControl = (props: AccessControlProps) => {
     return null;
   }
 
-  const { dataModel, action, extraData, children, message } = props;
-
-  if (!can(account, dataModel, action, extraData)) {
-    return message ? <div>{message}</div> : null;
+  if (can(account, dataModel, action, extraData)) {
+    return <>{children}</>;
   }
 
-  // todo: fallback view?
+  if (fallbackView) {
+    return <>{fallbackView}</>;
+  }
 
-  return <>{children}</>;
+  return message ? <div>{message}</div> : null;
 };
 
 export default AccessControl;
