@@ -25,8 +25,8 @@ paths:
         - auth0_jwk: []
   /graphql_api:
     post:
-      summary: Generate a GraphQL request to the GraphQL Gateway
-      operationId: graphql
+      summary: Generate a GraphQL request to the GraphQL Gateway using an api key
+      operationId: graphql_api
       responses:
         "200":
           description: A successful response
