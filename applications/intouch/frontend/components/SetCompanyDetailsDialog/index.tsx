@@ -8,14 +8,13 @@ import Dialog from "@bmi/dialog";
 import Typography from "@bmi/typography";
 import TextField from "@bmi/text-field";
 import Select, { MenuItem } from "@bmi/select";
-import { useAccountContext } from "../../context/AccountContext";
 import { useMarketContext } from "../../context/MarketContext";
-import { isSuperOrMarketAdmin } from "../../lib/account";
 import {
   validateEmailInput,
   validatePhoneNumberInput,
   validateUrlInput
 } from "../../lib/validations/utils";
+import AccessControl from "../../lib/permissions/AccessControl";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
 import { BUSINESS_TYPES, TIERS } from "../../lib/constants";
 import { InfoPair } from "../InfoPair";
@@ -45,13 +44,7 @@ export const SetCompanyDetailsDialog = ({
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
-  const { account } = useAccountContext();
   const { market } = useMarketContext();
-
-  const isSuperOrMarketAdminUser = useMemo(
-    () => isSuperOrMarketAdmin(account),
-    [account]
-  );
 
   const [shouldRemoveLogo, setShouldRemoveLogo] = useState(false);
   const [logoUpload, setLogoUpload] = useState(undefined);
@@ -158,7 +151,19 @@ export const SetCompanyDetailsDialog = ({
 
               <SetCompanyOperations operations={operations} />
 
-              {isSuperOrMarketAdminUser ? (
+              <AccessControl
+                action="editTier"
+                dataModel="company"
+                fallbackView={
+                  company?.tier ? (
+                    <InfoPair
+                      title={t("company-page:edit_dialog.form.fields.tier")}
+                    >
+                      {t(`common:tier.${company.tier}`)}
+                    </InfoPair>
+                  ) : null
+                }
+              >
                 <Select {...getFieldProps("tier")} isRequired>
                   {Object.entries(TIERS).map(([, tier]) => (
                     <MenuItem key={tier} value={tier}>
@@ -166,15 +171,7 @@ export const SetCompanyDetailsDialog = ({
                     </MenuItem>
                   ))}
                 </Select>
-              ) : (
-                !!company?.tier && (
-                  <InfoPair
-                    title={t("company-page:edit_dialog.form.fields.tier")}
-                  >
-                    {t(`common:tier.${company.tier}`)}
-                  </InfoPair>
-                )
-              )}
+              </AccessControl>
             </Grid>
           </Grid>
 
