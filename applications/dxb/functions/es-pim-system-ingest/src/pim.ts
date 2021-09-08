@@ -8,7 +8,7 @@ export type System = {
   images: readonly Image[];
   longDescription: HTML;
   name: string;
-  shortDescription?: string;
+  shortDescription: string;
   systemBenefits?: string[];
   systemLayers: SystemLayer[];
   systemReferences: SystemReference[];
@@ -58,11 +58,11 @@ export type CategoryImage = {
 type CategoryType = "Brand" | "Category" | "ProductFamily" | "ProductLine";
 
 export type Category = {
-  categoryType: CategoryType;
+  categoryType?: CategoryType;
   code: string;
   image?: CategoryImage;
-  name: string;
-  parentCategoryCode: string;
+  name?: string;
+  parentCategoryCode?: string;
 };
 
 export type ImageMime = "image/jpeg" | "image/png" | "image/tiff";

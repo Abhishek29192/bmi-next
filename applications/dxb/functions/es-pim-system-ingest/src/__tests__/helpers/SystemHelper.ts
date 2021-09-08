@@ -18,11 +18,15 @@ const createSystem = (system?: Partial<System>): System => ({
   description: "<p>Some description</p>",
   assets: [createAsset()],
   categories: [
+    createCategory({
+      parentCategoryCode: "BMI_Brands",
+      categoryType: "Brand",
+      code: "BMI-brand-code"
+    }),
     createCategory({ parentCategoryCode: "", code: "parent-category-code" }),
     createCategory(),
     createCategory({ categoryType: "ProductFamily" }),
-    createCategory({ categoryType: "ProductLine" }),
-    createCategory({ parentCategoryCode: "BMI_Brands", code: "BMI-brand-code" })
+    createCategory({ categoryType: "ProductLine" })
   ],
   classifications: [
     createScoringWeightAttributesClassification(),

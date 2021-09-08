@@ -2,6 +2,8 @@ import { RequestParams } from "@elastic/elasticsearch";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
 import { SystemMessage } from "..";
+import type { SystemVariant } from "../transform";
+import type { System } from "../pim";
 import createSystem from "./helpers/SystemHelper";
 
 const { ES_INDEX_PREFIX, SECRET_MAN_GCP_PROJECT_NAME, ES_PASSWORD_SECRET } =
@@ -43,6 +45,11 @@ jest.mock("@elastic/elasticsearch", () => {
   return { Client: mClient };
 });
 
+const transformSystem = jest.fn();
+jest.mock("../transform", () => ({
+  transformSystem: (system: System): SystemVariant[] => transformSystem(system)
+}));
+
 beforeAll(() => {
   mockConsole();
 });
@@ -75,10 +82,35 @@ describe("handleMessage", () => {
 
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(ping).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
 
     process.env.ES_CLOUD_ID = esCloudID;
+  });
+
+  it("should do nothing if transform returns transformed products but type is invalid", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
+    const system = createSystem();
+    transformSystem.mockReturnValue(system);
+
+    const message = {
+      type: "INVALID",
+      itemType: "PRODUCTS",
+      items: [system]
+    };
+    await handleMessage(createEvent(message), createContext());
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(ping).toBeCalled();
+    expect(transformSystem).toBeCalledWith(message.items[0]);
+    expect(bulk).toBeCalledTimes(0);
+    expect(count).toBeCalledTimes(0);
   });
 
   it("should error if ES_USERNAME is not set", async () => {
@@ -94,6 +126,7 @@ describe("handleMessage", () => {
 
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(ping).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
 
@@ -130,6 +163,7 @@ describe("handleMessage", () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
     expect(ping).toBeCalled();
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
   });
@@ -146,6 +180,7 @@ describe("handleMessage", () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
     expect(ping).toBeCalled();
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
   });
@@ -155,6 +190,7 @@ describe("handleMessage", () => {
     ping.mockImplementation((args) => {
       args();
     });
+    transformSystem.mockReturnValue([]);
 
     const message = {
       type: "INVALID",
@@ -167,6 +203,7 @@ describe("handleMessage", () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
     expect(ping).toBeCalled();
+    expect(transformSystem).toBeCalledWith(message.items[0]);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
   });
@@ -177,6 +214,7 @@ describe("handleMessage", () => {
       args();
     });
     const system = createSystem();
+    transformSystem.mockReturnValue([system]);
 
     const message = {
       type: "UPDATED",
@@ -204,6 +242,7 @@ describe("handleMessage", () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
     expect(ping).toBeCalled();
+    expect(transformSystem).toBeCalledWith(message.items[0]);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
@@ -229,6 +268,7 @@ describe("handleMessage", () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
     expect(ping).toBeCalled();
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
   });
@@ -239,6 +279,7 @@ describe("handleMessage", () => {
       args();
     });
     const system = createSystem({ approvalStatus: "check" });
+    transformSystem.mockReturnValue(system);
 
     const message = {
       type: "UPDATED",
@@ -267,6 +308,7 @@ describe("handleMessage", () => {
     });
 
     expect(ping).toBeCalled();
+    expect(transformSystem).toBeCalledWith(message.items[0]);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
@@ -283,6 +325,7 @@ describe("handleMessage", () => {
     const system = createSystem({
       approvalStatus: "unapproved"
     });
+    transformSystem.mockReturnValue(system);
 
     const message = {
       type: "UPDATED",
@@ -310,7 +353,7 @@ describe("handleMessage", () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
     expect(ping).toBeCalled();
-
+    expect(transformSystem).toBeCalledWith(message.items[0]);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
@@ -449,11 +492,12 @@ describe("handleMessage", () => {
       args();
     });
     const system = createSystem();
+    transformSystem.mockReturnValue(system);
 
     const message = {
       type: "UPDATED",
       itemType: "SYSTEMS",
-      items: [system]
+      items: [createSystem()]
     };
     const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
     bulk.mockResolvedValue({
