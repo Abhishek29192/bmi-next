@@ -5,7 +5,7 @@ import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import { GuaranteeEventType, ProjectMember } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
-import can from "lib/permissions/can";
+import can from "../../lib/permissions/can";
 import { ProjectsHeader } from "../Cards/ProjectsHeader";
 import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
 import { ProjectsInsight } from "../Cards/ProjectsInsight";

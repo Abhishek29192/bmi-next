@@ -23,6 +23,7 @@
     "@bmi-digital/logger": "0.0.3",
     "@bmi/button": "0.0.0",
     "@bmi/card": "0.0.0",
+    "@bmi/checkbox": "0.0.0",
     "@bmi/company-details": "0.0.0",
     "@bmi/dialog": "0.0.0",
     "@bmi/form": "0.0.0",

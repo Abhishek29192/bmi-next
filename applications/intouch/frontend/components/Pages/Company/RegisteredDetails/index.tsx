@@ -111,6 +111,7 @@ export const CompanyRegisteredDetailsFragment = gql`
     tier
     companyOperationsByCompany {
       nodes {
+        id
         operation
       }
     }

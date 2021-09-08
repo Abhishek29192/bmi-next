@@ -3,7 +3,6 @@ import {
   getDbPool,
   actAs,
   curryContext,
-  cleanup as dbCleanup,
   insertOne as dbInsertOne
 } from "../test-utils/db";
 
