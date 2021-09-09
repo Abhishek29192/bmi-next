@@ -5,7 +5,7 @@ import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import { GuaranteeEventType, ProjectMember } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
-import can from "lib/permissions/can";
+import can from "../../lib/permissions/can";
 import { ProjectsHeader } from "../Cards/ProjectsHeader";
 import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
 import { ProjectsInsight } from "../Cards/ProjectsInsight";
@@ -26,7 +26,8 @@ import {
   getProjectStatus,
   getProjectGuaranteeStatus,
   getGuaranteeEventType,
-  isProjectApprovable
+  isProjectApprovable,
+  isSolutionOrSystemGuaranteeExist
 } from "../../lib/utils/project";
 import log from "../../lib/logger";
 import { useAccountContext } from "../../context/AccountContext";
@@ -117,6 +118,10 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   // TODO: Microcopy
   if (loading) return <>Loading project details...</>;
 
+  const isGuaranteeAppliable =
+    can(account, "project", "submitSolutionGuarantee") &&
+    !isSolutionOrSystemGuaranteeExist(project);
+
   return (
     <>
       <Grid item xs={12} md={8}>
@@ -164,7 +169,10 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Guarantee" index="two">
             <TabCard>
-              <GuaranteeTab project={project} />
+              <GuaranteeTab
+                project={project}
+                isApplyGuarantee={isGuaranteeAppliable}
+              />
             </TabCard>
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Uploads" index="three">
@@ -296,6 +304,8 @@ export const GET_PROJECT = gql`
           id
           guaranteeReferenceCode
           reviewerAccountId
+          coverage
+          languageCode
           guaranteeType {
             sys {
               id

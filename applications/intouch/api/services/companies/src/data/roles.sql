@@ -39,8 +39,8 @@ grant select, update, insert, delete on market to super_admin;
 
 -- company
 grant select, insert on company to installer;
--- tier & status shall not be updateable by the Company Admin
 grant update (registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, name, tax_number, phone, about_us, public_email, website, facebook,linked_in, logo) on company to company_admin;
+grant update (tier, status) on company to market_admin;
 
 -- company_member
 grant select, insert, delete on company_member to installer;
@@ -48,6 +48,7 @@ grant update (account_id) on company_member to company_admin;
 
 -- -- company_operations
 grant select on company_operation to installer;
+grant select, insert, update, delete on company_operation to market_admin;
 grant select, insert, update, delete on company_operation to super_admin;
 
 -- account

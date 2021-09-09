@@ -216,7 +216,7 @@ export type UpdateCompanyDetailsMutation = {
               readonly nodes: ReadonlyArray<
                 { readonly __typename?: "CompanyOperation" } & Pick<
                   SchemaTypes.CompanyOperation,
-                  "operation"
+                  "id" | "operation"
                 >
               >;
             };
@@ -309,7 +309,7 @@ export type CompanyRegisteredDetailsFragmentFragment = {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "CompanyOperation" } & Pick<
           SchemaTypes.CompanyOperation,
-          "operation"
+          "id" | "operation"
         >
       >;
     };
@@ -695,7 +695,12 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "Guarantee" } & Pick<
               SchemaTypes.Guarantee,
-              "id" | "guaranteeReferenceCode" | "reviewerAccountId" | "status"
+              | "id"
+              | "guaranteeReferenceCode"
+              | "reviewerAccountId"
+              | "coverage"
+              | "languageCode"
+              | "status"
             > & {
                 readonly guaranteeType?: SchemaTypes.Maybe<
                   { readonly __typename?: "ContentfulGuaranteeType" } & Pick<
@@ -1538,7 +1543,7 @@ export type CompanyPageDetailsFragmentFragment = {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "CompanyOperation" } & Pick<
           SchemaTypes.CompanyOperation,
-          "operation"
+          "id" | "operation"
         >
       >;
     };
@@ -1631,7 +1636,7 @@ export type GetCompaniesByMarketQuery = { readonly __typename?: "Query" } & {
               readonly nodes: ReadonlyArray<
                 { readonly __typename?: "CompanyOperation" } & Pick<
                   SchemaTypes.CompanyOperation,
-                  "operation"
+                  "id" | "operation"
                 >
               >;
             };
@@ -1738,7 +1743,7 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "CompanyOperation" } & Pick<
               SchemaTypes.CompanyOperation,
-              "operation"
+              "id" | "operation"
             >
           >;
         };

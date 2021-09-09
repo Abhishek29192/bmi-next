@@ -69,6 +69,7 @@ export const CompanyRegisteredDetailsFragmentFragmentDoc = gql`
     tier
     companyOperationsByCompany {
       nodes {
+        id
         operation
       }
     }
@@ -890,6 +891,8 @@ export const GetProjectDocument = gql`
           id
           guaranteeReferenceCode
           reviewerAccountId
+          coverage
+          languageCode
           guaranteeType {
             sys {
               id

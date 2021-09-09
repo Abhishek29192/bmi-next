@@ -143,6 +143,9 @@
     .icon-wrapper {
       display: inline-block;
       width: 100px;
+      @media (min-width: $breakpoint-xl) {
+        width: 130px;
+      }
     }
 
     .chevronRight,
@@ -179,6 +182,13 @@
 
         [data-name="bg block"] {
           fill: none;
+        }
+
+        svg {
+          max-width: 100px;
+          @media (min-width: $breakpoint-xl) {
+            max-width: 130px;
+          }
         }
       }
     }

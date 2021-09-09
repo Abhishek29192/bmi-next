@@ -1,4 +1,4 @@
-import { Account, Market } from "@bmi/intouch-api-types";
+import { Account } from "@bmi/intouch-api-types";
 import { ROLES } from "../../lib/constants";
 import {
   findAccountCompany,
@@ -60,6 +60,18 @@ const gates = {
       MARKET_ADMIN: true,
       INSTALLER: false,
       COMPANY_ADMIN: isCompanyMember
+    },
+    editOperations: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
+    },
+    editTier: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
     },
     inviteUser: {
       SUPER_ADMIN: true,

@@ -1,8 +1,7 @@
 import get from "lodash/get";
 import set from "lodash/set";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { CompanyOperation } from "@bmi/intouch-api-types";
 import Grid from "@bmi/grid";
 import Form from "@bmi/form";
 import Dialog from "@bmi/dialog";
@@ -15,13 +14,14 @@ import {
   validatePhoneNumberInput,
   validateUrlInput
 } from "../../lib/validations/utils";
+import AccessControl from "../../lib/permissions/AccessControl";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
-import { BUSINESS_TYPES } from "../../lib/constants";
+import { BUSINESS_TYPES, TIERS } from "../../lib/constants";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
-import { formatCompanyOperations } from "../Pages/Company/RegisteredDetails";
 import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
+import { SetCompanyOperations } from "./SetCompanyOperations";
 
 export type OnCompanyUpdateSuccess = (
   company: GetCompanyQuery["company"]
@@ -53,6 +53,10 @@ export const SetCompanyDetailsDialog = ({
     setShouldRemoveLogo(!file);
     setLogoUpload(file);
   };
+
+  const operations = useMemo(() => {
+    return company?.companyOperationsByCompany?.nodes || [];
+  }, [company]);
 
   const handleSubmit = useCallback(
     (event, values) => {
@@ -101,9 +105,6 @@ export const SetCompanyDetailsDialog = ({
   const validateEmail = useCallback(validateEmailInput(t), [t]);
   const validatePhoneNumber = useCallback(validatePhoneNumberInput(t), [t]);
 
-  const operations = (get(company, "companyOperationsByCompany.nodes") ||
-    []) as CompanyOperation[];
-
   return (
     <Dialog className={styles.dialog} open={isOpen} onCloseClick={onCloseClick}>
       <Dialog.Title hasUnderline>{title}</Dialog.Title>
@@ -130,13 +131,14 @@ export const SetCompanyDetailsDialog = ({
                 isRequired
               />
               <TextField {...getFieldProps("registeredAddress.region")} />
-            </Grid>
 
-            <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("registeredAddress.country")}
                 isRequired
               />
+            </Grid>
+
+            <Grid item xs={12} lg={6}>
               <TextField {...getFieldProps("taxNumber")} isRequired />
 
               <Select {...getFieldProps("businessType")} isRequired>
@@ -147,26 +149,29 @@ export const SetCompanyDetailsDialog = ({
                 ))}
               </Select>
 
-              {operations?.length > 0 ? (
-                <InfoPair
-                  title={t(
-                    "company-page:edit_dialog.form.fields.operationTypes"
-                  )}
-                >
-                  {formatCompanyOperations(
-                    t,
-                    operations.map((node) => node.operation)
-                  )}
-                </InfoPair>
-              ) : null}
+              <SetCompanyOperations operations={operations} />
 
-              {company?.tier ? (
-                <InfoPair
-                  title={t("company-page:edit_dialog.form.fields.tier")}
-                >
-                  {t(`common:tier.${company.tier}`)}
-                </InfoPair>
-              ) : null}
+              <AccessControl
+                action="editTier"
+                dataModel="company"
+                fallbackView={
+                  company?.tier ? (
+                    <InfoPair
+                      title={t("company-page:edit_dialog.form.fields.tier")}
+                    >
+                      {t(`common:tier.${company.tier}`)}
+                    </InfoPair>
+                  ) : null
+                }
+              >
+                <Select {...getFieldProps("tier")} isRequired>
+                  {Object.entries(TIERS).map(([, tier]) => (
+                    <MenuItem key={tier} value={tier}>
+                      {t(`common:tier.${tier}`)}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </AccessControl>
             </Grid>
           </Grid>
 
