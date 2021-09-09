@@ -64,6 +64,15 @@ const ProductLeadBlock = ({
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
 
+  const removePdfs = (imgArr: GuaranteesAndAwardsAsset[]) => {
+    const santisisedImgs = imgArr?.filter(
+      (item) => item.url.indexOf(".pdf") === -1
+    );
+    return santisisedImgs;
+  };
+  const guaranteeImgs = removePdfs(guaranteesAndWarranties);
+  const certificateImgs = removePdfs(awardsAndCertificates);
+
   const GTMTab = withGTM<TabProps>(Tab, {
     label: "label"
   });
@@ -100,14 +109,14 @@ const ProductLeadBlock = ({
                 />
               </LeadBlock.Content.Section>
 
-              {guaranteesAndWarranties?.length > 0 && (
+              {guaranteeImgs?.length > 0 && (
                 <LeadBlock.Content.Section
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
                   <LeadBlock.Content.Heading>
                     {getMicroCopy("pdp.leadBlock.guaranteesWarranties")}
                   </LeadBlock.Content.Heading>
-                  {guaranteesAndWarranties.map((item, i) => (
+                  {guaranteeImgs.map((item, i) => (
                     <img
                       key={i}
                       src={item.url}
@@ -117,14 +126,14 @@ const ProductLeadBlock = ({
                   ))}
                 </LeadBlock.Content.Section>
               )}
-              {awardsAndCertificates?.length > 0 && (
+              {certificateImgs?.length > 0 && (
                 <LeadBlock.Content.Section
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
                   <LeadBlock.Content.Heading>
                     {getMicroCopy("pdp.leadBlock.awardsCertificates")}
                   </LeadBlock.Content.Heading>
-                  {awardsAndCertificates.map((item, i) => (
+                  {certificateImgs.map((item, i) => (
                     <img
                       key={i}
                       src={item.url}
