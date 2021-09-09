@@ -8,7 +8,8 @@ import {
   useDeleteProjectMemberMutation,
   useGetProjectCompanyMembersLazyQuery,
   useAddProjectsMemberMutation,
-  GetProjectDocument
+  GetProjectDocument,
+  useUpdateProjectMemberMutation
 } from "../../../graphql/generated/hooks";
 import { AddTeamMemberDialog } from "./AddTeamMemberDialog";
 import { TeamMemberItem } from "./TeamMemberItem";
@@ -17,9 +18,14 @@ import styles from "./styles.module.scss";
 export type TeamTabProps = {
   projectId: number;
   teams: ProjectMember[];
+  canNominateProjectResponsible: boolean;
 };
 
-export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
+export const TeamTab = ({
+  projectId,
+  teams,
+  canNominateProjectResponsible
+}: TeamTabProps) => {
   const { t } = useTranslation("project-page");
 
   const [projectMembers, setProjectMembers] = useState<ProjectMember[]>([]);
@@ -42,6 +48,7 @@ export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
     }
   });
 
+  const [updateProjectMember] = useUpdateProjectMemberMutation();
   useEffect(() => {
     setProjectMembers(teams);
   }, [teams]);
@@ -87,6 +94,23 @@ export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
     setTeamMemberDialogOpen(false);
   };
 
+  const onResponsibleInstallerChangeHandler = async ({
+    id,
+    isResponsibleInstaller
+  }: ProjectMember) => {
+    await updateProjectMember({
+      variables: {
+        input: {
+          id,
+          patch: {
+            isResponsibleInstaller: !isResponsibleInstaller
+          }
+        },
+        projectId
+      }
+    });
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -111,10 +135,16 @@ export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
                 team.account && (
                   <TeamMemberItem
                     key={`${team.id}-${index}`}
-                    account={team.account}
+                    member={team}
                     onDeleteClick={() => {
                       onDeleteClickHandler(team.id);
                     }}
+                    canNominateProjectResponsible={
+                      canNominateProjectResponsible
+                    }
+                    onResponsibleInstallerChange={() =>
+                      onResponsibleInstallerChangeHandler(team)
+                    }
                   />
                 )
             )}
@@ -190,6 +220,41 @@ export const ADD_PROJECT_MEMBERS = gql`
       projectMembers {
         projectId
         accountId
+      }
+    }
+  }
+`;
+
+export const UPDATE_PROJECT_MEMBER = gql`
+  mutation updateProjectMember(
+    $input: UpdateProjectMemberInput!
+    $projectId: Int!
+  ) {
+    updateProjectMember(input: $input) {
+      projectMember {
+        id
+        projectId
+        isResponsibleInstaller
+      }
+      query {
+        projectMembers(condition: { projectId: $projectId }) {
+          nodes {
+            id
+            accountId
+            account {
+              firstName
+              lastName
+              role
+              certificationsByDoceboUserId {
+                nodes {
+                  name
+                  technology
+                }
+              }
+            }
+            isResponsibleInstaller
+          }
+        }
       }
     }
   }
