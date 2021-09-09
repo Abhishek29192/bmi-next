@@ -63,11 +63,7 @@ const TabLeadBlock = ({
         />
       )}
     >
-      <Tabs.TabPanel
-        className={styles["tabPanelBox"]}
-        heading={getMicroCopy("sdp.leadBlock.about")}
-        index="one"
-      >
+      <Tabs.TabPanel heading={getMicroCopy("sdp.leadBlock.about")} index="one">
         <Section className={styles["section"]} backgroundColor="white">
           <AboutLeadBlock
             longDescription={longDescription}
@@ -82,7 +78,6 @@ const TabLeadBlock = ({
       </Tabs.TabPanel>
       {technicalSpecClassifications && !isEmpty(technicalSpecClassifications) && (
         <Tabs.TabPanel
-          className={styles["tabPanelBox"]}
           heading={getMicroCopy("sdp.leadBlock.technicalSpecification")}
           index="two"
         >
@@ -95,7 +90,6 @@ const TabLeadBlock = ({
       )}
       {documentsAndDownloads && !isEmpty(documentsAndDownloads) && (
         <Tabs.TabPanel
-          className={styles["tabPanelBox"]}
           heading={getMicroCopy("sdp.leadBlock.documentsAndDownloads")}
           index="three"
         >
@@ -108,11 +102,7 @@ const TabLeadBlock = ({
         </Tabs.TabPanel>
       )}
       {Boolean(bimContent?.bimIframeUrl) && (
-        <Tabs.TabPanel
-          className={styles["tabPanelBox"]}
-          heading={getMicroCopy("sdp.tabs.bim")}
-          index="four"
-        >
+        <Tabs.TabPanel heading={getMicroCopy("sdp.tabs.bim")} index="four">
           <div className={styles["bimLeadBlock"]}>
             <Section className={styles["section"]} backgroundColor="pearl">
               <LeadBlock>

@@ -61,7 +61,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
     </div>
     <div
       aria-labelledby="tab-one"
-      class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+      class="MuiGrid-root TabPanel MuiGrid-item"
       heading="MC: sdp.leadBlock.about"
       id="tabpanel-one"
       role="tabpanel"
@@ -184,7 +184,7 @@ exports[`TabLeadBlock tests should render 1`] = `
     </div>
     <div
       aria-labelledby="tab-one"
-      class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+      class="MuiGrid-root TabPanel MuiGrid-item"
       heading="MC: sdp.leadBlock.about"
       id="tabpanel-one"
       role="tabpanel"
@@ -225,7 +225,7 @@ exports[`TabLeadBlock tests should render 1`] = `
     </div>
     <div
       aria-labelledby="tab-two"
-      class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+      class="MuiGrid-root TabPanel MuiGrid-item"
       heading="MC: sdp.leadBlock.technicalSpecification"
       hidden=""
       id="tabpanel-two"
@@ -309,7 +309,7 @@ exports[`TabLeadBlock tests should render 1`] = `
 exports[`TabLeadBlock tests should render documents and downloads 1`] = `
 <div
   aria-labelledby="tab-three"
-  class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+  class="MuiGrid-root TabPanel MuiGrid-item"
   heading="MC: sdp.leadBlock.documentsAndDownloads"
   hidden=""
   id="tabpanel-three"
@@ -340,7 +340,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
 exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
 <div
   aria-labelledby="tab-four"
-  class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+  class="MuiGrid-root TabPanel MuiGrid-item"
   heading="MC: sdp.tabs.bim"
   hidden=""
   id="tabpanel-four"

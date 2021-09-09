@@ -3075,7 +3075,7 @@ exports[`SystemDetailsPage template component should have function to filter and
       </div>
       <div
         aria-labelledby="tab-one"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -3110,11 +3110,11 @@ exports[`SystemDetailsPage template component should have function to filter and
                     <div
                       class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: pdp.leadBlock.guaranteesWarranties
-                      </h5>
+                      </h6>
                       <img
                         alt="Monier garanti 30 år"
                         class="image"
@@ -3129,11 +3129,11 @@ exports[`SystemDetailsPage template component should have function to filter and
                     <div
                       class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: pdp.leadBlock.awardsCertificates
-                      </h5>
+                      </h6>
                       <img
                         alt="Test Award"
                         class="image"
@@ -3148,11 +3148,11 @@ exports[`SystemDetailsPage template component should have function to filter and
                     <div
                       class="LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: sdp.leadBlock.specification
-                      </h5>
+                      </h6>
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -3251,7 +3251,7 @@ exports[`SystemDetailsPage template component should have function to filter and
       </div>
       <div
         aria-labelledby="tab-two"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -3484,7 +3484,7 @@ exports[`SystemDetailsPage template component should have function to filter and
       </div>
       <div
         aria-labelledby="tab-four"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.tabs.bim"
         hidden=""
         id="tabpanel-four"
@@ -8433,7 +8433,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
       </div>
       <div
         aria-labelledby="tab-one"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -8468,11 +8468,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     <div
                       class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: pdp.leadBlock.guaranteesWarranties
-                      </h5>
+                      </h6>
                       <img
                         alt="Monier garanti 30 år"
                         class="image"
@@ -8487,11 +8487,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     <div
                       class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: pdp.leadBlock.awardsCertificates
-                      </h5>
+                      </h6>
                       <img
                         alt="Test Award"
                         class="image"
@@ -8506,11 +8506,11 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     <div
                       class="LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: sdp.leadBlock.specification
-                      </h5>
+                      </h6>
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -8680,7 +8680,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
       </div>
       <div
         aria-labelledby="tab-two"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -9002,7 +9002,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
       </div>
       <div
         aria-labelledby="tab-four"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.tabs.bim"
         hidden=""
         id="tabpanel-four"
@@ -13951,7 +13951,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       </div>
       <div
         aria-labelledby="tab-one"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -13986,11 +13986,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     <div
                       class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: pdp.leadBlock.guaranteesWarranties
-                      </h5>
+                      </h6>
                       <img
                         alt="Monier garanti 30 år"
                         class="image"
@@ -14005,11 +14005,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     <div
                       class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: pdp.leadBlock.awardsCertificates
-                      </h5>
+                      </h6>
                       <img
                         alt="Test Award"
                         class="image"
@@ -14024,11 +14024,11 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     <div
                       class="LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: sdp.leadBlock.specification
-                      </h5>
+                      </h6>
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-92 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -14198,7 +14198,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       </div>
       <div
         aria-labelledby="tab-two"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -14520,7 +14520,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       </div>
       <div
         aria-labelledby="tab-four"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.tabs.bim"
         hidden=""
         id="tabpanel-four"
