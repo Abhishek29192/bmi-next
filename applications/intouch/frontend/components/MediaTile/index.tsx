@@ -1,61 +1,65 @@
-import React from "react";
+import React, { useMemo, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@bmi/typography";
-import { GetMediaFolderContentsQuery } from "../../graphql/generated/operations";
+import { MediaItem } from "../../lib/media/types";
+import {
+  getMediaItemMeta,
+  getMediaItemSize,
+  isExternalLink
+} from "../../lib/media/utils";
+import { Link } from "../Link";
 import { MediaTileThumbnail } from "./Thumbnail";
 import styles from "./styles.module.scss";
 
-type MediaItem =
-  GetMediaFolderContentsQuery["mediaFolder"]["childrenCollection"]["items"][0];
-
 export type MediaTileProps = {
   mediaItem: MediaItem;
-  onMediaItemClick: (id: string) => any;
+  onMediaItemClick: (mediaItem: MediaItem) => any;
 };
 
-const META_TYPES = {
-  FOLDER: "FOLDER",
-  IMAGE: "IMAGE",
-  VIDEO: "VIDEO",
-  EXTERNAL_LINK: "EXTERNAL_LINK",
-  PDF: "PDF",
-  FALLBACK: "MEDIA"
-};
-
-const getItemMeta = (mediaItem: MediaItem) => {
-  if (mediaItem.__typename === "MediaFolder") {
-    return META_TYPES.FOLDER;
-  }
-  if (mediaItem.url) {
-    return META_TYPES.EXTERNAL_LINK;
-  }
-  const contentType = mediaItem.media?.contentType;
-  if (!contentType) {
-    return META_TYPES.FALLBACK;
-  }
-  if (contentType.includes("image")) {
-    return META_TYPES.IMAGE;
-  }
-  if (contentType.includes("pdf")) {
-    return META_TYPES.PDF;
-  }
-  if (contentType.includes("video")) {
-    return META_TYPES.VIDEO;
-  }
-  return META_TYPES.FALLBACK;
-};
+const MediaTileWrapper = ({
+  isExternal,
+  url,
+  children
+}: {
+  isExternal: boolean;
+  url?: string;
+  children: ReactNode;
+}) =>
+  isExternal ? (
+    <Link isExternal href={url}>
+      {children}
+    </Link>
+  ) : (
+    <div>{children}</div>
+  );
 
 export const MediaTile = ({ mediaItem, onMediaItemClick }: MediaTileProps) => {
   const { t } = useTranslation("toolkit");
+
+  const mediaTileDescription = useMemo(() => {
+    return [
+      getMediaItemSize(mediaItem),
+      t(`contentTypes.${getMediaItemMeta(mediaItem)}`)
+    ]
+      .filter(Boolean)
+      .join(" • ");
+  }, [t, mediaItem]);
+
+  const isExternal = useMemo(() => isExternalLink(mediaItem), [mediaItem]);
+  const mediaUrl = useMemo(
+    () => (mediaItem.__typename === "MediaTool" ? mediaItem.url : undefined),
+    [mediaItem]
+  );
+
   return (
-    <div>
+    <MediaTileWrapper isExternal={isExternal} url={mediaUrl}>
       <div className="content">
         <div className="outlined">
           <CardActionArea
             onClick={() => {
-              onMediaItemClick(mediaItem.sys.id);
+              onMediaItemClick(mediaItem);
             }}
           >
             <CardContent className={styles.content}>
@@ -70,10 +74,10 @@ export const MediaTile = ({ mediaItem, onMediaItemClick }: MediaTileProps) => {
           </Typography>
 
           <Typography variant="button" className={styles.meta}>
-            {t(`contentTypes.${getItemMeta(mediaItem)}`)}
+            {mediaTileDescription}
           </Typography>
         </div>
       </div>
-    </div>
+    </MediaTileWrapper>
   );
 };

@@ -61,39 +61,77 @@ export const GET_MEDIA_FOLDERS = gql`
   }
 `;
 
-export const GET_MEDIA_FOLDER_CONTENTS = gql`
-  query getMediaFolderContents($folderId: String!) {
-    mediaFolder(id: $folderId) {
-      sys {
-        id
-      }
-      name
-      childrenCollection {
-        total
-        items {
-          ... on MediaTool {
-            __typename
-            sys {
-              id
-            }
-            name
-            thumbnail {
-              ...ImageFragment
-            }
-            media {
-              ...ImageFragment
-            }
-            url
-          }
+export const CONTENTFUL_MEDIA_TOOL_DETAILS_FRAGMENT = gql`
+  fragment MediaToolDetails on MediaTool {
+    __typename
+    sys {
+      id
+    }
+    name
+    media {
+      ...ImageFragment
+    }
+    thumbnail {
+      ...ImageFragment
+    }
+    url
+  }
+`;
 
-          ... on MediaFolder {
-            __typename
-            sys {
-              id
+export const GET_MEDIA_ITEM_BY_ID = gql`
+  # we could either be retrieving a Media Folder or a Media Tool
+  query getMediaItemById($mediaItemId: String!) {
+    # we need a collection because Contentful will throw an error if it doesn't find the item by id
+    mediaFolderCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
+      items {
+        sys {
+          id
+        }
+        name
+        childrenCollection {
+          total
+          items {
+            ... on MediaTool {
+              __typename
+              sys {
+                id
+              }
+              name
+              thumbnail {
+                ...ImageFragment
+              }
+              media {
+                ...ImageFragment
+              }
+              url
             }
-            name
+
+            ... on MediaFolder {
+              __typename
+              sys {
+                id
+              }
+              name
+            }
           }
         }
+      }
+    }
+
+    # we need a collection because Contentful will throw an error if it doesn't find the item by id
+    mediaToolCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
+      items {
+        sys {
+          id
+        }
+        name
+        media {
+          ...ImageFragment
+        }
+        thumbnail {
+          ...ImageFragment
+        }
+        url
       }
     }
   }

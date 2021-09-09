@@ -1897,84 +1897,182 @@ export type GetMediaFoldersQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
-export type GetMediaFolderContentsQueryVariables = SchemaTypes.Exact<{
-  folderId: SchemaTypes.Scalars["String"];
+export type MediaToolDetailsFragment = {
+  readonly __typename: "MediaTool";
+} & Pick<SchemaTypes.MediaTool, "name" | "url"> & {
+    readonly sys: { readonly __typename?: "Sys" } & Pick<SchemaTypes.Sys, "id">;
+    readonly media?: SchemaTypes.Maybe<
+      { readonly __typename?: "Asset" } & Pick<
+        SchemaTypes.Asset,
+        | "title"
+        | "description"
+        | "contentType"
+        | "fileName"
+        | "size"
+        | "url"
+        | "width"
+        | "height"
+      > & {
+          readonly sys: { readonly __typename?: "Sys" } & Pick<
+            SchemaTypes.Sys,
+            "id"
+          >;
+        }
+    >;
+    readonly thumbnail?: SchemaTypes.Maybe<
+      { readonly __typename?: "Asset" } & Pick<
+        SchemaTypes.Asset,
+        | "title"
+        | "description"
+        | "contentType"
+        | "fileName"
+        | "size"
+        | "url"
+        | "width"
+        | "height"
+      > & {
+          readonly sys: { readonly __typename?: "Sys" } & Pick<
+            SchemaTypes.Sys,
+            "id"
+          >;
+        }
+    >;
+  };
+
+export type GetMediaItemByIdQueryVariables = SchemaTypes.Exact<{
+  mediaItemId: SchemaTypes.Scalars["String"];
 }>;
 
-export type GetMediaFolderContentsQuery = { readonly __typename?: "Query" } & {
-  readonly mediaFolder?: SchemaTypes.Maybe<
-    { readonly __typename?: "MediaFolder" } & Pick<
-      SchemaTypes.MediaFolder,
-      "name"
-    > & {
-        readonly sys: { readonly __typename?: "Sys" } & Pick<
-          SchemaTypes.Sys,
-          "id"
-        >;
-        readonly childrenCollection?: SchemaTypes.Maybe<
-          { readonly __typename?: "MediaFolderChildrenCollection" } & Pick<
-            SchemaTypes.MediaFolderChildrenCollection,
-            "total"
+export type GetMediaItemByIdQuery = { readonly __typename?: "Query" } & {
+  readonly mediaFolderCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "MediaFolderCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "MediaFolder" } & Pick<
+            SchemaTypes.MediaFolder,
+            "name"
           > & {
-              readonly items: ReadonlyArray<
-                SchemaTypes.Maybe<
-                  | ({ readonly __typename: "MediaFolder" } & Pick<
-                      SchemaTypes.MediaFolder,
-                      "name"
-                    > & {
-                        readonly sys: { readonly __typename?: "Sys" } & Pick<
-                          SchemaTypes.Sys,
-                          "id"
-                        >;
-                      })
-                  | ({ readonly __typename: "MediaTool" } & Pick<
-                      SchemaTypes.MediaTool,
-                      "name" | "url"
-                    > & {
-                        readonly sys: { readonly __typename?: "Sys" } & Pick<
-                          SchemaTypes.Sys,
-                          "id"
-                        >;
-                        readonly thumbnail?: SchemaTypes.Maybe<
-                          { readonly __typename?: "Asset" } & Pick<
-                            SchemaTypes.Asset,
-                            | "title"
-                            | "description"
-                            | "contentType"
-                            | "fileName"
-                            | "size"
-                            | "url"
-                            | "width"
-                            | "height"
+              readonly sys: { readonly __typename?: "Sys" } & Pick<
+                SchemaTypes.Sys,
+                "id"
+              >;
+              readonly childrenCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "MediaFolderChildrenCollection";
+                } & Pick<SchemaTypes.MediaFolderChildrenCollection, "total"> & {
+                    readonly items: ReadonlyArray<
+                      SchemaTypes.Maybe<
+                        | ({ readonly __typename: "MediaFolder" } & Pick<
+                            SchemaTypes.MediaFolder,
+                            "name"
                           > & {
                               readonly sys: {
                                 readonly __typename?: "Sys";
                               } & Pick<SchemaTypes.Sys, "id">;
-                            }
-                        >;
-                        readonly media?: SchemaTypes.Maybe<
-                          { readonly __typename?: "Asset" } & Pick<
-                            SchemaTypes.Asset,
-                            | "title"
-                            | "description"
-                            | "contentType"
-                            | "fileName"
-                            | "size"
-                            | "url"
-                            | "width"
-                            | "height"
+                            })
+                        | ({ readonly __typename: "MediaTool" } & Pick<
+                            SchemaTypes.MediaTool,
+                            "name" | "url"
                           > & {
                               readonly sys: {
                                 readonly __typename?: "Sys";
                               } & Pick<SchemaTypes.Sys, "id">;
-                            }
-                        >;
-                      })
-                >
+                              readonly thumbnail?: SchemaTypes.Maybe<
+                                { readonly __typename?: "Asset" } & Pick<
+                                  SchemaTypes.Asset,
+                                  | "title"
+                                  | "description"
+                                  | "contentType"
+                                  | "fileName"
+                                  | "size"
+                                  | "url"
+                                  | "width"
+                                  | "height"
+                                > & {
+                                    readonly sys: {
+                                      readonly __typename?: "Sys";
+                                    } & Pick<SchemaTypes.Sys, "id">;
+                                  }
+                              >;
+                              readonly media?: SchemaTypes.Maybe<
+                                { readonly __typename?: "Asset" } & Pick<
+                                  SchemaTypes.Asset,
+                                  | "title"
+                                  | "description"
+                                  | "contentType"
+                                  | "fileName"
+                                  | "size"
+                                  | "url"
+                                  | "width"
+                                  | "height"
+                                > & {
+                                    readonly sys: {
+                                      readonly __typename?: "Sys";
+                                    } & Pick<SchemaTypes.Sys, "id">;
+                                  }
+                              >;
+                            })
+                      >
+                    >;
+                  }
               >;
             }
-        >;
-      }
+        >
+      >;
+    }
+  >;
+  readonly mediaToolCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "MediaToolCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "MediaTool" } & Pick<
+            SchemaTypes.MediaTool,
+            "name" | "url"
+          > & {
+              readonly sys: { readonly __typename?: "Sys" } & Pick<
+                SchemaTypes.Sys,
+                "id"
+              >;
+              readonly media?: SchemaTypes.Maybe<
+                { readonly __typename?: "Asset" } & Pick<
+                  SchemaTypes.Asset,
+                  | "title"
+                  | "description"
+                  | "contentType"
+                  | "fileName"
+                  | "size"
+                  | "url"
+                  | "width"
+                  | "height"
+                > & {
+                    readonly sys: { readonly __typename?: "Sys" } & Pick<
+                      SchemaTypes.Sys,
+                      "id"
+                    >;
+                  }
+              >;
+              readonly thumbnail?: SchemaTypes.Maybe<
+                { readonly __typename?: "Asset" } & Pick<
+                  SchemaTypes.Asset,
+                  | "title"
+                  | "description"
+                  | "contentType"
+                  | "fileName"
+                  | "size"
+                  | "url"
+                  | "width"
+                  | "height"
+                > & {
+                    readonly sys: { readonly __typename?: "Sys" } & Pick<
+                      SchemaTypes.Sys,
+                      "id"
+                    >;
+                  }
+              >;
+            }
+        >
+      >;
+    }
   >;
 };
 

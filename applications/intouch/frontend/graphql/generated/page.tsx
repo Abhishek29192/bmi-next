@@ -530,18 +530,17 @@ export const ssrGetMediaFolders = {
 
   usePage: useGetMediaFolders
 };
-export async function getServerPageGetMediaFolderContents(
+export async function getServerPageGetMediaItemById(
   options: Omit<
-    Apollo.QueryOptions<OperationTypes.GetMediaFolderContentsQueryVariables>,
+    Apollo.QueryOptions<OperationTypes.GetMediaItemByIdQueryVariables>,
     "query"
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data =
-    await apolloClient.query<OperationTypes.GetMediaFolderContentsQuery>({
-      ...options,
-      query: Operations.GetMediaFolderContentsDocument
-    });
+  const data = await apolloClient.query<OperationTypes.GetMediaItemByIdQuery>({
+    ...options,
+    query: Operations.GetMediaItemByIdDocument
+  });
 
   const apolloState = apolloClient.cache.extract();
 
@@ -553,26 +552,26 @@ export async function getServerPageGetMediaFolderContents(
     }
   };
 }
-export const useGetMediaFolderContents = (
+export const useGetMediaItemById = (
   optionsFunc?: (
     router: NextRouter
   ) => QueryHookOptions<
-    OperationTypes.GetMediaFolderContentsQuery,
-    OperationTypes.GetMediaFolderContentsQueryVariables
+    OperationTypes.GetMediaItemByIdQuery,
+    OperationTypes.GetMediaItemByIdQueryVariables
   >
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.GetMediaFolderContentsDocument, options);
+  return useQuery(Operations.GetMediaItemByIdDocument, options);
 };
-export type PageGetMediaFolderContentsComp = React.FC<{
-  data?: OperationTypes.GetMediaFolderContentsQuery;
+export type PageGetMediaItemByIdComp = React.FC<{
+  data?: OperationTypes.GetMediaItemByIdQuery;
   error?: Apollo.ApolloError;
 }>;
-export const ssrGetMediaFolderContents = {
-  getServerPage: getServerPageGetMediaFolderContents,
+export const ssrGetMediaItemById = {
+  getServerPage: getServerPageGetMediaItemById,
 
-  usePage: useGetMediaFolderContents
+  usePage: useGetMediaItemById
 };
 export async function getServerPageGetContentArticleContent(
   options: Omit<

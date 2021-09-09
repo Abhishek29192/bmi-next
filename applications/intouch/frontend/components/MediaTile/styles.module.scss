@@ -28,17 +28,12 @@
 }
 
 .meta {
-  color: #858895;
+  color: $color-blue-300;
 }
 
 .thumbnail {
   max-width: 100%;
   max-height: 100%;
-  display: block;
-}
-
-.videoTile {
-  max-width: 100%;
   display: block;
 }
 
@@ -54,4 +49,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.iframe {
+  height: 100%;
+  // 16px is the padding of .MuiCardContent-root for all other thumbnails
+  width: calc(100% - 16px * 2);
+  // this is currently the only way to get the iframe to fit
+  // with the same dimensions as a thumbnail
+  position: absolute;
+  top: 0;
+  left: 16px; // .MuiCardContent-root
+  pointer-events: none;
 }
