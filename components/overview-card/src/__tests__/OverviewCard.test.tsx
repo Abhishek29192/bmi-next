@@ -87,7 +87,8 @@ describe("OverviewCard component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
   it("renders as a flat card", () => {
-    const { container } = render(
+    const onClick = jest.fn();
+    const { container, getByText } = render(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -99,11 +100,18 @@ describe("OverviewCard component", () => {
           </Button>
         }
         isFlat
+        onClick={onClick}
       >
         We do the things
       </OverviewCard>
     );
+
+    const title = getByText("Heading");
+
+    fireEvent.click(title);
+
     expect(container.firstChild).toMatchSnapshot();
+    expect(onClick.mock.calls).toMatchSnapshot();
   });
   it("accpets onClick", () => {
     const onClick = jest.fn();
@@ -130,5 +138,27 @@ describe("OverviewCard component", () => {
     fireEvent.click(title);
 
     expect(onClick.mock.calls).toMatchSnapshot();
+  });
+
+  it("removes clickable class when the area is none", () => {
+    const { container } = render(
+      <OverviewCard
+        title="Heading"
+        titleVariant="h4"
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        brandImageSource={mockLogo}
+        footer={
+          <Button component="span" variant="outlined">
+            Go to this
+          </Button>
+        }
+        buttonComponent="div"
+        clickableArea="none"
+      >
+        We do the things
+      </OverviewCard>
+    );
+
+    expect(container).toMatchSnapshot();
   });
 });

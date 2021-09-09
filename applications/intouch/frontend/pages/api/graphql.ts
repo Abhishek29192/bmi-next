@@ -15,6 +15,7 @@ export const config = {
 };
 
 const handler = async function (req: Request, res: NextApiResponse, next: any) {
+  const { GRAPHQL_URL } = process.env;
   const logger = req.logger("graphql");
 
   if (!req.headers.authorization) {
@@ -27,6 +28,10 @@ const handler = async function (req: Request, res: NextApiResponse, next: any) {
       logger.error(error);
     }
   }
+
+  // The redirect middleware run before everything so it should never happen to
+  // arrive at this point without a subdomain
+  let market = req.headers.host?.split(".")[0];
 
   /**
    * If we are working locally we are not able to use the gcp api-gateway
@@ -42,9 +47,17 @@ const handler = async function (req: Request, res: NextApiResponse, next: any) {
       const [, jwtPayload] = authHeader.split(".");
       req.headers["x-apigateway-api-userinfo"] = jwtPayload;
     }
+
+    // This code need to run only in dev
+    if (market.indexOf("localhost") !== -1) {
+      market = "en";
+    }
   }
+
+  if (market) req.headers["x-request-market-domain"] = market;
+
   createProxyMiddleware({
-    target: process.env.GRAPHQL_URL,
+    target: GRAPHQL_URL,
     changeOrigin: true,
     proxyTimeout: 5000,
     secure: false,

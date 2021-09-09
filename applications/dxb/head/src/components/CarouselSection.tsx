@@ -15,7 +15,7 @@ import withGTM from "../utils/google-tag-manager";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { Data as LinkData, getCTA, getClickableActionFromUrl } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
@@ -67,7 +67,7 @@ const CarouselSection = ({
 }: {
   data: Data;
 }) => {
-  const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { countryCode, getMicroCopy } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
 
@@ -87,7 +87,7 @@ const CarouselSection = ({
           rollerSectionComponent={(props: ButtonBaseProps) => (
             <GTMButton
               gtm={{
-                id: "cta-click1",
+                id: "selector-card3",
                 label: props.children[0],
                 action: "Selector - Cards"
               }}

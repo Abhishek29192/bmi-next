@@ -10,7 +10,14 @@
   align-items: center;
   flex-direction: column;
 
-  .brand-logo {
+  .brandLogoButton {
+    background: transparent;
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  .brandLogo {
     fill: $color-white;
     height: 60px;
     @media (min-width: $breakpoint-md) {

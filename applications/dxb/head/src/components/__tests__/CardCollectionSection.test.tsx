@@ -5,7 +5,7 @@ import { Data as LinkData } from "../Link";
 import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalcualtor";
 import { Data as PromoData } from "../Promo";
-import { SiteContext } from "../Site";
+import { SiteContextProvider } from "../Site";
 import { TagData } from "../Tag";
 import { VisualiserContext } from "../Visualiser";
 
@@ -102,12 +102,12 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection
             data={data}
             theme={{ cardCollectionRowType: "single-row" }}
           />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -138,9 +138,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -171,9 +171,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -204,9 +204,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -237,9 +237,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -270,9 +270,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -303,9 +303,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -336,9 +336,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -393,9 +393,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -430,9 +430,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       //find filter tag 1
@@ -442,9 +442,9 @@ describe("CardCollectionSection component", () => {
 
       //get the rerendered output, which should remove any items without the tag
       wrapper.rerender(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       //card 1 has the selected tag
@@ -481,9 +481,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       //find filter tag 2
@@ -493,9 +493,9 @@ describe("CardCollectionSection component", () => {
 
       //get the rerendered output, which should remove any items without the tag
       wrapper.rerender(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       //card 3 has the selected tag
@@ -525,9 +525,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       //find filter tag 1
@@ -542,9 +542,9 @@ describe("CardCollectionSection component", () => {
 
       //get the rerendered output, which should remove any items without the tag
       wrapper.rerender(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       //card 1 has the selected tag
@@ -590,9 +590,9 @@ describe("CardCollectionSection component", () => {
     };
 
     const wrapper = render(
-      <SiteContext.Provider value={getSiteContext()}>
+      <SiteContextProvider value={getSiteContext()}>
         <CardCollectionSection data={data} theme="" />
-      </SiteContext.Provider>
+      </SiteContextProvider>
     );
 
     const renderedCards = wrapper.getAllByText("test card title");
@@ -640,9 +640,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       const cardLink = wrapper.getByTestId("card-link");
@@ -681,9 +681,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       const cardLink = wrapper.getByTestId("card-link");
@@ -748,9 +748,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       const cardLink = wrapper.getByTestId("card-link");
@@ -804,9 +804,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       const cardLink = wrapper.queryByTestId("card-link");
@@ -872,9 +872,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const { container } = render(
-        <SiteContext.Provider value={getSiteContext()}>
+        <SiteContextProvider value={getSiteContext()}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
 
       expect(container).toMatchSnapshot();
@@ -915,9 +915,9 @@ describe("CardCollectionSection component", () => {
 
       const wrapper = render(
         <VisualiserContext.Provider value={{ isOpen: false, open: undefined }}>
-          <SiteContext.Provider value={getSiteContext()}>
+          <SiteContextProvider value={getSiteContext()}>
             <CardCollectionSection data={data} theme="" />
-          </SiteContext.Provider>
+          </SiteContextProvider>
         </VisualiserContext.Provider>
       );
 
@@ -961,9 +961,9 @@ describe("CardCollectionSection component", () => {
         <VisualiserContext.Provider
           value={{ isOpen: false, open: visualiserOpen }}
         >
-          <SiteContext.Provider value={getSiteContext()}>
+          <SiteContextProvider value={getSiteContext()}>
             <CardCollectionSection data={data} theme="" />
-          </SiteContext.Provider>
+          </SiteContextProvider>
         </VisualiserContext.Provider>
       );
 
@@ -1009,9 +1009,9 @@ describe("CardCollectionSection component", () => {
         <VisualiserContext.Provider
           value={{ isOpen: false, open: visualiserOpen }}
         >
-          <SiteContext.Provider value={getSiteContext()}>
+          <SiteContextProvider value={getSiteContext()}>
             <CardCollectionSection data={data} theme="" />
-          </SiteContext.Provider>
+          </SiteContextProvider>
         </VisualiserContext.Provider>
       );
 
@@ -1055,9 +1055,9 @@ describe("CardCollectionSection component", () => {
 
       const wrapper = render(
         <CalculatorContext.Provider value={{ isOpen: false, open: undefined }}>
-          <SiteContext.Provider value={getSiteContext()}>
+          <SiteContextProvider value={getSiteContext()}>
             <CardCollectionSection data={data} theme="" />
-          </SiteContext.Provider>
+          </SiteContextProvider>
         </CalculatorContext.Provider>
       );
 
@@ -1102,9 +1102,9 @@ describe("CardCollectionSection component", () => {
         <CalculatorContext.Provider
           value={{ isOpen: false, open: calculatorOpen }}
         >
-          <SiteContext.Provider value={getSiteContext()}>
+          <SiteContextProvider value={getSiteContext()}>
             <CardCollectionSection data={data} theme="" />
-          </SiteContext.Provider>
+          </SiteContextProvider>
         </CalculatorContext.Provider>
       );
 
@@ -1150,9 +1150,9 @@ describe("CardCollectionSection component", () => {
         <CalculatorContext.Provider
           value={{ isOpen: false, open: calculatorOpen }}
         >
-          <SiteContext.Provider value={getSiteContext()}>
+          <SiteContextProvider value={getSiteContext()}>
             <CardCollectionSection data={data} theme="" />
-          </SiteContext.Provider>
+          </SiteContextProvider>
         </CalculatorContext.Provider>
       );
 
@@ -1180,9 +1180,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext("no", "nb-NO")}>
+        <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       expect(wrapper.baseElement).toMatchSnapshot();
     });
@@ -1204,9 +1204,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext("no", "nb-NO")}>
+        <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       expect(wrapper.baseElement).toMatchSnapshot();
     });
@@ -1228,9 +1228,9 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider value={getSiteContext("no", "nb-NO")}>
+        <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
           <CardCollectionSection data={data} theme="" />
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       expect(wrapper.baseElement).toMatchSnapshot();
     });

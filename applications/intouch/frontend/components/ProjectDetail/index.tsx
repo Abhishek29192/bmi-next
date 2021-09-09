@@ -1,51 +1,126 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
-import { Note, ProjectMember } from "@bmi/intouch-api-types";
+import { GuaranteeEventType, ProjectMember } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
-import { ProjectsHeader } from "../../components/Cards/ProjectsHeader";
-import { BuildingOwnerDetails } from "../../components/Cards/BuildingOwnerDetails";
-import { ProjectsInsight } from "../../components/Cards/ProjectsInsight";
-import { TabCard } from "../../components/Cards/TabCard";
-import { TeamTab } from "../../components/Tabs/Team";
-import { GuaranteeTab } from "../../components/Tabs/Guarantee";
-import { UploadsTab } from "../../components/Tabs/Uploads";
-import { NoProjectsCard } from "../../components/Cards/NoProjects";
-import { NoteTab } from "../../components/Tabs/Notes";
-import { useGetProjectQuery } from "../../graphql/generated/hooks";
+import can from "../../lib/permissions/can";
+import { ProjectsHeader } from "../Cards/ProjectsHeader";
+import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
+import { ProjectsInsight } from "../Cards/ProjectsInsight";
+import { TabCard } from "../Cards/TabCard";
+import { TeamTab } from "../Tabs/Team";
+import { GuaranteeTab } from "../Tabs/Guarantee";
+import { UploadsTab } from "../Tabs/Uploads";
+import { NoProjectsCard } from "../Cards/NoProjects";
+import { NoteTab } from "../Tabs/Notes";
+import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
+import {
+  GetProjectDocument,
+  useGetProjectQuery,
+  useUpdateGuaranteeMutation
+} from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
+import {
+  getProjectStatus,
+  getProjectGuaranteeStatus,
+  getGuaranteeEventType,
+  isProjectApprovable,
+  isSolutionOrSystemGuaranteeExist
+} from "../../lib/utils/project";
+import log from "../../lib/logger";
+import { useAccountContext } from "../../context/AccountContext";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
+  const { t } = useTranslation("project-page");
+  const { account } = useAccountContext();
+  const [updateGuarantee] = useUpdateGuaranteeMutation({
+    onError: (error) => {
+      log({
+        severity: "ERROR",
+        message: `There was an error updating guarantee status: ${error.toString()}`
+      });
+    },
+    onCompleted: ({ updateGuarantee: { guarantee } }) => {
+      log({
+        severity: "INFO",
+        message: `Guarantee ID [${guarantee.id}] status updated`
+      });
+    },
+    refetchQueries: [
+      {
+        query: GetProjectDocument,
+        variables: {
+          projectId: projectId
+        }
+      }
+    ]
+  });
+
+  // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
+  const getProjectGuaranteeType = useCallback(
+    (project: GetProjectQuery["project"]) => {
+      return (
+        project?.guarantees?.nodes?.[0]?.guaranteeType?.displayName ||
+        t("guarantee.notRequested")
+      );
+    },
+    [t]
+  );
+
+  const guaranteeUpdateHandler = (guaranteeEventType: GuaranteeEventType) => {
+    const id = project?.guarantees?.nodes?.[0]?.id;
+    updateGuarantee({
+      variables: {
+        input: {
+          id,
+          guaranteeEventType,
+          patch: {}
+        }
+      }
+    });
+  };
+
   if (!projectId) {
     return (
       <Grid item xs={12}>
-        <NoProjectsCard title="No projects to display">
+        <NoProjectsCard title={t("noProjecSelected.title")}>
           <Typography variant="subtitle2">
-            You have not select any project yet!
+            {t("noProjecSelected.body1")}
           </Typography>
           <Typography variant="subtitle2">
-            Select the &quot;project&quot; from sidebar to get started.
+            {t("noProjecSelected.body2")}
           </Typography>
         </NoProjectsCard>
       </Grid>
     );
   }
 
-  const { data: { project = null } = {}, loading } = useGetProjectQuery({
+  const {
+    data: { project } = {},
+    loading,
+    error
+  } = useGetProjectQuery({
     variables: {
       projectId: projectId
     }
   });
 
-  if (loading) return <></>;
+  if (error) {
+    log({
+      severity: "ERROR",
+      message: `Error loading project details. ID: ${projectId}. Error: ${error.toString()}`
+    });
+    return <div>Error loading project details.</div>;
+  }
 
-  const getProjectStatus = (startDate, endDate) => {
-    if (!startDate && !endDate) return "Not started";
-    else if (startDate && !endDate) return "In progress";
-    else return "Completed";
-  };
+  // TODO: Microcopy
+  if (loading) return <>Loading project details...</>;
+
+  const isGuaranteeAppliable =
+    can(account, "project", "submitSolutionGuarantee") &&
+    !isSolutionOrSystemGuaranteeExist(project);
 
   return (
     <>
@@ -54,19 +129,24 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           title={project.name}
           projectCode={`${project.id}`}
           projectStatus={getProjectStatus(project.startDate, project.endDate)}
-          buildingAddress={`${project.siteAddress.firstLine}, ${project.siteAddress.secondLine}, ${project.siteAddress.region}, ${project.siteAddress.town}, ${project.siteAddress.postcode}`}
+          buildingAddress={project.siteAddress}
           projectDescription={project.description}
+          roofArea={project.roofArea}
           startDate={project.startDate}
           endDate={project.endDate}
-          guarantee="-"
-          guaranteeStatus="-"
+          guaranteeType={getProjectGuaranteeType(project)}
+          guaranteeStatus={getProjectGuaranteeStatus(project)}
+          guaranteeEventType={getGuaranteeEventType(project, account.id)}
+          guaranteeEventHandler={guaranteeUpdateHandler}
         />
 
         <BuildingOwnerDetails
-          name={`${project.buildingOwnerFirstname} ${project.buildingOwnerLastname}`}
+          name={[project.buildingOwnerFirstname, project.buildingOwnerLastname]
+            .filter(Boolean)
+            .join(" ")}
           email={project.buildingOwnerMail}
           company={project.buildingOwnerCompany}
-          address={`${project.buildingOwnerAddress?.firstLine}, ${project.buildingOwnerAddress?.secondLine}, ${project.buildingOwnerAddress?.region}, ${project.buildingOwnerAddress?.town}, ${project.buildingOwnerAddress?.postcode}`}
+          address={project.buildingOwnerAddress}
         />
       </Grid>
 
@@ -89,7 +169,10 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Guarantee" index="two">
             <TabCard>
-              <GuaranteeTab />
+              <GuaranteeTab
+                project={project}
+                isApplyGuarantee={isGuaranteeAppliable}
+              />
             </TabCard>
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Uploads" index="three">
@@ -99,10 +182,25 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Notes" index="four">
             <TabCard>
-              <NoteTab notes={project.notes?.nodes as Note[]} />
+              <NoteTab
+                accountId={account.id}
+                projectId={project.id}
+                notes={project.notes?.nodes}
+              />
             </TabCard>
           </Tabs.TabPanel>
         </Tabs>
+      </Grid>
+      <Grid item xs={12}>
+        {can(account, "project", "adminActions") ? (
+          <ProjectActionsCard
+            projectId={project.id}
+            isArchived={project.hidden}
+            guaranteeEventHandler={
+              isProjectApprovable(project, account.id) && guaranteeUpdateHandler
+            }
+          />
+        ) : null}
       </Grid>
     </>
   );
@@ -138,7 +236,36 @@ const UploadedFiles = ({
     const existFiles = map.has(categoryLabel) ? map.get(categoryLabel) : [];
     map.set(categoryLabel, [...existFiles, evidence.name]);
   }
-  return <UploadsTab projectId={id} uploads={map} />;
+
+  const guaranteeEvidence = getGuaranteeEvidence(guarantees.nodes);
+
+  return (
+    <UploadsTab
+      projectId={id}
+      guaranteeId={guaranteeEvidence.guaranteeId}
+      uploads={map}
+      isContentfulEvidenceAvailable={guaranteeEvidence.customEvidenceAvailable}
+    />
+  );
+};
+
+const getGuaranteeEvidence = (
+  guarantees: GetProjectQuery["project"]["guarantees"]["nodes"]
+) => {
+  const solutionGuarantee =
+    guarantees.find((node) => node.guaranteeType.coverage === "SOLUTION") ||
+    null;
+
+  let evidenceAvailable = false;
+  if (solutionGuarantee !== null) {
+    evidenceAvailable = !["APPROVED", "REVIEW"].includes(
+      solutionGuarantee.status
+    );
+  }
+  return {
+    guaranteeId: solutionGuarantee?.id,
+    customEvidenceAvailable: evidenceAvailable
+  };
 };
 
 export default ProjectDetail;
@@ -147,6 +274,7 @@ export const GET_PROJECT = gql`
   query GetProject($projectId: Int!) {
     project(id: $projectId) {
       id
+      hidden
       name
       technology
       roofArea
@@ -174,16 +302,47 @@ export const GET_PROJECT = gql`
       guarantees {
         nodes {
           id
-          guaranteeTypeId
+          guaranteeReferenceCode
+          reviewerAccountId
+          coverage
+          languageCode
           guaranteeType {
+            sys {
+              id
+            }
             name
+            coverage
+            displayName
+            technology
+            tiersAvailable
             evidenceCategoriesCollection {
               items {
+                sys {
+                  id
+                }
+                referenceCode
                 name
                 minimumUploads
               }
             }
           }
+          productByProductBmiRef {
+            ...ProjectDetailsProductFragment
+          }
+          systemBySystemBmiRef {
+            id
+            name
+            description
+            systemMembersBySystemBmiRef {
+              nodes {
+                id
+                productByProductBmiRef {
+                  ...ProjectDetailsProductFragment
+                }
+              }
+            }
+          }
+          status
         }
       }
       evidenceItems {
@@ -192,7 +351,7 @@ export const GET_PROJECT = gql`
           name
           guaranteeId
           evidenceCategoryType
-          customEvidenceCategoryId
+          customEvidenceCategoryKey
           customEvidenceCategory {
             name
             minimumUploads
@@ -203,6 +362,11 @@ export const GET_PROJECT = gql`
         nodes {
           id
           body
+          authorId
+          author {
+            firstName
+            lastName
+          }
           createdAt
         }
       }
@@ -221,8 +385,24 @@ export const GET_PROJECT = gql`
               }
             }
           }
+          isResponsibleInstaller
         }
       }
+      company {
+        id
+        name
+        tier
+      }
     }
+  }
+`;
+
+export const PROJECT_DETAIL_PRODUCT_FRAGMENT = gql`
+  fragment ProjectDetailsProductFragment on Product {
+    id
+    name
+    brand
+    family
+    description
   }
 `;

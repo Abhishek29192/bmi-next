@@ -1,11 +1,11 @@
-import { createContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import { NavigationData } from "./Link";
 import { Data as ResourcesData } from "./Resources";
 import { GetMicroCopy, fallbackGetMicroCopy } from "./MicroCopy";
 import { Region } from "./Header";
 
-type Context = {
+export type Context = {
   node_locale: string;
   countryCode: string;
   homePage: {
@@ -16,7 +16,7 @@ type Context = {
   reCaptchaNet?: boolean;
 };
 
-export const SiteContext = createContext<Context>({
+const SiteContext = React.createContext<Context>({
   node_locale: "",
   countryCode: "",
   homePage: {
@@ -24,6 +24,10 @@ export const SiteContext = createContext<Context>({
   },
   getMicroCopy: fallbackGetMicroCopy
 });
+
+export const SiteContextProvider = SiteContext.Provider;
+
+export const useSiteContext = () => React.useContext(SiteContext);
 
 export type Data = {
   node_locale: string;

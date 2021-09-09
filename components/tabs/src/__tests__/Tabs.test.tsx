@@ -46,4 +46,15 @@ describe("Tabs component", () => {
 
     expect(onChange.mock.calls).toMatchSnapshot();
   });
+  it("renders correctly when one tab is false", () => {
+    const { container } = render(
+      <Tabs>
+        <Tabs.TabPanel heading="Tab 1" index={0}>
+          Content One
+        </Tabs.TabPanel>
+        {false}
+      </Tabs>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

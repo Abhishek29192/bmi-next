@@ -1,0 +1,545 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With more than one feature units 1`] = `
+<div>
+  <div
+    class="section"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="SystemDetailsTechnicalSpec"
+      >
+        <div
+          class="Accordion Accordion--no-inner-padding"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h6
+                  class="MuiTypography-root Typography MuiTypography-h6"
+                >
+                  class1
+                </h6>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-entered"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root accordion-details"
+                    >
+                      <div>
+                        <table
+                          class="MuiTable-root Table Table--row-even-color Table--no-border"
+                        >
+                          <tbody
+                            class="MuiTableBody-root"
+                          >
+                            <tr
+                              class="MuiTableRow-root"
+                            >
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                              >
+                                feature1
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                              >
+                                200 in
+                              </td>
+                            </tr>
+                            <tr
+                              class="MuiTableRow-root"
+                            >
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                              >
+                                feature1
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                              >
+                                200 in
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h6
+                  class="MuiTypography-root Typography MuiTypography-h6"
+                >
+                  class2
+                </h6>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-entered"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root accordion-details"
+                    >
+                      <div>
+                        <table
+                          class="MuiTable-root Table Table--row-even-color Table--no-border"
+                        >
+                          <tbody
+                            class="MuiTableBody-root"
+                          >
+                            <tr
+                              class="MuiTableRow-root"
+                            >
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                              >
+                                feature1
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                              >
+                                200 in
+                              </td>
+                            </tr>
+                            <tr
+                              class="MuiTableRow-root"
+                            >
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                              >
+                                feature1
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                              >
+                                200 in
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With no feature units 1`] = `
+<div>
+  <div
+    class="section"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="SystemDetailsTechnicalSpec"
+      >
+        <div
+          class="Accordion Accordion--no-inner-padding"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h6
+                  class="MuiTypography-root Typography MuiTypography-h6"
+                >
+                  test name
+                </h6>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-entered"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root accordion-details"
+                    >
+                      <div>
+                        <table
+                          class="MuiTable-root Table Table--row-even-color Table--no-border"
+                        >
+                          <tbody
+                            class="MuiTableBody-root"
+                          >
+                            <tr
+                              class="MuiTableRow-root"
+                            >
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                              >
+                                feature1
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                              >
+                                200 
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h6
+                  class="MuiTypography-root Typography MuiTypography-h6"
+                >
+                  test name
+                </h6>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-entered"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root accordion-details"
+                    >
+                      <div>
+                        <table
+                          class="MuiTable-root Table Table--row-even-color Table--no-border"
+                        >
+                          <tbody
+                            class="MuiTableBody-root"
+                          >
+                            <tr
+                              class="MuiTableRow-root"
+                            >
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                              >
+                                feature1
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                              >
+                                200 
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With a feature units 1`] = `
+<div>
+  <div
+    class="section"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="SystemDetailsTechnicalSpec"
+      >
+        <div>
+          <table
+            class="MuiTable-root Table Table--row-even-color"
+          >
+            <thead
+              class="MuiTableHead-root ColorPair ColorPair--pearl"
+            >
+              <tr
+                class="MuiTableRow-root MuiTableRow-head"
+              >
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                >
+                  class1
+                </th>
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                />
+              </tr>
+            </thead>
+            <tbody
+              class="MuiTableBody-root"
+            >
+              <tr
+                class="MuiTableRow-root"
+              >
+                <td
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                >
+                  feature1
+                </td>
+                <td
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                >
+                  200 in
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With no feature units 1`] = `
+<div>
+  <div
+    class="section"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="SystemDetailsTechnicalSpec"
+      >
+        <div>
+          <table
+            class="MuiTable-root Table Table--row-even-color"
+          >
+            <thead
+              class="MuiTableHead-root ColorPair ColorPair--pearl"
+            >
+              <tr
+                class="MuiTableRow-root MuiTableRow-head"
+              >
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                >
+                  test name
+                </th>
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                />
+              </tr>
+            </thead>
+            <tbody
+              class="MuiTableBody-root"
+            >
+              <tr
+                class="MuiTableRow-root"
+              >
+                <td
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                >
+                  feature1
+                </td>
+                <td
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                >
+                  200 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

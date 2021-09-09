@@ -143,6 +143,9 @@
     .icon-wrapper {
       display: inline-block;
       width: 100px;
+      @media (min-width: $breakpoint-xl) {
+        width: 130px;
+      }
     }
 
     .chevronRight,
@@ -180,6 +183,21 @@
         [data-name="bg block"] {
           fill: none;
         }
+
+        svg {
+          max-width: 100px;
+          @media (min-width: $breakpoint-xl) {
+            max-width: 130px;
+          }
+        }
+      }
+    }
+
+    &--outline {
+      color: $color-cyan-500;
+      border-color: rgba($color-cyan-500, 0.5);
+      &:hover {
+        background-color: rgba($color-cyan-600, 0.04);
       }
     }
   }

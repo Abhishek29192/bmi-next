@@ -1,5 +1,3 @@
-import { fetch } from "cross-fetch";
-
 export type EventMessage =
   | "COMPANY_MEMBER_REMOVED"
   | "COMPANY_REGISTERED"
@@ -15,98 +13,127 @@ export type EventMessage =
   | "REQUEST_APPROVED"
   | "TEAM_JOINED";
 
-export const getGuarantee = async (id: string) => {
-  const variables = { id: id };
+export const getGuaranteeTypeCollection = async (
+  client,
+  guaranteeReferenceCode: string
+) => {
+  const variables = { guaranteeReferenceCode };
   const query = `
-query guarantee($id:String!) {
-  guaranteeType(id:$id) {
-    name
-    displayName
-    technology
-    coverage
-    signature {
-      fileName
-      url
-    }
-    evidenceCategoriesCollection {
+  query guarantee($guaranteeReferenceCode: String!) {
+    guaranteeTypeCollection(
+      limit: 1
+      where: { guaranteeReferenceCode: $guaranteeReferenceCode }
+    ) {
+      total
       items {
+        sys {
+          id
+        }
+        guaranteeReferenceCode
         name
-        minimumUploads
-      }
-    }
-    guaranteeTemplatesCollection {
-      items {
-        approvalMessage {
-          event
-          format
-          subject
-          notificationBody
-          emailBody
-        }
-        rejectionMessage {
-          event
-          format
-          subject
-          notificationBody
-          emailBody
-        }
-        logo {
-          title
-          url
-        }
-        maintenanceTemplate {
+        displayName
+        technology
+        coverage
+        signature {
           fileName
           url
         }
-        terms{
-          fileName
-          url
+        tiersAvailable
+        evidenceCategoriesCollection {
+          items {
+            sys {
+              id
+            }
+            referenceCode
+            name
+            minimumUploads
+          }
         }
-        guaranteeScope
-        signatory
-        headingGuarantee
-        headingScope
-        headingProducts
-        headingBeneficiary
-        headingBuildingOwnerName
-        headingBuildingAddress
-        headingRoofArea
-        headingRoofType
-        headingContractor
-        headingContractorName
-        headingContractorId
-        headingStartDate
-        headingGuaranteeId
-        headingValidity
-        headingExpiry
-        footer
-        mailBody
-        filenamePrefix
-        lockupLine1
-        lockupLine2
-        roofType
+        guaranteeTemplatesCollection {
+          total
+          items {
+            languageCode
+            approvalMessage {
+              event
+              format
+              subject
+              notificationBody
+              emailBody
+            }
+            rejectionMessage {
+              event
+              format
+              subject
+              notificationBody
+              emailBody
+            }
+            logo {
+              title
+              url
+            }
+            maintenanceTemplate {
+              fileName
+              url
+            }
+            terms {
+              fileName
+              url
+            }
+            guaranteeScope
+            signatory
+            headingGuarantee
+            headingScope
+            headingProducts
+            headingBeneficiary
+            headingBuildingOwnerName
+            headingBuildingAddress
+            headingRoofArea
+            headingRoofType
+            headingContractor
+            headingContractorName
+            headingContractorId
+            headingStartDate
+            headingGuaranteeId
+            headingValidity
+            headingExpiry
+            footer
+            mailBody
+            filenamePrefix
+            titleLine1
+            titleLine2
+            roofType
+          }
+        }
       }
     }
   }
-}`;
+`;
 
-  return contentfulHandler(query, variables);
+  return client(query, variables);
 };
 
-export const getEvidenceCategory = async (id: string) => {
+export const getEvidenceCategory = async (client, referenceCode: string) => {
   const query = `
-query EvidenceCategory($id: String!) {
-  evidenceCategory(id: $id) {
-    name
-    minimumUploads
+  query EvidenceCategory($referenceCode: String!) {
+    evidenceCategoryCollection(
+    limit: 1
+    where: { referenceCode: $referenceCode }
+  ) {
+    items {
+      sys {
+        id
+      }
+      name
+      minimumUploads
+    }
   }
 }`;
 
-  const variables = { id: id };
-  return contentfulHandler(query, variables);
+  const variables = { referenceCode: referenceCode };
+  return client(query, variables);
 };
 
-export const messageTemplate = async (event: EventMessage) => {
+export const messageTemplate = async (client, event: EventMessage) => {
   const query = `
   query messageTemplateCollection($event: String!) {
     messageTemplateCollection(where: { event: $event }) {
@@ -117,26 +144,5 @@ export const messageTemplate = async (event: EventMessage) => {
     }
   }`;
 
-  return contentfulHandler(query, { event });
-};
-
-const contentfulHandler = async (query: string, variables: Object) => {
-  const {
-    CONTENTFUL_API_HOST,
-    CONTENTFUL_SPACE_ID,
-    CONTENTFUL_ENVIRONMENT,
-    CONTENTFUL_TOKEN
-  } = process.env;
-
-  const CONTENTFUL_SERVICE = `${CONTENTFUL_API_HOST}/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`;
-
-  const fetchResult = await fetch(CONTENTFUL_SERVICE, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${CONTENTFUL_TOKEN}`
-    },
-    body: JSON.stringify({ query, variables })
-  });
-  return fetchResult.json();
+  return client(query, { event });
 };

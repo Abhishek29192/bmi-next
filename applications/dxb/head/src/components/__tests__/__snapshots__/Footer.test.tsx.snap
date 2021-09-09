@@ -33,16 +33,16 @@ exports[`Footer component renders correctly 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":\\"tel:+4401234567890\\"}"
                     href="tel:+4401234567890"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label-4"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -82,14 +82,14 @@ exports[`Footer component renders correctly 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
                     href="/uk/landing-page"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label-4"
                     >
                       Our story
                     </span>
@@ -118,14 +118,14 @@ exports[`Footer component renders correctly 1`] = `
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
                 href="/uk/landing-page"
                 role="button"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label"
+                  class="MuiButton-label buttonStyles-label-4"
                 >
                   Our story
                 </span>
@@ -139,14 +139,14 @@ exports[`Footer component renders correctly 1`] = `
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                 href="/uk/sitemap"
                 role="button"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label"
+                  class="MuiButton-label buttonStyles-label-4"
                 >
                   global.sitemap
                 </span>

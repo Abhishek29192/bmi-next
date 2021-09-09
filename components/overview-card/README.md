@@ -162,3 +162,22 @@ import { AeroDek as brandLogo } from "@bmi/logo";
   Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
 </OverviewCard>;
 ```
+
+### Highlighted (shows border arond the card)
+
+```jsx
+import Button from "@bmi/button";
+import demoHouseImage from "./images/demo-tiles.jpg";
+import { AeroDek as brandLogo } from "@bmi/logo";
+
+<OverviewCard
+  title="Unde Mmnis Iste"
+  media={<img src={demoHouseImage} alt="Lorem ipsum" />}
+  brandImageSource={brandLogo}
+  footer={<Button variant="outlined">Go to this</Button>}
+  isFlat
+  isHighlighted
+>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+</OverviewCard>;
+```

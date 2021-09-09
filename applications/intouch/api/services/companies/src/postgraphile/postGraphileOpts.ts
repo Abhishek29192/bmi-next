@@ -7,6 +7,7 @@ import FederationPlugin from "@graphile/federation";
 import { TagsFilePlugin } from "postgraphile/plugins";
 import { Role } from "@bmi/intouch-api-types";
 import config from "../config";
+import StorageClient from "../services/storage-client";
 import { Account } from "../types/index";
 import { getDbPool } from "../db";
 import { ExtendPlugin, WrapPlugin } from "./plugins";
@@ -37,12 +38,15 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
   handleErrors,
   additionalGraphQLContextFromRequest: async (req: Request, res: Response) => {
     const dbPool = getDbPool();
+    const storageClient = new StorageClient();
 
     return {
       user: req.user,
       logger: req.logger,
       pubSub: req.pubSub,
-      pgRootPool: dbPool
+      clientGateway: req.clientGateway,
+      pgRootPool: dbPool,
+      storageClient
     };
   },
   pgSettings: async ({ user }: Props) => {

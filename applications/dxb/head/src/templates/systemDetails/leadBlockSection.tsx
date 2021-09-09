@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Section from "@bmi/section";
 import LeadBlock from "@bmi/lead-block";
 import Typography from "@bmi/typography";
-import AnchorLink from "@bmi/anchor-link";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Button from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import CheckIcon from "@material-ui/icons/Check";
+import { isEmpty } from "lodash";
+import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
 import Image, { Data as ImageData } from "../../components/Image";
+import { useSiteContext } from "../../components/Site";
 import styles from "./styles/leadBlockSection.module.scss";
-import { Category, Classification } from "./types";
+import { Category, Classification, Feature } from "./types";
 
-const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
+const BlueCheckIcon = (
+  <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
+);
 
 type Props = {
   name: string;
   categories: Category[];
   classifications: Classification[];
   cta?: LinkData;
+  uniqueSellingPropositions?: Feature;
 };
+
+const SYSTEM_CONFIG_QUERY_KEY = "selected_system";
 
 const getBrandLogo = (categories: Category[]): null | ImageData => {
   const brandCategory = categories.find((c) => c.categoryType === "Brand");
@@ -27,11 +35,11 @@ const getBrandLogo = (categories: Category[]): null | ImageData => {
 
   return {
     type: null,
-    altText: brandCategory.image.altText,
+    altText: null,
     image: {
       file: {
-        fileName: brandCategory.image.realFileName,
-        url: brandCategory.image.url
+        fileName: brandCategory.image?.realFileName,
+        url: brandCategory.image?.url
       }
     },
     caption: null,
@@ -63,10 +71,22 @@ const LeadBlockSection = ({
   name,
   categories,
   classifications,
-  cta
+  cta,
+  uniqueSellingPropositions
 }: Props) => {
+  const { getMicroCopy } = useSiteContext();
+  const [selectedSystemId, setSelectedSystemId] = useState("");
   const brandLogo = getBrandLogo(categories);
   const promotionalContent = getPromotionalContent(classifications);
+  const location = useLocation();
+
+  useEffect(() => {
+    const systemId = new URLSearchParams(location.search).get(
+      SYSTEM_CONFIG_QUERY_KEY
+    );
+
+    setSelectedSystemId(systemId);
+  }, []);
 
   return (
     <Section backgroundColor="white" className={styles["LeadBlockSection"]}>
@@ -89,16 +109,20 @@ const LeadBlockSection = ({
               <Typography variant="body2">{promotionalContent}</Typography>
             </LeadBlock.Content.Section>
           )}
-
           <LeadBlock.Content.Section className={styles["ctaContainer"]}>
-            <AnchorLink
-              action={{ model: "htmlLink", href: "/" }}
-              iconStart
-              iconInverted
-            >
-              Back to your selection
-            </AnchorLink>
-
+            {selectedSystemId && (
+              <Button
+                variant="text"
+                action={{
+                  model: "htmlLink",
+                  href: `system-configurator-page?referer=sys_details`,
+                  rel: "noopener noreferrer"
+                }}
+                startIcon={<ArrowBackIcon />}
+              >
+                {getMicroCopy("sdp.leadBlock.backToYourSelection")}
+              </Button>
+            )}
             {Boolean(cta) && (
               <Link
                 data={cta}
@@ -117,27 +141,27 @@ const LeadBlockSection = ({
             )}
           </LeadBlock.Content.Section>
         </LeadBlock.Content>
-        <LeadBlock.Card theme="pearl">
-          <LeadBlock.Card.Section>
-            <IconList>
-              <IconList.Item
-                isCompact
-                icon={BlueCheckIcon}
-                title="Lorem, ipsum dolor sit amet consectetur adipisicing elit"
-              />
-              <IconList.Item
-                isCompact
-                icon={BlueCheckIcon}
-                title="Minoritetsladningsbærerdiffusjonskoeffisientmålingsapparatur"
-              />
-              <IconList.Item
-                isCompact
-                icon={BlueCheckIcon}
-                title="Excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia"
-              />
-            </IconList>
-          </LeadBlock.Card.Section>
-        </LeadBlock.Card>
+        {uniqueSellingPropositions &&
+          !isEmpty(uniqueSellingPropositions.featureValues) && (
+            <LeadBlock.Card theme="pearl" data-testid="system-attributes-card">
+              <LeadBlock.Card.Section>
+                <div className={styles["iconList"]}>
+                  <IconList>
+                    {uniqueSellingPropositions.featureValues.map(
+                      ({ value }, id) => (
+                        <IconList.Item
+                          isCompact
+                          icon={BlueCheckIcon}
+                          title={value}
+                          key={`unique-selling-proposition-${id}`}
+                        />
+                      )
+                    )}
+                  </IconList>
+                </div>
+              </LeadBlock.Card.Section>
+            </LeadBlock.Card>
+          )}
       </LeadBlock>
     </Section>
   );

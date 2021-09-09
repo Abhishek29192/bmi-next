@@ -1,9 +1,17 @@
 import { Home, Build, School, People, Business } from "@material-ui/icons";
 import { Box, Design } from "@bmi/icon";
 import { Account } from "@bmi/intouch-api-types";
+import { findAccountCompany } from "../../lib/account";
 import can from "../../lib/permissions/can";
 
-export const getSidebarLinks = (account: Account, t) => {
+type Link = {
+  href: string;
+  icon: SVGImport;
+  label: string;
+  isVisible: boolean;
+};
+
+export const getSidebarLinks = (account: Account, t): Link[] => {
   return [
     {
       href: "/",
@@ -30,10 +38,19 @@ export const getSidebarLinks = (account: Account, t) => {
       isVisible: can(account, "navigation", "team")
     },
     {
-      href: "/company",
+      href: "/companies",
+      icon: Business,
+      label: t("Companies"),
+      isVisible: can(account, "navigation", "companies")
+    },
+    {
+      href: `/companies/${findAccountCompany(account)?.id}`,
       icon: Business,
       label: t("Company"),
-      isVisible: can(account, "navigation", "company")
+      isVisible:
+        // if the user can see the link to "companies" we don't also show the link to the single company
+        !can(account, "navigation", "companies") &&
+        can(account, "navigation", "company")
     },
     // TODO: change URL to tools
     {
@@ -43,10 +60,10 @@ export const getSidebarLinks = (account: Account, t) => {
       isVisible: can(account, "navigation", "tools")
     },
     {
-      href: "/inventory",
+      href: "/admin/products",
       icon: Box,
       label: t("Inventory"),
-      isVisible: can(account, "navigation", "inventory")
+      isVisible: can(account, "navigation", "productsAdmin")
     }
   ].filter(({ isVisible }) => isVisible);
 };

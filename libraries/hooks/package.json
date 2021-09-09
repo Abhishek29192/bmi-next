@@ -1,0 +1,13 @@
+{
+  "name": "@bmi/hooks",
+  "version": "0.0.0",
+  "private": false,
+  "license": "BMI-DXB",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  }
+}

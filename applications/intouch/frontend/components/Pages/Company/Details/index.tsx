@@ -1,5 +1,6 @@
 import React from "react";
 import { gql } from "@apollo/client";
+import Avatar from "@material-ui/core/Avatar";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import { Facebook, LinkedIn } from "@material-ui/icons";
@@ -31,6 +32,8 @@ export const CompanyDetails = ({
 }: CompanyHeaderProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
+  const logo = company.logo as string | undefined;
+
   return (
     <div className={styles.main}>
       <Typography variant="h4" hasUnderline>
@@ -46,12 +49,18 @@ export const CompanyDetails = ({
       <div className={styles.body}>
         <Grid container spacing={3}>
           {showLogo ? (
-            <Grid item xs={12} lg={3} xl={3}>
-              {/* TODO: Placeholder logo */}
-              <img src={company.logo} alt="" style={{ maxWidth: "100%" }} />
+            <Grid item xs={12} sm={3}>
+              {logo ? (
+                <img src={logo} alt="" className={styles.logo} />
+              ) : (
+                <Avatar
+                  variant="square"
+                  className={`${styles.logo} ${styles.defaultLogo}`}
+                />
+              )}
             </Grid>
           ) : null}
-          <Grid item xs={12} lg={9} xl={9}>
+          <Grid item xs={12} sm={9}>
             {showAboutUs && company.aboutUs ? (
               <div>
                 <InfoPair title={t("company-page:details.aboutUs")}>

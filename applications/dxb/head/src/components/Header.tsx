@@ -1,6 +1,5 @@
-import React, { useContext, useMemo } from "react";
+import React, { useMemo } from "react";
 import { graphql, Link, withPrefix } from "gatsby";
-import { getSrc } from "gatsby-plugin-image";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
@@ -8,6 +7,7 @@ import HidePrint from "@bmi/hide-print";
 import { Tab, TabProps } from "@material-ui/core";
 import withGTM from "../utils/google-tag-manager";
 import Image from "../components/Image";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -15,7 +15,7 @@ import {
   NavigationItem,
   getCTA
 } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import RichText, { RichTextData } from "./RichText";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
@@ -23,10 +23,10 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
 
   return [
     {
-      label: promo.title,
+      label: promo.title || promo.name,
       image: <Image data={promo.featuredMedia} />
     },
-    { label: promo.title, isHeading: true },
+    { label: promo.title || promo.name, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),
     ...(cta ? [cta] : [])
   ];
@@ -98,7 +98,7 @@ const parseNavigation = (
       if (linkedPage) {
         action = {
           model: "routerLink",
-          to: `/${countryCode}/${linkedPage.path}`,
+          to: getPathWithCountryCode(countryCode, linkedPage.path),
           linkComponent: Link
         };
       } else if (url) {
@@ -180,7 +180,7 @@ const Header = ({
     return null;
   }
 
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const utilities = parseNavigation(
     utilitiesData.links,
     countryCode,
@@ -207,7 +207,7 @@ const Header = ({
           logoAction={{
             model: "routerLink",
             linkComponent: Link,
-            to: `/${countryCode}/`
+            to: getPathWithCountryCode(countryCode, "")
           }}
           logoLabel={getMicroCopy("global.logoLabel")}
           activeNavLabel={activeLabel}
@@ -241,7 +241,7 @@ const Header = ({
               style={{ marginLeft: 10, marginBottom: 15 }}
             />
           )}
-          searchAction={`/${countryCode}/search`}
+          searchAction={getPathWithCountryCode(countryCode, "search")}
           searchLabel={getMicroCopy("search.label")}
           searchPlaceholder={getMicroCopy("search.placeholder.header")}
           searchTitle={getMicroCopy("search.title")}

@@ -1,0 +1,10 @@
+{
+  "technology": "Tecnologia",
+  "bmiRef": "BmiRef",
+  "brand": "Brand",
+  "description": "Descrizione",
+  "family": "Famiglia",
+  "published": "Pubblicato",
+  "maximumValidityYears": "Massima validita in anni",
+  "updatedAt": "Aggiornato in data"
+}

@@ -5,7 +5,12 @@ import {
   Source
 } from "graphql";
 import { ExecutionResult, Maybe } from "@graphql-tools/utils";
-import { Guarantee, Technology } from "@bmi/intouch-api-types";
+import {
+  Address,
+  Company,
+  Guarantee,
+  Technology
+} from "@bmi/intouch-api-types";
 
 type guaranteeResolverParams = {
   graphql: <TData = ExecutionResult["data"]>(
@@ -80,7 +85,7 @@ export const guaranteeResolver = async ({
         startDate
         expiryDate
         bmiReferenceId
-        guaranteeTypeId
+        guaranteeReferenceCode
         guaranteeType {
           name
           displayName
@@ -92,6 +97,7 @@ export const guaranteeResolver = async ({
           }
           guaranteeTemplatesCollection {
             items {
+              languageCode
               logo {
                 title
                 url
@@ -153,4 +159,36 @@ export const getCompanyCertifications = async (
     [companyId]
   );
   return rows.map(({ technology }) => technology as Technology);
+};
+
+const isAddressComplete = (
+  address: Address,
+  requireCoordinates: boolean
+): boolean => {
+  return !!(address?.firstLine &&
+  address?.postcode &&
+  address?.town &&
+  address?.country &&
+  requireCoordinates
+    ? address?.coordinates?.x && address?.coordinates.y
+    : true);
+};
+
+export const getCompanyIsProfileComplete = (company: Company): boolean => {
+  return !!(
+    // These are the mandatory fields during registration
+    (
+      company.name &&
+      company.businessType &&
+      isAddressComplete(company.registeredAddress, false) &&
+      company.taxNumber &&
+      // Aside from mandatory fields during registrtion we also need to check for the following
+      // which will place the company in find a roofer
+      company.aboutUs &&
+      company.phone &&
+      company.publicEmail &&
+      company.logo &&
+      isAddressComplete(company.tradingAddress, true)
+    )
+  );
 };

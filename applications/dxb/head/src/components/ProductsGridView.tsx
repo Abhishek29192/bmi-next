@@ -3,7 +3,7 @@ import Grid from "@bmi/grid";
 import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import Typography from "@bmi/typography";
 import { Link } from "gatsby";
-import React, { useContext } from "react";
+import React from "react";
 import { iconMap } from "../components/Icon";
 import withGTM from "../utils/google-tag-manager";
 import {
@@ -12,7 +12,7 @@ import {
   getProductUrl,
   mapClassificationValues
 } from "../utils/product-details-transforms";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 // TODO: This is the transformed indexed data
 type ESProductResult = any;
@@ -23,7 +23,7 @@ type Props = {
 };
 
 const ProductsGridView = ({ products, pageContext }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const { variantCodeToPathMap } = pageContext;
 
   if (products.length === 0) {

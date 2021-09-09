@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
 import Button from "@bmi/button";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
@@ -6,7 +6,7 @@ import Typography from "@bmi/typography";
 import Filters, { FilterProps } from "@bmi/filters";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
 import withGTM from "../utils/google-tag-manager";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 type Props = {
   // NOTE: Not doing FilterProps & { ... } because we're only interested in these specifics
@@ -21,10 +21,15 @@ const FiltersSidebar = ({
   onFiltersChange,
   onClearFilters
 }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   const GTMCheckbox = withGTM<CheckboxProps>(Checkbox);
-  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
+  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(
+    Accordion.Summary,
+    {
+      label: "aria-label"
+    }
+  );
 
   return (
     <PerfectScrollbar
@@ -72,8 +77,6 @@ const FiltersSidebar = ({
           <GTMAccordionSummary
             gtm={{
               id: "filter1",
-              // @ts-ignore
-              label: props.children?.props?.children,
               action: "Selector – Filter"
             }}
             {...props}

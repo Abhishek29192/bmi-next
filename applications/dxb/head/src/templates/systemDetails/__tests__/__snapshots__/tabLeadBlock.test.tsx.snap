@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabLeadBlock tests should not render technical Specification tab 1`] = `
+<div>
+  <div
+    class="Tabs Tabs--primary sdpTabLeadBlock"
+  >
+    <div
+      class="TabsBar"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiTabs-root"
+          >
+            <div
+              class="MuiTabs-scrollable"
+              style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+            />
+            <div
+              class="MuiTabs-scroller MuiTabs-scrollable"
+              style="margin-bottom: 0px;"
+            >
+              <div
+                aria-label="tabs"
+                class="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-controls="tabpanel-one"
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                  data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  id="tab-one"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    MC: sdp.leadBlock.about
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-34 PrivateTabIndicator-colorPrimary-35 MuiTabs-indicator"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="tab-one"
+      class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+      heading="MC: sdp.leadBlock.about"
+      id="tabpanel-one"
+      role="tabpanel"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-38 TabPanelBox"
+      >
+        <div
+          class="section Section Section--white"
+        >
+          <div
+            class="Container"
+          >
+            <div
+              class="MuiContainer-root MuiContainer-maxWidthXl"
+            >
+              <div
+                class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+                >
+                  <div
+                    class="LeadBlockContentSection"
+                  >
+                    <div
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      Long Dec System 2 NO
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabLeadBlock tests should render 1`] = `
+<div>
+  <div
+    class="Tabs Tabs--primary sdpTabLeadBlock"
+  >
+    <div
+      class="TabsBar"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiTabs-root"
+          >
+            <div
+              class="MuiTabs-scrollable"
+              style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+            />
+            <div
+              class="MuiTabs-scroller MuiTabs-scrollable"
+              style="margin-bottom: 0px;"
+            >
+              <div
+                aria-label="tabs"
+                class="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-controls="tabpanel-one"
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                  data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  id="tab-one"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    MC: sdp.leadBlock.about
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  aria-controls="tabpanel-two"
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                  data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                  id="tab-two"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    MC: sdp.leadBlock.technicalSpecification
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="tab-one"
+      class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+      heading="MC: sdp.leadBlock.about"
+      id="tabpanel-one"
+      role="tabpanel"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-5 TabPanelBox"
+      >
+        <div
+          class="section Section Section--white"
+        >
+          <div
+            class="Container"
+          >
+            <div
+              class="MuiContainer-root MuiContainer-maxWidthXl"
+            >
+              <div
+                class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+                >
+                  <div
+                    class="LeadBlockContentSection"
+                  >
+                    <div
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      Long Dec System 2 NO
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="tab-two"
+      class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+      heading="MC: sdp.leadBlock.technicalSpecification"
+      hidden=""
+      id="tabpanel-two"
+      role="tabpanel"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-6 TabPanelBox"
+      >
+        <div
+          class="section Section Section--white"
+        >
+          <div
+            class="Container"
+          >
+            <div
+              class="MuiContainer-root MuiContainer-maxWidthXl"
+            >
+              <div
+                class="section"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="SystemDetailsTechnicalSpec"
+                  >
+                    <div>
+                      <table
+                        class="MuiTable-root Table Table--row-even-color"
+                      >
+                        <thead
+                          class="MuiTableHead-root ColorPair ColorPair--pearl"
+                        >
+                          <tr
+                            class="MuiTableRow-root MuiTableRow-head"
+                          >
+                            <th
+                              class="MuiTableCell-root MuiTableCell-head"
+                              scope="col"
+                            >
+                              Accoridion Title 1
+                            </th>
+                            <th
+                              class="MuiTableCell-root MuiTableCell-head"
+                              scope="col"
+                            />
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="MuiTableBody-root"
+                        >
+                          <tr
+                            class="MuiTableRow-root"
+                          >
+                            <td
+                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                            >
+                              Promotional Content
+                            </td>
+                            <td
+                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                            >
+                              accordion item value 1 
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabLeadBlock tests should render documents and downloads 1`] = `
+<div
+  aria-labelledby="tab-three"
+  class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+  heading="MC: sdp.leadBlock.documentsAndDownloads"
+  hidden=""
+  id="tabpanel-three"
+  role="tabpanel"
+>
+  <div
+    class="MuiBox-root MuiBox-root-12 TabPanelBox"
+  >
+    <div
+      class="section Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, recusandae.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
+<div
+  aria-labelledby="tab-four"
+  class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+  heading="MC: sdp.tabs.bim"
+  hidden=""
+  id="tabpanel-four"
+  role="tabpanel"
+>
+  <div
+    class="MuiBox-root MuiBox-root-28 TabPanelBox"
+  >
+    <div
+      class="bimLeadBlock"
+    >
+      <div
+        class="section Section Section--pearl"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <div
+              class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+              >
+                <div
+                  class="LeadBlockContentSection"
+                >
+                  <h5
+                    class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                  >
+                    <h2
+                      class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
+                    >
+                      bmi iframe title
+                    </h2>
+                  </h5>
+                </div>
+                <div
+                  class="LeadBlockContentSection"
+                >
+                  <div
+                    class="RichText"
+                  />
+                </div>
+              </div>
+              <iframe
+                class="bimIframe bmiIframe"
+                data-testid="bmi-iframe"
+                src="https://google.com"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

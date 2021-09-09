@@ -7,6 +7,7 @@ import { StylesProvider } from "@material-ui/styles";
 import { CssBaseline } from "@material-ui/core";
 import { useApollo } from "../lib/apolloClient";
 import AccountContextWrapper from "../context/AccountContext";
+import MarketContextWrapper from "../context/MarketContext";
 import "../styles/globals.css";
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
@@ -37,9 +38,11 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
 const AuthApp = ({ Component, pageProps, ...rest }: AppProps) => {
   return (
     <UserProvider>
-      <AccountContextWrapper account={pageProps.account}>
-        <App Component={Component} pageProps={pageProps} {...rest} />
-      </AccountContextWrapper>
+      <MarketContextWrapper market={pageProps.market}>
+        <AccountContextWrapper account={pageProps.account}>
+          <App Component={Component} pageProps={pageProps} {...rest} />
+        </AccountContextWrapper>
+      </MarketContextWrapper>
     </UserProvider>
   );
 };

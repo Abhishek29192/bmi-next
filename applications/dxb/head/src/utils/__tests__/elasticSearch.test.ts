@@ -199,7 +199,7 @@ describe("compileElasticSearchQuery function", () => {
                     "texturefamilyValue.keyword",
                     "measurementValue.keyword",
                     "categories.value.keyword",
-                    "plpCategories.value.keyword",
+                    "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
                   "query": "*bar*",
@@ -208,7 +208,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "plpCategories.code.keyword": "foo",
+                  "allCategories.code.keyword": "foo",
                 },
               },
               Object {
@@ -281,7 +281,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "term": Object {
-                  "plpCategories.code.keyword": "foo",
+                  "allCategories.code.keyword": "foo",
                 },
               },
               Object {
@@ -352,6 +352,100 @@ describe("compileElasticSearchQuery function", () => {
         "query": Object {
           "bool": Object {
             "must": Array [
+              Object {
+                "term": Object {
+                  "categories.code.keyword": "BAR",
+                },
+              },
+              Object {
+                "term": Object {
+                  "colourfamilyCode.keyword": "Colour",
+                },
+              },
+            ],
+          },
+        },
+        "size": 10,
+        "sort": Array [
+          "_score",
+          Object {
+            "scoringWeightInt": "desc",
+          },
+          Object {
+            "name.keyword": "asc",
+          },
+        ],
+      }
+    `);
+  });
+
+  it("should transform slash in searchQuery", () => {
+    const query = compileElasticSearchQuery(filters, "foo", 0, 10, "bar/");
+
+    expect(query).toMatchInlineSnapshot(`
+      Object {
+        "aggs": Object {
+          "allCategories": Object {
+            "terms": Object {
+              "field": "allCategories.code.keyword",
+              "size": "100",
+            },
+          },
+          "categories": Object {
+            "terms": Object {
+              "field": "categories.code.keyword",
+              "size": "100",
+            },
+          },
+          "colourfamily": Object {
+            "terms": Object {
+              "field": "colourfamilyCode.keyword",
+              "size": "100",
+            },
+          },
+          "materials": Object {
+            "terms": Object {
+              "field": "materialsCode.keyword",
+              "size": "100",
+            },
+          },
+          "texturefamily": Object {
+            "terms": Object {
+              "field": "texturefamilyCode.keyword",
+              "size": "100",
+            },
+          },
+        },
+        "from": 0,
+        "query": Object {
+          "bool": Object {
+            "must": Array [
+              Object {
+                "query_string": Object {
+                  "fields": Array [
+                    "externalProductCode",
+                    "name^5",
+                    "summary",
+                    "description",
+                    "longDescription",
+                    "shortDescription",
+                    "colourfamilyValue.keyword",
+                    "materialsValue.keyword",
+                    "texturefamilyValue.keyword",
+                    "measurementValue.keyword",
+                    "categories.value.keyword",
+                    "allCategories.value.keyword",
+                    "classifications.features.featureValues.value^6",
+                  ],
+                  "query": "*bar//*",
+                  "type": "cross_fields",
+                },
+              },
+              Object {
+                "term": Object {
+                  "allCategories.code.keyword": "foo",
+                },
+              },
               Object {
                 "term": Object {
                   "categories.code.keyword": "BAR",

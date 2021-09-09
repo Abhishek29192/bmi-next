@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { UploadsTab } from "..";
+import { renderWithI18NProvider } from "../../../../lib/tests/utils";
 
 jest.mock("@bmi/use-dimensions", () => ({
   __esModule: true,
@@ -8,7 +9,8 @@ jest.mock("@bmi/use-dimensions", () => ({
 }));
 
 jest.mock("../../../../graphql/generated/hooks", () => ({
-  useAddEvidencesMutation: () => [jest.fn()]
+  useAddEvidencesMutation: () => [jest.fn()],
+  useContentfulEvidenceCategoriesLazyQuery: () => [jest.fn()]
 }));
 
 describe("Uploads Components", () => {
@@ -25,21 +27,21 @@ describe("Uploads Components", () => {
 
   describe("render correct number of category", () => {
     it("none", () => {
-      render(<UploadsTab projectId={1} uploads={null} />);
+      renderWithI18NProvider(<UploadsTab projectId={1} uploads={null} />);
       expect(screen.queryByTestId("uploads-category")).toBeNull();
     });
     it("two categories", () => {
-      render(<UploadsTab projectId={1} uploads={files} />);
+      renderWithI18NProvider(<UploadsTab projectId={1} uploads={files} />);
       expect(screen.getAllByTestId("uploads-category").length).toEqual(2);
     });
   });
   describe("render correct number of upload", () => {
     it("none", () => {
-      render(<UploadsTab projectId={1} uploads={null} />);
+      renderWithI18NProvider(<UploadsTab projectId={1} uploads={null} />);
       expect(screen.queryByTestId("uploads-item")).toBeNull();
     });
     it("six upload items", () => {
-      render(<UploadsTab projectId={1} uploads={files} />);
+      renderWithI18NProvider(<UploadsTab projectId={1} uploads={files} />);
       expect(screen.getAllByTestId("uploads-item").length).toEqual(6);
     });
   });

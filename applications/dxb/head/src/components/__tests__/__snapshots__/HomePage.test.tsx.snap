@@ -7,3 +7,11 @@ exports[`HomePage template renders basic homepage 1`] = `
   It's not you, it's us - something went wrong on our web server.
 </div>
 `;
+
+exports[`HomePage template renders homepage correctly when not using countryCode 1`] = `
+<div
+  role="alert"
+>
+  It's not you, it's us - something went wrong on our web server.
+</div>
+`;

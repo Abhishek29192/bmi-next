@@ -14,7 +14,7 @@ import {
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
 import AssetHeader from "./_AssetHeader";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import { Data as AssetTypeData } from "./AssetType";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import { Format } from "./types";
@@ -35,7 +35,7 @@ const DesktopDocumentTechnicalTableResults = ({
   assetTypes,
   fileIconsMap
 }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
   const { list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
 

@@ -74,8 +74,8 @@ const card1: PromoData = {
 const card2: PromoData = {
   __typename: "ContentfulPromo",
   id: "card2",
-  name: "cardTitle2",
-  title: "cardTitle2",
+  name: "cardName2",
+  title: null,
   subtitle: null,
   body: null,
   brandLogo: null,

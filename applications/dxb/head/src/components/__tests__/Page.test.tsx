@@ -152,4 +152,23 @@ describe("Page component", () => {
       "https://example.com/image.png"
     );
   });
+
+  it("og:image converts webp to jpeg", () => {
+    render(
+      <LocationProvider>
+        <Page
+          title="Lorem ipsum"
+          pageData={pageData}
+          siteData={siteData}
+          ogImageUrl="//images.ctfassets.net/example.webp"
+        >
+          Lorem ipsum
+        </Page>
+      </LocationProvider>
+    );
+    const ogImageTag = Array.from(document.getElementsByTagName("meta")).find(
+      (meta) => meta.getAttribute("property") === "og:image"
+    );
+    expect(ogImageTag.getAttribute("content")).toContain("fm=jpg");
+  });
 });

@@ -104,18 +104,24 @@ type AssetLinkingCollections {
     preview: Boolean
     locale: String
   ): GuaranteeTemplateCollection
-  carouselItemCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-  ): CarouselItemCollection
   guaranteeTypeCollection(
     skip: Int = 0
     limit: Int = 100
     preview: Boolean
     locale: String
   ): GuaranteeTypeCollection
+  mediaToolCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): MediaToolCollection
+  carouselItemCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): CarouselItemCollection
   trainingContentCollection(
     skip: Int = 0
     limit: Int = 100
@@ -128,12 +134,6 @@ type AssetLinkingCollections {
     preview: Boolean
     locale: String
   ): PartnerBrandCollection
-  mediaToolCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-  ): MediaToolCollection
 }
 
 enum AssetOrder {
@@ -578,6 +578,7 @@ type EvidenceCategory implements Entry {
   contentfulMetadata: ContentfulMetadata!
   linkedFrom(allowedLocales: [String]): EvidenceCategoryLinkingCollections
   name(locale: String): String
+  referenceCode(locale: String): String
   description(locale: String): EvidenceCategoryDescription
   minimumUploads(locale: String): Int
 }
@@ -620,6 +621,13 @@ input EvidenceCategoryFilter {
   name_not_in: [String]
   name_contains: String
   name_not_contains: String
+  referenceCode_exists: Boolean
+  referenceCode: String
+  referenceCode_not: String
+  referenceCode_in: [String]
+  referenceCode_not_in: [String]
+  referenceCode_contains: String
+  referenceCode_not_contains: String
   description_exists: Boolean
   description_contains: String
   description_not_contains: String
@@ -654,6 +662,8 @@ type EvidenceCategoryLinkingCollections {
 enum EvidenceCategoryOrder {
   name_ASC
   name_DESC
+  referenceCode_ASC
+  referenceCode_DESC
   minimumUploads_ASC
   minimumUploads_DESC
   sys_id_ASC
@@ -674,9 +684,15 @@ type GuaranteeTemplate implements Entry {
   contentfulMetadata: ContentfulMetadata!
   linkedFrom(allowedLocales: [String]): GuaranteeTemplateLinkingCollections
   displayName(locale: String): String
+  technology(locale: String): String
+  coverage(locale: String): String
+  languageCode(locale: String): String
+  languageDescriptor(locale: String): String
   approvalMessage(preview: Boolean, locale: String): MessageTemplate
   rejectionMessage(preview: Boolean, locale: String): MessageTemplate
   logo(preview: Boolean, locale: String): Asset
+  titleLine1(locale: String): String
+  titleLine2(locale: String): String
   signatory(locale: String): String
   headingGuarantee(locale: String): String
   headingScope(locale: String): String
@@ -686,6 +702,7 @@ type GuaranteeTemplate implements Entry {
   headingBuildingAddress(locale: String): String
   headingRoofArea(locale: String): String
   headingRoofType(locale: String): String
+  roofType(locale: String): String
   headingContractor(locale: String): String
   headingContractorName(locale: String): String
   headingContractorId(locale: String): String
@@ -699,9 +716,6 @@ type GuaranteeTemplate implements Entry {
   terms(preview: Boolean, locale: String): Asset
   mailBody(locale: String): String
   filenamePrefix(locale: String): String
-  lockupLine1(locale: String): String
-  lockupLine2(locale: String): String
-  roofType(locale: String): String
 }
 
 type GuaranteeTemplateCollection {
@@ -723,9 +737,51 @@ input GuaranteeTemplateFilter {
   displayName_not_in: [String]
   displayName_contains: String
   displayName_not_contains: String
+  technology_exists: Boolean
+  technology: String
+  technology_not: String
+  technology_in: [String]
+  technology_not_in: [String]
+  technology_contains: String
+  technology_not_contains: String
+  coverage_exists: Boolean
+  coverage: String
+  coverage_not: String
+  coverage_in: [String]
+  coverage_not_in: [String]
+  coverage_contains: String
+  coverage_not_contains: String
+  languageCode_exists: Boolean
+  languageCode: String
+  languageCode_not: String
+  languageCode_in: [String]
+  languageCode_not_in: [String]
+  languageCode_contains: String
+  languageCode_not_contains: String
+  languageDescriptor_exists: Boolean
+  languageDescriptor: String
+  languageDescriptor_not: String
+  languageDescriptor_in: [String]
+  languageDescriptor_not_in: [String]
+  languageDescriptor_contains: String
+  languageDescriptor_not_contains: String
   approvalMessage_exists: Boolean
   rejectionMessage_exists: Boolean
   logo_exists: Boolean
+  titleLine1_exists: Boolean
+  titleLine1: String
+  titleLine1_not: String
+  titleLine1_in: [String]
+  titleLine1_not_in: [String]
+  titleLine1_contains: String
+  titleLine1_not_contains: String
+  titleLine2_exists: Boolean
+  titleLine2: String
+  titleLine2_not: String
+  titleLine2_in: [String]
+  titleLine2_not_in: [String]
+  titleLine2_contains: String
+  titleLine2_not_contains: String
   signatory_exists: Boolean
   signatory: String
   signatory_not: String
@@ -789,6 +845,13 @@ input GuaranteeTemplateFilter {
   headingRoofType_not_in: [String]
   headingRoofType_contains: String
   headingRoofType_not_contains: String
+  roofType_exists: Boolean
+  roofType: String
+  roofType_not: String
+  roofType_in: [String]
+  roofType_not_in: [String]
+  roofType_contains: String
+  roofType_not_contains: String
   headingContractor_exists: Boolean
   headingContractor: String
   headingContractor_not: String
@@ -868,27 +931,6 @@ input GuaranteeTemplateFilter {
   filenamePrefix_not_in: [String]
   filenamePrefix_contains: String
   filenamePrefix_not_contains: String
-  lockupLine1_exists: Boolean
-  lockupLine1: String
-  lockupLine1_not: String
-  lockupLine1_in: [String]
-  lockupLine1_not_in: [String]
-  lockupLine1_contains: String
-  lockupLine1_not_contains: String
-  lockupLine2_exists: Boolean
-  lockupLine2: String
-  lockupLine2_not: String
-  lockupLine2_in: [String]
-  lockupLine2_not_in: [String]
-  lockupLine2_contains: String
-  lockupLine2_not_contains: String
-  roofType_exists: Boolean
-  roofType: String
-  roofType_not: String
-  roofType_in: [String]
-  roofType_not_in: [String]
-  roofType_contains: String
-  roofType_not_contains: String
   OR: [GuaranteeTemplateFilter]
   AND: [GuaranteeTemplateFilter]
 }
@@ -911,6 +953,18 @@ type GuaranteeTemplateLinkingCollections {
 enum GuaranteeTemplateOrder {
   displayName_ASC
   displayName_DESC
+  technology_ASC
+  technology_DESC
+  coverage_ASC
+  coverage_DESC
+  languageCode_ASC
+  languageCode_DESC
+  languageDescriptor_ASC
+  languageDescriptor_DESC
+  titleLine1_ASC
+  titleLine1_DESC
+  titleLine2_ASC
+  titleLine2_DESC
   signatory_ASC
   signatory_DESC
   headingGuarantee_ASC
@@ -929,6 +983,8 @@ enum GuaranteeTemplateOrder {
   headingRoofArea_DESC
   headingRoofType_ASC
   headingRoofType_DESC
+  roofType_ASC
+  roofType_DESC
   headingContractor_ASC
   headingContractor_DESC
   headingContractorName_ASC
@@ -947,12 +1003,6 @@ enum GuaranteeTemplateOrder {
   guaranteeScope_DESC
   filenamePrefix_ASC
   filenamePrefix_DESC
-  lockupLine1_ASC
-  lockupLine1_DESC
-  lockupLine2_ASC
-  lockupLine2_DESC
-  roofType_ASC
-  roofType_DESC
   sys_id_ASC
   sys_id_DESC
   sys_publishedAt_ASC
@@ -973,6 +1023,7 @@ type GuaranteeType implements Entry {
   displayName(locale: String): String
   technology(locale: String): String
   coverage(locale: String): String
+  guaranteeReferenceCode(locale: String): String
   name(locale: String): String
   signature(preview: Boolean, locale: String): Asset
   maximumValidityYears(locale: String): Int
@@ -1030,6 +1081,13 @@ input GuaranteeTypeFilter {
   coverage_not_in: [String]
   coverage_contains: String
   coverage_not_contains: String
+  guaranteeReferenceCode_exists: Boolean
+  guaranteeReferenceCode: String
+  guaranteeReferenceCode_not: String
+  guaranteeReferenceCode_in: [String]
+  guaranteeReferenceCode_not_in: [String]
+  guaranteeReferenceCode_contains: String
+  guaranteeReferenceCode_not_contains: String
   name_exists: Boolean
   name: String
   name_not: String
@@ -1089,6 +1147,8 @@ enum GuaranteeTypeOrder {
   technology_DESC
   coverage_ASC
   coverage_DESC
+  guaranteeReferenceCode_ASC
+  guaranteeReferenceCode_DESC
   name_ASC
   name_DESC
   maximumValidityYears_ASC
@@ -1546,7 +1606,6 @@ type MediaTool implements Entry {
   name(locale: String): String
   thumbnail(preview: Boolean, locale: String): Asset
   media(preview: Boolean, locale: String): Asset
-  description(locale: String): String
   url(locale: String): String
 }
 
@@ -1569,13 +1628,6 @@ input MediaToolFilter {
   name_not_contains: String
   thumbnail_exists: Boolean
   media_exists: Boolean
-  description_exists: Boolean
-  description: String
-  description_not: String
-  description_in: [String]
-  description_not_in: [String]
-  description_contains: String
-  description_not_contains: String
   url_exists: Boolean
   url: String
   url_not: String
@@ -1897,19 +1949,15 @@ type Query {
     where: GuaranteeTemplateFilter
     order: [GuaranteeTemplateOrder]
   ): GuaranteeTemplateCollection
-  messageTemplate(
-    id: String!
-    preview: Boolean
-    locale: String
-  ): MessageTemplate
-  messageTemplateCollection(
+  guaranteeType(id: String!, preview: Boolean, locale: String): GuaranteeType
+  guaranteeTypeCollection(
     skip: Int = 0
     limit: Int = 100
     preview: Boolean
     locale: String
-    where: MessageTemplateFilter
-    order: [MessageTemplateOrder]
-  ): MessageTemplateCollection
+    where: GuaranteeTypeFilter
+    order: [GuaranteeTypeOrder]
+  ): GuaranteeTypeCollection
   evidenceCategory(
     id: String!
     preview: Boolean
@@ -1923,6 +1971,37 @@ type Query {
     where: EvidenceCategoryFilter
     order: [EvidenceCategoryOrder]
   ): EvidenceCategoryCollection
+  messageTemplate(
+    id: String!
+    preview: Boolean
+    locale: String
+  ): MessageTemplate
+  messageTemplateCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MessageTemplateFilter
+    order: [MessageTemplateOrder]
+  ): MessageTemplateCollection
+  tierBenefit(id: String!, preview: Boolean, locale: String): TierBenefit
+  tierBenefitCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: TierBenefitFilter
+    order: [TierBenefitOrder]
+  ): TierBenefitCollection
+  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
+  mediaToolCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MediaToolFilter
+    order: [MediaToolOrder]
+  ): MediaToolCollection
   marketContent(id: String!, preview: Boolean, locale: String): MarketContent
   marketContentCollection(
     skip: Int = 0
@@ -1941,24 +2020,6 @@ type Query {
     where: CarouselItemFilter
     order: [CarouselItemOrder]
   ): CarouselItemCollection
-  guaranteeType(id: String!, preview: Boolean, locale: String): GuaranteeType
-  guaranteeTypeCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: GuaranteeTypeFilter
-    order: [GuaranteeTypeOrder]
-  ): GuaranteeTypeCollection
-  tierBenefit(id: String!, preview: Boolean, locale: String): TierBenefit
-  tierBenefitCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: TierBenefitFilter
-    order: [TierBenefitOrder]
-  ): TierBenefitCollection
   trainingContent(
     id: String!
     preview: Boolean
@@ -1999,15 +2060,6 @@ type Query {
     where: ContactDetailsFilter
     order: [ContactDetailsOrder]
   ): ContactDetailsCollection
-  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
-  mediaToolCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MediaToolFilter
-    order: [MediaToolOrder]
-  ): MediaToolCollection
   mediaFolder(id: String!, preview: Boolean, locale: String): MediaFolder
   mediaFolderCollection(
     skip: Int = 0
@@ -2100,6 +2152,7 @@ type TierBenefit implements Entry {
   linkedFrom(allowedLocales: [String]): TierBenefitLinkingCollections
   name(locale: String): String
   tier(locale: String): String
+  guaranteeValidityOffsetYears(locale: String): Int
   description(locale: String): TierBenefitDescription
   shortDescription(locale: String): String
 }
@@ -2149,6 +2202,15 @@ input TierBenefitFilter {
   tier_not_in: [String]
   tier_contains: String
   tier_not_contains: String
+  guaranteeValidityOffsetYears_exists: Boolean
+  guaranteeValidityOffsetYears: Int
+  guaranteeValidityOffsetYears_not: Int
+  guaranteeValidityOffsetYears_in: [Int]
+  guaranteeValidityOffsetYears_not_in: [Int]
+  guaranteeValidityOffsetYears_gt: Int
+  guaranteeValidityOffsetYears_gte: Int
+  guaranteeValidityOffsetYears_lt: Int
+  guaranteeValidityOffsetYears_lte: Int
   description_exists: Boolean
   description_contains: String
   description_not_contains: String
@@ -2177,6 +2239,8 @@ enum TierBenefitOrder {
   name_DESC
   tier_ASC
   tier_DESC
+  guaranteeValidityOffsetYears_ASC
+  guaranteeValidityOffsetYears_DESC
   sys_id_ASC
   sys_id_DESC
   sys_publishedAt_ASC

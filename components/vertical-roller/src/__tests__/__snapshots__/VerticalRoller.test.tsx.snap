@@ -87,7 +87,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
         >
           <button
             aria-label="previous"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
             tabindex="0"
             type="button"
           >
@@ -133,7 +133,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
           </span>
           <button
             aria-label="next"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
             tabindex="0"
             type="button"
           >
@@ -205,12 +205,12 @@ exports[`VerticalRoller component renders correctly 1`] = `
                         Accredited BMI installers are masters of their craft and available all over Norway.
                       </p>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 button MuiButton-containedPrimary"
                         tabindex="0"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label"
+                          class="MuiButton-label buttonStyles-label-4"
                         >
                           Go to Approved Installers
                           <span

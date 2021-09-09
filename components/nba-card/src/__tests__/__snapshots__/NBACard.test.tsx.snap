@@ -43,9 +43,29 @@ Array [
 ]
 `;
 
+exports[`NbaCard component non clickable renders correctly 1`] = `
+<div
+  class="NBACard ColorPair ColorPair--blue-900"
+  type="button"
+>
+  <h4
+    class="MuiTypography-root title Typography MuiTypography-h4"
+  >
+    H4 Heading
+  </h4>
+  <div
+    class="body"
+  >
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
+    </div>
+  </div>
+</div>
+`;
+
 exports[`NbaCard component renders correctly 1`] = `
 <button
-  class="MuiButtonBase-root NBACard ColorPair ColorPair--blue-900"
+  class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--blue-900"
   tabindex="0"
   type="button"
 >
@@ -69,7 +89,7 @@ exports[`NbaCard component renders correctly 1`] = `
 
 exports[`NbaCard component renders with footer 1`] = `
 <button
-  class="MuiButtonBase-root NBACard ColorPair ColorPair--blue-900"
+  class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--blue-900"
   tabindex="0"
   type="button"
 >

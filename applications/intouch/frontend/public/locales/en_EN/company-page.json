@@ -1,5 +1,6 @@
 {
-  "title": "Company",
+  "titleMember": "Company",
+  "titleAdmin": "Companies",
   "details": {
     "title": "Company Details",
     "name": "Company name",
@@ -12,6 +13,12 @@
     "registeredAddress": "Registered Address",
     "taxNumber": "Company VAT number",
     "phone": "Phone"
+  },
+  "noCompanies": "This market has no companies yet",
+  "search": {
+    "inputLabel": "Search for a company",
+    "profileComplete": "Profile complete",
+    "profileIncomplete": "Profile incomplete"
   },
   "supportTitle": "Roofpro Support",
   "incompleteProfile": {
@@ -50,6 +57,7 @@
     "sections": {
       "registered_details": "Registered details",
       "trading_address": "Trading address",
+      "trading_address_fields_heading": "Contact Information",
       "trading_address_description": "Please provide your trading address to appear on BMIGroup.com 'Find a Roofer' locator for building owners to contact you about your services",
       "contact_details": "Contact details",
       "owner_details": "Company owner details"
@@ -58,24 +66,31 @@
       "fields": {
         "name": "Registered Name",
         "registeredAddress": {
-          "firstLine": "Address line 1",
-          "secondLine": "Address line 2",
-          "town": "Town",
-          "postcode": "Postcode",
+          "firstLine": "Address Line 1",
+          "secondLine": "Address Line 2",
+          "town": "Town / City",
+          "postcode": "Post Code / ZIP",
           "region": "Region",
           "country": "Country"
         },
         "tradingAddress": {
-          "firstLine": "Address line 1",
-          "secondLine": "Address line 2",
-          "town": "Town",
-          "postcode": "Postcode",
+          "autocomplete": "Post code, city or street",
+          "firstLine": "Address Line 1",
+          "secondLine": "Address Line 2",
+          "town": "Town / City",
+          "postcode": "Post Code / ZIP",
           "region": "Region",
-          "country": "Country",
-          "coordinates": {
-            "x": "Latitude",
-            "y": "Longitude"
-          }
+          "country": "Country"
+        },
+        "logo": {
+          "label": "Logo",
+          "alt_text": "Company logo",
+          "buttons": {
+            "upload": "Upload new photo",
+            "remove": "Remove"
+          },
+          "fileTypesMessage": "You can upload jpg, gif or png files.",
+          "fileSizeMessage": "Max file size of 3mb."
         },
         "taxNumber": "Tax number",
         "businessType": "Business Type",

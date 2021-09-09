@@ -4,7 +4,7 @@ import { PIMLinkDocumentData } from "./PIMDocumentBase";
 
 export type ClassificationFeatureValue = {
   value: string;
-  code: string | null; // This doesn't exist on some Features... perhaps we can be more specific with the types
+  code?: string | null; // This doesn't exist on some Features... perhaps we can be more specific with the types
 };
 
 export type ClassificationFeatureUnit = {

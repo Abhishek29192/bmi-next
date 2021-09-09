@@ -6,6 +6,7 @@ import InputGroup from "@bmi/input-group";
 import TextField from "@bmi/text-field";
 import Typography from "@bmi/typography";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ColorPair from "@bmi/color-pair";
 import styles from "./InputBanner.module.scss";
 
 const validateEmail = (email: string): boolean => {
@@ -44,64 +45,67 @@ const InputBanner = ({
   }, [emailInput]);
 
   return (
-    <div className={styles["InputBanner"]}>
-      <Container>
-        <div className={styles["wrapper"]}>
-          <Typography
-            variant="h3"
-            hasUnderline
-            hasDarkBackground
-            className={styles["title"]}
-          >
-            {title}
-          </Typography>
-          <Grid container spacing={3}>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              lg={5}
-              className={styles["description-grid"]}
+    <ColorPair theme="blue-800">
+      <div className={styles["InputBanner"]}>
+        <Container>
+          <div className={styles["wrapper"]}>
+            <Typography
+              variant="h3"
+              hasUnderline
+              hasDarkBackground
+              className={styles["title"]}
             >
-              <Typography variant="body2">{description}</Typography>
-            </Grid>
-            <Grid item xs={12} sm={6} lg={5}>
-              <InputGroup
-                lockBreakpoint="md"
-                input={
-                  <TextField
-                    name="input-banner-text-field"
-                    variant="hybrid"
-                    label={inputLabel}
-                    value={emailInput}
-                    onChange={(value: string) => {
-                      setEmailInput(value);
-                    }}
-                    onKeyDown={({ key }) => {
-                      if (key === "Enter") {
+              {title}
+            </Typography>
+            <Grid container spacing={3}>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                lg={5}
+                className={styles["description-grid"]}
+              >
+                <Typography variant="body2">{description}</Typography>
+              </Grid>
+              <Grid item xs={12} sm={6} lg={5}>
+                <InputGroup
+                  lockBreakpoint="md"
+                  input={
+                    <TextField
+                      name="input-banner-text-field"
+                      variant="hybrid"
+                      label={inputLabel}
+                      value={emailInput}
+                      onChange={(value: string) => {
+                        setEmailInput(value);
+                      }}
+                      onKeyDown={({ key }) => {
+                        if (key === "Enter") {
+                          handleSubmit();
+                        }
+                      }}
+                    />
+                  }
+                  button={
+                    <Button
+                      disabled={!validateEmail(emailInput)}
+                      endIcon={<ArrowForwardIcon />}
+                      onClick={() => {
                         handleSubmit();
-                      }
-                    }}
-                  />
-                }
-                button={
-                  <Button
-                    disabled={!validateEmail(emailInput)}
-                    endIcon={<ArrowForwardIcon />}
-                    onClick={() => {
-                      handleSubmit();
-                    }}
-                  >
-                    {inputCallToAction}
-                  </Button>
-                }
-              />
-              {inputGroupSuffix}
+                      }}
+                      hasDarkBackground
+                    >
+                      {inputCallToAction}
+                    </Button>
+                  }
+                />
+                {inputGroupSuffix}
+              </Grid>
             </Grid>
-          </Grid>
-        </div>
-      </Container>
-    </div>
+          </div>
+        </Container>
+      </div>
+    </ColorPair>
   );
 };
 

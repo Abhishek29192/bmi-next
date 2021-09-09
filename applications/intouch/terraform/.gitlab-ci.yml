@@ -1,6 +1,9 @@
 plan_terraform:
-  stage: build
-  needs: []
+  # do not start this job before all builds & deployments (if any) have been completed
+  # we need to plan & execute Terraform after the Docker images have been
+  # built and tagged with "latest", which is the Docker tag that Terraform uses
+  # to know which version to deploy with the changes (e.g. to variables)
+  stage: terraform_plan
   cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
@@ -26,8 +29,9 @@ plan_terraform:
     expire_in: 1 week
 
 apply_terraform:
-  needs: [plan_terraform]
-  stage: deploy
+  needs:
+    - plan_terraform
+  stage: terraform_execute
   cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"

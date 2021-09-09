@@ -3,6 +3,12 @@ import postGraphileOpts from "../postGraphileOpts";
 jest.mock("../../db", () => ({
   getDbPool: () => "pgRootPool"
 }));
+jest.mock("../../services/storage-client", () => {
+  return function () {
+    return {};
+  };
+});
+
 describe("Postgraphile", () => {
   it("the context should have the user object", async () => {
     const req: any = {
@@ -27,7 +33,8 @@ describe("Postgraphile", () => {
       },
       logger: "logger",
       pubSub: "pubSub",
-      pgRootPool: "pgRootPool"
+      pgRootPool: "pgRootPool",
+      storageClient: {}
     });
   });
 

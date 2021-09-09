@@ -362,9 +362,15 @@ export const NavigationListButton = ({
     className={classnames(
       styles["NavigationListButton"],
       className,
+      styles["NavigationListButton--outline"],
       active && styles["NavigationListButton--active"]
     )}
     variant="text"
+    classes={{
+      outlinedPrimary: classnames(
+        !rest.isIconButton && styles["NavigationListButton--outline"]
+      )
+    }}
     {...rest}
   >
     {children}

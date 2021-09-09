@@ -21,15 +21,15 @@ exports[`LanguageSelection component accepts a url to the icon 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-text buttonStyles-text-42 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/al"
           tabindex="0"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-44"
           >
             <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
             >
               <img
                 class="LanguageIcon"
@@ -48,15 +48,15 @@ exports[`LanguageSelection component accepts a url to the icon 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-text buttonStyles-text-42 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/at"
           tabindex="0"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-44"
           >
             <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
             >
               <img
                 class="LanguageIcon"
@@ -96,15 +96,15 @@ exports[`LanguageSelection component accepts introduction text 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/al"
           tabindex="0"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-24"
           >
             <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
             >
               <svg
                 class="LanguageIcon"
@@ -122,15 +122,15 @@ exports[`LanguageSelection component accepts introduction text 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/at"
           tabindex="0"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-24"
           >
             <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
             >
               <svg
                 class="LanguageIcon"
@@ -166,15 +166,15 @@ exports[`LanguageSelection component renders correctly 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/al"
           tabindex="0"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
             >
               <svg
                 class="LanguageIcon"
@@ -192,15 +192,15 @@ exports[`LanguageSelection component renders correctly 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
           href="/at"
           tabindex="0"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
             >
               <svg
                 class="LanguageIcon"

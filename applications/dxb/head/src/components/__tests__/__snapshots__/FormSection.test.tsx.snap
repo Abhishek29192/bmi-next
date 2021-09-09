@@ -311,12 +311,12 @@ exports[`FormSection component renders correctly 1`] = `
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary MuiButton-fullWidth"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label-12"
                     >
                       <svg
                         aria-hidden="true"
@@ -490,14 +490,14 @@ exports[`FormSection component renders correctly 1`] = `
           class="ButtonWrapper"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-11 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
             data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"Submit\\",\\"action\\":\\"Test form\\"}"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-12"
             >
               Submit
               <span
@@ -521,29 +521,29 @@ exports[`FormSection component renders correctly 1`] = `
       <p
         class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
       >
-        This site is protected by reCAPTCHA and the Google
-         
+        This site is protected by reCAPTCHA and the Google 
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
           href="https://policies.google.com/privacy"
+          rel="noreferrer"
+          target="_blank"
         >
           <span>
             Privacy Policy
           </span>
         </a>
-         
-        and
-         
+         and 
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
           href="https://policies.google.com/terms"
+          rel="noreferrer"
+          target="_blank"
         >
           <span>
             Terms of Service
           </span>
         </a>
-         
-        apply.
+         apply.
       </p>
     </div>
   </div>

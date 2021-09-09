@@ -1,3 +1,4 @@
+import uniqueId from "lodash/uniqueId";
 import { ClickableAction } from "@bmi/clickable";
 import Dialog from "@bmi/dialog";
 import Clickable from "@bmi/clickable";
@@ -5,12 +6,13 @@ import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simple-page";
 import { pushToDataLayer } from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
 import { Data as PromoData } from "./Promo";
 import { SectionData, sectionsMap } from "./Sections";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import styles from "./styles/Link.module.scss";
 import { VisualiserContext } from "./Visualiser";
 
@@ -83,12 +85,15 @@ export const getClickableActionFromUrl = (
     };
   }
 
-  if (!countryCode) {
+  if (!countryCode && process.env.GATSBY_DONT_USE_COUNTRY_CODE !== "true") {
     return;
   }
 
   if (linkedPage && "path" in linkedPage) {
-    const to = `/${countryCode}/${linkedPage.path}`.replace(/\/+/gi, "/");
+    const to = getPathWithCountryCode(countryCode, linkedPage.path).replace(
+      /\/+/gi,
+      "/"
+    );
     const dataGtm = { id: "cta-click1", action: to, label };
 
     return {
@@ -225,7 +230,7 @@ export const renderDialog = (
     return;
   }
 
-  const sectionId = `dialog-section-${new Date().getTime()}`;
+  const sectionId = `dialog-section-${uniqueId()}`;
   const Component: React.ElementType =
     sectionsMap[data.dialogContent.__typename];
 
@@ -250,7 +255,7 @@ export const Link = ({
   onClick?: (...args: any) => void;
 }) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
 

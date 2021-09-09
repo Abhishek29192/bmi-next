@@ -3,6 +3,7 @@
   "Projects": "Projects",
   "Training": "Training",
   "Team": "Team",
+  "Companies": "Companies",
   "Company": "Company",
   "Toolkit": "Toolkit",
   "Edit": "Edit",
@@ -33,5 +34,11 @@
     "url_format": "Invalid URL",
     "email_format": "Invalid email address",
     "phone_number_format": "Invalid phone number"
-  }
+  },
+  "Products": "Products",
+  "fallback": {
+    "notAdded": "Not added"
+  },
+  "Download": "Download",
+  "SavePdf": "Save to PDF"
 }

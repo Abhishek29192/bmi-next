@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Grid from "@bmi/grid";
 import ProductOverviewPane, {
   Props as ProductOverviewProps
@@ -8,7 +8,7 @@ import Thumbnail, { Props as ThumbnailProps } from "@bmi/thumbnail";
 import withGTM from "../utils/google-tag-manager";
 import styles from "./styles/ProductOverview.module.scss";
 import { iconMap } from "./Icon";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   name: string;
@@ -25,7 +25,7 @@ const ProductOverview = ({
   data: Data;
   children?: React.ReactNode;
 }) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
     action: "imageSource",

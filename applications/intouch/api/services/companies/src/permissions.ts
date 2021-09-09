@@ -6,11 +6,14 @@ const COMPANY_ADMIN_PERMISSIONS = [
 ];
 const MARKET_ADMIN_PERMISSIONS = [
   ...COMPANY_ADMIN_PERMISSIONS,
-  "grant:market_admin"
+  "grant:market_admin",
+  "import:products:market",
+  "update:guarantee"
 ];
 const SUPER_ADMIN_PERMISSIONS = [
   ...MARKET_ADMIN_PERMISSIONS,
-  "grant:super_admin"
+  "grant:super_admin",
+  "import:products:markets"
 ];
 
 export default {

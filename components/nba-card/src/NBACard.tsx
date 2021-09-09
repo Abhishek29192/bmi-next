@@ -13,6 +13,7 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   footer?: React.ReactNode;
   className?: string;
   buttonComponent?: React.ComponentType<any>;
+  isClickable?: boolean;
 };
 
 const NBACard = ({
@@ -22,12 +23,19 @@ const NBACard = ({
   footer,
   className,
   buttonComponent: Button = ButtonBase,
+  isClickable = true,
   ...rest
 }: Props) => {
   return (
     <ColorPair
-      markupComponent={Button}
-      className={classnames(styles["NBACard"], className)}
+      markupComponent={isClickable ? Button : "div"}
+      className={classnames(
+        styles["NBACard"],
+        {
+          [`${styles["NBACard--clickable"]}`]: isClickable
+        },
+        className
+      )}
       {...rest}
       theme={theme}
     >

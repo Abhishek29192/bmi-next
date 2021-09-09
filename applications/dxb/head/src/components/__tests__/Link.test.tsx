@@ -1,3 +1,5 @@
+import "@testing-library/jest-dom";
+
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import {
@@ -8,7 +10,7 @@ import {
   Link
 } from "../Link";
 import { Data as PromoData } from "../Promo";
-import { SiteContext } from "../Site";
+import { SiteContextProvider } from "../Site";
 
 const getMockSiteContext = (
   countryCode: string = "en",
@@ -44,9 +46,9 @@ describe("Link component", () => {
       };
       // TODO: The rest of these tests need fixing to match this one.
       const { container } = render(
-        <SiteContext.Provider value={getMockSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext()}>
           <Link data={cta}>{cta.label}</Link>
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       expect(container.firstChild).toMatchSnapshot();
     });
@@ -242,11 +244,50 @@ describe("Link component", () => {
         hubSpotCTAID: "123abc"
       };
       const { container } = render(
-        <SiteContext.Provider value={getMockSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext()}>
           <Link data={data}>{data.label}</Link>
-        </SiteContext.Provider>
+        </SiteContextProvider>
       );
       expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("Dialog closes properly", () => {
+      const data: LinkData = {
+        __typename: "ContentfulLink",
+        id: "string",
+        label: "ImALink",
+        icon: null,
+        isLabelHidden: null,
+        url: "https://www.external.co.uk",
+        linkedPage: null,
+        type: "Dialog",
+        parameters: null,
+        dialogContent: {
+          __typename: "ContentfulFormSection",
+          title: "Test form",
+          showTitle: true,
+          description: null,
+          recipients: "recipient@mail.com",
+          inputs: null,
+          submitText: "Submit",
+          successRedirect: null,
+          source: "HubSpot",
+          hubSpotFormGuid: null
+        },
+        hubSpotCTAID: null
+      };
+      const { getByText, getByRole } = render(
+        <SiteContextProvider value={getMockSiteContext()}>
+          <Link data={data}>{data.label}</Link>
+        </SiteContextProvider>
+      );
+
+      const openDialog = getByText("ImALink");
+      openDialog.click();
+      expect(getByText(/Test form/i)).toBeVisible();
+      const closeDialogButton = getByRole("button", { name: "Close" });
+      closeDialogButton.click();
+      expect(getByText(/Test form/i)).not.toBeVisible();
     });
   });
 

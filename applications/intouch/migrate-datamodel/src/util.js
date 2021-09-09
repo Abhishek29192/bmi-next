@@ -88,7 +88,7 @@ const writeSql = (dataModel, service) => {
 };
 
 const createFiles = async (csv) => {
-  const data = parse(csv, { columns: true });
+  const data = parse(csv, { columns: true, trim: true });
   writeFile("data.csv", csv);
   let myDataModel = buildModel(data);
 

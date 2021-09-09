@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
@@ -10,7 +10,7 @@ import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import { Data as PromoData } from "../components/Promo";
 import { Data as PageInfoData } from "../components/PageInfo";
 import { getCTA } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 export type Data = (PromoData | PageInfoData)[];
 
@@ -22,7 +22,7 @@ const indexToBackgroundMap: Colors[] = [
 ];
 
 const NextBestActions = ({ data }: { data: Data }) => {
-  const { getMicroCopy, countryCode } = useContext(SiteContext);
+  const { getMicroCopy, countryCode } = useSiteContext();
 
   return (
     <Section backgroundColor="alabaster">
@@ -30,15 +30,23 @@ const NextBestActions = ({ data }: { data: Data }) => {
       <Grid container spacing={3}>
         {data.map(({ title, subtitle, ...rest }, index) => {
           const cta = getCTA(rest, countryCode, getMicroCopy("page.linkLabel"));
+          const name = rest.__typename === "ContentfulPromo" ? rest.name : null;
 
           const ClickableButtonBase =
             withClickable<ButtonBaseProps>(ButtonBase);
+
+          const buttonComponent =
+            cta && cta.action
+              ? (props) => (
+                  <ClickableButtonBase {...props} action={cta.action} />
+                )
+              : undefined;
 
           return (
             <Grid item xs={12} md={4} lg={3} key={`nba-${index}`}>
               <NBACard
                 theme={indexToBackgroundMap[index]}
-                title={title}
+                title={title || name}
                 footer={
                   cta && cta.label ? (
                     <div style={{ fontSize: "1rem" }}>
@@ -48,13 +56,8 @@ const NextBestActions = ({ data }: { data: Data }) => {
                     </div>
                   ) : undefined
                 }
-                buttonComponent={
-                  cta && cta.action
-                    ? (props) => (
-                        <ClickableButtonBase {...props} action={cta.action} />
-                      )
-                    : "div"
-                }
+                buttonComponent={buttonComponent}
+                isClickable={!!buttonComponent}
               >
                 {subtitle}
               </NBACard>

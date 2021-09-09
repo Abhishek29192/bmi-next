@@ -22,7 +22,7 @@ import styles from "./GoogleMap.module.scss";
 // the arbitraty data sent into the marker.
 type MarkerData = any;
 
-type Props = MapOptions & {
+export type Props = MapOptions & {
   bounds?: LatLngBounds | LatLngBoundsLiteral;
   children?: ReactNode;
   markers?: MarkerOptionsWithData<MarkerData>[];

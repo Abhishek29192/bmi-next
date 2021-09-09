@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql, Link } from "gatsby";
 import Section from "@bmi/section";
 import Button, { ButtonProps } from "@bmi/button";
@@ -6,8 +6,9 @@ import BrandIntroCard from "@bmi/brand-intro-card";
 import Grid from "@bmi/grid";
 import { iconMap } from "@bmi/logo";
 import withGTM from "../utils/google-tag-manager";
+import styles from "./styles/Brands.module.scss";
 
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   title: string;
@@ -17,12 +18,12 @@ export type Data = {
 };
 
 const Brands = ({ data }: { data: Data[] }) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   const GTMButton = withGTM<ButtonProps>(Button, { label: "children" });
 
   return (
-    <Section backgroundColor={"pearl"}>
+    <Section backgroundColor={"pearl"} className={styles["Brands"]}>
       <Section.Title> {getMicroCopy("homepage.brands")}</Section.Title>
       <Grid container justify="center">
         {data.map((brand, index) => (

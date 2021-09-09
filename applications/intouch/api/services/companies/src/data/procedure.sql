@@ -230,8 +230,8 @@ CREATE OR REPLACE FUNCTION evidence_items_add(evidences evidence_item[])
   RETURNS setof evidence_item
   AS $$
  
-  insert into evidence_item(custom_evidence_category_id,project_id,guarantee_id,evidence_category_type,name,attachment)
-    select e.custom_evidence_category_id,e.project_id,e.guarantee_id,e.evidence_category_type,e.name,e.attachment from unnest(evidences) as e
+  insert into evidence_item(custom_evidence_category_key,project_id,guarantee_id,evidence_category_type,name,attachment)
+    select e.custom_evidence_category_key,e.project_id,e.guarantee_id,e.evidence_category_type,e.name,e.attachment from unnest(evidences) as e
      RETURNING *;
 $$ LANGUAGE sql STRICT VOLATILE;
 

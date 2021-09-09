@@ -2,7 +2,7 @@
 
 exports[`Brands component renders correctly 1`] = `
 <div
-  class="Section Section--pearl"
+  class="Brands Section Section--pearl"
 >
   <div
     class="Container"
@@ -25,10 +25,23 @@ exports[`Brands component renders correctly 1`] = `
           <div
             class="MuiPaper-root MuiCard-root BrandIntroCard MuiPaper-elevation1 MuiPaper-rounded"
           >
-            <svg
-              class="brand-logo"
-              preserveAspectRatio="xMinYMin"
-            />
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 brandLogoButton MuiButton-textPrimary"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"[object Object]\\",\\"action\\":\\"/smilex\\"}"
+              href="/smilex"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="MuiButton-label buttonStyles-label-4"
+              >
+                <svg
+                  class="brandLogo"
+                  preserveAspectRatio="xMinYMin"
+                />
+              </span>
+            </a>
             <h6
               class="MuiTypography-root description Typography MuiTypography-subtitle1"
             >
@@ -36,14 +49,14 @@ exports[`Brands component renders correctly 1`] = `
             </h6>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
               href="/smilex"
               role="button"
               tabindex="0"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-4"
               >
                 MC: homepage.brands.learn
                 <span

@@ -911,6 +911,7 @@ union ContentfulSection =
   | ContentfulServiceLocatorSection
   | ContentfulVideoSection
   | ContentfulIframe
+  | ContentfulSystemConfiguratorBlock
 
 """
 Represents a key value pair for UI strings.
@@ -953,6 +954,13 @@ type ContentfulResources implements Node {
 
   "The lead block cta for the system details page for these resources."
   sdpLeadBlockCta: ContentfulLink @link(from: "sdpLeadBlockCta___NODE")
+
+  "The product details page sidebar"
+  sdpSidebarItems: [ContentfulTitleWithContent]
+    @link(from: "sdpSidebarItems___NODE")
+
+  "The sdp bim description item"
+  sdpBimDescription: ContentfulRichText
 
   "The input banner for the product details page for these resources."
   pdpInputBanner: ContentfulInputBanner @link(from: "pdpInputBanner___NODE")
@@ -1355,6 +1363,45 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
 union ProductDocument = PIMDocument | PIMLinkDocument
 
+type DataJson implements Node {
+  id: String!
+  systemLayers: [SystemLayer]
+  categories: [Categories]
+}
+
+type SystemLayer {
+  addon: Boolean
+  approvalStatus: String!
+  code: String!
+  # images: []
+  layerNumber: Int
+  longDescription: String
+  name: String
+  optionalProducts: [SystemProduct]
+  products: [SystemProduct]
+  shortDescription: String
+  type: String!
+  relatedProducts: [Products] @link(from: "products___NODE")
+  relatedOptionalProducts: [Products] @link(from: "products___NODE")
+}
+
+type SystemProduct {
+  code: String!
+}
+
+type Categories {
+  image: CategoryImage
+}
+
+type CategoryImage {
+  allowedToDownload: Boolean
+  fileSize: Int
+  mime: String
+  name: String
+  realFileName: String
+  url: String
+}
+
 type Products implements Node {
   "The documents for this product."
   documents: [ProductDocument]! @link(from: "documents___NODE")
@@ -1628,4 +1675,29 @@ type CountryJSON {
 type RegionJson implements Node @dontInfer {
   label: String!
   menu: [CountryJSON]!
+}
+
+type ContentfulSystemConfiguratorBlock implements Node {
+  id: ID!
+
+  "The label for the System Configurator block"
+  label: String
+
+  "The title for the System Configurator block"
+  title: String
+
+  "The description for the System Configurator block"
+  description: ContentfulRichText
+
+  type: String
+
+  question: ContentfulSystemConfiguratorBlock @link(from: "question___NODE")
+
+  answers: [ContentfulSystemConfiguratorBlock] @link(from: "answers___NODE")
+
+  "No result items from the tree below the current block"
+  noResultItems: [ContentfulTitleWithContent]
+    @link(from: "noResultItems___NODE")
+
+  recommendedSystems: [String!]
 }

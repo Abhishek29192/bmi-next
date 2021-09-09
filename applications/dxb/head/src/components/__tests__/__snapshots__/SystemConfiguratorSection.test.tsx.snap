@@ -1,0 +1,4010 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SystemConfiguratorSection component When returning from valid referer highlights last selected system 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-hidden"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            Result Title
+          </h2>
+          <div
+            class="RichText"
+          >
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
+            >
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=abcd"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-abcd
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=efgh"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-efgh
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component When returning from valid referer removes query string from path 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-hidden"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            Result Title
+          </h2>
+          <div
+            class="RichText"
+          >
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
+            >
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=abcd"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-abcd
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=efgh"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-efgh
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders System Configurator Block with initial question and answer data 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel Mui-expanded Mui-disabled MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="true"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-disabled Mui-expanded Mui-disabled"
+              role="button"
+              tabindex="-1"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-entered"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders a no result section when answer clicked 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1b title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="Section Section--alabaster"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            No Result Title
+          </h2>
+          <div
+            class="RichText"
+          >
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
+            >
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders a result section when answer clicked 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            Result Title
+          </h2>
+          <div
+            class="RichText"
+          >
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
+            >
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=abcd"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-abcd
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=efgh"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-efgh
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders an expanded panel when previous panel is clicked 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel Mui-expanded MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-expanded"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel Mui-expanded Mui-disabled MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="true"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-disabled Mui-expanded Mui-disabled"
+              role="button"
+              tabindex="-1"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Next Question Title
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-entered"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Next Question Title"
+                          type="radio"
+                          value="Next Answer Title A"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Next Answer Title A
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Next Question Title"
+                          type="radio"
+                          value="Next Answer Title B"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Next Answer Title B
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders correctly 1`] = `
+<div
+  class="Section Section--white"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        System Configurator Section Title
+      </h2>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders next question and answer block when answer clicked 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel Mui-expanded Mui-disabled MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="true"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-disabled Mui-expanded Mui-disabled"
+              role="button"
+              tabindex="-1"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Next Question Title
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-entered"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Next Question Title"
+                          type="radio"
+                          value="Next Answer Title A"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Next Answer Title A
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Next Question Title"
+                          type="radio"
+                          value="Next Answer Title B"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Next Answer Title B
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders no result section while ignoring assets other than image 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1b title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="Section Section--alabaster"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            No Result Title
+          </h2>
+          <div
+            class="RichText"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders no result section while ignoring invalid asset references 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1b title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="Section Section--alabaster"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            No Result Title
+          </h2>
+          <div
+            class="RichText"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders no result section with the correct image url 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1b title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="Section Section--alabaster"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            No Result Title
+          </h2>
+          <div
+            class="RichText"
+          >
+            <img
+              alt="image 2"
+              class="embedded-asset"
+              src="https:// path to image.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders skipping a block with only one answer 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Skipped Title: 
+                  <span
+                    class="selected-title"
+                  >
+                    Skipped Answer Title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-hidden"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Skipped Title"
+                          type="radio"
+                          value="Skipped Answer Title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Skipped Answer Title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel Mui-expanded Mui-disabled MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="true"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-disabled Mui-expanded Mui-disabled"
+              role="button"
+              tabindex="-1"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Next Question Title
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-entered"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Next Question Title"
+                          type="radio"
+                          value="Next Answer Title A"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Next Answer Title A
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Next Question Title"
+                          type="radio"
+                          value="Next Answer Title B"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Next Answer Title B
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders toggled closed configurator panel 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel Mui-expanded Mui-disabled MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="true"
+              aria-expanded="true"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-disabled Mui-expanded Mui-disabled"
+              role="button"
+              tabindex="-1"
+            >
+              <div
+                class="MuiAccordionSummary-content Mui-expanded"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Next Question Title
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container MuiCollapse-entered"
+              style="min-height: 0px;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Next Question Title"
+                          type="radio"
+                          value="Next Answer Title A"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Next Answer Title A
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Next Question Title"
+                          type="radio"
+                          value="Next Answer Title B"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Next Answer Title B
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders with description rich text 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="RichText"
+        >
+          <h3
+            class="MuiTypography-root title Typography MuiTypography-h3"
+          >
+            Rich Text heading 3
+          </h3>
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          >
+            Rich Text paragraph text
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component stores selected system when a result system card clicked 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            Result Title
+          </h2>
+          <div
+            class="RichText"
+          >
+            <h3
+              class="MuiTypography-root title Typography MuiTypography-h3"
+            >
+              Rich Text heading 3
+            </h3>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Rich Text paragraph text
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=abcd"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-abcd
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                href="/no/system-details-page?selected_system=efgh"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    System-efgh
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component throws error 1`] = `
+<div>
+  Something went wrong
+</div>
+`;

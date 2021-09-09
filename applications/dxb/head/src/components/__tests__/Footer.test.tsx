@@ -3,11 +3,11 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Footer from "../Footer";
 
-import { SiteContext } from "../Site";
+import { SiteContextProvider } from "../Site";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
-    <SiteContext.Provider
+    <SiteContextProvider
       value={{
         node_locale: "en-UK",
         homePage: { title: "Home Page" },
@@ -18,7 +18,7 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       {children}
-    </SiteContext.Provider>
+    </SiteContextProvider>
   );
 };
 

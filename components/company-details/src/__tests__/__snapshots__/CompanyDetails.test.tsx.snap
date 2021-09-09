@@ -76,12 +76,12 @@ exports[`CompanyDetails component renders all types of details 1`] = `
       >
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta-button MuiButton-containedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 cta-button MuiButton-containedPrimary"
           href="https://google.com"
           tabindex="0"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             Get directions
           </span>

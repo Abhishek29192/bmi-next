@@ -23,12 +23,12 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -42,12 +42,12 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button language-selection-button MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <img
                       class="language-icon"
@@ -75,7 +75,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -101,15 +101,15 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
           class="back-navigation"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -155,15 +155,15 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/al"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -182,15 +182,15 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/at"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -209,15 +209,15 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/uk"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -310,7 +310,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained search-button"
                 tabindex="0"
                 type="button"
               >
@@ -334,7 +334,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-text burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -371,7 +371,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -410,13 +410,13 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -431,13 +431,13 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                 <li>
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -449,13 +449,13 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
               </ul>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
                       class="LanguageButtonContent"
@@ -499,7 +499,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
             tabindex="0"
             type="button"
           >
@@ -563,17 +563,17 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                          class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
                           data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                           href="/uk/"
                           role="button"
                           tabindex="0"
                         >
                           <span
-                            class="MuiButton-label"
+                            class="MuiButton-label buttonStyles-label"
                           >
                             <span
-                              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                              class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                             >
                               <svg
                                 aria-hidden="true"
@@ -920,17 +920,17 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                     href="/uk/"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -1001,7 +1001,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     rel="noopener noreferrer"
@@ -1009,7 +1009,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -1023,14 +1023,14 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                     href="/uk/sitemap"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       MC: global.sitemap
                     </span>
@@ -1056,12 +1056,12 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
       <button
         aria-hidden="true"
         aria-label="Back to the top"
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained button MuiButton-containedPrimary"
         tabindex="-1"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label"
         >
           <svg
             aria-hidden="true"
@@ -1106,12 +1106,12 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -1125,12 +1125,12 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button language-selection-button MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <img
                       class="language-icon"
@@ -1158,7 +1158,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -1184,15 +1184,15 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
           class="back-navigation"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -1238,15 +1238,15 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/al"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -1265,15 +1265,15 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/at"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -1292,15 +1292,15 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/uk"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -1393,7 +1393,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained search-button"
                 tabindex="0"
                 type="button"
               >
@@ -1417,7 +1417,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-text burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -1454,7 +1454,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -1493,13 +1493,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -1514,13 +1514,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 <li>
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -1532,13 +1532,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               </ul>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
                       class="LanguageButtonContent"
@@ -1582,7 +1582,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
             tabindex="0"
             type="button"
           >
@@ -1646,17 +1646,17 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                          class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
                           data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                           href="/uk/"
                           role="button"
                           tabindex="0"
                         >
                           <span
-                            class="MuiButton-label"
+                            class="MuiButton-label buttonStyles-label"
                           >
                             <span
-                              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                              class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                             >
                               <svg
                                 aria-hidden="true"
@@ -1998,17 +1998,17 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                     href="/uk/"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -2079,7 +2079,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     rel="noopener noreferrer"
@@ -2087,7 +2087,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -2101,14 +2101,14 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                     href="/uk/sitemap"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       MC: global.sitemap
                     </span>
@@ -2134,12 +2134,12 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
       <button
         aria-hidden="true"
         aria-label="Back to the top"
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained button MuiButton-containedPrimary"
         tabindex="-1"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label"
         >
           <svg
             aria-hidden="true"
@@ -2184,12 +2184,12 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -2203,12 +2203,12 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button language-selection-button MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <img
                       class="language-icon"
@@ -2236,7 +2236,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -2262,15 +2262,15 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
           class="back-navigation"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -2316,15 +2316,15 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/al"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -2343,15 +2343,15 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/at"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -2370,15 +2370,15 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/uk"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -2471,7 +2471,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained search-button"
                 tabindex="0"
                 type="button"
               >
@@ -2495,7 +2495,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-text burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -2532,7 +2532,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -2571,13 +2571,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -2592,13 +2592,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 <li>
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -2610,13 +2610,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
               </ul>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
                       class="LanguageButtonContent"
@@ -2660,7 +2660,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
             tabindex="0"
             type="button"
           >
@@ -2724,17 +2724,17 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                          class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
                           data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                           href="/uk/"
                           role="button"
                           tabindex="0"
                         >
                           <span
-                            class="MuiButton-label"
+                            class="MuiButton-label buttonStyles-label"
                           >
                             <span
-                              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                              class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3081,17 +3081,17 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                     href="/uk/"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -3162,7 +3162,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     rel="noopener noreferrer"
@@ -3170,7 +3170,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -3184,14 +3184,14 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                     href="/uk/sitemap"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       MC: global.sitemap
                     </span>
@@ -3217,12 +3217,12 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
       <button
         aria-hidden="true"
         aria-label="Back to the top"
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained button MuiButton-containedPrimary"
         tabindex="-1"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label"
         >
           <svg
             aria-hidden="true"
@@ -3267,12 +3267,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -3283,12 +3283,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button language-selection-button MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <img
                       class="language-icon"
@@ -3313,7 +3313,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -3336,15 +3336,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
           class="back-navigation"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -3387,15 +3387,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/al"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -3411,15 +3411,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/at"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -3435,15 +3435,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/uk"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -3526,7 +3526,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained search-button"
                 tabindex="0"
                 type="button"
               >
@@ -3547,7 +3547,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-text burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -3581,7 +3581,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -3617,13 +3617,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -3635,13 +3635,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 <li>
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -3650,13 +3650,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               </ul>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
                       class="LanguageButtonContent"
@@ -3697,7 +3697,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
             tabindex="0"
             type="button"
           >
@@ -3758,17 +3758,17 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                          class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
                           data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                           href="/uk/"
                           role="button"
                           tabindex="0"
                         >
                           <span
-                            class="MuiButton-label"
+                            class="MuiButton-label buttonStyles-label"
                           >
                             <span
-                              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                              class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3977,12 +3977,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                       MC: plp.filters.title
                     </h5>
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text MuiButton-textPrimary"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         MC: plp.filters.clearAll
                       </span>
@@ -4003,7 +4003,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
+                          aria-label="Colour"
                           class="MuiButtonBase-root MuiAccordionSummary-root"
+                          data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Colour\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
@@ -4035,9 +4037,6 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                                 />
                               </svg>
                             </span>
-                            <span
-                              class="MuiTouchRipple-root"
-                            />
                           </div>
                         </div>
                         <div
@@ -4328,17 +4327,17 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                     href="/uk/"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -4406,7 +4405,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     rel="noopener noreferrer"
@@ -4414,7 +4413,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -4425,14 +4424,14 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                     href="/uk/sitemap"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       MC: global.sitemap
                     </span>
@@ -4455,12 +4454,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
       <button
         aria-hidden="true"
         aria-label="Back to the top"
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained button MuiButton-containedPrimary"
         tabindex="-1"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label"
         >
           <svg
             aria-hidden="true"
@@ -4505,12 +4504,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -4521,12 +4520,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button language-selection-button MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <img
                       class="language-icon"
@@ -4551,7 +4550,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -4574,15 +4573,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
           class="back-navigation"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -4625,15 +4624,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/al"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -4649,15 +4648,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/at"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -4673,15 +4672,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/uk"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -4764,7 +4763,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained search-button"
                 tabindex="0"
                 type="button"
               >
@@ -4785,7 +4784,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-text burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -4819,7 +4818,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -4855,13 +4854,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -4873,13 +4872,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 <li>
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -4888,13 +4887,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               </ul>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
                       class="LanguageButtonContent"
@@ -4935,7 +4934,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
             tabindex="0"
             type="button"
           >
@@ -4990,17 +4989,17 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                       href="/uk/"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <svg
                             aria-hidden="true"
@@ -5027,7 +5026,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 class="content"
               >
                 <h1
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                  class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
                 >
                   i am a title
                 </h1>
@@ -5194,12 +5193,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                       MC: plp.filters.title
                     </h5>
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text MuiButton-textPrimary"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         MC: plp.filters.clearAll
                       </span>
@@ -5220,7 +5219,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
+                          aria-label="Size"
                           class="MuiButtonBase-root MuiAccordionSummary-root"
+                          data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Size\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
@@ -5252,9 +5253,6 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                                 />
                               </svg>
                             </span>
-                            <span
-                              class="MuiTouchRipple-root"
-                            />
                           </div>
                         </div>
                         <div
@@ -5539,17 +5537,17 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                     href="/uk/"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -5617,7 +5615,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     rel="noopener noreferrer"
@@ -5625,7 +5623,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -5636,14 +5634,14 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                     href="/uk/sitemap"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       MC: global.sitemap
                     </span>
@@ -5666,12 +5664,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
       <button
         aria-hidden="true"
         aria-label="Back to the top"
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained button MuiButton-containedPrimary"
         tabindex="-1"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label"
         >
           <svg
             aria-hidden="true"
@@ -5716,12 +5714,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -5735,12 +5733,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button language-selection-button MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <img
                       class="language-icon"
@@ -5768,7 +5766,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -5794,15 +5792,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
           class="back-navigation"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -5848,15 +5846,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/al"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -5875,15 +5873,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/at"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -5902,15 +5900,15 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/uk"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -6003,7 +6001,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained search-button"
                 tabindex="0"
                 type="button"
               >
@@ -6027,7 +6025,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-text burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -6064,7 +6062,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -6103,13 +6101,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -6124,13 +6122,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 <li>
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -6142,13 +6140,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
               </ul>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
                       class="LanguageButtonContent"
@@ -6192,7 +6190,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
             tabindex="0"
             type="button"
           >
@@ -6250,17 +6248,17 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                       href="/uk/"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <svg
                             aria-hidden="true"
@@ -6290,7 +6288,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 class="content"
               >
                 <h1
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                  class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
                 >
                   i am a title
                 </h1>
@@ -6457,12 +6455,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                       MC: plp.filters.title
                     </h5>
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text MuiButton-textPrimary"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         MC: plp.filters.clearAll
                       </span>
@@ -6483,7 +6481,9 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
+                          aria-label="Colour"
                           class="MuiButtonBase-root MuiAccordionSummary-root"
+                          data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Colour\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
@@ -6817,17 +6817,17 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                     href="/uk/"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -6898,7 +6898,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     rel="noopener noreferrer"
@@ -6906,7 +6906,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -6920,14 +6920,14 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                     href="/uk/sitemap"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       MC: global.sitemap
                     </span>
@@ -6953,12 +6953,12 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
       <button
         aria-hidden="true"
         aria-label="Back to the top"
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained button MuiButton-containedPrimary"
         tabindex="-1"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label"
         >
           <svg
             aria-hidden="true"
@@ -7003,12 +7003,12 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -7022,12 +7022,12 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button language-selection-button MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <img
                       class="language-icon"
@@ -7055,7 +7055,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -7081,15 +7081,15 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
           class="back-navigation"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -7135,15 +7135,15 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/al"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -7162,15 +7162,15 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/at"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -7189,15 +7189,15 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/uk"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -7290,7 +7290,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained search-button"
                 tabindex="0"
                 type="button"
               >
@@ -7314,7 +7314,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-text burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -7351,7 +7351,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -7390,13 +7390,13 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -7411,13 +7411,13 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                 <li>
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -7429,13 +7429,13 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
               </ul>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
                       class="LanguageButtonContent"
@@ -7479,7 +7479,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
             tabindex="0"
             type="button"
           >
@@ -7543,17 +7543,17 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                          class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
                           data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                           href="/uk/"
                           role="button"
                           tabindex="0"
                         >
                           <span
-                            class="MuiButton-label"
+                            class="MuiButton-label buttonStyles-label"
                           >
                             <span
-                              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                              class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                             >
                               <svg
                                 aria-hidden="true"
@@ -7836,17 +7836,17 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                     href="/uk/"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -7917,7 +7917,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     rel="noopener noreferrer"
@@ -7925,7 +7925,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -7939,14 +7939,14 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                     href="/uk/sitemap"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       MC: global.sitemap
                     </span>
@@ -7972,12 +7972,12 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
       <button
         aria-hidden="true"
         aria-label="Back to the top"
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained button MuiButton-containedPrimary"
         tabindex="-1"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label"
         >
           <svg
             aria-hidden="true"
@@ -8022,12 +8022,12 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -8041,12 +8041,12 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button language-selection-button MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <img
                       class="language-icon"
@@ -8074,7 +8074,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -8100,15 +8100,15 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
           class="back-navigation"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -8154,15 +8154,15 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/al"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -8181,15 +8181,15 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/at"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -8208,15 +8208,15 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/uk"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -8309,7 +8309,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained search-button"
                 tabindex="0"
                 type="button"
               >
@@ -8333,7 +8333,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-text burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -8370,7 +8370,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -8409,13 +8409,13 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -8430,13 +8430,13 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                 <li>
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -8448,13 +8448,13 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
               </ul>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
                       class="LanguageButtonContent"
@@ -8498,7 +8498,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
             tabindex="0"
             type="button"
           >
@@ -8529,156 +8529,80 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
       </div>
     </header>
     <div
-      class=""
-      data-testid="brand-colors-provider"
+      class="SpotlightHero"
     >
       <div
-        class="SpotlightHero"
+        class="image"
       >
         <div
-          class="image"
+          class="header"
         >
-          <div
-            class="header"
-          >
-            <div
-              class="Container"
-            >
-              <div
-                class="MuiContainer-root header-container MuiContainer-maxWidthXl"
-              >
-                <div
-                  class="breadcrumbs"
-                >
-                  <nav
-                    aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs Breadcrumbs--dark-themed MuiTypography-body1 MuiTypography-colorTextSecondary"
-                  >
-                    <ol
-                      class="MuiBreadcrumbs-ol"
-                    >
-                      <li
-                        class="MuiBreadcrumbs-li"
-                      >
-                        <a
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
-                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
-                          href="/uk/"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <span
-                            class="MuiButton-label"
-                          >
-                            <span
-                              class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root icon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="label"
-                            >
-                              Home page title
-                            </span>
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </a>
-                      </li>
-                    </ol>
-                  </nav>
-                </div>
-                <h1
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
-                >
-                  i am a title
-                </h1>
-              </div>
-            </div>
-          </div>
           <div
             class="Container"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl"
+              class="MuiContainer-root header-container MuiContainer-maxWidthXl"
             >
               <div
-                class="content"
+                class="breadcrumbs"
               >
-                <div
-                  class="text"
-                />
+                <nav
+                  aria-label="breadcrumbs"
+                  class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs Breadcrumbs--dark-themed MuiTypography-body1 MuiTypography-colorTextSecondary"
+                >
+                  <ol
+                    class="MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <a
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
+                        href="/uk/"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label"
+                        >
+                          <span
+                            class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root icon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="label"
+                          >
+                            Home page title
+                          </span>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
               </div>
-            </div>
-          </div>
-          <div
-            class="overlay overlay--blue"
-          >
-            <div
-              class="gatsby-image-wrapper gatsby-image-wrapper-constrained Media"
-              data-gatsby-image-wrapper=""
-              style="overflow: hidden; display: inline-block;"
-            >
-              <div
-                style="max-width: 948px; display: block;"
+              <h1
+                class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
               >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                  style="max-width: 100%; display: block; position: static;"
-                />
-              </div>
-              <div
-                aria-hidden="true"
-                data-placeholder-image=""
-                style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-              />
-              <picture>
-                <source
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                  sizes="(min-width: 948px) 948px, 100vw"
-                  type="image/webp"
-                />
-                <img
-                  alt="Lorem ipsum"
-                  data-gatsby-image-ssr=""
-                  data-main-image=""
-                  data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                  decoding="async"
-                  draggable="false"
-                  layout="in-place"
-                  loading="lazy"
-                  sizes="(min-width: 948px) 948px, 100vw"
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                />
-              </picture>
-              <noscript />
-              <script
-                type="module"
-              >
-                const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-              </script>
+                i am a title
+              </h1>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="Section Section--white"
-      >
         <div
           class="Container"
         >
@@ -8686,63 +8610,134 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+              class="content"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="text"
               />
+            </div>
+          </div>
+        </div>
+        <div
+          class="overlay overlay--blue"
+        >
+          <div
+            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Media"
+            data-gatsby-image-wrapper=""
+            style="overflow: hidden; display: inline-block;"
+          >
+            <div
+              style="max-width: 948px; display: block;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                role="presentation"
+                src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                style="max-width: 100%; display: block; position: static;"
+              />
+            </div>
+            <div
+              aria-hidden="true"
+              data-placeholder-image=""
+              style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+            />
+            <picture>
+              <source
+                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                sizes="(min-width: 948px) 948px, 100vw"
+                type="image/webp"
+              />
+              <img
+                alt="Lorem ipsum"
+                data-gatsby-image-ssr=""
+                data-main-image=""
+                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                decoding="async"
+                draggable="false"
+                layout="in-place"
+                loading="lazy"
+                sizes="(min-width: 948px) 948px, 100vw"
+                style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+              />
+            </picture>
+            <noscript />
+            <script
+              type="module"
+            >
+              const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+            />
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+            >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="ColorPair ColorPair--pearl"
               >
                 <div
-                  class="ColorPair ColorPair--pearl"
+                  class="PostItCard"
                 >
                   <div
-                    class="PostItCard"
+                    class="section"
                   >
-                    <div
-                      class="section"
+                    <h4
+                      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
                     >
-                      <h4
-                        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                      MC: plp.keyFeatures.title
+                    </h4>
+                    <div
+                      class="content"
+                    >
+                      <ul
+                        class="IconList"
                       >
-                        MC: plp.keyFeatures.title
-                      </h4>
-                      <div
-                        class="content"
-                      >
-                        <ul
-                          class="IconList"
+                        <li
+                          class="ListItem ListItem--isCompact"
                         >
-                          <li
-                            class="ListItem ListItem--isCompact"
+                          <div
+                            class="icon"
                           >
-                            <div
-                              class="icon"
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                                />
-                              </svg>
-                            </div>
-                            <div
-                              class="content"
+                              <path
+                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="content"
+                          >
+                            <p
+                              class="MuiTypography-root title Typography MuiTypography-body1"
                             >
-                              <p
-                                class="MuiTypography-root title Typography MuiTypography-body1"
-                              >
-                                test
-                              </p>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
+                              test
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -8751,147 +8746,147 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="Section Section--pearl Section--overflow-visible"
+    >
       <div
-        class="Section Section--pearl Section--overflow-visible"
+        class="Container"
       >
         <div
-          class="Container"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              style="padding-top: 60px;"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
-                style="padding-top: 60px;"
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
               >
-                <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
                 >
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
-                  >
-                    MC: plp.product.noResultsFound
-                  </p>
-                </div>
-                <div
-                  class="ResultsPagination"
+                  MC: plp.product.noResultsFound
+                </p>
+              </div>
+              <div
+                class="ResultsPagination"
+              >
+                <nav
+                  aria-label="pagination navigation"
+                  class="MuiPagination-root pagination"
                 >
-                  <nav
-                    aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                  <ul
+                    class="MuiPagination-ul"
                   >
-                    <ul
-                      class="MuiPagination-ul"
-                    >
-                      <li>
-                        <button
-                          aria-label="Go to previous page"
-                          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
-                          disabled=""
-                          tabindex="-1"
-                          type="button"
+                    <li>
+                      <button
+                        aria-label="Go to previous page"
+                        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiPaginationItem-icon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiPaginationItem-icon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                            />
-                          </svg>
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          aria-label="Go to next page"
-                          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
-                          disabled=""
-                          tabindex="-1"
-                          type="button"
+                          <path
+                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                          />
+                        </svg>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        aria-label="Go to next page"
+                        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiPaginationItem-icon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiPaginationItem-icon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                            />
-                          </svg>
-                        </button>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+                          <path
+                            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                          />
+                        </svg>
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="Section Section--alabaster Section--slim"
+    >
       <div
-        class="Section Section--alabaster Section--slim"
+        class="Container"
       >
         <div
-          class="Container"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
-          <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+          <nav
+            aria-label="breadcrumbs"
+            class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
-            <nav
-              aria-label="breadcrumbs"
-              class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
+            <ol
+              class="MuiBreadcrumbs-ol"
             >
-              <ol
-                class="MuiBreadcrumbs-ol"
+              <li
+                class="MuiBreadcrumbs-li"
               >
-                <li
-                  class="MuiBreadcrumbs-li"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
+                  href="/uk/"
+                  role="button"
+                  tabindex="0"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
-                    href="/uk/"
-                    role="button"
-                    tabindex="0"
+                  <span
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                     >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root icon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="label"
-                      >
-                        Home page title
-                      </span>
+                        <path
+                          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                        />
+                      </svg>
                     </span>
                     <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </li>
-              </ol>
-            </nav>
-          </div>
+                      class="label"
+                    >
+                      Home page title
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </li>
+            </ol>
+          </nav>
         </div>
       </div>
     </div>
@@ -8936,7 +8931,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     rel="noopener noreferrer"
@@ -8944,7 +8939,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -8958,14 +8953,14 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                     href="/uk/sitemap"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       MC: global.sitemap
                     </span>
@@ -8991,12 +8986,12 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
       <button
         aria-hidden="true"
         aria-label="Back to the top"
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained button MuiButton-containedPrimary"
         tabindex="-1"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label"
         >
           <svg
             aria-hidden="true"
@@ -9041,12 +9036,12 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -9060,12 +9055,12 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button language-selection-button MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <img
                       class="language-icon"
@@ -9093,7 +9088,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -9119,15 +9114,15 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           class="back-navigation"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -9173,15 +9168,15 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/al"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -9200,15 +9195,15 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/at"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -9227,15 +9222,15 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
                       href="/uk"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <img
                             class="LanguageIcon"
@@ -9328,7 +9323,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained search-button"
                 tabindex="0"
                 type="button"
               >
@@ -9352,7 +9347,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-text burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -9389,7 +9384,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
           tabindex="0"
           type="button"
         >
@@ -9428,13 +9423,13 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     string
                   </span>
@@ -9449,13 +9444,13 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 <li>
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -9467,13 +9462,13 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               </ul>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label"
                   >
                     <span
                       class="LanguageButtonContent"
@@ -9517,7 +9512,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
             tabindex="0"
             type="button"
           >
@@ -9575,17 +9570,17 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                       href="/uk/"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label buttonStyles-label"
                       >
                         <span
-                          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                         >
                           <svg
                             aria-hidden="true"
@@ -9615,7 +9610,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 class="content"
               >
                 <h1
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                  class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
                 >
                   i am a title
                 </h1>
@@ -9917,17 +9912,17 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/\\",\\"label\\":\\"Home page title\\"}"
                     href="/uk/"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
@@ -9998,7 +9993,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     rel="noopener noreferrer"
@@ -10006,7 +10001,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       string
                     </span>
@@ -10020,14 +10015,14 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                     href="/uk/sitemap"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label"
                     >
                       MC: global.sitemap
                     </span>
@@ -10053,12 +10048,12 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       <button
         aria-hidden="true"
         aria-label="Back to the top"
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained button MuiButton-containedPrimary"
         tabindex="-1"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label"
         >
           <svg
             aria-hidden="true"

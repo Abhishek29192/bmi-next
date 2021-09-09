@@ -29,12 +29,23 @@ const EmbeddedAssetBlock = ({
   node: Block;
   className: string;
 }) => {
-  const data: FileData = node.data?.target;
+  const data: FileData = node.data.target;
   const { title, file } = data;
+
+  if (!file) {
+    return null;
+  }
+
   const { url, contentType } = file;
 
   if (contentTypeMap[contentType] === "image") {
-    return <img className={className} src={`https:${url}`} alt={title} />;
+    return (
+      <img
+        className={className}
+        src={url.startsWith("https:") ? url : `https:${url}`}
+        alt={title}
+      />
+    );
   }
 
   return null;

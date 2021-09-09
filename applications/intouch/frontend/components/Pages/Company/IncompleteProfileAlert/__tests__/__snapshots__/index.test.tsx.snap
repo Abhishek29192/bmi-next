@@ -12,7 +12,7 @@ exports[`CompanyIncompleteProfile should match snapshot 1`] = `
     >
       <button
         aria-label="incompleteProfile.closeAlertAccessibilityLabel"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
         data-testid="CloseButton"
         tabindex="0"
         type="button"

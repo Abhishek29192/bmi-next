@@ -58,6 +58,14 @@ resource "google_cloud_run_service" "default" {
           name  = "NODE_ENV"
           value = "production"
         }
+        env {
+          name  = "ONE_TRUST_GUID"
+          value = "c077f356-43eb-416b-81da-cb36e32b3f06-test"
+        }
+        env {
+          name  = "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY"
+          value = "AIzaSyAgm19YJTafOD1jKkLDsx1n0XtVKjpgIQs"
+        }
       }
     }
   }

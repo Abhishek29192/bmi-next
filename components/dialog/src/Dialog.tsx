@@ -5,6 +5,7 @@ import classnames from "classnames";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import CloseIcon from "@material-ui/icons/Close";
+import { useDisablePortalModalWorkaround } from "@bmi/hooks";
 import Fade from "@material-ui/core/Fade";
 import styles from "./Dialog.module.scss";
 
@@ -15,6 +16,7 @@ type Props = {
   onCloseClick?: () => any;
   onBackdropClick?: ModalProps["onBackdropClick"];
   backdropProps?: ModalProps["BackdropProps"];
+  disablePortal?: ModalProps["disablePortal"];
   areaLabelledby?: string;
   areaDescribedby?: string;
   children: React.ReactNode;
@@ -26,6 +28,7 @@ const Dialog = ({
   maxWidth = "md",
   color = "white",
   onCloseClick,
+  disablePortal = true,
   onBackdropClick = onCloseClick,
   backdropProps,
   areaLabelledby,
@@ -37,6 +40,8 @@ const Dialog = ({
   const rawTitle = childrenArray.find(
     (child) => isElement(child) && child.type === Title
   ) as React.ReactElement | undefined;
+
+  useDisablePortalModalWorkaround(open, disablePortal);
 
   const title = rawTitle
     ? React.cloneElement(rawTitle, {
@@ -55,6 +60,7 @@ const Dialog = ({
       BackdropProps={backdropProps}
       aria-labelledby={areaLabelledby}
       aria-describedby={areaDescribedby}
+      disablePortal={disablePortal}
     >
       <Fade in={open}>
         <div
