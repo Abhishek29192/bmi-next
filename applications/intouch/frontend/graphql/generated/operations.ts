@@ -1645,6 +1645,58 @@ export type AddProjectsMemberMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
+export type UpdateProjectMemberMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateProjectMemberInput;
+  projectId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type UpdateProjectMemberMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly updateProjectMember?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateProjectMemberPayload" } & {
+      readonly projectMember?: SchemaTypes.Maybe<
+        { readonly __typename?: "ProjectMember" } & Pick<
+          SchemaTypes.ProjectMember,
+          "id" | "projectId" | "isResponsibleInstaller"
+        >
+      >;
+      readonly query?: SchemaTypes.Maybe<
+        { readonly __typename?: "Query" } & {
+          readonly projectMembers?: SchemaTypes.Maybe<
+            { readonly __typename?: "ProjectMembersConnection" } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "ProjectMember" } & Pick<
+                  SchemaTypes.ProjectMember,
+                  "id" | "accountId" | "isResponsibleInstaller"
+                > & {
+                    readonly account?: SchemaTypes.Maybe<
+                      { readonly __typename?: "Account" } & Pick<
+                        SchemaTypes.Account,
+                        "firstName" | "lastName" | "role"
+                      > & {
+                          readonly certificationsByDoceboUserId: {
+                            readonly __typename?: "CertificationsConnection";
+                          } & {
+                            readonly nodes: ReadonlyArray<
+                              { readonly __typename?: "Certification" } & Pick<
+                                SchemaTypes.Certification,
+                                "name" | "technology"
+                              >
+                            >;
+                          };
+                        }
+                    >;
+                  }
+              >;
+            }
+          >;
+        }
+      >;
+    }
+  >;
+};
+
 export type AddEvidencesMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.EvidenceItemsAddInput;
 }>;

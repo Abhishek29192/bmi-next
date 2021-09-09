@@ -77,7 +77,8 @@ grant update on project to market_admin;
 
 -- project_member
 grant select, delete on project_member to installer;
-grant select, insert, delete on project_member to company_admin;
+grant select, insert, update,delete on project_member to company_admin;
+grant select, insert, update, delete on project_member to super_admin;
 
 -- notification
 grant select on notification to installer;
