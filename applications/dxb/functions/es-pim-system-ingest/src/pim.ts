@@ -105,18 +105,6 @@ export type Feature = {
   name: string;
 };
 
-export type VariantOption = {
-  approvalStatus: ApprovalStatus;
-  classifications?: readonly Classification[];
-  code: string;
-  externalProductCode: string; // NOBB
-  images: readonly Image[];
-  isSampleOrderAllowed: boolean;
-  longDescription: HTML;
-  shortDescription: string;
-  productBenefits?: string[];
-};
-
 type Product = {
   code: string;
 };

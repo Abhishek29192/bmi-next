@@ -6,7 +6,7 @@ const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
   return ret;
 };
 
-export type SystemVariant = {
+export type EsSystem = {
   approvalStatus: System["approvalStatus"];
   brand?: string;
   type: System["type"];
@@ -22,7 +22,7 @@ const getBrandCode = (categories: System["categories"]): string | undefined => {
   })?.code;
 };
 
-export const transformSystem = (system: System): SystemVariant => {
+export const transformSystem = (system: System): EsSystem => {
   const brand = getBrandCode(system.categories);
   return {
     ...pick(

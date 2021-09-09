@@ -1,7 +1,7 @@
 // import { Client } from "@elastic/elasticsearch";
 import { getEsClient } from "./es-client";
 import { System } from "./pim";
-import { transformSystem, SystemVariant } from "./transform";
+import { transformSystem, EsSystem } from "./transform";
 
 const {
   ES_INDEX_PREFIX,
@@ -24,14 +24,14 @@ const pingEsCluster = async () => {
   });
 };
 
-const buildEsSystems = (items: readonly System[]): SystemVariant[] => {
+const buildEsSystems = (items: readonly System[]): EsSystem[] => {
   return items.reduce(
     (allSystems, system) => allSystems.concat(transformSystem(system)),
-    [] as SystemVariant[]
+    [] as EsSystem[]
   );
 };
 
-const getChunks = (esSystems: readonly SystemVariant[]): SystemVariant[][] => {
+const getChunks = (esSystems: readonly EsSystem[]): EsSystem[][] => {
   const chunkSize = parseInt(BATCH_SIZE);
   // eslint-disable-next-line no-console
   console.info(`Chunk size: ${chunkSize}`);
@@ -62,8 +62,8 @@ type IndexOperation = {
 
 const getIndexOperation = (
   indexName: string,
-  system: SystemVariant
-): [IndexOperation, SystemVariant] => {
+  system: EsSystem
+): [IndexOperation, EsSystem] => {
   return [
     {
       index: { _index: indexName, _id: system.code }
@@ -74,7 +74,7 @@ const getIndexOperation = (
 
 const getDeleteOperation = (
   indexName: string,
-  system: SystemVariant
+  system: EsSystem
 ): [DeleteOperation] => {
   return [
     {
@@ -87,9 +87,9 @@ export type Operation = "index" | "delete" | "create" | "update";
 
 const getBulkOperations = (
   indexName: string,
-  systems: readonly SystemVariant[],
+  systems: readonly EsSystem[],
   action?: Operation
-): (DeleteOperation | (IndexOperation | SystemVariant))[] => {
+): (DeleteOperation | (IndexOperation | EsSystem))[] => {
   if (!action) {
     return systems.reduce(
       (allOps, item) => [
@@ -98,7 +98,7 @@ const getBulkOperations = (
           ? getIndexOperation(indexName, item)
           : getDeleteOperation(indexName, item))
       ],
-      [] as (DeleteOperation | (IndexOperation | SystemVariant))[]
+      [] as (DeleteOperation | (IndexOperation | EsSystem))[]
     );
   }
   // action is only sent in as "delete"
@@ -110,7 +110,7 @@ const getBulkOperations = (
 
 const updateElasticSearch = async (
   itemType: string,
-  esSystems: readonly SystemVariant[],
+  esSystems: readonly EsSystem[],
   action?: Operation
 ) => {
   const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
@@ -193,7 +193,7 @@ export const handleMessage: SystemMessageFunction = async (event, context) => {
     itemsCount: items.length
   });
 
-  const esSystems: SystemVariant[] = buildEsSystems(items);
+  const esSystems: EsSystem[] = buildEsSystems(items);
 
   if (esSystems.length === 0) {
     // eslint-disable-next-line no-console

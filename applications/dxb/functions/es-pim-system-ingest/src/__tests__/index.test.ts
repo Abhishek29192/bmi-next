@@ -2,7 +2,7 @@ import { RequestParams } from "@elastic/elasticsearch";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
 import { SystemMessage } from "..";
-import type { SystemVariant } from "../transform";
+import type { EsSystem } from "../transform";
 import type { System } from "../pim";
 import createSystem from "./helpers/SystemHelper";
 
@@ -47,7 +47,7 @@ jest.mock("@elastic/elasticsearch", () => {
 
 const transformSystem = jest.fn();
 jest.mock("../transform", () => ({
-  transformSystem: (system: System): SystemVariant[] => transformSystem(system)
+  transformSystem: (system: System): EsSystem[] => transformSystem(system)
 }));
 
 beforeAll(() => {
