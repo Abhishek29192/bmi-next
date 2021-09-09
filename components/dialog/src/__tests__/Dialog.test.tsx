@@ -104,36 +104,4 @@ describe("Dialog component", () => {
     backdrop.click();
     expect(onBackdropClick).toHaveBeenCalled();
   });
-
-  it("aria-hidden should be false if disabled portal", () => {
-    const TestComponent = () => {
-      const [open, setOpen] = useState(false);
-
-      return (
-        <>
-          <button onClick={setOpen.bind(null, true)} type="button">
-            Open Dialog
-          </button>
-          <Dialog open={open} disablePortal>
-            <Dialog.Title hasUnderline>Heading</Dialog.Title>
-            <Dialog.Content>Some content</Dialog.Content>
-            <Dialog.Actions confirmLabel={"Close"} />
-          </Dialog>
-        </>
-      );
-    };
-    const { getByText } = render(<TestComponent />);
-
-    const openDialog = getByText("Open Dialog");
-    openDialog.click();
-    const isAreaHiddenFalse = Array.from(document.body.children)
-      .filter(
-        (child) =>
-          !["SCRIPT", "IFRAME", "NOSCRIPT"].some(
-            (tagName) => child.tagName === tagName
-          )
-      )
-      .every((child) => child.getAttribute("aria-hidden") === "false");
-    expect(isAreaHiddenFalse).toBe(true);
-  });
 });

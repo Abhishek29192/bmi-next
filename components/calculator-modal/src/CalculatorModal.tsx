@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Button from "@bmi/button";
@@ -7,7 +7,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Fade from "@material-ui/core/Fade";
 import { BMI as brandLogo } from "@bmi/logo";
 import Icon from "@bmi/icon";
-import { useDisablePortalModalWorkaround } from "@bmi/hooks";
+import { DialogClassNameContext } from "@bmi/dialog";
 import styles from "./CalculatorModal.module.scss";
 
 type Props = {
@@ -38,10 +38,11 @@ const CalculatorModal = ({
   className,
   disablePortal = true
 }: Props) => {
-  useDisablePortalModalWorkaround(open, disablePortal);
+  const modalClassName = useContext(DialogClassNameContext);
 
   return (
     <Modal
+      className={modalClassName}
       open={open}
       onBackdropClick={onBackdropClick}
       BackdropProps={backdropProps}

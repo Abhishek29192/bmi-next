@@ -5,7 +5,7 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
   style="padding-right: 0px; overflow: hidden;"
 >
   <div
-    aria-hidden="false"
+    aria-hidden="true"
   >
     <div
       class="YoutubeVideo"
