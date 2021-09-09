@@ -3,7 +3,10 @@ import fetch from "node-fetch";
 import { PubSub } from "@google-cloud/pubsub";
 import dotenv from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import { deleteFirestoreCollection } from "./reset/firestore";
+import {
+  deleteFirestoreCollection,
+  FIRESTORE_COLLECTIONS
+} from "./reset/firestore";
 import { deleteElasticSearchIndex } from "./reset/elasticSearch";
 
 // Hack to please TS
@@ -183,7 +186,12 @@ const handleRequest = async (req, res) => {
     console.log("Clearing out data...");
 
     await deleteElasticSearchIndex();
-    await deleteFirestoreCollection();
+    await deleteFirestoreCollection(
+      `${process.env.FIRESTORE_ROOT_COLLECTION}/${FIRESTORE_COLLECTIONS.PRODUCTS}`
+    );
+    await deleteFirestoreCollection(
+      `${process.env.FIRESTORE_ROOT_COLLECTION}/${FIRESTORE_COLLECTIONS.SYSTEMS}`
+    );
 
     // eslint-disable-next-line no-console
     console.log(`Getting the whole catalogue.`);

@@ -3,7 +3,8 @@ import admin from "firebase-admin";
 // TODO: I think these should start with "/", but was easier for them not to
 const FIRESTORE_COLLECTIONS = {
   CATEGORIES: "root/categories",
-  PRODUCTS: "root/products"
+  PRODUCTS: "root/products",
+  SYSTEMS: "root/systems"
 };
 
 admin.initializeApp({
@@ -37,9 +38,8 @@ async function deleteQueryBatch(db, query, resolve) {
   });
 }
 
-async function deleteFirestoreCollection() {
+async function deleteFirestoreCollection(collectionPath) {
   const db = admin.firestore();
-  const collectionPath = `${process.env.FIRESTORE_ROOT_COLLECTION}/${FIRESTORE_COLLECTIONS["PRODUCTS"]}`;
   const batchSize = 20;
 
   const collectionRef = db.collection(collectionPath);
@@ -49,4 +49,4 @@ async function deleteFirestoreCollection() {
     deleteQueryBatch(db, query, resolve).catch(reject);
   });
 }
-export { deleteFirestoreCollection };
+export { deleteFirestoreCollection, FIRESTORE_COLLECTIONS };
