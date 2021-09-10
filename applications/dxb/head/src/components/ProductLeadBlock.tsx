@@ -65,10 +65,10 @@ const ProductLeadBlock = ({
   const resultsElement = useRef<HTMLDivElement>(null);
 
   const removePdfs = (imgArr: GuaranteesAndAwardsAsset[]) => {
-    const santisisedImgs = imgArr?.filter(
+    const sanitisedImgs = imgArr?.filter(
       (item) => item.url.indexOf(".pdf") === -1
     );
-    return santisisedImgs;
+    return sanitisedImgs;
   };
   const guaranteeImgs = removePdfs(guaranteesAndWarranties);
   const certificateImgs = removePdfs(awardsAndCertificates);
