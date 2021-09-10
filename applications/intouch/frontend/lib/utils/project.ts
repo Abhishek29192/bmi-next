@@ -1,4 +1,8 @@
-import { GuaranteeEventType, Project } from "@bmi/intouch-api-types";
+import {
+  GuaranteeEventType,
+  Project,
+  RequestStatus
+} from "@bmi/intouch-api-types";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import { DeepPartial } from "./types";
 import {
@@ -107,4 +111,12 @@ export const isSolutionOrSystemGuaranteeExist = (
   return project.guarantees.nodes.some((guarantee) =>
     ["SOLUTION", "SYSTEM"].includes(guarantee.coverage)
   );
+};
+
+export const getGuaranteeStatus = (
+  project: GetProjectQuery["project"]
+): RequestStatus => {
+  const guarantee = project.guarantees.nodes?.[0];
+
+  return guarantee?.status;
 };
