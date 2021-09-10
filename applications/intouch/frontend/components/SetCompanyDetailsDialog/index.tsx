@@ -17,6 +17,7 @@ import {
 import AccessControl from "../../lib/permissions/AccessControl";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
 import { BUSINESS_TYPES, TIERS } from "../../lib/constants";
+import { spreadObjectKeys } from "../../lib/utils/object";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
 import { SetTradingAddress } from "./SetTradingAddress";
@@ -62,21 +63,12 @@ export const SetCompanyDetailsDialog = ({
     (event, values) => {
       event.preventDefault();
       // we need to account for nested objects (e.g. registered address)
-      const valuesWithAddresses = Object.entries(values).reduce(
-        (obj, [key, value]) => {
-          if (value === undefined) {
-            return obj;
-          }
-          return set(
-            obj,
-            key,
-            key.includes("coordinates") && !isNaN(parseFloat(value as string))
-              ? parseFloat(value as string)
-              : value
-          );
-        },
-        {}
-      );
+      const valuesWithAddresses = spreadObjectKeys(values, (key, value) => {
+        return key.includes("coordinates") &&
+          !isNaN(parseFloat(value as string))
+          ? parseFloat(value as string)
+          : value;
+      });
 
       onSubmit({
         ...valuesWithAddresses,
