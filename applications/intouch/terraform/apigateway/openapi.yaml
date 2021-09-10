@@ -14,15 +14,16 @@ paths:
       summary: Generate a GraphQL request to the GraphQL Gateway
       operationId: graphql
       x-google-backend:
-        address: https://tf-gateway-rfwslk3zjq-nw.a.run.app/graphql
+        address: https://tf-gateway-rfwslk3zjq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
         protocol: h2
+      security:
+        - auth0_jwk: []
       responses:
         "200":
           description: A successful response
           schema:
             type: object
-      security:
-        - auth0_jwk: []
   /graphql_api:
     post:
       summary: Generate a GraphQL request to the GraphQL Gateway using an API Key
@@ -30,13 +31,14 @@ paths:
       x-google-backend:
         address: https://tf-gateway-rfwslk3zjq-nw.a.run.app/graphql
         protocol: h2
+        path_translation: CONSTANT_ADDRESS
+      security:
+        - api_key_header: []
       responses:
         "200":
           description: A successful response
           schema:
             type: object
-      security:
-        - api_key_header: []
 
 securityDefinitions:
   auth0_jwk:
@@ -48,5 +50,5 @@ securityDefinitions:
     x-google-audiences: "https://dev-api.intouch.dev"
   api_key_header:
     type: "apiKey"
-    name: "key"
+    name: "api_key"
     in: "header"
