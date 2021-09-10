@@ -94,6 +94,7 @@ describe("Database permissions", () => {
         INSTALLER_EMAIL,
         COMPANY_ADMIN_EMAIL
       ]);
+      await pool.query("delete from market where id = $1", [market_id]);
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log("error", error.message);
