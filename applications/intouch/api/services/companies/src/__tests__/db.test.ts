@@ -404,56 +404,6 @@ describe("Database permissions", () => {
     });
   });
 
-  describe("Guarantee", () => {
-    describe("Company admin", () => {
-      it("should be able to add a guarantee", async () => {
-        const { rows } = await transaction(
-          pool,
-          {
-            role: ROLE_COMPANY_ADMIN,
-            accountUuid: company_admin_id,
-            accountEmail: COMPANY_ADMIN_EMAIL
-          },
-          "insert into guarantee (requestor_account_id, project_id, guarantee_reference_code) VALUES($1, $2, $3) RETURNING *",
-          [company_admin_id, project_id, "PITCHED_PRODUCT"]
-        );
-        expect(rows.length).toEqual(1);
-        guarantee_id = rows[0].id;
-      });
-    });
-    describe("Installer", () => {
-      it("shouldn't be able to create any guarantee", async () => {
-        try {
-          await transaction(
-            pool,
-            {
-              role: ROLE_INSTALLER,
-              accountUuid: installer_id,
-              accountEmail: INSTALLER_EMAIL
-            },
-            "insert into guarantee (requestor_account_id, project_id, guarantee_reference_code) VALUES($1, $2, $3)",
-            [installer_id, 1, "PITCHED_PRODUCT"]
-          );
-        } catch (error) {
-          expect(error.message).toEqual(PERMISSION_DENIED("guarantee"));
-        }
-      });
-      it("should be able to select a guarantee of his company", async () => {
-        const { rows } = await transaction(
-          pool,
-          {
-            role: ROLE_INSTALLER,
-            accountUuid: installer_id,
-            accountEmail: INSTALLER_EMAIL
-          },
-          "select * from guarantee",
-          []
-        );
-        expect(rows.length).toEqual(1);
-      });
-    });
-  });
-
   // TODO fix it
   // describe("Evidence Items", () => {
   //   describe("Company admin", () => {
