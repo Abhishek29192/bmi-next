@@ -1,0 +1,10 @@
+@import "@bmi/styles";
+
+.Brands {
+  :global(.MuiButton-root) {
+    // Make sure the logo doesn't go outside of the grid area,
+    @media (min-width: $breakpoint-xl) {
+      max-width: 350px;
+    }
+  }
+}

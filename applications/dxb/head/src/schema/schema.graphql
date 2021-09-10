@@ -1689,7 +1689,15 @@ type ContentfulSystemConfiguratorBlock implements Node {
   "The description for the System Configurator block"
   description: ContentfulRichText
 
+  type: String
+
+  question: ContentfulSystemConfiguratorBlock @link(from: "question___NODE")
+
+  answers: [ContentfulSystemConfiguratorBlock] @link(from: "answers___NODE")
+
   "No result items from the tree below the current block"
   noResultItems: [ContentfulTitleWithContent]
     @link(from: "noResultItems___NODE")
+
+  recommendedSystems: [String!]
 }

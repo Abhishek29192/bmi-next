@@ -1,35 +1,15 @@
-import React from "react";
 import {
-  RequestStatus,
   Technology,
   ContentfulTiers,
-  Tier
+  Tier,
+  Project,
+  ProjectMember,
+  EvidenceItem,
+  ContentfulEvidenceCategory
 } from "@bmi/intouch-api-types";
-import Check from "@material-ui/icons/Check";
-import Warning from "@material-ui/icons/Warning";
-import WatchLaterIcon from "@material-ui/icons/WatchLater";
-import { GetProjectQuery } from "../../graphql/generated/operations";
+import { GraphQLError } from "graphql";
 
-export type GuaranteeStatus =
-  | Exclude<RequestStatus, "NEW">
-  | "READY"
-  | "STARTED"
-  | "NOT_APPLICABLE";
-
-export const guaranteeStatusIcons: Record<
-  GuaranteeStatus,
-  React.ReactElement | null
-> = {
-  NOT_APPLICABLE: null,
-  STARTED: <Warning style={{ color: "orange" }} />,
-  READY: <Check style={{ color: "green" }} />,
-  SUBMITTED: <WatchLaterIcon style={{ color: "blue" }} />,
-  REVIEW: <WatchLaterIcon style={{ color: "blue" }} />,
-  REJECTED: <Warning style={{ color: "red" }} />,
-  APPROVED: <Check style={{ color: "green" }} />
-};
-
-export enum SolutionGuaranteeValidationError {
+enum SolutionGuaranteeValidationError {
   NoGuarantee,
   NotApplicable,
   MinumumEvidence,
@@ -45,11 +25,33 @@ type SolutionGuaranteeValidateResult = {
   validationError?: SolutionGuaranteeValidationError;
 };
 
-// TODO:
-export const guaranteePrerequsitesMet = (guarantee) => true;
+type FetchResult<T> = {
+  data?: T;
+  errors?: GraphQLError[];
+};
+type ProjectDetails = {
+  project: Project;
+};
 
-export const guaranteeSolutionGuaranteeValidate = (
-  project: GetProjectQuery["project"]
+export const solutionGuaranteeSubmitValidate = async (
+  client,
+  projectId: number
+) => {
+  const { data, errors }: FetchResult<ProjectDetails> = await client(
+    projectQuery,
+    { projectId }
+  );
+
+  if (errors && errors.length > 0) {
+    throw errors[0];
+  }
+
+  const validate = solutionGuaranteeGuaranteeValidate(data.project);
+  return validate.isValid;
+};
+
+export const solutionGuaranteeGuaranteeValidate = (
+  project: Project
 ): SolutionGuaranteeValidateResult => {
   const guarantee = project?.guarantees?.nodes?.[0];
   if (!guarantee) {
@@ -134,37 +136,14 @@ export const guaranteeSolutionGuaranteeValidate = (
     isValid: true
   };
 };
-export const isGuaranteeApplicationEnable = (
-  project: GetProjectQuery["project"]
-) => {
-  if (!checkProjectDetail(project)) {
-    return false;
-  }
-
-  if (!checkBuildingOwner(project)) {
-    return false;
-  }
-
-  const { company, guarantees } = project;
-
-  if (guarantees.nodes.length === 0) return true;
-
-  const guarantee = guarantees.nodes[0];
-  const { guaranteeType } = guarantee;
-
-  if (!checkCompanyTier(guaranteeType.tiersAvailable, company.tier)) {
-    return false;
-  }
-
-  return true;
-};
 
 const checkEvidence = (
-  guaranteEvidenceItems: GetProjectQuery["project"]["evidenceItems"]["nodes"] = [],
-  //TODO: Find an alternative way to define parameter type.
-  evidenceCategories: GetProjectQuery["project"]["guarantees"]["nodes"][0]["guaranteeType"]["evidenceCategoriesCollection"]["items"]
+  guaranteEvidenceItems: EvidenceItem[] = [],
+  evidenceCategories: ContentfulEvidenceCategory[]
 ) => {
-  for (const { referenceCode, minimumUploads } of evidenceCategories) {
+  for (const { referenceCode, minimumUploads } of evidenceCategories.filter(
+    Boolean
+  )) {
     const uploadedFileCount = guaranteEvidenceItems.filter(
       (e) => e.customEvidenceCategoryKey === referenceCode
     ).length;
@@ -175,14 +154,12 @@ const checkEvidence = (
   return true;
 };
 
-const getResponsibleInsalller = (
-  projectMembers: GetProjectQuery["project"]["projectMembers"]["nodes"]
-) => {
+const getResponsibleInsalller = (projectMembers: ProjectMember[]) => {
   return projectMembers.find((member) => member.isResponsibleInstaller);
 };
 
 const checkCertification = (
-  projectMember: GetProjectQuery["project"]["projectMembers"]["nodes"][0],
+  projectMember: ProjectMember,
   technology: Technology
 ) => {
   return projectMember.account.certificationsByDoceboUserId.nodes.some(
@@ -199,7 +176,7 @@ const checkBuildingOwner = ({
   buildingOwnerFirstname,
   buildingOwnerLastname,
   buildingOwnerAddress
-}: GetProjectQuery["project"]) => {
+}: Project) => {
   return [
     buildingOwnerMail,
     buildingOwnerFirstname,
@@ -215,8 +192,83 @@ const checkProjectDetail = ({
   roofArea,
   startDate,
   endDate
-}: GetProjectQuery["project"]) => {
+}: Project) => {
   return [name, siteAddress, technology, roofArea, startDate, endDate].every(
     Boolean
   );
 };
+
+const projectQuery = `
+query GetProject($projectId: Int!) {
+  project(id: $projectId) {
+    id
+    name
+    technology
+    roofArea
+    startDate
+    endDate
+    siteAddress {
+      firstLine
+      secondLine
+      town
+      region
+      postcode
+    }
+    buildingOwnerFirstname
+    buildingOwnerLastname
+    buildingOwnerMail
+    buildingOwnerAddress {
+      firstLine
+      secondLine
+      town
+      region
+      postcode
+    }
+    guarantees {
+      nodes {
+        id
+        guaranteeReferenceCode
+        guaranteeType {
+          tiersAvailable
+          evidenceCategoriesCollection {
+            items {
+              sys {
+                id
+              }
+              referenceCode
+              name
+              minimumUploads
+            }
+          }
+        }
+        status
+      }
+    }
+    evidenceItems {
+      nodes {
+        evidenceCategoryType
+        customEvidenceCategoryKey
+      }
+    }
+    projectMembers {
+      nodes {
+        id
+        accountId
+        account {
+          role
+          certificationsByDoceboUserId {
+            nodes {
+              technology
+            }
+          }
+        }
+        isResponsibleInstaller
+      }
+    }
+    company {
+      id
+      tier
+    }
+  }
+}
+`;

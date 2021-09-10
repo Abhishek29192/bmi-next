@@ -23,6 +23,12 @@ jest.mock("crypto", () => {
   };
 });
 
+jest.mock("../validate", () => ({
+  solutionGuaranteeSubmitValidate: jest
+    .fn()
+    .mockImplementation(() => ({ isValid: true }))
+}));
+
 const evidenceItemInputs = [
   {
     name: "file1",
