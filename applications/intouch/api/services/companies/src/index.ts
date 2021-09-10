@@ -9,6 +9,7 @@ import { setEnvFromSecrets } from "./services/secrets";
 import { postgraphile } from "./postgraphile";
 import parseUserInfo from "./middleware/parseUserInfo";
 import pubsub from "./middleware/pubsub";
+import clientGateway from "./middleware/clientGateway";
 
 const PORT = process.env.PORT || 4001;
 
@@ -28,6 +29,9 @@ async function main() {
 
   // Parse header to get current user info
   app.use(parseUserInfo);
+
+  // Append gateway client to the request object
+  app.use(clientGateway);
 
   // Init GCP PubSub service
   app.use(pubsub);

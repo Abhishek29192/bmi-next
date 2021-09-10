@@ -67,6 +67,32 @@ CREATE POLICY policy_installer_delete ON company_member FOR DELETE TO installer 
 
 
 
+
+ALTER TABLE company_operation ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS policy_super_admin ON company_operation;
+DROP POLICY IF EXISTS policy_market_admin ON company_operation;
+DROP POLICY IF EXISTS policy_company_admin ON company_operation;
+DROP POLICY IF EXISTS policy_installer ON company_operation;
+CREATE POLICY policy_super_admin ON company_operation FOR ALL TO super_admin USING (true) WITH CHECK (true);
+CREATE POLICY policy_market_admin ON company_operation FOR ALL TO market_admin 
+USING (
+  company IN (SELECT id FROM company WHERE market_id = current_market()) 
+  ) 
+WITH CHECK ( 
+  company IN (SELECT id FROM company WHERE market_id = current_market()) 
+);
+CREATE POLICY policy_company_admin ON company_operation FOR ALL TO company_admin USING (
+  company = current_company()
+) WITH CHECK (
+  company = current_company()
+);
+CREATE POLICY policy_installer ON company_operation FOR ALL TO installer USING (
+  company = current_company()
+);
+
+
+
+
 ALTER TABLE project ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS policy_super_admin ON project;
 DROP POLICY IF EXISTS policy_market_admin ON project;

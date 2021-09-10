@@ -1,10 +1,22 @@
+import { Account } from "@bmi/intouch-api-types";
 import { ROLES } from "../../lib/constants";
-import { findAccountCompany, findAccountTier, hasProjects } from "../account";
+import {
+  findAccountCompany,
+  findAccountTier,
+  hasProjects,
+  isSuperOrMarketAdmin
+} from "../account";
 
-const isCompanyMember = (user, extraData: { companyMemberIds: number[] }) => {
-  const { companyMemberIds } = extraData;
-
-  return companyMemberIds.includes(user.id);
+const isCompanyMember = (
+  account: Account,
+  extraData: { companyId: number }
+) => {
+  const { companyId } = extraData;
+  return (
+    companyId &&
+    companyId ===
+      account?.companyMembers?.nodes.find((m) => m.company.id)?.company?.id
+  );
 };
 
 const canSeeProjects = (account) => {
@@ -31,6 +43,12 @@ const canSeeProjects = (account) => {
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
 const gates = {
   company: {
+    viewAll: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
+    },
     view: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
@@ -42,6 +60,18 @@ const gates = {
       MARKET_ADMIN: true,
       INSTALLER: false,
       COMPANY_ADMIN: isCompanyMember
+    },
+    editOperations: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
+    },
+    editTier: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
     },
     inviteUser: {
       SUPER_ADMIN: true,
@@ -100,28 +130,22 @@ const gates = {
         ROLES.SUPER_ADMIN
       ].includes(account?.role);
     },
+    companies: isSuperOrMarketAdmin,
     // Company (Available to All Company Members and Market Admins)
     // NOTE: company active status does not affect this
     company: (account) => {
-      return (
-        !!findAccountCompany(account) ||
-        [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role)
-      );
+      return !!findAccountCompany(account) || isSuperOrMarketAdmin(account);
     },
     // Tools (Available to all Company Members at Tier T2, T3 and T4, and Market Admin)
     tools: (account) => {
       return (
         ["T2", "T3", "T4"].includes(findAccountTier(account)) ||
-        [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role)
+        isSuperOrMarketAdmin(account)
       );
     },
     // Inventory (Available to Market Admins)
-    inventory: (account) => {
-      return [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role);
-    },
-    productsAdmin: (account) => {
-      return [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role);
-    }
+    inventory: isSuperOrMarketAdmin,
+    productsAdmin: isSuperOrMarketAdmin
   }
 };
 

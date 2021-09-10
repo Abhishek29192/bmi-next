@@ -383,11 +383,11 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  language?: Maybe<Language>;
+  language: Language;
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -1894,7 +1894,8 @@ export type Company = Node & {
   invitations: InvitationsConnection;
   /** Reads and enables pagination through a set of `Project`. */
   projects: ProjectsConnection;
-  certifications?: Maybe<Array<Maybe<Technology>>>;
+  certifications: Array<Maybe<Technology>>;
+  isProfileComplete: Scalars["Boolean"];
 };
 
 /** A company that has been registered in InTouch */
@@ -2313,11 +2314,11 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  language?: Maybe<Language>;
+  language: Language;
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -2358,11 +2359,11 @@ export type CompanyMember = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
+  marketId: Scalars["Int"];
   /** fk */
-  accountId?: Maybe<Scalars["Int"]>;
+  accountId: Scalars["Int"];
   /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
+  companyId: Scalars["Int"];
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `CompanyMember`. */
@@ -2699,11 +2700,11 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  language?: Maybe<Language>;
+  language: Language;
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -3192,9 +3193,9 @@ export type CompanyOperation = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** fk */
-  company?: Maybe<Scalars["Int"]>;
+  company: Scalars["Int"];
   /** ek */
-  operation?: Maybe<Operation>;
+  operation: Operation;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `CompanyOperation`. */
@@ -3206,7 +3207,7 @@ export type CompanyOperationCompanyFkeyCompanyOperationCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  operation?: Maybe<Operation>;
+  operation: Operation;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompany?: Maybe<CompanyOperationCompanyFkeyInput>;
@@ -3308,7 +3309,7 @@ export type CompanyOperationInput = {
   /** fk */
   company?: Maybe<Scalars["Int"]>;
   /** ek */
-  operation?: Maybe<Operation>;
+  operation: Operation;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompany?: Maybe<CompanyOperationCompanyFkeyInput>;
@@ -3944,7 +3945,7 @@ export type ContentfulGuaranteeType = {
   displayName?: Maybe<Scalars["String"]>;
   technology?: Maybe<ContentfulTechnologyType>;
   coverage?: Maybe<ContentfulGuaranteeCoverageType>;
-  guaranteeReferenceCode?: Maybe<Scalars["String"]>;
+  guaranteeReferenceCode?: Maybe<GuaranteeReferenceCode>;
   name?: Maybe<Scalars["String"]>;
   signature?: Maybe<ContentfulAsset>;
   maximumValidityYears?: Maybe<Scalars["Int"]>;
@@ -3952,6 +3953,11 @@ export type ContentfulGuaranteeType = {
   ranking?: Maybe<Scalars["Int"]>;
   evidenceCategoriesCollection?: Maybe<ContentfulEvidenceCategoryCollection>;
   guaranteeTemplatesCollection?: Maybe<ContentfulGuaranteeTemplatesCollection>;
+};
+
+export type ContentfulGuaranteeTypeCollection = {
+  __typename?: "ContentfulGuaranteeTypeCollection";
+  items?: Maybe<Array<Maybe<ContentfulGuaranteeType>>>;
 };
 
 export type ContentfulMessage = {
@@ -5671,6 +5677,33 @@ export type CreateSystemPayloadSystemEdgeArgs = {
   orderBy?: Maybe<Array<SystemsOrderBy>>;
 };
 
+export type CustomEvidenceCategoryKey =
+  | "PITCHED_DETAILS"
+  | "PITCHED_TILES"
+  | "PITCHED_BASE"
+  | "PITCHED_UNDERLAY"
+  | "PITCHED_VENTILATION"
+  | "PITCHED_PENETRATIONS"
+  | "PITCHED_FIXINGS"
+  | "PITCHED_INSULATION"
+  | "PITCHED_INSPECTION"
+  | "PITCHED_SAFETY"
+  | "PITCHED_PLAN"
+  | "FLAT_DETAILS"
+  | "FLAT_TOP"
+  | "FLAT_BASE"
+  | "FLAT_LAYER"
+  | "FLAT_VENTILATION"
+  | "FLAT_PENETRATIONS"
+  | "FLAT_FIXINGS"
+  | "FLAT_INSULATION"
+  | "FLAT_SAFETY"
+  | "FLAT_PLAN"
+  | "MISC_1"
+  | "MISC_2"
+  | "MISC_3"
+  | "MISC_4";
+
 /** A filter to be used against Datetime fields. All fields are combined with a logical ‘and.’ */
 export type DatetimeFilter = {
   /** Is null (if `true` is specified) or is not null (if `false` is specified). */
@@ -7224,10 +7257,10 @@ export type EvidenceItem = Node & {
   nodeId: Scalars["ID"];
   /** Primary key */
   id: Scalars["Int"];
-  /** a reference to the evidenceCategory sys id in Contentful */
-  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** ek */
+  customEvidenceCategoryKey?: Maybe<CustomEvidenceCategoryKey>;
   /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
+  projectId: Scalars["Int"];
   /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
   /** ek */
@@ -7290,8 +7323,8 @@ export type EvidenceItemFilter = {
 export type EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** a reference to the evidenceCategory sys id in Contentful */
-  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** ek */
+  customEvidenceCategoryKey?: Maybe<CustomEvidenceCategoryKey>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** ek */
@@ -7317,16 +7350,18 @@ export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId: Scalars["String"];
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -7343,7 +7378,6 @@ export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
-  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `guarantee` in the `EvidenceItemInput` mutation. */
@@ -7398,8 +7432,8 @@ export type EvidenceItemGuaranteeIdFkeyInverseInput = {
 export type EvidenceItemInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** a reference to the evidenceCategory sys id in Contentful */
-  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** ek */
+  customEvidenceCategoryKey?: Maybe<CustomEvidenceCategoryKey>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** fk */
@@ -7469,8 +7503,8 @@ export type EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyUsingEvidenceI
 export type EvidenceItemPatch = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** a reference to the evidenceCategory sys id in Contentful */
-  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** ek */
+  customEvidenceCategoryKey?: Maybe<CustomEvidenceCategoryKey>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** fk */
@@ -7491,8 +7525,8 @@ export type EvidenceItemPatch = {
 export type EvidenceItemProjectIdFkeyEvidenceItemCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** a reference to the evidenceCategory sys id in Contentful */
-  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** ek */
+  customEvidenceCategoryKey?: Maybe<CustomEvidenceCategoryKey>;
   /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
   /** ek */
@@ -7561,7 +7595,7 @@ export type EvidenceItemProjectIdFkeyProjectCreateInput = {
   /** fk */
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** Short name for the Project */
   name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
@@ -7662,17 +7696,19 @@ export type Guarantee = Node & {
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId: Scalars["String"];
+  projectId: Scalars["Int"];
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -7696,6 +7732,7 @@ export type Guarantee = Node & {
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems: EvidenceItemsConnection;
   guaranteeType?: Maybe<ContentfulGuaranteeType>;
+  guaranteeTypes?: Maybe<ContentfulGuaranteeTypeCollection>;
 };
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
@@ -7730,6 +7767,8 @@ export type GuaranteeCondition = {
   /** Checks for equality with the object’s `bmiReferenceId` field. */
   bmiReferenceId?: Maybe<Scalars["String"]>;
 };
+
+export type GuaranteeCoverage = "PRODUCT" | "SYSTEM" | "SOLUTION";
 
 export type GuaranteeEventType =
   | "SUBMIT_SOLUTION"
@@ -7797,16 +7836,18 @@ export type GuaranteeInput = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId: Scalars["String"];
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -7823,7 +7864,6 @@ export type GuaranteeInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
-  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -8007,16 +8047,18 @@ export type GuaranteePatch = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** ek */
+  guaranteeReferenceCode?: Maybe<GuaranteeReferenceCode>;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -8045,14 +8087,16 @@ export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId: Scalars["String"];
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -8069,7 +8113,6 @@ export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
-  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `product` in the `GuaranteeInput` mutation. */
@@ -8139,7 +8182,7 @@ export type GuaranteeProductBmiRefFkeyProductCreateInput = {
   /** fk */
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the product known to BMI */
   bmiRef: Scalars["String"];
   /** The Products brand */
@@ -8169,16 +8212,18 @@ export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId: Scalars["String"];
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -8195,7 +8240,6 @@ export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
-  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `project` in the `GuaranteeInput` mutation. */
@@ -8263,7 +8307,7 @@ export type GuaranteeProjectIdFkeyProjectCreateInput = {
   /** fk */
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** Short name for the Project */
   name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
@@ -8295,6 +8339,14 @@ export type GuaranteeProjectIdFkeyProjectCreateInput = {
   projectMembersUsingId?: Maybe<ProjectMemberProjectIdFkeyInverseInput>;
 };
 
+export type GuaranteeReferenceCode =
+  | "FLAT_PRODUCT"
+  | "FLAT_SYSTEM"
+  | "FLAT_SOLUTION"
+  | "PITCHED_PRODUCT"
+  | "PITCHED_SYSTEM"
+  | "PITCHED_SOLUTION";
+
 /** The `guarantee` to be created by this mutation. */
 export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   /** Primary key - starts at 6100 */
@@ -8303,16 +8355,18 @@ export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId: Scalars["String"];
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -8329,7 +8383,6 @@ export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
-  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `account` in the `GuaranteeInput` mutation. */
@@ -8406,14 +8459,16 @@ export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId: Scalars["String"];
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -8430,7 +8485,6 @@ export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
-  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `account` in the `GuaranteeInput` mutation. */
@@ -8507,14 +8561,16 @@ export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId: Scalars["String"];
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -8531,7 +8587,6 @@ export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   productToProductBmiRef?: Maybe<GuaranteeProductBmiRefFkeyInput>;
   accountToReviewerAccountId?: Maybe<GuaranteeReviewerAccountIdFkeyInput>;
   evidenceItemsUsingId?: Maybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
-  guaranteeTypeCoverage?: Maybe<ContentfulGuaranteeCoverageType>;
 };
 
 /** Input for the nested mutation of `system` in the `GuaranteeInput` mutation. */
@@ -8601,7 +8656,7 @@ export type GuaranteeSystemBmiRefFkeySystemCreateInput = {
   /** fk */
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the system known to BMI */
   bmiRef: Scalars["String"];
   /** Short name for the System */
@@ -9536,9 +9591,9 @@ export type Invitation = Node & {
   /** fk */
   senderAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
+  companyId: Scalars["Int"];
   /** ek */
-  status?: Maybe<InvitationStatus>;
+  status: InvitationStatus;
   /** An email address */
   invitee: Scalars["String"];
   /** An optional note that can be included in the invitation by the sender */
@@ -9939,11 +9994,11 @@ export type Market = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** ek */
-  language?: Maybe<Language>;
+  language: Language;
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -10321,11 +10376,11 @@ export type MarketInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  language?: Maybe<Language>;
+  language: Language;
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -12297,7 +12352,7 @@ export type Note = Node & {
   /** fk */
   authorId?: Maybe<Scalars["Int"]>;
   /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
+  projectId: Scalars["Int"];
   /** The body of the Note */
   body?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
@@ -12547,7 +12602,7 @@ export type NoteProjectIdFkeyProjectCreateInput = {
   /** fk */
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** Short name for the Project */
   name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
@@ -13026,9 +13081,9 @@ export type Product = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
+  marketId: Scalars["Int"];
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the product known to BMI */
   bmiRef: Scalars["String"];
   /** The Products brand */
@@ -13114,7 +13169,7 @@ export type ProductInput = {
   /** fk */
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the product known to BMI */
   bmiRef: Scalars["String"];
   /** The Products brand */
@@ -13203,11 +13258,11 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  language?: Maybe<Language>;
+  language: Language;
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -13245,7 +13300,7 @@ export type ProductMarketIdFkeyProductCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the product known to BMI */
   bmiRef: Scalars["String"];
   /** The Products brand */
@@ -13454,13 +13509,13 @@ export type Project = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
+  companyId: Scalars["Int"];
   /** fk */
   siteAddressId?: Maybe<Scalars["Int"]>;
   /** fk */
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** Short name for the Project */
   name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
@@ -13626,7 +13681,7 @@ export type ProjectBuildingOwnerAddressIdFkeyProjectCreateInput = {
   /** fk */
   siteAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** Short name for the Project */
   name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
@@ -13719,7 +13774,7 @@ export type ProjectCompanyIdFkeyProjectCreateInput = {
   /** fk */
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** Short name for the Project */
   name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
@@ -13792,7 +13847,7 @@ export type ProjectInput = {
   /** fk */
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** Short name for the Project */
   name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
@@ -13832,7 +13887,7 @@ export type ProjectMember = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
+  projectId: Scalars["Int"];
   /** fk */
   accountId?: Maybe<Scalars["Int"]>;
   /** The responsible installer */
@@ -14077,7 +14132,7 @@ export type ProjectMemberProjectIdFkeyProjectCreateInput = {
   /** fk */
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** Short name for the Project */
   name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
@@ -14457,7 +14512,7 @@ export type ProjectSiteAddressIdFkeyProjectCreateInput = {
   /** fk */
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** Short name for the Project */
   name: Scalars["String"];
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
@@ -15890,9 +15945,9 @@ export type System = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
+  marketId: Scalars["Int"];
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the system known to BMI */
   bmiRef: Scalars["String"];
   /** Short name for the System */
@@ -15974,7 +16029,7 @@ export type SystemInput = {
   /** fk */
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the system known to BMI */
   bmiRef: Scalars["String"];
   /** Short name for the System */
@@ -16059,11 +16114,11 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  language?: Maybe<Language>;
+  language: Language;
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -16101,7 +16156,7 @@ export type SystemMarketIdFkeySystemCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the system known to BMI */
   bmiRef: Scalars["String"];
   /** Short name for the System */
@@ -16127,11 +16182,11 @@ export type SystemMember = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** fk */
-  systemBmiRef?: Maybe<Scalars["String"]>;
+  systemBmiRef: Scalars["String"];
   /** fk */
-  productBmiRef?: Maybe<Scalars["String"]>;
+  productBmiRef: Scalars["String"];
   /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
+  marketId: Scalars["Int"];
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `System` that is related to this `SystemMember`. */
@@ -16263,11 +16318,11 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** ek */
-  language?: Maybe<Language>;
+  language: Language;
   /** the country code used for example as the subdomain */
   domain: Scalars["String"];
   /** The space in Contenful */
-  cmsSpaceId: Scalars["String"];
+  cmsSpaceId?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -16504,7 +16559,7 @@ export type SystemMemberProductBmiRefFkeyProductCreateInput = {
   /** fk */
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the product known to BMI */
   bmiRef: Scalars["String"];
   /** The Products brand */
@@ -16608,7 +16663,7 @@ export type SystemMemberSystemBmiRefFkeySystemCreateInput = {
   /** fk */
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
-  technology?: Maybe<Technology>;
+  technology: Technology;
   /** A unique reference for the system known to BMI */
   bmiRef: Scalars["String"];
   /** Short name for the System */
@@ -20038,8 +20093,8 @@ export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch 
   {
     /** Primary key */
     id?: Maybe<Scalars["Int"]>;
-    /** a reference to the evidenceCategory sys id in Contentful */
-    customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+    /** ek */
+    customEvidenceCategoryKey?: Maybe<CustomEvidenceCategoryKey>;
     /** fk */
     projectId?: Maybe<Scalars["Int"]>;
     /** ek */
@@ -20059,8 +20114,8 @@ export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch =
   {
     /** Primary key */
     id?: Maybe<Scalars["Int"]>;
-    /** a reference to the evidenceCategory sys id in Contentful */
-    customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+    /** ek */
+    customEvidenceCategoryKey?: Maybe<CustomEvidenceCategoryKey>;
     /** fk */
     guaranteeId?: Maybe<Scalars["Int"]>;
     /** ek */
@@ -20085,16 +20140,18 @@ export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** ek */
+  guaranteeReferenceCode?: Maybe<GuaranteeReferenceCode>;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -20123,14 +20180,16 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** ek */
+  guaranteeReferenceCode?: Maybe<GuaranteeReferenceCode>;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -20157,16 +20216,18 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
   fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** ek */
+  guaranteeReferenceCode?: Maybe<GuaranteeReferenceCode>;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -20194,16 +20255,18 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
     fileStorageId?: Maybe<Scalars["String"]>;
     /** fk */
     projectId?: Maybe<Scalars["Int"]>;
-    /** a reference to the guaranteeType sys id in Contentful */
-    guaranteeTypeId?: Maybe<Scalars["String"]>;
+    /** ek */
+    guaranteeReferenceCode?: Maybe<GuaranteeReferenceCode>;
     /** fk */
     systemBmiRef?: Maybe<Scalars["String"]>;
     /** fk */
     productBmiRef?: Maybe<Scalars["String"]>;
     /** fk */
     reviewerAccountId?: Maybe<Scalars["Int"]>;
-    /** a reference to the guaranteeType sys id in Contentful */
-    guaranteeTemplateId?: Maybe<Scalars["String"]>;
+    /** ek */
+    coverage?: Maybe<GuaranteeCoverage>;
+    /** ek */
+    languageCode?: Maybe<Language>;
     /** ek */
     status?: Maybe<RequestStatus>;
     /** The date that the Guarantee is approved either automatically or manually */
@@ -20232,14 +20295,16 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** ek */
+  guaranteeReferenceCode?: Maybe<GuaranteeReferenceCode>;
   /** fk */
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
@@ -20268,14 +20333,16 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTypeId?: Maybe<Scalars["String"]>;
+  /** ek */
+  guaranteeReferenceCode?: Maybe<GuaranteeReferenceCode>;
   /** fk */
   productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** a reference to the guaranteeType sys id in Contentful */
-  guaranteeTemplateId?: Maybe<Scalars["String"]>;
+  /** ek */
+  coverage?: Maybe<GuaranteeCoverage>;
+  /** ek */
+  languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */

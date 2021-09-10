@@ -40,11 +40,11 @@ describe("AddEvidenceDialog Components", () => {
       new File([], "name2", { type: "pdf" })
     ];
     const evidenceCategoryType: EvidenceCategoryType = "MISCELLANEOUS";
-    const customEvidenceCategoryId: string = null;
+    const customEvidenceCategoryKey: string = null;
     fireEvent.change(addEvidence, {
       target: {
         evidenceCategoryType,
-        customEvidenceCategoryId,
+        customEvidenceCategoryKey,
         files
       }
     });

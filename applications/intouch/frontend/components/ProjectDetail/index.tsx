@@ -3,13 +3,9 @@ import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
-import {
-  Guarantee,
-  GuaranteeEventType,
-  ProjectMember
-} from "@bmi/intouch-api-types";
+import { GuaranteeEventType, ProjectMember } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
-import can from "lib/permissions/can";
+import can from "../../lib/permissions/can";
 import { ProjectsHeader } from "../Cards/ProjectsHeader";
 import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
 import { ProjectsInsight } from "../Cards/ProjectsInsight";
@@ -30,7 +26,8 @@ import {
   getProjectStatus,
   getProjectGuaranteeStatus,
   getGuaranteeEventType,
-  isProjectApprovable
+  isProjectApprovable,
+  isSolutionOrSystemGuaranteeExist
 } from "../../lib/utils/project";
 import log from "../../lib/logger";
 import { useAccountContext } from "../../context/AccountContext";
@@ -121,6 +118,10 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   // TODO: Microcopy
   if (loading) return <>Loading project details...</>;
 
+  const isGuaranteeAppliable =
+    can(account, "project", "submitSolutionGuarantee") &&
+    !isSolutionOrSystemGuaranteeExist(project);
+
   return (
     <>
       <Grid item xs={12} md={8}>
@@ -168,7 +169,10 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Guarantee" index="two">
             <TabCard>
-              <GuaranteeTab project={project} />
+              <GuaranteeTab
+                project={project}
+                isApplyGuarantee={isGuaranteeAppliable}
+              />
             </TabCard>
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Uploads" index="three">
@@ -233,9 +237,7 @@ const UploadedFiles = ({
     map.set(categoryLabel, [...existFiles, evidence.name]);
   }
 
-  const guaranteeEvidence = getGuaranteeEvidence(
-    guarantees.nodes as Guarantee[]
-  );
+  const guaranteeEvidence = getGuaranteeEvidence(guarantees.nodes);
 
   return (
     <UploadsTab
@@ -247,7 +249,9 @@ const UploadedFiles = ({
   );
 };
 
-const getGuaranteeEvidence = (guarantees: Guarantee[]) => {
+const getGuaranteeEvidence = (
+  guarantees: GetProjectQuery["project"]["guarantees"]["nodes"]
+) => {
   const solutionGuarantee =
     guarantees.find((node) => node.guaranteeType.coverage === "SOLUTION") ||
     null;
@@ -298,8 +302,10 @@ export const GET_PROJECT = gql`
       guarantees {
         nodes {
           id
-          guaranteeTypeId
+          guaranteeReferenceCode
           reviewerAccountId
+          coverage
+          languageCode
           guaranteeType {
             sys {
               id
@@ -314,6 +320,7 @@ export const GET_PROJECT = gql`
                 sys {
                   id
                 }
+                referenceCode
                 name
                 minimumUploads
               }
@@ -344,7 +351,7 @@ export const GET_PROJECT = gql`
           name
           guaranteeId
           evidenceCategoryType
-          customEvidenceCategoryId
+          customEvidenceCategoryKey
           customEvidenceCategory {
             name
             minimumUploads

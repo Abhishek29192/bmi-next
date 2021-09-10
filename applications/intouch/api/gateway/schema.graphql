@@ -817,7 +817,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
@@ -827,7 +827,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -3483,7 +3483,8 @@ type Company implements Node {
     """
     filter: ProjectFilter
   ): ProjectsConnection!
-  certifications: [Technology]
+  certifications: [Technology]!
+  isProfileComplete: Boolean!
 }
 
 """
@@ -4158,7 +4159,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
@@ -4168,7 +4169,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -4251,17 +4252,17 @@ type CompanyMember implements Node {
   """
   fk
   """
-  marketId: Int
+  marketId: Int!
 
   """
   fk
   """
-  accountId: Int
+  accountId: Int!
 
   """
   fk
   """
-  companyId: Int
+  companyId: Int!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -4904,7 +4905,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
@@ -4914,7 +4915,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -5769,12 +5770,12 @@ type CompanyOperation implements Node {
   """
   fk
   """
-  company: Int
+  company: Int!
 
   """
   ek
   """
-  operation: Operation
+  operation: Operation!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -5796,7 +5797,7 @@ input CompanyOperationCompanyFkeyCompanyOperationCreateInput {
   """
   ek
   """
-  operation: Operation
+  operation: Operation!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompany: CompanyOperationCompanyFkeyInput
@@ -5995,7 +5996,7 @@ input CompanyOperationInput {
   """
   ek
   """
-  operation: Operation
+  operation: Operation!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompany: CompanyOperationCompanyFkeyInput
@@ -6859,7 +6860,7 @@ type ContentfulGuaranteeType {
   displayName: String
   technology: ContentfulTechnologyType
   coverage: ContentfulGuaranteeCoverageType
-  guaranteeReferenceCode: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
   name: String
   signature: ContentfulAsset
   maximumValidityYears: Int
@@ -6867,6 +6868,10 @@ type ContentfulGuaranteeType {
   ranking: Int
   evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
   guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
+}
+
+type ContentfulGuaranteeTypeCollection {
+  items: [ContentfulGuaranteeType]
 }
 
 type ContentfulMessage {
@@ -9672,6 +9677,34 @@ A location in a connection that can be used for resuming pagination.
 """
 scalar Cursor
 
+enum CustomEvidenceCategoryKey {
+  PITCHED_DETAILS
+  PITCHED_TILES
+  PITCHED_BASE
+  PITCHED_UNDERLAY
+  PITCHED_VENTILATION
+  PITCHED_PENETRATIONS
+  PITCHED_FIXINGS
+  PITCHED_INSULATION
+  PITCHED_INSPECTION
+  PITCHED_SAFETY
+  PITCHED_PLAN
+  FLAT_DETAILS
+  FLAT_TOP
+  FLAT_BASE
+  FLAT_LAYER
+  FLAT_VENTILATION
+  FLAT_PENETRATIONS
+  FLAT_FIXINGS
+  FLAT_INSULATION
+  FLAT_SAFETY
+  FLAT_PLAN
+  MISC_1
+  MISC_2
+  MISC_3
+  MISC_4
+}
+
 """
 A date-time string at UTC, such as 2007-12-03T10:15:30Z,
     compliant with the 'date-time' format outlined in section 5.6 of
@@ -11948,14 +11981,14 @@ type EvidenceItem implements Node {
   id: Int!
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
   """
-  projectId: Int
+  projectId: Int!
 
   """
   fk
@@ -12077,9 +12110,9 @@ input EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -12132,9 +12165,9 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String!
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -12152,9 +12185,14 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -12183,7 +12221,6 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -12296,9 +12333,9 @@ input EvidenceItemInput {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -12421,9 +12458,9 @@ input EvidenceItemPatch {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -12465,9 +12502,9 @@ input EvidenceItemProjectIdFkeyEvidenceItemCreateInput {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -12607,7 +12644,7 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
@@ -12780,12 +12817,12 @@ type Guarantee implements Node {
   """
   fk
   """
-  projectId: Int
+  projectId: Int!
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String!
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -12803,9 +12840,14 @@ type Guarantee implements Node {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -12900,6 +12942,7 @@ type Guarantee implements Node {
     filter: EvidenceItemFilter
   ): EvidenceItemsConnection!
   guaranteeType: ContentfulGuaranteeType
+  guaranteeTypes: ContentfulGuaranteeTypeCollection
 }
 
 """
@@ -12941,6 +12984,12 @@ input GuaranteeCondition {
   Checks for equality with the object’s `bmiReferenceId` field.
   """
   bmiReferenceId: String
+}
+
+enum GuaranteeCoverage {
+  PRODUCT
+  SYSTEM
+  SOLUTION
 }
 
 enum GuaranteeEventType {
@@ -13072,9 +13121,9 @@ input GuaranteeInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String!
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -13092,9 +13141,14 @@ input GuaranteeInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -13123,7 +13177,6 @@ input GuaranteeInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -13441,9 +13494,9 @@ input GuaranteePatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -13461,9 +13514,14 @@ input GuaranteePatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -13519,9 +13577,9 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String!
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -13534,9 +13592,14 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -13565,7 +13628,6 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -13700,7 +13762,7 @@ input GuaranteeProductBmiRefFkeyProductCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
@@ -13763,9 +13825,9 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   requestorAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String!
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -13783,9 +13845,14 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -13814,7 +13881,6 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -13944,7 +14010,7 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
@@ -14006,6 +14072,15 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   projectMembersUsingId: ProjectMemberProjectIdFkeyInverseInput
 }
 
+enum GuaranteeReferenceCode {
+  FLAT_PRODUCT
+  FLAT_SYSTEM
+  FLAT_SOLUTION
+  PITCHED_PRODUCT
+  PITCHED_SYSTEM
+  PITCHED_SOLUTION
+}
+
 """
 The `guarantee` to be created by this mutation.
 """
@@ -14026,9 +14101,9 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String!
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -14046,9 +14121,14 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -14077,7 +14157,6 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -14230,9 +14309,9 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String!
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -14245,9 +14324,14 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   productBmiRef: String
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -14276,7 +14360,6 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -14429,9 +14512,9 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String!
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -14444,9 +14527,14 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -14475,7 +14563,6 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-  guaranteeTypeCoverage: ContentfulGuaranteeCoverageType
 }
 
 """
@@ -14610,7 +14697,7 @@ input GuaranteeSystemBmiRefFkeySystemCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
@@ -15467,12 +15554,12 @@ type Invitation implements Node {
   """
   fk
   """
-  companyId: Int
+  companyId: Int!
 
   """
   ek
   """
-  status: InvitationStatus
+  status: InvitationStatus!
 
   """
   An email address
@@ -16216,7 +16303,7 @@ type Market implements Node {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
@@ -16226,7 +16313,7 @@ type Market implements Node {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -16801,7 +16888,7 @@ input MarketInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
@@ -16811,7 +16898,7 @@ input MarketInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -19419,7 +19506,7 @@ type Note implements Node {
   """
   fk
   """
-  projectId: Int
+  projectId: Int!
 
   """
   The body of the Note
@@ -19922,7 +20009,7 @@ input NoteProjectIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
@@ -20622,12 +20709,12 @@ type Product implements Node {
   """
   fk
   """
-  marketId: Int
+  marketId: Int!
 
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
@@ -20846,7 +20933,7 @@ input ProductInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
@@ -21031,7 +21118,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
@@ -21041,7 +21128,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -21119,7 +21206,7 @@ input ProductMarketIdFkeyProductCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
@@ -21491,7 +21578,7 @@ type Project implements Node {
   """
   fk
   """
-  companyId: Int
+  companyId: Int!
 
   """
   fk
@@ -21506,7 +21593,7 @@ type Project implements Node {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
@@ -21923,7 +22010,7 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
@@ -22117,7 +22204,7 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
@@ -22271,7 +22358,7 @@ input ProjectInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
@@ -22350,7 +22437,7 @@ type ProjectMember implements Node {
   """
   fk
   """
-  projectId: Int
+  projectId: Int!
 
   """
   fk
@@ -22825,7 +22912,7 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
@@ -23519,7 +23606,7 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
@@ -25717,12 +25804,12 @@ type System implements Node {
   """
   fk
   """
-  marketId: Int
+  marketId: Int!
 
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
@@ -25931,7 +26018,7 @@ input SystemInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
@@ -26106,7 +26193,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
@@ -26116,7 +26203,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -26194,7 +26281,7 @@ input SystemMarketIdFkeySystemCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
@@ -26244,17 +26331,17 @@ type SystemMember implements Node {
   """
   fk
   """
-  systemBmiRef: String
+  systemBmiRef: String!
 
   """
   fk
   """
-  productBmiRef: String
+  productBmiRef: String!
 
   """
   fk
   """
-  marketId: Int
+  marketId: Int!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -26512,7 +26599,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
@@ -26522,7 +26609,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -26960,7 +27047,7 @@ input SystemMemberProductBmiRefFkeyProductCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
@@ -27160,7 +27247,7 @@ input SystemMemberSystemBmiRefFkeySystemCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
@@ -32699,9 +32786,9 @@ input updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -32738,9 +32825,9 @@ input updateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -32792,9 +32879,9 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -32812,9 +32899,14 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -32870,9 +32962,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -32885,9 +32977,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -32938,9 +33035,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   requestorAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -32958,9 +33055,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -33011,9 +33113,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -33031,9 +33133,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -33089,9 +33196,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -33104,9 +33211,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   productBmiRef: String
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -33162,9 +33274,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -33177,9 +33289,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek

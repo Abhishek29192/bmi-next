@@ -7,7 +7,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import TextField from "@bmi/text-field";
 import Dialog from "@bmi/dialog";
 import Form from "@bmi/form";
-import { useUpdateAccountMutation } from "graphql/generated/hooks";
+import { useUpdateAccountMutation } from "../graphql/generated/hooks";
 import { withPage } from "../lib/middleware/withPage";
 
 const fields = ["firstName", "lastName"];

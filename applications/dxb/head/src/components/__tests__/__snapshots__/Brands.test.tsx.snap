@@ -2,7 +2,7 @@
 
 exports[`Brands component renders correctly 1`] = `
 <div
-  class="Section Section--pearl"
+  class="Brands Section Section--pearl"
 >
   <div
     class="Container"

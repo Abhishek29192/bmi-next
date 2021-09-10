@@ -44,6 +44,7 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
       user: req.user,
       logger: req.logger,
       pubSub: req.pubSub,
+      clientGateway: req.clientGateway,
       pgRootPool: dbPool,
       storageClient
     };

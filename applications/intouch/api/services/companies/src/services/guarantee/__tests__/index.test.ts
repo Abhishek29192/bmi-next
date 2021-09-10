@@ -23,6 +23,12 @@ jest.mock("crypto", () => {
   };
 });
 
+jest.mock("../validate", () => ({
+  solutionGuaranteeSubmitValidate: jest
+    .fn()
+    .mockImplementation(() => ({ isValid: true }))
+}));
+
 const evidenceItemInputs = [
   {
     name: "file1",
@@ -52,7 +58,7 @@ let guaranteeInput: CreateGuaranteeInput = {
     projectId: 1,
     bmiReferenceId: "",
     requestorAccountId: 1,
-    guaranteeTypeId: "test_guarantee_type_id",
+    guaranteeReferenceCode: "PITCHED_PRODUCT",
     evidenceItemsUsingId: {
       create: evidenceItemInputs
     }
@@ -65,7 +71,7 @@ let guaranteeUpdateInput: UpdateGuaranteeInput = {
   patch: {
     id: 1,
     projectId: 1,
-    guaranteeTypeId: "test_guarantee_type_id"
+    guaranteeReferenceCode: "PITCHED_SOLUTION"
   }
 };
 

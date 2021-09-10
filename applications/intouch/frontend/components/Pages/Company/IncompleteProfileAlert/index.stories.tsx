@@ -1,17 +1,17 @@
 import React from "react";
-import { CompanyIncompleteProfileAlert } from ".";
+import { IncompleteProfileAlert } from ".";
 
 export default {
   title: "Company Page / Incomplete Profile Alert",
-  component: CompanyIncompleteProfileAlert
+  component: IncompleteProfileAlert
 };
 
 export const SingleMissingField = () => (
-  <CompanyIncompleteProfileAlert missingFields={["phone"]} />
+  <IncompleteProfileAlert missingFields={["phone"]} />
 );
 
 export const MultipleMissingFields = () => (
-  <CompanyIncompleteProfileAlert
+  <IncompleteProfileAlert
     missingFields={["phone", "aboutUs", "tradingAddress"]}
   />
 );

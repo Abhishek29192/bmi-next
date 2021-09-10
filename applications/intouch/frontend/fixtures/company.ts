@@ -43,8 +43,16 @@ export const mockCompany: GetCompanyQuery["company"] = {
   companyOperationsByCompany: {
     __typename: "CompanyOperationsConnection",
     nodes: [
-      { __typename: "CompanyOperation", operation: "PITCHED" },
-      { __typename: "CompanyOperation", operation: "FLAT" }
+      {
+        __typename: "CompanyOperation",
+        id: 1,
+        operation: "PITCHED"
+      },
+      {
+        __typename: "CompanyOperation",
+        id: 2,
+        operation: "FLAT"
+      }
     ]
   },
   companyMembers: {
@@ -107,5 +115,6 @@ export const mockCompany: GetCompanyQuery["company"] = {
       }
     ]
   },
-  certifications: ["FLAT", "PITCHED"]
+  certifications: ["FLAT", "PITCHED"],
+  isProfileComplete: true
 };

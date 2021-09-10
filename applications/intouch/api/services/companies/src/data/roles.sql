@@ -35,12 +35,12 @@ grant usage on schema public to installer;
 -- market
 grant select on market to installer;
 grant select, update on market to market_admin;
-grant select, insert, update, delete on market to super_admin;
+grant select, update, insert, delete on market to super_admin;
 
 -- company
 grant select, insert on company to installer;
--- tier & status shall not be updateable by the Company Admin
 grant update (registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, name, tax_number, phone, about_us, public_email, website, facebook,linked_in, logo) on company to company_admin;
+grant update (tier, status) on company to market_admin;
 
 -- company_member
 grant select, insert, delete on company_member to installer;
@@ -48,12 +48,15 @@ grant update (account_id) on company_member to company_admin;
 
 -- -- company_operations
 grant select on company_operation to installer;
+grant select, insert, update, delete on company_operation to market_admin;
 grant select, insert, update, delete on company_operation to super_admin;
 
 -- account
 grant select, insert, delete on account to installer;
 grant update (email, phone, first_name, last_name, docebo_user_id, docebo_username, photo) on account to installer;
 grant select, insert, update, delete on account to company_admin;
+grant select, insert, update, delete on account to market_admin;
+grant select, insert, update, delete on account to super_admin;
 
 
 -- address
@@ -89,7 +92,7 @@ grant select, insert, update, delete on invitation to super_admin;
 -- guarantee
 grant select on guarantee to installer;
 grant select, insert on guarantee to company_admin;
-grant update (id, requestor_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
+grant update (id, requestor_account_id, project_id, guarantee_reference_code, status, start_date, expiry_date) on guarantee to company_admin;
 grant update (requestor_account_id, expiry_date) on guarantee to market_admin;
 grant select, insert, update on guarantee to super_admin;
 

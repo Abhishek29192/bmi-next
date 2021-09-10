@@ -1,13 +1,22 @@
 import { gql } from "@apollo/client";
 
-export const queryMarketByDomain = gql`
+export const queryMarketsByDomain = gql`
   query getMarketsByDomain($domain: String!) {
     markets(condition: { domain: $domain }) {
       nodes {
+        id
+        name
         cmsSpaceId
+        language
         domain
+        doceboCatalogueId
+        doceboInstallersBranchId
+        doceboCompanyAdminBranchId
         merchandisingUrl
         projectsEnabled
+        gtag
+        sendName
+        sendMailbox
         locationBiasRadiusKm
         geoMiddle {
           x

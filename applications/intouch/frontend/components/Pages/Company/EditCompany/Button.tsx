@@ -24,11 +24,7 @@ export const EditCompanyButton = ({
       <AccessControl
         dataModel="company"
         action="edit"
-        extraData={{
-          companyMemberIds: company.companyMembers.nodes.map(
-            (m) => m.account.id
-          )
-        }}
+        extraData={{ companyId: company.id }}
       >
         <Button
           variant="text"

@@ -1,7 +1,11 @@
 import React from "react";
 import Dialog from "@material-ui/core/Dialog";
 import { gql } from "@apollo/client";
-import { ContentfulGuaranteeCoverageType } from "@bmi/intouch-api-types";
+import {
+  GuaranteeCoverage,
+  GuaranteeReferenceCode,
+  Language
+} from "@bmi/intouch-api-types";
 import {
   CreateGuaranteeMutationVariables,
   GetProjectQuery
@@ -44,10 +48,11 @@ export const ApplyGuaranteeDialog = ({
           projectId: project.id,
           systemBmiRef: system?.bmiRef,
           productBmiRef: product?.bmiRef,
-          guaranteeTypeId: guaranteeType.sys.id,
-          guaranteeTypeCoverage:
-            guaranteeType.coverage as ContentfulGuaranteeCoverageType,
-          guaranteeTemplateId: guaranteeTemplate.sys.id,
+          guaranteeReferenceCode:
+            guaranteeType.guaranteeReferenceCode as GuaranteeReferenceCode,
+          coverage: guaranteeType.coverage as GuaranteeCoverage,
+          languageCode:
+            guaranteeTemplate.languageCode.toUpperCase() as Language,
           evidenceItemsUsingId: {
             create: evidences.map((evidence) => ({
               name: evidence.name,

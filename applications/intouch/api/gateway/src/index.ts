@@ -22,7 +22,6 @@ const { PORT = 4000 } = process.env;
       gateway,
       context: ({ req }) => {
         const { headers } = req;
-
         /**
          * https://cloud.google.com/api-gateway/docs/authenticate-service-account
          *
@@ -34,6 +33,7 @@ const { PORT = 4000 } = process.env;
          * the different services
          * */
         return {
+          market: headers["x-request-market-domain"],
           "x-request-id": headers["x-request-id"],
           "x-apigateway-api-userinfo": headers["x-apigateway-api-userinfo"]
         };

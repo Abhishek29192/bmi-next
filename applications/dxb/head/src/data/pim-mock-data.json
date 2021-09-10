@@ -4,64 +4,19 @@
   "assets": [
     {
       "allowedToDownload": true,
-      "assetType": "CAD",
-      "fileSize": 270539,
-      "mime": "application/pdf",
-      "name": "1344416763",
-      "realFileName": "1344416763.pdf",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "CERTIFICATES",
-      "fileSize": 8364,
-      "mime": "image/png",
-      "name": "test_Certificate",
-      "realFileName": "test_Certificate.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha1/h3c/9012208304158/test-Certificatepng"
-    },
-    {
-      "allowedToDownload": true,
       "assetType": "AWARDS",
       "fileSize": 7454,
       "mime": "image/png",
-      "name": "Test_Award",
+      "name": "Test Award",
       "realFileName": "Test_Award.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h39/9012208238622/Test-Awardpng"
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hf4/9021244014622/Test-Awardpng"
     },
     {
       "allowedToDownload": true,
       "assetType": "BIM",
       "mime": "application/octet-stream",
-      "name": "BIM_Test",
-      "realFileName": "BIM_Test.bin"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "SPECIFICATION",
-      "fileSize": 689490,
-      "mime": "application/pdf",
-      "name": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg",
-      "realFileName": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg.pdf",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd0/h35/9012208107550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "DATA_SHEETS",
-      "fileSize": 390375,
-      "mime": "application/pdf",
-      "name": "Icopal Ventura",
-      "realFileName": "Icopal Ventura.pdf",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h4f/h3d/9012208369694/Icopal-Venturapdf"
-    },
-    {
-      "allowedToDownload": true,
-      "assetType": "GUARANTIES",
-      "fileSize": 12750,
-      "mime": "image/png",
-      "name": "Test_Guarantee",
-      "realFileName": "Test_Guarantee.png",
-      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h69/h32/9012208009246/Test-Guaranteepng"
+      "name": "BIM Test",
+      "url": "https://www.bimobject.com/en/bmi_siplast_fr/product/spl30030"
     },
     {
       "allowedToDownload": true,
@@ -74,9 +29,48 @@
     },
     {
       "allowedToDownload": true,
-      "assetType": "BIM",
-      "name": "BIM_Test",
-      "url": "https://www.bimobject.com/en-us/bmi_siplast_fr/product/spl010108"
+      "assetType": "CAD",
+      "fileSize": 270539,
+      "mime": "application/pdf",
+      "name": "CAD",
+      "realFileName": "1344416763.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h63/h2d/9021403922462/1344416763pdf"
+    },
+    {
+      "allowedToDownload": false,
+      "assetType": "DATA_SHEETS",
+      "fileSize": 390375,
+      "mime": "application/pdf",
+      "name": "Icopal Ventura",
+      "realFileName": "Icopal Ventura.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb2/hf0/9021244145694/Icopal-Venturapdf"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "SPECIFICATION",
+      "fileSize": 689490,
+      "mime": "application/pdf",
+      "name": "Spec Test",
+      "realFileName": "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg.pdf",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd4/hbd/9021243883550/Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbeleggpdf"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GUARANTIES",
+      "fileSize": 12750,
+      "mime": "image/png",
+      "name": "Test_Guarantee",
+      "realFileName": "Test_Guarantee.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h6c/hba/9021243785246/Test-Guaranteepng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "CERTIFICATES",
+      "fileSize": 8364,
+      "mime": "image/png",
+      "name": "test_Certificate",
+      "realFileName": "test_Certificate.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/haf/hf3/9021244080158/test-Certificatepng"
     }
   ],
   "categories": [
@@ -84,6 +78,12 @@
       "categoryType": "Brand",
       "code": "MONARFLEX",
       "name": "Monarflex"
+    },
+    {
+      "categoryType": "ProductFamily",
+      "code": "SOLAR_PV_PREMIUM",
+      "name": "Solar PV Premium",
+      "parentCategoryCode": "PRODUCT_FAMILY"
     },
     {
       "categoryType": "SystemType",
@@ -100,7 +100,7 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup",
           "featureValues": [
             {
-              "value": "Value"
+              "value": "Yes"
             }
           ],
           "name": "Roof build-up"
@@ -109,7 +109,7 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
           "featureValues": [
             {
-              "value": "Test Value"
+              "value": "Promotional Content Value"
             }
           ],
           "name": "Promotional Content"
@@ -118,10 +118,10 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.uniquesellingpropositions",
           "featureValues": [
             {
-              "value": "Test Value 1"
+              "value": "Value 1"
             },
             {
-              "value": "Test Value 2"
+              "value": "Value 2"
             }
           ],
           "name": "Unique Selling Propositions"
@@ -130,10 +130,10 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.uniquesellingpropositions",
           "featureValues": [
             {
-              "value": "Test Value 1"
+              "value": "Value 1"
             },
             {
-              "value": "Test Value 2"
+              "value": "Value 2"
             }
           ],
           "name": "Unique Selling Propositions"
@@ -142,10 +142,10 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
           "featureValues": [
             {
-              "value": "Test Value 1"
+              "value": "Value 1"
             },
             {
-              "value": "Test Value 2"
+              "value": "Value 2"
             }
           ],
           "name": "Key Features"
@@ -154,16 +154,46 @@
           "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
           "featureValues": [
             {
-              "value": "Test Value 1"
+              "value": "Value 1"
             },
             {
-              "value": "Test Value 2"
+              "value": "Value 2"
             }
           ],
           "name": "Key Features"
         }
       ],
       "name": "System Attributes"
+    },
+    {
+      "code": "franceFlatSystemAttributes",
+      "features": [
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/franceFlatSystemAttributes.brooft3_classification",
+          "featureValues": [
+            {
+              "value": "44"
+            }
+          ],
+          "name": "Brooft3 classification"
+        }
+      ],
+      "name": "France Flat System Attributes"
+    },
+    {
+      "code": "ScoringWeightAttributes",
+      "features": [
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
+          "featureValues": [
+            {
+              "value": "2"
+            }
+          ],
+          "name": "Scoring Weight"
+        }
+      ],
+      "name": "Scoring Weight Attributes"
     },
     {
       "code": "Measurements",
@@ -198,20 +228,6 @@
         }
       ],
       "name": "Measurements"
-    },
-    {
-      "code": "scoringWeightAttributes",
-      "features": [
-        {
-          "code": "bmiSystemsClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-          "featureValues": [
-            {
-              "value": "3"
-            }
-          ]
-        }
-      ],
-      "name": "Scoring Weight"
     }
   ],
   "code": "Test_PIM_System1",
@@ -482,170 +498,273 @@
   "longDescription": "Long Dec System 2 NO",
   "name": "NO System 1",
   "shortDescription": "SDescription 1 NO",
-  "systemBenefits": ["Benefit 3 NO, Benefit 4 NO"],
+  "systemBenefits": [
+    "Benefit 3 NO, Benefit 4 NO"
+  ],
   "systemLayers": [
     {
       "addon": false,
       "approvalStatus": "approved",
-      "code": "Test_Layer",
-      "images": [
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 566118,
-          "mime": "image/jpeg",
-          "name": "10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf5/h8c/8974292451358/10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 125472,
-          "format": "Product-Hero-Large-Desktop",
-          "mime": "image/jpeg",
-          "name": "Product-Hero-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Hero-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h1f/h76/9003844403230/Product-Hero-Large-Desktop-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 21488,
-          "format": "Product-Color-Selector-Mobile",
-          "mime": "image/jpeg",
-          "name": "Product-Color-Selector-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Color-Selector-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/h75/9003844468766/Product-Color-Selector-Mobile-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 27891,
-          "format": "Product-Listing-Card-Large-Desktop",
-          "mime": "image/jpeg",
-          "name": "Product-Listing-Card-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Listing-Card-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h60/h72/9003844534302/Product-Listing-Card-Large-Desktop-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 49575,
-          "format": "Product-Hero-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "Product-Hero-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Hero-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb2/h71/9003844599838/Product-Hero-Small-Desktop-Tablet-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 23891,
-          "format": "Product-Hero-Mobile",
-          "mime": "image/jpeg",
-          "name": "Product-Hero-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Hero-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha1/h6e/9003844665374/Product-Hero-Mobile-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 29691,
-          "format": "Product-Color-Selector-Large-Desktop",
-          "mime": "image/jpeg",
-          "name": "Product-Color-Selector-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Color-Selector-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h6b/9003844730910/Product-Color-Selector-Large-Desktop-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 23891,
-          "format": "Product-Color-Selector-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "Product-Color-Selector-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he1/h6a/9003844796446/Product-Color-Selector-Small-Desktop-Tablet-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 22335,
-          "format": "Product-Listing-Card-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "Product-Listing-Card-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd1/h67/9003844861982/Product-Listing-Card-Small-Desktop-Tablet-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 22745,
-          "format": "Product-Listing-Card-Mobile",
-          "mime": "image/jpeg",
-          "name": "Product-Listing-Card-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Product-Listing-Card-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd2/h64/9003844927518/Product-Listing-Card-Mobile-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 91700,
-          "format": "Web",
-          "mime": "image/jpeg",
-          "name": "Web_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Web_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h11/h64/9003844993054/Web-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
-        },
-        {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
-          "fileSize": 1098565,
-          "format": "Print",
-          "mime": "image/tiff",
-          "name": "Print_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
-          "realFileName": "Print_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.tiff",
-          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h68/h19/9003845058590/Print-10205979-Icopal-bordtakbeslag-plast-BT3-17-sorttiff"
-        }
-      ],
+      "code": "Layer_19",
       "layerNumber": 1,
-      "longDescription": "Long Description NO",
-      "name": "Layer Id NO",
+      "longDescription": "Long Dec System 2 NO",
       "optionalProducts": [
         {
-          "code": "Radonmansjett"
+          "code": "400120_Monarplan_Outside_corner_anthracite"
         }
       ],
       "products": [
         {
-          "code": "Zanda_Protector_main_tile"
+          "code": "300190_Rubber_sheat"
         }
       ],
-      "shortDescription": "SD NO",
-      "type": "LAYER_VAPOR_BARRIER"
+      "name": "SName 1",
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
     },
     {
       "addon": false,
       "approvalStatus": "approved",
-      "code": "Layer_2",
+      "code": "Layer_20",
       "layerNumber": 2,
-      "longDescription": "<p>Long Dec System 1&nbsp;NO</p>",
-      "name": "Layer 2 NO",
-      "shortDescription": "Layer SD value",
+      "name": "SName 2",
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "300191_Rubber_sheat"
+        }
+      ],
+      "products": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
       "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_21",
+      "name": "SName 3",
+      "layerNumber": 3,
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "products": [
+        {
+          "code": "300191_Rubber_sheat"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_22",
+      "name": "SName 4",
+      "layerNumber": 4,
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "300190_Rubber_sheat"
+        }
+      ],
+      "products": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_23",
+      "name": "SName 5",
+      "layerNumber": 5,
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "products": [
+        {
+          "code": "300190_Rubber_sheat"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_24",
+      "name": "SName 6",
+      "layerNumber": 6,
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "300191_Rubber_sheat"
+        }
+      ],
+      "products": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_25",
+      "name": "SName 7",
+      "layerNumber": 7,
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "products": [
+        {
+          "code": "300191_Rubber_sheat"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_26",
+      "name": "SName 8",
+      "layerNumber": 8,
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "300190_Rubber_sheat"
+        },
+        {
+          "code": "300191_Rubber_sheat"
+        }
+      ],
+      "products": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_27",
+      "name": "SName 9",
+      "layerNumber": 9,
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "products": [
+        {
+          "code": "300191_Rubber_sheat"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_28",
+      "name": "SName 10",
+      "layerNumber": 10,
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "300190_Rubber_sheat"
+        }
+      ],
+      "products": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_29",
+      "layerNumber": 11,
+      "name": "SName 11",
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "products": [
+        {
+          "code": "300190_Rubber_sheat"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_30",
+      "layerNumber": 12,
+      "name": "SName 12",
+      "longDescription": "Long Dec System 2 NO",
+      "optionalProducts": [
+        {
+          "code": "300191_Rubber_sheat"
+        },
+        {
+          "code": "300190_Rubber_sheat"
+        }
+      ],
+      "products": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO",
+      "type": "LAYER_ACCESSORIES"
+    }
+  ],
+  "systemReferences": [
+    {
+      "referenceType": "CROSSELLING",
+      "target": {
+        "code": "Test_PIM_System2",
+        "name": "NO System 1"
+      },
+      "preselected": true
+    },
+    {
+      "referenceType": "CROSSELLING",
+      "target": {
+        "code": "Test_PIM_System3",
+        "name": "NO System 3"
+      },
+      "preselected": true
     }
   ]
 }

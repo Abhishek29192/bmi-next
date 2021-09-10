@@ -338,7 +338,15 @@ const buildModel = (records) => {
         );
         myDataModel.addReference(myReference); // create a reference and add it to the list of references
 
-        myTable.addColumn(record.Name, "fk", referenceType, record.Mocks); // add the new attribute to the current table
+        myTable.addColumn(
+          record.Name,
+          "fk",
+          referenceType,
+          record.Mocks,
+          null,
+          null,
+          record.Mandatory
+        ); // add the new attribute to the current table
         break;
       }
 
@@ -353,7 +361,15 @@ const buildModel = (records) => {
           );
           myDataModel.addIndex(myIndex);
         }
-        myTable.addColumn(record.Name, "ek", record.Description, record.Mocks); // add the new attribute to the current table. The description column in the csv in this case contains a type rather than a description
+        myTable.addColumn(
+          record.Name,
+          "ek",
+          record.Description,
+          record.Mocks,
+          null,
+          null,
+          record.Mandatory
+        ); // add the new attribute to the current table. The description column in the csv in this case contains a type rather than a description
         break;
       case "enum":
         if (firstEnum == true) {

@@ -10,6 +10,7 @@ import { PoolClient } from "pg";
 import StorageClient from "../storage-client";
 import { PostGraphileContext } from "../../types";
 import { sendEmailWithTemplate } from "../mailer";
+import { solutionGuaranteeSubmitValidate } from "./validate";
 
 export const createGuarantee = async (
   resolve,
@@ -27,8 +28,7 @@ export const createGuarantee = async (
 
   try {
     const { guarantee } = args.input;
-    const { projectId, guaranteeTypeCoverage, evidenceItemsUsingId } =
-      guarantee;
+    const { projectId, coverage, evidenceItemsUsingId } = guarantee;
 
     guarantee.requestorAccountId = +user.id;
     guarantee.bmiReferenceId = `${crypto.randomBytes(10).toString("hex")}`;
@@ -53,7 +53,7 @@ export const createGuarantee = async (
       }
     }
 
-    if (guaranteeTypeCoverage !== "SOLUTION") {
+    if (coverage !== "SOLUTION") {
       guarantee.status = "APPROVED";
 
       const {
@@ -108,7 +108,7 @@ export const updateGuarantee = async (
   context: PostGraphileContext,
   resolveInfo
 ) => {
-  const { pgClient, logger: Logger, user } = context;
+  const { pgClient, logger: Logger, user, clientGateway } = context;
 
   const logger = Logger("service:guarantee");
 
@@ -124,59 +124,49 @@ export const updateGuarantee = async (
 
     const { id, patch, guaranteeEventType } = args.input;
 
-    const currentGuarantee = await getGuarantee(id, pgClient);
+    const { status, projectId } = await getGuarantee(id, pgClient);
 
-    if (
-      guaranteeEventType === "SUBMIT_SOLUTION" &&
-      currentGuarantee.status === "NEW"
-    ) {
+    if (guaranteeEventType === "SUBMIT_SOLUTION") {
+      const isValid = await solutionGuaranteeSubmitValidate(
+        clientGateway,
+        projectId
+      );
+
+      if (!isValid) {
+        logger.error(
+          `User with id: ${user.id} and role: ${user.role} is trying to submit guarantee ${args.input.id}`
+        );
+        throw new Error("Validation Error");
+      }
+
       patch.requestorAccountId = +user.id;
-      patch.bmiReferenceId = `${crypto.randomBytes(10).toString("hex")}`;
+      patch.bmiReferenceId =
+        status === "NEW"
+          ? `${crypto.randomBytes(10).toString("hex")}`
+          : patch.bmiReferenceId;
       patch.status = "SUBMITTED";
     }
 
-    if (
-      guaranteeEventType === "SUBMIT_SOLUTION" &&
-      currentGuarantee.status === "REJECTED"
-    ) {
-      patch.requestorAccountId = +user.id;
-      patch.status = "SUBMITTED";
-    }
-
-    if (
-      guaranteeEventType === "ASSIGN_SOLUTION" &&
-      currentGuarantee.status === "SUBMITTED"
-    ) {
+    if (guaranteeEventType === "ASSIGN_SOLUTION" && status === "SUBMITTED") {
       patch.reviewerAccountId = +user.id;
       patch.status = "REVIEW";
     }
 
-    if (
-      guaranteeEventType === "REASSIGN_SOLUTION" &&
-      currentGuarantee.status === "REVIEW"
-    ) {
+    if (guaranteeEventType === "REASSIGN_SOLUTION" && status === "REVIEW") {
       patch.reviewerAccountId = +user.id;
       patch.status = "REVIEW";
     }
 
-    if (
-      guaranteeEventType === "UNASSIGN_SOLUTION" &&
-      currentGuarantee.status === "REVIEW"
-    ) {
+    if (guaranteeEventType === "UNASSIGN_SOLUTION" && status === "REVIEW") {
       patch.reviewerAccountId = null;
       patch.status = "SUBMITTED";
     }
 
-    if (
-      guaranteeEventType === "APPROVE_SOLUTION" &&
-      currentGuarantee.status === "REVIEW"
-    ) {
+    if (guaranteeEventType === "APPROVE_SOLUTION" && status === "REVIEW") {
       patch.status = "APPROVED";
     }
-    if (
-      guaranteeEventType === "REJECT_SOLUTION" &&
-      currentGuarantee.status === "REVIEW"
-    ) {
+
+    if (guaranteeEventType === "REJECT_SOLUTION" && status === "REVIEW") {
       //TODO: The Requestor receives a message telling them that their request has been rejected.
       patch.reviewerAccountId = null;
       patch.status = "REJECTED";
@@ -200,9 +190,8 @@ const getGuarantee = async (
   pgClient: PoolClient
 ): Promise<Guarantee> => {
   const { rows } = await pgClient.query<Guarantee>(
-    "SELECT guarantee.* FROM guarantee where guarantee.id=$1",
+    `SELECT g.id,g.project_id as "projectId" ,g.status FROM guarantee g where g.id=$1`,
     [id]
   );
-  //TODO:We have to map
   return rows[0];
 };
