@@ -16,6 +16,7 @@ type Props = {
   onCloseClick?: () => any;
   onBackdropClick?: ModalProps["onBackdropClick"];
   backdropProps?: ModalProps["BackdropProps"];
+  disablePortal?: ModalProps["disablePortal"];
   areaLabelledby?: string;
   areaDescribedby?: string;
   children: React.ReactNode;
@@ -27,6 +28,7 @@ const Dialog = ({
   maxWidth = "md",
   color = "white",
   onCloseClick,
+  disablePortal,
   onBackdropClick = onCloseClick,
   backdropProps,
   areaLabelledby,
@@ -58,6 +60,7 @@ const Dialog = ({
       BackdropProps={backdropProps}
       aria-labelledby={areaLabelledby}
       aria-describedby={areaDescribedby}
+      disablePortal={disablePortal}
     >
       <Fade in={open}>
         <div
