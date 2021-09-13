@@ -19,7 +19,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
   style="padding-right: 0px; overflow: hidden;"
 >
   <div
-    aria-hidden="false"
+    aria-hidden="true"
   >
     <div
       role="presentation"
@@ -92,7 +92,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
   style="padding-right: 0px; overflow: hidden;"
 >
   <div
-    aria-hidden="false"
+    aria-hidden="true"
   >
     <div
       role="presentation"

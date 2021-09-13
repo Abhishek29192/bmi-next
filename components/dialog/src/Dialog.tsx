@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { isElement } from "react-is";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import CloseIcon from "@material-ui/icons/Close";
-import { useDisablePortalModalWorkaround } from "@bmi/hooks";
 import Fade from "@material-ui/core/Fade";
 import styles from "./Dialog.module.scss";
+import { DialogClassNameContext } from "./context";
 
 type Props = {
   open?: boolean;
@@ -16,7 +16,6 @@ type Props = {
   onCloseClick?: () => any;
   onBackdropClick?: ModalProps["onBackdropClick"];
   backdropProps?: ModalProps["BackdropProps"];
-  disablePortal?: ModalProps["disablePortal"];
   areaLabelledby?: string;
   areaDescribedby?: string;
   children: React.ReactNode;
@@ -28,7 +27,6 @@ const Dialog = ({
   maxWidth = "md",
   color = "white",
   onCloseClick,
-  disablePortal = true,
   onBackdropClick = onCloseClick,
   backdropProps,
   areaLabelledby,
@@ -36,12 +34,11 @@ const Dialog = ({
   children,
   className
 }: Props) => {
+  const dialogClassName = useContext(DialogClassNameContext);
   const childrenArray = React.Children.toArray(children);
   const rawTitle = childrenArray.find(
     (child) => isElement(child) && child.type === Title
   ) as React.ReactElement | undefined;
-
-  useDisablePortalModalWorkaround(open, disablePortal);
 
   const title = rawTitle
     ? React.cloneElement(rawTitle, {
@@ -55,12 +52,12 @@ const Dialog = ({
 
   return (
     <Modal
+      className={classnames(dialogClassName)}
       open={open}
       onBackdropClick={onBackdropClick}
       BackdropProps={backdropProps}
       aria-labelledby={areaLabelledby}
       aria-describedby={areaDescribedby}
-      disablePortal={disablePortal}
     >
       <Fade in={open}>
         <div
