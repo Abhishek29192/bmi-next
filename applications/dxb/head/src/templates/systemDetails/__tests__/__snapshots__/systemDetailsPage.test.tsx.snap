@@ -173,7 +173,7 @@ exports[`SystemDetailsPage template component should have function to filter and
         class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -227,7 +227,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
@@ -254,7 +254,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
@@ -281,7 +281,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton link MuiButton-textPrimary"
                     href="/uk"
                     tabindex="0"
                   >
@@ -308,7 +308,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton link MuiButton-textPrimary"
                     href="/en"
                     tabindex="0"
                   >
@@ -664,7 +664,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Products\\"}"
                 tabindex="0"
                 type="button"
@@ -700,7 +700,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -741,7 +741,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof\\"}"
                       tabindex="0"
                       type="button"
@@ -777,7 +777,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                           class="BackNavigation"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Select category\\"}"
                             tabindex="0"
                             type="button"
@@ -811,7 +811,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Stone Roofs\\"}"
                             tabindex="0"
                             type="button"
@@ -847,7 +847,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -882,7 +882,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Stone Roofs\\",\\"action\\":\\"/en/roof-tiles/\\"}"
                                   href="/en/roof-tiles/"
                                   role="button"
@@ -901,7 +901,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof tiles\\",\\"action\\":\\"/en/roof-tiles/stone-roof-tiles/\\"}"
                                   href="/en/roof-tiles/stone-roof-tiles/"
                                   role="button"
@@ -931,7 +931,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Concrete roof tiles\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\"}"
                                   href="/en/roof-tiles/betongtakstein/"
                                   role="button"
@@ -963,7 +963,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Steel Roof Tiles\\"}"
                             tabindex="0"
                             type="button"
@@ -999,7 +999,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -1034,7 +1034,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Quadro Plus\\",\\"action\\":\\"/en/aerodek-quadro-plus/\\"}"
                                   href="/en/aerodek-quadro-plus/"
                                   role="button"
@@ -1066,7 +1066,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Shingle\\"}"
                             tabindex="0"
                             type="button"
@@ -1102,7 +1102,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -1137,7 +1137,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Shingle\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                                   href="/en/kontakt-oss/"
                                   role="button"
@@ -1156,7 +1156,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Type S\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                                   href="/en/kontakt-oss/"
                                   role="button"
@@ -1188,7 +1188,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat Roof Accessories\\"}"
                             tabindex="0"
                             type="button"
@@ -1224,7 +1224,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -1259,7 +1259,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\" Roof ladder\\",\\"action\\":\\"/en/takstige/\\"}"
                                   href="/en/takstige/"
                                   role="button"
@@ -1294,7 +1294,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\"}"
                       href="#"
                       tabindex="0"
@@ -1318,7 +1318,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\"}"
                       href="#"
                       tabindex="0"
@@ -1342,7 +1342,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Monier\\"}"
                       href="#"
                       tabindex="0"
@@ -1366,7 +1366,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\"}"
                       href="#"
                       tabindex="0"
@@ -1392,7 +1392,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Systems\\"}"
                 tabindex="0"
                 type="button"
@@ -1428,7 +1428,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -1463,7 +1463,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Pitched Roof\\"}"
                       href="#"
                       tabindex="0"
@@ -1481,7 +1481,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat roof\\"}"
                       href="#"
                       tabindex="0"
@@ -1499,7 +1499,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Membranes\\"}"
                       href="#"
                       tabindex="0"
@@ -1516,7 +1516,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Sealing systems\\"}"
                       tabindex="0"
                       type="button"
@@ -1536,7 +1536,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Brands\\"}"
                 tabindex="0"
                 type="button"
@@ -1572,7 +1572,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -1607,7 +1607,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\",\\"action\\":\\"/en/icopal-base/\\"}"
                       href="/en/icopal-base/"
                       role="button"
@@ -1637,7 +1637,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\",\\"action\\":\\"/en/aerodek-quadro-plus/\\"}"
                       href="/en/aerodek-quadro-plus/"
                       role="button"
@@ -1667,7 +1667,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\",\\"action\\":\\"/en/zanda-arktis/\\"}"
                       href="/en/zanda-arktis/"
                       role="button"
@@ -1699,7 +1699,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Tips and Inspiration\\"}"
                 tabindex="0"
                 type="button"
@@ -1735,7 +1735,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -1769,7 +1769,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Inspiration\\"}"
                       tabindex="0"
                       type="button"
@@ -1805,7 +1805,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                           class="BackNavigation"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                             tabindex="0"
                             type="button"
@@ -1840,7 +1840,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         <li>
                           <a
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Inspiration\\",\\"action\\":\\"/en/case-study-landing-page/\\"}"
                             href="/en/case-study-landing-page/"
                             role="button"
@@ -1858,7 +1858,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Homeowners\\"}"
                             tabindex="0"
                             type="button"
@@ -1875,7 +1875,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Professionals\\"}"
                             tabindex="0"
                             type="button"
@@ -1892,7 +1892,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Commercial building\\"}"
                             tabindex="0"
                             type="button"
@@ -1909,7 +1909,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Architect and engineer\\"}"
                             tabindex="0"
                             type="button"
@@ -1929,7 +1929,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Construction tips\\"}"
                       tabindex="0"
                       type="button"
@@ -1965,7 +1965,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                           class="BackNavigation"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                             tabindex="0"
                             type="button"
@@ -1999,7 +1999,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For Professionals\\"}"
                             tabindex="0"
                             type="button"
@@ -2016,7 +2016,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For the self-builder\\"}"
                             tabindex="0"
                             type="button"
@@ -2052,7 +2052,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -2086,7 +2086,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build houses\\"}"
                                   tabindex="0"
                                   type="button"
@@ -2103,7 +2103,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build cottage\\"}"
                                   tabindex="0"
                                   type="button"
@@ -2120,7 +2120,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build terrace\\"}"
                                   tabindex="0"
                                   type="button"
@@ -2137,7 +2137,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build garage\\"}"
                                   tabindex="0"
                                   type="button"
@@ -2157,7 +2157,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Other construction tips\\"}"
                             tabindex="0"
                             type="button"
@@ -2177,7 +2177,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"News\\"}"
                       tabindex="0"
                       type="button"
@@ -2197,7 +2197,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Support\\"}"
                 tabindex="0"
                 type="button"
@@ -2233,7 +2233,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -2267,7 +2267,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof Calculator\\"}"
                       tabindex="0"
                       type="button"
@@ -2285,7 +2285,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"FAQs\\",\\"action\\":\\"/en/ofte-stilte-sporsmal/\\"}"
                       href="/en/ofte-stilte-sporsmal/"
                       role="button"
@@ -2304,7 +2304,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Puja's test page\\",\\"action\\":\\"/en/test-page-puja/\\"}"
                       href="/en/test-page-puja/"
                       role="button"
@@ -2325,7 +2325,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Documentation\\"}"
                 tabindex="0"
                 type="button"
@@ -2361,7 +2361,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -2395,7 +2395,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Documentation\\"}"
                       tabindex="0"
                       type="button"
@@ -2412,7 +2412,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Test Doc Lib\\"}"
                       tabindex="0"
                       type="button"
@@ -2430,7 +2430,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"What our roofers say\\",\\"action\\":\\"/en/simple-page-playground-gp/\\"}"
                       href="/en/simple-page-playground-gp/"
                       role="button"
@@ -2454,7 +2454,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             >
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Find a dealer\\"}"
                   tabindex="0"
                   type="button"
@@ -2471,7 +2471,7 @@ exports[`SystemDetailsPage template component should have function to filter and
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Find a roofer\\"}"
                   tabindex="0"
                   type="button"
@@ -2488,7 +2488,7 @@ exports[`SystemDetailsPage template component should have function to filter and
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Partner portal\\"}"
                   tabindex="0"
                   type="button"
@@ -2505,7 +2505,7 @@ exports[`SystemDetailsPage template component should have function to filter and
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"News\\"}"
                   tabindex="0"
                   type="button"
@@ -2523,7 +2523,7 @@ exports[`SystemDetailsPage template component should have function to filter and
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                   href="/en/kontakt-oss/"
                   role="button"
@@ -2542,7 +2542,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-143 MuiButton-text buttonStyles-text-144 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"
@@ -4110,7 +4110,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
         class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -4164,7 +4164,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
@@ -4191,7 +4191,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
@@ -4218,7 +4218,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                     href="/uk"
                     tabindex="0"
                   >
@@ -4245,7 +4245,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                     href="/en"
                     tabindex="0"
                   >
@@ -4601,7 +4601,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Products\\"}"
                 tabindex="0"
                 type="button"
@@ -4637,7 +4637,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -4678,7 +4678,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof\\"}"
                       tabindex="0"
                       type="button"
@@ -4714,7 +4714,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           class="BackNavigation"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Select category\\"}"
                             tabindex="0"
                             type="button"
@@ -4748,7 +4748,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Stone Roofs\\"}"
                             tabindex="0"
                             type="button"
@@ -4784,7 +4784,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -4819,7 +4819,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Stone Roofs\\",\\"action\\":\\"/en/roof-tiles/\\"}"
                                   href="/en/roof-tiles/"
                                   role="button"
@@ -4838,7 +4838,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof tiles\\",\\"action\\":\\"/en/roof-tiles/stone-roof-tiles/\\"}"
                                   href="/en/roof-tiles/stone-roof-tiles/"
                                   role="button"
@@ -4868,7 +4868,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Concrete roof tiles\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\"}"
                                   href="/en/roof-tiles/betongtakstein/"
                                   role="button"
@@ -4900,7 +4900,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Steel Roof Tiles\\"}"
                             tabindex="0"
                             type="button"
@@ -4936,7 +4936,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -4971,7 +4971,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Quadro Plus\\",\\"action\\":\\"/en/aerodek-quadro-plus/\\"}"
                                   href="/en/aerodek-quadro-plus/"
                                   role="button"
@@ -5003,7 +5003,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Shingle\\"}"
                             tabindex="0"
                             type="button"
@@ -5039,7 +5039,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -5074,7 +5074,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Shingle\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                                   href="/en/kontakt-oss/"
                                   role="button"
@@ -5093,7 +5093,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Type S\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                                   href="/en/kontakt-oss/"
                                   role="button"
@@ -5125,7 +5125,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat Roof Accessories\\"}"
                             tabindex="0"
                             type="button"
@@ -5161,7 +5161,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -5196,7 +5196,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\" Roof ladder\\",\\"action\\":\\"/en/takstige/\\"}"
                                   href="/en/takstige/"
                                   role="button"
@@ -5231,7 +5231,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\"}"
                       href="#"
                       tabindex="0"
@@ -5255,7 +5255,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\"}"
                       href="#"
                       tabindex="0"
@@ -5279,7 +5279,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Monier\\"}"
                       href="#"
                       tabindex="0"
@@ -5303,7 +5303,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\"}"
                       href="#"
                       tabindex="0"
@@ -5329,7 +5329,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Systems\\"}"
                 tabindex="0"
                 type="button"
@@ -5365,7 +5365,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -5400,7 +5400,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Pitched Roof\\"}"
                       href="#"
                       tabindex="0"
@@ -5418,7 +5418,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat roof\\"}"
                       href="#"
                       tabindex="0"
@@ -5436,7 +5436,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Membranes\\"}"
                       href="#"
                       tabindex="0"
@@ -5453,7 +5453,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Sealing systems\\"}"
                       tabindex="0"
                       type="button"
@@ -5473,7 +5473,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Brands\\"}"
                 tabindex="0"
                 type="button"
@@ -5509,7 +5509,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -5544,7 +5544,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\",\\"action\\":\\"/en/icopal-base/\\"}"
                       href="/en/icopal-base/"
                       role="button"
@@ -5574,7 +5574,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\",\\"action\\":\\"/en/aerodek-quadro-plus/\\"}"
                       href="/en/aerodek-quadro-plus/"
                       role="button"
@@ -5604,7 +5604,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\",\\"action\\":\\"/en/zanda-arktis/\\"}"
                       href="/en/zanda-arktis/"
                       role="button"
@@ -5636,7 +5636,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Tips and Inspiration\\"}"
                 tabindex="0"
                 type="button"
@@ -5672,7 +5672,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -5706,7 +5706,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Inspiration\\"}"
                       tabindex="0"
                       type="button"
@@ -5742,7 +5742,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           class="BackNavigation"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                             tabindex="0"
                             type="button"
@@ -5777,7 +5777,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         <li>
                           <a
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Inspiration\\",\\"action\\":\\"/en/case-study-landing-page/\\"}"
                             href="/en/case-study-landing-page/"
                             role="button"
@@ -5795,7 +5795,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Homeowners\\"}"
                             tabindex="0"
                             type="button"
@@ -5812,7 +5812,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Professionals\\"}"
                             tabindex="0"
                             type="button"
@@ -5829,7 +5829,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Commercial building\\"}"
                             tabindex="0"
                             type="button"
@@ -5846,7 +5846,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Architect and engineer\\"}"
                             tabindex="0"
                             type="button"
@@ -5866,7 +5866,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Construction tips\\"}"
                       tabindex="0"
                       type="button"
@@ -5902,7 +5902,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           class="BackNavigation"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                             tabindex="0"
                             type="button"
@@ -5936,7 +5936,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For Professionals\\"}"
                             tabindex="0"
                             type="button"
@@ -5953,7 +5953,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For the self-builder\\"}"
                             tabindex="0"
                             type="button"
@@ -5989,7 +5989,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -6023,7 +6023,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build houses\\"}"
                                   tabindex="0"
                                   type="button"
@@ -6040,7 +6040,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build cottage\\"}"
                                   tabindex="0"
                                   type="button"
@@ -6057,7 +6057,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build terrace\\"}"
                                   tabindex="0"
                                   type="button"
@@ -6074,7 +6074,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build garage\\"}"
                                   tabindex="0"
                                   type="button"
@@ -6094,7 +6094,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Other construction tips\\"}"
                             tabindex="0"
                             type="button"
@@ -6114,7 +6114,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"News\\"}"
                       tabindex="0"
                       type="button"
@@ -6134,7 +6134,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Support\\"}"
                 tabindex="0"
                 type="button"
@@ -6170,7 +6170,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -6204,7 +6204,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof Calculator\\"}"
                       tabindex="0"
                       type="button"
@@ -6222,7 +6222,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"FAQs\\",\\"action\\":\\"/en/ofte-stilte-sporsmal/\\"}"
                       href="/en/ofte-stilte-sporsmal/"
                       role="button"
@@ -6241,7 +6241,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Puja's test page\\",\\"action\\":\\"/en/test-page-puja/\\"}"
                       href="/en/test-page-puja/"
                       role="button"
@@ -6262,7 +6262,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Documentation\\"}"
                 tabindex="0"
                 type="button"
@@ -6298,7 +6298,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -6332,7 +6332,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Documentation\\"}"
                       tabindex="0"
                       type="button"
@@ -6349,7 +6349,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Test Doc Lib\\"}"
                       tabindex="0"
                       type="button"
@@ -6367,7 +6367,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"What our roofers say\\",\\"action\\":\\"/en/simple-page-playground-gp/\\"}"
                       href="/en/simple-page-playground-gp/"
                       role="button"
@@ -6391,7 +6391,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             >
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Find a dealer\\"}"
                   tabindex="0"
                   type="button"
@@ -6408,7 +6408,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Find a roofer\\"}"
                   tabindex="0"
                   type="button"
@@ -6425,7 +6425,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Partner portal\\"}"
                   tabindex="0"
                   type="button"
@@ -6442,7 +6442,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"News\\"}"
                   tabindex="0"
                   type="button"
@@ -6460,7 +6460,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                   href="/en/kontakt-oss/"
                   role="button"
@@ -6479,7 +6479,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"
@@ -9628,7 +9628,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
         class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -9682,7 +9682,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
@@ -9709,7 +9709,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
@@ -9736,7 +9736,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton link MuiButton-textPrimary"
                     href="/uk"
                     tabindex="0"
                   >
@@ -9763,7 +9763,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton link MuiButton-textPrimary"
                     href="/en"
                     tabindex="0"
                   >
@@ -10119,7 +10119,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Products\\"}"
                 tabindex="0"
                 type="button"
@@ -10155,7 +10155,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -10196,7 +10196,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof\\"}"
                       tabindex="0"
                       type="button"
@@ -10232,7 +10232,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           class="BackNavigation"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Select category\\"}"
                             tabindex="0"
                             type="button"
@@ -10266,7 +10266,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Stone Roofs\\"}"
                             tabindex="0"
                             type="button"
@@ -10302,7 +10302,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -10337,7 +10337,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Stone Roofs\\",\\"action\\":\\"/en/roof-tiles/\\"}"
                                   href="/en/roof-tiles/"
                                   role="button"
@@ -10356,7 +10356,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof tiles\\",\\"action\\":\\"/en/roof-tiles/stone-roof-tiles/\\"}"
                                   href="/en/roof-tiles/stone-roof-tiles/"
                                   role="button"
@@ -10386,7 +10386,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Concrete roof tiles\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\"}"
                                   href="/en/roof-tiles/betongtakstein/"
                                   role="button"
@@ -10418,7 +10418,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Steel Roof Tiles\\"}"
                             tabindex="0"
                             type="button"
@@ -10454,7 +10454,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -10489,7 +10489,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Quadro Plus\\",\\"action\\":\\"/en/aerodek-quadro-plus/\\"}"
                                   href="/en/aerodek-quadro-plus/"
                                   role="button"
@@ -10521,7 +10521,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Shingle\\"}"
                             tabindex="0"
                             type="button"
@@ -10557,7 +10557,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -10592,7 +10592,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Shingle\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                                   href="/en/kontakt-oss/"
                                   role="button"
@@ -10611,7 +10611,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Type S\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                                   href="/en/kontakt-oss/"
                                   role="button"
@@ -10643,7 +10643,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat Roof Accessories\\"}"
                             tabindex="0"
                             type="button"
@@ -10679,7 +10679,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -10714,7 +10714,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               <li>
                                 <a
                                   aria-disabled="false"
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\" Roof ladder\\",\\"action\\":\\"/en/takstige/\\"}"
                                   href="/en/takstige/"
                                   role="button"
@@ -10749,7 +10749,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\"}"
                       href="#"
                       tabindex="0"
@@ -10773,7 +10773,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\"}"
                       href="#"
                       tabindex="0"
@@ -10797,7 +10797,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Monier\\"}"
                       href="#"
                       tabindex="0"
@@ -10821,7 +10821,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\"}"
                       href="#"
                       tabindex="0"
@@ -10847,7 +10847,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Systems\\"}"
                 tabindex="0"
                 type="button"
@@ -10883,7 +10883,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -10918,7 +10918,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Pitched Roof\\"}"
                       href="#"
                       tabindex="0"
@@ -10936,7 +10936,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat roof\\"}"
                       href="#"
                       tabindex="0"
@@ -10954,7 +10954,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Membranes\\"}"
                       href="#"
                       tabindex="0"
@@ -10971,7 +10971,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Sealing systems\\"}"
                       tabindex="0"
                       type="button"
@@ -10991,7 +10991,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Brands\\"}"
                 tabindex="0"
                 type="button"
@@ -11027,7 +11027,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -11062,7 +11062,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\",\\"action\\":\\"/en/icopal-base/\\"}"
                       href="/en/icopal-base/"
                       role="button"
@@ -11092,7 +11092,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\",\\"action\\":\\"/en/aerodek-quadro-plus/\\"}"
                       href="/en/aerodek-quadro-plus/"
                       role="button"
@@ -11122,7 +11122,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\",\\"action\\":\\"/en/zanda-arktis/\\"}"
                       href="/en/zanda-arktis/"
                       role="button"
@@ -11154,7 +11154,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Tips and Inspiration\\"}"
                 tabindex="0"
                 type="button"
@@ -11190,7 +11190,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -11224,7 +11224,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Inspiration\\"}"
                       tabindex="0"
                       type="button"
@@ -11260,7 +11260,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           class="BackNavigation"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                             tabindex="0"
                             type="button"
@@ -11295,7 +11295,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         <li>
                           <a
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Inspiration\\",\\"action\\":\\"/en/case-study-landing-page/\\"}"
                             href="/en/case-study-landing-page/"
                             role="button"
@@ -11313,7 +11313,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Homeowners\\"}"
                             tabindex="0"
                             type="button"
@@ -11330,7 +11330,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Professionals\\"}"
                             tabindex="0"
                             type="button"
@@ -11347,7 +11347,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Commercial building\\"}"
                             tabindex="0"
                             type="button"
@@ -11364,7 +11364,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Architect and engineer\\"}"
                             tabindex="0"
                             type="button"
@@ -11384,7 +11384,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Construction tips\\"}"
                       tabindex="0"
                       type="button"
@@ -11420,7 +11420,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           class="BackNavigation"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                             tabindex="0"
                             type="button"
@@ -11454,7 +11454,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For Professionals\\"}"
                             tabindex="0"
                             type="button"
@@ -11471,7 +11471,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For the self-builder\\"}"
                             tabindex="0"
                             type="button"
@@ -11507,7 +11507,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 class="BackNavigation"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
                                   tabindex="0"
                                   type="button"
@@ -11541,7 +11541,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build houses\\"}"
                                   tabindex="0"
                                   type="button"
@@ -11558,7 +11558,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build cottage\\"}"
                                   tabindex="0"
                                   type="button"
@@ -11575,7 +11575,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build terrace\\"}"
                                   tabindex="0"
                                   type="button"
@@ -11592,7 +11592,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               </li>
                               <li>
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build garage\\"}"
                                   tabindex="0"
                                   type="button"
@@ -11612,7 +11612,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Other construction tips\\"}"
                             tabindex="0"
                             type="button"
@@ -11632,7 +11632,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"News\\"}"
                       tabindex="0"
                       type="button"
@@ -11652,7 +11652,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Support\\"}"
                 tabindex="0"
                 type="button"
@@ -11688,7 +11688,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -11722,7 +11722,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof Calculator\\"}"
                       tabindex="0"
                       type="button"
@@ -11740,7 +11740,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"FAQs\\",\\"action\\":\\"/en/ofte-stilte-sporsmal/\\"}"
                       href="/en/ofte-stilte-sporsmal/"
                       role="button"
@@ -11759,7 +11759,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Puja's test page\\",\\"action\\":\\"/en/test-page-puja/\\"}"
                       href="/en/test-page-puja/"
                       role="button"
@@ -11780,7 +11780,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Documentation\\"}"
                 tabindex="0"
                 type="button"
@@ -11816,7 +11816,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     class="BackNavigation"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton BackButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                       tabindex="0"
                       type="button"
@@ -11850,7 +11850,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Documentation\\"}"
                       tabindex="0"
                       type="button"
@@ -11867,7 +11867,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Test Doc Lib\\"}"
                       tabindex="0"
                       type="button"
@@ -11885,7 +11885,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <li>
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"What our roofers say\\",\\"action\\":\\"/en/simple-page-playground-gp/\\"}"
                       href="/en/simple-page-playground-gp/"
                       role="button"
@@ -11909,7 +11909,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             >
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Find a dealer\\"}"
                   tabindex="0"
                   type="button"
@@ -11926,7 +11926,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Find a roofer\\"}"
                   tabindex="0"
                   type="button"
@@ -11943,7 +11943,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Partner portal\\"}"
                   tabindex="0"
                   type="button"
@@ -11960,7 +11960,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"News\\"}"
                   tabindex="0"
                   type="button"
@@ -11978,7 +11978,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                   href="/en/kontakt-oss/"
                   role="button"
@@ -11997,7 +11997,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-72 MuiButton-text buttonStyles-text-73 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"

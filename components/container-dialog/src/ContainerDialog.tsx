@@ -36,7 +36,7 @@ const ContainerDialog = ({
   allowOverflow,
   className,
   containerClassName,
-  disablePortal = true
+  disablePortal
 }: Props) => {
   const modalClassName = useContext(DialogClassNameContext);
   const [header, content] = useMemo(() => {

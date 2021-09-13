@@ -36,7 +36,7 @@ const CalculatorModal = ({
   headerCenter,
   children,
   className,
-  disablePortal = true
+  disablePortal
 }: Props) => {
   const modalClassName = useContext(DialogClassNameContext);
 
