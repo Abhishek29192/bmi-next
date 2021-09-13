@@ -1,6 +1,7 @@
+import { MediaTool as ContentfulMediaTool } from "@bmi/intouch-api-types";
 import {
   GetMediaFoldersQuery,
-  GetMediaItemByIdQuery
+  GetMediaFolderContentsQuery
 } from "../../graphql/generated/operations";
 
 export type MediaFolders =
@@ -9,10 +10,11 @@ export type MediaFolders =
 export type RootFolders =
   GetMediaFoldersQuery["marketContentCollection"]["items"][0]["mediaLibraryRootCollection"]["items"];
 
-export type MediaTool =
-  GetMediaItemByIdQuery["mediaToolCollection"]["items"][0];
-
 export type MediaFolder =
-  GetMediaItemByIdQuery["mediaFolderCollection"]["items"][0];
+  GetMediaFolderContentsQuery["mediaFolderCollection"]["items"][0];
 
-export type MediaItem = MediaTool | MediaFolder;
+export type MediaTool = Omit<ContentfulMediaTool, "contentfulMetadata"> & {
+  __typename: "MediaTool";
+};
+
+export type MediaItem = MediaFolder["childrenCollection"]["items"][0];
