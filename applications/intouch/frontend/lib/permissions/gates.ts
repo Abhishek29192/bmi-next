@@ -40,6 +40,13 @@ const canSeeProjects = (account) => {
   return false;
 };
 
+const canSeeMediaLibrary = (account) => {
+  return (
+    ["T2", "T3", "T4"].includes(findAccountTier(account)) ||
+    isSuperOrMarketAdmin(account)
+  );
+};
+
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
 const gates = {
   company: {
@@ -113,7 +120,8 @@ const gates = {
     }
   },
   page: {
-    projects: canSeeProjects
+    projects: canSeeProjects,
+    mediaLibrary: canSeeMediaLibrary
   },
   navigation: {
     // Home (Available to All authenticated users)
@@ -137,12 +145,7 @@ const gates = {
       return !!findAccountCompany(account) || isSuperOrMarketAdmin(account);
     },
     // Tools (Available to all Company Members at Tier T2, T3 and T4, and Market Admin)
-    tools: (account) => {
-      return (
-        ["T2", "T3", "T4"].includes(findAccountTier(account)) ||
-        isSuperOrMarketAdmin(account)
-      );
-    },
+    tools: canSeeMediaLibrary,
     // Inventory (Available to Market Admins)
     inventory: isSuperOrMarketAdmin,
     productsAdmin: isSuperOrMarketAdmin

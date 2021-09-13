@@ -487,6 +487,92 @@ export const ssrGetMarketsByDomain = {
 
   usePage: useGetMarketsByDomain
 };
+export async function getServerPageGetMediaFolders(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetMediaFoldersQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetMediaFoldersQuery>({
+    ...options,
+    query: Operations.GetMediaFoldersDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetMediaFolders = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetMediaFoldersDocument, options);
+};
+export type PageGetMediaFoldersComp = React.FC<{
+  data?: OperationTypes.GetMediaFoldersQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetMediaFolders = {
+  getServerPage: getServerPageGetMediaFolders,
+
+  usePage: useGetMediaFolders
+};
+export async function getServerPageGetMediaItemById(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetMediaItemByIdQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetMediaItemByIdQuery>({
+    ...options,
+    query: Operations.GetMediaItemByIdDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetMediaItemById = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetMediaItemByIdQuery,
+    OperationTypes.GetMediaItemByIdQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetMediaItemByIdDocument, options);
+};
+export type PageGetMediaItemByIdComp = React.FC<{
+  data?: OperationTypes.GetMediaItemByIdQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetMediaItemById = {
+  getServerPage: getServerPageGetMediaItemById,
+
+  usePage: useGetMediaItemById
+};
 export async function getServerPageGetContentArticleContent(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetContentArticleContentQueryVariables>,
