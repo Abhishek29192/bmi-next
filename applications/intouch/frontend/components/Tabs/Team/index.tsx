@@ -31,7 +31,16 @@ export const TeamTab = ({
   const [projectMembers, setProjectMembers] = useState<ProjectMember[]>([]);
   const [companyMembers, setCompanyMembers] = useState<CompanyMember[]>([]);
   const [isTeamMemberDialogOpen, setTeamMemberDialogOpen] = useState(false);
-  const [deleteProjectMember] = useDeleteProjectMemberMutation();
+  const [deleteProjectMember] = useDeleteProjectMemberMutation({
+    refetchQueries: [
+      {
+        query: GetProjectDocument,
+        variables: {
+          projectId
+        }
+      }
+    ]
+  });
   const [addProjectsMember] = useAddProjectsMemberMutation({
     refetchQueries: [
       {
@@ -59,10 +68,6 @@ export const TeamTab = ({
         input: {
           id: projectMemberId
         }
-      },
-      update(cache) {
-        //It's only reset "GetProject" query
-        cache.reset();
       }
     });
   };
@@ -164,11 +169,7 @@ export const TeamTab = ({
 export const DELETE_PROJECT_MEMBER = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {
-      account {
-        id
-        firstName
-        lastName
-      }
+      ...ProjectMemberDetailsFragment
     }
   }
 `;
@@ -197,19 +198,7 @@ export const ADD_PROJECT_MEMBER = gql`
   mutation createProjectMember($input: CreateProjectMemberInput!) {
     createProjectMember(input: $input) {
       projectMember {
-        id
-        accountId
-        account {
-          id
-          firstName
-          lastName
-          role
-          certificationsByDoceboUserId {
-            nodes {
-              technology
-            }
-          }
-        }
+        ...ProjectMemberDetailsFragment
       }
     }
   }
@@ -239,23 +228,30 @@ export const UPDATE_PROJECT_MEMBER = gql`
       query {
         projectMembers(condition: { projectId: $projectId }) {
           nodes {
-            id
-            accountId
-            account {
-              firstName
-              lastName
-              role
-              certificationsByDoceboUserId {
-                nodes {
-                  name
-                  technology
-                }
-              }
-            }
-            isResponsibleInstaller
+            ...ProjectMemberDetailsFragment
           }
         }
       }
     }
+  }
+`;
+
+export const PROJECT_MEMBER_DETAILS_FRAGMENT = gql`
+  fragment ProjectMemberDetailsFragment on ProjectMember {
+    id
+    accountId
+    account {
+      id
+      firstName
+      lastName
+      role
+      certificationsByDoceboUserId {
+        nodes {
+          name
+          technology
+        }
+      }
+    }
+    isResponsibleInstaller
   }
 `;

@@ -385,20 +385,7 @@ export const GET_PROJECT = gql`
     }
     projectMembers {
       nodes {
-        id
-        accountId
-        account {
-          firstName
-          lastName
-          role
-          certificationsByDoceboUserId {
-            nodes {
-              name
-              technology
-            }
-          }
-        }
-        isResponsibleInstaller
+        ...ProjectMemberDetailsFragment
       }
     }
     company {

@@ -22,6 +22,25 @@ export const ProjectDetailsProductFragmentFragmentDoc = gql`
     description
   }
 `;
+export const ProjectMemberDetailsFragmentFragmentDoc = gql`
+  fragment ProjectMemberDetailsFragment on ProjectMember {
+    id
+    accountId
+    account {
+      id
+      firstName
+      lastName
+      role
+      certificationsByDoceboUserId {
+        nodes {
+          name
+          technology
+        }
+      }
+    }
+    isResponsibleInstaller
+  }
+`;
 export const ProjectDetailsFragmentFragmentDoc = gql`
   fragment ProjectDetailsFragment on Project {
     id
@@ -126,20 +145,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
     }
     projectMembers {
       nodes {
-        id
-        accountId
-        account {
-          firstName
-          lastName
-          role
-          certificationsByDoceboUserId {
-            nodes {
-              name
-              technology
-            }
-          }
-        }
-        isResponsibleInstaller
+        ...ProjectMemberDetailsFragment
       }
     }
     company {
@@ -149,6 +155,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
     }
   }
   ${ProjectDetailsProductFragmentFragmentDoc}
+  ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
 export const ImageFragmentFragmentDoc = gql`
   fragment ImageFragment on Asset {
@@ -1454,22 +1461,11 @@ export const CreateProjectMemberDocument = gql`
   mutation createProjectMember($input: CreateProjectMemberInput!) {
     createProjectMember(input: $input) {
       projectMember {
-        id
-        accountId
-        account {
-          id
-          firstName
-          lastName
-          role
-          certificationsByDoceboUserId {
-            nodes {
-              technology
-            }
-          }
-        }
+        ...ProjectMemberDetailsFragment
       }
     }
   }
+  ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
 export type CreateProjectMemberMutationFn = Apollo.MutationFunction<
   OperationTypes.CreateProjectMemberMutation,
@@ -1581,25 +1577,13 @@ export const UpdateProjectMemberDocument = gql`
       query {
         projectMembers(condition: { projectId: $projectId }) {
           nodes {
-            id
-            accountId
-            account {
-              firstName
-              lastName
-              role
-              certificationsByDoceboUserId {
-                nodes {
-                  name
-                  technology
-                }
-              }
-            }
-            isResponsibleInstaller
+            ...ProjectMemberDetailsFragment
           }
         }
       }
     }
   }
+  ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
 export type UpdateProjectMemberMutationFn = Apollo.MutationFunction<
   OperationTypes.UpdateProjectMemberMutation,
