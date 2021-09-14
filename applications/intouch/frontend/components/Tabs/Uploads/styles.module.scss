@@ -8,6 +8,13 @@
     .MuiAccordionDetails-root {
       display: block;
     }
+    .MuiAccordionSummary-root {
+      flex-direction: row-reverse;
+      padding: 0;
+      .MuiAccordionSummary-content {
+        padding-left: 0.6rem;
+      }
+    }
   }
   table {
     background-color: $color-white;
