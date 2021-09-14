@@ -400,6 +400,42 @@ type Query implements Node {
   ): EvidenceItemsConnection
 
   """
+  Reads and enables pagination through a set of `FindRoofer`.
+  """
+  findRoofers(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `FindRoofer`.
+    """
+    orderBy: [FindRoofersOrderBy!] = [NATURAL]
+  ): FindRoofersConnection
+
+  """
   Reads and enables pagination through a set of `Guarantee`.
   """
   guarantees(
@@ -6568,6 +6604,94 @@ input AddressFilter {
   Negates the expression.
   """
   not: AddressFilter
+}
+
+"""
+A connection to a list of `FindRoofer` values.
+"""
+type FindRoofersConnection {
+  """
+  A list of `FindRoofer` objects.
+  """
+  nodes: [FindRoofer!]!
+
+  """
+  A list of edges which contains the `FindRoofer` and cursor to aid in pagination.
+  """
+  edges: [FindRoofersEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `FindRoofer` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type FindRoofer {
+  id: Int
+  marketId: Int
+  registeredAddressId: Int
+  tradingAddressId: Int
+  ownerFullname: String
+  ownerEmail: String
+  ownerPhone: String
+  businessType: BusinessType
+  tier: Tier
+  status: CompanyStatus
+  registeredBy: String
+  registeredDate: Datetime
+  name: String
+  taxNumber: String
+  phone: String
+  aboutUs: String
+  publicEmail: String
+  website: String
+  facebook: String
+  linkedIn: String
+  referenceNumber: String
+  logo: String
+  migrationId: String
+  tradingAddressMigrationId: String
+  registeredAddressMigrationId: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  marketdomain: String
+  addressCoordinates: Point
+  addressFirstLine: String
+  addressSecondLine: String
+  addressRegion: String
+  addressTown: String
+  addressPostcode: String
+  addressCountry: String
+  coordinates: Point
+  certifications: [String]
+  operations: [Operation]
+}
+
+"""
+A `FindRoofer` edge in the connection.
+"""
+type FindRoofersEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `FindRoofer` at the end of the edge.
+  """
+  node: FindRoofer!
+}
+
+"""
+Methods to use when ordering `FindRoofer`.
+"""
+enum FindRoofersOrderBy {
+  NATURAL
 }
 
 """

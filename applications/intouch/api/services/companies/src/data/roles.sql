@@ -131,3 +131,6 @@ grant select, insert, update, delete on system_member to super_admin;
 -- future tables/functions/entities
 -- alter default privileges for user postgres grant select on tables to installer;
 -- alter default privileges for user postgres grant execute on functions to installer;
+
+-- views
+grant select on find_roofer to installer;

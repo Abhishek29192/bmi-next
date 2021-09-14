@@ -827,7 +827,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -4168,7 +4168,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -4914,7 +4914,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -12753,6 +12753,93 @@ enum EvidenceItemsOrderBy {
   PRIMARY_KEY_DESC
 }
 
+type FindRoofer {
+  id: Int
+  marketId: Int
+  registeredAddressId: Int
+  tradingAddressId: Int
+  ownerFullname: String
+  ownerEmail: String
+  ownerPhone: String
+  businessType: BusinessType
+  tier: Tier
+  status: CompanyStatus
+  registeredBy: String
+  registeredDate: Datetime
+  name: String
+  taxNumber: String
+  phone: String
+  aboutUs: String
+  publicEmail: String
+  website: String
+  facebook: String
+  linkedIn: String
+  referenceNumber: String
+  logo: String
+  migrationId: String
+  tradingAddressMigrationId: String
+  registeredAddressMigrationId: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  addressCoordinates: Point
+  addressFirstLine: String
+  addressSecondLine: String
+  addressRegion: String
+  addressTown: String
+  addressPostcode: String
+  addressCountry: String
+  coordinates: Point
+  certifications: [String]
+  operations: [Operation]
+}
+
+"""
+A connection to a list of `FindRoofer` values.
+"""
+type FindRoofersConnection {
+  """
+  A list of `FindRoofer` objects.
+  """
+  nodes: [FindRoofer!]!
+
+  """
+  A list of edges which contains the `FindRoofer` and cursor to aid in pagination.
+  """
+  edges: [FindRoofersEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `FindRoofer` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `FindRoofer` edge in the connection.
+"""
+type FindRoofersEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `FindRoofer` at the end of the edge.
+  """
+  node: FindRoofer!
+}
+
+"""
+Methods to use when ordering `FindRoofer`.
+"""
+enum FindRoofersOrderBy {
+  NATURAL
+}
+
 """
 Starts life as request for a gurantee and becomes an actual issued guarantee
 """
@@ -16226,7 +16313,7 @@ type Market implements Node {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -16811,7 +16898,7 @@ input MarketInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -21041,7 +21128,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -24590,6 +24677,42 @@ type Query implements Node {
     """
     filter: EvidenceItemFilter
   ): EvidenceItemsConnection
+
+  """
+  Reads and enables pagination through a set of `FindRoofer`.
+  """
+  findRoofers(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `FindRoofer`.
+    """
+    orderBy: [FindRoofersOrderBy!] = [NATURAL]
+  ): FindRoofersConnection
   guarantee(id: Int!): Guarantee
   guaranteeByBmiReferenceId(bmiReferenceId: String!): Guarantee
 
@@ -26116,7 +26239,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
@@ -26522,7 +26645,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   """
   The space in Contenful
   """
-  cmsSpaceId: String!
+  cmsSpaceId: String
 
   """
   A short name for the market, e.g. Italy, Norway, Netherlands
