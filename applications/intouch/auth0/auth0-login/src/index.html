@@ -1,281 +1,471 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>InTouch Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       @font-face {
-          font-family: 'Effra-Regular';
-          font-style: normal;
-          font-weight: 400;
-          src: url('https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_rg.woff2?rev=9d836de5fcbd491fa6c4604e1e580584') format('woff2'),
-              url('https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_rg.woff?rev=f6b7de9460094042a133da70f6697634') format('woff');
+        font-family: "Effra-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_rg.woff2?rev=9d836de5fcbd491fa6c4604e1e580584")
+            format("woff2"),
+          url("https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_rg.woff?rev=f6b7de9460094042a133da70f6697634")
+            format("woff");
       }
 
       @font-face {
-          font-family: 'Effra-Bold';
-          font-style: normal;
-          font-weight: 700;
-          src: url('https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_bd.woff2?rev=7e0aea5910d54cef9feedba05c04793e') format('woff2'),
-              url('https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_bd.woff?rev=be807579f97149c8985a8438bc87793a') format('woff');
+        font-family: "Effra-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url("https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_bd.woff2?rev=7e0aea5910d54cef9feedba05c04793e")
+            format("woff2"),
+          url("https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_bd.woff?rev=be807579f97149c8985a8438bc87793a")
+            format("woff");
       }
 
       @font-face {
-          font-family: 'Effra-Heavy';
-          font-style: normal;
-          font-weight: 900;
-          src: url('https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_he.woff2?rev=967101a5f3624dffa2280d70df7bda04') format('woff2'),
-              url('https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_he.woff?rev=7af3cdaffa0e4af380a79c9666784652') format('woff');
+        font-family: "Effra-Heavy";
+        font-style: normal;
+        font-weight: 900;
+        src: url("https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_he.woff2?rev=967101a5f3624dffa2280d70df7bda04")
+            format("woff2"),
+          url("https://cdn.bmigroup.com/-/media/themes/bmig/global/fonts/effra_w_he.woff?rev=7af3cdaffa0e4af380a79c9666784652")
+            format("woff");
       }
 
-      [x-cloak] { display: none !important; }
-
+      [x-cloak] {
+        display: none !important;
+      }
     </style>
     <script type="module">
-        import AlpineI18n from 'https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/module.esm.js'
+      import AlpineI18n from "https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/module.esm.js";
 
-        document.addEventListener('alpine:init', () => {
-            window.Alpine.plugin(AlpineI18n)
-        })
+      document.addEventListener("alpine:init", () => {
+        window.Alpine.plugin(AlpineI18n);
+      });
     </script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
   <body>
-
-<div class="login-screen" x-data="{step: 'login'}">
-
-  <form onsubmit="return false;" method="post">
-    <div class="login-box" x-show="step == 'login'">
-      <h1 class="underlined-heading" x-text="$t('signup_welcome')">Welcome</h1>
-      <label class="mdc-text-field mdc-text-field--outlined">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label" id="login-email-label" x-text="$t('enter_email')">Enter Email</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input id="login-email" type="email" class="mdc-text-field__input" aria-labelledby="login-email-label">
-      </label>
-
-      <div class="password-container">
-        <label class="mdc-text-field mdc-text-field--outlined">
-          <span class="mdc-notched-outline">
-            <span class="mdc-notched-outline__leading"></span>
-            <span class="mdc-notched-outline__notch">
-              <span class="mdc-floating-label" id="login-password-label" x-text="$t('enter_password')">Enter Password</span>
+    <div class="login-screen" x-data="{step: 'login'}">
+      <form onsubmit="return false;" method="post">
+        <div class="login-box" x-show="step == 'login'">
+          <h1 class="underlined-heading" x-text="$t('signup_welcome')">
+            Welcome
+          </h1>
+          <label class="mdc-text-field mdc-text-field--outlined">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span
+                  class="mdc-floating-label"
+                  id="login-email-label"
+                  x-text="$t('enter_email')"
+                  >Enter Email</span
+                >
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
             </span>
-            <span class="mdc-notched-outline__trailing"></span>
-          </span>
-          <input id="login-password" type="password" class="mdc-text-field__input" aria-labelledby="login-password-label">
-        </label>
-        <div class="forgot-password-box">
-          <button class="link-button" x-text="$t('forgot_password')" @click="step = 'forgot_password'">Forgot password?</a>
-        </div>
-      </div>
+            <input
+              id="login-email"
+              type="email"
+              class="mdc-text-field__input"
+              aria-labelledby="login-email-label"
+            />
+          </label>
 
-      <div class="button-container">
-        <div class="mdc-touch-target-wrapper">
-          <button type="submit" id="btn-login" class="mdc-button mdc-button--unelevated">
-            <span class="mdc-button__label" x-text="$t('log_in')">Log in</span>
-          </button>
-        </div>
-
-        <div class="mdc-touch-target-wrapper">
-          <button class="mdc-button mdc-button--touch" @click="step = 'register'">
-            <span class="mdc-button__ripple"></span>
-            <span class="mdc-button__label mdc-button__underlined" x-text="$t('not_registered')">Not registered?</span>
-            <span class="mdc-button__touch"></span>
-          </button>
-        </div>
-
-        <div class="mdc-touch-target-wrapper">
-          <div id="login-form-error-message" class="error-message"></div>
-        </div>
-      </div>
-    </div>
-  </form>
-
-  <form id="signup-form" onsubmit="return false;" method="post">
-    <div class="login-box" x-show="step == 'register'" x-cloak>
-      <h1 class="underlined-heading" x-text="$t('signup_welcome')">Welcome</h1>
-
-      <div class="role-container">
-        <div class="registration-intro">
-          <p x-text="$t('intouch_role')">Please select your registration type</p>
-          <div class="mdc-tooltip-wrapper--rich tooltip-container">
-            <div aria-describedby="tt0">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#007bbd"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+          <div class="password-container">
+            <label class="mdc-text-field mdc-text-field--outlined">
+              <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                  <span
+                    class="mdc-floating-label"
+                    id="login-password-label"
+                    x-text="$t('enter_password')"
+                    >Enter Password</span
+                  >
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+              </span>
+              <input
+                id="login-password"
+                type="password"
+                class="mdc-text-field__input"
+                aria-labelledby="login-password-label"
+              />
+            </label>
+            <div class="forgot-password-box">
+              <a
+                class="link-button"
+                x-text="$t('forgot_password')"
+                @click="step = 'forgot_password'"
+                >Forgot password?</a
+              >
             </div>
-            <div id="tt0" class="mdc-tooltip mdc-tooltip--rich" aria-hidden="true" role="tooltip">
-              <div class="mdc-tooltip__surface mdc-tooltip__surface-animation">
-                <p class="mdc-tooltip__content" x-text="$t('registration_tooltip')">
-                  Only select Company Account if you are sure that your company is not already registered InTouch.  Individual Accounts will get access to training and can become members of registered companies.
-                </p>
+          </div>
+
+          <div class="button-container">
+            <div class="mdc-touch-target-wrapper">
+              <button
+                type="submit"
+                id="btn-login"
+                class="mdc-button mdc-button--unelevated"
+              >
+                <span class="mdc-button__label" x-text="$t('log_in')"
+                  >Log in</span
+                >
+              </button>
+            </div>
+
+            <div class="mdc-touch-target-wrapper">
+              <button
+                class="mdc-button mdc-button--touch"
+                @click="step = 'register'"
+              >
+                <span class="mdc-button__ripple"></span>
+                <span
+                  class="mdc-button__label mdc-button__underlined"
+                  x-text="$t('not_registered')"
+                  >Not registered?</span
+                >
+                <span class="mdc-button__touch"></span>
+              </button>
+            </div>
+
+            <div class="mdc-touch-target-wrapper">
+              <div id="login-form-error-message" class="error-message"></div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <form id="signup-form" onsubmit="return false;" method="post">
+        <div class="login-box" x-show="step == 'register'" x-cloak>
+          <h1 class="underlined-heading" x-text="$t('signup_welcome')">
+            Welcome
+          </h1>
+
+          <div class="role-container">
+            <div class="registration-intro">
+              <p x-text="$t('intouch_role')">
+                Please select your registration type
+              </p>
+              <div class="mdc-tooltip-wrapper--rich tooltip-container">
+                <div aria-describedby="tt0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 0 24 24"
+                    width="24px"
+                    fill="#007bbd"
+                  >
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  id="tt0"
+                  class="mdc-tooltip mdc-tooltip--rich"
+                  aria-hidden="true"
+                  role="tooltip"
+                >
+                  <div
+                    class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                  >
+                    <p
+                      class="mdc-tooltip__content"
+                      x-text="$t('registration_tooltip')"
+                    >
+                      Only select Company Account if you are sure that your
+                      company is not already registered InTouch. Individual
+                      Accounts will get access to training and can become
+                      members of registered companies.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>  
-          </div>
-        </div>
-
-
-        <div class="mdc-form-field">
-          <div class="mdc-radio">
-            <input class="mdc-radio__native-control" type="radio" id="check-installer" name="intouch_role" value="INSTALLER" checked>
-            <div class="mdc-radio__background">
-              <div class="mdc-radio__outer-circle"></div>
-              <div class="mdc-radio__inner-circle"></div>
             </div>
-            <div class="mdc-radio__ripple"></div>
-          </div>
-          <label for="check-installer" x-text="$t('installer')">Installer</label>
-        </div>
 
-        <div class="mdc-form-field">
-          <div class="mdc-radio">
-            <input class="mdc-radio__native-control" type="radio" id="radio-1" name="intouch_role" value="COMPANY_ADMIN" >
-            <div class="mdc-radio__background">
-              <div class="mdc-radio__outer-circle"></div>
-              <div class="mdc-radio__inner-circle"></div>
+            <div class="mdc-form-field">
+              <div class="mdc-radio">
+                <input
+                  class="mdc-radio__native-control"
+                  type="radio"
+                  id="check-installer"
+                  name="intouch_role"
+                  value="INSTALLER"
+                  checked
+                />
+                <div class="mdc-radio__background">
+                  <div class="mdc-radio__outer-circle"></div>
+                  <div class="mdc-radio__inner-circle"></div>
+                </div>
+                <div class="mdc-radio__ripple"></div>
+              </div>
+              <label for="check-installer" x-text="$t('installer')"
+                >Installer</label
+              >
             </div>
-            <div class="mdc-radio__ripple"></div>
+
+            <div class="mdc-form-field">
+              <div class="mdc-radio">
+                <input
+                  class="mdc-radio__native-control"
+                  type="radio"
+                  id="radio-1"
+                  name="intouch_role"
+                  value="COMPANY_ADMIN"
+                />
+                <div class="mdc-radio__background">
+                  <div class="mdc-radio__outer-circle"></div>
+                  <div class="mdc-radio__inner-circle"></div>
+                </div>
+                <div class="mdc-radio__ripple"></div>
+              </div>
+              <label for="radio-1" x-text="$t('company')">Company</label>
+            </div>
           </div>
-          <label for="radio-1" x-text="$t('company')">Company</label>
-        </div>
-      </div>
 
-      <label class="mdc-text-field mdc-text-field--outlined">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label" id="signup-firstname-label" x-text="$t('first_name')">First Name</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input id="signup-firstname" type="text" class="mdc-text-field__input" aria-labelledby="signup-firstname-label" id="signup-firstname">
-      </label>
+          <label class="mdc-text-field mdc-text-field--outlined">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span
+                  class="mdc-floating-label"
+                  id="signup-firstname-label"
+                  x-text="$t('first_name')"
+                  >First Name</span
+                >
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input
+              id="signup-firstname"
+              type="text"
+              class="mdc-text-field__input"
+              aria-labelledby="signup-firstname-label"
+              id="signup-firstname"
+            />
+          </label>
 
-      <label class="mdc-text-field mdc-text-field--outlined">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label" id="signup-lastname-label" x-text="$t('last_name')">Last Name</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input id="signup-lastname" type="text" class="mdc-text-field__input" aria-labelledby="signup-lastname-label" id="signup-lastname">
-      </label>
+          <label class="mdc-text-field mdc-text-field--outlined">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span
+                  class="mdc-floating-label"
+                  id="signup-lastname-label"
+                  x-text="$t('last_name')"
+                  >Last Name</span
+                >
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input
+              id="signup-lastname"
+              type="text"
+              class="mdc-text-field__input"
+              aria-labelledby="signup-lastname-label"
+              id="signup-lastname"
+            />
+          </label>
 
-      <label class="mdc-text-field mdc-text-field--outlined">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label" id="signup-email-label" x-text="$t('enter_email')">Enter Email</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input id="signup-email" type="email" class="mdc-text-field__input" aria-labelledby="signup-email-label" id="signup-email">
-      </label>
+          <label class="mdc-text-field mdc-text-field--outlined">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span
+                  class="mdc-floating-label"
+                  id="signup-email-label"
+                  x-text="$t('enter_email')"
+                  >Enter Email</span
+                >
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input
+              id="signup-email"
+              type="email"
+              class="mdc-text-field__input"
+              aria-labelledby="signup-email-label"
+              id="signup-email"
+            />
+          </label>
 
-      <label class="mdc-text-field mdc-text-field--outlined">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label" id="my-label-id" x-text="$t('enter_password')">Enter Password</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input id="signup-password" type="password" class="mdc-text-field__input" aria-labelledby="my-label-id" id="signup-password">
-      </label>
+          <label class="mdc-text-field mdc-text-field--outlined">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span
+                  class="mdc-floating-label"
+                  id="my-label-id"
+                  x-text="$t('enter_password')"
+                  >Enter Password</span
+                >
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input
+              id="signup-password"
+              type="password"
+              class="mdc-text-field__input"
+              aria-labelledby="my-label-id"
+              id="signup-password"
+            />
+          </label>
 
-      <div class="mdc-form-field terms-check">
-        <div class="mdc-checkbox">
-          <input type="checkbox"
+          <div class="mdc-form-field terms-check">
+            <div class="mdc-checkbox">
+              <input
+                type="checkbox"
                 class="mdc-checkbox__native-control"
-                id="terms-and-conditions"/>
-          <div class="mdc-checkbox__background">
-            <svg class="mdc-checkbox__checkmark"
-                viewBox="0 0 24 24">
-              <path class="mdc-checkbox__checkmark-path"
+                id="terms-and-conditions"
+              />
+              <div class="mdc-checkbox__background">
+                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                  <path
+                    class="mdc-checkbox__checkmark-path"
                     fill="none"
-                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-            </svg>
-            <div class="mdc-checkbox__mixedmark"></div>
+                    d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                  />
+                </svg>
+                <div class="mdc-checkbox__mixedmark"></div>
+              </div>
+              <div class="mdc-checkbox__ripple"></div>
+            </div>
+            <label for="terms-and-conditions">
+              <span x-text="$t('i_agree_to')">I agree to BMI's</span>
+              <a
+                href="https://www.bmigroup.com/legal/legal"
+                target="_blank"
+                x-text="$t('terms_and_conditions')"
+                >Terms & Conditions</a
+              >
+              <span x-text="$t('and')">and</span>
+              <a
+                href="https://www.bmigroup.com/legal/third-party-privacy-notice"
+                target="_blank"
+                x-text="$t('privacy_policy')"
+                >Privacy Policy</a
+              >
+            </label>
           </div>
-          <div class="mdc-checkbox__ripple"></div>
-        </div>
-        <label for="terms-and-conditions" >
-          <span x-text="$t('i_agree_to')">I agree to BMI's</span> <a href="https://www.bmigroup.com/legal/legal" target="_blank" x-text="$t('terms_and_conditions')">Terms & Conditions</a> <span x-text="$t('and')">and</span> <a href="https://www.bmigroup.com/legal/third-party-privacy-notice" target="_blank" x-text="$t('privacy_policy')">Privacy Policy</a>
-        </label>
-      </div>
 
-      <div class="button-container">
-        <div class="mdc-touch-target-wrapper">
-          <button id="btn-signup" class="mdc-button mdc-button--unelevated">
-            <span class="mdc-button__label" x-text="$t('sign_up')">Sign Up</span>
-          </button>
-        </div>
+          <div class="button-container">
+            <div class="mdc-touch-target-wrapper">
+              <button id="btn-signup" class="mdc-button mdc-button--unelevated">
+                <span class="mdc-button__label" x-text="$t('sign_up')"
+                  >Sign Up</span
+                >
+              </button>
+            </div>
 
-        <div class="mdc-touch-target-wrapper">
-          <button class="mdc-button mdc-button--touch" @click="step = 'login'" >
-            <span class="mdc-button__ripple"></span>
-            <span class="mdc-button__label mdc-button__underlined" x-text="$t('already_registered')">Already registered?</span>
-            <span class="mdc-button__touch"></span>
-          </button>
-        </div>
+            <div class="mdc-touch-target-wrapper">
+              <button
+                class="mdc-button mdc-button--touch"
+                @click="step = 'login'"
+              >
+                <span class="mdc-button__ripple"></span>
+                <span
+                  class="mdc-button__label mdc-button__underlined"
+                  x-text="$t('already_registered')"
+                  >Already registered?</span
+                >
+                <span class="mdc-button__touch"></span>
+              </button>
+            </div>
 
-        <div class="mdc-touch-target-wrapper">
-          <div id="form-signup-error-message" class="error-message"></div>
+            <div class="mdc-touch-target-wrapper">
+              <div id="form-signup-error-message" class="error-message"></div>
+            </div>
+          </div>
         </div>
-      </div>
+      </form>
+
+      <form onsubmit="return false;" method="post">
+        <div class="login-box" x-show="step == 'forgot_password'" x-cloak>
+          <h1 class="underlined-heading" x-text="$t('new_password')">
+            Request new password
+          </h1>
+
+          <p x-text="$t('new_password_text')">
+            Please enter your email address and we will send you a link for a
+            password reset
+          </p>
+
+          <label class="mdc-text-field mdc-text-field--outlined">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span
+                  class="mdc-floating-label"
+                  id="reguest-password-label"
+                  x-text="$t('enter_email')"
+                  >Enter Email</span
+                >
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input
+              type="email"
+              class="mdc-text-field__input"
+              aria-labelledby="reguest-password-label"
+              id="email"
+            />
+          </label>
+
+          <div class="button-container">
+            <div class="mdc-touch-target-wrapper">
+              <button
+                class="mdc-button mdc-button--unelevated"
+                id="btn-reset-password"
+              >
+                <span class="mdc-button__label" x-text="$t('reset_password')"
+                  >Reset password</span
+                >
+              </button>
+            </div>
+
+            <div class="mdc-touch-target-wrapper">
+              <button
+                class="mdc-button mdc-button--touch"
+                @click="step = 'login'"
+              >
+                <span class="mdc-button__ripple"></span>
+                <span
+                  class="mdc-button__label mdc-button__underlined"
+                  x-text="$t('back_to_login')"
+                  >Back to Log In</span
+                >
+                <span class="mdc-button__touch"></span>
+              </button>
+            </div>
+
+            <div class="mdc-touch-target-wrapper">
+              <div
+                id="reset-password-error-message"
+                class="error-message"
+              ></div>
+            </div>
+            <div class="mdc-touch-target-wrapper">
+              <div
+                id="reset-password-success-message"
+                class="success-message"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="captcha-container form-group"></div>
     </div>
-  </form>
-
-  <form onsubmit="return false;" method="post">
-    <div class="login-box" x-show="step == 'forgot_password'" x-cloak>
-      <h1 class="underlined-heading" x-text="$t('new_password')">Request new password</h1>
-
-      <p x-text="$t('new_password_text')">Please enter your email address and we will send you a link for a password reset</p>
-
-      <label class="mdc-text-field mdc-text-field--outlined">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label" id="reguest-password-label" x-text="$t('enter_email')">Enter Email</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input type="email" class="mdc-text-field__input" aria-labelledby="reguest-password-label" id="email">
-      </label>
-
-      <div class="button-container">
-        <div class="mdc-touch-target-wrapper">
-          <button class="mdc-button mdc-button--unelevated" id="btn-reset-password">
-            <span class="mdc-button__label" x-text="$t('reset_password')">Reset password</span>
-          </button>
-        </div>
-
-        <div class="mdc-touch-target-wrapper">
-          <button class="mdc-button mdc-button--touch" @click="step = 'login'">
-            <span class="mdc-button__ripple"></span>
-            <span class="mdc-button__label mdc-button__underlined" x-text="$t('back_to_login')">Back to Log In</span>
-            <span class="mdc-button__touch"></span>
-          </button>
-        </div>
-
-        <div class="mdc-touch-target-wrapper">
-          <div id="reset-password-error-message" class="error-message"></div>
-        </div>
-        <div class="mdc-touch-target-wrapper">
-          <div id="reset-password-success-message" class="success-message"></div>
-        </div>
-      </div>
-    </div>
-  </form>
-  <div class="captcha-container form-group"></div>
-</div>
-
-
 
     <!--[if IE 8]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
@@ -289,7 +479,7 @@
     <script src="https://cdn.auth0.com/js/auth0/9.16.2/auth0.min.js"></script>
     <script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
 
-      <!-- Required Material Web JavaScript library -->
+    <!-- Required Material Web JavaScript library -->
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script>
       [].forEach.call(
@@ -299,255 +489,258 @@
         }
       );
       const MDCTooltip = mdc.tooltip.MDCTooltip;
-      const tooltips = [].map.call(document.querySelectorAll('.mdc-tooltip'), function(el) {
-        return new MDCTooltip(el);
-      });
+      const tooltips = [].map.call(
+        document.querySelectorAll(".mdc-tooltip"),
+        function (el) {
+          return new MDCTooltip(el);
+        }
+      );
     </script>
 
     <script>
-      let locale = 'en';
-      let messages = {
-        en: {
-          intouch_title: "InTouch - Login/Registration",
-          signup_welcome: "Welcome",
-          intouch_role: "Please select your registration type",
-          installer: "Installer",
-          company: "Company",
-          first_name: "First Name",
-          last_name: "Last Name",
-          enter_email: "Email address",
-          enter_password: "Password",
-          sign_up: "Sign Up",
-          already_registered: "Already registered",
-          login_welcome: "Welcome",
-          log_in: "Log In",
-          forgot_password: "Forgot password?",
-          not_registered: "Not registered?",
-          new_password: "Request new password",
-          new_password_text:
-            "Please enter your email address and we will send you a link for a password reset",
-          reset_password: "Reset Password",
-          back_to_login: "Back to Log In",
-          reset_password_success: "Check your inbox",
-          email_missing: "Please insert your email",
-          generic_error: "Please check your credential, if the problem persists contact use",
-          name_surname_missing: "First and last name missing",
-          email_password_missing: "Email and password missing",
-          registration_tooltip: "Only select Company Account if you are sure that your company is not already registered InTouch.  Individual Accounts will get access to training and can become members of registered companies.",
-          i_agree_to: "I agree to BMI's",
-          terms_and_conditions: "Terms & Conditions",
-          and: "and",
-          privacy_policy: "Privacy Policy",
-<<<<<<< HEAD
-=======
-          terms_missing: "Please accept terms & condition"
->>>>>>> 1408ca3fd6fe5503578c52bdedbb20042b8ab2ee
-        },
-        it: {
-          intouch_title: "In Touch - Login/Registrazione",
-          signup_welcome: "Benvenuto",
-          intouch_role: "Seleziona il tuo tipo di registrazione",
-          installer: "Installatore",
-          company: "Azienda",
-          first_name: "Nome",
-          last_name: "Cognome",
-          enter_email: "Inserisci E-Mail",
-          enter_password: "Inserisci password",
-          sign_up: "Registrati",
-          already_registered: "Già registrato",
-          login_welcome: "Benvenuto",
-          log_in: "Login",
-          forgot_password: "Hai dimenticato la password?",
-          not_registered: "Non sei registrato?",
-          new_password: "Richiedi nuova password",
-          new_password_text:
-            "Inserisci il tuo indirizzo email e ti invieremo un link per la reimpostazione della password",
-          reset_password: "Reset password",
-          back_to_login: "Torna all'accesso",
-          reset_password_success: "Controlla la tua mail",
-          email_missing: "Inserisci la mail",
-          generic_error: "Please check your credential, if the problem persists contact use",
-          name_surname_missing: "Nome e Cognome mancanti",
-          email_password_missing: "Email e password mancanti",
-          registration_tooltip: "Seleziona Account azienda solo se sei sicuro che la tua azienda non sia già registrata in InTouch. Gli account individuali avranno accesso alla formazione e possono diventare membri di aziende registrate.",
-          i_agree_to: "I agree to BMI's",
-          terms_and_conditions: "Terms & Conditions",
-          and: "and",
-          privacy_policy: "Privacy Policy",
-<<<<<<< HEAD
-=======
-          terms_missing: "Please accept terms & condition"
->>>>>>> 1408ca3fd6fe5503578c52bdedbb20042b8ab2ee
-        }
-      };
-
-      // finally, pass them to AlpineI18n:
-      document.addEventListener('alpine-i18n:ready', function () {
-          window.AlpineI18n.create(locale, messages);
-      });
-
-      window.addEventListener("load", function () {
-
-        var hash = location.hash.substr(1);
-        var config = JSON.parse(
-          decodeURIComponent(escape(window.atob(hash || "@@config@@")))
-        );
-        var leeway = config.internalOptions.leeway;
-        if (leeway) {
-          var convertedLeeway = parseInt(leeway);
-
-          if (!isNaN(convertedLeeway)) {
-            config.internalOptions.leeway = convertedLeeway;
-          }
-        }
-
-        var params = Object.assign(
-          {
-            overrides: {
-              __tenant: config.auth0Tenant,
-              __token_issuer: config.authorizationServer.issuer
-            },
-            domain: config.auth0Domain,
-            clientID: config.clientID,
-            redirectUri: config.callbackURL,
-            responseType: "code"
-          },
-          config.internalOptions
-        );
-
-        var language = config.extraParams.market;
-
-        var webAuth = new auth0.WebAuth(params);
-        var databaseConnection = "Username-Password-Authentication";
-        var captcha = webAuth.renderCaptcha(
-          document.querySelector(".captcha-container")
-        );
-
-        function displayError(err, type) {
-          captcha.reload();
-          var errorMessage = document.getElementById(type + "-error-message");
-          errorMessage.innerHTML = err.description || AlpineI18n.t('generic_error');
-          errorMessage.style.display = "block";
-        }
-
-        function displaySuccess(message, type) {
-          var errorMessage = document.getElementById(type + "-success-message");
-          errorMessage.innerHTML = message;
-          errorMessage.style.display = "block";
-        }
-
-        function login(e) {
-          e.preventDefault();
-          var button = this;
-          button.disabled = true;
-          var username = document.getElementById("login-email").value;
-          var password = document.getElementById("login-password").value;
-
-          if(!username || !password) {
-            button.disabled = false;
-            displayError({ description: AlpineI18n.t('email_password_missing') }, "login-form");
-            return;
-          }
-
-
-          webAuth.login(
-            {
-              realm: databaseConnection,
-              username: username,
-              password: password,
-              captcha: captcha.getValue()
-            },
-            function (err) {
-              button.disabled = false;
-              if (err) displayError(err, "login-form");
-            }
-          );
-        }
-
-        function signup() {
-          // Get the form
-          const form = document.querySelectorAll("#signup-form")[0];
-          const terms = document.querySelectorAll("#terms-and-conditions")[0];
-          const radios = form.elements["intouch_role"];
-
-
-          if(!document.querySelectorAll("#terms-and-conditions")[0].checked) {
-            displayError({ description: AlpineI18n.t('terms_missing') }, "form-signup");
-            return;
-          }
-        
-
-          var button = this;
-          button.disabled = true;
-          var email = document.getElementById("signup-email").value;
-          var password = document.getElementById("signup-password").value;
-          var first_name = document.getElementById("signup-firstname").value;
-          var last_name = document.getElementById("signup-lastname").value;
-
-          if(!first_name || !last_name) {
-            button.disabled = false;
-            displayError({ description: AlpineI18n.t('name_surname_missing') }, "form-signup");
-            return;
-          }
-
-          webAuth.redirect.signupAndLogin(
-            {
-              connection: databaseConnection,
-              email: email,
-              password: password,
-              captcha: captcha.getValue(),
-              user_metadata: {
-                intouch_role: radios.value,
-                first_name,
-                last_name,
-                market: config.extraParams.market
+            let locale = 'en';
+            let messages = {
+              en: {
+                intouch_title: "InTouch - Login/Registration",
+                signup_welcome: "Welcome",
+                intouch_role: "Please select your registration type",
+                installer: "Installer",
+                company: "Company",
+                first_name: "First Name",
+                last_name: "Last Name",
+                enter_email: "Email address",
+                enter_password: "Password",
+                sign_up: "Sign Up",
+                already_registered: "Already registered",
+                login_welcome: "Welcome",
+                log_in: "Log In",
+                forgot_password: "Forgot password?",
+                not_registered: "Not registered?",
+                new_password: "Request new password",
+                new_password_text:
+                  "Please enter your email address and we will send you a link for a password reset",
+                reset_password: "Reset Password",
+                back_to_login: "Back to Log In",
+                reset_password_success: "Check your inbox",
+                email_missing: "Please insert your email",
+                generic_error: "Please check your credential, if the problem persists contact use",
+                name_surname_missing: "First and last name missing",
+                email_password_missing: "Email and password missing",
+                registration_tooltip: "Only select Company Account if you are sure that your company is not already registered InTouch.  Individual Accounts will get access to training and can become members of registered companies.",
+                i_agree_to: "I agree to BMI's",
+                terms_and_conditions: "Terms & Conditions",
+                and: "and",
+                privacy_policy: "Privacy Policy",
+      <<<<<<< HEAD
+      =======
+                terms_missing: "Please accept terms & condition"
+      >>>>>>> 1408ca3fd6fe5503578c52bdedbb20042b8ab2ee
+              },
+              it: {
+                intouch_title: "In Touch - Login/Registrazione",
+                signup_welcome: "Benvenuto",
+                intouch_role: "Seleziona il tuo tipo di registrazione",
+                installer: "Installatore",
+                company: "Azienda",
+                first_name: "Nome",
+                last_name: "Cognome",
+                enter_email: "Inserisci E-Mail",
+                enter_password: "Inserisci password",
+                sign_up: "Registrati",
+                already_registered: "Già registrato",
+                login_welcome: "Benvenuto",
+                log_in: "Login",
+                forgot_password: "Hai dimenticato la password?",
+                not_registered: "Non sei registrato?",
+                new_password: "Richiedi nuova password",
+                new_password_text:
+                  "Inserisci il tuo indirizzo email e ti invieremo un link per la reimpostazione della password",
+                reset_password: "Reset password",
+                back_to_login: "Torna all'accesso",
+                reset_password_success: "Controlla la tua mail",
+                email_missing: "Inserisci la mail",
+                generic_error: "Please check your credential, if the problem persists contact use",
+                name_surname_missing: "Nome e Cognome mancanti",
+                email_password_missing: "Email e password mancanti",
+                registration_tooltip: "Seleziona Account azienda solo se sei sicuro che la tua azienda non sia già registrata in InTouch. Gli account individuali avranno accesso alla formazione e possono diventare membri di aziende registrate.",
+                i_agree_to: "I agree to BMI's",
+                terms_and_conditions: "Terms & Conditions",
+                and: "and",
+                privacy_policy: "Privacy Policy",
+      <<<<<<< HEAD
+      =======
+                terms_missing: "Please accept terms & condition"
+      >>>>>>> 1408ca3fd6fe5503578c52bdedbb20042b8ab2ee
               }
-            },
-            function (err) {
-              button.disabled = false;
-              if (err) displayError(err, "form-signup");
-            }
-          );
-        }
+            };
 
-        function resetPassword(e) {
-          e.preventDefault();
+            // finally, pass them to AlpineI18n:
+            document.addEventListener('alpine-i18n:ready', function () {
+                window.AlpineI18n.create(locale, messages);
+            });
 
-          var button = this;
-          button.disabled = true;
+            window.addEventListener("load", function () {
 
-          var email = document.getElementById("email").value;
-          if (!email) {
-            button.disabled = false;
-            displayError({ description: AlpineI18n.t('email_missing') }, "reset-password")
-            return;
-          }
-          webAuth.changePassword(
-            {
-              connection: databaseConnection,
-              email: email
-            },
-            function (err, resp) {
-              console.log('button', button);
-              button.disabled = false;
-              if (err) {
-                displayError(error, "reset-password")
-              } else {
-                displaySuccess(AlpineI18n.t('reset_password_success'), "reset-password");
+              var hash = location.hash.substr(1);
+              var config = JSON.parse(
+                decodeURIComponent(escape(window.atob(hash || "@@config@@")))
+              );
+              var leeway = config.internalOptions.leeway;
+              if (leeway) {
+                var convertedLeeway = parseInt(leeway);
+
+                if (!isNaN(convertedLeeway)) {
+                  config.internalOptions.leeway = convertedLeeway;
+                }
               }
-            }
-          );
-        }
+
+              var params = Object.assign(
+                {
+                  overrides: {
+                    __tenant: config.auth0Tenant,
+                    __token_issuer: config.authorizationServer.issuer
+                  },
+                  domain: config.auth0Domain,
+                  clientID: config.clientID,
+                  redirectUri: config.callbackURL,
+                  responseType: "code"
+                },
+                config.internalOptions
+              );
+
+              var language = config.extraParams.market;
+
+              var webAuth = new auth0.WebAuth(params);
+              var databaseConnection = "Username-Password-Authentication";
+              var captcha = webAuth.renderCaptcha(
+                document.querySelector(".captcha-container")
+              );
+
+              function displayError(err, type) {
+                captcha.reload();
+                var errorMessage = document.getElementById(type + "-error-message");
+                errorMessage.innerHTML = err.description || AlpineI18n.t('generic_error');
+                errorMessage.style.display = "block";
+              }
+
+              function displaySuccess(message, type) {
+                var errorMessage = document.getElementById(type + "-success-message");
+                errorMessage.innerHTML = message;
+                errorMessage.style.display = "block";
+              }
+
+              function login(e) {
+                e.preventDefault();
+                var button = this;
+                button.disabled = true;
+                var username = document.getElementById("login-email").value;
+                var password = document.getElementById("login-password").value;
+
+                if(!username || !password) {
+                  button.disabled = false;
+                  displayError({ description: AlpineI18n.t('email_password_missing') }, "login-form");
+                  return;
+                }
 
 
-        document.getElementById("btn-login").addEventListener("click", login);
-        document.getElementById("btn-signup").addEventListener("click", signup);
-        document
-          .getElementById("btn-reset-password")
-          .addEventListener("click", resetPassword);
+                webAuth.login(
+                  {
+                    realm: databaseConnection,
+                    username: username,
+                    password: password,
+                    captcha: captcha.getValue()
+                  },
+                  function (err) {
+                    button.disabled = false;
+                    if (err) displayError(err, "login-form");
+                  }
+                );
+              }
+
+              function signup() {
+                // Get the form
+                const form = document.querySelectorAll("#signup-form")[0];
+                const terms = document.querySelectorAll("#terms-and-conditions")[0];
+                const radios = form.elements["intouch_role"];
 
 
-      });
+                if(!document.querySelectorAll("#terms-and-conditions")[0].checked) {
+                  displayError({ description: AlpineI18n.t('terms_missing') }, "form-signup");
+                  return;
+                }
+
+
+                var button = this;
+                button.disabled = true;
+                var email = document.getElementById("signup-email").value;
+                var password = document.getElementById("signup-password").value;
+                var first_name = document.getElementById("signup-firstname").value;
+                var last_name = document.getElementById("signup-lastname").value;
+
+                if(!first_name || !last_name) {
+                  button.disabled = false;
+                  displayError({ description: AlpineI18n.t('name_surname_missing') }, "form-signup");
+                  return;
+                }
+
+                webAuth.redirect.signupAndLogin(
+                  {
+                    connection: databaseConnection,
+                    email: email,
+                    password: password,
+                    captcha: captcha.getValue(),
+                    user_metadata: {
+                      intouch_role: radios.value,
+                      first_name,
+                      last_name,
+                      market: config.extraParams.market
+                    }
+                  },
+                  function (err) {
+                    button.disabled = false;
+                    if (err) displayError(err, "form-signup");
+                  }
+                );
+              }
+
+              function resetPassword(e) {
+                e.preventDefault();
+
+                var button = this;
+                button.disabled = true;
+
+                var email = document.getElementById("email").value;
+                if (!email) {
+                  button.disabled = false;
+                  displayError({ description: AlpineI18n.t('email_missing') }, "reset-password")
+                  return;
+                }
+                webAuth.changePassword(
+                  {
+                    connection: databaseConnection,
+                    email: email
+                  },
+                  function (err, resp) {
+                    console.log('button', button);
+                    button.disabled = false;
+                    if (err) {
+                      displayError(error, "reset-password")
+                    } else {
+                      displaySuccess(AlpineI18n.t('reset_password_success'), "reset-password");
+                    }
+                  }
+                );
+              }
+
+
+              document.getElementById("btn-login").addEventListener("click", login);
+              document.getElementById("btn-signup").addEventListener("click", signup);
+              document
+                .getElementById("btn-reset-password")
+                .addEventListener("click", resetPassword);
+
+
+            });
     </script>
 
     <div id="tooltip-id" class="mdc-tooltip" role="tooltip" aria-hidden="true">
