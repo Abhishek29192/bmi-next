@@ -76,7 +76,7 @@ describe("CompanyRegisteredDetails", () => {
   });
 
   it("renders company referenceNumber", () => {
-    expect(screen.getByText("0093-7392")).toBeInTheDocument();
+    expect(screen.getByText("937392")).toBeInTheDocument();
   });
 
   it("renders registeredAddress lines", () => {
