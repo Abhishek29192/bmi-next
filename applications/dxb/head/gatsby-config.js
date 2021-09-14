@@ -9,6 +9,11 @@ require("dotenv").config({
 
 const contentfulCredentialData = getCredentialData(process.env);
 
+let useCountryCode = true;
+if (process.env.GATSBY_DONT_USE_COUNTRY_CODE === "true") {
+  useCountryCode = false;
+}
+
 const documentsQuery = `{
   allPIMDocument {
     __typename
@@ -409,7 +414,9 @@ module.exports = {
           {
             resolve: "gatsby-plugin-sitemap",
             options: {
-              output: `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`,
+              output: useCountryCode
+                ? `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`
+                : `/sitemap.xml`,
               sitemapSize: 50000
             }
           }
@@ -420,7 +427,9 @@ module.exports = {
           {
             resolve: "gatsby-plugin-sitemap",
             options: {
-              output: `/${process.env.SPACE_MARKET_CODE}/images.xml`,
+              output: useCountryCode
+                ? `/${process.env.SPACE_MARKET_CODE}/images.xml`
+                : `/images.xml`,
               sitemapSize: 50000,
               query: `
               {
