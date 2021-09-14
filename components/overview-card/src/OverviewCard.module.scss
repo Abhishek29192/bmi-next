@@ -22,8 +22,6 @@
 
     &--negative {
       margin-top: -50px;
-      background: $color-white;
-      width: fit-content;
     }
   }
 
@@ -130,6 +128,7 @@
       }
     }
   }
+
   &--highlighted {
     border: 3px solid $color-theme-inter;
   }
