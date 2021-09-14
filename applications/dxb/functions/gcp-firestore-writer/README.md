@@ -10,7 +10,7 @@ Google Cloud Platform function writing products data from PIM to DXB firestore.
     data: Buffer.from(
       JSON.stringify({
         type: "UPDATED",
-        itemType: "PRODUCTS",
+        itemType: "PRODUCTS | SYSTEMS | CATEGORIES",
         items: [
           {
             code: "EXAMPLE_PRODUCT_CODE"
