@@ -3074,6 +3074,16 @@ export const GetProjectsDocument = gql`
           town
           postcode
         }
+        company {
+          name
+        }
+        guarantees(first: 1) {
+          nodes {
+            coverage
+            status
+            reviewerAccountId
+          }
+        }
       }
     }
   }
