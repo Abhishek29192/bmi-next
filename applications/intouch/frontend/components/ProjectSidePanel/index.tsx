@@ -8,7 +8,7 @@ import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
 import { NewProjectDialog } from "../Pages/Project/CreateProject/Dialog";
 import { useAccountContext } from "../../context/AccountContext";
-import { findAccountCompany } from "../../lib/account";
+import { findAccountCompany, isSuperOrMarketAdmin } from "../../lib/account";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { getProjectStatus, ProjectStatus } from "../../lib/utils/project";
 import { PitchIcon, FlatIcon, OtherIcon } from "../icons";
@@ -16,14 +16,43 @@ import styles from "./styles.module.scss";
 
 // filter `attr` value
 const INITIAL_FILTER_SELECTION = "ALL";
-const getProjectFilters = (t) => [
-  { label: t("filters.labels.ALL"), attr: "ALL" },
-  { label: t("filters.labels.NOT_STARTED"), attr: ProjectStatus.NOT_STARTED },
-  { label: t("filters.labels.IN_PROGRESS"), attr: ProjectStatus.IN_PROGRESS },
-  { label: t("filters.labels.COMPLETED"), attr: ProjectStatus.COMPLETED },
-  { label: t("filters.labels.FLAT"), attr: "FLAT" },
-  { label: t("filters.labels.PITCHED"), attr: "PITCHED" }
-];
+const getProjectFilters = (t, isPowerfulUser: boolean) => {
+  const technologyFilters = [
+    { label: t("filters.labels.FLAT"), attr: "FLAT" },
+    { label: t("filters.labels.PITCHED"), attr: "PITCHED" }
+  ];
+  const adminFilter = [
+    { label: t("filters.labels.ALL"), attr: "ALL" },
+    {
+      label: t("filters.labels.UNASSIGNED"),
+      attr: "UNASSIGNED"
+    },
+    {
+      label: t("filters.labels.ASSIGNED"),
+      attr: "ASSIGNED"
+    },
+    { label: t("filters.labels.MY_QUEUE"), attr: "MY_QUEUE" }
+  ];
+  const userFilter = [
+    { label: t("filters.labels.ALL"), attr: "ALL" },
+    {
+      label: t("filters.labels.NOT_STARTED"),
+      attr: ProjectStatus.NOT_STARTED
+    },
+    {
+      label: t("filters.labels.IN_PROGRESS"),
+      attr: ProjectStatus.IN_PROGRESS
+    },
+    {
+      label: t("filters.labels.COMPLETED"),
+      attr: ProjectStatus.COMPLETED
+    }
+  ];
+
+  return isPowerfulUser
+    ? [...adminFilter, ...technologyFilters]
+    : [...userFilter, ...technologyFilters];
+};
 
 const technologyIcon: {
   [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -81,8 +110,12 @@ export const ProjectSidePanel = ({
   selectedProjectId
 }: ProjectSidePanelProps) => {
   const { t } = useTranslation("project-page");
+  const { account } = useAccountContext();
+
+  const isPowerfulUser = isSuperOrMarketAdmin(account);
+
   const [filterSelection, setFilterSelection] = useState<string>(
-    INITIAL_FILTER_SELECTION
+    isPowerfulUser ? "UNASSIGNED" : INITIAL_FILTER_SELECTION
   );
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -90,7 +123,10 @@ export const ProjectSidePanel = ({
     setFilterSelection(attr);
   };
 
-  const projectFilters = useMemo(() => getProjectFilters(t), [t]);
+  const projectFilters = useMemo(
+    () => getProjectFilters(t, isPowerfulUser),
+    [t]
+  );
   const filterOptions = useMemo(() => {
     return projectFilters.map((filter) => ({
       ...filter,
@@ -98,30 +134,74 @@ export const ProjectSidePanel = ({
     }));
   }, [projectFilters, filterSelection]);
 
+  const guaranteeFilter = (
+    guarantees: GetProjectsQuery["projects"]["nodes"][0]["guarantees"]["nodes"],
+    filter: string
+  ) => {
+    const solutionGuarantee =
+      guarantees.find(
+        (node) => node.coverage === "SOLUTION" && node.status === "REVIEW"
+      ) || null;
+
+    if (solutionGuarantee !== null) {
+      if (filter === "UNASSIGNED") {
+        return solutionGuarantee.reviewerAccountId === null;
+      }
+      if (filter === "ASSIGNED") {
+        return solutionGuarantee.reviewerAccountId !== null;
+      }
+      if (filter === "MY_QUEUE") {
+        return solutionGuarantee.reviewerAccountId === account.id;
+      }
+    }
+    return false;
+  };
+  const techologyMap: Record<Technology, boolean> = {
+    FLAT: true,
+    PITCHED: true,
+    OTHER: true
+  };
+  const technologyStatus = Object.keys(techologyMap);
+
   const filteredProjects = useMemo(() => {
     return projects.filter(
-      ({ name, technology, siteAddress, startDate, endDate }) => {
+      ({
+        name,
+        technology,
+        siteAddress,
+        startDate,
+        endDate,
+        company,
+        guarantees
+      }) => {
         const knownStatuses = Object.values(ProjectStatus).map((value) =>
           value.toString()
         );
+
         const matchesFilter =
           filterSelection === "ALL" ||
           (knownStatuses.includes(filterSelection)
             ? getProjectStatus(startDate, endDate) === filterSelection
-            : technology === filterSelection);
+            : technologyStatus.includes(filterSelection)
+            ? technology === filterSelection
+            : guaranteeFilter(guarantees.nodes, filterSelection));
 
-        const data = [
-          name,
-          siteAddress.town,
-          // NOTE: Postcode can match with or without space
-          siteAddress.postcode,
-          siteAddress.postcode.replace(/\s*/g, "")
-        ]
+        const data = isPowerfulUser
+          ? [name, company.name]
+          : [
+              name,
+              siteAddress.town,
+              // NOTE: Postcode can match with or without space
+              siteAddress.postcode,
+              siteAddress.postcode.replace(/\s*/g, "")
+            ];
+
+        const query = searchQuery.toLowerCase().trim();
+        const matchesQuery = data
           .filter(Boolean)
           .join(" ")
-          .toLowerCase();
-        const query = searchQuery.toLowerCase().trim();
-        const matchesQuery = data.includes(query);
+          .toLowerCase()
+          .includes(query);
 
         return matchesFilter && matchesQuery;
       }
@@ -139,26 +219,38 @@ export const ProjectSidePanel = ({
       renderFooter={() => <ProjectSidePanelFooter />}
     >
       {filteredProjects.map(
-        ({ id, name, siteAddress, technology, startDate, endDate }) => (
-          <FilterResult
-            label={name}
-            key={id}
-            isSelected={selectedProjectId === id}
-            onClick={() => {
-              onProjectSelected && onProjectSelected(id);
-            }}
-          >
-            <Typography>
-              {[siteAddress?.town, siteAddress?.postcode]
+        ({
+          id,
+          name,
+          siteAddress,
+          technology,
+          startDate,
+          endDate,
+          company
+        }) => {
+          const filterResultBody = isPowerfulUser
+            ? company.name
+            : [siteAddress?.town, siteAddress?.postcode]
                 .filter(Boolean)
-                .join(", ")}
-            </Typography>
-            <Typography style={{ display: "flex" }}>
-              <SvgIcon component={technologyIcon[technology as Technology]} />
-              {t(getProjectStatus(startDate, endDate))}
-            </Typography>
-          </FilterResult>
-        )
+                .join(", ");
+
+          return (
+            <FilterResult
+              label={name}
+              key={id}
+              isSelected={selectedProjectId === id}
+              onClick={() => {
+                onProjectSelected && onProjectSelected(id);
+              }}
+            >
+              <Typography>{filterResultBody}</Typography>
+              <Typography style={{ display: "flex" }}>
+                <SvgIcon component={technologyIcon[technology as Technology]} />
+                {t(getProjectStatus(startDate, endDate))}
+              </Typography>
+            </FilterResult>
+          );
+        }
       )}
     </SidePanel>
   );
