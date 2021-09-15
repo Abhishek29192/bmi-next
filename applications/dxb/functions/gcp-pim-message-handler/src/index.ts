@@ -32,7 +32,8 @@ const topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
 const ENDPOINTS = {
   // NOTE: Not handling categories for now because DXB doesn't need this
   // CATEGORIES: "/export/categories",
-  PRODUCTS: "/export/products"
+  PRODUCTS: "/export/products",
+  SYSTEM: "/export/systems"
 };
 
 const base64ToAscii = (base64String: string) => {
