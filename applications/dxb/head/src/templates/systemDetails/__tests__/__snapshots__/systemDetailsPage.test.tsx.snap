@@ -3503,7 +3503,7 @@ exports[`SystemDetailsPage template component should have function to filter and
       </div>
       <div
         aria-labelledby="tab-three"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -3874,7 +3874,7 @@ exports[`SystemDetailsPage template component should have function to filter and
       </div>
       <div
         aria-labelledby="tab-four"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.tabs.bim"
         hidden=""
         id="tabpanel-four"
@@ -7455,7 +7455,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -7485,7 +7485,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -7566,7 +7566,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -7596,7 +7596,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -7677,7 +7677,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -7707,7 +7707,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -7788,7 +7788,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -7818,7 +7818,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -7899,7 +7899,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -7929,7 +7929,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8010,7 +8010,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8040,7 +8040,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8121,7 +8121,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8151,7 +8151,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8232,7 +8232,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8262,7 +8262,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8343,7 +8343,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8373,7 +8373,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8454,7 +8454,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8484,7 +8484,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8565,7 +8565,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8595,7 +8595,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8676,7 +8676,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8706,7 +8706,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                                  href="/no/p/zanda-protector-normalstein/svart/935895622/"
+                                  href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
                                     Zanda Protector normalstein
@@ -8842,7 +8842,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
       </div>
       <div
         aria-labelledby="tab-one"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -8877,11 +8877,11 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     <div
                       class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: pdp.leadBlock.guaranteesWarranties
-                      </h5>
+                      </h6>
                       <img
                         alt="1344416763"
                         class="image"
@@ -8896,11 +8896,11 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     <div
                       class="guaranteesAndAwardsAsset LeadBlockContentSection"
                     >
-                      <h5
-                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                      <h6
+                        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
                       >
                         MC: pdp.leadBlock.awardsCertificates
-                      </h5>
+                      </h6>
                       <img
                         alt="1344416763"
                         class="image"
@@ -9049,7 +9049,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
       </div>
       <div
         aria-labelledby="tab-two"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -9371,7 +9371,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
       </div>
       <div
         aria-labelledby="tab-three"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -15189,7 +15189,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
       </div>
       <div
         aria-labelledby="tab-three"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -21097,7 +21097,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       </div>
       <div
         aria-labelledby="tab-three"
-        class="MuiGrid-root TabPanel tabPanelBox MuiGrid-item"
+        class="MuiGrid-root TabPanel MuiGrid-item"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
