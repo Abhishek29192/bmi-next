@@ -33,17 +33,20 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
     endDate
     description
     siteAddress {
+      id
       firstLine
       secondLine
       town
       region
       postcode
+      country
     }
     buildingOwnerFirstname
     buildingOwnerLastname
     buildingOwnerCompany
     buildingOwnerMail
     buildingOwnerAddress {
+      id
       firstLine
       secondLine
       town
@@ -840,6 +843,59 @@ export type CreateProjectMutationResult =
 export type CreateProjectMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateProjectMutation,
   OperationTypes.CreateProjectMutationVariables
+>;
+export const UpdateProjectDocument = gql`
+  mutation updateProject($input: UpdateProjectInput!) {
+    updateProject(input: $input) {
+      project {
+        ...ProjectDetailsFragment
+      }
+    }
+  }
+  ${ProjectDetailsFragmentFragmentDoc}
+`;
+export type UpdateProjectMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateProjectMutation,
+  OperationTypes.UpdateProjectMutationVariables
+>;
+
+/**
+ * __useUpdateProjectMutation__
+ *
+ * To run a mutation, you first call `useUpdateProjectMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateProjectMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateProjectMutation, { data, loading, error }] = useUpdateProjectMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateProjectMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateProjectMutation,
+    OperationTypes.UpdateProjectMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateProjectMutation,
+    OperationTypes.UpdateProjectMutationVariables
+  >(UpdateProjectDocument, options);
+}
+export type UpdateProjectMutationHookResult = ReturnType<
+  typeof useUpdateProjectMutation
+>;
+export type UpdateProjectMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateProjectMutation>;
+export type UpdateProjectMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateProjectMutation,
+  OperationTypes.UpdateProjectMutationVariables
 >;
 export const UpdateAccountProfileDocument = gql`
   mutation updateAccountProfile($updateAccountInput: UpdateAccountInput!) {

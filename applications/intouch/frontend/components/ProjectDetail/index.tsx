@@ -16,6 +16,7 @@ import { UploadsTab } from "../Tabs/Uploads";
 import { NoProjectsCard } from "../Cards/NoProjects";
 import { NoteTab } from "../Tabs/Notes";
 import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
+import ProjectEditAction from "../Pages/Project/ProjectEditAction/Button";
 import {
   GetProjectDocument,
   useGetProjectQuery,
@@ -138,6 +139,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           guaranteeStatus={getProjectGuaranteeStatus(project)}
           guaranteeEventType={getGuaranteeEventType(project, account.id)}
           guaranteeEventHandler={guaranteeUpdateHandler}
+          renderActions={() => <ProjectEditAction project={project} />}
         />
 
         <BuildingOwnerDetails
@@ -281,17 +283,20 @@ export const GET_PROJECT = gql`
     endDate
     description
     siteAddress {
+      id
       firstLine
       secondLine
       town
       region
       postcode
+      country
     }
     buildingOwnerFirstname
     buildingOwnerLastname
     buildingOwnerCompany
     buildingOwnerMail
     buildingOwnerAddress {
+      id
       firstLine
       secondLine
       town
