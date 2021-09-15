@@ -1133,7 +1133,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
+              class="MuiCollapse-container"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -1819,7 +1819,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
+              class="MuiCollapse-container"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -2894,7 +2894,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
+              class="MuiCollapse-container"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -3766,7 +3766,7 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
+              class="MuiCollapse-container"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
