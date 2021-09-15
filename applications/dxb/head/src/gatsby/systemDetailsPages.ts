@@ -6,11 +6,19 @@ import { CreatePagesOptions } from "./types";
 interface PageContext {
   systemPageId: string;
   siteId: string;
+  relatedSystemCodes: string[];
+}
+interface SystemReference {
+  referenceType: string;
+  target: {
+    code: string;
+  };
 }
 
 interface QueryData {
   dataJson: {
     id: string;
+    systemReferences: SystemReference[];
   };
 }
 
@@ -28,6 +36,7 @@ export const createSystemPages = async ({
     {
       dataJson {
         id
+        systemReferences
       }
     }
   `);
@@ -38,16 +47,24 @@ export const createSystemPages = async ({
 
   const {
     data: {
-      dataJson: { id }
+      dataJson: { id, systemReferences }
     }
   } = result;
+  let relatedSystemCodes: string[] = [];
+
+  // TODO: Probably a way of abstracting this into a function
+
+  relatedSystemCodes = (systemReferences || [])
+    .filter((systemRefObj) => systemRefObj.referenceType === "CROSSELLING")
+    .map(({ target: { code } }) => code);
 
   await createPage<PageContext>({
     path: getPathWithCountryCode(countryCode, "system-details-page/"),
     component,
     context: {
       systemPageId: id,
-      siteId
+      siteId,
+      relatedSystemCodes
     }
   });
 };

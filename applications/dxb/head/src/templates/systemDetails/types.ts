@@ -23,6 +23,7 @@ export type Category = {
   categoryType: string;
   name: string;
   image?: CategoryImage;
+  code?: string;
 };
 
 export type FeatureValue = { value: string };
@@ -39,6 +40,7 @@ export type Classification = {
     | "systemAttributes"
     | "measurementAttributes"
     | "scoringWeightAttributes"
+    | "ScoringWeightAttributes"
     | "uniquesellingpropositionsAttributes";
   features: Feature[];
   name: string;
