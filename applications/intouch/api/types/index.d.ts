@@ -7684,6 +7684,72 @@ export type EvidenceItemsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+export type FindRoofer = {
+  __typename?: "FindRoofer";
+  id?: Maybe<Scalars["Int"]>;
+  marketId?: Maybe<Scalars["Int"]>;
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  tradingAddressId?: Maybe<Scalars["Int"]>;
+  ownerFullname?: Maybe<Scalars["String"]>;
+  ownerEmail?: Maybe<Scalars["String"]>;
+  ownerPhone?: Maybe<Scalars["String"]>;
+  businessType?: Maybe<BusinessType>;
+  tier?: Maybe<Tier>;
+  status?: Maybe<CompanyStatus>;
+  registeredBy?: Maybe<Scalars["String"]>;
+  registeredDate?: Maybe<Scalars["Datetime"]>;
+  name?: Maybe<Scalars["String"]>;
+  taxNumber?: Maybe<Scalars["String"]>;
+  phone?: Maybe<Scalars["String"]>;
+  aboutUs?: Maybe<Scalars["String"]>;
+  publicEmail?: Maybe<Scalars["String"]>;
+  website?: Maybe<Scalars["String"]>;
+  facebook?: Maybe<Scalars["String"]>;
+  linkedIn?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["String"]>;
+  logo?: Maybe<Scalars["String"]>;
+  migrationId?: Maybe<Scalars["String"]>;
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  addressCoordinates?: Maybe<Point>;
+  addressFirstLine?: Maybe<Scalars["String"]>;
+  addressSecondLine?: Maybe<Scalars["String"]>;
+  addressRegion?: Maybe<Scalars["String"]>;
+  addressTown?: Maybe<Scalars["String"]>;
+  addressPostcode?: Maybe<Scalars["String"]>;
+  addressCountry?: Maybe<Scalars["String"]>;
+  coordinates?: Maybe<Point>;
+  certifications?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  operations?: Maybe<Array<Maybe<Operation>>>;
+};
+
+/** A connection to a list of `FindRoofer` values. */
+export type FindRoofersConnection = {
+  __typename?: "FindRoofersConnection";
+  /** A list of `FindRoofer` objects. */
+  nodes: Array<FindRoofer>;
+  /** A list of edges which contains the `FindRoofer` and cursor to aid in pagination. */
+  edges: Array<FindRoofersEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `FindRoofer` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `FindRoofer` edge in the connection. */
+export type FindRoofersEdge = {
+  __typename?: "FindRoofersEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `FindRoofer` at the end of the edge. */
+  node: FindRoofer;
+};
+
+/** Methods to use when ordering `FindRoofer`. */
+export type FindRoofersOrderBy = "NATURAL";
+
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
 export type Guarantee = Node & {
   __typename?: "Guarantee";
@@ -14717,6 +14783,8 @@ export type Query = Node & {
   evidenceItemByNodeId?: Maybe<EvidenceItem>;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems?: Maybe<EvidenceItemsConnection>;
+  /** Reads and enables pagination through a set of `FindRoofer`. */
+  findRoofers?: Maybe<FindRoofersConnection>;
   guarantee?: Maybe<Guarantee>;
   guaranteeByBmiReferenceId?: Maybe<Guarantee>;
   /** Reads a single `Guarantee` using its globally unique `ID`. */
@@ -15307,6 +15375,16 @@ export type QueryEvidenceItemsArgs = {
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
   condition?: Maybe<EvidenceItemCondition>;
   filter?: Maybe<EvidenceItemFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFindRoofersArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<FindRoofersOrderBy>>;
 };
 
 /** The root query type which gives access points into the data universe. */
