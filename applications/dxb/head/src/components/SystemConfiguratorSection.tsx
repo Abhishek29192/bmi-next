@@ -24,6 +24,7 @@ import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import RichText, { RichTextData } from "./RichText";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
+import styles from "./styles/SystemConfiguratorSection.module.scss";
 
 export type Data = {
   __typename: "ContentfulSystemConfiguratorBlock";
@@ -259,7 +260,9 @@ const SystemConfiguratorBlockResultSection = ({
   return (
     <div ref={ref}>
       <Section backgroundColor="white">
-        <Section.Title>{title}</Section.Title>
+        <Section.Title className={styles["SystemConfigurator-title"]}>
+          {title}
+        </Section.Title>
         {description && <RichText document={description} />}
         {recommendedSystems && (
           <Grid container spacing={3}>
