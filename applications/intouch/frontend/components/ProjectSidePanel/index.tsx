@@ -2,8 +2,8 @@ import React, { useState, useMemo } from "react";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
-import { SvgIcon } from "@material-ui/core";
 import { Technology } from "@bmi/intouch-api-types";
+import Icon, { FlatRoof, PitchedRoof } from "@bmi/icon";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
 import { NewProjectDialog } from "../Pages/Project/CreateProject/Dialog";
@@ -11,7 +11,6 @@ import { useAccountContext } from "../../context/AccountContext";
 import { findAccountCompany, isSuperOrMarketAdmin } from "../../lib/account";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { getProjectStatus, ProjectStatus } from "../../lib/utils/project";
-import { PitchIcon, FlatIcon, OtherIcon } from "../icons";
 import styles from "./styles.module.scss";
 
 // filter `attr` value
@@ -55,11 +54,10 @@ const getProjectFilters = (t, isPowerfulUser: boolean) => {
 };
 
 const technologyIcon: {
-  [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;
+  [K in Exclude<Technology, "OTHER">]: React.FC<React.SVGProps<SVGSVGElement>>;
 } = {
-  FLAT: FlatIcon,
-  PITCHED: PitchIcon,
-  OTHER: OtherIcon
+  FLAT: FlatRoof,
+  PITCHED: PitchedRoof
 };
 
 const ProjectSidePanelFooter = () => {
@@ -245,7 +243,10 @@ export const ProjectSidePanel = ({
             >
               <Typography>{filterResultBody}</Typography>
               <Typography style={{ display: "flex" }}>
-                <SvgIcon component={technologyIcon[technology as Technology]} />
+                <Icon
+                  source={technologyIcon[technology as Technology]}
+                  className={styles.technologyIcon}
+                />
                 {t(getProjectStatus(startDate, endDate))}
               </Typography>
             </FilterResult>
