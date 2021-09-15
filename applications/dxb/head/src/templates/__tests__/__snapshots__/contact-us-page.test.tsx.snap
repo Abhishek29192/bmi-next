@@ -80,7 +80,7 @@ exports[`Contact us page renders correctly 1`] = `
       class="back-navigation"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton back-button MuiButton-textPrimary"
         tabindex="0"
         type="button"
       >
@@ -134,7 +134,7 @@ exports[`Contact us page renders correctly 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                   href="/al"
                   tabindex="0"
                 >
@@ -161,7 +161,7 @@ exports[`Contact us page renders correctly 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                   href="/at"
                   tabindex="0"
                 >
@@ -188,7 +188,7 @@ exports[`Contact us page renders correctly 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                   href="/no"
                   tabindex="0"
                 >
@@ -372,7 +372,7 @@ exports[`Contact us page renders correctly 1`] = `
           />
           <li>
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"NO\\"}"
               tabindex="0"
               type="button"

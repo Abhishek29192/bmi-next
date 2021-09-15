@@ -47,6 +47,16 @@
       &--footer {
         z-index: 0;
 
+        .NavigationListButton {
+          &--outline {
+            color: $color-cyan-500;
+            border-color: rgba($color-cyan-500, 0.5);
+            &:hover {
+              background-color: rgba($color-cyan-600, 0.04);
+            }
+          }
+        }
+
         @media (min-width: $breakpoint-sm) {
           left: 400%;
         }
@@ -190,14 +200,6 @@
             max-width: 130px;
           }
         }
-      }
-    }
-
-    &--outline {
-      color: $color-cyan-500;
-      border-color: rgba($color-cyan-500, 0.5);
-      &:hover {
-        background-color: rgba($color-cyan-600, 0.04);
       }
     }
   }

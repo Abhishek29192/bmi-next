@@ -362,7 +362,6 @@ export const NavigationListButton = ({
     className={classnames(
       styles["NavigationListButton"],
       className,
-      styles["NavigationListButton--outline"],
       active && styles["NavigationListButton--active"]
     )}
     variant="text"

@@ -2,6 +2,7 @@ import React, { useState, useRef, useLayoutEffect, createContext } from "react";
 import classnames from "classnames";
 import type { ThemeOptions } from "@material-ui/core";
 import BmiThemeProvider from "@bmi/theme-provider";
+import { DialogClassNameContext } from "@bmi/dialog";
 
 import styles from "./styles/BrandProvider.module.scss";
 
@@ -84,7 +85,9 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
           longText={Boolean(process.env.GATSBY_LONG_TEXT)}
           modifyTheme={modifyThemePrimaryColor}
         >
-          {children}
+          <DialogClassNameContext.Provider value={className}>
+            {children}
+          </DialogClassNameContext.Provider>
         </BmiThemeProvider>
       </BrandClassNameContext.Provider>
     </div>
