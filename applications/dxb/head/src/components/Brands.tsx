@@ -6,6 +6,7 @@ import BrandIntroCard from "@bmi/brand-intro-card";
 import Grid from "@bmi/grid";
 import { iconMap } from "@bmi/logo";
 import withGTM from "../utils/google-tag-manager";
+import styles from "./styles/Brands.module.scss";
 
 import { useSiteContext } from "./Site";
 
@@ -22,7 +23,7 @@ const Brands = ({ data }: { data: Data[] }) => {
   const GTMButton = withGTM<ButtonProps>(Button, { label: "children" });
 
   return (
-    <Section backgroundColor={"pearl"}>
+    <Section backgroundColor={"pearl"} className={styles["Brands"]}>
       <Section.Title> {getMicroCopy("homepage.brands")}</Section.Title>
       <Grid container justify="center">
         {data.map((brand, index) => (

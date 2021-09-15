@@ -234,7 +234,7 @@ CREATE TABLE company (
   website text,
   facebook text,
   linked_in text,
-  reference_number text,
+  reference_number serial,
   logo text,
   migration_id text,
   trading_address_migration_id text,
@@ -242,6 +242,9 @@ CREATE TABLE company (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
+
+ALTER SEQUENCE company_reference_number_seq
+  RESTART WITH 1000000;
 
 DROP TABLE IF EXISTS company_document CASCADE;
 
@@ -505,7 +508,7 @@ INSERT INTO address (id, first_line, second_line, town, region, country, postcod
   VALUES ('5', 'Praça do Príncipe Real 23 24', 'Near the Castle', 'Lisbon', NULL, 'Portugal', '1250-096 Lisboa', '(38.7170416,-9.1510413)', NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('6', '39 Old Castle Rd', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(10.6971494,-72.2598689)', NULL);
+  VALUES ('6', '39 Old Castle Rd', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(50.59561739999999,-2.4619225)', NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('7', '1 Brixton Hill', 'Brixton', 'London', 'London', 'UK', 'SW2 1RW', NULL, NULL);
@@ -587,13 +590,13 @@ INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
 TRUNCATE TABLE company RESTART IDENTITY;
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', 'Integrated Solutions Inc', '63323-463', '8439854588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '0093-7392', 'https://upload.wikimedia.org/wikipedia/commons/6/63/Integrated_Engineering_Solutions.png', NULL, NULL, NULL);
+  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', 'Integrated Solutions Inc', '63323-463', '8439854588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '1000000', 'https://upload.wikimedia.org/wikipedia/commons/6/63/Integrated_Engineering_Solutions.png', NULL, NULL, NULL);
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('2', 1, 2, 5, 'Liam Gallagher', 'liam@test.com', '234234', 'CONTRACTOR', 'T4', 'ACTIVE', 'mbrosch1@go.com', '2020-11-20 12:00:00', 'Pathfinder Construction Ltd', '0378-4094', '7572089959', 'We build really hard things that support everything else', 'ssnipe1@pen.io', 'https://oracle.com', 'https://www.facebook.com/europeanparliament', 'https://www.linkedin.com/company/eu', '64772-300', 'https://upload.wikimedia.org/wikipedia/commons/7/7d/A_Red_Star.png', NULL, NULL, NULL);
+  VALUES ('2', 1, 2, 5, 'Liam Gallagher', 'liam@test.com', '234234', 'CONTRACTOR', 'T4', 'ACTIVE', 'mbrosch1@go.com', '2020-11-20 12:00:00', 'Pathfinder Construction Ltd', '0378-4094', '7572089959', 'We build really hard things that support everything else', 'ssnipe1@pen.io', 'https://oracle.com', 'https://www.facebook.com/europeanparliament', 'https://www.linkedin.com/company/eu', '1000001', 'https://upload.wikimedia.org/wikipedia/commons/7/7d/A_Red_Star.png', NULL, NULL, NULL);
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('3', 1, 3, 6, 'Charlotte Church', 'charlotte@test.com', '345345', 'CONTRACTOR', 'T3', 'DEACTIVATED', 'dhechlin2@amazon.com', '2020-9-20 12:00:00', 'dXB Roofing PLC', '49738-530', '8435842619', 'We build stuff that looks great', 'liacovielli2@discovery.com', 'https://utexas.edu', 'https://www.facebook.com/Sony/', 'https://in.linkedin.com/company/sony', '0179-0110', 'https://upload.wikimedia.org/wikipedia/commons/3/33/StubMetal.png', NULL, NULL, NULL);
+  VALUES ('3', 1, 3, 6, 'Charlotte Church', 'charlotte@test.com', '345345', 'CONTRACTOR', 'T3', 'DEACTIVATED', 'dhechlin2@amazon.com', '2020-9-20 12:00:00', 'dXB Roofing PLC', '49738-530', '8435842619', 'We build stuff that looks great', 'liacovielli2@discovery.com', 'https://utexas.edu', 'https://www.facebook.com/Sony/', 'https://in.linkedin.com/company/sony', '1000002', 'https://upload.wikimedia.org/wikipedia/commons/3/33/StubMetal.png', NULL, NULL, NULL);
 
 TRUNCATE TABLE company_document RESTART IDENTITY;
 
@@ -723,7 +726,7 @@ INSERT INTO market (id,
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle, location_bias_radius_km)
-  VALUES ('2', 'no', 'no', 'opay6t6wwmup', 'Transatlantia', 'BMI Intouch Mapleland', 'intouch@bmigroup.no', '7', '8', 38, 'https://italy.bmiroofpromerch.com/', TRUE, 'UA-141761217-6', '59.9139,10.7522', 100);
+  VALUES ('2', 'no', 'no', 'evpdf7auu9nf', 'BMI InTouch Norge', 'BMI Norge', 'intouch.no@bmigroup.com', '28', '29', 14, 'https://bmiportalen.bk.no/', TRUE, 'UA-141761217-6', '60.4720,8.4689', 500);
 
 TRUNCATE TABLE note RESTART IDENTITY;
 
@@ -1331,7 +1334,7 @@ COMMENT ON COLUMN company.facebook IS 'The Company facebook website';
 
 COMMENT ON COLUMN company.linked_in IS 'Their Company LinkedIn page URL';
 
-COMMENT ON COLUMN company.reference_number IS 'A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. ';
+COMMENT ON COLUMN company.reference_number IS 'A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.';
 
 COMMENT ON COLUMN company.logo IS 'A reference to the logo image';
 
@@ -1595,6 +1598,12 @@ SELECT
   SETVAL('company_id_seq', (
       SELECT
         MAX(ID)
+      FROM company));
+
+SELECT
+  SETVAL('company_reference_number_seq', (
+      SELECT
+        MAX(reference_number)
       FROM company));
 
 SELECT

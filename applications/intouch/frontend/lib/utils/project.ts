@@ -100,3 +100,11 @@ export const checkProjectGuaranteeReview = (
 
   return solutionGuaranteeValidationResult.isValid;
 };
+
+export const isSolutionOrSystemGuaranteeExist = (
+  project: GetProjectQuery["project"]
+) => {
+  return project.guarantees.nodes.some((guarantee) =>
+    ["SOLUTION", "SYSTEM"].includes(guarantee.coverage)
+  );
+};

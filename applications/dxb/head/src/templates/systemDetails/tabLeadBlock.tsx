@@ -10,10 +10,17 @@ import withGTM from "../../utils/google-tag-manager";
 import BimIframe from "../../components/BimIframe";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText, { RichTextData } from "../../components/RichText";
-import { Assets, Feature, SystemBenefits, Classification } from "./types";
+import {
+  Assets,
+  Feature,
+  SystemBenefits,
+  Classification,
+  DocumentData
+} from "./types";
 import AboutLeadBlock from "./aboutLeadBlock";
 import TechnicalSpecificationLeadBlock from "./technicalSpecificationLeadBlock";
 import styles from "./styles/tabLeadBlock.module.scss";
+import DocumentLeadBlock from "./documentsLeadBlock";
 
 export type BimContent = {
   title: string;
@@ -29,7 +36,7 @@ type Props = {
   systemBenefits?: SystemBenefits;
   specification?: Assets;
   technicalSpecClassifications?: Classification[];
-  documentsAndDownloads?: any;
+  documentsAndDownloads?: DocumentData[];
   aboutLeadBlockGenericContent?: ContentfulTitleWithContent;
   bimContent?: BimContent;
 };
@@ -63,11 +70,7 @@ const TabLeadBlock = ({
         />
       )}
     >
-      <Tabs.TabPanel
-        className={styles["tabPanelBox"]}
-        heading={getMicroCopy("sdp.leadBlock.about")}
-        index="one"
-      >
+      <Tabs.TabPanel heading={getMicroCopy("sdp.leadBlock.about")} index="one">
         <Section className={styles["section"]} backgroundColor="white">
           <AboutLeadBlock
             longDescription={longDescription}
@@ -82,7 +85,6 @@ const TabLeadBlock = ({
       </Tabs.TabPanel>
       {technicalSpecClassifications && !isEmpty(technicalSpecClassifications) && (
         <Tabs.TabPanel
-          className={styles["tabPanelBox"]}
           heading={getMicroCopy("sdp.leadBlock.technicalSpecification")}
           index="two"
         >
@@ -95,24 +97,16 @@ const TabLeadBlock = ({
       )}
       {documentsAndDownloads && !isEmpty(documentsAndDownloads) && (
         <Tabs.TabPanel
-          className={styles["tabPanelBox"]}
           heading={getMicroCopy("sdp.leadBlock.documentsAndDownloads")}
           index="three"
         >
           <Section className={styles["section"]} backgroundColor="white">
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
-              recusandae.
-            </div>
+            <DocumentLeadBlock documents={documentsAndDownloads} />
           </Section>
         </Tabs.TabPanel>
       )}
       {Boolean(bimContent?.bimIframeUrl) && (
-        <Tabs.TabPanel
-          className={styles["tabPanelBox"]}
-          heading={getMicroCopy("sdp.tabs.bim")}
-          index="four"
-        >
+        <Tabs.TabPanel heading={getMicroCopy("sdp.tabs.bim")} index="four">
           <div className={styles["bimLeadBlock"]}>
             <Section className={styles["section"]} backgroundColor="pearl">
               <LeadBlock>

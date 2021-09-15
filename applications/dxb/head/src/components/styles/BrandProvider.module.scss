@@ -107,15 +107,3 @@
   --color-theme-secondary-3: #{$color-charcoal};
   --color-theme-secondary-4: #{$color-brand-green-inter};
 }
-
-.SiplastBlack {
-  --color-theme-accent-300: #{$color-storm};
-  --color-theme-accent: #{$color-siplast-black};
-  --color-theme-accent-rgb: #{hexToRGB($color-siplast-black)};
-  --color-theme-inter: #{$color-cyan-500};
-  --color-theme-inter-rgb: #{hexToRGB($color-cyan-500)};
-  --color-theme-focus: #{$color-siplast-black};
-  --color-theme-inter-dark: #{$color-cyan-500};
-  --color-theme-inter-dark-rgb: #{hexToRGB($color-cyan-500)};
-  --color-theme-focus-dark: #{$color-siplast-black};
-}

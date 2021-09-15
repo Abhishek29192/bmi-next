@@ -99,7 +99,7 @@ exports[`Page component renders correctly 1`] = `
       class="back-navigation"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton back-button NavigationListButton--outline MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton back-button MuiButton-textPrimary"
         tabindex="0"
         type="button"
       >
@@ -153,7 +153,7 @@ exports[`Page component renders correctly 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                   href="/al"
                   tabindex="0"
                 >
@@ -180,7 +180,7 @@ exports[`Page component renders correctly 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                   href="/at"
                   tabindex="0"
                 >
@@ -207,7 +207,7 @@ exports[`Page component renders correctly 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link NavigationListButton--outline MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                   href="/uk"
                   tabindex="0"
                 >
@@ -444,7 +444,7 @@ exports[`Page component renders correctly 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
               href="tel:+4401234567890"
               tabindex="0"
@@ -462,7 +462,7 @@ exports[`Page component renders correctly 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/uk/landing-page\\"}"
               href="/uk/landing-page"
               role="button"
@@ -481,7 +481,7 @@ exports[`Page component renders correctly 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
               href="link-to-page"
               tabindex="0"
@@ -502,7 +502,7 @@ exports[`Page component renders correctly 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="link-to-page"
                 tabindex="0"
@@ -520,7 +520,7 @@ exports[`Page component renders correctly 1`] = `
           </ul>
           <li>
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton NavigationListButton--outline MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"UK\\"}"
               tabindex="0"
               type="button"

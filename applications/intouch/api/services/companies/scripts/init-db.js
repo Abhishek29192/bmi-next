@@ -13,6 +13,7 @@ async function main() {
   const roles = getFile("roles.sql");
   const procedure = getFile("procedure.sql");
   const rls = getFile("rls.sql");
+  const views = getFile("views.sql");
 
   const { PG_USER, PG_DATABASE, PG_HOST, PG_PORT, PG_PASSWORD } = process.env;
 
@@ -41,13 +42,17 @@ async function main() {
   await client.query(db);
   console.log("DB imported");
 
+  console.log("Importing views");
+  await client.query(views);
+  console.log("Views imported");
+
   console.log("Importing roles");
   await client.query(roles);
-  console.log("roles imported");
+  console.log("Roles imported");
 
   console.log("Importing procedure");
   await client.query(procedure);
-  console.log("procedure imported");
+  console.log("Procedure imported");
 
   console.log("Importing RLS");
   await client.query(rls);

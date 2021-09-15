@@ -13,8 +13,8 @@ export type SidePanelProps = {
   filterClick?: (filter) => void;
   showSearchFilter?: boolean;
   onSearchFilterChange?: (value: string) => void;
-  children: React.ReactNode | React.ReactNode[];
-  renderFooter?: () => React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
+  renderFooter?: () => React.ReactNode;
 };
 
 export const SidePanel = ({
@@ -43,6 +43,7 @@ export const SidePanel = ({
       onClick={() => handleButtonClick(filter)}
     />
   ));
+
   return (
     <div className={styles.main}>
       <div className={styles.sidePanel}>
