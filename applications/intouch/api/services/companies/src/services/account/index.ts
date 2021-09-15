@@ -501,3 +501,58 @@ export const resetPassword = async (
     return "fail";
   }
 };
+
+export const resetPasswordImportedUsers = async (
+  _query,
+  args,
+  context: PostGraphileContext,
+  resolveInfo,
+  auth0
+) => {
+  const { pgClient, user } = context;
+
+  const logger = context.logger("service:account");
+  if (!user.can("resetImportedUsersPasswords")) {
+    throw new Error("you must be an admin to reset passwords");
+  }
+
+  let accounts;
+  const ids = [];
+  const { market }: any = args.input || { market: null };
+
+  // If we are not passing a market we query all the user that need a new password
+  if (!market) {
+    accounts = await pgClient.query(
+      "SELECT * FROM account WHERE migration_id IS NOT NULL AND migrated_to_auth0 IS NOT true ORDER BY id",
+      []
+    );
+  } else {
+    // If we are sending the market we query all the user for that particular market
+    accounts = await pgClient.query(
+      `
+      SELECT account.* FROM account
+        JOIN market ON market.id = account.market_id
+        WHERE migration_id IS NOT NULL AND migrated_to_auth0 IS NOT true AND market.domain = $1 ORDER BY account.id
+      `,
+      [market]
+    );
+  }
+
+  for (const account of accounts.rows) {
+    try {
+      await auth0.changePassword(account.email);
+      logger.info(`Reset email sent for user with id: ${account.id}`);
+
+      ids.push(account.id);
+    } catch (error) {
+      logger.info(`Email not send for user with id: ${account.id}`);
+    }
+  }
+
+  await pgClient.query(
+    "UPDATE account SET migrated_to_auth0 = true WHERE id = ANY($1)",
+    [ids]
+  );
+
+  return "All done";
+};

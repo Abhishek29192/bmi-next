@@ -135,7 +135,7 @@ describe("Database permissions", () => {
   describe("Account", () => {
     describe("Installer", () => {
       it("should be able to create an account using the function create_account", async () => {
-        const tuple = `null, 'NEW', null, 'INSTALLER', '${INSTALLER_EMAIL}', 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', 5, 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', '2021-06-10 00:00:39.348475'`;
+        const tuple = `null, 'NEW', null, 'INSTALLER', '${INSTALLER_EMAIL}', 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', 5, 'abc', 'abc', null, false, '2021-06-10 00:00:39.348475', '2021-06-10 00:00:39.348475'`;
         const { rows } = await transaction(
           pool,
           {
@@ -167,7 +167,7 @@ describe("Database permissions", () => {
     });
     describe("Company admin", () => {
       it("should be able to create an account using the function create_account", async () => {
-        const tuple = `null, 'NEW', null, 'COMPANY_ADMIN', '${COMPANY_ADMIN_EMAIL}', 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', 5, 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', '2021-06-10 00:00:39.348475'`;
+        const tuple = `null, 'NEW', null, 'COMPANY_ADMIN', '${COMPANY_ADMIN_EMAIL}', 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', 5, 'abc', 'abc', null, false, '2021-06-10 00:00:39.348475', '2021-06-10 00:00:39.348475'`;
         const { rows } = await transaction(
           pool,
           {

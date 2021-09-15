@@ -82,6 +82,7 @@ export type Account = Node & {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `Account`. */
@@ -296,6 +297,7 @@ export type AccountInput = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -772,6 +774,7 @@ export type AccountPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -11337,6 +11340,7 @@ export type Mutation = {
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
   resetPassword?: Maybe<Scalars["String"]>;
+  resetPasswordImportedUsers?: Maybe<ResetPasswordImportedUsersResult>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
@@ -11997,6 +12001,11 @@ export type MutationProjectMembersAddArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationPublishMessageArgs = {
   input: PublishInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationResetPasswordImportedUsersArgs = {
+  input?: Maybe<ResetPasswordImportedUsersInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -18980,6 +18989,15 @@ export type CfMessageTemplateNestedFilter = {
   AND?: Maybe<Array<Maybe<CfMessageTemplateNestedFilter>>>;
 };
 
+export type ResetPasswordImportedUsersInput = {
+  market?: Maybe<Scalars["String"]>;
+};
+
+export type ResetPasswordImportedUsersResult = {
+  __typename?: "resetPasswordImportedUsersResult";
+  result?: Maybe<Scalars["String"]>;
+};
+
 /** An object where the defined keys will be set on the `account` being updated. */
 export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   /** Primary key */
@@ -19006,6 +19024,7 @@ export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19048,6 +19067,7 @@ export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
     photo?: Maybe<Scalars["String"]>;
     /** Used for reference when importing data from the legacy system */
     migrationId?: Maybe<Scalars["String"]>;
+    migratedToAuth0?: Maybe<Scalars["Boolean"]>;
     createdAt?: Maybe<Scalars["Datetime"]>;
     updatedAt?: Maybe<Scalars["Datetime"]>;
     marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19091,6 +19111,7 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19134,6 +19155,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19177,6 +19199,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19220,6 +19243,7 @@ export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19263,6 +19287,7 @@ export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19306,6 +19331,7 @@ export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19349,6 +19375,7 @@ export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;

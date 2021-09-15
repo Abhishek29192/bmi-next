@@ -13,7 +13,8 @@ const MARKET_ADMIN_PERMISSIONS = [
 const SUPER_ADMIN_PERMISSIONS = [
   ...MARKET_ADMIN_PERMISSIONS,
   "grant:super_admin",
-  "import:products:markets"
+  "import:products:markets",
+  "resetImportedUsersPasswords"
 ];
 
 export default {
