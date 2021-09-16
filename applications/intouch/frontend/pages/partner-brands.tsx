@@ -3,19 +3,15 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useTranslation } from "next-i18next";
 import Section from "@bmi/section";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import {
-  GetPartnerBrandsQuery,
-  GetGlobalDataQuery
-} from "../graphql/generated/operations";
+import { GetPartnerBrandsQuery } from "../graphql/generated/operations";
 import { findAccountTier } from "../lib/account";
 import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
-import { withPage } from "../lib/middleware/withPage";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
 import { BrandCard } from "../components/Cards/BrandCard";
 
-type PartnerBrandPageProps = {
+type PartnerBrandPageProps = GlobalPageProps & {
   marketContentCollection: GetPartnerBrandsQuery["marketContentCollection"];
-  globalPageData: GetGlobalDataQuery;
 };
 
 const mapPartnerBrands = (
@@ -64,7 +60,7 @@ const PartnerBrandPage = ({
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, globalPageData, account }) => {
+  async ({ apolloClient, locale, account }) => {
     const {
       props: {
         data: { marketContentCollection }
@@ -76,9 +72,7 @@ export const getServerSideProps = withPage(
 
     return {
       props: {
-        globalPageData,
         marketContentCollection,
-        account,
         ...(await serverSideTranslations(locale, [
           "common",
           "sidebar",

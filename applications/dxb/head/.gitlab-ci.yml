@@ -126,7 +126,7 @@ deploy_head_preview:
       DEPLOY_RESULT=$(npx netlify deploy --dir applications/dxb/head/public --site "${NETLIFY_HEAD_SITE_ID}" --auth "${NETLIFY_AUTH_TOKEN}" --json) || exit 0
       echo ${DEPLOY_RESULT}
       SITE_URL=$(echo ${DEPLOY_RESULT} | jq -r '.deploy_url')
-      curl --request POST --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" -H "Content-Type: application/json" \
+      curl --request POST --header "PRIVATE-TOKEN: ${NETLIFY_GITLAB_TOKEN}" -H "Content-Type: application/json" \
         -d "{\"body\":\"Deployed to: ${SITE_URL}\"}" \
         "https://gitlab.com/api/v4/projects/19163612/merge_requests/${CI_MERGE_REQUEST_IID}/notes"
       echo "${SITE_URL}" > deploy_head

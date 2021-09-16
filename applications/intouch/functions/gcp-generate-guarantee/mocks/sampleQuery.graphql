@@ -114,8 +114,8 @@ query {
         }
         mailBody
         filenamePrefix
-        lockupLine1
-        lockupLine2
+        titleLine1
+        titleLine2
         roofType
       }
       total

@@ -24,12 +24,12 @@ exports[`Villain component renders correctly 1`] = `
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta MuiButton-containedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 buttonStyles-containedDarkBg-10 cta MuiButton-containedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             Call to action
           </span>
@@ -80,12 +80,12 @@ exports[`Villain component renders full size 1`] = `
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta MuiButton-containedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 buttonStyles-containedDarkBg-30 cta MuiButton-containedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-24"
           >
             Call to action
           </span>
@@ -128,12 +128,12 @@ exports[`Villain component renders full size and reversed 1`] = `
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta MuiButton-containedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 buttonStyles-containedDarkBg-50 cta MuiButton-containedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-44"
           >
             Call to action
           </span>
@@ -218,12 +218,12 @@ exports[`Villain component renders with deprecated imageSource 1`] = `
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta MuiButton-containedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 buttonStyles-containedDarkBg-70 cta MuiButton-containedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-64"
           >
             Call to action
           </span>

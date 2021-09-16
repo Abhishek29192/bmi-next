@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Grid from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
@@ -11,7 +11,7 @@ import styles from "./styles/OverlapCards.module.scss";
 import { Data as PromoData } from "./Promo";
 import { Data as PageInfoData } from "./PageInfo";
 import { getCTA } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 
 type Card =
   | Pick<
@@ -27,7 +27,7 @@ type Card =
 export type Data = [Card, Card, ...Card[]];
 
 const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode } = useSiteContext();
 
   const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { action: "to" });
 

@@ -1,7 +1,7 @@
 import { ApolloGateway, LocalGraphQLDataSource } from "@apollo/gateway";
 import FileUploadDataSource from "@profusion/apollo-federation-upload";
-
 import { ContentfulSchema } from "./local-services";
+import { getGCPToken } from "./utils/google-auth";
 
 const { COMPANY_SERVICE_URL, TRAINING_SERVICE_URL } = process.env;
 const LOCAL_SERVICE_URL = "localService";
@@ -22,18 +22,33 @@ const createGateway = async () => {
       else {
         return new FileUploadDataSource({
           url,
-          willSendRequest({ request, context }) {
-            if (context.authorization) {
-              request.http.headers.set("authorization", context.authorization);
+          willSendRequest: async ({ request, context }) => {
+            const bearer = await getGCPToken(url);
+
+            // Send gcp auth token to comunicate between services in gcp
+            if (bearer) {
+              request.http.headers.set("authorization", bearer);
             }
+
+            // Send the user token information
             if (context["x-apigateway-api-userinfo"]) {
               request.http.headers.set(
                 "x-apigateway-api-userinfo",
                 context["x-apigateway-api-userinfo"]
               );
             }
+
+            // Send a uuid throught the request to track it
             if (context["x-request-id"]) {
               request.http.headers.set("x-request-id", context["x-request-id"]);
+            }
+
+            // Send the market throught the request
+            if (context.market) {
+              request.http.headers.set(
+                "x-request-market-domain",
+                context.market
+              );
             }
           }
         });

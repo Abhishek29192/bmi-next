@@ -21,12 +21,12 @@ exports[`ExploreBarSection component renders correctly 1`] = `
           Lorem ipsum
         </h2>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button link MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             String
           </span>
@@ -35,12 +35,12 @@ exports[`ExploreBarSection component renders correctly 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button link MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             Another string
           </span>

@@ -31,6 +31,7 @@ RUN rm -f ./npmrc
 WORKDIR /usr/src/app/applications/intouch/frontend
 
 ARG AUTH0_COOKIE_DOMAIN
+ARG NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
 RUN yarn run build
 

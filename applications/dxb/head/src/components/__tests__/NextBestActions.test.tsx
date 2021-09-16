@@ -5,7 +5,7 @@ import { TagData } from "../Tag";
 import { Data as PageInfoData } from "../PageInfo";
 import { Data as LinkData } from "../Link";
 import { Data as PromoData } from "../Promo";
-import { SiteContext } from "../Site";
+import { SiteContextProvider } from "../Site";
 
 const getMockSiteContext = (
   countryCode: string = "en",
@@ -63,30 +63,54 @@ const card2: PromoData = {
   backgroundColor: null
 };
 
+const card3: PromoData = {
+  __typename: "ContentfulPromo",
+  id: "testId",
+  name: "test name",
+  title: null,
+  subtitle: "I am a subtitle",
+  body: null,
+  tags: null,
+  brandLogo: null,
+  featuredMedia: null,
+  featuredVideo: null,
+  cta,
+  backgroundColor: null
+};
+
 describe("NextBestActions component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <SiteContext.Provider value={getMockSiteContext()}>
+      <SiteContextProvider value={getMockSiteContext()}>
         <NextBestActions data={[card1, card2]} />
-      </SiteContext.Provider>
+      </SiteContextProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders with no promo cta", () => {
     const { container } = render(
-      <SiteContext.Provider value={getMockSiteContext()}>
+      <SiteContextProvider value={getMockSiteContext()}>
         <NextBestActions data={[{ ...card2, cta: null }]} />
-      </SiteContext.Provider>
+      </SiteContextProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders with no promo cta label", () => {
     const { container } = render(
-      <SiteContext.Provider value={getMockSiteContext()}>
+      <SiteContextProvider value={getMockSiteContext()}>
         <NextBestActions data={[{ ...card2, cta: { ...cta, label: null } }]} />
-      </SiteContext.Provider>
+      </SiteContextProvider>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders name with no title", () => {
+    const { container } = render(
+      <SiteContextProvider value={getMockSiteContext()}>
+        <NextBestActions data={[card3]} />
+      </SiteContextProvider>
     );
     expect(container).toMatchSnapshot();
   });

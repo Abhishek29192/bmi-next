@@ -6,7 +6,7 @@ import { BMI } from "@bmi/logo";
 import { Notifications, Menu, Close } from "@material-ui/icons";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import { findAccountTier } from "../../lib/account";
+import { findAccountTier, isSuperOrMarketAdmin } from "../../lib/account";
 import { Link } from "../Link";
 import UserMenu from "../UserMenu";
 import { NotificationsPanel } from "../NotificationsPanel";
@@ -34,8 +34,10 @@ export const Header = ({
   const [isOpen, setIsOpen] = React.useState(false);
   const { account } = useAccountContext();
 
-  const accountTierName = useMemo(() => {
-    return t(`tier.${findAccountTier(account)}`);
+  const subHeading = useMemo(() => {
+    return isSuperOrMarketAdmin(account)
+      ? t(`roles.${account.role}`)
+      : t(`tier.${findAccountTier(account)}`);
   }, [account]);
 
   const toggle = () => {
@@ -92,7 +94,7 @@ export const Header = ({
               style={{ margin: "0 1rem" }}
             />
             <Typography variant="h3" className={styles.lowerHeaderUserLevel}>
-              {accountTierName}
+              {subHeading}
             </Typography>
           </div>
 

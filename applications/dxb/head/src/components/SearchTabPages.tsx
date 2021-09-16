@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Grid from "@bmi/grid";
 import FiltersSidebar from "../components/FiltersSidebar";
 import {
@@ -13,7 +13,7 @@ import {
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
 import PageSummaryCard from "./PageSummaryCard";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import ResultsPagination from "./ResultsPagination";
 
 const PAGE_SIZE = 24;
@@ -119,7 +119,7 @@ export const getCount = async (queryString) => {
 const SearchTabPanelPages = (props: Props) => {
   const { queryString, pageContext, onLoadingChange, onCountChange } = props;
 
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   // TODO: Not sure if we need this, would be nice to remove
   const isInitialLoad = useRef(true);

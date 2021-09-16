@@ -24,7 +24,7 @@
       },
       "cancel": "Cancel",
       "send": "Send email",
-      "success": "The invitation it's been sent"
+      "success": "The invitation has been sent"
     }
   },
   "user_card": {
@@ -34,11 +34,13 @@
     "cancel": "Cancel",
     "role_dialog": {
       "title": "Change role",
-      "text": "Do you want to Change the role?"
+      "text": "Do you want to change the role?"
     },
     "remove_user_dialog": {
       "title": "Remove company member",
       "text": "Do you want to remove this company member?"
     }
-  }
+  },
+  "memberRemoved": "Member succesfully removed",
+  "genericError": "An error occurred. Please try again or contact your administrator."
 }

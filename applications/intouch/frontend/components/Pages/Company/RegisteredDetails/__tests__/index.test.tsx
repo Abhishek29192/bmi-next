@@ -4,6 +4,7 @@ import { mockCompany } from "../../../../../fixtures/company";
 import { render, screen } from "../../../../../lib/tests/utils";
 import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
 import AccountContextWrapper from "../../../../../lib/tests/fixtures/account";
+import MarketContextWrapper from "../../../../../lib/tests/fixtures/market";
 import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
 import { OPERATION_TYPES } from "../../../../../lib/constants";
 import { formatCompanyOperations, CompanyRegisteredDetails } from "..";
@@ -60,9 +61,11 @@ describe("CompanyRegisteredDetails", () => {
     render(
       <ApolloProvider>
         <I18nProvider>
-          <AccountContextWrapper>
-            <CompanyRegisteredDetails company={mockCompany} />
-          </AccountContextWrapper>
+          <MarketContextWrapper>
+            <AccountContextWrapper>
+              <CompanyRegisteredDetails company={mockCompany} />
+            </AccountContextWrapper>
+          </MarketContextWrapper>
         </I18nProvider>
       </ApolloProvider>
     );
@@ -98,9 +101,11 @@ describe("CompanyRegisteredDetails", () => {
     const { container } = render(
       <ApolloProvider>
         <I18nProvider>
-          <AccountContextWrapper>
-            <CompanyRegisteredDetails company={mockCompany} />
-          </AccountContextWrapper>
+          <MarketContextWrapper>
+            <AccountContextWrapper>
+              <CompanyRegisteredDetails company={mockCompany} />
+            </AccountContextWrapper>
+          </MarketContextWrapper>
         </I18nProvider>
       </ApolloProvider>
     );

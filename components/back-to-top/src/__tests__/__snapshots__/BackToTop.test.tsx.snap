@@ -7,12 +7,12 @@ exports[`BackToTop component handles button click 1`] = `
   <button
     aria-hidden="false"
     aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 button MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-64"
     >
       <svg
         aria-hidden="true"
@@ -39,12 +39,12 @@ exports[`BackToTop component handles scroll 1`] = `
   <button
     aria-hidden="true"
     aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 button MuiButton-containedPrimary"
     tabindex="-1"
     type="button"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-44"
     >
       <svg
         aria-hidden="true"
@@ -71,12 +71,12 @@ exports[`BackToTop component renders correctly 1`] = `
   <button
     aria-hidden="true"
     aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 button MuiButton-containedPrimary"
     tabindex="-1"
     type="button"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-4"
     >
       <svg
         aria-hidden="true"
@@ -103,12 +103,12 @@ exports[`BackToTop component renders correctly with className 1`] = `
   <button
     aria-hidden="true"
     aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 button MuiButton-containedPrimary"
     tabindex="-1"
     type="button"
   >
     <span
-      class="MuiButton-label"
+      class="MuiButton-label buttonStyles-label-24"
     >
       <svg
         aria-hidden="true"

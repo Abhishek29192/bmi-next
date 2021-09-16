@@ -49,8 +49,9 @@ const UnderlaySelectionRow = ({
             imageSource={underlay.image}
             onClick={() => {
               pushEvent({
+                event: "dxb.button_click",
                 id: "rc-select-underlay",
-                label: underlay.name,
+                label: `${underlay.name} - ${underlay.description} - ${underlay.externalProductCode}`,
                 action: "selected"
               });
             }}

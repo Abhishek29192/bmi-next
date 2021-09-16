@@ -1,5 +1,14 @@
 @import "@bmi/styles";
 
+.cardActionArea__isActive {
+  :global {
+    .MuiCardActionArea-focusHighlight {
+      background-color: currentColor;
+      opacity: 0.04;
+    }
+  }
+}
+
 .main {
   border: 1px solid $color-storm;
   margin-bottom: -1px;

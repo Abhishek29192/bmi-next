@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode } from "react";
 import queryString from "query-string";
 import Visualiser, {
   Parameters,
@@ -10,7 +10,7 @@ import { navigate as navigateWithParams, useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import { getProductUrl } from "../utils/product-details-transforms";
 import { pushToDataLayer, GTMContext } from "../utils/google-tag-manager";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "./ShareWidgetSection";
@@ -87,7 +87,7 @@ const VisualiserProvider = ({
     Object.values(parsedQueryParameters).some(Boolean)
   );
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode } = useSiteContext();
 
   if (!contentSource) {
     return (
@@ -118,6 +118,7 @@ const VisualiserProvider = ({
         : undefined;
 
     pushToDataLayer({
+      event: "dxb.button_click",
       id: GtmEventsMap[type],
       label,
       action: productPath ? productPath : calculatePathFromData(params)

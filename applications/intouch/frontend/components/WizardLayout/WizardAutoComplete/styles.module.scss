@@ -1,0 +1,21 @@
+@import "@bmi/styles";
+
+.wizard {
+  padding: 10px;
+  text-align: left;
+}
+.option {
+  mark {
+    background-color: transparent;
+    font-weight: bold;
+  }
+}
+.popperDisablePortal {
+  position: relative;
+}
+.footer {
+  border-bottom: 1px solid $color-storm;
+  padding: 0px 5px;
+  font-weight: 300;
+  text-align: right;
+}

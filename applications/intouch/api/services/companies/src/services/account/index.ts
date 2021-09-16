@@ -1,12 +1,11 @@
 import crypto from "crypto";
 import camelcaseKeys from "camelcase-keys";
 import { FileUpload } from "graphql-upload";
-import { InviteInput, Role } from "@bmi/intouch-api-types";
-import { UpdateAccountInput } from "@bmi/intouch-api-types";
+import { AccountPatch, InviteInput, Role } from "@bmi/intouch-api-types";
+import { UpdateAccountInput, Market } from "@bmi/intouch-api-types";
 import { sendEmailWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
-import StorageClient from "../storage-client";
-import { Account } from "../../types";
+import { Account, PostGraphileContext } from "../../types";
 
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
@@ -18,7 +17,7 @@ export const createAccount = async (
   resolve,
   source,
   args,
-  context,
+  context: PostGraphileContext,
   resolveInfo
 ) => {
   const { pgSql: sql } = resolveInfo.graphile.build;
@@ -59,14 +58,14 @@ export const createAccount = async (
 
     // When the request started the user wasn't in the db so the parseUSer middleware didn't
     // append any information to the request object
-    const updatedContext = {
+    const updatedContext: PostGraphileContext = {
       ...context,
       user: {
         ...context.user,
         id: result.data.$account_id,
         market: {
           sendMailbox: markets[0].send_mailbox
-        }
+        } as Market
       }
     };
 
@@ -101,13 +100,14 @@ export const updateAccount = async (
   resolve,
   source,
   args: { input: UpdateAccountInput },
-  context,
+  context: PostGraphileContext,
   resolveInfo
 ) => {
   const { GCP_PRIVATE_BUCKET_NAME } = process.env;
 
-  const { pgClient, user, logger: Logger } = context;
-  const { photoUpload, role, shouldRemovePhoto } = args.input.patch;
+  const { pgClient, user, logger: Logger, storageClient } = context;
+  const { photoUpload, role, shouldRemovePhoto }: AccountPatch =
+    args.input.patch;
 
   const logger = Logger("service:account");
 
@@ -161,7 +161,7 @@ export const updateAccount = async (
         const level =
           role === "COMPANY_ADMIN" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
 
-        await updateUser({
+        await updateUser(context.clientGateway, {
           userid: `${result.data.$docebo_user_id}`,
           level
         });
@@ -185,14 +185,21 @@ export const updateAccount = async (
 
       const uploadedFile: FileUpload = await photoUpload;
 
-      args.input.patch.photo = newFileName;
-
-      const storageClient = new StorageClient();
-      await storageClient.uploadFileByStream(
-        GCP_PRIVATE_BUCKET_NAME,
-        newFileName,
-        uploadedFile
-      );
+      try {
+        await storageClient.uploadFileByStream(
+          GCP_PRIVATE_BUCKET_NAME,
+          newFileName,
+          uploadedFile
+        );
+        // update the photo only if successful
+        args.input.patch.photo = newFileName;
+        logger.info(`Succesfully uploaded profile picture file ${newFileName}`);
+      } catch (error) {
+        logger.error(
+          `Could not upload profile picture file ${newFileName}`,
+          error.toString()
+        );
+      }
     }
 
     // if the user wants to remove the image OR a new photo has been uploaded
@@ -207,7 +214,6 @@ export const updateAccount = async (
       // delete the previous image if it exists & is hosted on GCP Cloud storage
       // if the current image is externally hosted (i.e. starts with https://) it is probably mock data
       if (currentPhoto && !/^http(s):\/\//.test(currentPhoto)) {
-        const storageClient = new StorageClient();
         await storageClient.deleteFile(GCP_PRIVATE_BUCKET_NAME, currentPhoto);
       }
     }
@@ -475,23 +481,6 @@ export const completeInvitation = async (
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }
-};
-
-export const getAccountSignedPhotoUrl = async (photoName: string) => {
-  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
-  if (!photoName) {
-    return "";
-  }
-
-  const expireDate = new Date();
-  expireDate.setDate(expireDate.getDate() + 1);
-
-  const storageClient = new StorageClient();
-  return await storageClient.getFileSignedUrl(
-    GCP_PRIVATE_BUCKET_NAME,
-    photoName,
-    expireDate
-  );
 };
 
 export const resetPassword = async (

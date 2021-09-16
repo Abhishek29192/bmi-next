@@ -12,6 +12,7 @@ const mockAuth0Update = jest.fn();
 const mockAuth0GetUserByEmail = jest.fn();
 const mockAuth0CreateUser = jest.fn();
 const mockCreateResetPasswordTicket = jest.fn();
+const mockClientGateway = jest.fn();
 
 jest.mock("../../../services/events");
 jest.mock("../../../services/mailer");
@@ -59,6 +60,7 @@ describe("Account", () => {
       can: userCanMock
     },
     pubSub: mockPubSub,
+    clientGateway: mockClientGateway,
     pgClient: { query: mockQuery },
     pgRootPool: { query: mockRootQuery },
     logger
@@ -91,6 +93,9 @@ describe("Account", () => {
   describe("Update", () => {
     describe("Role", () => {
       it("should throw an error if an installer try to update the role", async () => {
+        const email1 = "joe@email.invalid";
+        const email2 = "jane@email.invalid";
+
         const {
           rows: [installer]
         } = await transaction(
@@ -100,8 +105,8 @@ describe("Account", () => {
             accountUuid: -1,
             accountEmail: ""
           },
-          "insert into account (role) VALUES($1) RETURNING *",
-          ["INSTALLER"]
+          "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
+          ["INSTALLER", "joe", "doe", email1]
         );
         await transaction(
           pool,
@@ -110,8 +115,8 @@ describe("Account", () => {
             accountUuid: -1,
             accountEmail: ""
           },
-          "insert into account (role) VALUES($1) RETURNING *",
-          ["COMPANY_ADMIN"]
+          "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
+          ["COMPANY_ADMIN", "jane", "doe", email2]
         );
 
         try {
@@ -128,6 +133,11 @@ describe("Account", () => {
         } catch (error) {
           expect(error.message).toEqual("permission denied for table account");
         }
+
+        await pool.query("delete from account where email = $1 OR email=$2", [
+          email1,
+          email2
+        ]);
       });
 
       it("should resolve if a company admin promote a installer", async () => {
@@ -167,10 +177,13 @@ describe("Account", () => {
         await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
 
         expect(mockResolve).toBeCalled();
-        expect(trainingSrv.updateUser).toBeCalledWith({
-          userid: "123456",
-          level: 4
-        });
+        expect(trainingSrv.updateUser).toBeCalledWith(
+          contextMock.clientGateway,
+          {
+            userid: "123456",
+            level: 4
+          }
+        );
         expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
           contextMock,
           "ROLE_ASSIGNED",
@@ -222,10 +235,13 @@ describe("Account", () => {
         await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
 
         expect(mockResolve).toBeCalled();
-        expect(trainingSrv.updateUser).toBeCalledWith({
-          userid: "123456",
-          level: 6
-        });
+        expect(trainingSrv.updateUser).toBeCalledWith(
+          contextMock.clientGateway,
+          {
+            userid: "123456",
+            level: 6
+          }
+        );
         expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
           contextMock,
           "ROLE_ASSIGNED",

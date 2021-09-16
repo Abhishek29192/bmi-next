@@ -5,7 +5,7 @@ import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as SiteData, SiteContext } from "../components/Site";
+import { Data as SiteData } from "../components/Site";
 import ProductOverview, {
   Data as ProductOverviewData
 } from "../components/ProductOverview";
@@ -25,6 +25,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { Product } from "../components/types/ProductBaseTypes";
+import { getBimIframeUrl } from "../components/BimIframe";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -54,6 +55,17 @@ const transformImages = (images) => {
     media: <img src={mainSource} alt={altText} />,
     thumbnail
   }));
+};
+
+const getDescription = (product: Product, variantCode?: string): string => {
+  if (!variantCode) return product.description;
+
+  const variantProduct = product.variantOptions.find(
+    ({ code }) => code === variantCode
+  );
+
+  if (variantProduct) return variantProduct.longDescription;
+  return product.description;
 };
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
@@ -97,6 +109,14 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     seo: null
   };
 
+  const bimIframeUrl = getBimIframeUrl(product.assets);
+
+  const variantCodeToPathMap: VariantCodeToPathMap =
+    product.variantOptions.reduce(
+      (carry, { code, path }) => ({ ...carry, [code]: path }),
+      {}
+    );
+
   return (
     <Page
       brand={brandCode}
@@ -106,128 +126,122 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={selfProduct?.images?.[0].url}
     >
-      {breadcrumbs && (
-        <Section backgroundColor="pearl" isSlim>
-          <Breadcrumbs data={breadcrumbs} />
-        </Section>
-      )}
-      <Container>
-        <SiteContext.Consumer>
-          {({ getMicroCopy }) => {
-            const variantCodeToPathMap: VariantCodeToPathMap =
-              product.variantOptions.reduce(
-                (carry, { code, path }) => ({ ...carry, [code]: path }),
-                {}
-              );
-            const sizeMicrocopy = getMicroCopy("pdp.overview.size");
-            return (
-              <ProductOverview
-                data={{
-                  name: product.name,
-                  brandName: brandCode || "",
-                  nobb: selfProduct.externalProductCode || null,
-                  images: transformImages(
-                    mapGalleryImages([
-                      ...(selfProduct.images || []),
-                      ...(product.images || [])
-                    ])
-                  ),
-                  attributes: getProductAttributes(
-                    productClassifications,
-                    selfProduct,
-                    pageContext.countryCode,
-                    {
-                      size: sizeMicrocopy
-                    },
-                    variantCodeToPathMap
-                  )
-                }}
-              >
-                {resources?.pdpShareWidget && (
-                  <ShareWidgetSection
-                    data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
-                    hasNoPadding={true}
-                  />
-                )}
-              </ProductOverview>
-            );
-          }}
-        </SiteContext.Consumer>
-      </Container>
-      <Section backgroundColor="white">
-        <ProductLeadBlock
-          description={product.description}
-          keyFeatures={product.productBenefits}
-          sidebarItems={resources?.pdpSidebarItems}
-          guaranteesAndWarranties={product.assets?.filter(
-            (asset) =>
-              asset.assetType === "GUARANTIES" ||
-              asset.assetType === "WARRANTIES"
+      {({ siteContext: { getMicroCopy } }) => (
+        <>
+          {breadcrumbs && (
+            <Section backgroundColor="pearl" isSlim>
+              <Breadcrumbs data={breadcrumbs} />
+            </Section>
           )}
-          awardsAndCertificates={product.assets?.filter(
-            (asset) =>
-              asset.assetType === "AWARDS" || asset.assetType === "CERTIFICATES"
-          )}
-          documents={product.documents}
-          validClassifications={validClassifications}
-          classificationNamespace={
-            pageContext.pimClassificationCatalogueNamespace
-          }
-        />
-      </Section>
-      <RelatedProducts
-        countryCode={pageContext.countryCode}
-        classificationNamespace={
-          pageContext.pimClassificationCatalogueNamespace
-        }
-        products={relatedProducts.nodes}
-      />
-      {resources?.pdpCardsTitle && resources.pdpCards && (
-        <Section backgroundColor="alabaster">
-          <Section.Title>{resources.pdpCardsTitle}</Section.Title>
-          <Grid container spacing={3}>
-            {resources.pdpCards.map(
-              (
-                { title, featuredVideo, featuredMedia, ...data },
-                index,
-                cards
-              ) => {
-                const cta = getCTA(data, countryCode);
-                return (
-                  <Grid
-                    item
-                    key={`card-${index}`}
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    lg={(12 / Math.max(cards.length, 3)) as GridSize}
-                  >
-                    <CTACard
-                      title={title}
-                      media={
-                        featuredVideo
-                          ? renderVideo(featuredVideo)
-                          : renderImage(featuredMedia)
-                      }
-                      clickableArea={featuredVideo ? "heading" : "full"}
-                      action={cta?.action}
-                    />
-                  </Grid>
-                );
+          <Container>
+            <ProductOverview
+              data={{
+                name: product.name,
+                brandName: brandCode || "",
+                nobb: selfProduct.externalProductCode || null,
+                images: transformImages(
+                  mapGalleryImages([
+                    ...(selfProduct.images || []),
+                    ...(product.images || [])
+                  ])
+                ),
+                attributes: getProductAttributes(
+                  productClassifications,
+                  selfProduct,
+                  pageContext.countryCode,
+                  {
+                    size: getMicroCopy("pdp.overview.size")
+                  },
+                  variantCodeToPathMap
+                )
+              }}
+            >
+              {resources?.pdpShareWidget && (
+                <ShareWidgetSection
+                  data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
+                  hasNoPadding={true}
+                />
+              )}
+            </ProductOverview>
+          </Container>
+          <Section backgroundColor="white">
+            <ProductLeadBlock
+              description={getDescription(product, pageContext.variantCode)}
+              keyFeatures={product.productBenefits}
+              sidebarItems={resources?.pdpSidebarItems}
+              guaranteesAndWarranties={product.assets?.filter(
+                (asset) =>
+                  asset.assetType === "GUARANTIES" ||
+                  asset.assetType === "WARRANTIES"
+              )}
+              awardsAndCertificates={product.assets?.filter(
+                (asset) =>
+                  asset.assetType === "AWARDS" ||
+                  asset.assetType === "CERTIFICATES"
+              )}
+              documents={product.documents}
+              validClassifications={validClassifications}
+              classificationNamespace={
+                pageContext.pimClassificationCatalogueNamespace
               }
-            )}
-          </Grid>
-        </Section>
-      )}
-      {resources?.pdpExploreBar && (
-        <Section backgroundColor="alabaster">
-          <ExploreBar data={resources.pdpExploreBar} />
-        </Section>
-      )}
-      {breadcrumbs && (
-        <Section backgroundColor="pearl" isSlim>
-          <Breadcrumbs data={breadcrumbs} />
-        </Section>
+              bimIframeUrl={bimIframeUrl}
+            />
+          </Section>
+          <RelatedProducts
+            countryCode={pageContext.countryCode}
+            classificationNamespace={
+              pageContext.pimClassificationCatalogueNamespace
+            }
+            products={relatedProducts.nodes}
+          />
+          {resources?.pdpCardsTitle && resources.pdpCards && (
+            <Section backgroundColor="alabaster">
+              <Section.Title>{resources.pdpCardsTitle}</Section.Title>
+              <Grid container spacing={3}>
+                {resources.pdpCards.map(
+                  (
+                    { title, featuredVideo, featuredMedia, ...data },
+                    index,
+                    cards
+                  ) => {
+                    const cta = getCTA(data, countryCode);
+                    return (
+                      <Grid
+                        item
+                        key={`card-${index}`}
+                        xs={12}
+                        sm={6}
+                        md={4}
+                        lg={(12 / Math.max(cards.length, 3)) as GridSize}
+                      >
+                        <CTACard
+                          title={title}
+                          media={
+                            featuredVideo
+                              ? renderVideo(featuredVideo)
+                              : renderImage(featuredMedia)
+                          }
+                          clickableArea={featuredVideo ? "heading" : "full"}
+                          action={cta?.action}
+                        />
+                      </Grid>
+                    );
+                  }
+                )}
+              </Grid>
+            </Section>
+          )}
+          {resources?.pdpExploreBar && (
+            <Section backgroundColor="alabaster">
+              <ExploreBar data={resources.pdpExploreBar} />
+            </Section>
+          )}
+          {breadcrumbs && (
+            <Section backgroundColor="pearl" isSlim>
+              <Breadcrumbs data={breadcrumbs} />
+            </Section>
+          )}
+        </>
       )}
     </Page>
   );

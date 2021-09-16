@@ -10,8 +10,10 @@ import {
 } from "../components/types/ProductBaseTypes";
 import { GalleryImageType } from "../templates/systemDetails/types";
 import { Image } from "../components/types/ProductBaseTypes";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 
-export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
+export const getProductUrl = (countryCode, path) =>
+  getPathWithCountryCode(countryCode, path);
 
 const getProductProp = (classifications, productCode, propName) =>
   classifications[productCode] ? classifications[productCode][propName] : null;
@@ -87,7 +89,7 @@ export const findMasterImageUrl = (images): string => {
 export const findProductBrandLogoCode = (product: Product) => {
   return result<string>(
     find(product.categories, {
-      parentCategoryCode: "BMI_Brands"
+      categoryType: "Brands"
     }),
     "code"
   );

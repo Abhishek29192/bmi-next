@@ -2,7 +2,7 @@ test_es-pim-products-ingest:
   extends: .test_jest
   variables:
     WORKSPACE: "@bmi/es-pim-products-ingest"
-    ROOT_DIR: "applications/functions/es-pim-products-ingest"
+    ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
 
 build_es-pim-products-ingest:
   extends: .build_function

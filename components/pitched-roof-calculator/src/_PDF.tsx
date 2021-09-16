@@ -13,7 +13,8 @@ import {
 } from "@bmi/react-pdf-maker";
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import EffraBold from "./fonts/Effra_Bd.ttf";
-import { ResultsObject } from "./types";
+import { ResultsObject, ResultsRow } from "./types";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
 const MARGIN_LEFT = 25;
@@ -351,14 +352,15 @@ type PdfDocumentProps = {
 };
 
 const mapResultsRow = ({
+  image,
   description,
   packSize,
   externalProductCode,
   quantity
-}) => (
+}: ResultsRow) => (
   <ResultsTableTemplate.Row key={externalProductCode}>
     <ResultsTableTemplate.Cell hasWrapperRemoved>
-      <Img src={externalProductCode} fit={[50, 50]} />
+      {image ? <Img src={image} fit={[50, 50]} /> : ""}
     </ResultsTableTemplate.Cell>
     <ResultsTableTemplate.Cell>{description}</ResultsTableTemplate.Cell>
     <ResultsTableTemplate.Cell>{packSize}</ResultsTableTemplate.Cell>
@@ -378,15 +380,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
       35 /* Bottom (should include footer space) */
     ]}
     header={<Header />}
-    images={Object.values(results).reduce((acc, items) => {
-      items.forEach(
-        ({ image, externalProductCode }) =>
-          (acc[externalProductCode] = image.includes("://")
-            ? image
-            : window.location.origin + "/" + image)
-      );
-      return acc;
-    }, {})}
+    images={{}}
     pageBreakBefore={shouldAddPageBreak}
     defaultStyle={{
       font: "Effra"
@@ -401,7 +395,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     </Typography>
     <Typography variant="body1" center margin={[100, 0, 100, 0]}>
       {getMicroCopy("results.subtitle", {
-        contingency: "0"
+        contingency: CONTINGENCY_PERCENTAGE_TEXT
       })}
     </Typography>
     <Typography variant="h5" margin={[0, 25, 0, 10]}>
@@ -459,7 +453,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     </Alert>
     <Alert title={getMicroCopy("results.alerts.needToKnow.title")}>
       {getMicroCopy("results.alerts.needToKnow.text", {
-        contingency: "0"
+        contingency: CONTINGENCY_PERCENTAGE_TEXT
       })}
     </Alert>
   </Document>

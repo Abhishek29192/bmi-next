@@ -365,6 +365,11 @@ export const NavigationListButton = ({
       active && styles["NavigationListButton--active"]
     )}
     variant="text"
+    classes={{
+      outlinedPrimary: classnames(
+        !rest.isIconButton && styles["NavigationListButton--outline"]
+      )
+    }}
     {...rest}
   >
     {children}

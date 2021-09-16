@@ -144,6 +144,7 @@ export const mapProductClassifications = (
   const SCORE_WEIGHT = "scoringWeightAttributes";
   const APPEARANCE = "appearanceAttributes";
   const MEASUREMENTS = "measurements";
+  const GENERAL_INFORMATION = "generalInformation";
 
   const FEATURES = {
     SCORE_WEIGHT: `${classificationNamepace}/scoringWeightAttributes.scoringweight`,
@@ -152,7 +153,9 @@ export const mapProductClassifications = (
     COLOUR_FAMILY: `${classificationNamepace}/appearanceAttributes.colourfamily`,
     LENGTH: `${classificationNamepace}/measurements.length`,
     WIDTH: `${classificationNamepace}/measurements.width`,
-    HEIGHT: `${classificationNamepace}/measurements.height`
+    HEIGHT: `${classificationNamepace}/measurements.height`,
+    THICKNESS: `${classificationNamepace}/${MEASUREMENTS}.thickness`,
+    MATERIALS: `${classificationNamepace}/${GENERAL_INFORMATION}.materials`
   };
 
   return Object.entries(allProducts).reduce((carry, [productCode, product]) => {
@@ -220,7 +223,12 @@ export const mapProductClassifications = (
       if (code === MEASUREMENTS) {
         features?.forEach(({ code, name, featureValues, featureUnit }) => {
           if (
-            [FEATURES.LENGTH, FEATURES.WIDTH, FEATURES.HEIGHT].includes(code)
+            [
+              FEATURES.LENGTH,
+              FEATURES.WIDTH,
+              FEATURES.HEIGHT,
+              FEATURES.THICKNESS
+            ].includes(code)
           ) {
             const productObject = carry[productCode];
             const measurements = productObject
@@ -240,6 +248,16 @@ export const mapProductClassifications = (
                 }
               }
             };
+          }
+        });
+      }
+      if (code === GENERAL_INFORMATION) {
+        features?.forEach(({ code, name, featureValues }) => {
+          if (code === FEATURES.MATERIALS) {
+            carryProp("materials", {
+              name,
+              value: featureValues ? featureValues[0] : "n/a"
+            });
           }
         });
       }

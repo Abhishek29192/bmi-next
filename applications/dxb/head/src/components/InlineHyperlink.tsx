@@ -3,8 +3,9 @@ import { graphql, Link } from "gatsby";
 import { Inline } from "@contentful/rich-text-types";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import withGTM from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import { getClickableActionFromUrl, getLinkURL, renderDialog } from "./Link";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
 
@@ -28,7 +29,7 @@ type Props = {
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const InlineHyperlink = ({ node, children }: Props) => {
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
@@ -108,13 +109,19 @@ const InlineHyperlink = ({ node, children }: Props) => {
     <GTMAnchorLink
       action={{
         model: "routerLink",
-        to: `/${countryCode}/${fields.path}`.replace(/\/+/gi, "/"),
+        to: getPathWithCountryCode(countryCode, fields.path).replace(
+          /\/+/gi,
+          "/"
+        ),
         linkComponent: Link
       }}
       gtm={{
         id: "cta-click1",
         label: children[0][1],
-        action: `/${countryCode}/${fields.path}`.replace(/\/+/gi, "/")
+        action: getPathWithCountryCode(countryCode, fields.path).replace(
+          /\/+/gi,
+          "/"
+        )
       }}
     >
       {children}

@@ -50,30 +50,35 @@ const TileSelectionRow = ({
   return (
     <FieldContainer title={title}>
       <CardRadioGroup name="tile" defaultValue={(selected || {}).code}>
-        {options.map((tile) => (
-          <CardRadioGroup.Item
-            key={tile.code}
-            value={tile.code}
-            title={tile.name}
-            imageSource={tile.variants.slice().sort(byName)[0].image}
-            onClick={() => {
-              pushEvent({
-                id: "rc-select-tile",
-                label: tile.name,
-                action: "selected"
-              });
-              select(tile);
-            }}
-          >
-            <CardRadioGroup.Item.Paragraph>
-              {`${tile.variants.length} ${
-                tile.variants.length === 1
-                  ? getMicroCopy(copy, `tileSelection.color`)
-                  : getMicroCopy(copy, `tileSelection.colors`)
-              }`}
-            </CardRadioGroup.Item.Paragraph>
-          </CardRadioGroup.Item>
-        ))}
+        {options.map((tile) => {
+          const colorsText = `${tile.variants.length} ${
+            tile.variants.length === 1
+              ? getMicroCopy(copy, `tileSelection.color`)
+              : getMicroCopy(copy, `tileSelection.colors`)
+          }`;
+
+          return (
+            <CardRadioGroup.Item
+              key={tile.code}
+              value={tile.code}
+              title={tile.name}
+              imageSource={tile.variants.slice().sort(byName)[0].image}
+              onClick={() => {
+                pushEvent({
+                  event: "dxb.button_click",
+                  id: "rc-select-tile",
+                  label: `${tile.name} - ${colorsText}`,
+                  action: "selected"
+                });
+                select(tile);
+              }}
+            >
+              <CardRadioGroup.Item.Paragraph>
+                {colorsText}
+              </CardRadioGroup.Item.Paragraph>
+            </CardRadioGroup.Item>
+          );
+        })}
       </CardRadioGroup>
     </FieldContainer>
   );

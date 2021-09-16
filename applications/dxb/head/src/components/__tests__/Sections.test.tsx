@@ -2,13 +2,13 @@ import React from "react";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
-import { SiteContext } from "../Site";
+import { SiteContextProvider } from "../Site";
 import { serviceTypes } from "../Service";
 import createService from "../../__tests__/ServiceHelper";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
-    <SiteContext.Provider
+    <SiteContextProvider
       value={{
         node_locale: "en-UK",
         homePage: { title: "Home Page" },
@@ -19,7 +19,7 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       {children}
-    </SiteContext.Provider>
+    </SiteContextProvider>
   );
 };
 

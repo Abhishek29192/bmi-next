@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import TableOfContent from "@bmi/table-of-content";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import RichText, { RichTextData } from "./RichText";
 import Link, { Data as LinkData } from "./Link";
 
@@ -17,11 +17,11 @@ export type Data = {
 };
 
 const LeadBlockSection = ({
-  data: { title, text, link, postItCard }
+  data: { text, link, postItCard }
 }: {
   data: Data;
 }) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy } = useSiteContext();
 
   return (
     <Section backgroundColor="white">
@@ -48,7 +48,6 @@ const LeadBlockSection = ({
             {postItCard ? (
               <RichText
                 document={postItCard}
-                backgroundTheme="dark"
                 underlineHeadings={["h2", "h3", "h4"]}
               />
             ) : (

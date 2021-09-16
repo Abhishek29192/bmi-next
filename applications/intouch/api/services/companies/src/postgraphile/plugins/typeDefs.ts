@@ -65,12 +65,17 @@ export default gql`
   }
 
   type ContentfulEvidenceCategory {
+    sys: ContentfulSys!
     name: String
     description: String
     minimumUploads: Int
+    referenceCode: String
   }
 
   type ContentfulGuaranteeTemplate {
+    coverage: String
+    languageCode: String
+    languageDescriptor: String
     approvalMessage: ContentfulMessage
     rejectionMessage: ContentfulMessage
     terms: ContentfulAsset
@@ -96,8 +101,8 @@ export default gql`
     footer: String
     mailBody: String
     filenamePrefix: String
-    lockupLine1: String
-    lockupLine2: String
+    titleLine1: String
+    titleLine2: String
     roofType: String
   }
   type ContentfulGuaranteeTemplatesCollection {
@@ -108,26 +113,37 @@ export default gql`
   }
 
   type ContentfulGuaranteeType {
+    sys: ContentfulSys!
     displayName: String
     technology: ContentfulTechnologyType
     coverage: ContentfulGuaranteeCoverageType
+    guaranteeReferenceCode: GuaranteeReferenceCode
     name: String
     signature: ContentfulAsset
     maximumValidityYears: Int
-    tiersAvailable: ContentfulTiers
+    tiersAvailable: [ContentfulTiers]
     ranking: Int
     evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
     guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
+  }
+  type ContentfulGuaranteeTypeCollection {
+    items: [ContentfulGuaranteeType]
+  }
+
+  type ContentfulSys {
+    id: String!
   }
 
   type PublishOutput {
     messageId: String
   }
   extend type Company {
-    certifications: [Technology]
+    certifications: [Technology]!
+    isProfileComplete: Boolean!
   }
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType
+    guaranteeTypes: ContentfulGuaranteeTypeCollection
   }
   extend type EvidenceItem {
     customEvidenceCategory: ContentfulEvidenceCategory
@@ -135,6 +151,18 @@ export default gql`
   extend type Account {
     formattedRole: String
     signedPhotoUrl: String
+  }
+
+  enum GuaranteeEventType {
+    SUBMIT_SOLUTION
+    ASSIGN_SOLUTION
+    REASSIGN_SOLUTION
+    UNASSIGN_SOLUTION
+    APPROVE_SOLUTION
+    REJECT_SOLUTION
+  }
+  extend input UpdateGuaranteeInput {
+    guaranteeEventType: GuaranteeEventType
   }
 
   extend input AccountInput {
@@ -145,6 +173,11 @@ export default gql`
   extend input AccountPatch {
     photoUpload: Upload
     shouldRemovePhoto: Boolean
+  }
+
+  extend input CompanyPatch {
+    logoUpload: Upload
+    shouldRemoveLogo: Boolean
   }
 
   input PublishInput {
@@ -176,11 +209,21 @@ export default gql`
     dryRun: Boolean
   }
 
-  type ImportPayload {
-    systemsToUpdate: [System]
-    systemsToInsert: [System]
-    productsToUpdate: [Product]
-    productsToInsert: [Product]
+  type ImportError {
+    ref: String
+    message: String
+  }
+
+  type ImportOutput {
+    systemsToUpdate: [System!]
+    systemsToInsert: [System!]
+    productsToUpdate: [Product!]
+    productsToInsert: [Product!]
+    errorSystemsToUpdate: [ImportError!]
+    errorSystemsToInsert: [ImportError!]
+    errorProductsToUpdate: [ImportError!]
+    errorProductsToInsert: [ImportError!]
+    errorSystemMembersInsert: [ImportError!]
   }
 
   extend input EvidenceItemInput {
@@ -193,6 +236,6 @@ export default gql`
     createGuaranteePdf(id: Int!): PublishOutput
     invite(input: InviteInput!): [Invitation]
     completeInvitation(companyId: Int!): Account
-    bulkImport(input: BulkImportInput!): ImportPayload
+    bulkImport(input: BulkImportInput!): ImportOutput
   }
 `;

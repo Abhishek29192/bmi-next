@@ -43,6 +43,58 @@ Array [
 ]
 `;
 
+exports[`OverviewCard component removes clickable class when the area is none 1`] = `
+<div>
+  <div
+    class="OverviewCard"
+    type="button"
+  >
+    <img
+      alt="Lorem ipsum"
+      class="header-picture Media"
+      src="path-to-image"
+    />
+    <div
+      class="body"
+    >
+      <svg
+        class="brand-logo brand-logo--negative"
+        preserveAspectRatio="xMinYMin"
+      />
+      <h4
+        class="MuiTypography-root title Typography MuiTypography-h4"
+      >
+        Heading
+      </h4>
+      <div
+        class="children text"
+      >
+        We do the things
+      </div>
+      <div
+        class="footer"
+      >
+        <span
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-104"
+          >
+            Go to this
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`OverviewCard component renders as a flat card 1`] = `
 <div
   class="OverviewCard OverviewCard--flat"
@@ -62,7 +114,16 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     <h4
       class="MuiTypography-root title Typography MuiTypography-h4"
     >
-      Heading
+      <button
+        class="MuiButtonBase-root clickable"
+        tabindex="0"
+        type="button"
+      >
+        Heading
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
     </h4>
     <div
       class="children text"
@@ -74,12 +135,12 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-64"
         >
           Go to this
         </span>
@@ -90,6 +151,49 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`OverviewCard component renders as a flat card 2`] = `
+Array [
+  Array [
+    Class {
+      "_dispatchInstances": null,
+      "_dispatchListeners": null,
+      "_targetInst": null,
+      "altKey": null,
+      "bubbles": null,
+      "button": null,
+      "buttons": null,
+      "cancelable": null,
+      "clientX": null,
+      "clientY": null,
+      "ctrlKey": null,
+      "currentTarget": [Function],
+      "defaultPrevented": null,
+      "detail": null,
+      "dispatchConfig": null,
+      "eventPhase": null,
+      "getModifierState": [Function],
+      "isDefaultPrevented": [Function],
+      "isPropagationStopped": [Function],
+      "isTrusted": null,
+      "metaKey": null,
+      "movementX": [Function],
+      "movementY": [Function],
+      "nativeEvent": null,
+      "pageX": null,
+      "pageY": null,
+      "relatedTarget": [Function],
+      "screenX": null,
+      "screenY": null,
+      "shiftKey": null,
+      "target": null,
+      "timeStamp": [Function],
+      "type": null,
+      "view": null,
+    },
+  ],
+]
 `;
 
 exports[`OverviewCard component renders correctly 1`] = `
@@ -125,12 +229,12 @@ exports[`OverviewCard component renders correctly 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-4"
         >
           Go to this
         </span>
@@ -267,12 +371,12 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-24"
         >
           Go to this
         </span>
@@ -320,12 +424,12 @@ exports[`OverviewCard component renders with deprecated imageSource 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-44"
         >
           Go to this
         </span>

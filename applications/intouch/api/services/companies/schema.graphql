@@ -864,6 +864,8 @@ type Query implements Node {
   address(id: Int!): Address
   certification(id: Int!): Certification
   company(id: Int!): Company
+  companyByName(name: String!): Company
+  companyByReferenceNumber(referenceNumber: String!): Company
   companyDocument(id: Int!): CompanyDocument
   companyMember(id: Int!): CompanyMember
   companyMemberByMarketIdAndAccountIdAndCompanyId(
@@ -874,6 +876,7 @@ type Query implements Node {
   companyOperation(id: Int!): CompanyOperation
   evidenceItem(id: Int!): EvidenceItem
   guarantee(id: Int!): Guarantee
+  guaranteeByBmiReferenceId(bmiReferenceId: String!): Guarantee
   invitation(id: Int!): Invitation
   market(id: Int!): Market
   marketByDomain(domain: String!): Market
@@ -887,9 +890,10 @@ type Query implements Node {
   system(id: Int!): System
   systemByBmiRef(bmiRef: String!): System
   systemMember(id: Int!): SystemMember
-  systemMemberBySystemBmiRefAndProductBmiRef(
+  systemMemberBySystemBmiRefAndProductBmiRefAndMarketId(
     systemBmiRef: String!
     productBmiRef: String!
+    marketId: Int!
   ): SystemMember
   currentAccountEmail: String
   currentAccountId: Int
@@ -1301,7 +1305,7 @@ type Account implements Node {
   """
   The email address associated with the account
   """
-  email: String
+  email: String!
 
   """
   A phone number that can optionally be provided, and is useful for Company Admin people to provide
@@ -1311,12 +1315,12 @@ type Account implements Node {
   """
   First name
   """
-  firstName: String
+  firstName: String!
 
   """
   Last name
   """
-  lastName: String
+  lastName: String!
 
   """
   When the account was created
@@ -1757,12 +1761,12 @@ type Market implements Node {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
@@ -1817,7 +1821,12 @@ type Market implements Node {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: Point
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -2050,6 +2059,52 @@ type Market implements Node {
     """
     filter: SystemFilter
   ): SystemsConnection!
+
+  """
+  Reads and enables pagination through a set of `SystemMember`.
+  """
+  systemMembers(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `SystemMember`.
+    """
+    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SystemMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemMemberFilter
+  ): SystemMembersConnection!
 }
 
 enum Language {
@@ -2065,6 +2120,11 @@ enum Language {
   PL
   ES
   FI
+}
+
+type Point {
+  x: Float!
+  y: Float!
 }
 
 """
@@ -2499,11 +2559,6 @@ type Company implements Node {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -2814,7 +2869,8 @@ type Company implements Node {
     """
     filter: ProjectFilter
   ): ProjectsConnection!
-  certifications: [Technology]
+  certifications: [Technology]!
+  isProfileComplete: Boolean!
 }
 
 enum BusinessType {
@@ -2854,7 +2910,7 @@ type Address implements Node {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -2879,7 +2935,7 @@ type Address implements Node {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -3078,11 +3134,6 @@ type Address implements Node {
   ): ProjectsConnection!
 }
 
-type Point {
-  x: Float!
-  y: Float!
-}
-
 """
 Methods to use when ordering `Company`.
 """
@@ -3096,6 +3147,10 @@ enum CompaniesOrderBy {
   REGISTERED_ADDRESS_ID_DESC
   TRADING_ADDRESS_ID_ASC
   TRADING_ADDRESS_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  REFERENCE_NUMBER_ASC
+  REFERENCE_NUMBER_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -3123,6 +3178,16 @@ input CompanyCondition {
   Checks for equality with the object’s `tradingAddressId` field.
   """
   tradingAddressId: Int
+
+  """
+  Checks for equality with the object’s `name` field.
+  """
+  name: String
+
+  """
+  Checks for equality with the object’s `referenceNumber` field.
+  """
+  referenceNumber: String
 }
 
 """
@@ -3148,6 +3213,16 @@ input CompanyFilter {
   Filter by the object’s `tradingAddressId` field.
   """
   tradingAddressId: IntFilter
+
+  """
+  Filter by the object’s `name` field.
+  """
+  name: StringFilter
+
+  """
+  Filter by the object’s `referenceNumber` field.
+  """
+  referenceNumber: StringFilter
 
   """
   Checks for all expressions in this list.
@@ -3207,7 +3282,7 @@ type Project implements Node {
   """
   fk
   """
-  companyId: Int
+  companyId: Int!
 
   """
   fk
@@ -3222,12 +3297,12 @@ type Project implements Node {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -3242,7 +3317,7 @@ type Project implements Node {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -3267,12 +3342,12 @@ type Project implements Node {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -3522,14 +3597,14 @@ type EvidenceItem implements Node {
   id: Int!
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
   """
-  projectId: Int
+  projectId: Int!
 
   """
   fk
@@ -3544,12 +3619,12 @@ type EvidenceItem implements Node {
   """
   Short name for the item of evidence
   """
-  name: String
+  name: String!
 
   """
   File reference or the file itself. Photo of the evidence
   """
-  attachment: String
+  attachment: String!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -3563,6 +3638,34 @@ type EvidenceItem implements Node {
   """
   guarantee: Guarantee
   customEvidenceCategory: ContentfulEvidenceCategory
+}
+
+enum CustomEvidenceCategoryKey {
+  PITCHED_DETAILS
+  PITCHED_TILES
+  PITCHED_BASE
+  PITCHED_UNDERLAY
+  PITCHED_VENTILATION
+  PITCHED_PENETRATIONS
+  PITCHED_FIXINGS
+  PITCHED_INSULATION
+  PITCHED_INSPECTION
+  PITCHED_SAFETY
+  PITCHED_PLAN
+  FLAT_DETAILS
+  FLAT_TOP
+  FLAT_BASE
+  FLAT_LAYER
+  FLAT_VENTILATION
+  FLAT_PENETRATIONS
+  FLAT_FIXINGS
+  FLAT_INSULATION
+  FLAT_SAFETY
+  FLAT_PLAN
+  MISC_1
+  MISC_2
+  MISC_3
+  MISC_4
 }
 
 enum EvidenceCategoryType {
@@ -3598,12 +3701,12 @@ type Guarantee implements Node {
   """
   fk
   """
-  projectId: Int
+  projectId: Int!
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -3621,9 +3724,14 @@ type Guarantee implements Node {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -3718,6 +3826,22 @@ type Guarantee implements Node {
     filter: EvidenceItemFilter
   ): EvidenceItemsConnection!
   guaranteeType: ContentfulGuaranteeType
+  guaranteeTypes: ContentfulGuaranteeTypeCollection
+}
+
+enum GuaranteeReferenceCode {
+  FLAT_PRODUCT
+  FLAT_SYSTEM
+  FLAT_SOLUTION
+  PITCHED_PRODUCT
+  PITCHED_SYSTEM
+  PITCHED_SOLUTION
+}
+
+enum GuaranteeCoverage {
+  PRODUCT
+  SYSTEM
+  SOLUTION
 }
 
 enum RequestStatus {
@@ -3745,22 +3869,22 @@ type System implements Node {
   """
   fk
   """
-  marketId: Int
+  marketId: Int!
 
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -3770,12 +3894,12 @@ type System implements Node {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -3959,6 +4083,8 @@ enum GuaranteesOrderBy {
   PRODUCT_BMI_REF_DESC
   REVIEWER_ACCOUNT_ID_ASC
   REVIEWER_ACCOUNT_ID_DESC
+  BMI_REFERENCE_ID_ASC
+  BMI_REFERENCE_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -3997,6 +4123,11 @@ input GuaranteeCondition {
   Checks for equality with the object’s `reviewerAccountId` field.
   """
   reviewerAccountId: Int
+
+  """
+  Checks for equality with the object’s `bmiReferenceId` field.
+  """
+  bmiReferenceId: String
 }
 
 """
@@ -4032,6 +4163,11 @@ input GuaranteeFilter {
   Filter by the object’s `reviewerAccountId` field.
   """
   reviewerAccountId: IntFilter
+
+  """
+  Filter by the object’s `bmiReferenceId` field.
+  """
+  bmiReferenceId: StringFilter
 
   """
   Checks for all expressions in this list.
@@ -4091,12 +4227,17 @@ type SystemMember implements Node {
   """
   fk
   """
-  systemBmiRef: String
+  systemBmiRef: String!
 
   """
   fk
   """
-  productBmiRef: String
+  productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -4109,6 +4250,11 @@ type SystemMember implements Node {
   Reads a single `Product` that is related to this `SystemMember`.
   """
   productByProductBmiRef: Product
+
+  """
+  Reads a single `Market` that is related to this `SystemMember`.
+  """
+  market: Market
 }
 
 """
@@ -4128,27 +4274,27 @@ type Product implements Node {
   """
   fk
   """
-  marketId: Int
+  marketId: Int!
 
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -4158,17 +4304,17 @@ type Product implements Node {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -4281,6 +4427,8 @@ enum SystemMembersOrderBy {
   SYSTEM_BMI_REF_DESC
   PRODUCT_BMI_REF_ASC
   PRODUCT_BMI_REF_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -4304,6 +4452,11 @@ input SystemMemberCondition {
   Checks for equality with the object’s `productBmiRef` field.
   """
   productBmiRef: String
+
+  """
+  Checks for equality with the object’s `marketId` field.
+  """
+  marketId: Int
 }
 
 """
@@ -4324,6 +4477,11 @@ input SystemMemberFilter {
   Filter by the object’s `productBmiRef` field.
   """
   productBmiRef: StringFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
 
   """
   Checks for all expressions in this list.
@@ -4428,16 +4586,22 @@ input EvidenceItemFilter {
 }
 
 type ContentfulGuaranteeType {
+  sys: ContentfulSys!
   displayName: String
   technology: ContentfulTechnologyType
   coverage: ContentfulGuaranteeCoverageType
+  guaranteeReferenceCode: GuaranteeReferenceCode
   name: String
   signature: ContentfulAsset
   maximumValidityYears: Int
-  tiersAvailable: ContentfulTiers
+  tiersAvailable: [ContentfulTiers]
   ranking: Int
   evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
   guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
+}
+
+type ContentfulSys {
+  id: String!
 }
 
 enum ContentfulTechnologyType {
@@ -4472,9 +4636,11 @@ type ContentfulEvidenceCategoryCollection {
 }
 
 type ContentfulEvidenceCategory {
+  sys: ContentfulSys!
   name: String
   description: String
   minimumUploads: Int
+  referenceCode: String
 }
 
 type ContentfulGuaranteeTemplatesCollection {
@@ -4482,6 +4648,9 @@ type ContentfulGuaranteeTemplatesCollection {
 }
 
 type ContentfulGuaranteeTemplate {
+  coverage: String
+  languageCode: String
+  languageDescriptor: String
   approvalMessage: ContentfulMessage
   rejectionMessage: ContentfulMessage
   terms: ContentfulAsset
@@ -4507,8 +4676,8 @@ type ContentfulGuaranteeTemplate {
   footer: String
   mailBody: String
   filenamePrefix: String
-  lockupLine1: String
-  lockupLine2: String
+  titleLine1: String
+  titleLine2: String
   roofType: String
 }
 
@@ -4539,6 +4708,10 @@ enum ContentfulMessageEventType {
 enum ContentfulMessageFormat {
   EMAIL
   NOTIFICATION
+}
+
+type ContentfulGuaranteeTypeCollection {
+  items: [ContentfulGuaranteeType]
 }
 
 """
@@ -4603,7 +4776,7 @@ type Note implements Node {
   """
   fk
   """
-  projectId: Int
+  projectId: Int!
 
   """
   The body of the Note
@@ -4750,7 +4923,7 @@ type ProjectMember implements Node {
   """
   fk
   """
-  projectId: Int
+  projectId: Int!
 
   """
   fk
@@ -5203,17 +5376,17 @@ type CompanyMember implements Node {
   """
   fk
   """
-  marketId: Int
+  marketId: Int!
 
   """
   fk
   """
-  accountId: Int
+  accountId: Int!
 
   """
   fk
   """
-  companyId: Int
+  companyId: Int!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -5373,12 +5546,12 @@ type CompanyOperation implements Node {
   """
   fk
   """
-  company: Int
+  company: Int!
 
   """
   ek
   """
-  operation: Operation
+  operation: Operation!
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -5519,17 +5692,17 @@ type Invitation implements Node {
   """
   fk
   """
-  companyId: Int
+  companyId: Int!
 
   """
   ek
   """
-  status: InvitationStatus
+  status: InvitationStatus!
 
   """
   An email address
   """
-  invitee: String
+  invitee: String!
 
   """
   An optional note that can be included in the invitation by the sender
@@ -5791,6 +5964,8 @@ enum ProductsOrderBy {
   MARKET_ID_DESC
   BMI_REF_ASC
   BMI_REF_DESC
+  NAME_ASC
+  NAME_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -5813,6 +5988,11 @@ input ProductCondition {
   Checks for equality with the object’s `bmiRef` field.
   """
   bmiRef: String
+
+  """
+  Checks for equality with the object’s `name` field.
+  """
+  name: String
 }
 
 """
@@ -5833,6 +6013,11 @@ input ProductFilter {
   Filter by the object’s `bmiRef` field.
   """
   bmiRef: StringFilter
+
+  """
+  Filter by the object’s `name` field.
+  """
+  name: StringFilter
 
   """
   Checks for all expressions in this list.
@@ -5901,6 +6086,8 @@ enum SystemsOrderBy {
   MARKET_ID_DESC
   BMI_REF_ASC
   BMI_REF_DESC
+  NAME_ASC
+  NAME_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -5923,6 +6110,11 @@ input SystemCondition {
   Checks for equality with the object’s `bmiRef` field.
   """
   bmiRef: String
+
+  """
+  Checks for equality with the object’s `name` field.
+  """
+  name: String
 }
 
 """
@@ -5943,6 +6135,11 @@ input SystemFilter {
   Filter by the object’s `bmiRef` field.
   """
   bmiRef: StringFilter
+
+  """
+  Filter by the object’s `name` field.
+  """
+  name: StringFilter
 
   """
   Checks for all expressions in this list.
@@ -6232,12 +6429,12 @@ type Notification implements Node {
   """
   The datetime stamp for when the message was sent
   """
-  sendDate: Datetime
+  sendDate: Datetime!
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean
+  read: Boolean!
 
   """
   The body of the message
@@ -6899,6 +7096,26 @@ type Mutation {
   ): UpdateCompanyPayload
 
   """
+  Updates a single `Company` using a unique key and a patch.
+  """
+  updateCompanyByName(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyByNameInput!
+  ): UpdateCompanyPayload
+
+  """
+  Updates a single `Company` using a unique key and a patch.
+  """
+  updateCompanyByReferenceNumber(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyByReferenceNumberInput!
+  ): UpdateCompanyPayload
+
+  """
   Updates a single `CompanyDocument` using its globally unique id and a patch.
   """
   updateCompanyDocumentByNodeId(
@@ -7006,6 +7223,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateGuaranteeInput!
+  ): UpdateGuaranteePayload
+
+  """
+  Updates a single `Guarantee` using a unique key and a patch.
+  """
+  updateGuaranteeByBmiReferenceId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateGuaranteeByBmiReferenceIdInput!
   ): UpdateGuaranteePayload
 
   """
@@ -7231,11 +7458,11 @@ type Mutation {
   """
   Updates a single `SystemMember` using a unique key and a patch.
   """
-  updateSystemMemberBySystemBmiRefAndProductBmiRef(
+  updateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput!
+    input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput!
   ): UpdateSystemMemberPayload
 
   """
@@ -7336,6 +7563,26 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteCompanyInput!
+  ): DeleteCompanyPayload
+
+  """
+  Deletes a single `Company` using a unique key.
+  """
+  deleteCompanyByName(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyByNameInput!
+  ): DeleteCompanyPayload
+
+  """
+  Deletes a single `Company` using a unique key.
+  """
+  deleteCompanyByReferenceNumber(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyByReferenceNumberInput!
   ): DeleteCompanyPayload
 
   """
@@ -7446,6 +7693,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteGuaranteeInput!
+  ): DeleteGuaranteePayload
+
+  """
+  Deletes a single `Guarantee` using a unique key.
+  """
+  deleteGuaranteeByBmiReferenceId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteGuaranteeByBmiReferenceIdInput!
   ): DeleteGuaranteePayload
 
   """
@@ -7671,11 +7928,11 @@ type Mutation {
   """
   Deletes a single `SystemMember` using a unique key.
   """
-  deleteSystemMemberBySystemBmiRefAndProductBmiRef(
+  deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput!
+    input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput!
   ): DeleteSystemMemberPayload
   createAccount(
     """
@@ -7727,7 +7984,7 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: BulkImportInput!
-  ): ImportPayload
+  ): ImportOutput
 }
 
 """
@@ -7789,7 +8046,7 @@ input AddressInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -7814,7 +8071,7 @@ input AddressInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -7855,6 +8112,16 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByName: [CompanyCompanyNameKeyConnect!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: [CompanyCompanyReferenceNumberKeyConnect!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: [CompanyNodeIdConnect!]
 
   """
@@ -7865,12 +8132,32 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByName: [CompanyCompanyNameKeyDelete!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: [CompanyCompanyReferenceNumberKeyDelete!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: [CompanyNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByName: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -7886,6 +8173,26 @@ input CompanyCompanyPkeyConnect {
   Primary key
   """
   id: Int!
+}
+
+"""
+The fields on `company` to look up the row to connect.
+"""
+input CompanyCompanyNameKeyConnect {
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to connect.
+"""
+input CompanyCompanyReferenceNumberKeyConnect {
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -7906,6 +8213,26 @@ input CompanyCompanyPkeyDelete {
   Primary key
   """
   id: Int!
+}
+
+"""
+The fields on `company` to look up the row to delete.
+"""
+input CompanyCompanyNameKeyDelete {
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to delete.
+"""
+input CompanyCompanyReferenceNumberKeyDelete {
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -7993,11 +8320,6 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -8071,6 +8393,8 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -8310,7 +8634,12 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -8318,6 +8647,7 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -8720,7 +9050,12 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -8728,6 +9063,7 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -8747,6 +9083,16 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByName: [CompanyCompanyNameKeyConnect!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: [CompanyCompanyReferenceNumberKeyConnect!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: [CompanyNodeIdConnect!]
 
   """
@@ -8757,12 +9103,32 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByName: [CompanyCompanyNameKeyDelete!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: [CompanyCompanyReferenceNumberKeyDelete!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: [CompanyNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: [CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByName: [CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: [CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -8845,11 +9211,6 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -8923,6 +9284,8 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -9093,6 +9456,16 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByName: [CompanyCompanyNameKeyConnect!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: [CompanyCompanyReferenceNumberKeyConnect!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: [CompanyNodeIdConnect!]
 
   """
@@ -9103,12 +9476,32 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByName: [CompanyCompanyNameKeyDelete!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: [CompanyCompanyReferenceNumberKeyDelete!]
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: [CompanyNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: [CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByName: [CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: [CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -9191,11 +9584,6 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -9269,6 +9657,8 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -9578,6 +9968,16 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByName: CompanyCompanyNameKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -9588,12 +9988,32 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByName: CompanyCompanyNameKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByName: CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -9681,11 +10101,6 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -9759,6 +10174,8 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -9891,6 +10308,16 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByName: CompanyCompanyNameKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -9901,12 +10328,32 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByName: CompanyCompanyNameKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByName: CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -9994,11 +10441,6 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -10072,6 +10514,8 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -10411,7 +10855,12 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -10419,6 +10868,7 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -11082,6 +11532,16 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByName: CompanyCompanyNameKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -11092,12 +11552,32 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByName: CompanyCompanyNameKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByName: CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -11185,11 +11665,6 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -11263,6 +11738,8 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -11395,6 +11872,16 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByName: CompanyCompanyNameKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -11405,12 +11892,32 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByName: CompanyCompanyNameKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByName: CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -11498,11 +12005,6 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -11576,6 +12078,8 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -11887,6 +12391,11 @@ input GuaranteeRequestorAccountIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -11897,12 +12406,22 @@ input GuaranteeRequestorAccountIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -11926,6 +12445,16 @@ input GuaranteeGuaranteePkeyConnect {
 }
 
 """
+The fields on `guarantee` to look up the row to connect.
+"""
+input GuaranteeGuaranteeBmiReferenceIdKeyConnect {
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""
 The globally unique `ID` look up for the row to connect.
 """
 input GuaranteeNodeIdConnect {
@@ -11943,6 +12472,16 @@ input GuaranteeGuaranteePkeyDelete {
   Primary key - starts at 6100
   """
   id: Int!
+}
+
+"""
+The fields on `guarantee` to look up the row to delete.
+"""
+input GuaranteeGuaranteeBmiReferenceIdKeyDelete {
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -11990,9 +12529,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -12010,9 +12549,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -12223,6 +12767,11 @@ input GuaranteeReviewerAccountIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -12233,12 +12782,22 @@ input GuaranteeReviewerAccountIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -12291,9 +12850,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -12306,9 +12865,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   productBmiRef: String
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -12932,7 +13496,7 @@ input ProjectBuildingOwnerAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -12957,7 +13521,7 @@ input ProjectBuildingOwnerAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -13086,9 +13650,9 @@ input updateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -13276,6 +13840,11 @@ input GuaranteeProjectIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -13286,12 +13855,22 @@ input GuaranteeProjectIdFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -13339,9 +13918,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   requestorAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -13359,9 +13938,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -13729,7 +14313,12 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -13737,6 +14326,7 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -14086,7 +14676,12 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -14094,6 +14689,7 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -14233,6 +14829,11 @@ input GuaranteeSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -14243,12 +14844,22 @@ input GuaranteeSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -14301,9 +14912,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -14316,9 +14927,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -14496,6 +15112,11 @@ input GuaranteeProductBmiRefFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: [GuaranteeNodeIdConnect!]
 
   """
@@ -14506,12 +15127,22 @@ input GuaranteeProductBmiRefFkeyInverseInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: [GuaranteeNodeIdDelete!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: [GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -14564,9 +15195,9 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -14579,9 +15210,14 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -14876,6 +15512,16 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  connectByName: CompanyCompanyNameKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   connectByNodeId: CompanyNodeIdConnect
 
   """
@@ -14886,12 +15532,32 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
+  deleteByName: CompanyCompanyNameKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
   deleteByNodeId: CompanyNodeIdDelete
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateById: CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByName: CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -14979,11 +15645,6 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -15057,6 +15718,8 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -16117,12 +16780,12 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -16137,7 +16800,7 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -16162,12 +16825,12 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -16457,9 +17120,9 @@ input updateNotificationOnNotificationForNotificationAccountIdFkeyPatch {
   sendDate: Datetime
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean
+  read: Boolean
 
   """
   The body of the message
@@ -16953,9 +17616,9 @@ input NotificationPatch {
   sendDate: Datetime
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean
+  read: Boolean
 
   """
   The body of the message
@@ -16978,12 +17641,12 @@ input NotificationAccountIdFkeyNotificationCreateInput {
   """
   The datetime stamp for when the message was sent
   """
-  sendDate: Datetime
+  sendDate: Datetime!
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean
+  read: Boolean
 
   """
   The body of the message
@@ -17120,12 +17783,12 @@ input NoteProjectIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -17140,7 +17803,7 @@ input NoteProjectIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -17165,12 +17828,12 @@ input NoteProjectIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -17371,12 +18034,12 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -17391,7 +18054,7 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -17416,12 +18079,12 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -17431,6 +18094,36 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   guaranteesUsingId: GuaranteeProjectIdFkeyInverseInput
   notesUsingId: NoteProjectIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberProjectIdFkeyInverseInput
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -17513,11 +18206,6 @@ input CompanyPatch {
   registeredDate: Datetime
 
   """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
   The registered name of the Company
   """
   name: String
@@ -17591,6 +18279,8 @@ input CompanyPatch {
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
   invitationsUsingId: InvitationCompanyIdFkeyInverseInput
   projectsUsingId: ProjectCompanyIdFkeyInverseInput
+  logoUpload: Upload
+  shouldRemoveLogo: Boolean
 }
 
 """
@@ -17762,9 +18452,9 @@ input updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -17803,6 +18493,11 @@ input EvidenceItemGuaranteeIdFkeyInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  connectByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyConnect
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   connectByNodeId: GuaranteeNodeIdConnect
 
   """
@@ -17813,12 +18508,22 @@ input EvidenceItemGuaranteeIdFkeyInput {
   """
   The primary key(s) for `guarantee` for the far side of the relationship.
   """
+  deleteByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyDelete
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
   deleteByNodeId: GuaranteeNodeIdDelete
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
   """
   updateById: GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate
 
   """
   The primary key(s) and patch data for `guarantee` for the far side of the relationship.
@@ -17871,9 +18576,9 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -17891,9 +18596,14 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -17922,6 +18632,21 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -17964,9 +18689,9 @@ input GuaranteePatch {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode
 
   """
   fk
@@ -17984,9 +18709,14 @@ input GuaranteePatch {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -18042,9 +18772,9 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -18062,9 +18792,14 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -18120,9 +18855,9 @@ input EvidenceItemPatch {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -18164,9 +18899,9 @@ input EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -18181,17 +18916,32 @@ input EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput {
   """
   Short name for the item of evidence
   """
-  name: String
+  name: String!
 
   """
   File reference or the file itself. Photo of the evidence
   """
-  attachment: String
+  attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
   attachmentUpload: Upload
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -18234,9 +18984,9 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -18249,9 +18999,14 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -18299,7 +19054,7 @@ input SystemMemberProductBmiRefFkeyInverseInput {
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
   """
-  connectBySystemBmiRefAndProductBmiRef: [SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect!]
+  connectBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect!]
 
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
@@ -18314,7 +19069,7 @@ input SystemMemberProductBmiRefFkeyInverseInput {
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
   """
-  deleteBySystemBmiRefAndProductBmiRef: [SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete!]
+  deleteBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete!]
 
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
@@ -18329,7 +19084,7 @@ input SystemMemberProductBmiRefFkeyInverseInput {
   """
   The primary key(s) and patch data for `systemMember` for the far side of the relationship.
   """
-  updateBySystemBmiRefAndProductBmiRef: [SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate!]
+  updateBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `systemMember` for the far side of the relationship.
@@ -18355,7 +19110,7 @@ input SystemMemberSystemMemberPkeyConnect {
 """
 The fields on `systemMember` to look up the row to connect.
 """
-input SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect {
+input SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect {
   """
   fk
   """
@@ -18365,6 +19120,11 @@ input SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect {
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -18390,7 +19150,7 @@ input SystemMemberSystemMemberPkeyDelete {
 """
 The fields on `systemMember` to look up the row to delete.
 """
-input SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete {
+input SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete {
   """
   fk
   """
@@ -18400,6 +19160,11 @@ input SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete {
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -18440,10 +19205,16 @@ input updateSystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyPatch {
   fk
   """
   systemBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -18583,7 +19354,7 @@ input SystemMemberSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
   """
-  connectBySystemBmiRefAndProductBmiRef: [SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyConnect!]
+  connectBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect!]
 
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
@@ -18598,7 +19369,7 @@ input SystemMemberSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
   """
-  deleteBySystemBmiRefAndProductBmiRef: [SystemMemberSystemMemberSystemBmiRefProductBmiRefKeyDelete!]
+  deleteBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete!]
 
   """
   The primary key(s) for `systemMember` for the far side of the relationship.
@@ -18613,7 +19384,7 @@ input SystemMemberSystemBmiRefFkeyInverseInput {
   """
   The primary key(s) and patch data for `systemMember` for the far side of the relationship.
   """
-  updateBySystemBmiRefAndProductBmiRef: [SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate!]
+  updateBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate!]
 
   """
   The primary key(s) and patch data for `systemMember` for the far side of the relationship.
@@ -18654,10 +19425,16 @@ input updateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch {
   fk
   """
   productBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -18897,22 +19674,22 @@ input SystemMemberProductBmiRefFkeyProductCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -18922,17 +19699,17 @@ input SystemMemberProductBmiRefFkeyProductCreateInput {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: ProductMarketIdFkeyInput
@@ -18941,13 +19718,286 @@ input SystemMemberProductBmiRefFkeyProductCreateInput {
 }
 
 """
+Input for the nested mutation of `market` in the `SystemMemberInput` mutation.
+"""
+input SystemMemberMarketIdFkeyInput {
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectById: MarketMarketPkeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDomain: MarketMarketDomainKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByNodeId: MarketNodeIdConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteById: MarketMarketPkeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDomain: MarketMarketDomainKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByNodeId: MarketNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateById: MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDomain: MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDomainKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDoceboCatalogueId: MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByNodeId: SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate
+
+  """
+  A `MarketInput` object that will be created and connected to this object.
+  """
+  create: SystemMemberMarketIdFkeyMarketCreateInput
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketPkeyUpdate {
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch!
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+An object where the defined keys will be set on the `market` being updated.
+"""
+input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The default branch in Docebo that installers go into
+  """
+  doceboInstallersBranchId: String
+
+  """
+  The branch in Docebo that company admins go into
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  productsUsingId: ProductMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+}
+
+"""
+Input for the nested mutation of `systemMember` in the `MarketInput` mutation.
+"""
+input SystemMemberMarketIdFkeyInverseInput {
+  """
+  Flag indicating whether all other `systemMember` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  connectById: [SystemMemberSystemMemberPkeyConnect!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  connectBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyConnect!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  connectByNodeId: [SystemMemberNodeIdConnect!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  deleteById: [SystemMemberSystemMemberPkeyDelete!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  deleteBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberSystemMemberSystemBmiRefProductBmiRefMarketIdKeyDelete!]
+
+  """
+  The primary key(s) for `systemMember` for the far side of the relationship.
+  """
+  deleteByNodeId: [SystemMemberNodeIdDelete!]
+
+  """
+  The primary key(s) and patch data for `systemMember` for the far side of the relationship.
+  """
+  updateById: [SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `systemMember` for the far side of the relationship.
+  """
+  updateBySystemBmiRefAndProductBmiRefAndMarketId: [SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `systemMember` for the far side of the relationship.
+  """
+  updateByNodeId: [MarketOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate!]
+
+  """
+  A `SystemMemberInput` object that will be created and connected to this object.
+  """
+  create: [SystemMemberMarketIdFkeySystemMemberCreateInput!]
+}
+
+"""
 The fields on `systemMember` to look up the row to update.
 """
-input SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate {
+input SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberPkeyUpdate {
   """
   An object where the defined keys will be set on the `systemMember` being updated.
   """
-  patch: updateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch!
+  patch: updateSystemMemberOnSystemMemberForSystemMemberMarketIdFkeyPatch!
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+An object where the defined keys will be set on the `systemMember` being updated.
+"""
+input updateSystemMemberOnSystemMemberForSystemMemberMarketIdFkeyPatch {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  fk
+  """
+  systemBmiRef: String
+
+  """
+  fk
+  """
+  productBmiRef: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
+  productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
+}
+
+"""
+The fields on `systemMember` to look up the row to update.
+"""
+input SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `systemMember` being updated.
+  """
+  patch: updateSystemMemberOnSystemMemberForSystemMemberMarketIdFkeyPatch!
 
   """
   fk
@@ -18958,12 +20008,17 @@ input SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMember
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
 The globally unique `ID` look up for the row to update.
 """
-input SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyNodeIdUpdate {
+input MarketOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate {
   """
   The globally unique `ID` which identifies a single `systemMember` to be connected.
   """
@@ -18993,10 +20048,302 @@ input SystemMemberPatch {
   fk
   """
   productBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
+}
+
+"""
+The `systemMember` to be created by this mutation.
+"""
+input SystemMemberMarketIdFkeySystemMemberCreateInput {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  fk
+  """
+  systemBmiRef: String
+
+  """
+  fk
+  """
+  productBmiRef: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
+  productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDomainKeyUpdate {
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch!
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch!
+
+  """
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input SystemMemberOnSystemMemberForSystemMemberMarketIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `market` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: MarketPatch!
+}
+
+"""
+Represents an update to a `Market`. Fields that are set will be updated.
+"""
+input MarketPatch {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The default branch in Docebo that installers go into
+  """
+  doceboInstallersBranchId: String
+
+  """
+  The branch in Docebo that company admins go into
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  productsUsingId: ProductMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+}
+
+"""
+The `market` to be created by this mutation.
+"""
+input SystemMemberMarketIdFkeyMarketCreateInput {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language!
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The default branch in Docebo that installers go into
+  """
+  doceboInstallersBranchId: String
+
+  """
+  The branch in Docebo that company admins go into
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  productsUsingId: ProductMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+}
+
+"""
+The fields on `systemMember` to look up the row to update.
+"""
+input SystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `systemMember` being updated.
+  """
+  patch: updateSystemMemberOnSystemMemberForSystemMemberSystemBmiRefFkeyPatch!
+
+  """
+  fk
+  """
+  systemBmiRef: String!
+
+  """
+  fk
+  """
+  productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input SystemOnSystemMemberForSystemMemberSystemBmiRefFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `systemMember` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `systemMember` being updated.
+  """
+  patch: SystemMemberPatch!
 }
 
 """
@@ -19012,10 +20359,16 @@ input SystemMemberSystemBmiRefFkeySystemMemberCreateInput {
   fk
   """
   productBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -19115,17 +20468,17 @@ input SystemMemberSystemBmiRefFkeySystemCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -19135,12 +20488,12 @@ input SystemMemberSystemBmiRefFkeySystemCreateInput {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: SystemMarketIdFkeyInput
@@ -19151,7 +20504,7 @@ input SystemMemberSystemBmiRefFkeySystemCreateInput {
 """
 The fields on `systemMember` to look up the row to update.
 """
-input SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefKeyUpdate {
+input SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMemberSystemBmiRefProductBmiRefMarketIdKeyUpdate {
   """
   An object where the defined keys will be set on the `systemMember` being updated.
   """
@@ -19166,6 +20519,11 @@ input SystemMemberOnSystemMemberForSystemMemberProductBmiRefFkeyUsingSystemMembe
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -19196,10 +20554,16 @@ input SystemMemberProductBmiRefFkeySystemMemberCreateInput {
   fk
   """
   systemBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -19249,22 +20613,22 @@ input GuaranteeProductBmiRefFkeyProductCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -19274,22 +20638,37 @@ input GuaranteeProductBmiRefFkeyProductCreateInput {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: ProductMarketIdFkeyInput
   guaranteesUsingBmiRef: GuaranteeProductBmiRefFkeyInverseInput
   systemMembersUsingBmiRef: SystemMemberProductBmiRefFkeyInverseInput
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -19332,9 +20711,9 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -19347,9 +20726,14 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -19422,17 +20806,17 @@ input SystemMarketIdFkeySystemCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -19442,12 +20826,12 @@ input SystemMarketIdFkeySystemCreateInput {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: SystemMarketIdFkeyInput
@@ -19501,88 +20885,6 @@ input ProductOnProductForProductMarketIdFkeyNodeIdUpdate {
 }
 
 """
-Represents an update to a `Market`. Fields that are set will be updated.
-"""
-input MarketPatch {
-  """
-  Primary key
-  """
-  id: Int
-
-  """
-  ek
-  """
-  language: Language
-
-  """
-  the country code used for example as the subdomain
-  """
-  domain: String
-
-  """
-  The space in Contenful
-  """
-  cmsSpaceId: String
-
-  """
-  A short name for the market, e.g. Italy, Norway, Netherlands
-  """
-  name: String
-
-  """
-  The From name used when sending an email
-  """
-  sendName: String
-
-  """
-  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
-  """
-  sendMailbox: String
-
-  """
-  The default branch in Docebo that installers go into
-  """
-  doceboInstallersBranchId: String
-
-  """
-  The branch in Docebo that company admins go into
-  """
-  doceboCompanyAdminBranchId: String
-
-  """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
-  """
-  doceboCatalogueId: Int
-
-  """
-  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
-  """
-  merchandisingUrl: String
-
-  """
-  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
-  """
-  projectsEnabled: Boolean
-
-  """
-  Reference to the Google Analytics tracking ID that is used for the Country GA reports
-  """
-  gtag: String
-
-  """
-  The coordinates of the middle of the Market on a map
-  """
-  geoMiddle: String
-  createdAt: Datetime
-  updatedAt: Datetime
-  accountsUsingId: AccountMarketIdFkeyInverseInput
-  companiesUsingId: CompanyMarketIdFkeyInverseInput
-  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
-  productsUsingId: ProductMarketIdFkeyInverseInput
-  systemsUsingId: SystemMarketIdFkeyInverseInput
-}
-
-"""
 The `market` to be created by this mutation.
 """
 input ProductMarketIdFkeyMarketCreateInput {
@@ -19594,12 +20896,12 @@ input ProductMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
@@ -19654,7 +20956,12 @@ input ProductMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -19662,6 +20969,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -19706,22 +21014,22 @@ input ProductMarketIdFkeyProductCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -19731,17 +21039,17 @@ input ProductMarketIdFkeyProductCreateInput {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: ProductMarketIdFkeyInput
@@ -19806,12 +21114,12 @@ input SystemMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
@@ -19866,7 +21174,12 @@ input SystemMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -19874,6 +21187,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -19923,17 +21237,17 @@ input GuaranteeSystemBmiRefFkeySystemCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -19943,17 +21257,32 @@ input GuaranteeSystemBmiRefFkeySystemCreateInput {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: SystemMarketIdFkeyInput
   guaranteesUsingBmiRef: GuaranteeSystemBmiRefFkeyInverseInput
   systemMembersUsingBmiRef: SystemMemberSystemBmiRefFkeyInverseInput
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -19991,9 +21320,9 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   requestorAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -20011,9 +21340,14 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -20086,12 +21420,12 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -20106,7 +21440,7 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -20131,12 +21465,12 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -20173,9 +21507,9 @@ input EvidenceItemProjectIdFkeyEvidenceItemCreateInput {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -20190,12 +21524,12 @@ input EvidenceItemProjectIdFkeyEvidenceItemCreateInput {
   """
   Short name for the item of evidence
   """
-  name: String
+  name: String!
 
   """
   File reference or the file itself. Photo of the evidence
   """
-  attachment: String
+  attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
   projectToProjectId: EvidenceItemProjectIdFkeyInput
@@ -20240,12 +21574,12 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -20260,7 +21594,7 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -20285,12 +21619,12 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -20329,7 +21663,7 @@ input ProjectSiteAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -20354,7 +21688,7 @@ input ProjectSiteAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -20415,12 +21749,12 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -20435,7 +21769,7 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -20460,12 +21794,12 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -20475,6 +21809,21 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   guaranteesUsingId: GuaranteeProjectIdFkeyInverseInput
   notesUsingId: NoteProjectIdFkeyInverseInput
   projectMembersUsingId: ProjectMemberProjectIdFkeyInverseInput
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -20517,9 +21866,9 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -20532,9 +21881,14 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   productBmiRef: String
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -20611,6 +21965,21 @@ input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate {
 }
 
 """
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate {
@@ -20645,9 +22014,9 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -20665,9 +22034,14 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -20759,6 +22133,36 @@ input CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate {
 }
 
 """
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input CompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate {
@@ -20823,10 +22227,40 @@ input CompanyOperationCompanyFkeyCompanyOperationCreateInput {
   """
   ek
   """
-  operation: Operation
+  operation: Operation!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompany: CompanyOperationCompanyFkeyInput
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -21227,12 +22661,12 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
@@ -21287,7 +22721,12 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -21295,6 +22734,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -21360,6 +22800,36 @@ input CompanyMemberCompanyIdFkeyCompanyMemberCreateInput {
   marketToMarketId: CompanyMemberMarketIdFkeyInput
   accountToAccountId: CompanyMemberAccountIdFkeyInput
   companyToCompanyId: CompanyMemberCompanyIdFkeyInput
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -21434,6 +22904,36 @@ input CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput {
 }
 
 """
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnProjectForProjectCompanyIdFkeyPatch!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnProjectForProjectCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
+}
+
+"""
 The globally unique `ID` look up for the row to update.
 """
 input ProjectOnProjectForProjectCompanyIdFkeyNodeIdUpdate {
@@ -21485,12 +22985,12 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -21505,7 +23005,7 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -21530,12 +23030,12 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -21574,7 +23074,7 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -21599,7 +23099,7 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -21616,6 +23116,36 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
   companiesToTradingAddressIdUsingId: CompanyTradingAddressIdFkeyInverseInput
   projectsToSiteAddressIdUsingId: ProjectSiteAddressIdFkeyInverseInput
   projectsToBuildingOwnerAddressIdUsingId: ProjectBuildingOwnerAddressIdFkeyInverseInput
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -21660,7 +23190,7 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String
+  firstLine: String!
 
   """
   Second line of this address
@@ -21685,7 +23215,7 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String
+  postcode: String!
 
   """
   The coordinates on a map of the world
@@ -21702,6 +23232,36 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
   companiesToTradingAddressIdUsingId: CompanyTradingAddressIdFkeyInverseInput
   projectsToSiteAddressIdUsingId: ProjectSiteAddressIdFkeyInverseInput
   projectsToBuildingOwnerAddressIdUsingId: ProjectBuildingOwnerAddressIdFkeyInverseInput
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyForCompanyMarketIdFkeyPatch!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyForCompanyMarketIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -21776,12 +23336,12 @@ input AccountMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
@@ -21836,7 +23396,12 @@ input AccountMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -21844,6 +23409,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -21948,12 +23514,12 @@ input CompanyMarketIdFkeyMarketCreateInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
@@ -22008,7 +23574,12 @@ input CompanyMarketIdFkeyMarketCreateInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -22016,6 +23587,37 @@ input CompanyMarketIdFkeyMarketCreateInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -22354,7 +23956,7 @@ input CompanyOperationInput {
   """
   ek
   """
-  operation: Operation
+  operation: Operation!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompany: CompanyOperationCompanyFkeyInput
@@ -22427,9 +24029,9 @@ input EvidenceItemInput {
   id: Int
 
   """
-  a reference to the evidenceCategory sys id in Contentful
+  ek
   """
-  customEvidenceCategoryId: String
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """
   fk
@@ -22449,12 +24051,12 @@ input EvidenceItemInput {
   """
   Short name for the item of evidence
   """
-  name: String
+  name: String!
 
   """
   File reference or the file itself. Photo of the evidence
   """
-  attachment: String
+  attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
   projectToProjectId: EvidenceItemProjectIdFkeyInput
@@ -22559,9 +24161,9 @@ input GuaranteeInput {
   projectId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTypeId: String
+  guaranteeReferenceCode: GuaranteeReferenceCode!
 
   """
   fk
@@ -22579,9 +24181,14 @@ input GuaranteeInput {
   reviewerAccountId: Int
 
   """
-  a reference to the guaranteeType sys id in Contentful
+  ek
   """
-  guaranteeTemplateId: String
+  coverage: GuaranteeCoverage
+
+  """
+  ek
+  """
+  languageCode: Language
 
   """
   ek
@@ -22671,12 +24278,12 @@ input MarketInput {
   """
   ek
   """
-  language: Language
+  language: Language!
 
   """
   the country code used for example as the subdomain
   """
-  domain: String
+  domain: String!
 
   """
   The space in Contenful
@@ -22731,7 +24338,12 @@ input MarketInput {
   """
   The coordinates of the middle of the Market on a map
   """
-  geoMiddle: String
+  geoMiddle: PointInput
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
   accountsUsingId: AccountMarketIdFkeyInverseInput
@@ -22739,6 +24351,7 @@ input MarketInput {
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
 }
 
 """
@@ -22896,12 +24509,12 @@ input NotificationInput {
   """
   The datetime stamp for when the message was sent
   """
-  sendDate: Datetime
+  sendDate: Datetime!
 
   """
-  Whether the message still needs to be read
+  Whether the message has been read
   """
-  unread: Boolean
+  read: Boolean
 
   """
   The body of the message
@@ -22981,22 +24594,22 @@ input ProductInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the product known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   The Products brand
   """
-  brand: String
+  brand: String!
 
   """
   Short name for the Product
   """
-  name: String
+  name: String!
 
   """
   A description of the Product
@@ -23006,17 +24619,17 @@ input ProductInput {
   """
   The family of Products this Product is in
   """
-  family: String
+  family: String!
 
   """
   Whether the Product is avialable for new guarantees
   """
-  published: Boolean
+  published: Boolean!
 
   """
   The number of years that this product can be guaranteed for
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: ProductMarketIdFkeyInput
@@ -23113,12 +24726,12 @@ input ProjectInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   Short name for the Project
   """
-  name: String
+  name: String!
 
   """
   Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
@@ -23133,7 +24746,7 @@ input ProjectInput {
   """
   The number of square meters of roof that this project covers
   """
-  roofArea: Int
+  roofArea: Int!
 
   """
   Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
@@ -23158,12 +24771,12 @@ input ProjectInput {
   """
   The date that the Project officially starts or started
   """
-  startDate: Datetime
+  startDate: Datetime!
 
   """
   The date that the Project officially expects to end or ended
   """
-  endDate: Datetime
+  endDate: Datetime!
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
@@ -23330,17 +24943,17 @@ input SystemInput {
   """
   ek
   """
-  technology: Technology
+  technology: Technology!
 
   """
   A unique reference for the system known to BMI
   """
-  bmiRef: String
+  bmiRef: String!
 
   """
   Short name for the System
   """
-  name: String
+  name: String!
 
   """
   A description for the System
@@ -23350,12 +24963,12 @@ input SystemInput {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidityYears: Int
+  maximumValidityYears: Int!
 
   """
   If true this system is available for users to select when applying for a system or solution guarantee
   """
-  published: Boolean
+  published: Boolean!
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: SystemMarketIdFkeyInput
@@ -23392,6 +25005,11 @@ type CreateSystemMemberPayload {
   Reads a single `Product` that is related to this `SystemMember`.
   """
   productByProductBmiRef: Product
+
+  """
+  Reads a single `Market` that is related to this `SystemMember`.
+  """
+  market: Market
 
   """
   An edge for our `SystemMember`. May be used by Relay 1.
@@ -23438,10 +25056,16 @@ input SystemMemberInput {
   fk
   """
   productBmiRef: String
+
+  """
+  fk
+  """
+  marketId: Int
   createdAt: Datetime
   updatedAt: Datetime
   systemToSystemBmiRef: SystemMemberSystemBmiRefFkeyInput
   productToProductBmiRef: SystemMemberProductBmiRefFkeyInput
+  marketToMarketId: SystemMemberMarketIdFkeyInput
 }
 
 """
@@ -23801,6 +25425,48 @@ input UpdateCompanyInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `updateCompanyByName` mutation.
+"""
+input UpdateCompanyByNameInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Company` being updated.
+  """
+  patch: CompanyPatch!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+All input for the `updateCompanyByReferenceNumber` mutation.
+"""
+input UpdateCompanyByReferenceNumberInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Company` being updated.
+  """
+  patch: CompanyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -24257,6 +25923,37 @@ input UpdateGuaranteeInput {
   Primary key - starts at 6100
   """
   id: Int!
+  guaranteeEventType: GuaranteeEventType
+}
+
+enum GuaranteeEventType {
+  SUBMIT_SOLUTION
+  ASSIGN_SOLUTION
+  REASSIGN_SOLUTION
+  UNASSIGN_SOLUTION
+  APPROVE_SOLUTION
+  REJECT_SOLUTION
+}
+
+"""
+All input for the `updateGuaranteeByBmiReferenceId` mutation.
+"""
+input UpdateGuaranteeByBmiReferenceIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Guarantee` being updated.
+  """
+  patch: GuaranteePatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -25018,6 +26715,11 @@ type UpdateSystemMemberPayload {
   productByProductBmiRef: Product
 
   """
+  Reads a single `Market` that is related to this `SystemMember`.
+  """
+  market: Market
+
+  """
   An edge for our `SystemMember`. May be used by Relay 1.
   """
   systemMemberEdge(
@@ -25071,9 +26773,9 @@ input UpdateSystemMemberInput {
 }
 
 """
-All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId` mutation.
 """
-input UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput {
+input UpdateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -25094,6 +26796,11 @@ input UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput {
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -25407,6 +27114,38 @@ input DeleteCompanyInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `deleteCompanyByName` mutation.
+"""
+input DeleteCompanyByNameInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+}
+
+"""
+All input for the `deleteCompanyByReferenceNumber` mutation.
+"""
+input DeleteCompanyByReferenceNumberInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: String!
 }
 
 """
@@ -25813,6 +27552,22 @@ input DeleteGuaranteeInput {
   Primary key - starts at 6100
   """
   id: Int!
+}
+
+"""
+All input for the `deleteGuaranteeByBmiReferenceId` mutation.
+"""
+input DeleteGuaranteeByBmiReferenceIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
 }
 
 """
@@ -26483,6 +28238,11 @@ type DeleteSystemMemberPayload {
   productByProductBmiRef: Product
 
   """
+  Reads a single `Market` that is related to this `SystemMember`.
+  """
+  market: Market
+
+  """
   An edge for our `SystemMember`. May be used by Relay 1.
   """
   systemMemberEdge(
@@ -26526,9 +28286,9 @@ input DeleteSystemMemberInput {
 }
 
 """
-All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId` mutation.
 """
-input DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput {
+input DeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -26544,6 +28304,11 @@ input DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput {
   fk
   """
   productBmiRef: String!
+
+  """
+  fk
+  """
+  marketId: Int!
 }
 
 """
@@ -26618,7 +28383,7 @@ input AccountInput {
   """
   The email address associated with the account
   """
-  email: String
+  email: String!
 
   """
   A phone number that can optionally be provided, and is useful for Company Admin people to provide
@@ -26628,12 +28393,12 @@ input AccountInput {
   """
   First name
   """
-  firstName: String
+  firstName: String!
 
   """
   Last name
   """
-  lastName: String
+  lastName: String!
 
   """
   When the account was created
@@ -26878,11 +28643,21 @@ input InviteInput {
   personalNote: String
 }
 
-type ImportPayload {
-  systemsToUpdate: [System]
-  systemsToInsert: [System]
-  productsToUpdate: [Product]
-  productsToInsert: [Product]
+type ImportOutput {
+  systemsToUpdate: [System!]
+  systemsToInsert: [System!]
+  productsToUpdate: [Product!]
+  productsToInsert: [Product!]
+  errorSystemsToUpdate: [ImportError!]
+  errorSystemsToInsert: [ImportError!]
+  errorProductsToUpdate: [ImportError!]
+  errorProductsToInsert: [ImportError!]
+  errorSystemMembersInsert: [ImportError!]
+}
+
+type ImportError {
+  ref: String
+  message: String
 }
 
 input BulkImportInput {

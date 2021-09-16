@@ -24,7 +24,7 @@
   transform: translateY(-60%);
   background-color: white;
   display: inline-block;
-  color: #70706f;
+  color: $color-slate;
   font-weight: 400;
   margin: 0;
 }
@@ -38,6 +38,10 @@
 .avatar {
   width: 120px !important;
   height: 120px !important;
+
+  &.square {
+    border: 1px solid $color-storm;
+  }
 }
 
 .avatarButtons {

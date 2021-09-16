@@ -17,7 +17,7 @@ exports[`TrainingCover component render correctly 1`] = `
           class="content"
         >
           <h1
-            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+            class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             BMI Academy
           </h1>
@@ -27,7 +27,7 @@ exports[`TrainingCover component render correctly 1`] = `
             BMI Academy provides you with the skills you need to fit BMI products.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button cta Button--dark-background MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-outlinedDarkBg-7 cta MuiButton-outlinedPrimary"
             label="Your training plan"
             rel="noopener noreferrer"
             tabindex="0"
@@ -35,7 +35,7 @@ exports[`TrainingCover component render correctly 1`] = `
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-4"
             >
               Your training plan
             </span>

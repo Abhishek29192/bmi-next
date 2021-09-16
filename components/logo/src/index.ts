@@ -39,11 +39,16 @@ import Wierer from "./svgs/Wierer.svg";
 import Wolfin from "./svgs/Wolfin.svg";
 import Zanda from "./svgs/Zanda.svg";
 
+import BMI_Academy_EN from "./svgs/BMIAcademy.svg";
+import BMI_Academy_DE from "./svgs/BMI_Academy_DE.svg";
+
 export {
   AeroDek,
   Awak,
   BMI,
   BMIAcademy,
+  BMI_Academy_EN,
+  BMI_Academy_DE,
   Braas,
   Bramac,
   Cobert,
@@ -86,6 +91,8 @@ export const iconMap = {
   Awak,
   BMI,
   BMIAcademy,
+  BMI_Academy_EN,
+  BMI_Academy_DE,
   Braas,
   Bramac,
   Cobert,

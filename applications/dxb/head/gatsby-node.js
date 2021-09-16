@@ -10,6 +10,7 @@ const findUp = require("find-up");
 require("graphql-import-node");
 const jsonfile = require("jsonfile");
 const toml = require("toml");
+const { getPathWithCountryCode } = require("./src/schema/resolvers/utils/path");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
 const { createSystemPages } = require("./src/gatsby/systemDetailsPages");
@@ -123,7 +124,7 @@ const createProductPages = async (
           variantCodeToPathMap[variantOption.code] = variantOption.path;
 
           await createPage({
-            path: `/${countryCode}/${variantOption.path}`,
+            path: getPathWithCountryCode(countryCode, variantOption.path),
             component,
             context: {
               productId: product.id,
@@ -226,7 +227,10 @@ exports.createPages = async ({ graphql, actions }) => {
         await createPage({
           // TODO: This removes the extra / for the homepage. The country code
           // could live in the page.path instead.
-          path: `/${site.countryCode}/${page.path}/`.replace(/\/+/gi, "/"),
+          path: getPathWithCountryCode(site.countryCode, page.path).replace(
+            /\/+/gi,
+            "/"
+          ),
           component,
           context: {
             pageId: page.id,
@@ -243,7 +247,7 @@ exports.createPages = async ({ graphql, actions }) => {
       const dataFilePath = "./.temp/microCopyKeys.json";
 
       await createPage({
-        path: `/${site.countryCode}/global-reources/`,
+        path: getPathWithCountryCode(site.countryCode, `global-reources/`),
         component: path.resolve("./src/templates/_global-resources.tsx"),
         context: {
           siteId: site.id,
@@ -255,7 +259,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
 
     await createPage({
-      path: `/${site.countryCode}/search`,
+      path: getPathWithCountryCode(site.countryCode, `search`),
       component: path.resolve("./src/templates/search-page.tsx"),
       context: {
         siteId: site.id,
@@ -266,7 +270,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     await createPage({
-      path: `/${site.countryCode}/422/`,
+      path: getPathWithCountryCode(site.countryCode, `422/`),
       component: path.resolve("./src/templates/general-error.tsx"),
       context: {
         siteId: site.id
@@ -285,7 +289,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     if (!process.env.GATSBY_PREVIEW) {
       await createPage({
-        path: `/${site.countryCode}/sitemap/`,
+        path: getPathWithCountryCode(site.countryCode, `sitemap/`),
         component: path.resolve("./src/templates/sitemap.tsx"),
         context: {
           siteId: site.id
@@ -293,7 +297,7 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     }
 
-    if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES) {
+    if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
       await createSystemPages({
         siteId: site.id,
         countryCode: site.countryCode,

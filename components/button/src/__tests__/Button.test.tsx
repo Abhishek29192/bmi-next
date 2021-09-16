@@ -17,6 +17,12 @@ describe("Button component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders an opaque outlined button on dark background", () => {
+    const { container } = render(
+      <Button variant="opaqueOutlined">Caption</Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
   it("renders a flat button on dark background", () => {
     const { container } = render(
       <Button hasDarkBackground variant="text">

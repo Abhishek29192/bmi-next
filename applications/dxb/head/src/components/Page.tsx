@@ -12,16 +12,20 @@ import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
 import getJpgImage from "../utils/images";
-import { SiteContext, Data as SiteData } from "./Site";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import BrandProvider from "./BrandProvider";
+import {
+  SiteContextProvider,
+  Data as SiteData,
+  useSiteContext,
+  Context as SiteContext
+} from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
 import ErrorFallback from "./ErrorFallback";
 import { Data as SEOContentData } from "./SEOContent";
 import VisualiserProvider from "./Visualiser";
 import Calculator from "./PitchedRoofCalcualtor";
-import styles from "./styles/Page.module.scss";
-
-import BrandProvider from "./BrandProvider";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -29,15 +33,27 @@ export type Data = {
   seo: SEOContentData | null;
 };
 
+type Context = {
+  siteContext: SiteContext;
+};
+
+type Children = React.ReactNode | ((context: Context) => React.ReactNode);
+
 type Props = {
   brand?: string;
-  children: React.ReactNode;
+  children: Children;
   title: string;
   pageData: Data;
   siteData: SiteData;
   isSearchPage?: boolean;
   variantCodeToPathMap?: Record<string, string>;
   ogImageUrl?: string;
+};
+
+const Content = ({ children }: { children: Children }) => {
+  const siteContext = useSiteContext();
+
+  return typeof children === "function" ? children({ siteContext }) : children;
 };
 
 const Page = ({
@@ -88,6 +104,23 @@ const Page = ({
   );
   const enableHubSpot = Boolean(
     !process.env.GATSBY_PREVIEW && process.env.GATSBY_HUBSPOT_ID
+  );
+
+  const siteContext = {
+    node_locale,
+    countryCode,
+    homePage: siteData.homePage,
+    getMicroCopy,
+    reCaptchaKey,
+    reCaptchaNet
+  };
+
+  const microCopyContext = resources?.microCopy.reduce(
+    (carry, { key, value }) => ({
+      ...carry,
+      [key]: value
+    }),
+    {}
   );
 
   return (
@@ -178,25 +211,8 @@ const Page = ({
         )}
       </Helmet>
 
-      <SiteContext.Provider
-        value={{
-          node_locale,
-          countryCode,
-          homePage: siteData.homePage,
-          getMicroCopy,
-          reCaptchaKey,
-          reCaptchaNet
-        }}
-      >
-        <MicroCopy.Provider
-          values={resources?.microCopy.reduce(
-            (carry, { key, value }) => ({
-              ...carry,
-              [key]: value
-            }),
-            {}
-          )}
-        >
+      <SiteContextProvider value={siteContext}>
+        <MicroCopy.Provider values={microCopyContext}>
           <GoogleReCaptchaProvider
             reCaptchaKey={reCaptchaKey}
             useRecaptchaNet={reCaptchaNet}
@@ -225,15 +241,21 @@ const Page = ({
                     promo={resources.errorGeneral}
                   />
                 )}
-                onError={() => navigate(`/${countryCode}/422`)}
+                onError={() =>
+                  navigate(getPathWithCountryCode(countryCode, "422"))
+                }
               >
                 <VisualiserProvider
                   contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
                   variantCodeToPathMap={variantCodeToPathMap}
                   shareWidgetData={resources?.visualiserShareWidget}
                 >
-                  <Calculator onError={() => navigate(`/${countryCode}/422`)}>
-                    {children}
+                  <Calculator
+                    onError={() =>
+                      navigate(getPathWithCountryCode(countryCode, "422"))
+                    }
+                  >
+                    <Content>{children}</Content>
                   </Calculator>
                 </VisualiserProvider>
                 {inputBanner ? <InputBanner data={inputBanner} /> : null}
@@ -248,7 +270,7 @@ const Page = ({
             </BmiThemeProvider>
           </GoogleReCaptchaProvider>
         </MicroCopy.Provider>
-      </SiteContext.Provider>
+      </SiteContextProvider>
     </>
   );
 };

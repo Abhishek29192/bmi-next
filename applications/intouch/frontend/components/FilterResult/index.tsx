@@ -9,6 +9,7 @@ import styles from "./styles.module.scss";
 export type FilterResultProps = {
   label: string;
   onClick?: () => void;
+  isSelected?: boolean;
   children: React.ReactNode | React.ReactNode[];
   testId?: string;
 };
@@ -16,15 +17,21 @@ export type FilterResultProps = {
 export const FilterResult = ({
   label,
   onClick,
+  isSelected = false,
   children,
   testId
 }: FilterResultProps) => {
   return (
     <div data-testid={testId}>
-      <CardActionArea onClick={onClick}>
+      <CardActionArea
+        onClick={onClick}
+        classes={{
+          root: isSelected ? styles.cardActionArea__isActive : undefined
+        }}
+      >
         <CardContent className={styles.main}>
           <Typography variant="h6" className={styles.title}>
-            {label ? label : "Label"}
+            {label}
           </Typography>
           <div>{children}</div>
           <Icon

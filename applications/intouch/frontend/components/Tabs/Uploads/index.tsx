@@ -1,27 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import Button from "@bmi/button";
 import Table from "@bmi/table";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
 import { gql } from "@apollo/client";
-import { EvidenceItemInput } from "@bmi/intouch-api-types";
+import {
+  EvidenceCategoryType,
+  CustomEvidenceCategoryKey
+} from "@bmi/intouch-api-types";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import {
   useAddEvidencesMutation,
-  GetProjectDocument
+  GetProjectDocument,
+  useContentfulEvidenceCategoriesLazyQuery
 } from "../../../graphql/generated/hooks";
 import styles from "./styles.module.scss";
-import { AddEvidenceDialog } from "./AddEvidenceDialog";
+import { AddEvidenceDialog, EvidenceCategory } from "./AddEvidenceDialog";
 
 export type UploadsTabProps = {
   projectId: number;
+  guaranteeId?: number;
   uploads?: Map<string, string[]>;
+  isContentfulEvidenceAvailable?: boolean;
 };
 
-export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
+export const UploadsTab = ({
+  projectId,
+  guaranteeId,
+  uploads,
+  isContentfulEvidenceAvailable
+}: UploadsTabProps) => {
   const { t } = useTranslation("project-page");
   const [isEvidenceDialogOpen, setEvidenceDialogOpen] = useState(false);
+  const [evidenceCategories, setEvidenceCategories] = useState<
+    EvidenceCategory[]
+  >([]);
+
   const [addEvidences] = useAddEvidencesMutation({
     refetchQueries: [
       {
@@ -32,16 +47,38 @@ export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
       }
     ]
   });
-  const evidenceDialogConfirmHandler = async (uploadedFiles: File[]) => {
-    if (uploadedFiles.length > 0) {
-      const evidences = uploadedFiles.map(
-        (attachmentUpload) =>
-          ({
-            projectId,
-            attachmentUpload,
-            evidenceCategoryType: "MISCELLANEOUS"
-          } as EvidenceItemInput)
+
+  const [getEvidenceCategory] = useContentfulEvidenceCategoriesLazyQuery({
+    fetchPolicy: "network-only",
+    onCompleted: ({ evidenceCategoryCollection }) => {
+      const result = evidenceCategoryCollection.items?.map(
+        ({ sys, name, referenceCode }) => ({
+          id: sys.id,
+          name: name,
+          referenceCode: referenceCode
+        })
       );
+      setEvidenceCategories(result);
+    }
+  });
+
+  const evidenceDialogConfirmHandler = async (
+    evidenceCategoryType: EvidenceCategoryType,
+    customEvidenceCategoryKey: string,
+    uploadedFiles: File[]
+  ) => {
+    if (uploadedFiles.length > 0) {
+      const evidences = uploadedFiles.map((attachmentUpload) => ({
+        projectId,
+        guaranteeId,
+        attachmentUpload,
+        customEvidenceCategoryKey:
+          customEvidenceCategoryKey as CustomEvidenceCategoryKey,
+        evidenceCategoryType,
+        // NOTE: mandatory in DB but resolver updates it with cloud URL
+        attachment: "",
+        name: attachmentUpload.name
+      }));
       await addEvidences({
         variables: {
           input: {
@@ -52,6 +89,12 @@ export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
     }
     setEvidenceDialogOpen(false);
   };
+
+  useEffect(() => {
+    if (isContentfulEvidenceAvailable) {
+      getEvidenceCategory();
+    }
+  }, [projectId, isContentfulEvidenceAvailable]);
 
   return (
     <div className={styles.main}>
@@ -96,6 +139,9 @@ export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
       <div>
         <AddEvidenceDialog
           isOpen={isEvidenceDialogOpen}
+          evidenceCategories={
+            isContentfulEvidenceAvailable ? evidenceCategories : []
+          }
           onCloseClick={() => setEvidenceDialogOpen(false)}
           onConfirmClick={evidenceDialogConfirmHandler}
         />
@@ -110,6 +156,20 @@ export const ADD_PROJECT_EVIDENCES = gql`
       evidenceItems {
         id
         name
+      }
+    }
+  }
+`;
+export const GET_CONTENTFUL_EVIDENCE_CATEGORIES = gql`
+  query contentfulEvidenceCategories {
+    evidenceCategoryCollection {
+      items {
+        sys {
+          id
+        }
+        name
+        referenceCode
+        minimumUploads
       }
     }
   }

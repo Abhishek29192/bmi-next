@@ -6,13 +6,13 @@ import { Cross as IconCross } from "@bmi/icon";
 import { CompanyProfileMandatoryFields } from "../../../../lib/validations/company";
 import styles from "./styles.module.scss";
 
-type CompanyIncompleteProfileAlertProps = {
+type IncompleteProfileAlertProps = {
   missingFields: CompanyProfileMandatoryFields;
 };
 
-export const CompanyIncompleteProfileAlert = ({
+export const IncompleteProfileAlert = ({
   missingFields
-}: CompanyIncompleteProfileAlertProps) => {
+}: IncompleteProfileAlertProps) => {
   const { t } = useTranslation("company-page");
   const [isAlertShowing, setIsAlertShowing] = useState(true);
 

@@ -255,7 +255,7 @@ const roof2: Roof = {
       ],
       lines: {
         hip: [],
-        ridge: [{ length: width }],
+        ridge: [{ length: width }, { length: cutInDepth + B }],
         eave: [
           { length: A },
           { length: A },
@@ -439,7 +439,7 @@ const roof3: Roof = {
       ],
       lines: {
         hip: [],
-        ridge: [{ length: width }],
+        ridge: [{ length: width }, { length: cutInDepth + B }],
         eave: [
           { length: A },
           { length: A },

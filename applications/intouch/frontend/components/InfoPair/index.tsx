@@ -3,7 +3,19 @@ import Typography from "@bmi/typography";
 
 export type InfoPairProps = {
   title: string;
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
+};
+
+export type MaybeInfoPairProps = InfoPairProps & { fallback: React.ReactNode };
+
+export const MaybeInfoPair = (props: MaybeInfoPairProps) => {
+  const { fallback, ...infoPairProps } = props;
+
+  if (React.Children.count(props.children) === 0) {
+    return <InfoPair {...infoPairProps}>{fallback}</InfoPair>;
+  }
+
+  return <InfoPair {...infoPairProps} />;
 };
 
 export const InfoPair = ({ title, children }: InfoPairProps) => (

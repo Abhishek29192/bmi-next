@@ -1,14 +1,18 @@
 import { GraphQLUpload } from "graphql-upload";
 import { makeExtendSchemaPlugin } from "graphile-utils";
 import {
-  invite,
-  completeInvitation,
-  getAccountSignedPhotoUrl
-} from "../../services/account";
+  ContentfulGuaranteeTypeCollection,
+  EvidenceCategoryCollection
+} from "@bmi/intouch-api-types";
+import { invite, completeInvitation } from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
-import { getGuarantee, getEvidenceCategory } from "../../services/contentful";
+import {
+  getGuaranteeTypeCollection,
+  getEvidenceCategory
+} from "../../services/contentful";
 import {
   getCompanyCertifications,
+  getCompanyIsProfileComplete,
   guaranteeResolver
 } from "../../services/company/customResolvers";
 import Auth0 from "../../services/auth0";
@@ -28,35 +32,54 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
       Company: {
         certifications: async (parent, args, context, info) => {
           return getCompanyCertifications(parent, args, context);
+        },
+        // NOTE: this resolver currently requires the parent to have all the fields which are being check in the query
+        // if the query doesn't include the necessary sub-fields, the resolver will return `false`
+        isProfileComplete: (parent) => {
+          return getCompanyIsProfileComplete(parent);
         }
       },
       Guarantee: {
         guaranteeType: async (_query, args, context) => {
-          const { guaranteeTypeId } = _query;
-          const {
-            data: { guaranteeType }
-          } = await getGuarantee(guaranteeTypeId);
+          const { guaranteeReferenceCode } = _query;
 
-          return guaranteeType;
+          if (!guaranteeReferenceCode) return null;
+
+          const {
+            data: { guaranteeTypeCollection }
+          }: {
+            data: {
+              guaranteeTypeCollection: ContentfulGuaranteeTypeCollection;
+            };
+          } = await getGuaranteeTypeCollection(
+            context.clientGateway,
+            guaranteeReferenceCode
+          );
+
+          return guaranteeTypeCollection?.items[0];
         }
       },
       EvidenceItem: {
         customEvidenceCategory: async (_query, args, context) => {
-          const { customEvidenceCategoryId } = _query;
+          const { customEvidenceCategoryKey } = _query;
 
-          if (!customEvidenceCategoryId) return null;
+          if (!customEvidenceCategoryKey) return null;
 
           const {
-            data: { evidenceCategory }
-          } = await getEvidenceCategory(customEvidenceCategoryId);
+            data: { evidenceCategoryCollection }
+          }: {
+            data: { evidenceCategoryCollection: EvidenceCategoryCollection };
+          } = await getEvidenceCategory(
+            context.clientGateway,
+            customEvidenceCategoryKey
+          );
 
-          return evidenceCategory;
+          return evidenceCategoryCollection?.items[0];
         }
       },
       Account: {
-        signedPhotoUrl: async (parent, args, context) => {
-          const { photo } = parent;
-          return getAccountSignedPhotoUrl(photo);
+        signedPhotoUrl: async (parent, _args, context) => {
+          return context.storageClient.getPrivateAssetSignedUrl(parent.photo);
         },
         formattedRole: async (parent, args, context) => {
           const formattedRoles = {

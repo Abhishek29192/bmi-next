@@ -113,12 +113,12 @@ exports[`ExpandableLinksTextCard component renders correctly with more than 3 li
       <div>
         <div />
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-label buttonStyles-label-4"
           >
             Open
           </span>

@@ -1,9 +1,6 @@
 @import "@bmi/styles";
 
 @media (min-width: $breakpoint-md) {
-  .imageGallery-section {
-    overflow: initial;
-  }
   .gallery {
     position: sticky;
     top: 175px;

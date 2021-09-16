@@ -1,6 +1,6 @@
 "use strict";
 
-const technologies = ["FLAT", "PITCHED", "OTHER"];
+const technologies = ["FLAT", "PITCHED"];
 
 module.exports = technologies;
 

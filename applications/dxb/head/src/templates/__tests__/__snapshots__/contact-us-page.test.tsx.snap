@@ -21,12 +21,12 @@ exports[`Contact us page renders correctly 1`] = `
           >
             <button
               aria-label="MC: menu.language"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button language-selection-button MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-4"
               >
                 <img
                   class="language-icon"
@@ -54,7 +54,7 @@ exports[`Contact us page renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
       tabindex="0"
       type="button"
     >
@@ -80,15 +80,15 @@ exports[`Contact us page renders correctly 1`] = `
       class="back-navigation"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton back-button MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton back-button MuiButton-textPrimary"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-4"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium"
+            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
           >
             <svg
               aria-hidden="true"
@@ -134,15 +134,15 @@ exports[`Contact us page renders correctly 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                   href="/al"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label-4"
                   >
                     <span
-                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
                     >
                       <img
                         class="LanguageIcon"
@@ -161,15 +161,15 @@ exports[`Contact us page renders correctly 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                   href="/at"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label-4"
                   >
                     <span
-                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
                     >
                       <img
                         class="LanguageIcon"
@@ -188,15 +188,15 @@ exports[`Contact us page renders correctly 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                   href="/no"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label buttonStyles-label-4"
                   >
                     <span
-                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
                     >
                       <img
                         class="LanguageIcon"
@@ -258,7 +258,7 @@ exports[`Contact us page renders correctly 1`] = `
                   role="tablist"
                 />
                 <span
-                  class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorSecondary-3 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-61 PrivateTabIndicator-colorSecondary-63 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -270,7 +270,7 @@ exports[`Contact us page renders correctly 1`] = `
         >
           <button
             aria-label="MC: search.label"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 search-button"
             tabindex="0"
             type="button"
           >
@@ -294,7 +294,7 @@ exports[`Contact us page renders correctly 1`] = `
           </button>
           <button
             aria-label="MC: menu.open"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 burger-button"
             tabindex="0"
             type="button"
           >
@@ -331,7 +331,7 @@ exports[`Contact us page renders correctly 1`] = `
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
       tabindex="0"
       type="button"
     >
@@ -372,13 +372,13 @@ exports[`Contact us page renders correctly 1`] = `
           />
           <li>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
               data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"NO\\"}"
               tabindex="0"
               type="button"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label buttonStyles-label-4"
               >
                 <span
                   class="LanguageButtonContent"
@@ -422,7 +422,7 @@ exports[`Contact us page renders correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
         tabindex="0"
         type="button"
       >

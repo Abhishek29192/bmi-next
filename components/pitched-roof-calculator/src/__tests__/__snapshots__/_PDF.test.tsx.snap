@@ -65,7 +65,7 @@ Object {
         100,
         0,
       ],
-      "text": "Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 0% into this material calculation",
+      "text": "Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 5% into this material calculation",
     },
     Object {
       "alignment": "left",
@@ -239,7 +239,7 @@ Object {
                 25,
                 15,
               ],
-              "text": "We’ve added a wastage contingency of: 0% into this material calculation.",
+              "text": "We’ve added a wastage contingency of: 5% into this material calculation.",
             },
           ],
         ],
@@ -302,7 +302,7 @@ Object {
         100,
         0,
       ],
-      "text": "Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 0% into this material calculation",
+      "text": "Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 5% into this material calculation",
     },
     Object {
       "alignment": "left",
@@ -400,7 +400,7 @@ Object {
                   50,
                   50,
                 ],
-                "image": "46035712",
+                "image": "data:image/jpg;base64,imagedata",
               },
             ],
             Object {
@@ -459,7 +459,7 @@ Object {
                   50,
                   50,
                 ],
-                "image": "46035795",
+                "image": "data:image/jpg;base64,imagedata",
               },
             ],
             Object {
@@ -518,7 +518,7 @@ Object {
                   50,
                   50,
                 ],
-                "image": "46035761",
+                "image": "data:image/jpg;base64,imagedata",
               },
             ],
             Object {
@@ -675,13 +675,7 @@ Object {
             ],
             Array [
               Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "100456781",
-                },
+                "",
               ],
               Object {
                 "bold": false,
@@ -841,7 +835,7 @@ Object {
                     50,
                     50,
                   ],
-                  "image": "86035763",
+                  "image": "data:image/jpg;base64,imagedata",
                 },
               ],
               Object {
@@ -900,7 +894,7 @@ Object {
                     50,
                     50,
                   ],
-                  "image": "86035761",
+                  "image": "data:image/jpg;base64,imagedata",
                 },
               ],
               Object {
@@ -959,7 +953,7 @@ Object {
                     50,
                     50,
                   ],
-                  "image": "86035764",
+                  "image": "data:image/jpg;base64,imagedata",
                 },
               ],
               Object {
@@ -1018,7 +1012,7 @@ Object {
                     50,
                     50,
                   ],
-                  "image": "86035762",
+                  "image": "data:image/jpg;base64,imagedata",
                 },
               ],
               Object {
@@ -1072,13 +1066,7 @@ Object {
             ],
             Array [
               Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "113456781",
-                },
+                "",
               ],
               Object {
                 "bold": false,
@@ -1131,13 +1119,7 @@ Object {
             ],
             Array [
               Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "113456782",
-                },
+                "",
               ],
               Object {
                 "bold": false,
@@ -1190,13 +1172,7 @@ Object {
             ],
             Array [
               Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "113456783",
-                },
+                "",
               ],
               Object {
                 "bold": false,
@@ -1249,13 +1225,7 @@ Object {
             ],
             Array [
               Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "113456784",
-                },
+                "",
               ],
               Object {
                 "bold": false,
@@ -1308,13 +1278,7 @@ Object {
             ],
             Array [
               Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "113456786",
-                },
+                "",
               ],
               Object {
                 "bold": false,
@@ -1372,7 +1336,7 @@ Object {
                     50,
                     50,
                   ],
-                  "image": "26583450",
+                  "image": "data:image/jpg;base64,imagedata",
                 },
               ],
               Object {
@@ -1431,7 +1395,7 @@ Object {
                     50,
                     50,
                   ],
-                  "image": "5555551",
+                  "image": "data:image/jpg;base64,imagedata",
                 },
               ],
               Object {
@@ -1490,7 +1454,7 @@ Object {
                     50,
                     50,
                   ],
-                  "image": "5555550",
+                  "image": "data:image/jpg;base64,imagedata",
                 },
               ],
               Object {
@@ -1622,7 +1586,7 @@ Object {
                 25,
                 15,
               ],
-              "text": "We’ve added a wastage contingency of: 0% into this material calculation.",
+              "text": "We’ve added a wastage contingency of: 5% into this material calculation.",
             },
           ],
         ],
@@ -1636,24 +1600,7 @@ Object {
     "font": "Effra",
   },
   "header": [Function],
-  "images": Object {
-    "100456781": "http://localhost/f4420511632ec8f82eb7b56aff3a072b.jpg",
-    "113456781": "http://localhost/f4420511632ec8f82eb7b56aff3a072b.jpg",
-    "113456782": "http://localhost/f4420511632ec8f82eb7b56aff3a072b.jpg",
-    "113456783": "http://localhost/f4420511632ec8f82eb7b56aff3a072b.jpg",
-    "113456784": "http://localhost/f4420511632ec8f82eb7b56aff3a072b.jpg",
-    "113456786": "http://localhost/f4420511632ec8f82eb7b56aff3a072b.jpg",
-    "26583450": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-    "46035712": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-    "46035761": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-    "46035795": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-    "5555550": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-    "5555551": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-    "86035761": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-    "86035762": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-    "86035763": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-    "86035764": "http://localhost/893ed88a9339cf3c629e614a923f7c1c.jpg",
-  },
+  "images": Object {},
   "pageBreakBefore": [Function],
   "pageMargins": Array [
     25,

@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Dialog from "@bmi/dialog";
 import classnames from "classnames";
 import useStickyState from "../utils/sticky-state";
 import RichText, { RichTextData } from "./RichText";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import BrandLogo from "./BrandLogo";
 import styles from "./styles/WelcomeDialog.module.scss";
 
@@ -16,17 +16,25 @@ export type Data = {
 
 const WelcomeDialog = ({ data }: { data: Data }) => {
   const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } = data;
-  if (!welcomeDialogTitle || !welcomeDialogBody) {
+
+  const [dialogClose, setDialogClose, isMounted] = useStickyState(
+    false,
+    "welcome-dialog"
+  );
+  const { getMicroCopy } = useSiteContext();
+
+  const closeDialog = () => {
+    setDialogClose(true);
+  };
+
+  if (!welcomeDialogTitle || !welcomeDialogBody || !isMounted) {
     return null;
   }
-  const [dialogClose, setDialogClose] = useStickyState(false, "welcome-dialog");
-  const { getMicroCopy } = useContext(SiteContext);
+
   return (
     <Dialog
       open={!dialogClose}
-      onCloseClick={() => {
-        setDialogClose(true);
-      }}
+      onCloseClick={closeDialog}
       className={styles["WelcomeDialog"]}
     >
       <Dialog.Title hasUnderline>{welcomeDialogTitle}</Dialog.Title>
@@ -54,9 +62,7 @@ const WelcomeDialog = ({ data }: { data: Data }) => {
       </Dialog.Content>
       <Dialog.Actions
         confirmLabel={getMicroCopy("dialog.close")}
-        onConfirmClick={() => {
-          setDialogClose(true);
-        }}
+        onConfirmClick={closeDialog}
       />
     </Dialog>
   );

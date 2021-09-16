@@ -46,17 +46,17 @@ exports[`CourseDescription component renders correctly 1`] = `
           class="cta"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
             rel="noopener noreferrer"
             tabindex="0"
             target="_blank"
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label buttonStyles-label-4"
             >
               <span
-                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"

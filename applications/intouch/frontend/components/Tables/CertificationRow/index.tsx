@@ -5,6 +5,7 @@ import Icon, {
   CertificationOtherTraining,
   CertificationPitchedRoof
 } from "@bmi/icon";
+import { formatDate } from "../../../lib/utils/date";
 import { GetUserProfileQuery } from "../../../graphql/generated/operations";
 import styles from "./styles.module.scss";
 
@@ -45,11 +46,7 @@ export const CertificationRow = ({ certification }: CertificationRowProps) => {
       </Table.Cell>
       <Table.Cell>{certification.name}</Table.Cell>
       <Table.Cell className={styles.date}>
-        {new Date(certification.expiryDate).toLocaleDateString("en-gb", {
-          year: "numeric",
-          month: "long",
-          day: "numeric"
-        })}
+        {formatDate(certification.expiryDate)}
       </Table.Cell>
     </Table.Row>
   );

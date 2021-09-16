@@ -4,7 +4,6 @@
   .scroll-bar {
     @media (min-width: $breakpoint-xl) {
       position: sticky;
-      top: 180px;
       max-height: calc(100vh - 200px);
       overflow: hidden;
     }

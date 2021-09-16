@@ -162,7 +162,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
                 />
               </button>
               <div
-                class="makeStyles-root-3"
+                class="makeStyles-root-23"
               >
                 <div>
                   <button
@@ -273,12 +273,12 @@ exports[`ErrorView component renders correctly with title 1`] = `
                     Today
                   </h6>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 MuiButton-textPrimary"
                     tabindex="0"
                     type="button"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label-28"
                     >
                       Mark all as read
                     </span>
@@ -613,12 +613,12 @@ exports[`ErrorView component renders correctly without title 1`] = `
                     Today
                   </h6>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-3 MuiButton-text buttonStyles-text-4 MuiButton-textPrimary"
                     tabindex="0"
                     type="button"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label buttonStyles-label-6"
                     >
                       Mark all as read
                     </span>

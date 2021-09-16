@@ -35,7 +35,8 @@ describe("ParseUserInfo", () => {
   let req = {
     logger,
     headers: {
-      "x-apigateway-api-userinfo": USER_INFO_HEADER
+      "x-apigateway-api-userinfo": USER_INFO_HEADER,
+      "x-request-market-domain": "en"
     }
   };
   let res;
@@ -71,12 +72,21 @@ describe("ParseUserInfo", () => {
               first_name: "first_name",
               last_name: "last_name",
               market_id: "market_id",
-              domain: "market_domain",
-              send_mailbox: "send_mailbox",
               status: "status",
               docebo_user_id: "docebo_user_id",
               docebo_username: "docebo_username",
               migration_id: "migration_id"
+            }
+          ]
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          rows: [
+            {
+              id: "market_id",
+              domain: "market_domain",
+              send_mailbox: "send_mailbox"
             }
           ]
         })
@@ -97,7 +107,8 @@ describe("ParseUserInfo", () => {
     expect(req).toEqual({
       logger,
       headers: {
-        "x-apigateway-api-userinfo": USER_INFO_HEADER
+        "x-apigateway-api-userinfo": USER_INFO_HEADER,
+        "x-request-market-domain": "en"
       },
       user: {
         email: "user.email",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { render } from "@testing-library/react";
 import Dialog from "../";
 
@@ -9,6 +9,17 @@ describe("Dialog component", () => {
         <Dialog.Title hasUnderline>Heading</Dialog.Title>
         <Dialog.Content>Some content</Dialog.Content>
         <Dialog.Actions confirmLabel={"Close"} />
+      </Dialog>
+    );
+    expect(container.parentElement!).toMatchSnapshot();
+  });
+
+  it("renders without confirm label", () => {
+    const { container } = render(
+      <Dialog open onCloseClick={console.log}>
+        <Dialog.Title hasUnderline>Heading</Dialog.Title>
+        <Dialog.Content>Some content</Dialog.Content>
+        <Dialog.Actions />
       </Dialog>
     );
     expect(container.parentElement!).toMatchSnapshot();

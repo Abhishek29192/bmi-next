@@ -1,0 +1,27 @@
+@import "@bmi/styles";
+
+.dialog {
+  background-color: $color-alabaster;
+}
+
+.sectionText {
+  margin-bottom: 12px;
+}
+
+.form {
+  margin-top: 12px;
+  padding: 30px;
+  background-color: white;
+
+  .input {
+    margin-bottom: 24px;
+
+    input {
+      background-color: white;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

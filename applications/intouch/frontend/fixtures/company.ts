@@ -21,7 +21,7 @@ export const mockCompany: GetCompanyQuery["company"] = {
   ownerFullname: "Don Cheadle",
   ownerPhone: "1232123",
   ownerEmail: "don@test.com",
-  phone: "843-985-4588",
+  phone: "8439854588",
   publicEmail: "lfoskin0@paypal.com",
   website: "https://sphinn.com",
   facebook: "https://www.facebook.com/WhiteHouse/",
@@ -43,8 +43,16 @@ export const mockCompany: GetCompanyQuery["company"] = {
   companyOperationsByCompany: {
     __typename: "CompanyOperationsConnection",
     nodes: [
-      { __typename: "CompanyOperation", operation: "PITCHED" },
-      { __typename: "CompanyOperation", operation: "FLAT" }
+      {
+        __typename: "CompanyOperation",
+        id: 1,
+        operation: "PITCHED"
+      },
+      {
+        __typename: "CompanyOperation",
+        id: 2,
+        operation: "FLAT"
+      }
     ]
   },
   companyMembers: {
@@ -107,5 +115,6 @@ export const mockCompany: GetCompanyQuery["company"] = {
       }
     ]
   },
-  certifications: ["FLAT", "PITCHED"]
+  certifications: ["FLAT", "PITCHED"],
+  isProfileComplete: true
 };

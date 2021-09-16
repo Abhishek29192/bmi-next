@@ -1,11 +1,12 @@
-import React, { useContext, useMemo } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
+import { ColorPairContext } from "@bmi/color-pair";
 import { renderVideo } from "./Video";
 import { Data as PromoData } from "./Promo";
-import { SiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import Link, { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import RichText from "./RichText";
@@ -25,15 +26,16 @@ const SyndicateSection = ({
   data: Data;
   position: number;
 }) => {
-  const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { countryCode, getMicroCopy } = useSiteContext();
+  const { type } = React.useContext(ColorPairContext);
 
   const villainsData = villains?.map((data) => {
-    const callToAction = useMemo(() => {
+    const callToAction = React.useMemo(() => {
       const cta = getCTA(data, countryCode, getMicroCopy("page.linkLabel"));
 
       if (data.__typename == "ContentfulPromo" && data.cta) {
         return (
-          <Link component={Button} data={data.cta}>
+          <Link component={Button} variant="opaqueOutlined" data={data.cta}>
             {data.cta.label}
           </Link>
         );
@@ -41,7 +43,9 @@ const SyndicateSection = ({
 
       if (cta && cta.action) {
         return (
-          <Button action={cta.action}>{getMicroCopy("page.linkLabel")}</Button>
+          <Button action={cta.action} variant="opaqueOutlined">
+            {getMicroCopy("page.linkLabel")}
+          </Button>
         );
       }
 

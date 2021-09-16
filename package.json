@@ -13,21 +13,16 @@
   ],
   "scripts": {
     "dev": "yarn workspace @bmi/head run dev",
-    "dev:intouch-frontend": "yarn workspace @bmi/intouch-frontend run dev",
     "start": "yarn workspace @bmi/head run start",
-    "start:intouch-frontend": "yarn workspace @bmi/intouch-frontend run start",
     "clean:head": "yarn workspace @bmi/head run clean",
     "build": "tsc",
     "build:head": "yarn workspace @bmi/head run build",
     "build:frc-website": "yarn workspace @bmi/frc-website run build",
-    "build:intouch-frontend": "yarn workspace @bmi/intouch-frontend run build",
+    "build:redirects-website": "yarn workspace @bmi/redirects-website run build",
     "coverage:components": "yarn test:components --coverage",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "coverage:ts": "typescript-coverage-report",
     "test:components": "jest --config=components/jest.config.js --reporters=default --reporters=jest-junit",
-    "test:intouch-frontend": "jest --testPathPattern=\"applications/intouch/frontend\" --reporters=default --reporters=jest-junit",
-    "test:intouch-api": "jest --testPathPattern=\"applications/intouch/api\" --reporters=default --reporters=jest-junit",
-    "test:intouch-api:company": "jest --testPathPattern=\"applications/intouch/api/services/companies\" --reporters=default --reporters=jest-junit",
     "workbench": "styleguidist server",
     "workbench:build": "styleguidist build",
     "run-apollo": "yarn workspace @bmi/apollo-server run start"
@@ -90,7 +85,7 @@
     "semantic-release": "17.3.6",
     "ts-jest": "^26.0.0",
     "ts-loader": "^7.0.5",
-    "typescript": "^3.9.3",
+    "typescript": "3.9.10",
     "typescript-coverage-report": "^0.1.3"
   },
   "dependencies": {

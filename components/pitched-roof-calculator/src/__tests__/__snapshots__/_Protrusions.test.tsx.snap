@@ -96,12 +96,12 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
         </h6>
       </div>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label"
+          class="MuiButton-label buttonStyles-label-4"
         >
           Add protrusions
         </span>

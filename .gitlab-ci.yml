@@ -1,5 +1,6 @@
 image: node:14.17.0
 
+
 stages:
   - install
   - audit
@@ -11,6 +12,8 @@ stages:
   - package
   - deploy
   - deploy_gateway
+  - terraform_plan
+  - terraform_execute
   - dynamic security
   - lighthouse scan
 
@@ -27,6 +30,7 @@ include:
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/intouch/.gitlab-ci.yml"
+  - local: "/applications/redirects-website/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"
   - local: "/libraries/.gitlab-ci.yml"

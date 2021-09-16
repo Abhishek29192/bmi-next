@@ -28,6 +28,9 @@ export type Props = {
   theme?: Colors;
 };
 
+const useIsDarkBg = (theme?: Colors): boolean =>
+  useMemo(() => darkThemes.some((color: string) => color === theme), [theme]);
+
 const FullSizeVillain = ({
   children,
   title,
@@ -38,10 +41,7 @@ const FullSizeVillain = ({
   theme
 }: Omit<Props, "isFullWidth">) => {
   const isNestedSection = useContext(SectionContext);
-  const hasDarkBg = useMemo(
-    () => darkThemes.some((color: string) => color === theme),
-    [theme]
-  );
+  const hasDarkBg = useIsDarkBg(theme);
 
   /* istanbul ignore next */
   if (isNestedSection && process.env.NODE_ENV === "development") {
@@ -73,7 +73,8 @@ const FullSizeVillain = ({
           <div className={styles["text"]}>{children}</div>
           {React.isValidElement(cta) &&
             React.cloneElement(cta, {
-              className: classnames(styles["cta"], cta.props.className)
+              className: classnames(styles["cta"], cta.props.className),
+              hasDarkBackground: hasDarkBg
             })}
         </div>
       </Container>
@@ -104,6 +105,8 @@ const ContainedVillain = ({
   theme
 }: Omit<Props, "isFullWidth">) => {
   const defaultTheme = useTheme();
+  const hasDarkBg = useIsDarkBg(theme);
+
   const customBreakpointsTheme = createMuiTheme({
     ...defaultTheme,
     breakpoints: {
@@ -145,7 +148,8 @@ const ContainedVillain = ({
               <div className={styles["text"]}>{children}</div>
               {React.isValidElement(cta) &&
                 React.cloneElement(cta, {
-                  className: classnames(styles["cta"], cta.props.className)
+                  className: classnames(styles["cta"], cta.props.className),
+                  hasDarkBackground: hasDarkBg
                 })}
             </ColorPair>
           </Grid>
