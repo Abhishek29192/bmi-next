@@ -27,6 +27,7 @@ export type ProjectsHeaderProps = {
   guaranteeStatus: GuaranteeStatus;
   guaranteeEventType?: GuaranteeEventType;
   guaranteeEventHandler?: (status: GuaranteeEventType) => void;
+  renderActions?: () => React.ReactNode;
 };
 
 export const ProjectsHeader = ({
@@ -41,7 +42,8 @@ export const ProjectsHeader = ({
   guaranteeType,
   guaranteeStatus,
   guaranteeEventType,
-  guaranteeEventHandler
+  guaranteeEventHandler,
+  renderActions
 }: ProjectsHeaderProps) => {
   const { t } = useTranslation("project-page");
 
@@ -94,6 +96,9 @@ export const ProjectsHeader = ({
           </div>
         </AccessControl>
       )}
+      {renderActions ? (
+        <div className={styles.footer}>{renderActions()}</div>
+      ) : null}
     </SimpleCard>
   );
 };

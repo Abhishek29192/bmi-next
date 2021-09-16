@@ -70,7 +70,8 @@
       "ASSIGN_SOLUTION": "Assign to me",
       "REASSIGN_SOLUTION": "Reassign to me",
       "UNASSIGN_SOLUTION": "Unassign to me",
-      "NOT_ASSIGNABLE": "Not Assignable"
+      "NOT_ASSIGNABLE": "Not Assignable",
+      "edit": "Edit"
     }
   },
   "buildingOwnerDetails": {

@@ -1,36 +1,32 @@
 import React, { useState, useCallback } from "react";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
-import { gql } from "@apollo/client";
-import {
-  ProjectSiteAddressIdFkeyInput,
-  ProjectCompanyIdFkeyInput
-} from "@bmi/intouch-api-types";
 import Dialog from "@bmi/dialog";
-import ProjectForm from "../Form";
+import { gql } from "@apollo/client";
+import { ProjectSiteAddressIdFkeyInput } from "@bmi/intouch-api-types";
+import { useUpdateProjectMutation } from "../../../../graphql/generated/hooks";
+import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import { spreadObjectKeys } from "../../../../lib/utils/object";
-import { useCreateProjectMutation } from "../../../../graphql/generated/hooks";
 import log from "../../../../lib/logger";
-import styles from "./styles.module.scss";
+import ProjectForm from "../Form";
+// TODO: move/split styles?
+import styles from "../CreateProject/styles.module.scss";
 
-export type NewProjectDialogProps = {
-  companyId: number;
+type ProjectEditActionDialogProps = {
+  project: GetProjectQuery["project"];
   isOpen: boolean;
   onCloseClick?: () => void;
   onCompleted?: () => void;
 };
 
-export const NewProjectDialog = ({
-  companyId,
+export const ProjectEditActionDialog = ({
+  project,
   isOpen,
   onCloseClick,
   onCompleted
-}: NewProjectDialogProps) => {
+}: ProjectEditActionDialogProps) => {
   const { t } = useTranslation();
-  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const [createProject] = useCreateProjectMutation({
+  const [updateProject] = useUpdateProjectMutation({
     onError: (error) => {
       log({
         severity: "ERROR",
@@ -39,17 +35,14 @@ export const NewProjectDialog = ({
       // TODO: show some visual error
       setIsSubmitting(false);
     },
-    onCompleted: ({ createProject: { project } }) => {
+    onCompleted: ({ updateProject: { project } }) => {
       log({
         severity: "INFO",
-        message: `Created project - id: ${project.id}`
+        message: `Updated project - id: ${project.id}`
       });
 
-      // Once we can update the cache perhaps we can `shalow: true`
-      // at which point closing it makes sense
       onCompleted && onCompleted();
       setIsSubmitting(false);
-      router.push(`/projects/${project.id}`, undefined, { shallow: false });
     }
   });
 
@@ -73,23 +66,26 @@ export const NewProjectDialog = ({
 
     const { siteAddress, ...createProjectValues } = valuesObject;
 
-    const addressToSiteAddressId: ProjectSiteAddressIdFkeyInput = {
-      // creates the address and links it to the project
-      create: siteAddress
-    };
+    const addressToSiteAddressId: ProjectSiteAddressIdFkeyInput = project
+      .siteAddress?.id
+      ? {
+          // updates the address (already linked to the project)
+          updateById: {
+            id: project?.siteAddress.id,
+            patch: siteAddress
+          }
+        }
+      : {
+          // creates the address and links it to the project
+          create: siteAddress
+        };
 
-    const companyToCompanyId: ProjectCompanyIdFkeyInput = {
-      connectById: {
-        id: companyId
-      }
-    };
-
-    createProject({
+    updateProject({
       variables: {
         input: {
-          project: {
+          id: project.id,
+          patch: {
             ...createProjectValues,
-            companyToCompanyId,
             addressToSiteAddressId
           }
         }
@@ -109,15 +105,19 @@ export const NewProjectDialog = ({
       </Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
-        <ProjectForm onSubmit={onSubmit} isSubmitting={isSubmitting} />
+        <ProjectForm
+          project={project}
+          onSubmit={onSubmit}
+          isSubmitting={isSubmitting}
+        />
       </Dialog.Content>
     </Dialog>
   );
 };
 
-export const CREATE_COMPANY = gql`
-  mutation createProject($input: CreateProjectInput!) {
-    createProject(input: $input) {
+export const UPDATE_PROJET = gql`
+  mutation updateProject($input: UpdateProjectInput!) {
+    updateProject(input: $input) {
       project {
         ...ProjectDetailsFragment
       }
