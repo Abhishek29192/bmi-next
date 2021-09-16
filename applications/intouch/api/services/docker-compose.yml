@@ -15,6 +15,7 @@ services:
       - ./companies/src/data/company.sql:/var/lib/postgresql/company.sql
       - ./companies/src/data/roles.sql:/var/lib/postgresql/roles.sql
       - ./companies/src/data/rls.sql:/var/lib/postgresql/rls.sql
+      - ./companies/src/data/views.sql:/var/lib/postgresql/views.sql
       - intouch_company_db:/var/lib/postgresql/data
   training-db:
     image: postgres

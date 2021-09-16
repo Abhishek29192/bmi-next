@@ -1382,6 +1382,10 @@ type Account implements Node {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime!
   updatedAt: Datetime!
@@ -6707,7 +6711,7 @@ type FindRoofer {
   website: String
   facebook: String
   linkedIn: String
-  referenceNumber: String
+  referenceNumber: Int
   logo: String
   migrationId: String
   tradingAddressMigrationId: String
@@ -9009,6 +9013,10 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -11251,6 +11259,10 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -11538,6 +11550,10 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -12493,6 +12509,10 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -12870,6 +12890,10 @@ input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -15532,6 +15556,10 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -16275,6 +16303,10 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -17128,6 +17160,10 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -17420,6 +17456,10 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -17706,6 +17746,10 @@ input AccountPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
@@ -28565,6 +28609,10 @@ input AccountInput {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
   migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime

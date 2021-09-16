@@ -82,6 +82,7 @@ export type Account = Node & {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
@@ -297,6 +298,7 @@ export type AccountInput = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -774,6 +776,7 @@ export type AccountPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -7709,13 +7712,14 @@ export type FindRoofer = {
   website?: Maybe<Scalars["String"]>;
   facebook?: Maybe<Scalars["String"]>;
   linkedIn?: Maybe<Scalars["String"]>;
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
   logo?: Maybe<Scalars["String"]>;
   migrationId?: Maybe<Scalars["String"]>;
   tradingAddressMigrationId?: Maybe<Scalars["String"]>;
   registeredAddressMigrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketdomain?: Maybe<Scalars["String"]>;
   addressCoordinates?: Maybe<Point>;
   addressFirstLine?: Maybe<Scalars["String"]>;
   addressSecondLine?: Maybe<Scalars["String"]>;
@@ -19102,6 +19106,7 @@ export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -19145,6 +19150,7 @@ export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
     photo?: Maybe<Scalars["String"]>;
     /** Used for reference when importing data from the legacy system */
     migrationId?: Maybe<Scalars["String"]>;
+    /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
     migratedToAuth0?: Maybe<Scalars["Boolean"]>;
     createdAt?: Maybe<Scalars["Datetime"]>;
     updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -19189,6 +19195,7 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -19233,6 +19240,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -19277,6 +19285,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -19321,6 +19330,7 @@ export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -19365,6 +19375,7 @@ export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -19409,6 +19420,7 @@ export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -19453,6 +19465,7 @@ export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
   migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
