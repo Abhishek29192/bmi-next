@@ -14,13 +14,14 @@ import ConfiguratorPanel from "@bmi/configurator-panel";
 import Section from "@bmi/section";
 import RadioPane from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
-import OverviewCard from "@bmi/overview-card";
+import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import { Link as GatsbyLink } from "gatsby";
 import { useLocation } from "@reach/router";
 import Scrim from "../components/Scrim";
 import ProgressIndicator from "../components/ProgressIndicator";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
+import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
@@ -246,6 +247,10 @@ const SystemConfiguratorBlockNoResultsSection = ({
   );
 };
 
+const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard, {
+  label: "title"
+});
+
 const SystemConfiguratorBlockResultSection = ({
   title,
   description,
@@ -265,11 +270,16 @@ const SystemConfiguratorBlockResultSection = ({
           <Grid container spacing={3}>
             {recommendedSystems.map((system) => (
               <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
-                <OverviewCard
+                <GTMOverviewCard
                   title={`System-${system}`}
                   titleVariant="h5"
                   subtitleVariant="h6"
                   imageSize="contain"
+                  gtm={{
+                    event: `${title}-results`,
+                    id: system,
+                    action: `/${countryCode}/system-details-page?selected_system=${system}`
+                  }}
                   action={{
                     model: "routerLink",
                     linkComponent: GatsbyLink,
@@ -284,7 +294,9 @@ const SystemConfiguratorBlockResultSection = ({
                     saveStateToLocalStorage(JSON.stringify(newState));
                   }}
                   isHighlighted={false}
-                />
+                >
+                  {undefined}
+                </GTMOverviewCard>
               </Grid>
             ))}
           </Grid>
