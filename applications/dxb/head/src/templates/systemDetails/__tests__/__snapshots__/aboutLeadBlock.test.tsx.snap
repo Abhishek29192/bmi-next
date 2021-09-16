@@ -20,11 +20,11 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
-        </h5>
+        </h6>
         <img
           alt="Monier garanti 30 år"
           class="image"
@@ -34,11 +34,11 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
       <div
         class="LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: sdp.leadBlock.specification
-        </h5>
+        </h6>
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -224,11 +224,11 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
-        </h5>
+        </h6>
         <img
           alt="Test Award"
           class="image"
@@ -238,11 +238,11 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
       <div
         class="LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: sdp.leadBlock.specification
-        </h5>
+        </h6>
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -428,11 +428,11 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
-        </h5>
+        </h6>
         <img
           alt="Monier garanti 30 år"
           class="image"
@@ -442,11 +442,11 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
-        </h5>
+        </h6>
         <img
           alt="Test Award"
           class="image"
@@ -535,11 +535,11 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
-        </h5>
+        </h6>
         <img
           alt="Monier garanti 30 år"
           class="image"
@@ -549,11 +549,11 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
-        </h5>
+        </h6>
         <img
           alt="Test Award"
           class="image"
@@ -636,11 +636,11 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
-        </h5>
+        </h6>
         <img
           alt="Monier garanti 30 år"
           class="image"
@@ -650,11 +650,11 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
-        </h5>
+        </h6>
         <img
           alt="Test Award"
           class="image"
@@ -743,11 +743,11 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
-        </h5>
+        </h6>
         <img
           alt="Monier garanti 30 år"
           class="image"
@@ -757,11 +757,11 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
-        </h5>
+        </h6>
         <img
           alt="Test Award"
           class="image"
@@ -793,11 +793,11 @@ exports[`AboutLeadBlock tests should render 1`] = `
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
-        </h5>
+        </h6>
         <img
           alt="Monier garanti 30 år"
           class="image"
@@ -807,11 +807,11 @@ exports[`AboutLeadBlock tests should render 1`] = `
       <div
         class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
-        </h5>
+        </h6>
         <img
           alt="Test Award"
           class="image"
@@ -821,11 +821,11 @@ exports[`AboutLeadBlock tests should render 1`] = `
       <div
         class="LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: sdp.leadBlock.specification
-        </h5>
+        </h6>
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -1027,11 +1027,11 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
       <div
         class="LeadBlockContentSection"
       >
-        <h5
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        <h6
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: sdp.leadBlock.specification
-        </h5>
+        </h6>
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"

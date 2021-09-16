@@ -47,6 +47,16 @@
       &--footer {
         z-index: 0;
 
+        .NavigationListButton {
+          &--outline {
+            color: $color-cyan-500;
+            border-color: rgba($color-cyan-500, 0.5);
+            &:hover {
+              background-color: rgba($color-cyan-600, 0.04);
+            }
+          }
+        }
+
         @media (min-width: $breakpoint-sm) {
           left: 400%;
         }
@@ -143,6 +153,9 @@
     .icon-wrapper {
       display: inline-block;
       width: 100px;
+      @media (min-width: $breakpoint-xl) {
+        width: 130px;
+      }
     }
 
     .chevronRight,
@@ -180,14 +193,13 @@
         [data-name="bg block"] {
           fill: none;
         }
-      }
-    }
 
-    &--outline {
-      color: $color-cyan-500;
-      border-color: rgba($color-cyan-500, 0.5);
-      &:hover {
-        background-color: rgba($color-cyan-600, 0.04);
+        svg {
+          max-width: 100px;
+          @media (min-width: $breakpoint-xl) {
+            max-width: 130px;
+          }
+        }
       }
     }
   }

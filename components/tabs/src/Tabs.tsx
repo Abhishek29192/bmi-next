@@ -5,7 +5,7 @@ import {
   Tabs as MaterialTabs,
   TabsProps as MaterialTabsProps
 } from "@material-ui/core";
-import Container from "@bmi/container";
+import Container, { Props as ContainerProps } from "@bmi/container";
 import Grid, { GridProps } from "@bmi/grid";
 import classnames from "classnames";
 import React from "react";
@@ -54,6 +54,7 @@ type TabsProps = MaterialTabsProps &
     // see: https://github.com/mui-org/material-ui/issues/22452#issuecomment-685756045
     component?: React.ElementType;
     onChange?: (index: string) => void;
+    maxWidth?: ContainerProps["maxWidth"];
   };
 
 const Tabs = ({
@@ -64,6 +65,7 @@ const Tabs = ({
   visibleUntil,
   theme = "primary",
   onChange,
+  maxWidth,
   ...other
 }: TabsProps) => {
   const [value, setValue] = React.useState(initialValue);
@@ -89,7 +91,7 @@ const Tabs = ({
       )}
     >
       <div className={styles["TabsBar"]}>
-        <Container>
+        <Container maxWidth={maxWidth}>
           <MaterialTabs
             aria-label="tabs"
             indicatorColor="primary"

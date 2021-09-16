@@ -134,6 +134,30 @@ export const guaranteeSolutionGuaranteeValidate = (
     isValid: true
   };
 };
+export const isGuaranteeApplicationEnable = (
+  project: GetProjectQuery["project"]
+) => {
+  if (!checkProjectDetail(project)) {
+    return false;
+  }
+
+  if (!checkBuildingOwner(project)) {
+    return false;
+  }
+
+  const { company, guarantees } = project;
+
+  if (guarantees.nodes.length === 0) return true;
+
+  const guarantee = guarantees.nodes[0];
+  const { guaranteeType } = guarantee;
+
+  if (!checkCompanyTier(guaranteeType.tiersAvailable, company.tier)) {
+    return false;
+  }
+
+  return true;
+};
 
 const checkEvidence = (
   guaranteEvidenceItems: GetProjectQuery["project"]["evidenceItems"]["nodes"] = [],

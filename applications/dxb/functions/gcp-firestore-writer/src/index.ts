@@ -9,7 +9,8 @@ config({
 // TODO: I think these should start with "/", but was easier for them not to
 const COLLECTIONS = {
   CATEGORIES: "root/categories",
-  PRODUCTS: "root/products"
+  PRODUCTS: "root/products",
+  SYSTEMS: "root/systems"
 };
 
 admin.initializeApp({

@@ -1,10 +1,10 @@
-import React, { isValidElement, useMemo } from "react";
+import React, { isValidElement, useMemo, useContext } from "react";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Button from "@bmi/button";
 import CloseIcon from "@material-ui/icons/Close";
 import Fade from "@material-ui/core/Fade";
-import { useDisablePortalModalWorkaround } from "@bmi/hooks";
+import { DialogClassNameContext } from "@bmi/dialog";
 import styles from "./ContainerDialog.module.scss";
 
 type Props = {
@@ -36,8 +36,9 @@ const ContainerDialog = ({
   allowOverflow,
   className,
   containerClassName,
-  disablePortal = true
+  disablePortal
 }: Props) => {
+  const modalClassName = useContext(DialogClassNameContext);
   const [header, content] = useMemo(() => {
     const deconstructedChildren = React.Children.toArray(children).reduce<
       [React.ReactNode | null, React.ReactNode[]]
@@ -63,10 +64,9 @@ const ContainerDialog = ({
     return [deconstructedChildren[0], deconstructedChildren[1]];
   }, [children]);
 
-  useDisablePortalModalWorkaround(open, disablePortal);
-
   return (
     <Modal
+      className={modalClassName}
       open={open}
       onBackdropClick={onBackdropClick}
       BackdropProps={backdropProps}

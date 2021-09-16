@@ -318,9 +318,13 @@ exports[`ErrorView component renders correctly with title 1`] = `
       <div
         class="appContent"
       >
-        <h1>
-          Access Denied
-        </h1>
+        <div
+          class="errorContentContainer"
+        >
+          <h1>
+            Access Denied
+          </h1>
+        </div>
       </div>
       <div
         class="footer"
@@ -657,7 +661,11 @@ exports[`ErrorView component renders correctly without title 1`] = `
       </div>
       <div
         class="appContent"
-      />
+      >
+        <div
+          class="errorContentContainer"
+        />
+      </div>
       <div
         class="footer"
       >

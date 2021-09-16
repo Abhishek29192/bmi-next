@@ -13,7 +13,8 @@ export default (req, res, next: NextFunction) => {
         "Content-Type": "application/json",
         "x-request-market-domain": req.headers[
           "x-request-market-domain"
-        ] as string
+        ] as string,
+        "x-apigateway-api-userinfo": req.headers["x-apigateway-api-userinfo"]
       },
       body: JSON.stringify({ query, variables })
     });

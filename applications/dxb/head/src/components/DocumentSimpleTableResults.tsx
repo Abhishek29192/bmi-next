@@ -12,6 +12,7 @@ import {
   PIMDocumentData,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
+import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
 import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
@@ -20,7 +21,11 @@ import fileIconsMap from "./FileIconsMap";
 
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
-type Document = DocumentData | PIMDocumentData | PIMLinkDocumentData;
+type Document =
+  | DocumentData
+  | PIMDocumentData
+  | PIMLinkDocumentData
+  | SDPDocumentData;
 
 type Props = {
   documents: Document[];
@@ -37,7 +42,7 @@ const GTMButton =
   >(Button);
 
 const mapAssetToFileDownload = (
-  data: DocumentData | PIMDocumentData
+  data: DocumentData | PIMDocumentData | SDPDocumentData
 ): FileDownloadButtonProps => {
   if (data.__typename === "PIMDocument") {
     const { url, format, fileSize: size } = data;
@@ -97,7 +102,8 @@ export const getCount = (documents: Document[]) => {
 const typenameToSizeMap: Record<Document["__typename"], string | number> = {
   ContentfulDocument: "asset.file.details.size",
   PIMDocument: "fileSize",
-  PIMLinkDocument: 0
+  PIMLinkDocument: 0,
+  SDPDocument: "fileSize"
 };
 
 const DocumentSimpleTableResults = ({
@@ -148,7 +154,10 @@ const DocumentSimpleTableResults = ({
                     return (
                       <Table.Cell className={styles["table-cell"]} key={key}>
                         <abbr title={document.assetType.name}>
-                          {document.assetType.code}
+                          {
+                            (document.assetType as DocumentData["assetType"])
+                              .code
+                          }
                         </abbr>
                       </Table.Cell>
                     );

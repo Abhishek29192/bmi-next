@@ -118,7 +118,7 @@ export const insertOne = async (
   context: Context,
   tableName,
   record
-): Promise<any> => {
+): Promise<DBRecord> => {
   const { client, cleanupBucket } = context;
 
   // Picking up some required fields for the table as default

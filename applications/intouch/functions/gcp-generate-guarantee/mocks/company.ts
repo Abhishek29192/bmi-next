@@ -7,7 +7,7 @@ export const mockCompany: Company = {
   id: 2,
   nodeId: "",
   name: "Lehner-Gislason",
-  referenceNumber: "64772-300",
+  referenceNumber: "64772300",
   createdAt: "",
   updatedAt: "",
   companyDocuments: emptyNodes,

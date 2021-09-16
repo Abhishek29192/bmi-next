@@ -1,0 +1,28 @@
+test_es-pim-system-ingest:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/es-pim-system-ingest"
+    ROOT_DIR: "applications/functions/es-pim-system-ingest"
+
+build_es-pim-system-ingest:
+  extends: .build_function
+  variables:
+    PROJECT_NAME: es-pim-system-ingest
+
+package_es-pim-system-ingest:
+  extends: .package_function
+  needs:
+    - build_es-pim-system-ingest
+  dependencies:
+    - build_es-pim-system-ingest
+  variables:
+    PROJECT_NAME: es-pim-system-ingest
+
+deploy_es-pim-system-ingest:
+  extends: .deploy_function
+  needs:
+    - package_es-pim-system-ingest
+  dependencies:
+    - package_es-pim-system-ingest
+  variables:
+    PROJECT_NAME: es-pim-system-ingest

@@ -1,13 +1,18 @@
 import React, { useState, useMemo } from "react";
 import Typography from "@bmi/typography";
+import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
 import { SvgIcon } from "@material-ui/core";
 import { Technology } from "@bmi/intouch-api-types";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
+import { NewProjectDialog } from "../Pages/Project/CreateProject/Dialog";
+import { useAccountContext } from "../../context/AccountContext";
+import { findAccountCompany } from "../../lib/account";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { getProjectStatus, ProjectStatus } from "../../lib/utils/project";
 import { PitchIcon, FlatIcon, OtherIcon } from "../icons";
+import styles from "./styles.module.scss";
 
 // filter `attr` value
 const INITIAL_FILTER_SELECTION = "ALL";
@@ -26,6 +31,43 @@ const technologyIcon: {
   FLAT: FlatIcon,
   PITCHED: PitchIcon,
   OTHER: OtherIcon
+};
+
+const ProjectSidePanelFooter = () => {
+  const { t } = useTranslation("project-page");
+  const [isNewProjectDialogOpen, setIsNewProjectDialogOpen] = useState(false);
+  const { account } = useAccountContext();
+  const currentCompany = useMemo(() => findAccountCompany(account), [account]);
+
+  const handleOnNewProject = () => {
+    setIsNewProjectDialogOpen(true);
+  };
+
+  const handleOnDialogClose = () => {
+    setIsNewProjectDialogOpen(false);
+  };
+
+  if (!currentCompany) {
+    return null;
+  }
+
+  return (
+    <>
+      <Button
+        variant="outlined"
+        onClick={handleOnNewProject}
+        className={styles.footerActionButton}
+      >
+        {t("addProject.cta")}
+      </Button>
+      <NewProjectDialog
+        companyId={currentCompany.id}
+        isOpen={isNewProjectDialogOpen}
+        onCloseClick={handleOnDialogClose}
+        onCompleted={handleOnDialogClose}
+      />
+    </>
+  );
 };
 
 type ProjectSidePanelProps = {
@@ -94,6 +136,7 @@ export const ProjectSidePanel = ({
       onSearchFilterChange={(query: string) => {
         setSearchQuery(query);
       }}
+      renderFooter={() => <ProjectSidePanelFooter />}
     >
       {filteredProjects.map(
         ({ id, name, siteAddress, technology, startDate, endDate }) => (

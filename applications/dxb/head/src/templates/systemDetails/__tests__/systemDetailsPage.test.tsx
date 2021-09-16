@@ -3,13 +3,23 @@ import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import dataJson from "../../../data/pim-mock-data.json";
 import Component from "../systemDetailsPage";
-import { SystemDetails } from "../types";
-import SystemDetailsPage from "../systemDetailsPage";
+import { SystemDetails, DocumentData, AssetType, Assets } from "../types";
+import SystemDetailsPage, {
+  IGNORED_DOCUMENTS_ASSETS
+} from "../systemDetailsPage";
 import { systemDetailsMockData } from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 
 const systemPageId = "1234";
 const siteId = "1234";
+const allContentfulAssetType = {
+  nodes: [
+    {
+      name: "CAD display name",
+      pimCode: "CAD"
+    }
+  ]
+};
 
 jest.mock("gatsby");
 
@@ -40,7 +50,8 @@ describe("SystemDetailsPage template component", () => {
         data={{
           contentfulSite: createMockSiteData(),
           shareWidget: null,
-          dataJson: systemDetailsMockData
+          dataJson: systemDetailsMockData,
+          allContentfulAssetType
         }}
         pageContext={{
           systemPageId,
@@ -59,7 +70,8 @@ describe("SystemDetailsPage template component", () => {
         data={{
           contentfulSite: createMockSiteData(),
           shareWidget: null,
-          dataJson: systemDetailsMockData
+          dataJson: systemDetailsMockData,
+          allContentfulAssetType
         }}
         pageContext={{
           systemPageId,
@@ -155,7 +167,8 @@ describe("SystemDetailsPage template component", () => {
           data={{
             contentfulSite: createMockSiteData(),
             shareWidget: null,
-            dataJson: newDatajson as SystemDetails
+            dataJson: newDatajson as SystemDetails,
+            allContentfulAssetType
           }}
           pageContext={{
             systemPageId,
@@ -191,6 +204,56 @@ describe("SystemDetailsPage template component", () => {
       expect(secondAccordionItemFeatureItems[1].innerHTML).toContain(
         valueText4
       );
+    });
+
+    it("filter documentsAndDownload by assetsType and allowedToDownload", () => {
+      const document: Assets = {
+        allowedToDownload: true,
+        assetType: "CAD",
+        fileSize: 270539,
+        mime: "application/pdf",
+        name: "1344416763",
+        realFileName: "1344416763.pdf",
+        url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
+      };
+      const notAllowToDownload: Assets = {
+        ...document,
+        allowedToDownload: false,
+        realFileName: "notallow.pdf"
+      };
+      const ignoredDocument: Assets[] = IGNORED_DOCUMENTS_ASSETS.map(
+        (ignoredAssetType: AssetType): Assets => {
+          return {
+            ...document,
+            assetType: ignoredAssetType,
+            realFileName: ignoredAssetType
+          };
+        }
+      );
+      const documents: Assets[] = [
+        document,
+        notAllowToDownload,
+        ...ignoredDocument
+      ];
+      const { container, queryByText } = renderWithRouter(
+        <Component
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            dataJson: { ...systemDetailsMockData, assets: documents },
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      );
+      const tableRows = container.querySelectorAll(".tableContainer tbody tr");
+
+      expect(container).toMatchSnapshot();
+      expect(queryByText(allContentfulAssetType.nodes[0].name)).toBeTruthy();
+      expect(tableRows.length).toBe(1);
     });
   });
 });

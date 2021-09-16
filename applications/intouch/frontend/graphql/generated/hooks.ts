@@ -22,6 +22,163 @@ export const ProjectDetailsProductFragmentFragmentDoc = gql`
     description
   }
 `;
+export const ProjectDetailsFragmentFragmentDoc = gql`
+  fragment ProjectDetailsFragment on Project {
+    id
+    hidden
+    name
+    technology
+    roofArea
+    startDate
+    endDate
+    description
+    siteAddress {
+      firstLine
+      secondLine
+      town
+      region
+      postcode
+    }
+    buildingOwnerFirstname
+    buildingOwnerLastname
+    buildingOwnerCompany
+    buildingOwnerMail
+    buildingOwnerAddress {
+      firstLine
+      secondLine
+      town
+      region
+      postcode
+    }
+    guarantees {
+      nodes {
+        id
+        guaranteeReferenceCode
+        reviewerAccountId
+        coverage
+        languageCode
+        guaranteeType {
+          sys {
+            id
+          }
+          name
+          coverage
+          displayName
+          technology
+          tiersAvailable
+          evidenceCategoriesCollection {
+            items {
+              sys {
+                id
+              }
+              referenceCode
+              name
+              minimumUploads
+            }
+          }
+        }
+        productByProductBmiRef {
+          ...ProjectDetailsProductFragment
+        }
+        systemBySystemBmiRef {
+          id
+          name
+          description
+          systemMembersBySystemBmiRef {
+            nodes {
+              id
+              productByProductBmiRef {
+                ...ProjectDetailsProductFragment
+              }
+            }
+          }
+        }
+        status
+      }
+    }
+    evidenceItems {
+      nodes {
+        id
+        name
+        guaranteeId
+        evidenceCategoryType
+        customEvidenceCategoryKey
+        customEvidenceCategory {
+          name
+          minimumUploads
+        }
+      }
+    }
+    notes(orderBy: ID_DESC) {
+      nodes {
+        id
+        body
+        authorId
+        author {
+          firstName
+          lastName
+        }
+        createdAt
+      }
+    }
+    projectMembers {
+      nodes {
+        id
+        accountId
+        account {
+          firstName
+          lastName
+          role
+          certificationsByDoceboUserId {
+            nodes {
+              name
+              technology
+            }
+          }
+        }
+        isResponsibleInstaller
+      }
+    }
+    company {
+      id
+      name
+      tier
+    }
+  }
+  ${ProjectDetailsProductFragmentFragmentDoc}
+`;
+export const ImageFragmentFragmentDoc = gql`
+  fragment ImageFragment on Asset {
+    sys {
+      id
+    }
+    title
+    description
+    contentType
+    fileName
+    size
+    url
+    width
+    height
+  }
+`;
+export const MediaToolDetailsFragmentDoc = gql`
+  fragment MediaToolDetails on MediaTool {
+    __typename
+    sys {
+      id
+    }
+    name
+    media {
+      ...ImageFragment
+    }
+    thumbnail {
+      ...ImageFragment
+    }
+    url
+  }
+  ${ImageFragmentFragmentDoc}
+`;
 export const AddressLinesFragmentFragmentDoc = gql`
   fragment AddressLinesFragment on Address {
     firstLine
@@ -113,18 +270,6 @@ export const CompanyPageDetailsFragmentFragmentDoc = gql`
   ${CompanyRegisteredDetailsFragmentFragmentDoc}
   ${CompanyAdminsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
-`;
-export const ImageFragmentFragmentDoc = gql`
-  fragment ImageFragment on Asset {
-    title
-    description
-    contentType
-    fileName
-    size
-    url
-    width
-    height
-  }
 `;
 export const AccountPageDetailsFragmentFragmentDoc = gql`
   fragment AccountPageDetailsFragment on Account {
@@ -643,6 +788,59 @@ export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateSystemMutation,
   OperationTypes.UpdateSystemMutationVariables
 >;
+export const CreateProjectDocument = gql`
+  mutation createProject($input: CreateProjectInput!) {
+    createProject(input: $input) {
+      project {
+        ...ProjectDetailsFragment
+      }
+    }
+  }
+  ${ProjectDetailsFragmentFragmentDoc}
+`;
+export type CreateProjectMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateProjectMutation,
+  OperationTypes.CreateProjectMutationVariables
+>;
+
+/**
+ * __useCreateProjectMutation__
+ *
+ * To run a mutation, you first call `useCreateProjectMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateProjectMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createProjectMutation, { data, loading, error }] = useCreateProjectMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateProjectMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateProjectMutation,
+    OperationTypes.CreateProjectMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateProjectMutation,
+    OperationTypes.CreateProjectMutationVariables
+  >(CreateProjectDocument, options);
+}
+export type CreateProjectMutationHookResult = ReturnType<
+  typeof useCreateProjectMutation
+>;
+export type CreateProjectMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateProjectMutation>;
+export type CreateProjectMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateProjectMutation,
+  OperationTypes.CreateProjectMutationVariables
+>;
 export const UpdateAccountProfileDocument = gql`
   mutation updateAccountProfile($updateAccountInput: UpdateAccountInput!) {
     updateAccount(input: $updateAccountInput) {
@@ -860,127 +1058,10 @@ export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
 export const GetProjectDocument = gql`
   query GetProject($projectId: Int!) {
     project(id: $projectId) {
-      id
-      hidden
-      name
-      technology
-      roofArea
-      startDate
-      endDate
-      description
-      siteAddress {
-        firstLine
-        secondLine
-        town
-        region
-        postcode
-      }
-      buildingOwnerFirstname
-      buildingOwnerLastname
-      buildingOwnerCompany
-      buildingOwnerMail
-      buildingOwnerAddress {
-        firstLine
-        secondLine
-        town
-        region
-        postcode
-      }
-      guarantees {
-        nodes {
-          id
-          guaranteeReferenceCode
-          reviewerAccountId
-          guaranteeType {
-            sys {
-              id
-            }
-            name
-            coverage
-            displayName
-            technology
-            tiersAvailable
-            evidenceCategoriesCollection {
-              items {
-                sys {
-                  id
-                }
-                referenceCode
-                name
-                minimumUploads
-              }
-            }
-          }
-          productByProductBmiRef {
-            ...ProjectDetailsProductFragment
-          }
-          systemBySystemBmiRef {
-            id
-            name
-            description
-            systemMembersBySystemBmiRef {
-              nodes {
-                id
-                productByProductBmiRef {
-                  ...ProjectDetailsProductFragment
-                }
-              }
-            }
-          }
-          status
-        }
-      }
-      evidenceItems {
-        nodes {
-          id
-          name
-          guaranteeId
-          evidenceCategoryType
-          customEvidenceCategoryKey
-          customEvidenceCategory {
-            name
-            minimumUploads
-          }
-        }
-      }
-      notes(orderBy: ID_DESC) {
-        nodes {
-          id
-          body
-          authorId
-          author {
-            firstName
-            lastName
-          }
-          createdAt
-        }
-      }
-      projectMembers {
-        nodes {
-          id
-          accountId
-          account {
-            firstName
-            lastName
-            role
-            certificationsByDoceboUserId {
-              nodes {
-                name
-                technology
-              }
-            }
-          }
-          isResponsibleInstaller
-        }
-      }
-      company {
-        id
-        name
-        tier
-      }
+      ...ProjectDetailsFragment
     }
   }
-  ${ProjectDetailsProductFragmentFragmentDoc}
+  ${ProjectDetailsFragmentFragmentDoc}
 `;
 
 /**
@@ -2344,6 +2425,205 @@ export type GetMarketsByDomainLazyQueryHookResult = ReturnType<
 export type GetMarketsByDomainQueryResult = Apollo.QueryResult<
   OperationTypes.GetMarketsByDomainQuery,
   OperationTypes.GetMarketsByDomainQueryVariables
+>;
+export const GetMediaFoldersDocument = gql`
+  query getMediaFolders {
+    marketContentCollection(limit: 1) {
+      items {
+        mediaLibraryRootCollection {
+          items {
+            sys {
+              id
+            }
+            name
+          }
+        }
+      }
+    }
+    mediaFolderCollection {
+      total
+      items {
+        sys {
+          id
+        }
+        name
+        childrenCollection {
+          total
+          items {
+            ... on MediaFolder {
+              __typename
+              sys {
+                id
+              }
+              name
+            }
+            ... on MediaTool {
+              __typename
+              sys {
+                id
+              }
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetMediaFoldersQuery__
+ *
+ * To run a query within a React component, call `useGetMediaFoldersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMediaFoldersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMediaFoldersQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetMediaFoldersQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >(GetMediaFoldersDocument, options);
+}
+export function useGetMediaFoldersLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >(GetMediaFoldersDocument, options);
+}
+export type GetMediaFoldersQueryHookResult = ReturnType<
+  typeof useGetMediaFoldersQuery
+>;
+export type GetMediaFoldersLazyQueryHookResult = ReturnType<
+  typeof useGetMediaFoldersLazyQuery
+>;
+export type GetMediaFoldersQueryResult = Apollo.QueryResult<
+  OperationTypes.GetMediaFoldersQuery,
+  OperationTypes.GetMediaFoldersQueryVariables
+>;
+export const GetMediaItemByIdDocument = gql`
+  query getMediaItemById($mediaItemId: String!) {
+    mediaFolderCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
+      items {
+        sys {
+          id
+        }
+        name
+        childrenCollection {
+          total
+          items {
+            ... on MediaTool {
+              __typename
+              sys {
+                id
+              }
+              name
+              thumbnail {
+                ...ImageFragment
+              }
+              media {
+                ...ImageFragment
+              }
+              url
+            }
+            ... on MediaFolder {
+              __typename
+              sys {
+                id
+              }
+              name
+            }
+          }
+        }
+      }
+    }
+    mediaToolCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
+      items {
+        sys {
+          id
+        }
+        name
+        media {
+          ...ImageFragment
+        }
+        thumbnail {
+          ...ImageFragment
+        }
+        url
+      }
+    }
+  }
+  ${ImageFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetMediaItemByIdQuery__
+ *
+ * To run a query within a React component, call `useGetMediaItemByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMediaItemByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMediaItemByIdQuery({
+ *   variables: {
+ *      mediaItemId: // value for 'mediaItemId'
+ *   },
+ * });
+ */
+export function useGetMediaItemByIdQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetMediaItemByIdQuery,
+    OperationTypes.GetMediaItemByIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetMediaItemByIdQuery,
+    OperationTypes.GetMediaItemByIdQueryVariables
+  >(GetMediaItemByIdDocument, options);
+}
+export function useGetMediaItemByIdLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetMediaItemByIdQuery,
+    OperationTypes.GetMediaItemByIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetMediaItemByIdQuery,
+    OperationTypes.GetMediaItemByIdQueryVariables
+  >(GetMediaItemByIdDocument, options);
+}
+export type GetMediaItemByIdQueryHookResult = ReturnType<
+  typeof useGetMediaItemByIdQuery
+>;
+export type GetMediaItemByIdLazyQueryHookResult = ReturnType<
+  typeof useGetMediaItemByIdLazyQuery
+>;
+export type GetMediaItemByIdQueryResult = Apollo.QueryResult<
+  OperationTypes.GetMediaItemByIdQuery,
+  OperationTypes.GetMediaItemByIdQueryVariables
 >;
 export const GetContentArticleContentDocument = gql`
   query getContentArticleContent($relativePath: String!) {
