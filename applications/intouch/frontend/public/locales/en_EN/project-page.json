@@ -109,7 +109,10 @@
       "IN_PROGRESS": "In progress",
       "COMPLETED": "Completed",
       "FLAT": "Flat",
-      "PITCHED": "Pitched"
+      "PITCHED": "Pitched",
+      "UNASSIGNED": "UnAssigned",
+      "ASSIGNED": "Assigned",
+      "MY_QUEUE": "My Queue"
     }
   },
   "noProjects": {

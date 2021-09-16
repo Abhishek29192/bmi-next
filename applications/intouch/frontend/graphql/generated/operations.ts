@@ -2749,6 +2749,22 @@ export type GetProjectsQuery = { readonly __typename?: "Query" } & {
                 "town" | "postcode"
               >
             >;
+            readonly company?: SchemaTypes.Maybe<
+              { readonly __typename?: "Company" } & Pick<
+                SchemaTypes.Company,
+                "name"
+              >
+            >;
+            readonly guarantees: {
+              readonly __typename?: "GuaranteesConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "Guarantee" } & Pick<
+                  SchemaTypes.Guarantee,
+                  "coverage" | "status" | "reviewerAccountId"
+                >
+              >;
+            };
           }
       >;
     }
