@@ -1601,7 +1601,12 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
         readonly market?: SchemaTypes.Maybe<
           { readonly __typename?: "Market" } & Pick<
             SchemaTypes.Market,
-            "id" | "domain" | "projectsEnabled"
+            | "id"
+            | "domain"
+            | "language"
+            | "projectsEnabled"
+            | "doceboCompanyAdminBranchId"
+            | "doceboInstallersBranchId"
           >
         >;
         readonly companyMembers: {
@@ -2073,6 +2078,49 @@ export type GetMediaItemByIdQuery = { readonly __typename?: "Query" } & {
         >
       >;
     }
+  >;
+};
+
+export type AccountInfoByEmailQueryVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type AccountInfoByEmailQuery = { readonly __typename?: "Query" } & {
+  readonly accountByEmail?: SchemaTypes.Maybe<
+    { readonly __typename?: "Account" } & Pick<
+      SchemaTypes.Account,
+      | "id"
+      | "role"
+      | "marketId"
+      | "firstName"
+      | "lastName"
+      | "email"
+      | "doceboUserId"
+    > & {
+        readonly market?: SchemaTypes.Maybe<
+          { readonly __typename?: "Market" } & Pick<
+            SchemaTypes.Market,
+            "id" | "domain" | "projectsEnabled"
+          >
+        >;
+        readonly companyMembers: {
+          readonly __typename?: "CompanyMembersConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "CompanyMember" } & {
+              readonly company?: SchemaTypes.Maybe<
+                { readonly __typename?: "Company" } & Pick<
+                  SchemaTypes.Company,
+                  "id" | "status" | "name" | "tier"
+                >
+              >;
+            }
+          >;
+        };
+        readonly projectMembers: {
+          readonly __typename?: "ProjectMembersConnection";
+        } & Pick<SchemaTypes.ProjectMembersConnection, "totalCount">;
+      }
   >;
 };
 

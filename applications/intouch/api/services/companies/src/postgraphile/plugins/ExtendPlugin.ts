@@ -4,7 +4,11 @@ import {
   ContentfulGuaranteeTypeCollection,
   EvidenceCategoryCollection
 } from "@bmi/intouch-api-types";
-import { invite, completeInvitation } from "../../services/account";
+import {
+  invite,
+  completeInvitation,
+  resetPasswordImportedUsers
+} from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
 import {
   getGuaranteeTypeCollection,
@@ -95,6 +99,21 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         invite: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
           return invite(_query, args, context, resolveInfo, auth0);
+        },
+        resetPasswordImportedUsers: async (
+          _query,
+          args,
+          context,
+          resolveInfo
+        ) => {
+          const auth0 = await Auth0.init(context.logger);
+          return resetPasswordImportedUsers(
+            _query,
+            args,
+            context,
+            resolveInfo,
+            auth0
+          );
         },
         completeInvitation: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);

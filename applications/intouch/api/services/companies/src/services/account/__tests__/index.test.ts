@@ -1,4 +1,10 @@
-import { completeInvitation, createAccount, invite, updateAccount } from "../";
+import {
+  completeInvitation,
+  createAccount,
+  invite,
+  updateAccount,
+  resetPasswordImportedUsers
+} from "../";
 import * as mailerSrv from "../../../services/mailer";
 import * as trainingSrv from "../../../services/training";
 import { transaction, getDbPool } from "../../../test-utils/db";
@@ -681,6 +687,187 @@ describe("Account", () => {
       } catch (error) {
         expect(mockQuery.mock.calls).toMatchSnapshot();
       }
+    });
+  });
+
+  describe("Reset Password for imported users", () => {
+    let args = {};
+    let contextMock;
+    let resolveInfo;
+
+    const roleMock = jest.fn();
+    const auth0 = {
+      changePassword: jest.fn()
+    };
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+      jest.resetAllMocks();
+
+      contextMock = {
+        user: {
+          sub: "user-sub",
+          id: null,
+          role: roleMock,
+          email: "email@email.com",
+          market: { domain: "en" },
+          company: {
+            ...company
+          },
+          can: userCanMock
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger
+      };
+
+      resolveInfo = {
+        graphile: {
+          selectGraphQLResultFromTable: jest.fn(),
+          build
+        }
+      };
+    });
+
+    it("an installer shouldn't be able to reset password imported users", async () => {
+      userCanMock.mockImplementationOnce(() => false);
+      roleMock.mockReturnValueOnce("INSTALLER");
+      try {
+        await resetPasswordImportedUsers(
+          null,
+          args,
+          contextMock,
+          resolveInfo,
+          auth0
+        );
+      } catch (error) {
+        expect(error.message).toEqual(
+          "you must be an admin to reset passwords"
+        );
+      }
+    });
+
+    it("a super admin should be able to reset password imported users", async () => {
+      userCanMock.mockImplementationOnce(() => true);
+      roleMock.mockReturnValueOnce("SUPER_ADMIN");
+      mockQuery.mockResolvedValueOnce({
+        rows: [
+          { id: 1, email: "email1@email.com" },
+          { id: 2, email: "email2@email.com" }
+        ]
+      });
+
+      await resetPasswordImportedUsers(
+        null,
+        args,
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(mockQuery.mock.calls).toMatchInlineSnapshot(`
+        Array [
+          Array [
+            "SELECT * FROM account WHERE migration_id IS NOT NULL AND migrated_to_auth0 IS NOT true ORDER BY id",
+            Array [],
+          ],
+          Array [
+            "UPDATE account SET migrated_to_auth0 = true WHERE id = ANY($1)",
+            Array [
+              Array [
+                1,
+                2,
+              ],
+            ],
+          ],
+        ]
+      `);
+      expect(auth0.changePassword).toMatchInlineSnapshot(`
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "email1@email.com",
+            ],
+            Array [
+              "email2@email.com",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      `);
+    });
+
+    it("a super admin should be able to reset password imported users for a given market", async () => {
+      userCanMock.mockImplementationOnce(() => true);
+      roleMock.mockReturnValueOnce("SUPER_ADMIN");
+      mockQuery.mockResolvedValueOnce({
+        rows: [
+          { id: 1, email: "email1@email.com" },
+          { id: 2, email: "email2@email.com" }
+        ]
+      });
+
+      await resetPasswordImportedUsers(
+        null,
+        { input: { market: "en" } },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+      expect(mockQuery.mock.calls).toMatchInlineSnapshot(`
+        Array [
+          Array [
+            "
+              SELECT account.* FROM account
+                JOIN market ON market.id = account.market_id
+                WHERE migration_id IS NOT NULL AND migrated_to_auth0 IS NOT true AND market.domain = $1 ORDER BY account.id
+              ",
+            Array [
+              "en",
+            ],
+          ],
+          Array [
+            "UPDATE account SET migrated_to_auth0 = true WHERE id = ANY($1)",
+            Array [
+              Array [
+                1,
+                2,
+              ],
+            ],
+          ],
+        ]
+      `);
+      expect(auth0.changePassword).toMatchInlineSnapshot(`
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "email1@email.com",
+            ],
+            Array [
+              "email2@email.com",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      `);
     });
   });
 });

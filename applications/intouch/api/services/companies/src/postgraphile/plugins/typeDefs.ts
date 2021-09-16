@@ -230,11 +230,30 @@ export default gql`
     attachmentUpload: Upload
   }
 
+  input ImportedAccount {
+    email: String
+    firstName: String
+    lastName: String
+    marketDomain: String
+    role: Role
+  }
+
+  input resetPasswordImportedUsersInput {
+    market: String
+  }
+
+  type resetPasswordImportedUsersResult {
+    result: String
+  }
+
   extend type Mutation {
     resetPassword: String
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
     invite(input: InviteInput!): [Invitation]
+    resetPasswordImportedUsers(
+      input: resetPasswordImportedUsersInput
+    ): resetPasswordImportedUsersResult
     completeInvitation(companyId: Int!): Account
     bulkImport(input: BulkImportInput!): ImportOutput
   }

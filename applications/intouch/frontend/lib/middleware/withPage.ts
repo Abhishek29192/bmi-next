@@ -1,13 +1,11 @@
 import merge from "lodash/merge";
+import { gql } from "@apollo/client";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { Session } from "@auth0/nextjs-auth0";
 import { Account } from "@bmi/intouch-api-types";
 import { NextLogger } from "@bmi/logger";
-import {
-  getServerPageGetGlobalData,
-  getServerPageGetMarketsByDomain
-} from "../../graphql/generated/page";
+import { getServerPageGetGlobalData } from "../../graphql/generated/page";
 import {
   GetGlobalDataQuery,
   GetMarketsByDomainQuery
@@ -19,7 +17,6 @@ import { initializeApollo } from "../apolloClient";
 import { marketRedirect } from "../redirects/market";
 import { redirectCompanyRegistration } from "../redirects/companyRegistration";
 import { userRegistration } from "../redirects/userRegistration";
-import { queryAccountByEmail } from "../account";
 
 type PageContext = {
   req: NextApiRequest;
@@ -37,6 +34,39 @@ export type GlobalPageProps = {
   market: GetMarketsByDomainQuery["markets"]["nodes"][0];
   globalPageData: GetGlobalDataQuery;
 };
+
+export const queryAccountByEmail = gql`
+  query accountInfoByEmail($email: String!) {
+    accountByEmail(email: $email) {
+      id
+      role
+      marketId
+      firstName
+      lastName
+      email
+      doceboUserId
+      market {
+        id
+        domain
+        projectsEnabled
+      }
+      companyMembers {
+        nodes {
+          company {
+            id
+            status
+            name
+            tier
+          }
+        }
+      }
+      # At the moment only interested in whether account is assigned to any projects at all
+      projectMembers {
+        totalCount
+      }
+    }
+  }
+`;
 
 export const innerGetServerSideProps = async (
   getServerSideProps,

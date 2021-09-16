@@ -79,6 +79,7 @@ type Account implements Node {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -651,6 +652,7 @@ input AccountInput {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -1521,6 +1523,7 @@ input AccountPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -18902,6 +18905,12 @@ type Mutation {
     input: PublishInput!
   ): Publish
   resetPassword: String
+  resetPasswordImportedUsers(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: resetPasswordImportedUsersInput
+  ): resetPasswordImportedUsersResult
 
   """
   Updates a single `Account` using a unique key and a patch.
@@ -30678,6 +30687,14 @@ input cfMessageTemplateNestedFilter {
   AND: [cfMessageTemplateNestedFilter]
 }
 
+input resetPasswordImportedUsersInput {
+  market: String
+}
+
+type resetPasswordImportedUsersResult {
+  result: String
+}
+
 """
 An object where the defined keys will be set on the `account` being updated.
 """
@@ -30741,6 +30758,7 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -30819,6 +30837,7 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -30902,6 +30921,7 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -30985,6 +31005,7 @@ input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31068,6 +31089,7 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31151,6 +31173,7 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31234,6 +31257,7 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31317,6 +31341,7 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31400,6 +31425,7 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput

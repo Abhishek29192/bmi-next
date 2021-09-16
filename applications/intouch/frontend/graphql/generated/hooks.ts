@@ -1877,7 +1877,10 @@ export const AccountByEmailDocument = gql`
       market {
         id
         domain
+        language
         projectsEnabled
+        doceboCompanyAdminBranchId
+        doceboInstallersBranchId
       }
       companyMembers {
         nodes {
@@ -2624,6 +2627,88 @@ export type GetMediaItemByIdLazyQueryHookResult = ReturnType<
 export type GetMediaItemByIdQueryResult = Apollo.QueryResult<
   OperationTypes.GetMediaItemByIdQuery,
   OperationTypes.GetMediaItemByIdQueryVariables
+>;
+export const AccountInfoByEmailDocument = gql`
+  query accountInfoByEmail($email: String!) {
+    accountByEmail(email: $email) {
+      id
+      role
+      marketId
+      firstName
+      lastName
+      email
+      doceboUserId
+      market {
+        id
+        domain
+        projectsEnabled
+      }
+      companyMembers {
+        nodes {
+          company {
+            id
+            status
+            name
+            tier
+          }
+        }
+      }
+      projectMembers {
+        totalCount
+      }
+    }
+  }
+`;
+
+/**
+ * __useAccountInfoByEmailQuery__
+ *
+ * To run a query within a React component, call `useAccountInfoByEmailQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountInfoByEmailQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountInfoByEmailQuery({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useAccountInfoByEmailQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.AccountInfoByEmailQuery,
+    OperationTypes.AccountInfoByEmailQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.AccountInfoByEmailQuery,
+    OperationTypes.AccountInfoByEmailQueryVariables
+  >(AccountInfoByEmailDocument, options);
+}
+export function useAccountInfoByEmailLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.AccountInfoByEmailQuery,
+    OperationTypes.AccountInfoByEmailQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.AccountInfoByEmailQuery,
+    OperationTypes.AccountInfoByEmailQueryVariables
+  >(AccountInfoByEmailDocument, options);
+}
+export type AccountInfoByEmailQueryHookResult = ReturnType<
+  typeof useAccountInfoByEmailQuery
+>;
+export type AccountInfoByEmailLazyQueryHookResult = ReturnType<
+  typeof useAccountInfoByEmailLazyQuery
+>;
+export type AccountInfoByEmailQueryResult = Apollo.QueryResult<
+  OperationTypes.AccountInfoByEmailQuery,
+  OperationTypes.AccountInfoByEmailQueryVariables
 >;
 export const GetContentArticleContentDocument = gql`
   query getContentArticleContent($relativePath: String!) {

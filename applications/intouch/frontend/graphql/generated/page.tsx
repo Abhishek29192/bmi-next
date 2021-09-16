@@ -573,6 +573,48 @@ export const ssrGetMediaItemById = {
 
   usePage: useGetMediaItemById
 };
+export async function getServerPageAccountInfoByEmail(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.AccountInfoByEmailQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.AccountInfoByEmailQuery>(
+    { ...options, query: Operations.AccountInfoByEmailDocument }
+  );
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useAccountInfoByEmail = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.AccountInfoByEmailQuery,
+    OperationTypes.AccountInfoByEmailQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.AccountInfoByEmailDocument, options);
+};
+export type PageAccountInfoByEmailComp = React.FC<{
+  data?: OperationTypes.AccountInfoByEmailQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrAccountInfoByEmail = {
+  getServerPage: getServerPageAccountInfoByEmail,
+
+  usePage: useAccountInfoByEmail
+};
 export async function getServerPageGetContentArticleContent(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetContentArticleContentQueryVariables>,

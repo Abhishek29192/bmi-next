@@ -179,6 +179,7 @@ CREATE TABLE account (
   docebo_username text,
   photo text,
   migration_id text,
+  migrated_to_auth0 boolean,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -451,44 +452,44 @@ CREATE TABLE system_member (
 
 TRUNCATE TABLE account RESTART IDENTITY;
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('1', 'ACTIVE', NULL, 'SUPER_ADMIN', 'devs+1@digitaldetox.co.uk', '1234567', 'Chris', 'Evans', '2020-06-12 10:19:47', 13999, 'devs+1@digitaldetox.co.uk', 'https://media.spokesman.com/photos/2020/08/28/5f49c8a43a16d.hires.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('1', 'ACTIVE', NULL, 'SUPER_ADMIN', 'devs+1@digitaldetox.co.uk', '1234567', 'Chris', 'Evans', '2020-06-12 10:19:47', 13999, 'devs+1@digitaldetox.co.uk', 'https://media.spokesman.com/photos/2020/08/28/5f49c8a43a16d.hires.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('2', 'ACTIVE', 1, 'MARKET_ADMIN', 'devs+2@digitaldetox.co.uk', '1234567', 'Kim', 'Jong Un', '2020-06-12 10:19:47', 14000, 'devs+2@digitaldetox.co.uk', 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/1244D/production/_117892847_tv066659879.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('2', 'ACTIVE', 1, 'MARKET_ADMIN', 'devs+2@digitaldetox.co.uk', '1234567', 'Kim', 'Jong Un', '2020-06-12 10:19:47', 14000, 'devs+2@digitaldetox.co.uk', 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/1244D/production/_117892847_tv066659879.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('3', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+3@digitaldetox.co.uk', '1234567', 'Dom', 'Perignon', '2020-06-12 10:19:47', 13988, 'devs+3@digitaldetox.co.uk', 'https://vinepair.com/wp-content/uploads/2017/01/domperignon-internal.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('3', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+3@digitaldetox.co.uk', '1234567', 'Dom', 'Perignon', '2020-06-12 10:19:47', 13988, 'devs+3@digitaldetox.co.uk', 'https://vinepair.com/wp-content/uploads/2017/01/domperignon-internal.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('4', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Afleck', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('4', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Afleck', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('5', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+5@digitaldetox.co.uk', '1234567', 'Steve', 'Jobs', '2020-06-12 10:19:47', 13990, 'devs+5@digitaldetox.co.uk', 'https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('5', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+5@digitaldetox.co.uk', '1234567', 'Steve', 'Jobs', '2020-06-12 10:19:47', 13990, 'devs+5@digitaldetox.co.uk', 'https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('6', 'ACTIVE', 1, 'INSTALLER', 'devs+6@digitaldetox.co.uk', '1234567', 'Umit', 'Davala', '2020-06-12 10:19:47', 13991, 'devs+6@digitaldetox.co.uk', 'https://www.bdfutbol.com/i/j/92223b.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('6', 'ACTIVE', 1, 'INSTALLER', 'devs+6@digitaldetox.co.uk', '1234567', 'Umit', 'Davala', '2020-06-12 10:19:47', 13991, 'devs+6@digitaldetox.co.uk', 'https://www.bdfutbol.com/i/j/92223b.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('7', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+7@digitaldetox.co.uk', '1234567', 'Franz', 'Ferdinand', '2020-06-12 10:19:47', 13992, 'devs+7@digitaldetox.co.uk', 'https://images.findagrave.com/photos250/photos/2004/347/7019333_110295165370.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('7', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+7@digitaldetox.co.uk', '1234567', 'Franz', 'Ferdinand', '2020-06-12 10:19:47', 13992, 'devs+7@digitaldetox.co.uk', 'https://images.findagrave.com/photos250/photos/2004/347/7019333_110295165370.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('8', 'ACTIVE', 1, 'INSTALLER', 'devs+8@digitaldetox.co.uk', '1234567', 'Chicho', 'Ibañez Serrador', '2020-06-12 10:19:47', 13993, 'devs+8@digitaldetox.co.uk', 'https://i2-prod.mirror.co.uk/incoming/article3775968.ece/ALTERNATES/s615b/Archduke-Franz-Ferdinand-of-Austria.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('8', 'ACTIVE', 1, 'INSTALLER', 'devs+8@digitaldetox.co.uk', '1234567', 'Chicho', 'Ibañez Serrador', '2020-06-12 10:19:47', 13993, 'devs+8@digitaldetox.co.uk', 'https://i2-prod.mirror.co.uk/incoming/article3775968.ece/ALTERNATES/s615b/Archduke-Franz-Ferdinand-of-Austria.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('9', 'ACTIVE', 1, 'INSTALLER', 'devs+9@digitaldetox.co.uk', '1234567', 'Nicky', 'Lauder', '2020-06-12 10:19:47', 13994, 'devs+9@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Niki_Lauda_helmet_Museo_Ferrari.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('9', 'ACTIVE', 1, 'INSTALLER', 'devs+9@digitaldetox.co.uk', '1234567', 'Nicky', 'Lauder', '2020-06-12 10:19:47', 13994, 'devs+9@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Niki_Lauda_helmet_Museo_Ferrari.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('10', 'ACTIVE', 1, 'INSTALLER', 'devs+10@digitaldetox.co.uk', '1234567', 'Ian', 'McKellen', '2020-06-12 10:19:47', 13997, 'devs+10@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/1/15/SDCC13_-_Ian_McKellen.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('10', 'ACTIVE', 1, 'INSTALLER', 'devs+10@digitaldetox.co.uk', '1234567', 'Ian', 'McKellen', '2020-06-12 10:19:47', 13997, 'devs+10@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/1/15/SDCC13_-_Ian_McKellen.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('11', 'ACTIVE', 1, 'INSTALLER', 'devs+11@digitaldetox.co.uk', '1234567', 'Simon', 'Pegg', '2020-06-12 10:19:47', 13995, 'devs+11@digitaldetox.co.uk', 'https://www.onthisday.com/images/people/simon-pegg-medium.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('11', 'ACTIVE', 1, 'INSTALLER', 'devs+11@digitaldetox.co.uk', '1234567', 'Simon', 'Pegg', '2020-06-12 10:19:47', 13995, 'devs+11@digitaldetox.co.uk', 'https://www.onthisday.com/images/people/simon-pegg-medium.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('12', 'SUSPENDED', 1, 'INSTALLER', 'devs+12@digitaldetox.co.uk', '1234567', 'Sam', 'Smith', '2020-06-12 10:19:47', 13996, 'devs+12@digitaldetox.co.uk', 'https://cdn.britannica.com/65/187865-050-6A95231B/Sam-Smith-British.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('12', 'SUSPENDED', 1, 'INSTALLER', 'devs+12@digitaldetox.co.uk', '1234567', 'Sam', 'Smith', '2020-06-12 10:19:47', 13996, 'devs+12@digitaldetox.co.uk', 'https://cdn.britannica.com/65/187865-050-6A95231B/Sam-Smith-British.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('13', 'ACTIVE', 1, 'INSTALLER', 'devs+13@digitaldetox.co.uk', '1234567', 'Alessandro', 'Del Piero', '2020-06-12 10:19:47', 13998, 'devs+13@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Alessandro_Del_Piero_in_2014.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('13', 'ACTIVE', 1, 'INSTALLER', 'devs+13@digitaldetox.co.uk', '1234567', 'Alessandro', 'Del Piero', '2020-06-12 10:19:47', 13998, 'devs+13@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Alessandro_Del_Piero_in_2014.jpg', NULL, NULL);
 
 TRUNCATE TABLE address RESTART IDENTITY;
 
@@ -1259,6 +1260,8 @@ COMMENT ON COLUMN account.docebo_username IS 'Username in Docebo.  Needed to gen
 COMMENT ON COLUMN account.photo IS 'File reference. A profile picture of the user';
 
 COMMENT ON COLUMN account.migration_id IS 'Used for reference when importing data from the legacy system';
+
+COMMENT ON COLUMN account.migrated_to_auth0 IS 'Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)';
 
 COMMENT ON TABLE address IS 'A generic address';
 
