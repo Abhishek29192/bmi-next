@@ -38,7 +38,7 @@ const SystemListing = ({
     () =>
       uniqBy(systems, (system) => system.name).sort((a, b) => {
         const getWeightValue = (system) =>
-          (system.classifications || []).find(
+          system.classifications?.find(
             ({ code }) => code === "ScoringWeightAttributes"
           )?.features[0]?.featureValues[0]?.value || 0;
 
@@ -59,7 +59,7 @@ const SystemListing = ({
   );
   const findSystemBrandLogoCode = (system: SystemDetails) => {
     //check if system is tagged to more than one brand
-    const totalBrand = (system.categories || []).reduce(
+    const totalBrand = system.categories?.reduce(
       (acc: number, cur: { categoryType: string }) =>
         cur.categoryType === "Brand" ? ++acc : acc,
       0
