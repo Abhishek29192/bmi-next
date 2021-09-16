@@ -5,7 +5,7 @@ import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import { Add as AddIcon } from "@material-ui/icons";
-import { find, result, uniqBy } from "lodash";
+import { uniqBy } from "lodash";
 import { BackgroundColor } from "@bmi/section/src/Section";
 import withGTM from "../utils/google-tag-manager";
 import { SystemDetails } from "../templates/systemDetails/types";
@@ -15,6 +15,84 @@ import { iconMap } from "./Icon";
 import styles from "./styles/RelatedSystems.module.scss";
 import { useSiteContext } from "./Site";
 
+const findSystemBrandLogoCode = (system: SystemDetails) => {
+  //check if system is tagged to more than one brand
+  const totalBrand = system.categories?.filter(
+    (category) => category.categoryType === "Brand"
+  );
+  if (totalBrand?.length === 1) {
+    return totalBrand[0].code;
+  }
+  return null;
+};
+
+const getSystemUrl = (countryCode, path) =>
+  getPathWithCountryCode(countryCode, path);
+
+const SystemCard = ({
+  system,
+  countryCode,
+  path
+}: {
+  system: SystemDetails;
+  countryCode: string;
+  path: string;
+}) => {
+  const brandLogoCode = findSystemBrandLogoCode(system);
+  const brandLogo = iconMap[brandLogoCode];
+  const systemUrl = getSystemUrl(countryCode, path || "system-details-page");
+  const mainImage = findMasterImageUrl(system.images || []);
+  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
+  return (
+    <Grid item xs={12} md={6} lg={3}>
+      <GTMOverviewCard
+        title={system.name}
+        titleVariant="h5"
+        imageSize="contain"
+        imageSource={mainImage}
+        brandImageSource={brandLogo}
+        action={{
+          model: "routerLink",
+          linkComponent: Link,
+          to: systemUrl
+        }}
+        gtm={{
+          id: "cta-click1",
+          label: "Read More",
+          action: systemUrl
+        }}
+        footer={<Button variant="outlined">{"Read More"}</Button>}
+      >
+        {system.shortDescription}
+      </GTMOverviewCard>
+    </Grid>
+  );
+};
+
+const getWeightedSystems = ({
+  systems
+}: {
+  systems: ReadonlyArray<SystemDetails>;
+}) =>
+  uniqBy(systems, (system) => system.name).sort((a, b) => {
+    const getWeightValue = (system) =>
+      system.classifications?.find(
+        ({ code }) => code === "ScoringWeightAttributes"
+      )?.features[0]?.featureValues[0]?.value || 0;
+
+    const weightA = getWeightValue(a);
+    const weightB = getWeightValue(b);
+    if (weightB === weightA) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+    }
+
+    return weightB - weightA;
+  });
 const SystemListing = ({
   countryCode,
   systems,
@@ -34,88 +112,23 @@ const SystemListing = ({
   const onLoadMore = () => {
     setNumberShown((numberShown) => numberShown + pageSize);
   };
+
   const weightedSystems = useMemo(
-    () =>
-      uniqBy(systems, (system) => system.name).sort((a, b) => {
-        const getWeightValue = (system) =>
-          system.classifications?.find(
-            ({ code }) => code === "ScoringWeightAttributes"
-          )?.features[0]?.featureValues[0]?.value || 0;
-
-        const weightA = getWeightValue(a);
-        const weightB = getWeightValue(b);
-        if (weightB === weightA) {
-          if (a.name < b.name) {
-            return -1;
-          }
-          if (a.name > b.name) {
-            return 1;
-          }
-        }
-
-        return weightB - weightA;
-      }),
+    () => getWeightedSystems({ systems }),
     [systems]
   );
-  const findSystemBrandLogoCode = (system: SystemDetails) => {
-    //check if system is tagged to more than one brand
-    const totalBrand = system.categories?.filter(
-      (category) => category.categoryType === "Brand"
-    ).length;
-    if (totalBrand === 1) {
-      return result<string>(
-        find(system.categories, {
-          categoryType: "Brand"
-        }),
-        "code"
-      );
-    }
-    return null;
-  };
 
-  const getSystemUrl = (countryCode, path) =>
-    getPathWithCountryCode(countryCode, path);
-  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
   return (
     <>
       <Grid container spacing={3}>
-        {weightedSystems.slice(0, numberShown).map((system) => {
-          const brandLogoCode = findSystemBrandLogoCode(system);
-          const brandLogo = iconMap[brandLogoCode];
-          const systemUrl = getSystemUrl(
-            countryCode,
-            path || "system-details-page"
-          );
-          const mainImage = findMasterImageUrl([...(system.images || [])]);
-
-          // Find variant classifications that don't exist in the base product
-          // TODO: May not be performant
-
-          return (
-            <Grid item key={`${system.code}`} xs={12} md={6} lg={3}>
-              <GTMOverviewCard
-                title={system.name}
-                titleVariant="h5"
-                imageSize="contain"
-                imageSource={mainImage}
-                brandImageSource={brandLogo}
-                action={{
-                  model: "routerLink",
-                  linkComponent: Link,
-                  to: systemUrl
-                }}
-                gtm={{
-                  id: "cta-click1",
-                  label: "Read More",
-                  action: systemUrl
-                }}
-                footer={<Button variant="outlined">{"Read More"}</Button>}
-              >
-                {system.shortDescription}
-              </GTMOverviewCard>
-            </Grid>
-          );
-        })}
+        {weightedSystems.slice(0, numberShown).map((system) => (
+          <SystemCard
+            key={`${system.code}`}
+            system={system}
+            countryCode={countryCode}
+            path={path}
+          />
+        ))}
       </Grid>
       {numberShown < weightedSystems.length ? (
         <div className={styles["load-more-wrapper"]}>
