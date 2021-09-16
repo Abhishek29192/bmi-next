@@ -38,7 +38,12 @@ describe("createSystemPages function", () => {
     {
       dataJson {
         id
-        systemReferences
+        systemReferences {
+          referenceType
+          target {
+            code
+          }
+        }
       }
     }
   `
@@ -78,7 +83,12 @@ describe("createSystemPages function", () => {
     {
       dataJson {
         id
-        systemReferences
+        systemReferences {
+          referenceType
+          target {
+            code
+          }
+        }
       }
     }
   `

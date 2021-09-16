@@ -36,7 +36,12 @@ export const createSystemPages = async ({
     {
       dataJson {
         id
-        systemReferences
+        systemReferences {
+          referenceType
+          target {
+            code
+          }
+        }
       }
     }
   `);
@@ -54,8 +59,8 @@ export const createSystemPages = async ({
 
   // TODO: Probably a way of abstracting this into a function
 
-  relatedSystemCodes = (systemReferences || [])
-    .filter((systemRefObj) => systemRefObj.referenceType === "CROSSELLING")
+  relatedSystemCodes = systemReferences
+    ?.filter((systemRefObj) => systemRefObj.referenceType === "CROSSELLING")
     .map(({ target: { code } }) => code);
 
   await createPage<PageContext>({
