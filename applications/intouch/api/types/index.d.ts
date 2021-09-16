@@ -3960,6 +3960,7 @@ export type ContentfulGuaranteeType = {
   maximumValidityYears?: Maybe<Scalars["Int"]>;
   tiersAvailable?: Maybe<Array<Maybe<ContentfulTiers>>>;
   ranking?: Maybe<Scalars["Int"]>;
+  languageCode?: Maybe<Scalars["String"]>;
   evidenceCategoriesCollection?: Maybe<ContentfulEvidenceCategoryCollection>;
   guaranteeTemplatesCollection?: Maybe<ContentfulGuaranteeTemplatesCollection>;
 };

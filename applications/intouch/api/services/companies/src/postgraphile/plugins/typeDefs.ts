@@ -127,6 +127,7 @@ export default gql`
     maximumValidityYears: Int
     tiersAvailable: [ContentfulTiers]
     ranking: Int
+    languageCode: String
     evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
     guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
   }

@@ -19,7 +19,7 @@ export const getGuaranteeTypeCollection = async (
 ) => {
   const variables = { guaranteeReferenceCode };
   const query = `
-  query guarantee($guaranteeReferenceCode: String!) {
+  query guaranteeTypes($guaranteeReferenceCode: String!) {
     guaranteeTypeCollection(
       limit: 1
       where: { guaranteeReferenceCode: $guaranteeReferenceCode }
@@ -47,61 +47,6 @@ export const getGuaranteeTypeCollection = async (
             referenceCode
             name
             minimumUploads
-          }
-        }
-        guaranteeTemplatesCollection {
-          total
-          items {
-            languageCode
-            approvalMessage {
-              event
-              format
-              subject
-              notificationBody
-              emailBody
-            }
-            rejectionMessage {
-              event
-              format
-              subject
-              notificationBody
-              emailBody
-            }
-            logo {
-              title
-              url
-            }
-            maintenanceTemplate {
-              fileName
-              url
-            }
-            terms {
-              fileName
-              url
-            }
-            guaranteeScope
-            signatory
-            headingGuarantee
-            headingScope
-            headingProducts
-            headingBeneficiary
-            headingBuildingOwnerName
-            headingBuildingAddress
-            headingRoofArea
-            headingRoofType
-            headingContractor
-            headingContractorName
-            headingContractorId
-            headingStartDate
-            headingGuaranteeId
-            headingValidity
-            headingExpiry
-            footer
-            mailBody
-            filenamePrefix
-            titleLine1
-            titleLine2
-            roofType
           }
         }
       }
@@ -133,6 +78,38 @@ export const getEvidenceCategory = async (client, referenceCode: string) => {
   return client(query, variables);
 };
 
+export const getGuaranteeTemplates = async (
+  client,
+  technology: string,
+  coverage: string,
+  language: string
+) => {
+  const query = `
+   query getGuaranteeTemplates(
+    $technology: String!
+    $coverage: String!
+    $language: String
+  ) {
+    guaranteeTemplateCollection(
+      where: {
+        coverage: $coverage
+        technology: $technology
+        languageCode: $language
+      }
+    ) {
+      total
+      items {
+        ...GuaranteeTemplateDetailFragment
+      }
+    }
+  }
+  ${GUARANTEE_TEMPLATE_DETAIL_FRAGMENT}
+  `;
+
+  const variables = { technology, coverage, language };
+  return client(query, variables);
+};
+
 export const messageTemplate = async (client, event: EventMessage) => {
   const query = `
   query messageTemplateCollection($event: String!) {
@@ -146,3 +123,63 @@ export const messageTemplate = async (client, event: EventMessage) => {
 
   return client(query, { event });
 };
+
+export const GUARANTEE_TEMPLATE_DETAIL_FRAGMENT = `
+fragment GuaranteeTemplateDetailFragment on GuaranteeTemplate {
+  displayName
+  technology
+  coverage
+  languageCode
+  languageDescriptor
+  approvalMessage {
+    event
+    format
+    subject
+    notificationBody
+    emailBody
+  }
+  rejectionMessage {
+    event
+    format
+    subject
+    notificationBody
+    emailBody
+  }
+  logo {
+    title
+    url
+  }
+  maintenanceTemplate {
+    fileName
+    url
+  }
+  terms {
+    fileName
+    url
+  }
+  guaranteeScope
+  signatory
+  headingGuarantee
+  headingScope
+  headingProducts
+  headingBeneficiary
+  headingBuildingOwnerName
+  headingBuildingAddress
+  headingRoofArea
+  headingRoofType
+  headingContractor
+  headingContractorName
+  headingContractorId
+  headingStartDate
+  headingGuaranteeId
+  headingValidity
+  headingExpiry
+  footer
+  mailBody
+  filenamePrefix
+  titleLine1
+  titleLine2
+  roofType
+}
+
+`;
