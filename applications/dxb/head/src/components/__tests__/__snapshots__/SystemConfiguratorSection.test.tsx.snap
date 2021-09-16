@@ -213,7 +213,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
   </div>
   <div>
     <div
-      class="Section Section--white"
+      class="SystemConfigurator Section Section--white"
     >
       <div
         class="Container"
@@ -222,7 +222,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -520,7 +520,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
   </div>
   <div>
     <div
-      class="Section Section--white"
+      class="SystemConfigurator Section Section--white"
     >
       <div
         class="Container"
@@ -529,7 +529,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -1282,7 +1282,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
   </div>
   <div>
     <div
-      class="Section Section--white"
+      class="SystemConfigurator Section Section--white"
     >
       <div
         class="Container"
@@ -1291,7 +1291,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -3917,7 +3917,7 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
   </div>
   <div>
     <div
-      class="Section Section--white"
+      class="SystemConfigurator Section Section--white"
     >
       <div
         class="Container"
@@ -3926,7 +3926,7 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             Result Title
           </h2>

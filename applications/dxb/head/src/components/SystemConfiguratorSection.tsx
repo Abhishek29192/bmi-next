@@ -8,6 +8,7 @@ import React, {
   useLayoutEffect
 } from "react";
 import { graphql } from "gatsby";
+import { Box } from "@material-ui/core";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";
@@ -25,6 +26,7 @@ import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
+import styles from "./styles/SystemConfiguratorSection.module.scss";
 
 export type Data = {
   __typename: "ContentfulSystemConfiguratorBlock";
@@ -263,8 +265,8 @@ const SystemConfiguratorBlockResultSection = ({
   // isHighlighted={selectedSystem === system}
   return (
     <div ref={ref}>
-      <Section backgroundColor="white">
-        <Section.Title>{title}</Section.Title>
+      <Section backgroundColor="white" className={styles["SystemConfigurator"]}>
+        <Section.Title className={styles["title"]}>{title}</Section.Title>
         {description && <RichText document={description} />}
         {recommendedSystems && (
           <Grid container spacing={3}>
