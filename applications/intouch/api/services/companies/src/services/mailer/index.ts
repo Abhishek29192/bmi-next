@@ -16,7 +16,7 @@ export const sendEmailWithTemplate = async (
   const { data } = await messageTemplate(context.clientGateway, event);
   const { messageTemplateCollection } = data;
 
-  if (!messageTemplateCollection.items.length) {
+  if (!messageTemplateCollection?.items?.length) {
     throw new Error("template_not_found");
   }
 
