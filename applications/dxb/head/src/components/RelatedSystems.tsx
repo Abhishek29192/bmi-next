@@ -59,11 +59,9 @@ const SystemListing = ({
   );
   const findSystemBrandLogoCode = (system: SystemDetails) => {
     //check if system is tagged to more than one brand
-    const totalBrand = system.categories?.reduce(
-      (acc: number, cur: { categoryType: string }) =>
-        cur.categoryType === "Brand" ? ++acc : acc,
-      0
-    );
+    const totalBrand = system.categories?.filter(
+      (category) => category.categoryType === "Brand"
+    ).length;
     if (totalBrand === 1) {
       return result<string>(
         find(system.categories, {
