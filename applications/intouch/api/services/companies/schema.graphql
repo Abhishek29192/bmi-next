@@ -4685,10 +4685,13 @@ type ContentfulEvidenceCategory {
 }
 
 type ContentfulGuaranteeTemplatesCollection {
+  total: Int!
   items: [ContentfulGuaranteeTemplate]
 }
 
 type ContentfulGuaranteeTemplate {
+  displayName: String
+  technology: ContentfulTechnologyType
   coverage: String
   languageCode: String
   languageDescriptor: String

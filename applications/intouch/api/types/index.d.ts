@@ -3907,6 +3907,8 @@ export type ContentfulGuaranteeCoverageType = "PRODUCT" | "SYSTEM" | "SOLUTION";
 
 export type ContentfulGuaranteeTemplate = {
   __typename?: "ContentfulGuaranteeTemplate";
+  displayName?: Maybe<Scalars["String"]>;
+  technology?: Maybe<ContentfulTechnologyType>;
   coverage?: Maybe<Scalars["String"]>;
   languageCode?: Maybe<Scalars["String"]>;
   languageDescriptor?: Maybe<Scalars["String"]>;
@@ -3942,6 +3944,7 @@ export type ContentfulGuaranteeTemplate = {
 
 export type ContentfulGuaranteeTemplatesCollection = {
   __typename?: "ContentfulGuaranteeTemplatesCollection";
+  total: Scalars["Int"];
   items?: Maybe<Array<Maybe<ContentfulGuaranteeTemplate>>>;
 };
 

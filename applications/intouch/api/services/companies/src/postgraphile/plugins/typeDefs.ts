@@ -73,6 +73,8 @@ export default gql`
   }
 
   type ContentfulGuaranteeTemplate {
+    displayName: String
+    technology: ContentfulTechnologyType
     coverage: String
     languageCode: String
     languageDescriptor: String
@@ -105,7 +107,9 @@ export default gql`
     titleLine2: String
     roofType: String
   }
+
   type ContentfulGuaranteeTemplatesCollection {
+    total: Int!
     items: [ContentfulGuaranteeTemplate]
   }
   type ContentfulEvidenceCategoryCollection {
