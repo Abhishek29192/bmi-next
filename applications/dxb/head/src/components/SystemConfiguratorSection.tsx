@@ -265,7 +265,10 @@ const SystemConfiguratorBlockResultSection = ({
   // isHighlighted={selectedSystem === system}
   return (
     <div ref={ref}>
-      <Section backgroundColor="white" className={styles["SystemConfigurator"]}>
+      <Section
+        backgroundColor="white"
+        className={styles["SystemConfigurator-result"]}
+      >
         <Section.Title className={styles["title"]}>{title}</Section.Title>
         {description && <RichText document={description} />}
         {recommendedSystems && (
@@ -435,7 +438,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
           <ProgressIndicator theme="light" />
         </Scrim>
       ) : null}
-      <Section backgroundColor="white">
+      <Section backgroundColor="white" className={styles["SystemConfigurator"]}>
         <Section.Title>{title}</Section.Title>
         {description && <RichText document={description} />}
         {question && storedAnswers ? (

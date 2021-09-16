@@ -3,7 +3,7 @@
 exports[`SystemConfiguratorSection component When returning from valid referer highlights last selected system 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -213,7 +213,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
   </div>
   <div>
     <div
-      class="SystemConfigurator Section Section--white"
+      class="SystemConfigurator-result Section Section--white"
     >
       <div
         class="Container"
@@ -310,7 +310,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
 exports[`SystemConfiguratorSection component When returning from valid referer removes query string from path 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -520,7 +520,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
   </div>
   <div>
     <div
-      class="SystemConfigurator Section Section--white"
+      class="SystemConfigurator-result Section Section--white"
     >
       <div
         class="Container"
@@ -617,7 +617,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
 exports[`SystemConfiguratorSection component renders System Configurator Block with initial question and answer data 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -825,7 +825,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
 exports[`SystemConfiguratorSection component renders a no result section when answer clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -1072,7 +1072,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
 exports[`SystemConfiguratorSection component renders a result section when answer clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -1282,7 +1282,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
   </div>
   <div>
     <div
-      class="SystemConfigurator Section Section--white"
+      class="SystemConfigurator-result Section Section--white"
     >
       <div
         class="Container"
@@ -1379,7 +1379,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
 exports[`SystemConfiguratorSection component renders an expanded panel when previous panel is clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -1739,7 +1739,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
 
 exports[`SystemConfiguratorSection component renders correctly 1`] = `
 <div
-  class="Section Section--white"
+  class="SystemConfigurator Section Section--white"
 >
   <div
     class="Container"
@@ -1760,7 +1760,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
 exports[`SystemConfiguratorSection component renders next question and answer block when answer clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -2121,7 +2121,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
 exports[`SystemConfiguratorSection component renders no result section while ignoring assets other than image 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -2357,7 +2357,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section while ignoring invalid asset references 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -2593,7 +2593,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section with the correct image url 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -2835,7 +2835,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
 exports[`SystemConfiguratorSection component renders skipping a block with only one answer 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -3310,7 +3310,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
 exports[`SystemConfiguratorSection component renders toggled closed configurator panel 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -3671,7 +3671,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
 exports[`SystemConfiguratorSection component renders with description rich text 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -3707,7 +3707,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
 exports[`SystemConfiguratorSection component stores selected system when a result system card clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -3917,7 +3917,7 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
   </div>
   <div>
     <div
-      class="SystemConfigurator Section Section--white"
+      class="SystemConfigurator-result Section Section--white"
     >
       <div
         class="Container"
