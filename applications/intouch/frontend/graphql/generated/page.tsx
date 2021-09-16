@@ -184,6 +184,50 @@ export const ssrContentfulEvidenceCategories = {
 
   usePage: useContentfulEvidenceCategories
 };
+export async function getServerPageGetGuaranteeTemplates(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetGuaranteeTemplatesQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetGuaranteeTemplatesQuery>({
+      ...options,
+      query: Operations.GetGuaranteeTemplatesDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetGuaranteeTemplates = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetGuaranteeTemplatesDocument, options);
+};
+export type PageGetGuaranteeTemplatesComp = React.FC<{
+  data?: OperationTypes.GetGuaranteeTemplatesQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetGuaranteeTemplates = {
+  getServerPage: getServerPageGetGuaranteeTemplates,
+
+  usePage: useGetGuaranteeTemplates
+};
 export async function getServerPageSearchProducts(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.SearchProductsQueryVariables>,

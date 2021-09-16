@@ -1628,6 +1628,83 @@ export type ContentfulEvidenceCategoriesQueryResult = Apollo.QueryResult<
   OperationTypes.ContentfulEvidenceCategoriesQuery,
   OperationTypes.ContentfulEvidenceCategoriesQueryVariables
 >;
+export const GetGuaranteeTemplatesDocument = gql`
+  query getGuaranteeTemplates(
+    $technology: String!
+    $coverage: String!
+    $language: String
+  ) {
+    guaranteeTemplateCollection(
+      where: {
+        coverage: $coverage
+        technology: $technology
+        languageCode: $language
+      }
+    ) {
+      items {
+        sys {
+          id
+        }
+        displayName
+        languageCode
+        coverage
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetGuaranteeTemplatesQuery__
+ *
+ * To run a query within a React component, call `useGetGuaranteeTemplatesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGuaranteeTemplatesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGuaranteeTemplatesQuery({
+ *   variables: {
+ *      technology: // value for 'technology'
+ *      coverage: // value for 'coverage'
+ *      language: // value for 'language'
+ *   },
+ * });
+ */
+export function useGetGuaranteeTemplatesQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >(GetGuaranteeTemplatesDocument, options);
+}
+export function useGetGuaranteeTemplatesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >(GetGuaranteeTemplatesDocument, options);
+}
+export type GetGuaranteeTemplatesQueryHookResult = ReturnType<
+  typeof useGetGuaranteeTemplatesQuery
+>;
+export type GetGuaranteeTemplatesLazyQueryHookResult = ReturnType<
+  typeof useGetGuaranteeTemplatesLazyQuery
+>;
+export type GetGuaranteeTemplatesQueryResult = Apollo.QueryResult<
+  OperationTypes.GetGuaranteeTemplatesQuery,
+  OperationTypes.GetGuaranteeTemplatesQueryVariables
+>;
 export const SearchProductsDocument = gql`
   query searchProducts($query: String!, $technology: Technology!) {
     searchProducts(query: $query, technology: $technology, first: 20) {
@@ -1792,16 +1869,6 @@ export const GetProductGuaranteeTypesDocument = gql`
         coverage
         ranking
         tiersAvailable
-        guaranteeTemplatesCollection {
-          items {
-            sys {
-              id
-            }
-            displayName
-            languageCode
-            coverage
-          }
-        }
         evidenceCategoriesCollection {
           items {
             name
