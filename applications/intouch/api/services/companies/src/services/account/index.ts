@@ -87,10 +87,10 @@ export const createAccount = async (
     return {
       data: row
     };
-  } catch (e) {
-    logger.error("Error creating a user");
+  } catch (error) {
+    logger.error("Error creating a user", error);
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
-    throw e;
+    throw error;
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }
