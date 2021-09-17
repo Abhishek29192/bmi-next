@@ -82,9 +82,6 @@ export const handler = async function (
     changeOrigin: true,
     proxyTimeout: 5000,
     secure: false,
-    headers: {
-      Connection: "keep-alive"
-    },
     pathRewrite: {
       "^/api/graphql": ""
     },

@@ -6,12 +6,8 @@ import { transformSchemaFederation } from "graphql-transform-federation";
 
 import { getSecret } from "../utils/secrets";
 
-const {
-  CONTENTFUL_API_HOST,
-  CONTENTFUL_SPACE_ID,
-  CONTENTFUL_ENVIRONMENT,
-  GCP_SECRET_PROJECT
-} = process.env;
+const { CONTENTFUL_API_HOST, CONTENTFUL_SPACE_ID, GCP_SECRET_PROJECT } =
+  process.env;
 
 let contentfulConfigs;
 
@@ -31,11 +27,14 @@ const executor: AsyncExecutor = async ({
   const parsedContentfulConfigs = JSON.parse(contentfulConfigs);
 
   const query = print(document);
-  const { space = CONTENTFUL_SPACE_ID, token } =
-    parsedContentfulConfigs[`${market}`];
+  const {
+    space = CONTENTFUL_SPACE_ID,
+    token,
+    env
+  } = parsedContentfulConfigs[`${market}`];
 
   const fetchResult = await fetch(
-    `${CONTENTFUL_API_HOST}/spaces/${space}/environments/${CONTENTFUL_ENVIRONMENT}`,
+    `${CONTENTFUL_API_HOST}/spaces/${space}/environments/${env}`,
     {
       method: "POST",
       headers: {
