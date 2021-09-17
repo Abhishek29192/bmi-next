@@ -371,7 +371,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   underlineHeadings={["h2", "h3", "h4"]}
                 />
               </LeadBlock.Content>
-              {features.length || featuresLink ? (
+              {features?.length || featuresLink ? (
                 <LeadBlock.Card theme="pearl">
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading hasUnderline>
