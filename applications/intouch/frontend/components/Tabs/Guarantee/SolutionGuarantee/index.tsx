@@ -11,13 +11,13 @@ import AccessControl from "../../../../lib/permissions/AccessControl";
 import styles from "./styles.module.scss";
 
 type SolutionGuaranteesProps = {
-  guarantees: GetProjectQuery["project"]["guarantees"]["nodes"];
+  guarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0];
   onReviewClick: () => void;
   canGuaranteeBeSubmitted: boolean;
 };
 
 export const SolutionGuarantee = ({
-  guarantees,
+  guarantee,
   onReviewClick,
   canGuaranteeBeSubmitted
 }: SolutionGuaranteesProps) => {
@@ -25,16 +25,14 @@ export const SolutionGuarantee = ({
   return (
     <div>
       <Typography component="h1" variant="h6">
-        {t("project-page:guarantee.type.solution")}
+        {t("project-page:guarantee.type.SOLUTION")}
       </Typography>
-      {guarantees.map((guarantee) => (
-        <SolutionGuaranteeCard
-          key={guarantee.id}
-          guarantee={guarantee}
-          onReviewClick={onReviewClick}
-          canGuaranteeBeSubmitted={canGuaranteeBeSubmitted}
-        />
-      ))}
+
+      <SolutionGuaranteeCard
+        guarantee={guarantee}
+        onReviewClick={onReviewClick}
+        canGuaranteeBeSubmitted={canGuaranteeBeSubmitted}
+      />
     </div>
   );
 };

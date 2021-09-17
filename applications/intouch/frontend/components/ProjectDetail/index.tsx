@@ -62,10 +62,10 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
   const getProjectGuaranteeType = useCallback(
     (project: GetProjectQuery["project"]) => {
-      return (
-        project?.guarantees?.nodes?.[0]?.guaranteeType?.displayName ||
-        t("guarantee.notRequested")
-      );
+      const coverage = project?.guarantees?.nodes?.[0]?.coverage;
+      return coverage
+        ? t(`guarantee.type.${coverage}`)
+        : t("guarantee.notRequested");
     },
     [t]
   );
@@ -255,8 +255,7 @@ const getGuaranteeEvidence = (
   guarantees: GetProjectQuery["project"]["guarantees"]["nodes"]
 ) => {
   const solutionGuarantee =
-    guarantees.find((node) => node.guaranteeType.coverage === "SOLUTION") ||
-    null;
+    guarantees.find((node) => node.coverage === "SOLUTION") || null;
 
   let evidenceAvailable = false;
   if (solutionGuarantee !== null) {

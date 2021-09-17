@@ -20,7 +20,7 @@ export const ProductGuarantee = ({ guarantees }: ProductGuaranteesProps) => {
     <div className={styles.main}>
       <div className={styles.body}>
         <Typography component="h1" variant="h6">
-          {t("guarantee.type.product")}
+          {t("guarantee.type.PRODUCT")}
         </Typography>
       </div>
       {guarantees.map((guarantee) => (
