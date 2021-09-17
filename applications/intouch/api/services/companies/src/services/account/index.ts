@@ -47,7 +47,22 @@ export const createAccount = async (
     if (rows.length === 0 && args.input.account.role === COMPANY_ADMIN) {
       await pgClient.query(
         `SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`,
-        ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          "NEW",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       );
     }
 
