@@ -1,6 +1,7 @@
 import { GraphQLUpload } from "graphql-upload";
 import { makeExtendSchemaPlugin } from "graphile-utils";
 import {
+  ContentfulGuaranteeTemplatesCollection,
   ContentfulGuaranteeTypeCollection,
   EvidenceCategoryCollection
 } from "@bmi/intouch-api-types";
@@ -12,7 +13,8 @@ import {
 import { publish, TOPICS } from "../../services/events";
 import {
   getGuaranteeTypeCollection,
-  getEvidenceCategory
+  getEvidenceCategory,
+  getGuaranteeTemplates
 } from "../../services/contentful";
 import {
   getCompanyCertifications,
@@ -45,7 +47,7 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
       },
       Guarantee: {
         guaranteeType: async (_query, args, context) => {
-          const { guaranteeReferenceCode } = _query;
+          const { guaranteeReferenceCode, languageCode } = _query;
 
           if (!guaranteeReferenceCode) return null;
 
@@ -60,7 +62,32 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             guaranteeReferenceCode
           );
 
-          return guaranteeTypeCollection?.items[0];
+          if ((guaranteeTypeCollection?.items?.length || 0) === 0) {
+            return null;
+          }
+          return { ...guaranteeTypeCollection.items[0], languageCode };
+        }
+      },
+      ContentfulGuaranteeType: {
+        guaranteeTemplatesCollection: async (_query, args, context) => {
+          const { technology, coverage, languageCode } = _query;
+
+          if ([technology, coverage].filter(Boolean).length !== 2) return null;
+
+          const {
+            data: { guaranteeTemplateCollection }
+          }: {
+            data: {
+              guaranteeTemplateCollection: ContentfulGuaranteeTemplatesCollection;
+            };
+          } = await getGuaranteeTemplates(
+            context.clientGateway,
+            technology,
+            coverage,
+            languageCode
+          );
+
+          return guaranteeTemplateCollection;
         }
       },
       EvidenceItem: {

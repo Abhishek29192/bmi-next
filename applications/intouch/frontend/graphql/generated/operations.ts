@@ -1690,6 +1690,32 @@ export type ContentfulEvidenceCategoriesQuery = {
   >;
 };
 
+export type GetGuaranteeTemplatesQueryVariables = SchemaTypes.Exact<{
+  technology: SchemaTypes.Scalars["String"];
+  coverage: SchemaTypes.Scalars["String"];
+  language?: SchemaTypes.Maybe<SchemaTypes.Scalars["String"]>;
+}>;
+
+export type GetGuaranteeTemplatesQuery = { readonly __typename?: "Query" } & {
+  readonly guaranteeTemplateCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "GuaranteeTemplateCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "GuaranteeTemplate" } & Pick<
+            SchemaTypes.GuaranteeTemplate,
+            "displayName" | "languageCode" | "coverage"
+          > & {
+              readonly sys: { readonly __typename?: "Sys" } & Pick<
+                SchemaTypes.Sys,
+                "id"
+              >;
+            }
+        >
+      >;
+    }
+  >;
+};
+
 export type SearchProductsQueryVariables = SchemaTypes.Exact<{
   query: SchemaTypes.Scalars["String"];
   technology: SchemaTypes.Technology;
@@ -1781,25 +1807,6 @@ export type GetProductGuaranteeTypesQuery = {
               readonly sys: { readonly __typename?: "Sys" } & Pick<
                 SchemaTypes.Sys,
                 "id"
-              >;
-              readonly guaranteeTemplatesCollection?: SchemaTypes.Maybe<
-                {
-                  readonly __typename?: "GuaranteeTypeGuaranteeTemplatesCollection";
-                } & {
-                  readonly items: ReadonlyArray<
-                    SchemaTypes.Maybe<
-                      { readonly __typename?: "GuaranteeTemplate" } & Pick<
-                        SchemaTypes.GuaranteeTemplate,
-                        "displayName" | "languageCode" | "coverage"
-                      > & {
-                          readonly sys: { readonly __typename?: "Sys" } & Pick<
-                            SchemaTypes.Sys,
-                            "id"
-                          >;
-                        }
-                    >
-                  >;
-                }
               >;
               readonly evidenceCategoriesCollection?: SchemaTypes.Maybe<
                 {

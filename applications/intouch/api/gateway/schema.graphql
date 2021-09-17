@@ -6833,6 +6833,8 @@ enum ContentfulGuaranteeCoverageType {
 }
 
 type ContentfulGuaranteeTemplate {
+  displayName: String
+  technology: ContentfulTechnologyType
   coverage: String
   languageCode: String
   languageDescriptor: String
@@ -6867,6 +6869,7 @@ type ContentfulGuaranteeTemplate {
 }
 
 type ContentfulGuaranteeTemplatesCollection {
+  total: Int!
   items: [ContentfulGuaranteeTemplate]
 }
 
@@ -6881,6 +6884,7 @@ type ContentfulGuaranteeType {
   maximumValidityYears: Int
   tiersAvailable: [ContentfulTiers]
   ranking: Int
+  languageCode: String
   evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
   guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
 }

@@ -4637,6 +4637,7 @@ type ContentfulGuaranteeType {
   maximumValidityYears: Int
   tiersAvailable: [ContentfulTiers]
   ranking: Int
+  languageCode: String
   evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
   guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
 }
@@ -4685,10 +4686,13 @@ type ContentfulEvidenceCategory {
 }
 
 type ContentfulGuaranteeTemplatesCollection {
+  total: Int!
   items: [ContentfulGuaranteeTemplate]
 }
 
 type ContentfulGuaranteeTemplate {
+  displayName: String
+  technology: ContentfulTechnologyType
   coverage: String
   languageCode: String
   languageDescriptor: String
