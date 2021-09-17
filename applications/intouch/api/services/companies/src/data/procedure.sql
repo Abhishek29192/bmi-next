@@ -24,15 +24,23 @@ STABLE;
 CREATE OR REPLACE FUNCTION current_market ()
   RETURNS int
   AS $$
-  SELECT
-    market_id
-  FROM
-    account
-  WHERE
-    id = current_account_id ();
+DECLARE
+  _market_id int;
+  _account account % rowtype;
+BEGIN
+  
+  SELECT * INTO _account FROM account WHERE id = current_account_id ();
 
+  IF _account.role = 'SUPER_ADMIN' THEN
+    SELECT nullif (current_setting('app.current_market', TRUE), '')::int INTO _market_id;
+    return _market_id;
+  ELSE
+    RETURN _account.market_id;
+  END IF;
+
+END
 $$
-LANGUAGE sql
+LANGUAGE 'plpgsql'
 STABLE
 SECURITY DEFINER;
 
@@ -148,7 +156,7 @@ BEGIN
   WHERE
     id = current_account_id ();
   INSERT INTO company ("market_id", "owner_fullname", "owner_email", "owner_phone", "business_type", "tier", "status", "name", "tax_number", "phone", "about_us", "public_email", "website", "facebook", "linked_in")
-    VALUES (current_market (), owner_fullname, owner_email, owner_phone, business_type, tier, status, name, tax_number, phone, about_us, public_email, website, facebook, linked_in)
+    VALUES (current_market (), owner_fullname, owner_email, owner_phone, business_type, tier, status, NULL, tax_number, phone, about_us, public_email, website, facebook, linked_in)
   RETURNING
     * INTO _company;
   INSERT INTO company_member ("account_id", "market_id", "company_id")

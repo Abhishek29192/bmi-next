@@ -58,7 +58,8 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     return {
       "app.current_account_id": user?.id,
       "app.current_account_email": user?.email,
-      role: role.toLocaleLowerCase()
+      role: role.toLocaleLowerCase(),
+      ...(role === "SUPER_ADMIN" && { "app.current_market": user?.marketId })
     };
   }
 };
