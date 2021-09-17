@@ -1,12 +1,14 @@
 import React, { useState, useRef } from "react";
 import LeadBlock from "@bmi/lead-block";
-import Icon from "@bmi/icon";
+import { Launch } from "@material-ui/icons";
+import Button from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
 import { Tab, TabProps } from "@material-ui/core";
 import DownloadList from "@bmi/download-list";
+import Icon from "@bmi/icon";
 import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
@@ -16,7 +18,7 @@ import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { Classification } from "./types/ProductBaseTypes";
+import { Asset, Classification } from "./types/ProductBaseTypes";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import BimIframe from "./BimIframe";
 
@@ -37,8 +39,8 @@ type Props = {
     title: React.ReactNode;
     content: RichTextData;
   }[];
-  guaranteesAndWarranties?: GuaranteesAndAwardsAsset[];
-  awardsAndCertificates?: GuaranteesAndAwardsAsset[];
+  guaranteesAndWarranties?: Asset[];
+  awardsAndCertificates?: Asset[];
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
   validClassifications: Classification[];
   classificationNamespace: string;
@@ -64,14 +66,11 @@ const ProductLeadBlock = ({
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
 
-  const removePdfs = (imgArr: GuaranteesAndAwardsAsset[]) => {
-    const sanitisedImgs = imgArr?.filter(
-      (item) => item.url.indexOf(".pdf") === -1
+  const isPDFAsset = (asset: Asset) => {
+    return (
+      asset.url.indexOf(".pdf") > -1 || asset.realFileName.indexOf(".pdf") > -1
     );
-    return sanitisedImgs;
   };
-  const guaranteeImgs = removePdfs(guaranteesAndWarranties);
-  const certificateImgs = removePdfs(awardsAndCertificates);
 
   const GTMTab = withGTM<TabProps>(Tab, {
     label: "label"
@@ -109,38 +108,70 @@ const ProductLeadBlock = ({
                 />
               </LeadBlock.Content.Section>
 
-              {guaranteeImgs?.length > 0 && (
+              {guaranteesAndWarranties?.length > 0 && (
                 <LeadBlock.Content.Section
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
                   <LeadBlock.Content.Heading>
                     {getMicroCopy("pdp.leadBlock.guaranteesWarranties")}
                   </LeadBlock.Content.Heading>
-                  {guaranteeImgs.map((item, i) => (
-                    <img
-                      key={i}
-                      src={item.url}
-                      alt={item.name}
-                      className={styles["image"]}
-                    />
-                  ))}
+                  {guaranteesAndWarranties.map((item, i) =>
+                    isPDFAsset(item) ? (
+                      <Button
+                        key={i}
+                        variant="outlined"
+                        action={{
+                          model: "htmlLink",
+                          href: item.url,
+                          target: "_blank",
+                          rel: "noopener noreferrer"
+                        }}
+                        endIcon={<Launch />}
+                      >
+                        {item.name}
+                      </Button>
+                    ) : (
+                      <img
+                        key={i}
+                        src={item.url}
+                        alt={item.name}
+                        className={styles["image"]}
+                      />
+                    )
+                  )}
                 </LeadBlock.Content.Section>
               )}
-              {certificateImgs?.length > 0 && (
+              {awardsAndCertificates?.length > 0 && (
                 <LeadBlock.Content.Section
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
                   <LeadBlock.Content.Heading>
                     {getMicroCopy("pdp.leadBlock.awardsCertificates")}
                   </LeadBlock.Content.Heading>
-                  {certificateImgs.map((item, i) => (
-                    <img
-                      key={i}
-                      src={item.url}
-                      alt={item.name}
-                      className={styles["image"]}
-                    />
-                  ))}
+                  {awardsAndCertificates.map((item, i) =>
+                    isPDFAsset(item) ? (
+                      <Button
+                        key={i}
+                        variant="outlined"
+                        action={{
+                          model: "htmlLink",
+                          href: item.url,
+                          target: "_blank",
+                          rel: "noopener noreferrer"
+                        }}
+                        endIcon={<Launch />}
+                      >
+                        {item.name}
+                      </Button>
+                    ) : (
+                      <img
+                        key={i}
+                        src={item.url}
+                        alt={item.name}
+                        className={styles["image"]}
+                      />
+                    )
+                  )}
                 </LeadBlock.Content.Section>
               )}
             </LeadBlock.Content>
