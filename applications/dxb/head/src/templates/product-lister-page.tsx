@@ -371,8 +371,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   underlineHeadings={["h2", "h3", "h4"]}
                 />
               </LeadBlock.Content>
-              <LeadBlock.Card theme="pearl">
-                {features ? (
+              {features.length || featuresLink ? (
+                <LeadBlock.Card theme="pearl">
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading hasUnderline>
                       {getMicroCopy("plp.keyFeatures.title")}
@@ -403,8 +403,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                       )}
                     </LeadBlock.Card.Content>
                   </LeadBlock.Card.Section>
-                ) : null}
-              </LeadBlock.Card>
+                </LeadBlock.Card>
+              ) : null}
             </LeadBlock>
           </Section>
           <Section backgroundColor="pearl" overflowVisible>
