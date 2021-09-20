@@ -28,7 +28,8 @@ export const handler = async function (
   // In this case I'm doing client side request so I need to check the session
   if (!req.headers.authorization) {
     const auth0 = await getAuth0Instance(req, res);
-    const session = await auth0.getAccessToken(req, res, { refresh: true });
+    const session = await auth0.getSession(req, res);
+
     try {
       req.headers.authorization = `Bearer ${session.accessToken}`;
       user = session.user;
