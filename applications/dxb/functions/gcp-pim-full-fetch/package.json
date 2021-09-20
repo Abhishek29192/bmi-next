@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "yarn build && functions-framework --source=dist --target=handleRequest --port=9055",
-    "deploy": "yarn build && gcloud functions deploy pim-full-fetch --trigger-http --runtime=nodejs14 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=handleRequest --env-vars-file=env.yaml"
+    "deploy": "yarn build && gcloud functions deploy pim-full-fetch --trigger-http --runtime=nodejs14 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=handleRequest --env-vars-file=env.yaml",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.8.0",
