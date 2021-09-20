@@ -25,7 +25,7 @@ export const CourseDescription = ({
   lmsUrl,
   children
 }: CourseDescriptionProps) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("team-page");
 
   return (
     <SimpleCard>
@@ -57,7 +57,7 @@ export const CourseDescription = ({
                 rel: "noopener noreferrer"
               }}
             >
-              {t("View training")}
+              {t("viewTraining")}
             </Button>
           </div>
         </div>

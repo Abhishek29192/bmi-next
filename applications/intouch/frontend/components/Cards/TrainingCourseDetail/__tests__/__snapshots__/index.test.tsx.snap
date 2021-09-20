@@ -71,7 +71,7 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
                   />
                 </svg>
               </span>
-              View training
+              viewTraining
             </span>
             <span
               class="MuiTouchRipple-root"
@@ -169,7 +169,7 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
                   />
                 </svg>
               </span>
-              View training
+              viewTraining
             </span>
             <span
               class="MuiTouchRipple-root"

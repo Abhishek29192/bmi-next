@@ -46,7 +46,7 @@ export const BrandCard = ({
       </div>
 
       <div className={styles.footer}>
-        <Button href={link}>{t("Visit Website")}</Button>
+        <Button href={link}>{t("visitWebsite")}</Button>
       </div>
     </div>
   );

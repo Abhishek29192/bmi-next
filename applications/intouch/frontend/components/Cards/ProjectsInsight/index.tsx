@@ -21,19 +21,19 @@ export const ProjectsInsight = ({
   return (
     <SimpleCard>
       <Typography variant="h4" style={{ fontSize: "1.25rem" }} hasUnderline>
-        {t("Project insight")}
+        {t("projectInsight")}
       </Typography>
       <div className={styles.body}>
         <Typography variant="h2">{daysRemaining}</Typography>
-        <InfoPair title={t("Number of days remaining")}>
+        <InfoPair title={t("daysRemaining")}>
           {t("Total")}: {totalDays}
         </InfoPair>
       </div>
       <div className={styles.body}>
         <Typography variant="h2">{certifiedInstallers}</Typography>
-        <InfoPair title={t("Certified installers")}>
+        <InfoPair title={t("certifiedInstallers")}>
           {/* TODO: This will need interpolated strings */}
-          {t("There are no BMI certified installers")}
+          {t("noCertifiedInstallers")}
         </InfoPair>
       </div>
     </SimpleCard>
