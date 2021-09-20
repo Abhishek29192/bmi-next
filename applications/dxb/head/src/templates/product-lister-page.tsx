@@ -186,7 +186,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     // NOTE: If filters change, we reset pagination to first page
     const result = await fetchProducts(
       newFilters,
-      pageContext.categoryCodes[0],
+      pageContext.categoryCodes,
       0,
       PAGE_SIZE
     );
@@ -229,7 +229,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     onFiltersChange(newFilters);
   };
 
-  const fetchProducts = async (filters, categoryCode, page, pageSize) => {
+  const fetchProducts = async (filters, categoryCodes, page, pageSize) => {
     if (isLoading) {
       devLog("Already loading...");
       return;
@@ -244,7 +244,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     const query = compileElasticSearchQuery(
       filters,
-      categoryCode,
+      categoryCodes,
       page,
       pageSize
     );
@@ -291,16 +291,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       });
 
       setFilters(updatedFilters);
-      fetchProducts(updatedFilters, pageContext.categoryCodes[0], 0, PAGE_SIZE);
+      fetchProducts(updatedFilters, pageContext.categoryCodes, 0, PAGE_SIZE);
     } else {
       // Default search (no filters)
       setFilters(resolvedFilters);
-      fetchProducts(
-        resolvedFilters,
-        pageContext.categoryCodes[0],
-        0,
-        PAGE_SIZE
-      );
+      fetchProducts(resolvedFilters, pageContext.categoryCodes, 0, PAGE_SIZE);
     }
   }, [location.search]);
 
