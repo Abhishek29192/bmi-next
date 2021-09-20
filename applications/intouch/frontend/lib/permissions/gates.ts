@@ -123,6 +123,12 @@ const gates = {
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
       INSTALLER: false
+    },
+    nominateResponsible: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: false,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
     }
   },
   page: {

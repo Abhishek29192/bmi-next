@@ -22,6 +22,25 @@ export const ProjectDetailsProductFragmentFragmentDoc = gql`
     description
   }
 `;
+export const ProjectMemberDetailsFragmentFragmentDoc = gql`
+  fragment ProjectMemberDetailsFragment on ProjectMember {
+    id
+    accountId
+    account {
+      id
+      firstName
+      lastName
+      role
+      certificationsByDoceboUserId {
+        nodes {
+          name
+          technology
+        }
+      }
+    }
+    isResponsibleInstaller
+  }
+`;
 export const ProjectDetailsFragmentFragmentDoc = gql`
   fragment ProjectDetailsFragment on Project {
     id
@@ -126,20 +145,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
     }
     projectMembers {
       nodes {
-        id
-        accountId
-        account {
-          firstName
-          lastName
-          role
-          certificationsByDoceboUserId {
-            nodes {
-              name
-              technology
-            }
-          }
-        }
-        isResponsibleInstaller
+        ...ProjectMemberDetailsFragment
       }
     }
     company {
@@ -149,6 +155,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
     }
   }
   ${ProjectDetailsProductFragmentFragmentDoc}
+  ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
 export const ImageFragmentFragmentDoc = gql`
   fragment ImageFragment on Asset {
@@ -1454,22 +1461,11 @@ export const CreateProjectMemberDocument = gql`
   mutation createProjectMember($input: CreateProjectMemberInput!) {
     createProjectMember(input: $input) {
       projectMember {
-        id
-        accountId
-        account {
-          id
-          firstName
-          lastName
-          role
-          certificationsByDoceboUserId {
-            nodes {
-              technology
-            }
-          }
-        }
+        ...ProjectMemberDetailsFragment
       }
     }
   }
+  ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
 export type CreateProjectMemberMutationFn = Apollo.MutationFunction<
   OperationTypes.CreateProjectMemberMutation,
@@ -1566,6 +1562,72 @@ export type AddProjectsMemberMutationResult =
 export type AddProjectsMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.AddProjectsMemberMutation,
   OperationTypes.AddProjectsMemberMutationVariables
+>;
+export const UpdateProjectMemberDocument = gql`
+  mutation updateProjectMember(
+    $input: UpdateProjectMemberInput!
+    $projectId: Int!
+  ) {
+    updateProjectMember(input: $input) {
+      projectMember {
+        id
+        projectId
+        isResponsibleInstaller
+      }
+      query {
+        projectMembers(condition: { projectId: $projectId }) {
+          nodes {
+            ...ProjectMemberDetailsFragment
+          }
+        }
+      }
+    }
+  }
+  ${ProjectMemberDetailsFragmentFragmentDoc}
+`;
+export type UpdateProjectMemberMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateProjectMemberMutation,
+  OperationTypes.UpdateProjectMemberMutationVariables
+>;
+
+/**
+ * __useUpdateProjectMemberMutation__
+ *
+ * To run a mutation, you first call `useUpdateProjectMemberMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateProjectMemberMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateProjectMemberMutation, { data, loading, error }] = useUpdateProjectMemberMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *      projectId: // value for 'projectId'
+ *   },
+ * });
+ */
+export function useUpdateProjectMemberMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateProjectMemberMutation,
+    OperationTypes.UpdateProjectMemberMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateProjectMemberMutation,
+    OperationTypes.UpdateProjectMemberMutationVariables
+  >(UpdateProjectMemberDocument, options);
+}
+export type UpdateProjectMemberMutationHookResult = ReturnType<
+  typeof useUpdateProjectMemberMutation
+>;
+export type UpdateProjectMemberMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateProjectMemberMutation>;
+export type UpdateProjectMemberMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateProjectMemberMutation,
+  OperationTypes.UpdateProjectMemberMutationVariables
 >;
 export const AddEvidencesDocument = gql`
   mutation addEvidences($input: EvidenceItemsAddInput!) {

@@ -869,7 +869,7 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                     readonly account?: SchemaTypes.Maybe<
                       { readonly __typename?: "Account" } & Pick<
                         SchemaTypes.Account,
-                        "firstName" | "lastName" | "role"
+                        "id" | "firstName" | "lastName" | "role"
                       > & {
                           readonly certificationsByDoceboUserId: {
                             readonly __typename?: "CertificationsConnection";
@@ -1252,7 +1252,7 @@ export type ProjectDetailsFragmentFragment = {
             readonly account?: SchemaTypes.Maybe<
               { readonly __typename?: "Account" } & Pick<
                 SchemaTypes.Account,
-                "firstName" | "lastName" | "role"
+                "id" | "firstName" | "lastName" | "role"
               > & {
                   readonly certificationsByDoceboUserId: {
                     readonly __typename?: "CertificationsConnection";
@@ -1449,7 +1449,7 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
                 readonly account?: SchemaTypes.Maybe<
                   { readonly __typename?: "Account" } & Pick<
                     SchemaTypes.Account,
-                    "firstName" | "lastName" | "role"
+                    "id" | "firstName" | "lastName" | "role"
                   > & {
                       readonly certificationsByDoceboUserId: {
                         readonly __typename?: "CertificationsConnection";
@@ -1601,7 +1601,7 @@ export type CreateProjectMemberMutation = {
       readonly projectMember?: SchemaTypes.Maybe<
         { readonly __typename?: "ProjectMember" } & Pick<
           SchemaTypes.ProjectMember,
-          "id" | "accountId"
+          "id" | "accountId" | "isResponsibleInstaller"
         > & {
             readonly account?: SchemaTypes.Maybe<
               { readonly __typename?: "Account" } & Pick<
@@ -1614,7 +1614,7 @@ export type CreateProjectMemberMutation = {
                     readonly nodes: ReadonlyArray<
                       { readonly __typename?: "Certification" } & Pick<
                         SchemaTypes.Certification,
-                        "technology"
+                        "name" | "technology"
                       >
                     >;
                   };
@@ -1644,6 +1644,83 @@ export type AddProjectsMemberMutation = { readonly __typename?: "Mutation" } & {
     }
   >;
 };
+
+export type UpdateProjectMemberMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateProjectMemberInput;
+  projectId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type UpdateProjectMemberMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly updateProjectMember?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateProjectMemberPayload" } & {
+      readonly projectMember?: SchemaTypes.Maybe<
+        { readonly __typename?: "ProjectMember" } & Pick<
+          SchemaTypes.ProjectMember,
+          "id" | "projectId" | "isResponsibleInstaller"
+        >
+      >;
+      readonly query?: SchemaTypes.Maybe<
+        { readonly __typename?: "Query" } & {
+          readonly projectMembers?: SchemaTypes.Maybe<
+            { readonly __typename?: "ProjectMembersConnection" } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "ProjectMember" } & Pick<
+                  SchemaTypes.ProjectMember,
+                  "id" | "accountId" | "isResponsibleInstaller"
+                > & {
+                    readonly account?: SchemaTypes.Maybe<
+                      { readonly __typename?: "Account" } & Pick<
+                        SchemaTypes.Account,
+                        "id" | "firstName" | "lastName" | "role"
+                      > & {
+                          readonly certificationsByDoceboUserId: {
+                            readonly __typename?: "CertificationsConnection";
+                          } & {
+                            readonly nodes: ReadonlyArray<
+                              { readonly __typename?: "Certification" } & Pick<
+                                SchemaTypes.Certification,
+                                "name" | "technology"
+                              >
+                            >;
+                          };
+                        }
+                    >;
+                  }
+              >;
+            }
+          >;
+        }
+      >;
+    }
+  >;
+};
+
+export type ProjectMemberDetailsFragmentFragment = {
+  readonly __typename?: "ProjectMember";
+} & Pick<
+  SchemaTypes.ProjectMember,
+  "id" | "accountId" | "isResponsibleInstaller"
+> & {
+    readonly account?: SchemaTypes.Maybe<
+      { readonly __typename?: "Account" } & Pick<
+        SchemaTypes.Account,
+        "id" | "firstName" | "lastName" | "role"
+      > & {
+          readonly certificationsByDoceboUserId: {
+            readonly __typename?: "CertificationsConnection";
+          } & {
+            readonly nodes: ReadonlyArray<
+              { readonly __typename?: "Certification" } & Pick<
+                SchemaTypes.Certification,
+                "name" | "technology"
+              >
+            >;
+          };
+        }
+    >;
+  };
 
 export type AddEvidencesMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.EvidenceItemsAddInput;

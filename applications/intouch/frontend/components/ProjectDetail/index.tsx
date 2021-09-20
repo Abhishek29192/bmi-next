@@ -28,7 +28,8 @@ import {
   getProjectGuaranteeStatus,
   getGuaranteeEventType,
   isProjectApprovable,
-  isSolutionOrSystemGuaranteeExist
+  isSolutionOrSystemGuaranteeExist,
+  getGuaranteeStatus
 } from "../../lib/utils/project";
 import log from "../../lib/logger";
 import { useAccountContext } from "../../context/AccountContext";
@@ -123,6 +124,13 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     can(account, "project", "submitSolutionGuarantee") &&
     !isSolutionOrSystemGuaranteeExist(project);
 
+  const canNominateResponsibleInstaller = (): boolean => {
+    return (
+      can(account, "project", "nominateResponsible") &&
+      ["NEW", "REJECTED"].includes(getGuaranteeStatus(project))
+    );
+  };
+
   return (
     <>
       <Grid item xs={12} md={8}>
@@ -166,6 +174,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
               <TeamTab
                 projectId={projectId}
                 teams={project.projectMembers?.nodes as ProjectMember[]}
+                canNominateProjectResponsible={canNominateResponsibleInstaller()}
               />
             </TabCard>
           </Tabs.TabPanel>
@@ -223,7 +232,7 @@ const UploadedFiles = ({
   for (const guarantee of guarantees.nodes) {
     const evidenceCategories =
       guarantee.guaranteeType?.evidenceCategoriesCollection?.items;
-    for (const evidenceCategory of evidenceCategories) {
+    for (const evidenceCategory of evidenceCategories.filter(Boolean)) {
       map.set(evidenceCategory.name, []);
     }
   }
@@ -376,20 +385,7 @@ export const GET_PROJECT = gql`
     }
     projectMembers {
       nodes {
-        id
-        accountId
-        account {
-          firstName
-          lastName
-          role
-          certificationsByDoceboUserId {
-            nodes {
-              name
-              technology
-            }
-          }
-        }
-        isResponsibleInstaller
+        ...ProjectMemberDetailsFragment
       }
     }
     company {

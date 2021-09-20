@@ -2,7 +2,8 @@ const INSTALLER_PERMISSIONS = [];
 const COMPANY_ADMIN_PERMISSIONS = [
   ...INSTALLER_PERMISSIONS,
   "invite",
-  "grant:company_admin"
+  "grant:company_admin",
+  "grant:nominate_responsible_installer"
 ];
 const MARKET_ADMIN_PERMISSIONS = [
   ...COMPANY_ADMIN_PERMISSIONS,
