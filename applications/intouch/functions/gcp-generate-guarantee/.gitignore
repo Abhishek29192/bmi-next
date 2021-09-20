@@ -1,2 +1,5 @@
 .env
 pdf/*.pdf
+.npmrc
+.yarnrc
+gcp.json

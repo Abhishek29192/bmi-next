@@ -1,12 +1,17 @@
 import { MailService } from "@sendgrid/mail";
-import { Guarantee } from "@bmi/intouch-api-types";
+import { Guarantee } from "@bmi-digital/intouch-api-types";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import GuaranteePdfGenerator from "./GuaranteePdf";
 
-const { SENDGRID_API_KEY, SENDGRID_FROM_MAIL } = process.env;
+const { GCP_SECRET_PROJECT, MAIL_FROM } = process.env;
 
 const getSendGridClient = async () => {
+  const secretManagerClient = new SecretManagerServiceClient();
+  const [value] = await secretManagerClient.accessSecretVersion({
+    name: `projects/${GCP_SECRET_PROJECT}/secrets/SENDGRID_API_KEY/versions/latest`
+  });
   const sendGridClient = new MailService();
-  sendGridClient.setApiKey(SENDGRID_API_KEY);
+  sendGridClient.setApiKey(value.payload.data.toString());
   return sendGridClient;
 };
 export const sendGuaranteePdf = async (postEvent: any) => {
@@ -31,9 +36,12 @@ export const sendGuaranteePdf = async (postEvent: any) => {
   );
 
   const sendgridClient = await getSendGridClient();
+
+  const replyTo = "no-reply@intouch.bmigroup.com";
   await sendgridClient.send({
+    replyTo,
     to: payload.project.buildingOwnerMail,
-    from: SENDGRID_FROM_MAIL,
+    from: MAIL_FROM,
     subject: "Guarantee PDF",
     text: "Guarantee PDF",
     attachments

@@ -1,4 +1,4 @@
-import { Company } from "@bmi/intouch-api-types";
+import { Company } from "@bmi-digital/intouch-api-types";
 import { mockCompanyAddress } from "./address";
 import { mockProject } from "./project";
 import { emptyNodes, singlePageInfo } from "./utils/graphileNodes";

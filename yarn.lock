@@ -2317,6 +2317,11 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/template/-/template-1.0.0.tgz#bf8828bc3ae8004d97904d78f64e3cc2cd216438"
   integrity sha512-J6WGZqCLdRMHUkyRG6fBSIFJ0rL60/nsQNh5rQvsYZ5u0PsKw6XQcJcA3DWvd9cN3j/IQx5yB1fexhCafwwUUw==
 
+"@bmi-digital/intouch-api-types@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/intouch-api-types/-/intouch-api-types-0.0.1.tgz#dbcc4dc78317fd55737b38eb7aaf5c938b06aae6"
+  integrity sha512-Rkdqkz86jm6mPfubeIzbjanLjbA5qpYSBeesu74OeabYpwnKWAcF8PMNm/zXzt3+QqmBNlcWM23B7irBOwWwaA==
+
 "@bmi-digital/logger@0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.3.tgz#f3cfc723a26a167a15f1258266a550f3750aae38"
@@ -2328,6 +2333,14 @@
     express "^4.17.1"
     mask-deep "^3.0.7"
     winston "^3.3.3"
+
+"@bmi-digital/react-pdf-maker@0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/react-pdf-maker/-/react-pdf-maker-0.0.0.tgz#3b09e060081122df47f6e03b81c0b500275d2718"
+  integrity sha512-+KuInTQVIxjy4u+SK032zwpg1+gdX6ftdU2OcRKQHRJYuNO4NB4BRQcC8QKbqz4EV+o1ROi5AKQ6scB0R7EzJg==
+  dependencies:
+    pdfmake "^0.1.68"
+    react-is "^16.13.1"
 
 "@bugsnag/browser@^7.9.2":
   version "7.9.2"
@@ -26128,6 +26141,17 @@ pdfkit@>=0.8.1, pdfkit@^0.12.0:
     fontkit "^1.8.1"
     linebreak "^1.0.2"
     png-js "^1.0.0"
+
+pdfmake@^0.1.68:
+  version "0.1.72"
+  resolved "https://registry.yarnpkg.com/pdfmake/-/pdfmake-0.1.72.tgz#b5ef0057e40e7a22b23a19aaf0be35ada902a3bf"
+  integrity sha512-xZrPS+Safjf1I8ZYtMoXX83E6C6Pd1zFwa168yNTeeJWHclqf1z9DoYajjlY2uviN7gGyxwVZeou39uSk1oh1g==
+  dependencies:
+    iconv-lite "^0.6.2"
+    linebreak "^1.0.2"
+    pdfkit "^0.12.0"
+    svg-to-pdfkit "^0.1.8"
+    xmldoc "^1.1.2"
 
 pdfmake@^0.1.71:
   version "0.1.71"
