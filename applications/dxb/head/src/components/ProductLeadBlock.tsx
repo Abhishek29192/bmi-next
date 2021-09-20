@@ -72,6 +72,20 @@ const ProductLeadBlock = ({
     );
   };
 
+  const guaranteesDocuments = (guaranteesAndWarranties || []).filter((item) =>
+    isPDFAsset(item)
+  );
+  const guaranteesImages = (guaranteesAndWarranties || []).filter(
+    (item) => !isPDFAsset(item)
+  );
+
+  const awardsDocs = (awardsAndCertificates || []).filter((item) =>
+    isPDFAsset(item)
+  );
+  const awardsImages = (awardsAndCertificates || []).filter(
+    (item) => !isPDFAsset(item)
+  );
+
   const GTMTab = withGTM<TabProps>(Tab, {
     label: "label"
   });
@@ -115,10 +129,21 @@ const ProductLeadBlock = ({
                   <LeadBlock.Content.Heading>
                     {getMicroCopy("pdp.leadBlock.guaranteesWarranties")}
                   </LeadBlock.Content.Heading>
-                  {guaranteesAndWarranties.map((item, i) =>
-                    isPDFAsset(item) ? (
+                  {guaranteesImages.map((item, i) => (
+                    <img
+                      key={`guarentee-img-${i}`}
+                      src={item.url}
+                      alt={item.name}
+                      className={styles["image"]}
+                    />
+                  ))}
+                  {guaranteesDocuments.length > 0 && <br />}
+                  {guaranteesDocuments.map((item, i) => (
+                    <span
+                      className={styles["document"]}
+                      key={`guarentee-doc-${i}`}
+                    >
                       <Button
-                        key={i}
                         variant="outlined"
                         action={{
                           model: "htmlLink",
@@ -130,15 +155,8 @@ const ProductLeadBlock = ({
                       >
                         {item.name}
                       </Button>
-                    ) : (
-                      <img
-                        key={i}
-                        src={item.url}
-                        alt={item.name}
-                        className={styles["image"]}
-                      />
-                    )
-                  )}
+                    </span>
+                  ))}
                 </LeadBlock.Content.Section>
               )}
               {awardsAndCertificates?.length > 0 && (
@@ -148,10 +166,18 @@ const ProductLeadBlock = ({
                   <LeadBlock.Content.Heading>
                     {getMicroCopy("pdp.leadBlock.awardsCertificates")}
                   </LeadBlock.Content.Heading>
-                  {awardsAndCertificates.map((item, i) =>
-                    isPDFAsset(item) ? (
+                  {awardsImages.map((item, i) => (
+                    <img
+                      key={`award-img-${i}`}
+                      src={item.url}
+                      alt={item.name}
+                      className={styles["image"]}
+                    />
+                  ))}
+                  {awardsDocs.length > 0 && <br />}
+                  {awardsDocs.map((item, i) => (
+                    <span className={styles["document"]} key={`award-doc-${i}`}>
                       <Button
-                        key={i}
                         variant="outlined"
                         action={{
                           model: "htmlLink",
@@ -163,15 +189,8 @@ const ProductLeadBlock = ({
                       >
                         {item.name}
                       </Button>
-                    ) : (
-                      <img
-                        key={i}
-                        src={item.url}
-                        alt={item.name}
-                        className={styles["image"]}
-                      />
-                    )
-                  )}
+                    </span>
+                  ))}
                 </LeadBlock.Content.Section>
               )}
             </LeadBlock.Content>
