@@ -333,6 +333,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     />
   );
 
+  const isKeyFeatureBlockVisible = features?.length || featuresLink;
   return (
     <Page
       brand={brandLogo}
@@ -371,23 +372,25 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   underlineHeadings={["h2", "h3", "h4"]}
                 />
               </LeadBlock.Content>
-              {features?.length || featuresLink ? (
+              {isKeyFeatureBlockVisible ? (
                 <LeadBlock.Card theme="pearl">
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading hasUnderline>
                       {getMicroCopy("plp.keyFeatures.title")}
                     </LeadBlock.Card.Heading>
                     <LeadBlock.Card.Content>
-                      <IconList>
-                        {features.map((feature, index) => (
-                          <IconList.Item
-                            key={index}
-                            icon={BlueCheckIcon}
-                            title={feature}
-                            isCompact
-                          />
-                        ))}
-                      </IconList>
+                      {!!features?.length && (
+                        <IconList>
+                          {features.map((feature, index) => (
+                            <IconList.Item
+                              key={index}
+                              icon={BlueCheckIcon}
+                              title={feature}
+                              isCompact
+                            />
+                          ))}
+                        </IconList>
+                      )}
                       {featuresLink && (
                         <AnchorLink
                           action={getClickableActionFromUrl(
