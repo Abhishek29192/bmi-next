@@ -7,12 +7,16 @@ import classnames from "classnames";
 import filesize from "filesize";
 import { get } from "lodash";
 import React, { useContext } from "react";
+import Typography from "@bmi/typography";
+import { CloudDownload, GetApp } from "@material-ui/icons";
 import withGTM from "../utils/google-tag-manager";
+
 import {
   PIMDocumentData,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
+import { useWindowDimensions } from "../utils/useWindowDimensions";
 import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
@@ -32,6 +36,10 @@ type Props = {
   page: number;
   documentsPerPage: number;
   headers?: AvailableHeader[];
+};
+
+type ListProps = {
+  documents: Document[];
 };
 
 const GTMButton =
@@ -106,6 +114,77 @@ const typenameToSizeMap: Record<Document["__typename"], string | number> = {
   SDPDocument: "fileSize"
 };
 
+const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
+  const list = documents.map((document) => {
+    const notPIMLinkDocument = document.__typename !== "PIMLinkDocument";
+
+    const asset = notPIMLinkDocument ? mapAssetToFileDownload(document) : null;
+
+    return (
+      <div key={document.id} className={styles["list-item"]}>
+        <div className={styles["list-title-row"]}>
+          <div className={styles["list-icon"]}>
+            {notPIMLinkDocument ? (
+              <Icon
+                source={fileIconsMap[asset.format]}
+                className={styles["download-icon"]}
+              />
+            ) : (
+              <Icon
+                source={iconMap.External}
+                className={styles["external-link-icon"]}
+              />
+            )}
+          </div>
+          <Typography className={styles["document-title"]}>
+            {document.title}
+          </Typography>
+        </div>
+        <div className={styles["list-download-row"]}>
+          <Typography className={styles["download-type"]}>
+            {document.assetType.name}
+          </Typography>
+          {notPIMLinkDocument ? (
+            <GTMButton
+              gtm={{
+                id: "download1",
+                label: "Download",
+                action: asset.url
+              }}
+              variant="text"
+              endIcon={<GetApp />}
+              action={{
+                model: "download",
+                href: `https:${asset.url.replace("https:", "")}`
+              }}
+            >
+              {filesize(asset.size)}
+            </GTMButton>
+          ) : (
+            <Button
+              isIconButton
+              variant="text"
+              action={{
+                model: "htmlLink",
+                href: document.url,
+                target: "_blank",
+                rel: "noopener noreferrer"
+              }}
+            >
+              <Icon
+                source={iconMap.External}
+                className={styles["external-link-icon"]}
+              />
+            </Button>
+          )}
+        </div>
+      </div>
+    );
+  });
+
+  return <div className={styles["DocumentSimpleTableResults"]}>{list}</div>;
+};
+
 const DocumentSimpleTableResults = ({
   documents,
   page,
@@ -113,11 +192,16 @@ const DocumentSimpleTableResults = ({
   headers = ["typeCode", "title", "download", "add"]
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
+  const { media } = useWindowDimensions();
   const { list } = useContext(DownloadListContext);
   const paginatedDocuments = documents.slice(
     (page - 1) * documentsPerPage,
     page * documentsPerPage
   );
+
+  if (media === "lg") {
+    return <DocumentSimpleTableResultsMobile documents={paginatedDocuments} />;
+  }
 
   return (
     <div className={styles["DocumentSimpleTableResults"]}>
