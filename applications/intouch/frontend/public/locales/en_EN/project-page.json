@@ -94,9 +94,9 @@
       "APPROVED": "Approved"
     },
     "type": {
-      "product": "Product Guarantee",
-      "system": "System Guarantee",
-      "solution": "Solution Guarantee"
+      "PRODUCT": "Product Guarantee",
+      "SYSTEM": "System Guarantee",
+      "SOLUTION": "Solution Guarantee"
     },
     "incompleteGuaranteeAlert": {
       "title": "Information Required",

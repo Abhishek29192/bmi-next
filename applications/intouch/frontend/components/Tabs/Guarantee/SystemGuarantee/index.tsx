@@ -3,50 +3,31 @@ import { useTranslation } from "react-i18next";
 import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
-import AlertBanner from "@bmi/alert-banner";
-import Icon, { FilePDF, Arrow } from "@bmi/icon";
+import Icon, { FilePDF } from "@bmi/icon";
 import { ProductRow } from "../ProductRow";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
-import AccessControl from "../../../../lib/permissions/AccessControl";
 import styles from "./styles.module.scss";
 
-type SolutionGuaranteesProps = {
+type SystemGuaranteesProps = {
   guarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0];
-  onReviewClick: () => void;
-  canGuaranteeBeSubmitted: boolean;
 };
 
-export const SolutionGuarantee = ({
-  guarantee,
-  onReviewClick,
-  canGuaranteeBeSubmitted
-}: SolutionGuaranteesProps) => {
+export const SystemGuarantee = ({ guarantee }: SystemGuaranteesProps) => {
   const { t } = useTranslation(["common", "project-page"]);
   return (
     <div>
       <Typography component="h1" variant="h6">
-        {t("project-page:guarantee.type.SOLUTION")}
+        {t("project-page:guarantee.type.SYSTEM")}
       </Typography>
-
-      <SolutionGuaranteeCard
-        guarantee={guarantee}
-        onReviewClick={onReviewClick}
-        canGuaranteeBeSubmitted={canGuaranteeBeSubmitted}
-      />
+      <SystemGuaranteeCard guarantee={guarantee} />
     </div>
   );
 };
 
-type SolutionGuaranteeCardProps = {
+type SystemGuaranteeCardProps = {
   guarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0];
-  onReviewClick: () => void;
-  canGuaranteeBeSubmitted: boolean;
 };
-const SolutionGuaranteeCard = ({
-  guarantee,
-  onReviewClick,
-  canGuaranteeBeSubmitted
-}: SolutionGuaranteeCardProps) => {
+const SystemGuaranteeCard = ({ guarantee }: SystemGuaranteeCardProps) => {
   const { t } = useTranslation(["common", "project-page"]);
 
   const { systemBySystemBmiRef: system } = guarantee;
@@ -55,19 +36,8 @@ const SolutionGuaranteeCard = ({
     (member) => member.productByProductBmiRef
   );
 
-  const showAlert = !canGuaranteeBeSubmitted && guarantee.status === "NEW";
-
   return (
     <div className={styles.main}>
-      {showAlert && (
-        <AlertBanner severity={"warning"}>
-          <AlertBanner.Title>
-            {t("project-page:guarantee.incompleteGuaranteeAlert.title")}
-          </AlertBanner.Title>
-          {t("project-page:guarantee.incompleteGuaranteeAlert.description")}
-        </AlertBanner>
-      )}
-
       <div className={styles.body}>
         <div className={styles.body__title}>
           <Typography component="h2" variant="h6">
@@ -89,20 +59,6 @@ const SolutionGuaranteeCard = ({
             >
               {t("common:SavePdf")}
             </Button>
-          </div>
-          <div>
-            <AccessControl dataModel="project" action="submitSolutionGuarantee">
-              <Button
-                onClick={onReviewClick}
-                variant="outlined"
-                startIcon={
-                  <Icon className={styles.body__logo} source={Arrow} />
-                }
-                disabled={!canGuaranteeBeSubmitted}
-              >
-                {t("Submit Solution")}
-              </Button>
-            </AccessControl>
           </div>
         </div>
         <div>
