@@ -1,5 +1,3 @@
-import { createProxyMiddleware } from "http-proxy-middleware";
-
 import { handler } from "../../pages/api/graphql";
 
 jest.mock("http-proxy-middleware", () => ({
@@ -8,7 +6,7 @@ jest.mock("http-proxy-middleware", () => ({
 const mockGetSession = jest.fn();
 jest.mock("../../lib/auth0", () => ({
   getAuth0Instance: () => ({
-    getAccessToken: mockGetSession
+    getSession: mockGetSession
   })
 }));
 
