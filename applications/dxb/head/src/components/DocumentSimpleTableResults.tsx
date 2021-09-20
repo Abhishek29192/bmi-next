@@ -8,7 +8,8 @@ import filesize from "filesize";
 import { get } from "lodash";
 import React, { useContext } from "react";
 import Typography from "@bmi/typography";
-import { CloudDownload, GetApp } from "@material-ui/icons";
+import { GetApp } from "@material-ui/icons";
+import { useMediaQuery } from "@material-ui/core";
 import withGTM from "../utils/google-tag-manager";
 
 import {
@@ -16,7 +17,6 @@ import {
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
-import { useWindowDimensions } from "../utils/useWindowDimensions";
 import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
@@ -193,14 +193,14 @@ const DocumentSimpleTableResults = ({
   headers = ["typeCode", "title", "download", "add"]
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
-  const { media } = useWindowDimensions();
+  const isMobile = useMediaQuery("(max-width:840px)");
   const { list } = useContext(DownloadListContext);
   const paginatedDocuments = documents.slice(
     (page - 1) * documentsPerPage,
     page * documentsPerPage
   );
 
-  if (media === "lg") {
+  if (isMobile) {
     return <DocumentSimpleTableResultsMobile documents={paginatedDocuments} />;
   }
 
