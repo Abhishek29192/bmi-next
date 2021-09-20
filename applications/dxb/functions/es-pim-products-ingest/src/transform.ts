@@ -1,4 +1,9 @@
-import type { Product as PIMProduct, VariantOption as PIMVariant } from "./pim";
+/* eslint-disable security/detect-object-injection */
+import {
+  Category,
+  Product as PIMProduct,
+  VariantOption as PIMVariant
+} from "./pim";
 import type { ProductVariant as ESProduct } from "./es-model";
 import {
   findProductBrandLogoCode,
@@ -7,7 +12,11 @@ import {
   getLeafCategory,
   getSizeLabel,
   mapProductClassifications,
-  TransformedMeasurementValue
+  TransformedMeasurementValue,
+  IndexFeatures,
+  IndexedItemGroup,
+  groupBy,
+  ESIndexObject
 } from "./CLONE";
 
 // Can't use lodash pick as it's not type-safe
@@ -72,8 +81,45 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     ({ categoryType }) => categoryType === "ProductLine"
   );
 
+  const categoryGroups: IndexedItemGroup<Category> = groupBy(
+    product.categories,
+    "categoryType"
+  );
+
+  const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = (
+    Object.keys(categoryGroups) || []
+  ).reduce((categoryAsProps, catName) => {
+    // eslint-disable-next-line security/detect-object-injection
+    const nameAndCodeValues = categoryGroups[catName].map((cat) => {
+      return {
+        code: cat.code,
+        name: cat.name
+      };
+    });
+    return {
+      ...categoryAsProps,
+      [catName]: nameAndCodeValues
+    };
+  }, {});
+
+  //category codes ONLY
+  // not sure if we need to index array of category codes of special category type 'Category'
+  // was in the spike.. need to ask Ben
+  const categoryCodesOnly = (categoryGroups["Category"] || []).map((cat) => {
+    return cat.code;
+  });
+
   return (product.variantOptions || []).map((variant) => {
     const classifications = combineVariantClassifications(product, variant);
+
+    let indexedFeatures = IndexFeatures(
+      PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
+      classifications || []
+    );
+
+    const allfeatureCodes: string[] = Object.keys(indexedFeatures || {});
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const scoringWeightClassification = classifications.find(
       ({ code }) => code === "scoringWeightAttributes"
     );
@@ -115,6 +161,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       measurementValue;
 
     if (appearanceClassifications) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const colourfamilyAppearance = (
         appearanceClassifications.features || []
       ).find(
@@ -126,6 +173,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       colourfamilyCode = colourfamilyAppearance?.code;
       colourfamilyValue = colourfamilyAppearance?.value;
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const texturefamilyAppearance = (
         appearanceClassifications.features || []
       ).find(
@@ -139,6 +187,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     }
 
     if (generalInformationClassification) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const materialsGeneralInformation = (
         generalInformationClassification.features || []
       ).find(
@@ -160,6 +209,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     }
 
     return {
+      ...indexedFeatures,
+      ...allCategoriesAsProps,
+      "category.codes": [...categoryCodesOnly],
+      "feature.codes": [...allfeatureCodes],
       ...baseAttributes,
       code: variant.code,
       baseProduct: product,
