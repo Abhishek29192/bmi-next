@@ -211,7 +211,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                   class="MuiButton-label buttonStyles-label-124"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-125 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-125 MuiButton-iconSizeLarge"
                   >
                     <svg
                       aria-hidden="true"
