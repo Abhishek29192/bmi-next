@@ -116,15 +116,16 @@ const typenameToSizeMap: Record<Document["__typename"], string | number> = {
 
 const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
   const list = documents.map((document) => {
-    const notPIMLinkDocument = document.__typename !== "PIMLinkDocument";
-
-    const asset = notPIMLinkDocument ? mapAssetToFileDownload(document) : null;
+    const asset =
+      document.__typename !== "PIMLinkDocument"
+        ? mapAssetToFileDownload(document)
+        : null;
 
     return (
       <div key={document.id} className={styles["list-item"]}>
         <div className={styles["list-title-row"]}>
           <div className={styles["list-icon"]}>
-            {notPIMLinkDocument ? (
+            {document.__typename !== "PIMLinkDocument" ? (
               <Icon
                 source={fileIconsMap[asset.format]}
                 className={styles["download-icon"]}
@@ -141,10 +142,10 @@ const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
           </Typography>
         </div>
         <div className={styles["list-download-row"]}>
-          <Typography className={styles["download-type"]}>
+          <Typography className={styles["document-type"]}>
             {document.assetType.name}
           </Typography>
-          {notPIMLinkDocument ? (
+          {document.__typename !== "PIMLinkDocument" ? (
             <GTMButton
               gtm={{
                 id: "download1",

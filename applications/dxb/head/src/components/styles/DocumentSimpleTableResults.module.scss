@@ -76,6 +76,10 @@
     color: $color-slate;
     margin-top: 5px;
   }
+  .document-type {
+    color: $color-slate;
+    line-height: 19px;
+  }
   .list-title-row {
     display: flex;
     margin-bottom: 12px;
@@ -86,10 +90,6 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
-    .download-type {
-      color: $color-slate;
-      line-height: 19px;
-    }
   }
   .list-icon {
     margin-right: 12px;
