@@ -41,10 +41,14 @@ export const getProjectStatus = (startDate, endDate) => {
   return ProjectStatus.NOT_STARTED;
 };
 
+export const findProjectGuarantee = (project: DeepPartial<Project>) => {
+  return project?.guarantees?.nodes?.[0];
+};
+
 export const getProjectGuaranteeStatus = (
   project: DeepPartial<Project>
 ): GuaranteeStatus => {
-  const guarantee = project?.guarantees?.nodes?.[0];
+  const guarantee = findProjectGuarantee(project);
 
   // Guarantee associated with the Project - Not Applicable
   if (!guarantee) {

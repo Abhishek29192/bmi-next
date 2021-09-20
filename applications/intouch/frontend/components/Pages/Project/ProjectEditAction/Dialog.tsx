@@ -6,8 +6,9 @@ import { ProjectSiteAddressIdFkeyInput } from "@bmi/intouch-api-types";
 import { useUpdateProjectMutation } from "../../../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import { spreadObjectKeys } from "../../../../lib/utils/object";
+import { findProjectGuarantee } from "../../../../lib/utils/project";
 import log from "../../../../lib/logger";
-import ProjectForm from "../Form";
+import ProjectForm, { isFieldDisabled } from "../Form";
 // TODO: move/split styles?
 import styles from "../CreateProject/styles.module.scss";
 
@@ -25,6 +26,7 @@ export const ProjectEditActionDialog = ({
   onCompleted
 }: ProjectEditActionDialogProps) => {
   const { t } = useTranslation();
+  const guarantee = findProjectGuarantee(project);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [updateProject] = useUpdateProjectMutation({
     onError: (error) => {
@@ -57,6 +59,11 @@ export const ProjectEditActionDialog = ({
 
     // we need to account for nested objects (e.g. address)
     const valuesObject = spreadObjectKeys(values, (key, value) => {
+      // skip disabled fields
+      if (isFieldDisabled(guarantee, key)) {
+        return undefined;
+      }
+
       if (key === "roofArea") {
         return Number.parseInt(value);
       }
@@ -66,19 +73,21 @@ export const ProjectEditActionDialog = ({
 
     const { siteAddress, ...createProjectValues } = valuesObject;
 
-    const addressToSiteAddressId: ProjectSiteAddressIdFkeyInput = project
-      .siteAddress?.id
-      ? {
-          // updates the address (already linked to the project)
-          updateById: {
-            id: project?.siteAddress.id,
-            patch: siteAddress
+    // siteAddress may have been disabled therefore not in the filtered form values
+    const addressToSiteAddressId: ProjectSiteAddressIdFkeyInput = siteAddress
+      ? project.siteAddress?.id
+        ? {
+            // updates the address (already linked to the project)
+            updateById: {
+              id: project?.siteAddress.id,
+              patch: siteAddress
+            }
           }
-        }
-      : {
-          // creates the address and links it to the project
-          create: siteAddress
-        };
+        : {
+            // creates the address and links it to the project
+            create: siteAddress
+          }
+      : undefined;
 
     updateProject({
       variables: {
