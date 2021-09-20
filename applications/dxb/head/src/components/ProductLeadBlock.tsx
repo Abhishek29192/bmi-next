@@ -72,15 +72,17 @@ const ProductLeadBlock = ({
     );
   };
 
-  const guaranteesDocuments = guaranteesAndWarranties.filter((item) =>
+  const guaranteesDocuments = (guaranteesAndWarranties || []).filter((item) =>
     isPDFAsset(item)
   );
-  const guaranteesImages = guaranteesAndWarranties.filter(
+  const guaranteesImages = (guaranteesAndWarranties || []).filter(
     (item) => !isPDFAsset(item)
   );
 
-  const awardsDocs = awardsAndCertificates.filter((item) => isPDFAsset(item));
-  const awardsImages = awardsAndCertificates.filter(
+  const awardsDocs = (awardsAndCertificates || []).filter((item) =>
+    isPDFAsset(item)
+  );
+  const awardsImages = (awardsAndCertificates || []).filter(
     (item) => !isPDFAsset(item)
   );
 
