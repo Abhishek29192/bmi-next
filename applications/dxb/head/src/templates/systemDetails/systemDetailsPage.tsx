@@ -11,6 +11,7 @@ import ShareWidgetSection, {
 import { getBimIframeUrl } from "../../components/BimIframe";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 import RelatedSystems from "../../components/RelatedSystems";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import {
@@ -63,10 +64,11 @@ export const IGNORED_DOCUMENTS_ASSETS = [
   "WARRANTIES"
 ];
 
-const SystemDetailsPage = ({ data }: Props) => {
+const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, dataJson, relatedSystems, allContentfulAssetType } =
     data;
   const { countryCode, resources } = contentfulSite;
+
   const {
     name,
     categories,
@@ -191,6 +193,20 @@ const SystemDetailsPage = ({ data }: Props) => {
       });
   }, []);
 
+  const breadcrumbs = (
+    <Section backgroundColor="pearl" isSlim>
+      <Breadcrumbs
+        data={[
+          {
+            id: pageContext.systemPageId,
+            label: name,
+            slug: null
+          }
+        ]}
+      />
+    </Section>
+  );
+
   return (
     <Page
       brand={brandName}
@@ -198,6 +214,7 @@ const SystemDetailsPage = ({ data }: Props) => {
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={contentfulSite}
     >
+      {breadcrumbs}
       {resources?.sdpShareWidget && (
         <ShareWidgetSection data={resources.sdpShareWidget} />
       )}
@@ -239,6 +256,7 @@ const SystemDetailsPage = ({ data }: Props) => {
           countryCode={countryCode}
         />
       )}
+      {breadcrumbs}
     </Page>
   );
 };
