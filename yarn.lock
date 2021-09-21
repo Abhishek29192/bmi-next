@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@aaronhayes/react-use-hubspot-form@^1.2.4":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@aaronhayes/react-use-hubspot-form/-/react-use-hubspot-form-1.2.5.tgz#b93daa5c67c51867f0358ffd86ccdffe106c9099"
-  integrity sha512-so0RgkH4dC64ZO7rCyNrD3Hfsy68kDBOWS8jrDn7XEaKSaaYGtQy3/Ab7HaLurHXjdAB5V+uv2uedDZGK9Oz0A==
+"@aaronhayes/react-use-hubspot-form@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@aaronhayes/react-use-hubspot-form/-/react-use-hubspot-form-2.1.0.tgz#fb5142a751db4f0d3409aad299b005c30afd2669"
+  integrity sha512-ClFNQnvWp3AKrS7eKcJXMjiHndTAys1XTFcioOpsSk0E/J+dfxF9ARuoY1FST7xvlI4sKyesOEpSKR1ucm8IEA==
 
 "@apollo/client@^3.4.3":
   version "3.4.3"
