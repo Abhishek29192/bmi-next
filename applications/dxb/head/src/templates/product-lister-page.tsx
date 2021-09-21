@@ -179,7 +179,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       ? resultsElement.current.offsetTop - 200
       : 0;
     window.scrollTo(0, scrollY);
-    fetchProducts(filters, pageContext.categoryCodes[0], page - 1, PAGE_SIZE);
+    fetchProducts(filters, pageContext.categoryCodes, page - 1, PAGE_SIZE);
   };
 
   const onFiltersChange = async (newFilters) => {
