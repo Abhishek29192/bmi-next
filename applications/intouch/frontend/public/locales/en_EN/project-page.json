@@ -72,6 +72,9 @@
       "UNASSIGN_SOLUTION": "Unassign to me",
       "NOT_ASSIGNABLE": "Not Assignable",
       "edit": "Edit"
+    },
+    "hints": {
+      "projectEditGuaranteeStatus": "Project details cannot be edited due to guarantee status."
     }
   },
   "buildingOwnerDetails": {

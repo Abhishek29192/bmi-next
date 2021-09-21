@@ -100,6 +100,18 @@ export const isProjectApprovable = (
   );
 };
 
+export const isProjectEditable = (project) => {
+  const guarantee = findProjectGuarantee(project);
+
+  // If there is no guarantee, all fields can be edited
+  if (!guarantee) {
+    return true;
+  }
+
+  // If there is a guarantee, some fields can be edited, if it's in certain statuses
+  return !["APPROVED", "SUBMITTED", "REVIEW"].includes(guarantee.status);
+};
+
 export const checkProjectGuaranteeReview = (
   project: GetProjectQuery["project"]
 ): boolean => {
