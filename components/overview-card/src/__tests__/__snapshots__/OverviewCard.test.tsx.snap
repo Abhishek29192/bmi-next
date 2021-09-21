@@ -351,11 +351,14 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
   <div
     class="body"
   >
-    <img
-      alt=""
+    <div
       class="brand-logo brand-logo--negative"
-      src="image/source.jpg"
-    />
+    >
+      <img
+        alt=""
+        src="image/source.jpg"
+      />
+    </div>
     <h4
       class="MuiTypography-root title Typography MuiTypography-h4"
     >
