@@ -74,7 +74,7 @@
   .document-title {
     line-height: 31px;
     color: $color-slate;
-    margin-top: 5px;
+    padding-top: 5px;
   }
   .document-type {
     color: $color-slate;
@@ -93,5 +93,6 @@
   }
   .list-icon {
     margin-right: 12px;
+    display: flex;
   }
 }
