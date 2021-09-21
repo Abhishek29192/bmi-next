@@ -32,7 +32,7 @@ export const ProjectEditActionDialog = ({
     onError: (error) => {
       log({
         severity: "ERROR",
-        message: `There was an error creating a project: ${error.toString()}`
+        message: `There was an error updating a project: ${error.toString()}`
       });
       // TODO: show some visual error
       setIsSubmitting(false);
