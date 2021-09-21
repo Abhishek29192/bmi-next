@@ -1,7 +1,10 @@
-import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
+import {
+  HubspotProvider,
+  useHubspotForm
+} from "@aaronhayes/react-use-hubspot-form";
 import Button, { ButtonProps } from "@bmi/button";
 import Checkbox from "@bmi/checkbox";
-import Form from "@bmi/form";
+import Form, { withFormControl } from "@bmi/form";
 import { InputValue } from "@bmi/form/src/withFormControl";
 import Grid from "@bmi/grid";
 import Section from "@bmi/section";
@@ -13,7 +16,6 @@ import Typography from "@bmi/typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import InputBase from "@material-ui/core/InputBase";
-import { withFormControl } from "@bmi/form";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useState } from "react";
@@ -237,6 +239,38 @@ const Input = ({
   }
 };
 
+const HubspotForm = ({
+  id,
+  hubSpotFormGuid,
+  backgroundColor,
+  showTitle,
+  title,
+  description
+}: {
+  id: string;
+  hubSpotFormGuid: string;
+  backgroundColor: "pearl" | "white";
+  showTitle: boolean;
+  title: string;
+  description: RichTextData;
+}) => {
+  const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
+
+  useHubspotForm({
+    portalId: process.env.GATSBY_HUBSPOT_ID,
+    formId: hubSpotFormGuid,
+    target: `#${hubSpotFormID}`
+  });
+
+  return (
+    <Section backgroundColor={backgroundColor}>
+      {showTitle && <Section.Title>{title}</Section.Title>}
+      {description && <RichText document={description} />}
+      <div id={hubSpotFormID} className={styles["Form--hubSpot"]} />
+    </Section>
+  );
+};
+
 const FormSection = ({
   id,
   data: {
@@ -414,20 +448,17 @@ const FormSection = ({
   };
 
   if (source === "HubSpot" && hubSpotFormGuid) {
-    const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
-
-    useHubspotForm({
-      portalId: process.env.GATSBY_HUBSPOT_ID,
-      formId: hubSpotFormGuid,
-      target: `#${hubSpotFormID}`
-    });
-
     return (
-      <Section backgroundColor={backgroundColor}>
-        {showTitle && <Section.Title>{title}</Section.Title>}
-        {description && <RichText document={description} />}
-        <div id={hubSpotFormID} className={styles["Form--hubSpot"]}></div>
-      </Section>
+      <HubspotProvider async={false} addToHead={true}>
+        <HubspotForm
+          id={id}
+          hubSpotFormGuid={hubSpotFormGuid}
+          backgroundColor={backgroundColor}
+          showTitle={showTitle}
+          title={title}
+          description={description}
+        />
+      </HubspotProvider>
     );
   }
 
