@@ -17,7 +17,7 @@ export const mockProject: Project = {
   notes: emptyNodes,
   buildingOwnerFirstname: "Herion",
   buildingOwnerLastname: "Buildmaster",
-  buildingOwnerMail: "owner@building.com",
+  buildingOwnerMail: "umit@digital-detox.co.uk",
   roofArea: 50,
   siteAddress: mockSiteAddress,
   endDate: Date.now(),
