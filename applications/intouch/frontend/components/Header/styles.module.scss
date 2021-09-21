@@ -1,8 +1,13 @@
 @import "@bmi/styles";
 
+.headerContainer {
+  position: sticky;
+  top: 0;
+  z-index: 1301;
+}
+
 .header {
   width: 100%;
-  z-index: 5;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -38,7 +43,7 @@
   height: 72px;
   background: $color-white;
 
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: 1024px) {
     display: none;
   }
 }
@@ -60,6 +65,10 @@
     padding: 1.5rem;
     height: 90px;
   }
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .lowerHeaderMeta {
@@ -78,5 +87,117 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+}
+
+.desktopHeader {
+  display: none;
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+}
+
+.tabletSidebarContainer {
+  display: none;
+  @media (min-width: $breakpoint-md) and (max-width: 1024px) {
+    display: block;
+  }
+}
+
+.tabletSidebar {
+  width: 200px;
+  background-color: #f7f7f7;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 122px;
+}
+
+.tabletNavButton {
+  display: none;
+  @media (min-width: $breakpoint-md) and (max-width: 1024px) {
+    display: block;
+  }
+}
+
+.tabletNav {
+  background-color: white;
+}
+
+.mobileSidebarContainer {
+  display: none;
+  @media (max-width: $breakpoint-md) {
+    display: block;
+  }
+}
+
+.mobileSidebar {
+  padding-top: 112px;
+  background: #f7f7f7;
+}
+
+.mobileNav {
+  background-color: white;
+}
+
+.mobileNavButton {
+  display: none;
+  @media (max-width: $breakpoint-md) {
+    display: block;
+  }
+}
+
+.notifications {
+  padding: 1rem;
+  padding-top: 112px;
+  position: relative;
+  @media (max-width: 1024px) {
+    padding-top: 122px;
+  }
+  @media (min-width: $breakpoint-md) {
+    padding-top: 144px;
+  }
+}
+
+.notificationsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.mobileUserMenu {
+  padding: 1rem;
+}
+
+.mobileUserAvatar {
+  width: 30px;
+  height: 30px;
+}
+
+.mobileUserMenuHeader {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d6d6d6;
+  padding: 0.5rem 0;
+}
+
+.mobileUserHeading {
+  font-weight: bold;
+  margin-left: 0.75rem;
+}
+
+.mobileUserMenuLinks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.25rem;
+
+  a {
+    display: block;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    font-size: 16px;
+    color: #70706f !important;
   }
 }

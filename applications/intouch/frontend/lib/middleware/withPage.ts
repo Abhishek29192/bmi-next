@@ -117,7 +117,10 @@ export const innerGetServerSideProps = async (
   // TODO: get all in 1 query (the previous one)?
   const {
     props: { data: globalPageData }
-  } = await getServerPageGetGlobalData({}, apolloClient);
+  } = await getServerPageGetGlobalData(
+    { variables: { accountId: account.id } },
+    apolloClient
+  );
 
   return merge(
     await getServerSideProps({

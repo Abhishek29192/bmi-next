@@ -40,5 +40,10 @@
     "notAdded": "Not added"
   },
   "Download": "Download",
-  "SavePdf": "Save to PDF"
+  "SavePdf": "Save to PDF",
+  "notifications": {
+    "today": "Today",
+    "earlier": "Earlier",
+    "older": "Older than two months"
+  }
 }
