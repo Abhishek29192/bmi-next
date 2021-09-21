@@ -333,7 +333,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     />
   );
 
-  const isKeyFeatureBlockVisible = features?.length || featuresLink;
+  const isFeaturesArrayExist = features?.length > 0;
+  const isKeyFeatureBlockVisible = isFeaturesArrayExist || featuresLink;
   return (
     <Page
       brand={brandLogo}
@@ -379,7 +380,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                       {getMicroCopy("plp.keyFeatures.title")}
                     </LeadBlock.Card.Heading>
                     <LeadBlock.Card.Content>
-                      {!!features?.length && (
+                      {isFeaturesArrayExist && (
                         <IconList>
                           {features.map((feature, index) => (
                             <IconList.Item
