@@ -79,7 +79,7 @@
     "noContent": "Building Owner details have not been added to this project",
     "name": "Name",
     "email": "Email",
-    "Company": "Company",
+    "company": "Company",
     "address": "Building Owner address"
   },
   "guarantee": {
