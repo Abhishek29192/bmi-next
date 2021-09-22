@@ -1,2 +1,2 @@
 include:
-  - local: "/libraries/netlify-plugin-filter-tag-event/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/netlify-plugin-filter-tag-event/.gitlab-ci.yml"
