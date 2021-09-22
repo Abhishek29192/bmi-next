@@ -3,26 +3,30 @@ import React, {
   useContext,
   useState,
   useEffect,
+  useMemo,
   createContext,
   ChangeEvent,
   useLayoutEffect
 } from "react";
 import { graphql } from "gatsby";
-import { Box } from "@material-ui/core";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";
 import Section from "@bmi/section";
 import RadioPane from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
-import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import { Link as GatsbyLink } from "gatsby";
 import { useLocation } from "@reach/router";
+import { isEmpty, compact } from "lodash";
+import Button, { ButtonProps } from "@bmi/button";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { SystemCard, SystemCardProps } from "../components/RelatedSystems";
 import Scrim from "../components/Scrim";
 import ProgressIndicator from "../components/ProgressIndicator";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import withGTM from "../utils/google-tag-manager";
+import { SystemDetails } from "../templates/systemDetails/types";
 import RichText, { RichTextData } from "./RichText";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
@@ -37,6 +41,7 @@ export type Data = {
   question: Partial<EntryData>;
   type: "Section";
   noResultItems: TitleWithContentData[];
+  pimSystems: Partial<SystemDetails>[] | null;
 };
 
 export type NextStepData = Partial<EntryData> | TitleWithContentData;
@@ -58,7 +63,8 @@ type EntryData = {
   description: RichTextData | null;
   selectedSystem?: string;
 } & QuestionData &
-  ResultData;
+  ResultData &
+  PimSystems;
 
 type QuestionData = {
   answers: Partial<EntryData>[] | null;
@@ -70,6 +76,10 @@ type TitleWithContentData = DefaultTitleWithContentData & {
 
 type ResultData = {
   recommendedSystems: string[] | null;
+};
+
+type PimSystems = {
+  pimSystems: Partial<SystemDetails>[];
 };
 
 type SystemConfiguratorBlockProps = {
@@ -84,6 +94,11 @@ type SystemConfiguratorBlockProps = {
   storedAnswers?: string[];
   stateSoFar?: string[];
 };
+
+type GTMSystemCardProps = {
+  onClick: Function;
+  footer: React.ReactElement<ButtonProps>;
+} & SystemCardProps;
 
 const ACCORDION_TRANSITION = 500;
 
@@ -249,7 +264,7 @@ const SystemConfiguratorBlockNoResultsSection = ({
   );
 };
 
-const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard, {
+const GTMSystemCard = withGTM<GTMSystemCardProps>(SystemCard, {
   label: "title"
 });
 
@@ -257,55 +272,72 @@ const SystemConfiguratorBlockResultSection = ({
   title,
   description,
   recommendedSystems,
+  pimSystems,
   selectedSystem: _selectedSystem
 }: Partial<EntryData>) => {
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
-  // put this line at line 258 when implementing card highlight
-  // isHighlighted={selectedSystem === system}
+  const [
+    recommendedSystemContentfulObject,
+    setRecommendedSystemContentfulObject
+  ] = useState([]);
+  useEffect(() => {
+    const recommendedSystemContentfulObjects = recommendedSystems.map(
+      (systemId) => {
+        return pimSystems.find(({ code }) => code === systemId);
+      }
+    );
+    setRecommendedSystemContentfulObject(
+      compact(recommendedSystemContentfulObjects)
+    );
+  }, [recommendedSystems]);
+
   return (
     <div ref={ref}>
       <Section
-        backgroundColor="white"
+        backgroundColor="pearl"
         className={styles["SystemConfigurator-result"]}
       >
         <Section.Title className={styles["title"]}>{title}</Section.Title>
-        {description && <RichText document={description} />}
-        {recommendedSystems && (
-          <Grid container spacing={3}>
-            {recommendedSystems.map((system) => (
-              <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
-                <GTMOverviewCard
-                  title={`System-${system}`}
-                  titleVariant="h5"
-                  subtitleVariant="h6"
-                  imageSize="contain"
+        {description && (
+          <div className={styles["description"]}>
+            <RichText document={description} />
+          </div>
+        )}
+        {!isEmpty(recommendedSystems) &&
+          !isEmpty(recommendedSystemContentfulObject) &&
+          recommendedSystemContentfulObject.map((system, id) => (
+            <Grid container spacing={3} key={`${system.code}-${id}`}>
+              {
+                <GTMSystemCard
+                  system={system}
+                  countryCode={countryCode}
                   gtm={{
                     event: `${title}-results`,
-                    id: system,
-                    action: `/${countryCode}/system-details-page?selected_system=${system}`
+                    id: system.code,
+                    action: `/${countryCode}/system-details-page?selected_system=${system.code}`
                   }}
-                  action={{
-                    model: "routerLink",
-                    linkComponent: GatsbyLink,
-                    to: `/${countryCode}/system-details-page?selected_system=${system}`
-                  }}
+                  path={`system-details-page?selected_system=${system.code}`}
                   onClick={() => {
                     const storedState = storage.local.getItem(
                       SYSTEM_CONFIG_STORAGE_KEY
                     );
                     const stateObject = JSON.parse(storedState || "");
-                    const newState = { ...stateObject, selectedSystem: system };
+                    const newState = {
+                      ...stateObject,
+                      selectedSystem: system.code
+                    };
                     saveStateToLocalStorage(JSON.stringify(newState));
                   }}
-                  isHighlighted={false}
-                >
-                  {undefined}
-                </GTMOverviewCard>
-              </Grid>
-            ))}
-          </Grid>
-        )}
+                  footer={
+                    <Button startIcon={<ArrowForwardIcon />} variant="outlined">
+                      {"Read More"}
+                    </Button>
+                  }
+                />
+              }
+            </Grid>
+          ))}
       </Section>
     </div>
   );
@@ -328,7 +360,6 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
   const [storedAnswers, setStoredAnswers] =
     useState<StoredStateType>(undefined);
   const location = useLocation();
-
   // useLayoutEffect for getting value from local storage
   // as Local storage in ssr value appears after first rendering
   // see useStickyState hook
@@ -346,7 +377,15 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
     );
   }, []);
 
-  const { title, description, type, question, locale, noResultItems } = data;
+  const {
+    title,
+    description,
+    type,
+    question,
+    locale,
+    noResultItems,
+    pimSystems
+  } = data;
   const [state, setState] = useState<SystemConfiguratorSectionState>({
     isLoading: false,
     openIndex: null,
@@ -458,6 +497,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       {state.result && (
         <SystemConfiguratorBlockResultSection
           {...state.result}
+          pimSystems={pimSystems}
           selectedSystem={storedAnswers.selectedSystem}
         />
       )}
@@ -499,6 +539,11 @@ export const query = graphql`
     noResultItems {
       contentful_id
       ...TitleWithContentFragment
+    }
+    pimSystems {
+      code
+      name
+      shortDescription
     }
   }
 `;

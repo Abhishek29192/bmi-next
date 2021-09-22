@@ -1,8 +1,9 @@
 @import "@bmi/styles";
 
 .SystemConfigurator {
-  &-result{
-    .title{
+  &-result {
+    .title,
+    .description {
       margin-bottom: 30px;
     }
   }

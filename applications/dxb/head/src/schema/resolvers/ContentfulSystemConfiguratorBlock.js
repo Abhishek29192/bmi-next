@@ -43,5 +43,13 @@ module.exports = {
     async resolve(source, args, context) {
       return getTitleWithContentNodes(source, context);
     }
+  },
+  pimSystems: {
+    async resolve(parent, args, context) {
+      return await context.nodeModel.runQuery({
+        query: {},
+        type: "DataJson"
+      });
+    }
   }
 };

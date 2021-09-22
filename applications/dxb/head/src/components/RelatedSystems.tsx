@@ -15,6 +15,12 @@ import { iconMap } from "./Icon";
 import styles from "./styles/RelatedSystems.module.scss";
 import { useSiteContext } from "./Site";
 
+export type SystemCardProps = {
+  system: SystemDetails;
+  countryCode: string;
+  path: string;
+};
+
 const findSystemBrandLogoCode = (system: SystemDetails) => {
   //check if system is tagged to more than one brand
   const totalBrand = system.categories?.filter(
@@ -29,15 +35,12 @@ const findSystemBrandLogoCode = (system: SystemDetails) => {
 const getSystemUrl = (countryCode, path) =>
   getPathWithCountryCode(countryCode, path);
 
-const SystemCard = ({
+export const SystemCard = ({
   system,
   countryCode,
-  path
-}: {
-  system: SystemDetails;
-  countryCode: string;
-  path: string;
-}) => {
+  path,
+  ...rest
+}: SystemCardProps) => {
   const brandLogoCode = findSystemBrandLogoCode(system);
   const brandLogo = iconMap[brandLogoCode];
   const systemUrl = getSystemUrl(countryCode, path || "system-details-page");
@@ -62,6 +65,7 @@ const SystemCard = ({
           action: systemUrl
         }}
         footer={<Button variant="outlined">{"Read More"}</Button>}
+        {...rest}
       >
         {system.shortDescription}
       </GTMOverviewCard>
@@ -134,7 +138,7 @@ const SystemListing = ({
   );
 };
 
-type Props = {
+export type Props = {
   systems: ReadonlyArray<SystemDetails>;
   countryCode: string;
   sectionTitle?: string;
@@ -162,10 +166,7 @@ const RelatedSystems = ({
         {sectionTitle || getMicroCopy("sdp.recommendedSystemsTitle")}
       </Section.Title>
       <div className={styles["RelatedProducts"]}>
-        <SystemListing
-          systems={systems}
-          countryCode={countryCode}
-        ></SystemListing>
+        <SystemListing systems={systems} countryCode={countryCode} />
       </div>
     </Section>
   );
