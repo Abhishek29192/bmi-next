@@ -51,7 +51,7 @@ describe("TrainingCourseDetail component", () => {
         <TrainingCourseDetail course={course} lmsUrl="/api/docebo-sso" />
       </I18nextProvider>
     );
-    expect(screen.getByText("View training").closest("a").href).toEqual(
+    expect(screen.getByText("viewTraining").closest("a").href).toEqual(
       "http://localhost/api/docebo-sso"
     );
   });
@@ -65,7 +65,7 @@ describe("TrainingCourseDetail component", () => {
         />
       </I18nextProvider>
     );
-    expect(screen.getByText("View training").closest("a").href).toEqual(
+    expect(screen.getByText("viewTraining").closest("a").href).toEqual(
       "http://localhost/api/docebo-sso?path=https://intouch.test.com/test-course"
     );
   });

@@ -41,6 +41,17 @@
   },
   "Download": "Download",
   "SavePdf": "Save to PDF",
+  "visitWebsite": "Visit Website",
+  "certifications": {
+    "pitched": "Pitched",
+    "flat": "Flat",
+    "other": "Other"
+  },
+  "certificationLabels": {
+    "type": "Type",
+    "certification": "Certification",
+    "expiry": "Expiry"
+  },
   "notifications": {
     "today": "Today",
     "earlier": "Earlier",

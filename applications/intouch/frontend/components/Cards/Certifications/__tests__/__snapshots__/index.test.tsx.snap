@@ -27,7 +27,7 @@ exports[`CertificationsCard matches snapshot 1`] = `
           class="MuiTypography-root Typography MuiTypography-h6"
           style="margin-top: 0.5rem;"
         >
-          Pitched
+          certifications.pitched
         </h6>
       </div>
       <div
@@ -41,7 +41,7 @@ exports[`CertificationsCard matches snapshot 1`] = `
           class="MuiTypography-root Typography MuiTypography-h6"
           style="margin-top: 0.5rem;"
         >
-          Flat
+          certifications.flat
         </h6>
       </div>
     </div>
