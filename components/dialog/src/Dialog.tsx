@@ -4,6 +4,7 @@ import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
+import ColorPair from "@bmi/color-pair";
 import CloseIcon from "@material-ui/icons/Close";
 import Fade from "@material-ui/core/Fade";
 import styles from "./Dialog.module.scss";
@@ -63,30 +64,32 @@ const Dialog = ({
       disablePortal={disablePortal}
     >
       <Fade in={open}>
-        <div
-          className={classnames(
-            styles["Dialog"],
-            styles[`Dialog--bg-${color}`],
-            styles[`Dialog--width-${maxWidth}`],
-            className
-          )}
-        >
-          <div className={styles["header"]}>
-            {title}
-            {onCloseClick && (
-              <Button
-                isIconButton
-                variant="text"
-                className={styles["iconButton"]}
-                onClick={onCloseClick}
-                accessibilityLabel={"Close"}
-              >
-                <CloseIcon />
-              </Button>
+        <ColorPair theme={color}>
+          <div
+            className={classnames(
+              styles["Dialog"],
+              styles[`Dialog--bg-${color}`],
+              styles[`Dialog--width-${maxWidth}`],
+              className
             )}
+          >
+            <div className={styles["header"]}>
+              {title}
+              {onCloseClick && (
+                <Button
+                  isIconButton
+                  variant="text"
+                  className={styles["iconButton"]}
+                  onClick={onCloseClick}
+                  accessibilityLabel={"Close"}
+                >
+                  <CloseIcon />
+                </Button>
+              )}
+            </div>
+            {otherChildren}
           </div>
-          {otherChildren}
-        </div>
+        </ColorPair>
       </Fade>
     </Modal>
   );
