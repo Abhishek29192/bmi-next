@@ -69,11 +69,7 @@ const SystemCard = ({
   );
 };
 
-const getWeightedSystems = ({
-  systems
-}: {
-  systems: ReadonlyArray<SystemDetails>;
-}) =>
+const getWeightedSystems = (systems: ReadonlyArray<SystemDetails>) =>
   uniqBy(systems, (system) => system.name).sort((a, b) => {
     const getWeightValue = (system) =>
       system.classifications?.find(
@@ -113,10 +109,7 @@ const SystemListing = ({
     setNumberShown((numberShown) => numberShown + pageSize);
   };
 
-  const weightedSystems = useMemo(
-    () => getWeightedSystems({ systems }),
-    [systems]
-  );
+  const weightedSystems = useMemo(() => getWeightedSystems(systems), [systems]);
 
   return (
     <>
