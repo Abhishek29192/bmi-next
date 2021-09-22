@@ -65,11 +65,7 @@ const BrandLogo = ({
   });
 
   if (typeof brandImageSource === "string") {
-    return (
-      <div className={className}>
-        <img src={brandImageSource} alt="" />
-      </div>
-    );
+    return <img className={className} src={brandImageSource} alt="" />;
   }
 
   const BrandLogo = brandImageSource;
