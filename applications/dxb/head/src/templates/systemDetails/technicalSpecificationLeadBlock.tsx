@@ -64,11 +64,13 @@ const TechnicalSpecificationLeadBlock = ({
   };
 
   return (
-    <LeadBlock.Card.Section>
-      <LeadBlock.Card.Content>
-        {technicalSpecification()}
-      </LeadBlock.Card.Content>
-    </LeadBlock.Card.Section>
+    <LeadBlock>
+      <LeadBlock.Content>
+        <LeadBlock.Content.Section>
+          {technicalSpecification()}
+        </LeadBlock.Content.Section>
+      </LeadBlock.Content>
+    </LeadBlock>
   );
 };
 
