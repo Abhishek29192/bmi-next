@@ -9,7 +9,7 @@ interface PageContext {
 }
 
 interface QueryData {
-  dataJson: {
+  systems: {
     id: string;
   };
 }
@@ -26,7 +26,7 @@ export const createSystemPages = async ({
 
   const result = await graphql<QueryData>(`
     {
-      dataJson {
+      systems {
         id
       }
     }
@@ -38,7 +38,7 @@ export const createSystemPages = async ({
 
   const {
     data: {
-      dataJson: { id }
+      systems: { id }
     }
   } = result;
 

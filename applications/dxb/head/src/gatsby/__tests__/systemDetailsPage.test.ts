@@ -13,7 +13,7 @@ describe("createSystemPages function", () => {
   it("should create the system details pages", async () => {
     graphql.mockResolvedValue({
       errors: null,
-      data: { dataJson: { id: "bar" } }
+      data: { systems: { id: "bar" } }
     });
 
     await createSystemPages({
@@ -27,7 +27,7 @@ describe("createSystemPages function", () => {
       1,
       `
     {
-      dataJson {
+      systems {
         id
       }
     }
@@ -65,7 +65,7 @@ describe("createSystemPages function", () => {
       1,
       `
     {
-      dataJson {
+      systems {
         id
       }
     }

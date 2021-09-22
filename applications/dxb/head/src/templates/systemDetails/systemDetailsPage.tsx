@@ -31,7 +31,7 @@ type Props = {
   };
   data: {
     contentfulSite: SiteData;
-    dataJson: SystemDetails;
+    systems: SystemDetails;
     shareWidget: ShareWidgetSectionData | null;
     allContentfulAssetType: {
       nodes: ReadonlyArray<{
@@ -58,7 +58,7 @@ export const IGNORED_DOCUMENTS_ASSETS = [
 ];
 
 const SystemDetailsPage = ({ data }: Props) => {
-  const { contentfulSite, dataJson, allContentfulAssetType } = data;
+  const { contentfulSite, systems, allContentfulAssetType } = data;
   const { resources } = contentfulSite;
   const {
     name,
@@ -69,7 +69,7 @@ const SystemDetailsPage = ({ data }: Props) => {
     assets,
     systemBenefits,
     systemLayers
-  } = dataJson;
+  } = systems;
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Assets[] = useMemo(() => {
     return assets.filter(
@@ -246,7 +246,7 @@ export const pageQuery = graphql`
         pimCode
       }
     }
-    dataJson(id: { eq: $systemPageId }) {
+    systems(id: { eq: $systemPageId }) {
       name
       shortDescription
       longDescription
