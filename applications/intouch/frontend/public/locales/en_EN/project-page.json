@@ -83,7 +83,38 @@
     "name": "Name",
     "email": "Email",
     "company": "Company",
-    "address": "Building Owner address"
+    "address": "Building Owner address",
+    "edit": {
+      "title": "Building owner details",
+      "description": "You can add the building owner details later on, before applying for a guarantee.",
+      "sections": {
+        "contactDetails": {
+          "title": "Contact Details"
+        },
+        "buildingOwnerAddress": {
+          "title": "Address"
+        }
+      },
+      "form": {
+        "fields": {
+          "buildingOwnerCompany": "Company name (optional)",
+          "buildingOwnerFirstname": "First name",
+          "buildingOwnerLastname": "Last name",
+          "buildingOwnerMail": "Email address",
+          "buildingOwnerAddress": {
+            "firstLine": "Address Line 1",
+            "secondLine": "Address Line 2 (optional)",
+            "town": "Town / City",
+            "postcode": "Post Code / ZIP",
+            "region": "Region (optional)",
+            "country": "Country"
+          }
+        },
+        "actions": {
+          "submit": "Save & close"
+        }
+      }
+    }
   },
   "guarantee": {
     "notRequested": "Not requested",

@@ -26,7 +26,7 @@ export const getFieldProps = (t, fieldName: string) => ({
   fieldIsRequiredError: t("common:error_messages.required")
 });
 
-const getValue = (project, fieldName) => {
+export const getValue = (project, fieldName) => {
   if (["startDate", "endDate"].includes(fieldName)) {
     return getDateOnlyString(get(project, fieldName));
   }

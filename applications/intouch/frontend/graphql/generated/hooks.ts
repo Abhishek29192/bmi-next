@@ -13,6 +13,17 @@ export const ContactDetailsCollectionFragmentFragmentDoc = gql`
     }
   }
 `;
+export const AddressLinesFragmentFragmentDoc = gql`
+  fragment AddressLinesFragment on Address {
+    id
+    firstLine
+    secondLine
+    town
+    region
+    country
+    postcode
+  }
+`;
 export const ProjectDetailsProductFragmentFragmentDoc = gql`
   fragment ProjectDetailsProductFragment on Product {
     id
@@ -52,25 +63,14 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
     endDate
     description
     siteAddress {
-      id
-      firstLine
-      secondLine
-      town
-      region
-      postcode
-      country
+      ...AddressLinesFragment
     }
     buildingOwnerFirstname
     buildingOwnerLastname
     buildingOwnerCompany
     buildingOwnerMail
     buildingOwnerAddress {
-      id
-      firstLine
-      secondLine
-      town
-      region
-      postcode
+      ...AddressLinesFragment
     }
     guarantees {
       nodes {
@@ -155,6 +155,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
       tier
     }
   }
+  ${AddressLinesFragmentFragmentDoc}
   ${ProjectDetailsProductFragmentFragmentDoc}
   ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
@@ -189,16 +190,6 @@ export const MediaToolDetailsFragmentDoc = gql`
     url
   }
   ${ImageFragmentFragmentDoc}
-`;
-export const AddressLinesFragmentFragmentDoc = gql`
-  fragment AddressLinesFragment on Address {
-    firstLine
-    secondLine
-    town
-    region
-    country
-    postcode
-  }
 `;
 export const CompanyDetailsFragmentFragmentDoc = gql`
   fragment CompanyDetailsFragment on Company {
