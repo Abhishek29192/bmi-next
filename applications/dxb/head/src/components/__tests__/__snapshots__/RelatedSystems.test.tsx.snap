@@ -1,0 +1,679 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RelatedSystems component renders correctly when scoringweight equal & names equal 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: sdp.recommendedSystemsTitle
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 1
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-104"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedSystems component renders correctly with no systems 1`] = `null`;
+
+exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: sdp.recommendedSystemsTitle
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 2
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-64"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 1
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-64"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedSystems component renders correctly with scoringweight equal & names sorted opposite 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: sdp.recommendedSystemsTitle
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 1
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-124"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 2
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-124"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedSystems component renders correctly with scoringweight equal 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: sdp.recommendedSystemsTitle
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 1
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-84"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 2
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-84"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedSystems component renders correctly with systems 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: sdp.recommendedSystemsTitle
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 1
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedSystems component renders correctly without categories 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: sdp.recommendedSystemsTitle
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 1
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedSystems component renders systems correctly without classifications 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: sdp.recommendedSystemsTitle
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              href="/en/system-details-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="body"
+              >
+                <h5
+                  class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                >
+                  NO System 1
+                </h5>
+                <div
+                  class="children text"
+                >
+                  SDescription 1 NO
+                </div>
+                <div
+                  class="footer"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-44"
+                    >
+                      Read More
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

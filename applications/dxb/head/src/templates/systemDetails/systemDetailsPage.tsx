@@ -10,6 +10,7 @@ import ShareWidgetSection, {
 } from "../../components/ShareWidgetSection";
 import { getBimIframeUrl } from "../../components/BimIframe";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
+import RelatedSystems from "../../components/RelatedSystems";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import {
@@ -28,10 +29,15 @@ type Props = {
   pageContext: {
     systemPageId: string;
     siteId: string;
+    countryCode?: string;
+    relatedSystemCodes?: ReadonlyArray<string>;
   };
   data: {
     contentfulSite: SiteData;
     dataJson: SystemDetails;
+    relatedSystems?: {
+      nodes: ReadonlyArray<SystemDetails>;
+    };
     shareWidget: ShareWidgetSectionData | null;
     allContentfulAssetType: {
       nodes: ReadonlyArray<{
@@ -58,8 +64,9 @@ export const IGNORED_DOCUMENTS_ASSETS = [
 ];
 
 const SystemDetailsPage = ({ data }: Props) => {
-  const { contentfulSite, dataJson, allContentfulAssetType } = data;
-  const { resources } = contentfulSite;
+  const { contentfulSite, dataJson, relatedSystems, allContentfulAssetType } =
+    data;
+  const { countryCode, resources } = contentfulSite;
   const {
     name,
     categories,
@@ -194,7 +201,6 @@ const SystemDetailsPage = ({ data }: Props) => {
       {resources?.sdpShareWidget && (
         <ShareWidgetSection data={resources.sdpShareWidget} />
       )}
-
       <LeadBlockSection
         name={name}
         categories={categories}
@@ -202,7 +208,6 @@ const SystemDetailsPage = ({ data }: Props) => {
         cta={resources?.sdpLeadBlockCta}
         uniqueSellingPropositions={uniqueSellingPropositions}
       />
-
       <Section
         backgroundColor="pearl"
         className={styles["imageGallery-systemLayers-section"]}
@@ -216,7 +221,6 @@ const SystemDetailsPage = ({ data }: Props) => {
           </Grid>
         </Grid>
       </Section>
-
       <TabLeadBlock
         longDescription={longDescription}
         guaranteesAndWarranties={guaranteesAndWarranties}
@@ -229,14 +233,24 @@ const SystemDetailsPage = ({ data }: Props) => {
         bimContent={bimContent}
         documentsAndDownloads={documentsAndDownloads}
       />
+      {relatedSystems?.nodes && (
+        <RelatedSystems
+          systems={relatedSystems.nodes}
+          countryCode={countryCode}
+        />
+      )}
     </Page>
   );
 };
 
 export default SystemDetailsPage;
 
-export const pageQuery = graphql`
-  query SystemDetailsPage($siteId: String!, $systemPageId: String!) {
+export const systemsQuery = graphql`
+  query SystemDetailsPage(
+    $siteId: String!
+    $systemPageId: String!
+    $relatedSystemCodes: [String]
+  ) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
@@ -251,6 +265,14 @@ export const pageQuery = graphql`
       shortDescription
       longDescription
       systemBenefits
+      systemReferences {
+        preselected
+        referenceType
+        target {
+          code
+          name
+        }
+      }
       assets {
         allowedToDownload
         assetType
@@ -313,6 +335,12 @@ export const pageQuery = graphql`
             path
           }
         }
+      }
+    }
+
+    relatedSystems: allDataJson(filter: { code: { in: $relatedSystemCodes } }) {
+      nodes {
+        ...RelatedSystemsFragment
       }
     }
   }

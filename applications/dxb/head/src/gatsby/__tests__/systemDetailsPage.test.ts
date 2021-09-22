@@ -2,6 +2,7 @@ import { createSystemPages } from "../systemDetailsPages";
 
 const siteId = "foo";
 const countryCode = "en";
+const relatedSystemCodes = ["code1", "code2"];
 const createPage = jest.fn();
 const graphql = jest.fn();
 
@@ -13,7 +14,15 @@ describe("createSystemPages function", () => {
   it("should create the system details pages", async () => {
     graphql.mockResolvedValue({
       errors: null,
-      data: { dataJson: { id: "bar" } }
+      data: {
+        dataJson: {
+          id: "bar",
+          systemReferences: [
+            { referenceType: "CROSSELLING", target: { code: "code1" } },
+            { referenceType: "CROSSELLING", target: { code: "code2" } }
+          ]
+        }
+      }
     });
 
     await createSystemPages({
@@ -29,6 +38,12 @@ describe("createSystemPages function", () => {
     {
       dataJson {
         id
+        systemReferences {
+          referenceType
+          target {
+            code
+          }
+        }
       }
     }
   `
@@ -39,7 +54,8 @@ describe("createSystemPages function", () => {
       component: expect.any(String),
       context: {
         systemPageId: "bar",
-        siteId
+        siteId,
+        relatedSystemCodes
       },
       path: "/en/system-details-page/"
     });
@@ -67,6 +83,12 @@ describe("createSystemPages function", () => {
     {
       dataJson {
         id
+        systemReferences {
+          referenceType
+          target {
+            code
+          }
+        }
       }
     }
   `
