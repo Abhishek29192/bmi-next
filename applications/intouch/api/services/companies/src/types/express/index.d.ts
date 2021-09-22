@@ -3,6 +3,7 @@ declare module Express {
     pubSub: any;
     clientGateway: any;
     user: import("./../index").Account;
+    trustedConnection: boolean;
     logger: (modue: string) => import("winston").Logger;
   }
 }
