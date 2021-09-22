@@ -179,6 +179,7 @@ CREATE TABLE account (
   docebo_username text,
   photo text,
   migration_id text,
+  migrated_to_auth0 boolean,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -234,7 +235,7 @@ CREATE TABLE company (
   website text,
   facebook text,
   linked_in text,
-  reference_number text,
+  reference_number serial,
   logo text,
   migration_id text,
   trading_address_migration_id text,
@@ -242,6 +243,9 @@ CREATE TABLE company (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
+
+ALTER SEQUENCE company_reference_number_seq
+  RESTART WITH 1000000;
 
 DROP TABLE IF EXISTS company_document CASCADE;
 
@@ -448,44 +452,44 @@ CREATE TABLE system_member (
 
 TRUNCATE TABLE account RESTART IDENTITY;
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('1', 'ACTIVE', NULL, 'SUPER_ADMIN', 'devs+1@digitaldetox.co.uk', '1234567', 'Chris', 'Evans', '2020-06-12 10:19:47', 13999, 'devs+1@digitaldetox.co.uk', 'https://media.spokesman.com/photos/2020/08/28/5f49c8a43a16d.hires.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('1', 'ACTIVE', NULL, 'SUPER_ADMIN', 'devs+1@digitaldetox.co.uk', '1234567', 'Chris', 'Evans', '2020-06-12 10:19:47', 13999, 'devs+1@digitaldetox.co.uk', 'https://media.spokesman.com/photos/2020/08/28/5f49c8a43a16d.hires.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('2', 'ACTIVE', 1, 'MARKET_ADMIN', 'devs+2@digitaldetox.co.uk', '1234567', 'Kim', 'Jong Un', '2020-06-12 10:19:47', 14000, 'devs+2@digitaldetox.co.uk', 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/1244D/production/_117892847_tv066659879.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('2', 'ACTIVE', 1, 'MARKET_ADMIN', 'devs+2@digitaldetox.co.uk', '1234567', 'Kim', 'Jong Un', '2020-06-12 10:19:47', 14000, 'devs+2@digitaldetox.co.uk', 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/1244D/production/_117892847_tv066659879.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('3', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+3@digitaldetox.co.uk', '1234567', 'Dom', 'Perignon', '2020-06-12 10:19:47', 13988, 'devs+3@digitaldetox.co.uk', 'https://vinepair.com/wp-content/uploads/2017/01/domperignon-internal.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('3', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+3@digitaldetox.co.uk', '1234567', 'Dom', 'Perignon', '2020-06-12 10:19:47', 13988, 'devs+3@digitaldetox.co.uk', 'https://vinepair.com/wp-content/uploads/2017/01/domperignon-internal.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('4', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Afleck', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('4', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Afleck', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('5', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+5@digitaldetox.co.uk', '1234567', 'Steve', 'Jobs', '2020-06-12 10:19:47', 13990, 'devs+5@digitaldetox.co.uk', 'https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('5', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+5@digitaldetox.co.uk', '1234567', 'Steve', 'Jobs', '2020-06-12 10:19:47', 13990, 'devs+5@digitaldetox.co.uk', 'https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('6', 'ACTIVE', 1, 'INSTALLER', 'devs+6@digitaldetox.co.uk', '1234567', 'Umit', 'Davala', '2020-06-12 10:19:47', 13991, 'devs+6@digitaldetox.co.uk', 'https://www.bdfutbol.com/i/j/92223b.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('6', 'ACTIVE', 1, 'INSTALLER', 'devs+6@digitaldetox.co.uk', '1234567', 'Umit', 'Davala', '2020-06-12 10:19:47', 13991, 'devs+6@digitaldetox.co.uk', 'https://www.bdfutbol.com/i/j/92223b.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('7', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+7@digitaldetox.co.uk', '1234567', 'Franz', 'Ferdinand', '2020-06-12 10:19:47', 13992, 'devs+7@digitaldetox.co.uk', 'https://images.findagrave.com/photos250/photos/2004/347/7019333_110295165370.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('7', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+7@digitaldetox.co.uk', '1234567', 'Franz', 'Ferdinand', '2020-06-12 10:19:47', 13992, 'devs+7@digitaldetox.co.uk', 'https://images.findagrave.com/photos250/photos/2004/347/7019333_110295165370.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('8', 'ACTIVE', 1, 'INSTALLER', 'devs+8@digitaldetox.co.uk', '1234567', 'Chicho', 'Ibañez Serrador', '2020-06-12 10:19:47', 13993, 'devs+8@digitaldetox.co.uk', 'https://i2-prod.mirror.co.uk/incoming/article3775968.ece/ALTERNATES/s615b/Archduke-Franz-Ferdinand-of-Austria.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('8', 'ACTIVE', 1, 'INSTALLER', 'devs+8@digitaldetox.co.uk', '1234567', 'Chicho', 'Ibañez Serrador', '2020-06-12 10:19:47', 13993, 'devs+8@digitaldetox.co.uk', 'https://i2-prod.mirror.co.uk/incoming/article3775968.ece/ALTERNATES/s615b/Archduke-Franz-Ferdinand-of-Austria.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('9', 'ACTIVE', 1, 'INSTALLER', 'devs+9@digitaldetox.co.uk', '1234567', 'Nicky', 'Lauder', '2020-06-12 10:19:47', 13994, 'devs+9@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Niki_Lauda_helmet_Museo_Ferrari.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('9', 'ACTIVE', 1, 'INSTALLER', 'devs+9@digitaldetox.co.uk', '1234567', 'Nicky', 'Lauder', '2020-06-12 10:19:47', 13994, 'devs+9@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Niki_Lauda_helmet_Museo_Ferrari.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('10', 'ACTIVE', 1, 'INSTALLER', 'devs+10@digitaldetox.co.uk', '1234567', 'Ian', 'McKellen', '2020-06-12 10:19:47', 13997, 'devs+10@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/1/15/SDCC13_-_Ian_McKellen.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('10', 'ACTIVE', 1, 'INSTALLER', 'devs+10@digitaldetox.co.uk', '1234567', 'Ian', 'McKellen', '2020-06-12 10:19:47', 13997, 'devs+10@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/1/15/SDCC13_-_Ian_McKellen.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('11', 'ACTIVE', 1, 'INSTALLER', 'devs+11@digitaldetox.co.uk', '1234567', 'Simon', 'Pegg', '2020-06-12 10:19:47', 13995, 'devs+11@digitaldetox.co.uk', 'https://www.onthisday.com/images/people/simon-pegg-medium.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('11', 'ACTIVE', 1, 'INSTALLER', 'devs+11@digitaldetox.co.uk', '1234567', 'Simon', 'Pegg', '2020-06-12 10:19:47', 13995, 'devs+11@digitaldetox.co.uk', 'https://www.onthisday.com/images/people/simon-pegg-medium.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('12', 'SUSPENDED', 1, 'INSTALLER', 'devs+12@digitaldetox.co.uk', '1234567', 'Sam', 'Smith', '2020-06-12 10:19:47', 13996, 'devs+12@digitaldetox.co.uk', 'https://cdn.britannica.com/65/187865-050-6A95231B/Sam-Smith-British.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('12', 'SUSPENDED', 1, 'INSTALLER', 'devs+12@digitaldetox.co.uk', '1234567', 'Sam', 'Smith', '2020-06-12 10:19:47', 13996, 'devs+12@digitaldetox.co.uk', 'https://cdn.britannica.com/65/187865-050-6A95231B/Sam-Smith-British.jpg', NULL, NULL);
 
-INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('13', 'ACTIVE', 1, 'INSTALLER', 'devs+13@digitaldetox.co.uk', '1234567', 'Alessandro', 'Del Piero', '2020-06-12 10:19:47', 13998, 'devs+13@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Alessandro_Del_Piero_in_2014.jpg', NULL);
+INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id, migrated_to_auth0)
+  VALUES ('13', 'ACTIVE', 1, 'INSTALLER', 'devs+13@digitaldetox.co.uk', '1234567', 'Alessandro', 'Del Piero', '2020-06-12 10:19:47', 13998, 'devs+13@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Alessandro_Del_Piero_in_2014.jpg', NULL, NULL);
 
 TRUNCATE TABLE address RESTART IDENTITY;
 
@@ -505,7 +509,7 @@ INSERT INTO address (id, first_line, second_line, town, region, country, postcod
   VALUES ('5', 'Praça do Príncipe Real 23 24', 'Near the Castle', 'Lisbon', NULL, 'Portugal', '1250-096 Lisboa', '(38.7170416,-9.1510413)', NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('6', '39 Old Castle Rd', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(10.6971494,-72.2598689)', NULL);
+  VALUES ('6', '39 Old Castle Rd', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(50.59561739999999,-2.4619225)', NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('7', '1 Brixton Hill', 'Brixton', 'London', 'London', 'UK', 'SW2 1RW', NULL, NULL);
@@ -587,13 +591,13 @@ INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
 TRUNCATE TABLE company RESTART IDENTITY;
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', 'Integrated Solutions Inc', '63323-463', '8439854588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '0093-7392', 'https://upload.wikimedia.org/wikipedia/commons/6/63/Integrated_Engineering_Solutions.png', NULL, NULL, NULL);
+  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', 'Integrated Solutions Inc', '63323-463', '8439854588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '1000000', 'https://upload.wikimedia.org/wikipedia/commons/6/63/Integrated_Engineering_Solutions.png', NULL, NULL, NULL);
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('2', 1, 2, 5, 'Liam Gallagher', 'liam@test.com', '234234', 'CONTRACTOR', 'T4', 'ACTIVE', 'mbrosch1@go.com', '2020-11-20 12:00:00', 'Pathfinder Construction Ltd', '0378-4094', '7572089959', 'We build really hard things that support everything else', 'ssnipe1@pen.io', 'https://oracle.com', 'https://www.facebook.com/europeanparliament', 'https://www.linkedin.com/company/eu', '64772-300', 'https://upload.wikimedia.org/wikipedia/commons/7/7d/A_Red_Star.png', NULL, NULL, NULL);
+  VALUES ('2', 1, 2, 5, 'Liam Gallagher', 'liam@test.com', '234234', 'CONTRACTOR', 'T4', 'ACTIVE', 'mbrosch1@go.com', '2020-11-20 12:00:00', 'Pathfinder Construction Ltd', '0378-4094', '7572089959', 'We build really hard things that support everything else', 'ssnipe1@pen.io', 'https://oracle.com', 'https://www.facebook.com/europeanparliament', 'https://www.linkedin.com/company/eu', '1000001', 'https://upload.wikimedia.org/wikipedia/commons/7/7d/A_Red_Star.png', NULL, NULL, NULL);
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('3', 1, 3, 6, 'Charlotte Church', 'charlotte@test.com', '345345', 'CONTRACTOR', 'T3', 'DEACTIVATED', 'dhechlin2@amazon.com', '2020-9-20 12:00:00', 'dXB Roofing PLC', '49738-530', '8435842619', 'We build stuff that looks great', 'liacovielli2@discovery.com', 'https://utexas.edu', 'https://www.facebook.com/Sony/', 'https://in.linkedin.com/company/sony', '0179-0110', 'https://upload.wikimedia.org/wikipedia/commons/3/33/StubMetal.png', NULL, NULL, NULL);
+  VALUES ('3', 1, 3, 6, 'Charlotte Church', 'charlotte@test.com', '345345', 'CONTRACTOR', 'T3', 'DEACTIVATED', 'dhechlin2@amazon.com', '2020-9-20 12:00:00', 'dXB Roofing PLC', '49738-530', '8435842619', 'We build stuff that looks great', 'liacovielli2@discovery.com', 'https://utexas.edu', 'https://www.facebook.com/Sony/', 'https://in.linkedin.com/company/sony', '1000002', 'https://upload.wikimedia.org/wikipedia/commons/3/33/StubMetal.png', NULL, NULL, NULL);
 
 TRUNCATE TABLE company_document RESTART IDENTITY;
 
@@ -723,7 +727,7 @@ INSERT INTO market (id,
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle, location_bias_radius_km)
-  VALUES ('2', 'no', 'no', 'opay6t6wwmup', 'Transatlantia', 'BMI Intouch Mapleland', 'intouch@bmigroup.no', '7', '8', 38, 'https://italy.bmiroofpromerch.com/', TRUE, 'UA-141761217-6', '59.9139,10.7522', 100);
+  VALUES ('2', 'no', 'no', 'evpdf7auu9nf', 'BMI InTouch Norge', 'BMI Norge', 'intouch.no@bmigroup.com', '28', '29', 14, 'https://bmiportalen.bk.no/', TRUE, 'UA-141761217-6', '60.4720,8.4689', 500);
 
 TRUNCATE TABLE note RESTART IDENTITY;
 
@@ -1257,6 +1261,8 @@ COMMENT ON COLUMN account.photo IS 'File reference. A profile picture of the use
 
 COMMENT ON COLUMN account.migration_id IS 'Used for reference when importing data from the legacy system';
 
+COMMENT ON COLUMN account.migrated_to_auth0 IS 'Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)';
+
 COMMENT ON TABLE address IS 'A generic address';
 
 COMMENT ON COLUMN address.id IS 'Primary key';
@@ -1331,7 +1337,7 @@ COMMENT ON COLUMN company.facebook IS 'The Company facebook website';
 
 COMMENT ON COLUMN company.linked_in IS 'Their Company LinkedIn page URL';
 
-COMMENT ON COLUMN company.reference_number IS 'A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. ';
+COMMENT ON COLUMN company.reference_number IS 'A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.';
 
 COMMENT ON COLUMN company.logo IS 'A reference to the logo image';
 
@@ -1595,6 +1601,12 @@ SELECT
   SETVAL('company_id_seq', (
       SELECT
         MAX(ID)
+      FROM company));
+
+SELECT
+  SETVAL('company_reference_number_seq', (
+      SELECT
+        MAX(reference_number)
       FROM company));
 
 SELECT

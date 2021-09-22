@@ -27,7 +27,7 @@ export const mockCompany: GetCompanyQuery["company"] = {
   facebook: "https://www.facebook.com/WhiteHouse/",
   linkedIn: "https://www.linkedin.com/company/the-white-house",
   name: "Integrated Solutions Inc",
-  referenceNumber: "0093-7392",
+  referenceNumber: 937392,
   registeredAddress: {
     __typename: "Address",
     id: 1,

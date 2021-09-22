@@ -15,3 +15,11 @@
   text-transform: capitalize;
   margin-top: 0.25rem !important;
 }
+.responsible {
+  &--selected {
+    :global(.MuiTableCell-body) {
+      color: $color-brand-green;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import "@bmi/styles";
+
+.tableContainer {
+  :global {
+    @media (min-width: $breakpoint-xl) {
+      border: 1px solid $color-storm;
+      border-radius: 3px 3px 0 0;
+      overflow: hidden;
+
+      .MuiTable-root,
+      .MuiTableRow-head {
+        border-color: transparent;
+      }
+
+      .MuiTableCell-root {
+        color: $color-slate;
+      }
+    }
+  }
+}

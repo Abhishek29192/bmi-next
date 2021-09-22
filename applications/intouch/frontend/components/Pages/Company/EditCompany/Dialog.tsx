@@ -92,17 +92,19 @@ export const EditCompanyDialog = ({
       const existingOperations =
         company?.companyOperationsByCompany?.nodes || [];
 
-      Object.entries(operationTypes).forEach(([operationType, value]) => {
-        const existingOperation = existingOperations.find(
-          (o) => o.operation === operationType
-        );
-        if (existingOperation && value === false) {
-          removedOperations.push({ id: existingOperation.id });
-        }
-        if (!existingOperation && value === true) {
-          newOperations.push({ operation: operationType });
-        }
-      });
+      if (operationTypes) {
+        Object.entries(operationTypes).forEach(([operationType, value]) => {
+          const existingOperation = existingOperations.find(
+            (o) => o.operation === operationType
+          );
+          if (existingOperation && value === false) {
+            removedOperations.push({ id: existingOperation.id });
+          }
+          if (!existingOperation && value === true) {
+            newOperations.push({ operation: operationType });
+          }
+        });
+      }
 
       updateCompany({
         variables: {

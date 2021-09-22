@@ -17,7 +17,7 @@ export type LayoutProps = {
 };
 
 export const GET_PAGE_DATA = gql`
-  query GetGlobalData {
+  query GetGlobalData($accountId: Int!) {
     # Only one Market Content is expected to be available for user
     marketContentCollection(limit: 1) {
       items {
@@ -37,6 +37,14 @@ export const GET_PAGE_DATA = gql`
         externalLinkLabel
       }
     }
+    notifications(condition: { accountId: $accountId }) {
+      nodes {
+        body
+        sendDate
+        read
+        id
+      }
+    }
   }
 `;
 
@@ -54,6 +62,7 @@ const mapFooterLinks = (pageData: GetGlobalDataQuery): FooterProps["links"] => {
 export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
   const footerLinks = pageData ? mapFooterLinks(pageData) : [];
   const marketContent = pageData.marketContentCollection?.items[0];
+  const notifications = pageData.notifications?.nodes;
 
   return (
     <BmiThemeProvider>
@@ -94,6 +103,7 @@ export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
                   isExternal: true
                 }
               }
+              notifications={notifications}
             />
             <div className={styles.appContent}>{children}</div>
             <Footer links={footerLinks} />

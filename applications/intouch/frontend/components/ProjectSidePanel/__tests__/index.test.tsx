@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { ProjectSidePanel } from "..";
 import I18nProvider from "../../../lib/tests/fixtures/i18n";
+import AccountContextWrapper from "../../../lib/tests/fixtures/account";
 import { GetProjectsQuery } from "../../../graphql/generated/operations";
 
 describe("ProjectSidePanel component", () => {
@@ -16,7 +17,9 @@ describe("ProjectSidePanel component", () => {
         },
         technology: "FLAT",
         startDate: "01/01/2019",
-        endDate: "01/01/2020"
+        endDate: "01/01/2020",
+        guarantees: null,
+        company: null
       }
     ];
 
@@ -25,7 +28,9 @@ describe("ProjectSidePanel component", () => {
 
     const { container } = render(
       <I18nProvider>
-        <ProjectSidePanel projects={projects} />
+        <AccountContextWrapper>
+          <ProjectSidePanel projects={projects} />
+        </AccountContextWrapper>
       </I18nProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -36,6 +41,8 @@ describe("ProjectSidePanel component", () => {
       postcode: "N11 111",
       town: "LONDON"
     };
+    const guarantees = null;
+    const company = null;
 
     const projects: GetProjectsQuery["projects"]["nodes"] = [
       {
@@ -44,7 +51,9 @@ describe("ProjectSidePanel component", () => {
         siteAddress,
         technology: "FLAT",
         startDate: "01/01/2019",
-        endDate: "01/02/2019"
+        endDate: "01/02/2019",
+        guarantees,
+        company
       },
       {
         id: 2,
@@ -52,7 +61,9 @@ describe("ProjectSidePanel component", () => {
         siteAddress,
         technology: "PITCHED",
         startDate: "01/01/2019",
-        endDate: "01/02/2020"
+        endDate: "01/02/2020",
+        guarantees,
+        company
       },
       {
         id: 3,
@@ -60,7 +71,9 @@ describe("ProjectSidePanel component", () => {
         siteAddress,
         technology: "FLAT",
         startDate: "01/02/2020",
-        endDate: "01/01/2021"
+        endDate: "01/01/2021",
+        guarantees,
+        company
       }
     ];
 
@@ -69,7 +82,9 @@ describe("ProjectSidePanel component", () => {
 
     const { container } = render(
       <I18nProvider>
-        <ProjectSidePanel projects={projects} />
+        <AccountContextWrapper>
+          <ProjectSidePanel projects={projects} />
+        </AccountContextWrapper>
       </I18nProvider>
     );
     expect(container.firstChild).toMatchSnapshot();

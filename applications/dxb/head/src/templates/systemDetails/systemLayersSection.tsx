@@ -11,14 +11,13 @@ type Props = {
   systemLayers: SystemLayer[];
 };
 
-const createLinkAction = (product: Product) => ({
+const createLinkAction = (product: Product, countryCode: string) => ({
   model: "htmlLink",
-  href:
-    "/" + process.env.SPACE_MARKET_CODE + "/" + product.variantOptions[0].path
+  href: "/" + countryCode + "/" + product.variantOptions[0].path
 });
 
 const SystemLayersSection = ({ systemLayers }: Props) => {
-  const { getMicroCopy } = useSiteContext();
+  const { getMicroCopy, countryCode } = useSiteContext();
 
   return (
     <Accordion>
@@ -40,7 +39,9 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                 <Accordion.Details>
                   <Grid container spacing={3}>
                     <Grid item xs={12} md={12} lg={12}>
-                      <AnchorLink action={createLinkAction(mandatoryProduct)}>
+                      <AnchorLink
+                        action={createLinkAction(mandatoryProduct, countryCode)}
+                      >
                         {mandatoryProduct.name}
                       </AnchorLink>
                     </Grid>
@@ -67,7 +68,9 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                         lg={12}
                         key={`related-optional-product-${id}`}
                       >
-                        <AnchorLink action={createLinkAction(product)}>
+                        <AnchorLink
+                          action={createLinkAction(product, countryCode)}
+                        >
                           {product.name}
                         </AnchorLink>
                       </Grid>

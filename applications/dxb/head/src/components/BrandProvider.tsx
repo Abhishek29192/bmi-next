@@ -23,7 +23,6 @@ const BRANDS_CLASSES: { [key: string]: string | undefined } = {
   Ormax: styles["BrandRed"],
   Redland: styles["BrandRed"],
   Sealoflex: styles["NavyBlue"],
-  Siplast: styles["SiplastBlack"],
   Sunscape: styles["BrandRed"],
   Vedag: styles["NavyBlue"],
   Villas: styles["RoyalBlue"],

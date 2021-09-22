@@ -82,6 +82,8 @@ export type Account = Node & {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `Account`. */
@@ -296,6 +298,8 @@ export type AccountInput = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -772,6 +776,8 @@ export type AccountPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -1867,7 +1873,7 @@ export type Company = Node & {
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber: Scalars["Int"];
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
@@ -1985,13 +1991,13 @@ export type CompanyCompanyPkeyDelete = {
 /** The fields on `company` to look up the row to connect. */
 export type CompanyCompanyReferenceNumberKeyConnect = {
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber: Scalars["String"];
+  referenceNumber: Scalars["Int"];
 };
 
 /** The fields on `company` to look up the row to delete. */
 export type CompanyCompanyReferenceNumberKeyDelete = {
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber: Scalars["String"];
+  referenceNumber: Scalars["Int"];
 };
 
 /** A condition to be used against `Company` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -2007,7 +2013,7 @@ export type CompanyCondition = {
   /** Checks for equality with the object’s `name` field. */
   name?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `referenceNumber` field. */
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
 };
 
 /** A document uploaded by the Company to InTouch that appears on their Company Profile, for example an insurance certificate */
@@ -2228,7 +2234,7 @@ export type CompanyFilter = {
   /** Filter by the object’s `name` field. */
   name?: Maybe<StringFilter>;
   /** Filter by the object’s `referenceNumber` field. */
-  referenceNumber?: Maybe<StringFilter>;
+  referenceNumber?: Maybe<IntFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<CompanyFilter>>;
   /** Checks for any expressions in this list. */
@@ -2940,7 +2946,7 @@ export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyR
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber: Scalars["String"];
+    referenceNumber: Scalars["Int"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -2973,7 +2979,7 @@ export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKey
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber: Scalars["String"];
+    referenceNumber: Scalars["Int"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -3008,7 +3014,7 @@ export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferen
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber: Scalars["String"];
+    referenceNumber: Scalars["Int"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -3043,7 +3049,7 @@ export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceN
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber: Scalars["String"];
+    referenceNumber: Scalars["Int"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -3078,7 +3084,7 @@ export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyRefer
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber: Scalars["String"];
+    referenceNumber: Scalars["Int"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -3114,7 +3120,7 @@ export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyR
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber: Scalars["String"];
+    referenceNumber: Scalars["Int"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -3149,7 +3155,7 @@ export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNu
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber: Scalars["String"];
+    referenceNumber: Scalars["Int"];
   };
 
 /** The globally unique `ID` look up for the row to update. */
@@ -3182,7 +3188,7 @@ export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKe
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber: Scalars["String"];
+    referenceNumber: Scalars["Int"];
   };
 
 /** The assignment of an operation type to a Company by the Market Admin.  A Company can be assigned multiple types from the allowed enums list.  The operation types that a Company has are sent to Find a Roofer. */
@@ -3433,7 +3439,7 @@ export type CompanyPatch = {
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
@@ -3901,6 +3907,8 @@ export type ContentfulGuaranteeCoverageType = "PRODUCT" | "SYSTEM" | "SOLUTION";
 
 export type ContentfulGuaranteeTemplate = {
   __typename?: "ContentfulGuaranteeTemplate";
+  displayName?: Maybe<Scalars["String"]>;
+  technology?: Maybe<ContentfulTechnologyType>;
   coverage?: Maybe<Scalars["String"]>;
   languageCode?: Maybe<Scalars["String"]>;
   languageDescriptor?: Maybe<Scalars["String"]>;
@@ -3936,6 +3944,7 @@ export type ContentfulGuaranteeTemplate = {
 
 export type ContentfulGuaranteeTemplatesCollection = {
   __typename?: "ContentfulGuaranteeTemplatesCollection";
+  total: Scalars["Int"];
   items?: Maybe<Array<Maybe<ContentfulGuaranteeTemplate>>>;
 };
 
@@ -3951,6 +3960,7 @@ export type ContentfulGuaranteeType = {
   maximumValidityYears?: Maybe<Scalars["Int"]>;
   tiersAvailable?: Maybe<Array<Maybe<ContentfulTiers>>>;
   ranking?: Maybe<Scalars["Int"]>;
+  languageCode?: Maybe<Scalars["String"]>;
   evidenceCategoriesCollection?: Maybe<ContentfulEvidenceCategoryCollection>;
   guaranteeTemplatesCollection?: Maybe<ContentfulGuaranteeTemplatesCollection>;
 };
@@ -5918,7 +5928,7 @@ export type DeleteCompanyByReferenceNumberInput = {
    */
   clientMutationId?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber: Scalars["String"];
+  referenceNumber: Scalars["Int"];
 };
 
 /** All input for the `deleteCompanyDocumentByNodeId` mutation. */
@@ -7683,6 +7693,73 @@ export type EvidenceItemsOrderBy =
   | "GUARANTEE_ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
+
+export type FindRoofer = {
+  __typename?: "FindRoofer";
+  id?: Maybe<Scalars["Int"]>;
+  marketId?: Maybe<Scalars["Int"]>;
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  tradingAddressId?: Maybe<Scalars["Int"]>;
+  ownerFullname?: Maybe<Scalars["String"]>;
+  ownerEmail?: Maybe<Scalars["String"]>;
+  ownerPhone?: Maybe<Scalars["String"]>;
+  businessType?: Maybe<BusinessType>;
+  tier?: Maybe<Tier>;
+  status?: Maybe<CompanyStatus>;
+  registeredBy?: Maybe<Scalars["String"]>;
+  registeredDate?: Maybe<Scalars["Datetime"]>;
+  name?: Maybe<Scalars["String"]>;
+  taxNumber?: Maybe<Scalars["String"]>;
+  phone?: Maybe<Scalars["String"]>;
+  aboutUs?: Maybe<Scalars["String"]>;
+  publicEmail?: Maybe<Scalars["String"]>;
+  website?: Maybe<Scalars["String"]>;
+  facebook?: Maybe<Scalars["String"]>;
+  linkedIn?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
+  logo?: Maybe<Scalars["String"]>;
+  migrationId?: Maybe<Scalars["String"]>;
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketdomain?: Maybe<Scalars["String"]>;
+  addressCoordinates?: Maybe<Point>;
+  addressFirstLine?: Maybe<Scalars["String"]>;
+  addressSecondLine?: Maybe<Scalars["String"]>;
+  addressRegion?: Maybe<Scalars["String"]>;
+  addressTown?: Maybe<Scalars["String"]>;
+  addressPostcode?: Maybe<Scalars["String"]>;
+  addressCountry?: Maybe<Scalars["String"]>;
+  coordinates?: Maybe<Point>;
+  certifications?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  operations?: Maybe<Array<Maybe<Operation>>>;
+};
+
+/** A connection to a list of `FindRoofer` values. */
+export type FindRoofersConnection = {
+  __typename?: "FindRoofersConnection";
+  /** A list of `FindRoofer` objects. */
+  nodes: Array<FindRoofer>;
+  /** A list of edges which contains the `FindRoofer` and cursor to aid in pagination. */
+  edges: Array<FindRoofersEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `FindRoofer` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `FindRoofer` edge in the connection. */
+export type FindRoofersEdge = {
+  __typename?: "FindRoofersEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `FindRoofer` at the end of the edge. */
+  node: FindRoofer;
+};
+
+/** Methods to use when ordering `FindRoofer`. */
+export type FindRoofersOrderBy = "NATURAL";
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
 export type Guarantee = Node & {
@@ -11337,6 +11414,7 @@ export type Mutation = {
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
   resetPassword?: Maybe<Scalars["String"]>;
+  resetPasswordImportedUsers?: Maybe<ResetPasswordImportedUsersResult>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
@@ -11997,6 +12075,11 @@ export type MutationProjectMembersAddArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationPublishMessageArgs = {
   input: PublishInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationResetPasswordImportedUsersArgs = {
+  input?: Maybe<ResetPasswordImportedUsersInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -14717,6 +14800,8 @@ export type Query = Node & {
   evidenceItemByNodeId?: Maybe<EvidenceItem>;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems?: Maybe<EvidenceItemsConnection>;
+  /** Reads and enables pagination through a set of `FindRoofer`. */
+  findRoofers?: Maybe<FindRoofersConnection>;
   guarantee?: Maybe<Guarantee>;
   guaranteeByBmiReferenceId?: Maybe<Guarantee>;
   /** Reads a single `Guarantee` using its globally unique `ID`. */
@@ -14981,7 +15066,7 @@ export type QueryCompanyByNodeIdArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryCompanyByReferenceNumberArgs = {
-  referenceNumber: Scalars["String"];
+  referenceNumber: Scalars["Int"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -15307,6 +15392,16 @@ export type QueryEvidenceItemsArgs = {
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
   condition?: Maybe<EvidenceItemCondition>;
   filter?: Maybe<EvidenceItemFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFindRoofersArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<FindRoofersOrderBy>>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -17559,7 +17654,7 @@ export type UpdateCompanyByReferenceNumberInput = {
   /** An object where the defined keys will be set on the `Company` being updated. */
   patch: CompanyPatch;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber: Scalars["String"];
+  referenceNumber: Scalars["Int"];
 };
 
 /** All input for the `updateCompanyDocumentByNodeId` mutation. */
@@ -18980,6 +19075,15 @@ export type CfMessageTemplateNestedFilter = {
   AND?: Maybe<Array<Maybe<CfMessageTemplateNestedFilter>>>;
 };
 
+export type ResetPasswordImportedUsersInput = {
+  market?: Maybe<Scalars["String"]>;
+};
+
+export type ResetPasswordImportedUsersResult = {
+  __typename?: "resetPasswordImportedUsersResult";
+  result?: Maybe<Scalars["String"]>;
+};
+
 /** An object where the defined keys will be set on the `account` being updated. */
 export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   /** Primary key */
@@ -19006,6 +19110,8 @@ export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19048,6 +19154,8 @@ export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
     photo?: Maybe<Scalars["String"]>;
     /** Used for reference when importing data from the legacy system */
     migrationId?: Maybe<Scalars["String"]>;
+    /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+    migratedToAuth0?: Maybe<Scalars["Boolean"]>;
     createdAt?: Maybe<Scalars["Datetime"]>;
     updatedAt?: Maybe<Scalars["Datetime"]>;
     marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19091,6 +19199,8 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19134,6 +19244,8 @@ export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19177,6 +19289,8 @@ export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19220,6 +19334,8 @@ export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19263,6 +19379,8 @@ export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19306,6 +19424,8 @@ export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19349,6 +19469,8 @@ export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
   photo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   marketToMarketId?: Maybe<AccountMarketIdFkeyInput>;
@@ -19596,7 +19718,7 @@ export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
     /** Their Company LinkedIn page URL */
     linkedIn?: Maybe<Scalars["String"]>;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber?: Maybe<Scalars["String"]>;
+    referenceNumber?: Maybe<Scalars["Int"]>;
     /** A reference to the logo image */
     logo?: Maybe<Scalars["String"]>;
     /** Used for reference when importing data from the legacy system */
@@ -19660,7 +19782,7 @@ export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
@@ -19724,7 +19846,7 @@ export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
@@ -19788,7 +19910,7 @@ export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
@@ -19854,7 +19976,7 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
@@ -19921,7 +20043,7 @@ export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
     /** Their Company LinkedIn page URL */
     linkedIn?: Maybe<Scalars["String"]>;
     /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-    referenceNumber?: Maybe<Scalars["String"]>;
+    referenceNumber?: Maybe<Scalars["Int"]>;
     /** A reference to the logo image */
     logo?: Maybe<Scalars["String"]>;
     /** Used for reference when importing data from the legacy system */
@@ -19987,7 +20109,7 @@ export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
@@ -20053,7 +20175,7 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
+  referenceNumber?: Maybe<Scalars["Int"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */

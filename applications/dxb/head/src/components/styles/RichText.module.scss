@@ -15,6 +15,10 @@
 
   p {
     margin-bottom: 0.75em;
+    min-height: 1.4rem;
+    &:empty{
+      display: none;
+    }
   }
 
   ul {

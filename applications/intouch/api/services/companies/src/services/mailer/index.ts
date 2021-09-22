@@ -13,30 +13,31 @@ export const sendEmailWithTemplate = async (
   event: EventMessage,
   body: any
 ) => {
+  const logger = context.logger("mailer");
   const { data } = await messageTemplate(context.clientGateway, event);
   const { messageTemplateCollection } = data;
 
-  if (!messageTemplateCollection.items.length) {
-    throw new Error("template_not_found");
+  if (messageTemplateCollection?.items?.length) {
+    const [template] = messageTemplateCollection.items;
+
+    // If I'm sending an email I need to send it based on the market
+    // if a sendMailbox is sent we use that email, otherwise we use the default email
+    // for the particular market
+
+    if (!body.sendMailbox) {
+      body.sendMailbox = context.user.market.sendMailbox;
+    }
+
+    await publish(context, TOPICS.TRANSACTIONAL_EMAIL, {
+      title: replaceData(template.subject, body),
+      text: replaceData(template.emailBody, body),
+      html: replaceData(template.emailBody, body)?.replace(
+        /(?:\r\n|\r|\n)/g,
+        "<br>"
+      ),
+      email: body.email
+    });
+  } else {
+    logger.error("Email template not found");
   }
-
-  const [template] = messageTemplateCollection.items;
-
-  // If I'm sending an email I need to send it based on the market
-  // if a sendMailbox is sent we use that email, otherwise we use the default email
-  // for the particular market
-
-  if (!body.sendMailbox) {
-    body.sendMailbox = context.user.market.sendMailbox;
-  }
-
-  await publish(context, TOPICS.TRANSACTIONAL_EMAIL, {
-    title: replaceData(template.subject, body),
-    text: replaceData(template.emailBody, body),
-    html: replaceData(template.emailBody, body)?.replace(
-      /(?:\r\n|\r|\n)/g,
-      "<br>"
-    ),
-    email: body.email
-  });
 };

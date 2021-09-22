@@ -3,6 +3,9 @@ import {
   ClassificationFeatureUnit,
   Product
 } from "../../components/types/ProductBaseTypes";
+import { Format } from "../../components/types";
+import { Data as ContentfulDocument } from "../../components/Document";
+import { Data as ContentfulAssetType } from "../../components/AssetType";
 
 export type GalleryImageType = {
   mainSource: string;
@@ -54,11 +57,7 @@ export type AssetType =
   | "CAD"
   | "DATA_SHEETS";
 
-export type MimeType =
-  | "image/jpeg"
-  | "image/png"
-  | "image/tiff"
-  | "application/pdf";
+export type MimeType = Format;
 
 export type Assets = {
   allowedToDownload: boolean;
@@ -91,6 +90,21 @@ export type SystemLayer = {
   type: string;
   relatedOptionalProducts: Product[];
   relatedProducts: Product[];
+};
+
+export type DocumentData = Pick<ContentfulDocument, "title" | "id"> & {
+  __typename: "SDPDocument";
+  assetType: Pick<ContentfulAssetType, "pimCode" | "name">;
+  asset: {
+    file: {
+      url: Assets["url"];
+      fileName: Assets["realFileName"];
+      contentType: Assets["mime"];
+      details: {
+        size: Assets["fileSize"];
+      };
+    };
+  };
 };
 
 export interface SystemDetails {

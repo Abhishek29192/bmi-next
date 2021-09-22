@@ -73,7 +73,8 @@ class Attribute extends Value {
     constraint,
     reference,
     mandatory,
-    defaultValue
+    defaultValue,
+    seqInitialValue
   ) {
     super(name, description);
     this.type = type;
@@ -81,6 +82,7 @@ class Attribute extends Value {
     this.constraint = constraint;
     this.reference = reference;
     this.defaultValue = defaultValue;
+    this.seqInitialValue = seqInitialValue;
 
     // "Mandatory" field is optional, but if we get a value, must be a valid one.
     if (mandatory && !["Y", "N"].includes(mandatory)) {
@@ -126,7 +128,8 @@ class Table extends Thing {
     constraint,
     reference,
     mandatory,
-    defaultValue
+    defaultValue,
+    seqInitialValue
   ) {
     let attribute = new Attribute(
       name,
@@ -136,7 +139,8 @@ class Table extends Thing {
       constraint,
       reference,
       mandatory,
-      defaultValue
+      defaultValue,
+      seqInitialValue
     );
     this.properties.push(attribute);
   }
@@ -146,24 +150,33 @@ class Table extends Thing {
       return `${name} ${type}`;
     });
 
-    return `DROP TABLE IF EXISTS ${this.name} CASCADE;
-CREATE TABLE ${this.name} (
-${this.properties
-  .map((property) => {
-    const isMandatory = property.mandatory ? "NOT NULL" : undefined;
-    const type = property.type === "pk" ? "SERIAL PRIMARY KEY" : property.type;
-    // NOTE: Currently only handling explicit default value
-    const defaultValue = property.defaultValue
-      ? `DEFAULT ${property.defaultValue}`
-      : undefined;
+    let sql = `DROP TABLE IF EXISTS ${this.name} CASCADE;
+    CREATE TABLE ${this.name} (
+    ${this.properties
+      .map((property) => {
+        const isMandatory = property.mandatory ? "NOT NULL" : undefined;
+        const type =
+          property.type === "pk" ? "SERIAL PRIMARY KEY" : property.type;
+        // NOTE: Currently only handling explicit default value
+        const defaultValue = property.defaultValue
+          ? `DEFAULT ${property.defaultValue}`
+          : undefined;
 
-    return [property.name, type, isMandatory, defaultValue]
-      .filter(Boolean)
-      .join(" ");
-  })
-  .concat(additionalColumns)
-  .join(",\n")
-  .concat(`\n);`)}`;
+        return [property.name, type, isMandatory, defaultValue]
+          .filter(Boolean)
+          .join(" ");
+      })
+      .concat(additionalColumns)
+      .join(",\n")
+      .concat(`);`)}`;
+
+    this.properties.map((property) => {
+      if (property.type === "serial") {
+        sql = `${sql} ALTER SEQUENCE ${this.name}_${property.name}_seq RESTART WITH ${property.seqInitialValue};\n`;
+      }
+    });
+
+    return sql;
   }
 
   getPostgresComment() {
@@ -201,7 +214,16 @@ ${this.properties
   }
 
   getSequence() {
-    return `SELECT SETVAL('${this.name}_id_seq', (select MAX(ID) from ${this.name}));`;
+    let sql = `SELECT SETVAL('${this.name}_id_seq', (select MAX(ID) from ${this.name}));`;
+
+    this.properties.map((property) => {
+      if (property.type === "serial") {
+        sql = `${sql} 
+        SELECT SETVAL('${this.name}_${property.name}_seq', (select MAX(${property.name}) from ${this.name}));`;
+      }
+    });
+
+    return sql;
   }
 
   getConstraints() {
@@ -406,7 +428,8 @@ const buildModel = (records) => {
           record.Constraint,
           record.Reference,
           record.Mandatory,
-          record.Default
+          record.Default,
+          record.SeqInitialValue
         ); // add the new field to the current table based on the current record
         break;
     }

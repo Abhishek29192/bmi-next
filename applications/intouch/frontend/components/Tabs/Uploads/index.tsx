@@ -104,11 +104,15 @@ export const UploadsTab = ({
         </Button>
       </div>
       <div className={styles.body}>
-        <Accordion>
+        <Accordion noInnerPadding={true}>
           {uploads &&
             [...uploads.entries()].map(([key, values]) => {
               return (
-                <Accordion.Item key={key} data-testid="uploads-category">
+                <Accordion.Item
+                  key={key}
+                  data-testid="uploads-category"
+                  defaultExpanded={true}
+                >
                   <Accordion.Summary>
                     <Typography component="h1" variant="h6">
                       {key}

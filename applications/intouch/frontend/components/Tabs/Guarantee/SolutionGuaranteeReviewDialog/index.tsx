@@ -60,7 +60,7 @@ const SolutionGuaranteeReviewDialog = ({
   return (
     <div>
       <Dialog fullScreen open={isOpen} onClose={onCloseClick}>
-        <DialogTitle>{t("guarantee.type.solution")}</DialogTitle>
+        <DialogTitle>{t("guarantee.type.SOLUTION")}</DialogTitle>
         <DialogContent>
           <GuaranteeReview project={project} />
         </DialogContent>

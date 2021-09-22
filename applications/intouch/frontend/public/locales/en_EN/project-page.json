@@ -6,6 +6,56 @@
   "search": {
     "inputLabel": "Search for a project"
   },
+  "addProject": {
+    "cta": "Add a new project",
+    "dialog": {
+      "title": "Add a project",
+      "sections": {
+        "projectDetails": {
+          "title": "Project Details"
+        },
+        "dates": {
+          "title": "Project dates"
+        },
+        "siteAddress": {
+          "title": "Site address"
+        }
+      },
+      "form": {
+        "fields": {
+          "name": "Project name",
+          "technology": "Project type",
+          "roofArea": "Total roof measurement (m2)",
+          "description": "Project description (optional)",
+          "startDate": "Project start date",
+          "endDate": "Project end date",
+          "siteAddress": {
+            "firstLine": "Address Line 1",
+            "secondLine": "Address Line 2 (optional)",
+            "town": "Town / City",
+            "postcode": "Post Code / ZIP",
+            "region": "Region (optional)",
+            "country": "Country"
+          }
+        },
+        "values": {
+          "technology": {
+            "PITCHED": "Pitched",
+            "FLAT": "Flat"
+          }
+        },
+        "hints": {
+          "technology": {
+            "PITCHED": "A roof covered with ceramic or tin tiles. Usually it is sloping",
+            "FLAT": "A roof covered with bituminous or concrete materials. It is usually horizontal and flat."
+          }
+        },
+        "actions": {
+          "submit": "Save & Close"
+        }
+      }
+    }
+  },
   "projectDetails": {
     "code": "Project code",
     "status": "Project status",
@@ -20,7 +70,8 @@
       "ASSIGN_SOLUTION": "Assign to me",
       "REASSIGN_SOLUTION": "Reassign to me",
       "UNASSIGN_SOLUTION": "Unassign to me",
-      "NOT_ASSIGNABLE": "Not Assignable"
+      "NOT_ASSIGNABLE": "Not Assignable",
+      "edit": "Edit"
     }
   },
   "buildingOwnerDetails": {
@@ -43,9 +94,9 @@
       "APPROVED": "Approved"
     },
     "type": {
-      "product": "Product Guarantee",
-      "system": "System Guarantee",
-      "solution": "Solution Guarantee"
+      "PRODUCT": "Product Guarantee",
+      "SYSTEM": "System Guarantee",
+      "SOLUTION": "Solution Guarantee"
     },
     "incompleteGuaranteeAlert": {
       "title": "Information Required",
@@ -59,7 +110,10 @@
       "IN_PROGRESS": "In progress",
       "COMPLETED": "Completed",
       "FLAT": "Flat",
-      "PITCHED": "Pitched"
+      "PITCHED": "Pitched",
+      "UNASSIGNED": "UnAssigned",
+      "ASSIGNED": "Assigned",
+      "MY_QUEUE": "My Queue"
     }
   },
   "noProjects": {

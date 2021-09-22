@@ -79,6 +79,11 @@ type Account implements Node {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -651,6 +656,11 @@ input AccountInput {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -1521,6 +1531,11 @@ input AccountPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -3215,7 +3230,7 @@ type Company implements Node {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int!
 
   """
   A reference to the logo image
@@ -3534,7 +3549,7 @@ input CompanyCompanyReferenceNumberKeyConnect {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -3544,7 +3559,7 @@ input CompanyCompanyReferenceNumberKeyDelete {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -3579,7 +3594,7 @@ input CompanyCondition {
   """
   Checks for equality with the object’s `referenceNumber` field.
   """
-  referenceNumber: String
+  referenceNumber: Int
 }
 
 """
@@ -3989,7 +4004,7 @@ input CompanyFilter {
   """
   Filter by the object’s `referenceNumber` field.
   """
-  referenceNumber: StringFilter
+  referenceNumber: IntFilter
 
   """
   Checks for all expressions in this list.
@@ -5330,7 +5345,7 @@ input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyReferen
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -5390,7 +5405,7 @@ input CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyReferenceNumberKeyUpdate
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -5450,7 +5465,7 @@ input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferenceNumb
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -5510,7 +5525,7 @@ input CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyReferenceNumberK
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -5570,7 +5585,7 @@ input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyReferenceNu
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -5630,7 +5645,7 @@ input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyReferen
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -5690,7 +5705,7 @@ input CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNumberKe
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -5750,7 +5765,7 @@ input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdat
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -6235,7 +6250,7 @@ input CompanyPatch {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int
 
   """
   A reference to the logo image
@@ -6818,6 +6833,8 @@ enum ContentfulGuaranteeCoverageType {
 }
 
 type ContentfulGuaranteeTemplate {
+  displayName: String
+  technology: ContentfulTechnologyType
   coverage: String
   languageCode: String
   languageDescriptor: String
@@ -6852,6 +6869,7 @@ type ContentfulGuaranteeTemplate {
 }
 
 type ContentfulGuaranteeTemplatesCollection {
+  total: Int!
   items: [ContentfulGuaranteeTemplate]
 }
 
@@ -6866,6 +6884,7 @@ type ContentfulGuaranteeType {
   maximumValidityYears: Int
   tiersAvailable: [ContentfulTiers]
   ranking: Int
+  languageCode: String
   evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
   guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
 }
@@ -10058,7 +10077,7 @@ input DeleteCompanyByReferenceNumberInput {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -12788,6 +12807,94 @@ enum EvidenceItemsOrderBy {
   GUARANTEE_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
+}
+
+type FindRoofer {
+  id: Int
+  marketId: Int
+  registeredAddressId: Int
+  tradingAddressId: Int
+  ownerFullname: String
+  ownerEmail: String
+  ownerPhone: String
+  businessType: BusinessType
+  tier: Tier
+  status: CompanyStatus
+  registeredBy: String
+  registeredDate: Datetime
+  name: String
+  taxNumber: String
+  phone: String
+  aboutUs: String
+  publicEmail: String
+  website: String
+  facebook: String
+  linkedIn: String
+  referenceNumber: Int
+  logo: String
+  migrationId: String
+  tradingAddressMigrationId: String
+  registeredAddressMigrationId: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  marketdomain: String
+  addressCoordinates: Point
+  addressFirstLine: String
+  addressSecondLine: String
+  addressRegion: String
+  addressTown: String
+  addressPostcode: String
+  addressCountry: String
+  coordinates: Point
+  certifications: [String]
+  operations: [Operation]
+}
+
+"""
+A connection to a list of `FindRoofer` values.
+"""
+type FindRoofersConnection {
+  """
+  A list of `FindRoofer` objects.
+  """
+  nodes: [FindRoofer!]!
+
+  """
+  A list of edges which contains the `FindRoofer` and cursor to aid in pagination.
+  """
+  edges: [FindRoofersEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `FindRoofer` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `FindRoofer` edge in the connection.
+"""
+type FindRoofersEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `FindRoofer` at the end of the edge.
+  """
+  node: FindRoofer!
+}
+
+"""
+Methods to use when ordering `FindRoofer`.
+"""
+enum FindRoofersOrderBy {
+  NATURAL
 }
 
 """
@@ -18815,6 +18922,12 @@ type Mutation {
     input: PublishInput!
   ): Publish
   resetPassword: String
+  resetPasswordImportedUsers(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: resetPasswordImportedUsersInput
+  ): resetPasswordImportedUsersResult
 
   """
   Updates a single `Account` using a unique key and a patch.
@@ -24024,7 +24137,7 @@ type Query implements Node {
     """
     nodeId: ID!
   ): Company
-  companyByReferenceNumber(referenceNumber: String!): Company
+  companyByReferenceNumber(referenceNumber: Int!): Company
   companyDocument(id: Int!): CompanyDocument
 
   """
@@ -24677,6 +24790,42 @@ type Query implements Node {
     """
     filter: EvidenceItemFilter
   ): EvidenceItemsConnection
+
+  """
+  Reads and enables pagination through a set of `FindRoofer`.
+  """
+  findRoofers(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `FindRoofer`.
+    """
+    orderBy: [FindRoofersOrderBy!] = [NATURAL]
+  ): FindRoofersConnection
   guarantee(id: Int!): Guarantee
   guaranteeByBmiReferenceId(bmiReferenceId: String!): Guarantee
 
@@ -28357,7 +28506,7 @@ input UpdateCompanyByReferenceNumberInput {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String!
+  referenceNumber: Int!
 }
 
 """
@@ -30555,6 +30704,14 @@ input cfMessageTemplateNestedFilter {
   AND: [cfMessageTemplateNestedFilter]
 }
 
+input resetPasswordImportedUsersInput {
+  market: String
+}
+
+type resetPasswordImportedUsersResult {
+  result: String
+}
+
 """
 An object where the defined keys will be set on the `account` being updated.
 """
@@ -30618,6 +30775,11 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -30696,6 +30858,11 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -30779,6 +30946,11 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -30862,6 +31034,11 @@ input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -30945,6 +31122,11 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31028,6 +31210,11 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31111,6 +31298,11 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31194,6 +31386,11 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31277,6 +31474,11 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   Used for reference when importing data from the legacy system
   """
   migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
   createdAt: Datetime
   updatedAt: Datetime
   marketToMarketId: AccountMarketIdFkeyInput
@@ -31744,7 +31946,7 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int
 
   """
   A reference to the logo image
@@ -31881,7 +32083,7 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int
 
   """
   A reference to the logo image
@@ -32018,7 +32220,7 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int
 
   """
   A reference to the logo image
@@ -32155,7 +32357,7 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int
 
   """
   A reference to the logo image
@@ -32297,7 +32499,7 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int
 
   """
   A reference to the logo image
@@ -32439,7 +32641,7 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int
 
   """
   A reference to the logo image
@@ -32581,7 +32783,7 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int
 
   """
   A reference to the logo image
@@ -32723,7 +32925,7 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   """
   A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
-  referenceNumber: String
+  referenceNumber: Int
 
   """
   A reference to the logo image
