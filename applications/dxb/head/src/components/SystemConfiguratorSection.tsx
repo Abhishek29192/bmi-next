@@ -275,20 +275,17 @@ const SystemConfiguratorBlockResultSection = ({
   pimSystems,
   selectedSystem: _selectedSystem
 }: Partial<EntryData>) => {
+  const maxDisplay = 4;
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
-  const [
-    recommendedSystemContentfulObject,
-    setRecommendedSystemContentfulObject
-  ] = useState([]);
+  const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
+    useState<Partial<SystemDetails>[]>([]);
   useEffect(() => {
-    const recommendedSystemContentfulObjects = recommendedSystems.map(
-      (systemId) => {
-        return pimSystems.find(({ code }) => code === systemId);
-      }
-    );
-    setRecommendedSystemContentfulObject(
-      compact(recommendedSystemContentfulObjects)
+    const recommendedSystemPimObjects = recommendedSystems.map((systemId) => {
+      return pimSystems.find(({ code }) => code === systemId);
+    });
+    setRecommendedSystemPimObjects(
+      compact(recommendedSystemPimObjects.slice(0, maxDisplay))
     );
   }, [recommendedSystems]);
 
@@ -305,39 +302,46 @@ const SystemConfiguratorBlockResultSection = ({
           </div>
         )}
         {!isEmpty(recommendedSystems) &&
-          !isEmpty(recommendedSystemContentfulObject) &&
-          recommendedSystemContentfulObject.map((system, id) => (
-            <Grid container spacing={3} key={`${system.code}-${id}`}>
-              {
-                <GTMSystemCard
-                  system={system}
-                  countryCode={countryCode}
-                  gtm={{
-                    event: `${title}-results`,
-                    id: system.code,
-                    action: `/${countryCode}/system-details-page?selected_system=${system.code}`
-                  }}
-                  path={`system-details-page?selected_system=${system.code}`}
-                  onClick={() => {
-                    const storedState = storage.local.getItem(
-                      SYSTEM_CONFIG_STORAGE_KEY
-                    );
-                    const stateObject = JSON.parse(storedState || "");
-                    const newState = {
-                      ...stateObject,
-                      selectedSystem: system.code
-                    };
-                    saveStateToLocalStorage(JSON.stringify(newState));
-                  }}
-                  footer={
-                    <Button startIcon={<ArrowForwardIcon />} variant="outlined">
-                      {"Read More"}
-                    </Button>
-                  }
-                />
-              }
-            </Grid>
-          ))}
+          !isEmpty(recommendedSystemPimObjects) &&
+          recommendedSystemPimObjects.map((system, id) => {
+            return (
+              <Grid container spacing={3} key={`${system.code}-${id}`}>
+                {
+                  <GTMSystemCard
+                    system={system}
+                    countryCode={countryCode}
+                    className={styles["OverviewCard"]}
+                    gtm={{
+                      event: `${title}-results`,
+                      id: system.code,
+                      action: `/${countryCode}/system-details-page?selected_system=${system.code}`
+                    }}
+                    path={`system-details-page?selected_system=${system.code}`}
+                    onClick={() => {
+                      const storedState = storage.local.getItem(
+                        SYSTEM_CONFIG_STORAGE_KEY
+                      );
+                      const stateObject = JSON.parse(storedState || "");
+                      const newState = {
+                        ...stateObject,
+                        selectedSystem: system.code
+                      };
+                      saveStateToLocalStorage(JSON.stringify(newState));
+                    }}
+                    footer={
+                      <Button
+                        startIcon={<ArrowForwardIcon />}
+                        variant="outlined"
+                      >
+                        {"Read More"}
+                      </Button>
+                    }
+                    isHighlighted={_selectedSystem === system.code}
+                  />
+                }
+              </Grid>
+            );
+          })}
       </Section>
     </div>
   );
@@ -544,6 +548,11 @@ export const query = graphql`
       code
       name
       shortDescription
+      images {
+        format
+        assetType
+        url
+      }
     }
   }
 `;

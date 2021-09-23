@@ -16,12 +16,12 @@ import styles from "./styles/RelatedSystems.module.scss";
 import { useSiteContext } from "./Site";
 
 export type SystemCardProps = {
-  system: SystemDetails;
+  system: Partial<SystemDetails>;
   countryCode: string;
   path: string;
-};
+} & Partial<OverviewCardProps>;
 
-const findSystemBrandLogoCode = (system: SystemDetails) => {
+const findSystemBrandLogoCode = (system: Partial<SystemDetails>) => {
   //check if system is tagged to more than one brand
   const totalBrand = system.categories?.filter(
     (category) => category.categoryType === "Brand"
