@@ -19,6 +19,7 @@ import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
 import ProjectEditAction from "../Pages/Project/ProjectEditAction/Button";
 import {
   GetProjectDocument,
+  useCreateGuaranteePdfMutation,
   useGetProjectQuery,
   useUpdateGuaranteeMutation
 } from "../../graphql/generated/hooks";
@@ -49,6 +50,13 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
         severity: "INFO",
         message: `Guarantee ID [${guarantee.id}] status updated`
       });
+      if (guarantee.status === "APPROVED") {
+        createGuaranteePdfMutation({
+          variables: {
+            id: guarantee.id
+          }
+        });
+      }
     },
     refetchQueries: [
       {
@@ -59,6 +67,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       }
     ]
   });
+  const [createGuaranteePdfMutation] = useCreateGuaranteePdfMutation();
 
   // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
   const getProjectGuaranteeType = useCallback(

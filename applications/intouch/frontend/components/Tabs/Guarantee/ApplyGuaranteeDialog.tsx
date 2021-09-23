@@ -14,7 +14,8 @@ import { WizardOverlay } from "../../../components/WizardLayout";
 import { GuaranteeWizardData } from "../../../components/WizardLayout/WizardContext";
 import {
   GetProjectDocument,
-  useCreateGuaranteeMutation
+  useCreateGuaranteeMutation,
+  useCreateGuaranteePdfMutation
 } from "../../../graphql/generated/hooks";
 
 type ApplyGuaranteeDialogProps = {
@@ -30,10 +31,20 @@ export const ApplyGuaranteeDialog = ({
   onCompletedClick
 }: ApplyGuaranteeDialogProps) => {
   const [createGuaranteMutation] = useCreateGuaranteeMutation({
-    onCompleted: (data) => {
+    onCompleted: ({ createGuarantee }) => {
+      if (createGuarantee.guarantee.status === "APPROVED") {
+        createGuaranteePdfMutation({
+          variables: {
+            id: createGuarantee.guarantee.id
+          }
+        });
+      }
+
       onCompletedClick && onCompletedClick();
     }
   });
+
+  const [createGuaranteePdfMutation] = useCreateGuaranteePdfMutation();
 
   const onSubmitHandler = ({
     guaranteeType,
@@ -96,7 +107,17 @@ export const CREATE_GUARANTEE = gql`
     createGuarantee(input: $input) {
       guarantee {
         id
+        coverage
+        status
       }
+    }
+  }
+`;
+
+export const CREATE_GUARANTEE_PDF = gql`
+  mutation createGuaranteePdf($id: Int!) {
+    createGuaranteePdf(id: $id) {
+      messageId
     }
   }
 `;
