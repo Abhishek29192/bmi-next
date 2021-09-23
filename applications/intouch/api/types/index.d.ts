@@ -4054,6 +4054,7 @@ export type Course = {
   description?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
+  slug?: Maybe<Scalars["String"]>;
   /** Reads and enables pagination through a set of `CourseCatalogue`. */
   courseCatalogues: CourseCataloguesConnection;
   /** Reads and enables pagination through a set of `CourseEnrollment`. */
@@ -4554,6 +4555,7 @@ export type CourseInput = {
   description?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  slug?: Maybe<Scalars["String"]>;
 };
 
 /** Represents an update to a `Course`. Fields that are set will be updated. */
@@ -4576,6 +4578,7 @@ export type CoursePatch = {
   description?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  slug?: Maybe<Scalars["String"]>;
 };
 
 /** Course Sync Configuration */
@@ -4683,6 +4686,7 @@ export type CourseTemp = {
   description?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
+  slug?: Maybe<Scalars["String"]>;
 };
 
 /**
@@ -4714,6 +4718,7 @@ export type CourseTempInput = {
   description?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  slug?: Maybe<Scalars["String"]>;
 };
 
 /** Represents an update to a `CourseTemp`. Fields that are set will be updated. */
@@ -4736,6 +4741,7 @@ export type CourseTempPatch = {
   description?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  slug?: Maybe<Scalars["String"]>;
 };
 
 /** A connection to a list of `CourseTemp` values. */

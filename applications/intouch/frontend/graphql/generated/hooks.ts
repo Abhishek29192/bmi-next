@@ -1343,13 +1343,12 @@ export type AddProjectNoteMutationOptions = Apollo.BaseMutationOptions<
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {
-      account {
-        id
-        firstName
-        lastName
+      projectMember {
+        ...ProjectMemberDetailsFragment
       }
     }
   }
+  ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
 export type DeleteProjectMemberMutationFn = Apollo.MutationFunction<
   OperationTypes.DeleteProjectMemberMutation,
@@ -3578,6 +3577,7 @@ export const TrainingDocument = gql`
         course {
           courseId
           name
+          slug
           technology
           image
           promoted

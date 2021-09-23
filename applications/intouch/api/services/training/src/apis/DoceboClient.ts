@@ -217,6 +217,7 @@ export default class DoceboClient {
       technology: item.category.name,
       name: item.name,
       image: item.img_url,
+      slug: item.slug_name,
       promoted: false,
       trainingType: item.course_type,
       description: item.description
