@@ -12,28 +12,21 @@ export const pdfCreate = async () => {
   if (!existsSync(filePath)) {
     mkdirSync(filePath);
   }
-  const pdfs = await guaranteePdf.create();
+  const file = await guaranteePdf.create();
 
-  pdfs.forEach(async (pdf) => {
-    const file = await pdf;
-    writeFileSync(`${filePath}/${file.name}`, file.data);
-  });
+  writeFileSync(`${filePath}/${file.name}`, file.data);
 };
 
 export const pdfUpload = async () => {
   const guaranteePdf = new GuaranteePdf(mockGuarantee);
   const storageClient = new StorageClient();
-  const pdfs = await guaranteePdf.create();
+  const file = await guaranteePdf.create();
 
-  pdfs.forEach(async (pdf) => {
-    const file = await pdf;
-
-    await storageClient.uploadFile(
-      "intouch-file-storage-bucket",
-      `guaranteePdf/${file.name}`,
-      file.data
-    );
-  });
+  await storageClient.uploadFile(
+    "intouch-file-storage-bucket",
+    `guaranteePdf/${file.name}`,
+    file.data
+  );
 };
 
 export const sendMail = async () => {

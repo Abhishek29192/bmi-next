@@ -22,43 +22,30 @@ export const sendGuaranteePdf = async (postEvent: any) => {
     const payload: Guarantee = JSON.parse(
       Buffer.from(postEvent.data, "base64").toString()
     );
-
-    const guaranteePdf = new GuaranteePdfGenerator(payload);
-    //TODO: we have return only one file Because guarantee
-    const pdfs = await guaranteePdf.create();
+    const gatewayClient = await GatewayClient.create();
     const storageClient = new StorageClient();
+    const guaranteePdf = new GuaranteePdfGenerator(payload);
 
-    const files = await Promise.all(
-      pdfs.map(async (pdf) => {
-        const file = await pdf;
-        return file;
-      })
+    const file = await guaranteePdf.create();
+
+    //Write file to google cloud
+    const fileName = `guarantee/${payload.id}/${file.name}`;
+    await storageClient.uploadFile(
+      GCP_PRIVATE_BUCKET_NAME,
+      fileName,
+      file.data
     );
 
-    let attachments: AttachmentData[] = [];
-    const gatewayClient = await GatewayClient.create();
+    //Update guarantee
+    //TODO: We can't update guarantee Because we don't have token etc.
+    await gatewayClient.updateGuaranteeFileStorage(payload.id, fileName);
 
-    for (const file of files) {
-      //Write files to google cloud
-      const fileName = `guarantee/${payload.id}/${file.name}`;
-      await storageClient.uploadFile(
-        GCP_PRIVATE_BUCKET_NAME,
-        fileName,
-        file.data
-      );
-
-      //Update guarantee
-      //TODO: We can't update guarantee Because we don't have token etc.
-      await gatewayClient.updateGuaranteeFileStorage(payload.id, fileName);
-
-      const attachment: AttachmentData = {
-        content: Buffer.from(file.data).toString("base64"),
-        filename: file.name,
-        type: "application/pdf",
-        disposition: "attachment"
-      };
-      attachments.push(attachment);
-    }
+    const attachment: AttachmentData = {
+      content: Buffer.from(file.data).toString("base64"),
+      filename: file.name,
+      type: "application/pdf",
+      disposition: "attachment"
+    };
 
     const sendgridClient = await getSendGridClient();
     const replyTo = "no-reply@intouch.bmigroup.com";
@@ -68,7 +55,7 @@ export const sendGuaranteePdf = async (postEvent: any) => {
       from: MAIL_FROM,
       subject: "Guarantee PDF",
       text: "Guarantee PDF",
-      attachments
+      attachments: [attachment]
     });
   } catch (error) {
     // eslint-disable-next-line no-console

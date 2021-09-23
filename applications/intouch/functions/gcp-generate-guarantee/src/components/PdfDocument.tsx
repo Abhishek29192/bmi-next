@@ -68,7 +68,7 @@ export const PdfDocument = ({
       </Typography>
 
       <Typography variant={"h6"} marginBottom={10}>
-        {template.headingProducts}: {productByProductBmiRef.name}
+        {template.headingProducts}: {productByProductBmiRef?.name}
       </Typography>
 
       <Typography variant={"h1"} marginBottom={20}>
