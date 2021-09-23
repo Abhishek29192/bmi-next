@@ -2,9 +2,10 @@ import React from "react";
 import Grid from "@bmi/grid";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
-import AnchorLink from "@bmi/anchor-link";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import { Product } from "../../components/types/ProductBaseTypes";
 import { useSiteContext } from "../../components/Site";
+import withGTM from "../../utils/google-tag-manager";
 import { SystemLayer } from "./types";
 
 type Props = {
@@ -18,6 +19,7 @@ const createLinkAction = (product: Product, countryCode: string) => ({
 
 const SystemLayersSection = ({ systemLayers }: Props) => {
   const { getMicroCopy, countryCode } = useSiteContext();
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
   return (
     <Accordion>
@@ -39,11 +41,19 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                 <Accordion.Details>
                   <Grid container spacing={3}>
                     <Grid item xs={12} md={12} lg={12}>
-                      <AnchorLink
+                      <GTMAnchorLink
+                        gtm={{
+                          id: "cta-click1",
+                          action: createLinkAction(
+                            mandatoryProduct,
+                            countryCode
+                          ).href,
+                          label: mandatoryProduct.name
+                        }}
                         action={createLinkAction(mandatoryProduct, countryCode)}
                       >
                         {mandatoryProduct.name}
-                      </AnchorLink>
+                      </GTMAnchorLink>
                     </Grid>
 
                     <Grid item xs={12} md={12} lg={12}>
@@ -68,11 +78,16 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                         lg={12}
                         key={`related-optional-product-${id}`}
                       >
-                        <AnchorLink
+                        <GTMAnchorLink
+                          gtm={{
+                            id: "cta-click1",
+                            action: createLinkAction(product, countryCode).href,
+                            label: product.name
+                          }}
                           action={createLinkAction(product, countryCode)}
                         >
                           {product.name}
-                        </AnchorLink>
+                        </GTMAnchorLink>
                       </Grid>
                     ))}
                   </Grid>

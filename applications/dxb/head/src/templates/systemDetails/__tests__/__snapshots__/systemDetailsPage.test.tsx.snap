@@ -2894,7 +2894,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-173 MuiButton-contained buttonStyles-contained-175 quotationBtn MuiButton-containedPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\",\\"label\\":\\"Get a Quotation\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Get a Quotation\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\"}"
                   href="/en/roof-tiles/betongtakstein/"
                   role="button"
                   tabindex="0"
@@ -7354,7 +7354,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-249 MuiButton-contained buttonStyles-contained-251 quotationBtn MuiButton-containedPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\",\\"label\\":\\"Get a Quotation\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Get a Quotation\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\"}"
                   href="/en/roof-tiles/betongtakstein/"
                   role="button"
                   tabindex="0"
@@ -7639,6 +7639,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -7669,6 +7670,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -7750,6 +7752,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -7780,6 +7783,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -7861,6 +7865,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -7891,6 +7896,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -7972,6 +7978,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8002,6 +8009,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8083,6 +8091,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8113,6 +8122,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8194,6 +8204,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8224,6 +8235,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8305,6 +8317,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8335,6 +8348,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8416,6 +8430,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8446,6 +8461,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8527,6 +8543,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8557,6 +8574,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8638,6 +8656,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8668,6 +8687,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8749,6 +8769,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8779,6 +8800,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8860,6 +8882,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -8890,6 +8913,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -13256,7 +13280,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 quotationBtn MuiButton-containedPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\",\\"label\\":\\"Get a Quotation\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Get a Quotation\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\"}"
                   href="/en/roof-tiles/betongtakstein/"
                   role="button"
                   tabindex="0"
@@ -13541,6 +13565,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -13571,6 +13596,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -13652,6 +13678,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -13682,6 +13709,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -13763,6 +13791,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -13793,6 +13822,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -13874,6 +13904,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -13904,6 +13935,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -13985,6 +14017,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14015,6 +14048,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14096,6 +14130,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14126,6 +14161,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14207,6 +14243,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14237,6 +14274,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14318,6 +14356,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14348,6 +14387,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14429,6 +14469,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14459,6 +14500,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14540,6 +14582,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14570,6 +14613,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14651,6 +14695,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14681,6 +14726,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14762,6 +14808,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -14792,6 +14839,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -19288,7 +19336,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-contained buttonStyles-contained-99 quotationBtn MuiButton-containedPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\",\\"label\\":\\"Get a Quotation\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Get a Quotation\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\"}"
                   href="/en/roof-tiles/betongtakstein/"
                   role="button"
                   tabindex="0"
@@ -19573,6 +19621,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -19603,6 +19652,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -19684,6 +19734,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -19714,6 +19765,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -19795,6 +19847,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -19825,6 +19878,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -19906,6 +19960,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -19936,6 +19991,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20017,6 +20073,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20047,6 +20104,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20128,6 +20186,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20158,6 +20217,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20239,6 +20299,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20269,6 +20330,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20350,6 +20412,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20380,6 +20443,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20461,6 +20525,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20491,6 +20556,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20572,6 +20638,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20602,6 +20669,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20683,6 +20751,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20713,6 +20782,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20794,6 +20864,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>
@@ -20824,6 +20895,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Zanda Protector normalstein\\",\\"action\\":\\"/en/p/zanda-protector-normalstein/svart/935895622/\\"}"
                                   href="/en/p/zanda-protector-normalstein/svart/935895622/"
                                 >
                                   <span>

@@ -4,13 +4,14 @@ import LeadBlock from "@bmi/lead-block";
 import Typography from "@bmi/typography";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import Button from "@bmi/button";
+import Button, { ButtonProps } from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import CheckIcon from "@material-ui/icons/Check";
 import { isEmpty } from "lodash";
 import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
 import Image, { Data as ImageData } from "../../components/Image";
+import withGTM from "../../utils/google-tag-manager";
 import { useSiteContext } from "../../components/Site";
 import styles from "./styles/leadBlockSection.module.scss";
 import { Category, Classification, Feature } from "./types";
@@ -80,6 +81,8 @@ const LeadBlockSection = ({
   const promotionalContent = getPromotionalContent(classifications);
   const location = useLocation();
 
+  const GTMButton = withGTM<ButtonProps>(Button);
+
   useEffect(() => {
     const systemId = new URLSearchParams(location.search).get(
       SYSTEM_CONFIG_QUERY_KEY
@@ -111,29 +114,39 @@ const LeadBlockSection = ({
           )}
           <LeadBlock.Content.Section className={styles["ctaContainer"]}>
             {selectedSystemId && (
-              <Button
+              <GTMButton
                 variant="text"
                 action={{
                   model: "htmlLink",
                   href: `system-configurator-page?referer=sys_details`,
                   rel: "noopener noreferrer"
                 }}
+                gtm={{
+                  id: "cta-click1",
+                  label: getMicroCopy("sdp.leadBlock.backToYourSelection"),
+                  action: "system-configurator-page?referer=sys_details"
+                }}
                 startIcon={<ArrowBackIcon />}
               >
                 {getMicroCopy("sdp.leadBlock.backToYourSelection")}
-              </Button>
+              </GTMButton>
             )}
             {Boolean(cta) && (
               <Link
                 data={cta}
                 component={({ children, ...rest }) => (
-                  <Button
+                  <GTMButton
                     {...rest}
                     className={styles["quotationBtn"]}
                     endIcon={<ArrowForwardIcon />}
+                    gtm={{
+                      id: "cta-click1",
+                      label: cta.label,
+                      action: cta.url
+                    }}
                   >
                     {children}
-                  </Button>
+                  </GTMButton>
                 )}
               >
                 {cta.label}
