@@ -12,7 +12,7 @@ import { ProjectsInsight } from "../Cards/ProjectsInsight";
 import { TabCard } from "../Cards/TabCard";
 import { TeamTab } from "../Tabs/Team";
 import { GuaranteeTab } from "../Tabs/Guarantee";
-import { UploadsTab } from "../Tabs/Uploads";
+import { UploadsTab, Evidence } from "../Tabs/Uploads";
 import { NoProjectsCard } from "../Cards/NoProjects";
 import { NoteTab } from "../Tabs/Notes";
 import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
@@ -225,7 +225,7 @@ const UploadedFiles = ({
   const { t } = useTranslation("project-page");
   const { id, guarantees, evidenceItems } = project;
 
-  const map = new Map<string, string[]>();
+  const map = new Map<string, Evidence[]>();
   //Default category
   map.set(t("MISCELLANEOUS"), []);
   //Default guarantee types
@@ -245,7 +245,13 @@ const UploadedFiles = ({
           t(evidence.evidenceCategoryType);
 
     const existFiles = map.has(categoryLabel) ? map.get(categoryLabel) : [];
-    map.set(categoryLabel, [...existFiles, evidence.name]);
+    map.set(categoryLabel, [
+      ...existFiles,
+      {
+        name: evidence.name,
+        url: evidence.signedUrl
+      }
+    ]);
   }
 
   const guaranteeEvidence = getGuaranteeEvidence(guarantees.nodes);
@@ -361,6 +367,7 @@ export const GET_PROJECT = gql`
       nodes {
         id
         name
+        signedUrl
         guaranteeId
         evidenceCategoryType
         customEvidenceCategoryKey

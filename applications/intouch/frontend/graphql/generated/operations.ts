@@ -621,6 +621,7 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                   SchemaTypes.EvidenceItem,
                   | "id"
                   | "name"
+                  | "signedUrl"
                   | "guaranteeId"
                   | "evidenceCategoryType"
                   | "customEvidenceCategoryKey"
@@ -838,6 +839,7 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                   SchemaTypes.EvidenceItem,
                   | "id"
                   | "name"
+                  | "signedUrl"
                   | "guaranteeId"
                   | "evidenceCategoryType"
                   | "customEvidenceCategoryKey"
@@ -1223,6 +1225,7 @@ export type ProjectDetailsFragmentFragment = {
           SchemaTypes.EvidenceItem,
           | "id"
           | "name"
+          | "signedUrl"
           | "guaranteeId"
           | "evidenceCategoryType"
           | "customEvidenceCategoryKey"
@@ -1420,6 +1423,7 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
               SchemaTypes.EvidenceItem,
               | "id"
               | "name"
+              | "signedUrl"
               | "guaranteeId"
               | "evidenceCategoryType"
               | "customEvidenceCategoryKey"
