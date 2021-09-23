@@ -8,12 +8,11 @@ import React, {
   useLayoutEffect
 } from "react";
 import { graphql } from "gatsby";
-import { Box } from "@material-ui/core";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";
 import Section from "@bmi/section";
-import RadioPane from "@bmi/radio-pane";
+import RadioPane, { RadioPaneProps } from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
 import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import { Link as GatsbyLink } from "gatsby";
@@ -22,7 +21,7 @@ import Scrim from "../components/Scrim";
 import ProgressIndicator from "../components/ProgressIndicator";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
-import withGTM from "../utils/google-tag-manager";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
@@ -92,6 +91,8 @@ const SystemConfigurtorContext = createContext(undefined);
 const saveStateToLocalStorage = (stateToStore: string) => {
   storage.local.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
 };
+
+const GTMRadioPane = withGTM<RadioPaneProps>(RadioPane);
 
 const SystemConfiguratorBlock = ({
   id,
@@ -194,11 +195,16 @@ const SystemConfiguratorBlock = ({
         handleOnChange={handleOnChange}
         options={answers.map(({ id, title: answerTitle, description }) => {
           return (
-            <RadioPane
+            <GTMRadioPane
               key={id}
               title={answerTitle}
               name={title}
               value={answerTitle}
+              gtm={{
+                id: `system-configurator01-selected`,
+                label: title,
+                action: answerTitle
+              }}
               onClick={() => {
                 setNextId(id);
                 setState((state) => ({ ...state, openIndex: null }));
@@ -207,10 +213,20 @@ const SystemConfiguratorBlock = ({
                 });
                 saveStateToLocalStorage(stateToSave);
               }}
-              defaultChecked={id === selectedAnswer?.id}
+              defaultChecked={(() => {
+                if (id === selectedAnswer?.id) {
+                  pushToDataLayer({
+                    id: "system-configurator01-selected",
+                    label: title,
+                    action: answerTitle
+                  });
+                  return true;
+                }
+                return false;
+              })()}
             >
               {description && <RichText document={description} />}
-            </RadioPane>
+            </GTMRadioPane>
           );
         })}
         TransitionProps={{
@@ -238,6 +254,14 @@ const SystemConfiguratorBlockNoResultsSection = ({
   content
 }: Partial<TitleWithContentData>) => {
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
+
+  useEffect(() => {
+    pushToDataLayer({
+      id: "system-configurator01-results",
+      label: "No system found",
+      action: "No system found"
+    });
+  }, []);
 
   return (
     <div ref={ref}>
