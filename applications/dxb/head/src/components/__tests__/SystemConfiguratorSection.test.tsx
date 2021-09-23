@@ -8,6 +8,7 @@ import {
   createMemorySource,
   LocationProvider
 } from "@reach/router";
+import * as ReactRoter from "@reach/router";
 import { SiteContextProvider } from "../Site";
 import SystemConfiguratorSection, {
   Data,
@@ -124,7 +125,8 @@ const initialData: Data = {
         type: "Answer"
       }
     ]
-  }
+  },
+  pimSystems: []
 };
 
 const nextStepData: NextStepData = {
@@ -161,6 +163,21 @@ const getSiteContext = (
   }
 });
 
+const pimSystems = [
+  {
+    code: "efgh",
+    name: "efgh name",
+    shortDescription: "efgh description",
+    images: [
+      {
+        assetType: "MASTER_IMAGE",
+        format: "Product-Listing-Card-Large-Desktop",
+        url: "testhttp"
+      }
+    ]
+  }
+];
+
 describe("SystemConfiguratorSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
@@ -174,7 +191,8 @@ describe("SystemConfiguratorSection component", () => {
             type: "Section",
             locale: "en-US",
             question: null,
-            noResultItems: []
+            noResultItems: [],
+            pimSystems: []
           }}
         />
       </LocationProvider>
@@ -194,7 +212,8 @@ describe("SystemConfiguratorSection component", () => {
             type: "Section",
             locale: "en-US",
             question: null,
-            noResultItems: []
+            noResultItems: [],
+            pimSystems: []
           }}
         />
       </LocationProvider>
@@ -248,7 +267,12 @@ describe("SystemConfiguratorSection component", () => {
     const { container, findByLabelText, findByRole, findByText } = render(
       <SiteContextProvider value={getSiteContext()}>
         <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
+          <SystemConfiguratorSection
+            data={{
+              ...initialData,
+              pimSystems
+            }}
+          />
         </LocationProvider>
       </SiteContextProvider>
     );
@@ -257,8 +281,9 @@ describe("SystemConfiguratorSection component", () => {
     fireEvent.click(label);
 
     await findByRole("progressbar");
-
     await findByText("Result Title");
+    await findByText(pimSystems[0].name);
+    await findByText(pimSystems[0].shortDescription);
 
     expect(container).toMatchSnapshot();
   });
@@ -279,7 +304,12 @@ describe("SystemConfiguratorSection component", () => {
     const { container, findByText, findByLabelText, findByRole } = render(
       <SiteContextProvider value={getSiteContext()}>
         <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
+          <SystemConfiguratorSection
+            data={{
+              ...initialData,
+              pimSystems
+            }}
+          />
         </LocationProvider>
       </SiteContextProvider>
     );
@@ -288,16 +318,14 @@ describe("SystemConfiguratorSection component", () => {
     fireEvent.click(label);
 
     await findByRole("progressbar");
-
     await findByText("Result Title");
-
-    const label2 = await findByText((text) => text.startsWith("System-abcd"));
+    const label2 = await findByText(pimSystems[0].name);
     fireEvent.click(label2);
 
     expect(window.localStorage.setItem).toHaveBeenLastCalledWith(
       "SystemConfiguratorBlock",
       // eslint-disable-next-line no-useless-escape
-      `{\"selectedAnswers\":[\"A1c\"],\"selectedSystem\":\"abcd\"}`
+      `{\"selectedAnswers\":[\"A1c\"],\"selectedSystem\":\"efgh\"}`
     );
     expect(container).toMatchSnapshot();
   });
@@ -594,6 +622,7 @@ describe("SystemConfiguratorSection component", () => {
 
     expect(container).toMatchSnapshot();
   });
+
   describe("When returning from valid referer", () => {
     it("removes query string from path", async () => {
       mockedAxios.get.mockResolvedValue({
@@ -612,7 +641,7 @@ describe("SystemConfiguratorSection component", () => {
       const { container, findByText, findByLabelText } = render(
         <SiteContextProvider value={getSiteContext()}>
           <LocationProvider history={history}>
-            <SystemConfiguratorSection data={initialData} />
+            <SystemConfiguratorSection data={{ ...initialData, pimSystems }} />
           </LocationProvider>
         </SiteContextProvider>
       );
@@ -621,8 +650,9 @@ describe("SystemConfiguratorSection component", () => {
       fireEvent.click(label);
 
       await findByText("Result Title");
+      await findByText(pimSystems[0].name);
+      await findByText(pimSystems[0].shortDescription);
 
-      await findByText((text) => text.startsWith("System-abcd"));
       expect(window.history.replaceState).toHaveBeenLastCalledWith(
         null,
         null,
@@ -648,7 +678,7 @@ describe("SystemConfiguratorSection component", () => {
       const { container, findByText, findByLabelText } = render(
         <SiteContextProvider value={getSiteContext()}>
           <LocationProvider history={history}>
-            <SystemConfiguratorSection data={initialData} />
+            <SystemConfiguratorSection data={{ ...initialData, pimSystems }} />
           </LocationProvider>
         </SiteContextProvider>
       );
@@ -657,13 +687,152 @@ describe("SystemConfiguratorSection component", () => {
       fireEvent.click(label);
 
       await findByText("Result Title");
-
-      const systemCard = await findByText((tex) =>
-        tex.startsWith("System-abcd")
-      );
+      await findByText(pimSystems[0].name);
+      await findByText(pimSystems[0].shortDescription);
 
       expect(window.history.replaceState).toBeCalled();
       expect(container).toMatchSnapshot();
     });
+  });
+
+  it("renders only the recommendedSystems that match the pimSystems list from contentful", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulSystemConfiguratorBlock",
+        title: "Result Title",
+        description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
+        recommendedSystems: ["abcd", "efgh", "ijkl"]
+      }
+    });
+
+    const { container, findByLabelText, findByRole, findByText } = render(
+      <SiteContextProvider value={getSiteContext()}>
+        <LocationProvider>
+          <SystemConfiguratorSection
+            data={{
+              ...initialData,
+              pimSystems: [
+                ...pimSystems,
+                {
+                  code: "ijkl",
+                  name: "ijkl name"
+                }
+              ]
+            }}
+          />
+        </LocationProvider>
+      </SiteContextProvider>
+    );
+
+    const label = await findByLabelText("Answer 1c title");
+    fireEvent.click(label);
+
+    await findByRole("progressbar");
+    await findByText("Result Title");
+    await findByText(pimSystems[0].name);
+    await findByText(pimSystems[0].shortDescription);
+
+    expect(container).toMatchSnapshot();
+    expect(
+      container.querySelectorAll(".SystemConfigurator-result .OverviewCard")
+        .length
+    ).toBe(2);
+  });
+
+  it("renders only max of 4 recommendedSystems", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulSystemConfiguratorBlock",
+        title: "Result Title",
+        description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
+        recommendedSystems: ["abcd", "efgh", "ijkl", "mnop", "qrst"]
+      }
+    });
+
+    const { container, findByLabelText, findByRole, findByText } = render(
+      <SiteContextProvider value={getSiteContext()}>
+        <LocationProvider>
+          <SystemConfiguratorSection
+            data={{
+              ...initialData,
+              pimSystems: [
+                {
+                  code: "abcd",
+                  name: "abcd name"
+                },
+                {
+                  code: "efgh",
+                  name: "efgh name"
+                },
+                {
+                  code: "ijkl",
+                  name: "ijkl name"
+                },
+                {
+                  code: "mnop",
+                  name: "ijkl name"
+                },
+                {
+                  code: "qrst",
+                  name: "ijkl name"
+                }
+              ]
+            }}
+          />
+        </LocationProvider>
+      </SiteContextProvider>
+    );
+
+    const label = await findByLabelText("Answer 1c title");
+    fireEvent.click(label);
+
+    await findByRole("progressbar");
+    await findByText("Result Title");
+
+    expect(container).toMatchSnapshot();
+    expect(
+      container.querySelectorAll(".SystemConfigurator-result .OverviewCard")
+        .length
+    ).toBe(4);
+  });
+
+  it("redirect to 404 page if no matches to pimSystems code", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulSystemConfiguratorBlock",
+        title: "Result Title",
+        description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
+        recommendedSystems: ["efgh", "ijkl"]
+      }
+    });
+    const redirection = jest.spyOn(ReactRoter, "navigate");
+    const { container, findByLabelText, findByText } = render(
+      <SiteContextProvider value={getSiteContext()}>
+        <LocationProvider>
+          <SystemConfiguratorSection
+            data={{
+              ...initialData,
+              pimSystems: [
+                {
+                  code: "abcd",
+                  name: "abcd name"
+                }
+              ]
+            }}
+          />
+        </LocationProvider>
+      </SiteContextProvider>
+    );
+
+    const label = await findByLabelText("Answer 1c title");
+    fireEvent.click(label);
+
+    await findByText("Result Title");
+
+    expect(container).toMatchSnapshot();
+    expect(redirection).toHaveBeenCalledWith("/404");
   });
 });

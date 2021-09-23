@@ -16,7 +16,7 @@ import Section from "@bmi/section";
 import RadioPane from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
 import { Link as GatsbyLink } from "gatsby";
-import { useLocation } from "@reach/router";
+import { useLocation, navigate } from "@reach/router";
 import { isEmpty, compact } from "lodash";
 import Button, { ButtonProps } from "@bmi/button";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
@@ -280,6 +280,7 @@ const SystemConfiguratorBlockResultSection = ({
   const { countryCode } = useSiteContext();
   const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
     useState<Partial<SystemDetails>[]>([]);
+
   useEffect(() => {
     const recommendedSystemPimObjects = recommendedSystems.map((systemId) => {
       return pimSystems.find(({ code }) => code === systemId);
@@ -288,6 +289,12 @@ const SystemConfiguratorBlockResultSection = ({
       compact(recommendedSystemPimObjects.slice(0, maxDisplay))
     );
   }, [recommendedSystems]);
+
+  useEffect(() => {
+    if (recommendedSystemPimObjects.length <= 0) {
+      navigate("/404");
+    }
+  }, [recommendedSystemPimObjects]);
 
   return (
     <div ref={ref}>
