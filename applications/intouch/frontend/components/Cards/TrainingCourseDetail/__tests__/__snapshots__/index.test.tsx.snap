@@ -49,7 +49,7 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
           <a
             aria-disabled="false"
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
-            href="/api/docebo-sso"
+            href="/api/docebo-sso?path=/learn/course/internal/view/classroom/125/slug"
             rel="noopener noreferrer"
             tabindex="0"
             target="_blank"

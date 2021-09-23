@@ -13,10 +13,7 @@ import {
   GetGlobalDataQuery
 } from "../graphql/generated/operations";
 import { withPage } from "../lib/middleware/withPage";
-import {
-  getServerPageDoceboCatalogIdByMarketDomain,
-  getServerPageTraining
-} from "../graphql/generated/page";
+import { getServerPageTraining } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 
@@ -171,6 +168,7 @@ export const pageQuery = gql`
         course {
           courseId
           name #
+          slug
           technology #
           image
           promoted
