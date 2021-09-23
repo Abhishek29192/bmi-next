@@ -54,16 +54,6 @@ export const GET_PRODUCT_GUARANTEE_TYPES = gql`
         coverage
         ranking
         tiersAvailable
-        guaranteeTemplatesCollection {
-          items {
-            sys {
-              id
-            }
-            displayName
-            languageCode
-            coverage
-          }
-        }
         evidenceCategoriesCollection {
           items {
             name

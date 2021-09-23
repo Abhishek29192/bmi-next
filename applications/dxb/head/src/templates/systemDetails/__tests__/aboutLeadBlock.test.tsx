@@ -180,7 +180,6 @@ describe("AboutLeadBlock tests", () => {
         />
       );
       const sidebar = queryByTestId("sidebar");
-      console.log(sidebar);
       expect(container).toMatchSnapshot();
       expect(sidebar.querySelector("h4").innerHTML).toBe(
         aboutLeadBlockSidebarTitle

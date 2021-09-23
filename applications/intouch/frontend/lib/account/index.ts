@@ -17,10 +17,14 @@ export const queryAccountByEmail = gql`
       lastName
       email
       doceboUserId
+      # All the market fields are necessary in the registration step
       market {
         id
         domain
+        language
         projectsEnabled
+        doceboCompanyAdminBranchId
+        doceboInstallersBranchId
       }
       companyMembers {
         nodes {

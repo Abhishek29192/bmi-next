@@ -12,7 +12,13 @@ import { getBimIframeUrl } from "../../components/BimIframe";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
-import { SystemDetails, Assets, Feature, Classification } from "./types";
+import {
+  SystemDetails,
+  Assets,
+  Feature,
+  Classification,
+  DocumentData
+} from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 import SystemLayersSection from "./systemLayersSection";
 import styles from "./styles/systemDetailsPage.module.scss";
@@ -27,6 +33,12 @@ type Props = {
     contentfulSite: SiteData;
     dataJson: SystemDetails;
     shareWidget: ShareWidgetSectionData | null;
+    allContentfulAssetType: {
+      nodes: ReadonlyArray<{
+        name: string;
+        pimCode: string;
+      }>;
+    };
   };
 };
 
@@ -37,8 +49,16 @@ const IGNORED_ATTRIBUTES = [
   "keyfeatures"
 ];
 
+export const IGNORED_DOCUMENTS_ASSETS = [
+  "BIM",
+  "CERTIFICATES",
+  "AWARDS",
+  "GUARANTIES",
+  "WARRANTIES"
+];
+
 const SystemDetailsPage = ({ data }: Props) => {
-  const { contentfulSite, dataJson } = data;
+  const { contentfulSite, dataJson, allContentfulAssetType } = data;
   const { resources } = contentfulSite;
   const {
     name,
@@ -129,6 +149,41 @@ const SystemDetailsPage = ({ data }: Props) => {
       bimIframeUrl
     };
   }, []);
+  const documentsAndDownloads: DocumentData[] = useMemo(() => {
+    return assets
+      .filter(
+        ({ assetType, allowedToDownload }) =>
+          !IGNORED_DOCUMENTS_ASSETS.includes(assetType) && allowedToDownload
+      )
+      .map(({ name, assetType, url, fileSize, realFileName, mime }, index) => {
+        const contentfulAssetType = allContentfulAssetType.nodes.find(
+          ({ pimCode }) => pimCode === assetType
+        );
+        return Object.assign(
+          {},
+          {
+            __typename: "SDPDocument" as const,
+            id: index.toString(),
+            title: name,
+            assetType: {
+              pimCode: contentfulAssetType?.pimCode,
+              name: contentfulAssetType?.name
+            },
+            asset: {
+              file: {
+                url,
+                fileName: realFileName,
+                contentType: mime,
+                details: {
+                  size: fileSize
+                }
+              }
+            }
+          }
+        );
+      });
+  }, []);
+
   return (
     <Page
       brand={brandName}
@@ -172,6 +227,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         technicalSpecClassifications={technicalSpecClassifications}
         aboutLeadBlockGenericContent={aboutLeadBlockGenericContent}
         bimContent={bimContent}
+        documentsAndDownloads={documentsAndDownloads}
       />
     </Page>
   );
@@ -183,6 +239,12 @@ export const pageQuery = graphql`
   query SystemDetailsPage($siteId: String!, $systemPageId: String!) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
+    }
+    allContentfulAssetType {
+      nodes {
+        name
+        pimCode
+      }
     }
     dataJson(id: { eq: $systemPageId }) {
       name

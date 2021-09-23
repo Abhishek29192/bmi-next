@@ -21,28 +21,36 @@ import { NoProjectsCard } from "../../components/Cards/NoProjects";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 
 import { getServerPageGetProjects } from "../../graphql/generated/page";
+import { isSuperOrMarketAdmin } from "../../lib/account";
 
 export type ProjectsPageProps = GlobalPageProps & {
   projects: GetProjectsQuery["projects"];
+  isPowerfulUser: boolean;
 };
 
-const sortProjects = (projects: GetProjectsQuery["projects"]["nodes"]) => {
+const sortProjects = (
+  projects: GetProjectsQuery["projects"]["nodes"],
+  isPowerfulUser: boolean
+) => {
   const now = Date.now();
-
   return [...(projects || [])].sort((a, b) => {
-    return (
-      Math.abs(now - new Date(a.endDate).getTime()) -
-      Math.abs(now - new Date(b.endDate).getTime())
-    );
+    return isPowerfulUser
+      ? a.name.localeCompare(b.name)
+      : Math.abs(now - new Date(a.endDate).getTime()) -
+          Math.abs(now - new Date(b.endDate).getTime());
   });
 };
 
-const Projects = ({ projects, globalPageData }: ProjectsPageProps) => {
+const Projects = ({
+  projects,
+  isPowerfulUser,
+  globalPageData
+}: ProjectsPageProps) => {
   const { t } = useTranslation(["common", "project-page"]);
   const router = useRouter();
 
   const sortedProjects = useMemo(
-    () => sortProjects(projects?.nodes),
+    () => sortProjects(projects?.nodes, isPowerfulUser),
     [projects?.nodes]
   );
 
@@ -108,6 +116,8 @@ export const getServerSideProps = withPage(
       }
     } = await getServerPageGetProjects({}, apolloClient);
 
+    const isPowerfulUser = isSuperOrMarketAdmin(account);
+
     // If trying to access a specific project, check if it's accessible
     if (params?.project && params?.project.length) {
       const found = projects?.nodes.find(
@@ -121,7 +131,7 @@ export const getServerSideProps = withPage(
       }
       // Otherwise, redirect to first accessible project, if any
     } else if (projects?.nodes.length) {
-      const sortedProjects = sortProjects(projects?.nodes);
+      const sortedProjects = sortProjects(projects?.nodes, isPowerfulUser);
       return {
         redirect: {
           permanent: false,
@@ -133,6 +143,7 @@ export const getServerSideProps = withPage(
     return {
       props: {
         projects,
+        isPowerfulUser,
         ...(await serverSideTranslations(locale, [
           "common",
           "sidebar",
@@ -158,6 +169,16 @@ export const GET_PROJECTS = gql`
         siteAddress {
           town
           postcode
+        }
+        company {
+          name
+        }
+        guarantees(first: 1) {
+          nodes {
+            coverage
+            status
+            reviewerAccountId
+          }
         }
       }
     }

@@ -7,6 +7,7 @@ const requiredFields = {
   project: {
     name: "name",
     roof_area: 1,
+    technology: "PITCHED",
     start_date: "2020-01-01",
     end_date: "2020-01-01"
   },

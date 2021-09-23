@@ -8,7 +8,8 @@ import {
   useDeleteProjectMemberMutation,
   useGetProjectCompanyMembersLazyQuery,
   useAddProjectsMemberMutation,
-  GetProjectDocument
+  GetProjectDocument,
+  useUpdateProjectMemberMutation
 } from "../../../graphql/generated/hooks";
 import { AddTeamMemberDialog } from "./AddTeamMemberDialog";
 import { TeamMemberItem } from "./TeamMemberItem";
@@ -17,15 +18,29 @@ import styles from "./styles.module.scss";
 export type TeamTabProps = {
   projectId: number;
   teams: ProjectMember[];
+  canNominateProjectResponsible: boolean;
 };
 
-export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
+export const TeamTab = ({
+  projectId,
+  teams,
+  canNominateProjectResponsible
+}: TeamTabProps) => {
   const { t } = useTranslation("project-page");
 
   const [projectMembers, setProjectMembers] = useState<ProjectMember[]>([]);
   const [companyMembers, setCompanyMembers] = useState<CompanyMember[]>([]);
   const [isTeamMemberDialogOpen, setTeamMemberDialogOpen] = useState(false);
-  const [deleteProjectMember] = useDeleteProjectMemberMutation();
+  const [deleteProjectMember] = useDeleteProjectMemberMutation({
+    refetchQueries: [
+      {
+        query: GetProjectDocument,
+        variables: {
+          projectId
+        }
+      }
+    ]
+  });
   const [addProjectsMember] = useAddProjectsMemberMutation({
     refetchQueries: [
       {
@@ -42,6 +57,7 @@ export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
     }
   });
 
+  const [updateProjectMember] = useUpdateProjectMemberMutation();
   useEffect(() => {
     setProjectMembers(teams);
   }, [teams]);
@@ -52,10 +68,6 @@ export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
         input: {
           id: projectMemberId
         }
-      },
-      update(cache) {
-        //It's only reset "GetProject" query
-        cache.reset();
       }
     });
   };
@@ -87,6 +99,23 @@ export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
     setTeamMemberDialogOpen(false);
   };
 
+  const onResponsibleInstallerChangeHandler = async ({
+    id,
+    isResponsibleInstaller
+  }: ProjectMember) => {
+    await updateProjectMember({
+      variables: {
+        input: {
+          id,
+          patch: {
+            isResponsibleInstaller: !isResponsibleInstaller
+          }
+        },
+        projectId
+      }
+    });
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -111,10 +140,16 @@ export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
                 team.account && (
                   <TeamMemberItem
                     key={`${team.id}-${index}`}
-                    account={team.account}
+                    member={team}
                     onDeleteClick={() => {
                       onDeleteClickHandler(team.id);
                     }}
+                    canNominateProjectResponsible={
+                      canNominateProjectResponsible
+                    }
+                    onResponsibleInstallerChange={() =>
+                      onResponsibleInstallerChangeHandler(team)
+                    }
                   />
                 )
             )}
@@ -134,11 +169,7 @@ export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
 export const DELETE_PROJECT_MEMBER = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {
-      account {
-        id
-        firstName
-        lastName
-      }
+      ...ProjectMemberDetailsFragment
     }
   }
 `;
@@ -167,19 +198,7 @@ export const ADD_PROJECT_MEMBER = gql`
   mutation createProjectMember($input: CreateProjectMemberInput!) {
     createProjectMember(input: $input) {
       projectMember {
-        id
-        accountId
-        account {
-          id
-          firstName
-          lastName
-          role
-          certificationsByDoceboUserId {
-            nodes {
-              technology
-            }
-          }
-        }
+        ...ProjectMemberDetailsFragment
       }
     }
   }
@@ -192,5 +211,47 @@ export const ADD_PROJECT_MEMBERS = gql`
         accountId
       }
     }
+  }
+`;
+
+export const UPDATE_PROJECT_MEMBER = gql`
+  mutation updateProjectMember(
+    $input: UpdateProjectMemberInput!
+    $projectId: Int!
+  ) {
+    updateProjectMember(input: $input) {
+      projectMember {
+        id
+        projectId
+        isResponsibleInstaller
+      }
+      query {
+        projectMembers(condition: { projectId: $projectId }) {
+          nodes {
+            ...ProjectMemberDetailsFragment
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const PROJECT_MEMBER_DETAILS_FRAGMENT = gql`
+  fragment ProjectMemberDetailsFragment on ProjectMember {
+    id
+    accountId
+    account {
+      id
+      firstName
+      lastName
+      role
+      certificationsByDoceboUserId {
+        nodes {
+          name
+          technology
+        }
+      }
+    }
+    isResponsibleInstaller
   }
 `;

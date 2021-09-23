@@ -182,10 +182,7 @@ exports[`ProjectSidePanel component renders correctly 1`] = `
                 style="display: flex;"
               >
                 <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                  class="technologyIcon"
                 />
                 In progress
               </p>
@@ -211,6 +208,9 @@ exports[`ProjectSidePanel component renders correctly 1`] = `
         </button>
       </div>
     </div>
+    <div
+      class="footerBtn"
+    />
   </div>
 </div>
 `;
@@ -397,10 +397,7 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
                 style="display: flex;"
               >
                 <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                  class="technologyIcon"
                 />
                 Completed
               </p>
@@ -450,10 +447,7 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
                 style="display: flex;"
               >
                 <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                  class="technologyIcon"
                 />
                 In progress
               </p>
@@ -503,10 +497,7 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
                 style="display: flex;"
               >
                 <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                  class="technologyIcon"
                 />
                 Not started
               </p>
@@ -532,6 +523,9 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
         </button>
       </div>
     </div>
+    <div
+      class="footerBtn"
+    />
   </div>
 </div>
 `;

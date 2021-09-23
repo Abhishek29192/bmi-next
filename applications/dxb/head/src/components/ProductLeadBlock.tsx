@@ -1,12 +1,14 @@
 import React, { useState, useRef } from "react";
 import LeadBlock from "@bmi/lead-block";
-import Icon from "@bmi/icon";
+import { Launch } from "@material-ui/icons";
+import Button from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
 import { Tab, TabProps } from "@material-ui/core";
 import DownloadList from "@bmi/download-list";
+import Icon from "@bmi/icon";
 import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
@@ -16,7 +18,7 @@ import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { Classification } from "./types/ProductBaseTypes";
+import { Asset, Classification } from "./types/ProductBaseTypes";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import BimIframe from "./BimIframe";
 
@@ -37,8 +39,8 @@ type Props = {
     title: React.ReactNode;
     content: RichTextData;
   }[];
-  guaranteesAndWarranties?: GuaranteesAndAwardsAsset[];
-  awardsAndCertificates?: GuaranteesAndAwardsAsset[];
+  guaranteesAndWarranties?: Asset[];
+  awardsAndCertificates?: Asset[];
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
   validClassifications: Classification[];
   classificationNamespace: string;
@@ -63,6 +65,26 @@ const ProductLeadBlock = ({
   const [page, setPage] = useState(1);
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
+
+  const isPDFAsset = (asset: Asset) => {
+    return (
+      asset.url.indexOf(".pdf") > -1 || asset.realFileName.indexOf(".pdf") > -1
+    );
+  };
+
+  const guaranteesDocuments = (guaranteesAndWarranties || []).filter((item) =>
+    isPDFAsset(item)
+  );
+  const guaranteesImages = (guaranteesAndWarranties || []).filter(
+    (item) => !isPDFAsset(item)
+  );
+
+  const awardsDocs = (awardsAndCertificates || []).filter((item) =>
+    isPDFAsset(item)
+  );
+  const awardsImages = (awardsAndCertificates || []).filter(
+    (item) => !isPDFAsset(item)
+  );
 
   const GTMTab = withGTM<TabProps>(Tab, {
     label: "label"
@@ -107,13 +129,33 @@ const ProductLeadBlock = ({
                   <LeadBlock.Content.Heading>
                     {getMicroCopy("pdp.leadBlock.guaranteesWarranties")}
                   </LeadBlock.Content.Heading>
-                  {guaranteesAndWarranties.map((item, i) => (
+                  {guaranteesImages.map((item, i) => (
                     <img
-                      key={i}
+                      key={`guarentee-img-${i}`}
                       src={item.url}
                       alt={item.name}
                       className={styles["image"]}
                     />
+                  ))}
+                  {guaranteesDocuments.length > 0 && <br />}
+                  {guaranteesDocuments.map((item, i) => (
+                    <span
+                      className={styles["document"]}
+                      key={`guarentee-doc-${i}`}
+                    >
+                      <Button
+                        variant="outlined"
+                        action={{
+                          model: "htmlLink",
+                          href: item.url,
+                          target: "_blank",
+                          rel: "noopener noreferrer"
+                        }}
+                        endIcon={<Launch />}
+                      >
+                        {item.name}
+                      </Button>
+                    </span>
                   ))}
                 </LeadBlock.Content.Section>
               )}
@@ -124,13 +166,30 @@ const ProductLeadBlock = ({
                   <LeadBlock.Content.Heading>
                     {getMicroCopy("pdp.leadBlock.awardsCertificates")}
                   </LeadBlock.Content.Heading>
-                  {awardsAndCertificates.map((item, i) => (
+                  {awardsImages.map((item, i) => (
                     <img
-                      key={i}
+                      key={`award-img-${i}`}
                       src={item.url}
                       alt={item.name}
                       className={styles["image"]}
                     />
+                  ))}
+                  {awardsDocs.length > 0 && <br />}
+                  {awardsDocs.map((item, i) => (
+                    <span className={styles["document"]} key={`award-doc-${i}`}>
+                      <Button
+                        variant="outlined"
+                        action={{
+                          model: "htmlLink",
+                          href: item.url,
+                          target: "_blank",
+                          rel: "noopener noreferrer"
+                        }}
+                        endIcon={<Launch />}
+                      >
+                        {item.name}
+                      </Button>
+                    </span>
                   ))}
                 </LeadBlock.Content.Section>
               )}

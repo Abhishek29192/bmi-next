@@ -184,6 +184,50 @@ export const ssrContentfulEvidenceCategories = {
 
   usePage: useContentfulEvidenceCategories
 };
+export async function getServerPageGetGuaranteeTemplates(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetGuaranteeTemplatesQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetGuaranteeTemplatesQuery>({
+      ...options,
+      query: Operations.GetGuaranteeTemplatesDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetGuaranteeTemplates = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetGuaranteeTemplatesDocument, options);
+};
+export type PageGetGuaranteeTemplatesComp = React.FC<{
+  data?: OperationTypes.GetGuaranteeTemplatesQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetGuaranteeTemplates = {
+  getServerPage: getServerPageGetGuaranteeTemplates,
+
+  usePage: useGetGuaranteeTemplates
+};
 export async function getServerPageSearchProducts(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.SearchProductsQueryVariables>,
@@ -486,6 +530,134 @@ export const ssrGetMarketsByDomain = {
   getServerPage: getServerPageGetMarketsByDomain,
 
   usePage: useGetMarketsByDomain
+};
+export async function getServerPageGetMediaFolders(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetMediaFoldersQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetMediaFoldersQuery>({
+    ...options,
+    query: Operations.GetMediaFoldersDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetMediaFolders = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetMediaFoldersQuery,
+    OperationTypes.GetMediaFoldersQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetMediaFoldersDocument, options);
+};
+export type PageGetMediaFoldersComp = React.FC<{
+  data?: OperationTypes.GetMediaFoldersQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetMediaFolders = {
+  getServerPage: getServerPageGetMediaFolders,
+
+  usePage: useGetMediaFolders
+};
+export async function getServerPageGetMediaItemById(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetMediaItemByIdQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetMediaItemByIdQuery>({
+    ...options,
+    query: Operations.GetMediaItemByIdDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetMediaItemById = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetMediaItemByIdQuery,
+    OperationTypes.GetMediaItemByIdQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetMediaItemByIdDocument, options);
+};
+export type PageGetMediaItemByIdComp = React.FC<{
+  data?: OperationTypes.GetMediaItemByIdQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetMediaItemById = {
+  getServerPage: getServerPageGetMediaItemById,
+
+  usePage: useGetMediaItemById
+};
+export async function getServerPageAccountInfoByEmail(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.AccountInfoByEmailQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.AccountInfoByEmailQuery>(
+    { ...options, query: Operations.AccountInfoByEmailDocument }
+  );
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useAccountInfoByEmail = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.AccountInfoByEmailQuery,
+    OperationTypes.AccountInfoByEmailQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.AccountInfoByEmailDocument, options);
+};
+export type PageAccountInfoByEmailComp = React.FC<{
+  data?: OperationTypes.AccountInfoByEmailQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrAccountInfoByEmail = {
+  getServerPage: getServerPageAccountInfoByEmail,
+
+  usePage: useAccountInfoByEmail
 };
 export async function getServerPageGetContentArticleContent(
   options: Omit<

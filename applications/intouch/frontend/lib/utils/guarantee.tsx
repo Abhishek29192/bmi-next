@@ -152,7 +152,7 @@ export const isGuaranteeApplicationEnable = (
   const guarantee = guarantees.nodes[0];
   const { guaranteeType } = guarantee;
 
-  if (!checkCompanyTier(guaranteeType.tiersAvailable, company.tier)) {
+  if (!checkCompanyTier(guaranteeType.tiersAvailable, company?.tier)) {
     return false;
   }
 
@@ -164,7 +164,9 @@ const checkEvidence = (
   //TODO: Find an alternative way to define parameter type.
   evidenceCategories: GetProjectQuery["project"]["guarantees"]["nodes"][0]["guaranteeType"]["evidenceCategoriesCollection"]["items"]
 ) => {
-  for (const { referenceCode, minimumUploads } of evidenceCategories) {
+  for (const { referenceCode, minimumUploads } of evidenceCategories.filter(
+    Boolean
+  )) {
     const uploadedFileCount = guaranteEvidenceItems.filter(
       (e) => e.customEvidenceCategoryKey === referenceCode
     ).length;

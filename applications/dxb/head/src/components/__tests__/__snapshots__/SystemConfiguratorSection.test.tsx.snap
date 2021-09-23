@@ -3,7 +3,7 @@
 exports[`SystemConfiguratorSection component When returning from valid referer highlights last selected system 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -213,7 +213,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
   </div>
   <div>
     <div
-      class="Section Section--white"
+      class="SystemConfigurator-result Section Section--white"
     >
       <div
         class="Container"
@@ -222,7 +222,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -249,6 +249,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
                 href="/no/system-details-page?selected_system=abcd"
                 role="button"
                 tabindex="0"
@@ -276,6 +277,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
                 href="/no/system-details-page?selected_system=efgh"
                 role="button"
                 tabindex="0"
@@ -308,7 +310,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
 exports[`SystemConfiguratorSection component When returning from valid referer removes query string from path 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -518,7 +520,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
   </div>
   <div>
     <div
-      class="Section Section--white"
+      class="SystemConfigurator-result Section Section--white"
     >
       <div
         class="Container"
@@ -527,7 +529,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -554,6 +556,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
                 href="/no/system-details-page?selected_system=abcd"
                 role="button"
                 tabindex="0"
@@ -581,6 +584,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
                 href="/no/system-details-page?selected_system=efgh"
                 role="button"
                 tabindex="0"
@@ -613,7 +617,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
 exports[`SystemConfiguratorSection component renders System Configurator Block with initial question and answer data 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -821,7 +825,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
 exports[`SystemConfiguratorSection component renders a no result section when answer clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -1068,7 +1072,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
 exports[`SystemConfiguratorSection component renders a result section when answer clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -1278,7 +1282,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
   </div>
   <div>
     <div
-      class="Section Section--white"
+      class="SystemConfigurator-result Section Section--white"
     >
       <div
         class="Container"
@@ -1287,7 +1291,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -1314,6 +1318,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
                 href="/no/system-details-page?selected_system=abcd"
                 role="button"
                 tabindex="0"
@@ -1341,6 +1346,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
                 href="/no/system-details-page?selected_system=efgh"
                 role="button"
                 tabindex="0"
@@ -1373,7 +1379,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
 exports[`SystemConfiguratorSection component renders an expanded panel when previous panel is clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -1733,7 +1739,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
 
 exports[`SystemConfiguratorSection component renders correctly 1`] = `
 <div
-  class="Section Section--white"
+  class="SystemConfigurator Section Section--white"
 >
   <div
     class="Container"
@@ -1754,7 +1760,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
 exports[`SystemConfiguratorSection component renders next question and answer block when answer clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -2115,7 +2121,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
 exports[`SystemConfiguratorSection component renders no result section while ignoring assets other than image 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -2351,7 +2357,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section while ignoring invalid asset references 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -2587,7 +2593,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section with the correct image url 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -2829,7 +2835,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
 exports[`SystemConfiguratorSection component renders skipping a block with only one answer 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -3304,7 +3310,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
 exports[`SystemConfiguratorSection component renders toggled closed configurator panel 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -3665,7 +3671,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
 exports[`SystemConfiguratorSection component renders with description rich text 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -3701,7 +3707,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
 exports[`SystemConfiguratorSection component stores selected system when a result system card clicked 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="SystemConfigurator Section Section--white"
   >
     <div
       class="Container"
@@ -3911,7 +3917,7 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
   </div>
   <div>
     <div
-      class="Section Section--white"
+      class="SystemConfigurator-result Section Section--white"
     >
       <div
         class="Container"
@@ -3920,7 +3926,7 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -3947,6 +3953,7 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
                 href="/no/system-details-page?selected_system=abcd"
                 role="button"
                 tabindex="0"
@@ -3974,6 +3981,7 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
                 href="/no/system-details-page?selected_system=efgh"
                 role="button"
                 tabindex="0"

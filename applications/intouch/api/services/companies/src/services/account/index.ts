@@ -47,7 +47,22 @@ export const createAccount = async (
     if (rows.length === 0 && args.input.account.role === COMPANY_ADMIN) {
       await pgClient.query(
         `SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`,
-        ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          "NEW",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       );
     }
 
@@ -87,10 +102,10 @@ export const createAccount = async (
     return {
       data: row
     };
-  } catch (e) {
-    logger.error("Error creating a user");
+  } catch (error) {
+    logger.error("Error creating a user", error);
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
-    throw e;
+    throw error;
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }
@@ -500,4 +515,59 @@ export const resetPassword = async (
     logger.error("Email not sent", error);
     return "fail";
   }
+};
+
+export const resetPasswordImportedUsers = async (
+  _query,
+  args,
+  context: PostGraphileContext,
+  resolveInfo,
+  auth0
+) => {
+  const { pgClient, user } = context;
+
+  const logger = context.logger("service:account");
+  if (!user.can("resetImportedUsersPasswords")) {
+    throw new Error("you must be an admin to reset passwords");
+  }
+
+  let accounts;
+  const ids = [];
+  const { market }: any = args.input || { market: null };
+
+  // If we are not passing a market we query all the user that need a new password
+  if (!market) {
+    accounts = await pgClient.query(
+      "SELECT * FROM account WHERE migration_id IS NOT NULL AND migrated_to_auth0 IS NOT true ORDER BY id",
+      []
+    );
+  } else {
+    // If we are sending the market we query all the user for that particular market
+    accounts = await pgClient.query(
+      `
+      SELECT account.* FROM account
+        JOIN market ON market.id = account.market_id
+        WHERE migration_id IS NOT NULL AND migrated_to_auth0 IS NOT true AND market.domain = $1 ORDER BY account.id
+      `,
+      [market]
+    );
+  }
+
+  for (const account of accounts.rows) {
+    try {
+      await auth0.changePassword(account.email);
+      logger.info(`Reset email sent for user with id: ${account.id}`);
+
+      ids.push(account.id);
+    } catch (error) {
+      logger.info(`Email not send for user with id: ${account.id}`);
+    }
+  }
+
+  await pgClient.query(
+    "UPDATE account SET migrated_to_auth0 = true WHERE id = ANY($1)",
+    [ids]
+  );
+
+  return "All done";
 };

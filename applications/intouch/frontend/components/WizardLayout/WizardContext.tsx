@@ -3,13 +3,13 @@ import {
   Product,
   Project,
   System,
-  GuaranteeTemplate,
   GuaranteeType
 } from "@bmi/intouch-api-types";
+import { GetGuaranteeTemplatesQuery } from "../../graphql/generated/operations";
 
 export type GuaranteeWizardData = {
   guaranteeType: GuaranteeType;
-  guaranteeTemplate: GuaranteeTemplate;
+  guaranteeTemplate: GetGuaranteeTemplatesQuery["guaranteeTemplateCollection"]["items"][0];
   product: Product;
   system: System;
   evidences: File[];

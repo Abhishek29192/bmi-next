@@ -16,6 +16,7 @@ import { UploadsTab } from "../Tabs/Uploads";
 import { NoProjectsCard } from "../Cards/NoProjects";
 import { NoteTab } from "../Tabs/Notes";
 import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
+import ProjectEditAction from "../Pages/Project/ProjectEditAction/Button";
 import {
   GetProjectDocument,
   useGetProjectQuery,
@@ -27,7 +28,8 @@ import {
   getProjectGuaranteeStatus,
   getGuaranteeEventType,
   isProjectApprovable,
-  isSolutionOrSystemGuaranteeExist
+  isSolutionOrSystemGuaranteeExist,
+  getGuaranteeStatus
 } from "../../lib/utils/project";
 import log from "../../lib/logger";
 import { useAccountContext } from "../../context/AccountContext";
@@ -61,10 +63,10 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
   const getProjectGuaranteeType = useCallback(
     (project: GetProjectQuery["project"]) => {
-      return (
-        project?.guarantees?.nodes?.[0]?.guaranteeType?.displayName ||
-        t("guarantee.notRequested")
-      );
+      const coverage = project?.guarantees?.nodes?.[0]?.coverage;
+      return coverage
+        ? t(`guarantee.type.${coverage}`)
+        : t("guarantee.notRequested");
     },
     [t]
   );
@@ -122,6 +124,13 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     can(account, "project", "submitSolutionGuarantee") &&
     !isSolutionOrSystemGuaranteeExist(project);
 
+  const canNominateResponsibleInstaller = (): boolean => {
+    return (
+      can(account, "project", "nominateResponsible") &&
+      ["NEW", "REJECTED"].includes(getGuaranteeStatus(project))
+    );
+  };
+
   return (
     <>
       <Grid item xs={12} md={8}>
@@ -138,6 +147,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           guaranteeStatus={getProjectGuaranteeStatus(project)}
           guaranteeEventType={getGuaranteeEventType(project, account.id)}
           guaranteeEventHandler={guaranteeUpdateHandler}
+          renderActions={() => <ProjectEditAction project={project} />}
         />
 
         <BuildingOwnerDetails
@@ -164,6 +174,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
               <TeamTab
                 projectId={projectId}
                 teams={project.projectMembers?.nodes as ProjectMember[]}
+                canNominateProjectResponsible={canNominateResponsibleInstaller()}
               />
             </TabCard>
           </Tabs.TabPanel>
@@ -221,7 +232,7 @@ const UploadedFiles = ({
   for (const guarantee of guarantees.nodes) {
     const evidenceCategories =
       guarantee.guaranteeType?.evidenceCategoriesCollection?.items;
-    for (const evidenceCategory of evidenceCategories) {
+    for (const evidenceCategory of evidenceCategories.filter(Boolean)) {
       map.set(evidenceCategory.name, []);
     }
   }
@@ -253,8 +264,7 @@ const getGuaranteeEvidence = (
   guarantees: GetProjectQuery["project"]["guarantees"]["nodes"]
 ) => {
   const solutionGuarantee =
-    guarantees.find((node) => node.guaranteeType.coverage === "SOLUTION") ||
-    null;
+    guarantees.find((node) => node.coverage === "SOLUTION") || null;
 
   let evidenceAvailable = false;
   if (solutionGuarantee !== null) {
@@ -271,128 +281,122 @@ const getGuaranteeEvidence = (
 export default ProjectDetail;
 
 export const GET_PROJECT = gql`
-  query GetProject($projectId: Int!) {
-    project(id: $projectId) {
+  fragment ProjectDetailsFragment on Project {
+    id
+    hidden
+    name
+    technology
+    roofArea
+    startDate
+    endDate
+    description
+    siteAddress {
       id
-      hidden
-      name
-      technology
-      roofArea
-      startDate
-      endDate
-      description
-      siteAddress {
-        firstLine
-        secondLine
-        town
-        region
-        postcode
-      }
-      buildingOwnerFirstname
-      buildingOwnerLastname
-      buildingOwnerCompany
-      buildingOwnerMail
-      buildingOwnerAddress {
-        firstLine
-        secondLine
-        town
-        region
-        postcode
-      }
-      guarantees {
-        nodes {
-          id
-          guaranteeReferenceCode
-          reviewerAccountId
-          coverage
-          languageCode
-          guaranteeType {
-            sys {
-              id
-            }
-            name
-            coverage
-            displayName
-            technology
-            tiersAvailable
-            evidenceCategoriesCollection {
-              items {
-                sys {
-                  id
-                }
-                referenceCode
-                name
-                minimumUploads
-              }
-            }
-          }
-          productByProductBmiRef {
-            ...ProjectDetailsProductFragment
-          }
-          systemBySystemBmiRef {
+      firstLine
+      secondLine
+      town
+      region
+      postcode
+      country
+    }
+    buildingOwnerFirstname
+    buildingOwnerLastname
+    buildingOwnerCompany
+    buildingOwnerMail
+    buildingOwnerAddress {
+      id
+      firstLine
+      secondLine
+      town
+      region
+      postcode
+    }
+    guarantees {
+      nodes {
+        id
+        guaranteeReferenceCode
+        reviewerAccountId
+        coverage
+        languageCode
+        guaranteeType {
+          sys {
             id
-            name
-            description
-            systemMembersBySystemBmiRef {
-              nodes {
+          }
+          name
+          coverage
+          displayName
+          technology
+          tiersAvailable
+          evidenceCategoriesCollection {
+            items {
+              sys {
                 id
-                productByProductBmiRef {
-                  ...ProjectDetailsProductFragment
-                }
               }
+              referenceCode
+              name
+              minimumUploads
             }
           }
-          status
         }
-      }
-      evidenceItems {
-        nodes {
+        productByProductBmiRef {
+          ...ProjectDetailsProductFragment
+        }
+        systemBySystemBmiRef {
           id
           name
-          guaranteeId
-          evidenceCategoryType
-          customEvidenceCategoryKey
-          customEvidenceCategory {
-            name
-            minimumUploads
-          }
-        }
-      }
-      notes(orderBy: ID_DESC) {
-        nodes {
-          id
-          body
-          authorId
-          author {
-            firstName
-            lastName
-          }
-          createdAt
-        }
-      }
-      projectMembers {
-        nodes {
-          id
-          accountId
-          account {
-            firstName
-            lastName
-            role
-            certificationsByDoceboUserId {
-              nodes {
-                name
-                technology
+          description
+          systemMembersBySystemBmiRef {
+            nodes {
+              id
+              productByProductBmiRef {
+                ...ProjectDetailsProductFragment
               }
             }
           }
-          isResponsibleInstaller
         }
+        status
       }
-      company {
+    }
+    evidenceItems {
+      nodes {
         id
         name
-        tier
+        guaranteeId
+        evidenceCategoryType
+        customEvidenceCategoryKey
+        customEvidenceCategory {
+          name
+          minimumUploads
+        }
       }
+    }
+    notes(orderBy: ID_DESC) {
+      nodes {
+        id
+        body
+        authorId
+        author {
+          firstName
+          lastName
+        }
+        createdAt
+      }
+    }
+    projectMembers {
+      nodes {
+        ...ProjectMemberDetailsFragment
+      }
+    }
+    company {
+      id
+      name
+      tier
+    }
+  }
+
+  query GetProject($projectId: Int!) {
+    project(id: $projectId) {
+      ...ProjectDetailsFragment
     }
   }
 `;

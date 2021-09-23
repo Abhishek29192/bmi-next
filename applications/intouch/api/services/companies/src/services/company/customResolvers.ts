@@ -11,6 +11,7 @@ import {
   Guarantee,
   Technology
 } from "@bmi/intouch-api-types";
+import { GUARANTEE_TEMPLATE_DETAIL_FRAGMENT } from "../contentful";
 
 type guaranteeResolverParams = {
   graphql: <TData = ExecutionResult["data"]>(
@@ -85,6 +86,7 @@ export const guaranteeResolver = async ({
         startDate
         expiryDate
         bmiReferenceId
+        languageCode
         guaranteeReferenceCode
         guaranteeType {
           name
@@ -97,42 +99,13 @@ export const guaranteeResolver = async ({
           }
           guaranteeTemplatesCollection {
             items {
-              languageCode
-              logo {
-                title
-                url
-              }
-              maintenanceTemplate {
-                fileName
-                url
-              }
-              terms {
-                fileName
-                url
-              }
-              guaranteeScope
-              signatory
-              headingGuarantee
-              headingScope
-              headingProducts
-              headingBeneficiary
-              headingBuildingOwnerName
-              headingBuildingAddress
-              headingRoofArea
-              headingRoofType
-              headingContractor
-              headingContractorName
-              headingContractorId
-              headingStartDate
-              headingGuaranteeId
-              headingValidity
-              headingExpiry
-              footer
+              ...GuaranteeTemplateDetailFragment
             }
           }
         }
       }
     }
+    ${GUARANTEE_TEMPLATE_DETAIL_FRAGMENT}
   `;
 
   const variables = { id: args.id };

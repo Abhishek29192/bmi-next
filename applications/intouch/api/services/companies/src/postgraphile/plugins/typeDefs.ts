@@ -73,6 +73,8 @@ export default gql`
   }
 
   type ContentfulGuaranteeTemplate {
+    displayName: String
+    technology: ContentfulTechnologyType
     coverage: String
     languageCode: String
     languageDescriptor: String
@@ -105,7 +107,9 @@ export default gql`
     titleLine2: String
     roofType: String
   }
+
   type ContentfulGuaranteeTemplatesCollection {
+    total: Int!
     items: [ContentfulGuaranteeTemplate]
   }
   type ContentfulEvidenceCategoryCollection {
@@ -123,6 +127,7 @@ export default gql`
     maximumValidityYears: Int
     tiersAvailable: [ContentfulTiers]
     ranking: Int
+    languageCode: String
     evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
     guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
   }
@@ -230,11 +235,30 @@ export default gql`
     attachmentUpload: Upload
   }
 
+  input ImportedAccount {
+    email: String
+    firstName: String
+    lastName: String
+    marketDomain: String
+    role: Role
+  }
+
+  input resetPasswordImportedUsersInput {
+    market: String
+  }
+
+  type resetPasswordImportedUsersResult {
+    result: String
+  }
+
   extend type Mutation {
     resetPassword: String
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
     invite(input: InviteInput!): [Invitation]
+    resetPasswordImportedUsers(
+      input: resetPasswordImportedUsersInput
+    ): resetPasswordImportedUsersResult
     completeInvitation(companyId: Int!): Account
     bulkImport(input: BulkImportInput!): ImportOutput
   }

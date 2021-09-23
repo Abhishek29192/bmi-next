@@ -32,7 +32,7 @@ exports[`RichText component closes dialog 1`] = `
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
   >
-    <br />
+    
   </p>
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
@@ -96,7 +96,7 @@ exports[`RichText component closes dialog 1`] = `
         class="MuiTouchRipple-root"
       />
     </button>
-    <br />
+    
   </p>
   <ul>
     <li>
@@ -146,7 +146,7 @@ exports[`RichText component closes dialog 1`] = `
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
   >
-    <br />
+    
   </p>
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
@@ -160,7 +160,7 @@ exports[`RichText component closes dialog 1`] = `
         Open dialog
       </span>
     </a>
-    <br />
+    
   </p>
 </div>
 `;
@@ -207,7 +207,7 @@ exports[`RichText component renders correctly 1`] = `
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
   >
-    <br />
+    
   </p>
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
@@ -271,7 +271,7 @@ exports[`RichText component renders correctly 1`] = `
         class="MuiTouchRipple-root"
       />
     </button>
-    <br />
+    
   </p>
   <ul>
     <li>
@@ -321,7 +321,7 @@ exports[`RichText component renders correctly 1`] = `
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
   >
-    <br />
+    
   </p>
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
@@ -335,7 +335,7 @@ exports[`RichText component renders correctly 1`] = `
         Open dialog
       </span>
     </a>
-    <br />
+    
   </p>
 </div>
 `;
@@ -372,7 +372,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
   >
-    <br />
+    
   </p>
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
@@ -436,7 +436,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
         class="MuiTouchRipple-root"
       />
     </button>
-    <br />
+    
   </p>
   <ul>
     <li>
@@ -486,7 +486,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
   >
-    <br />
+    
   </p>
   <p
     class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
@@ -500,7 +500,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
         Open dialog
       </span>
     </a>
-    <br />
+    
   </p>
 </div>
 `;
