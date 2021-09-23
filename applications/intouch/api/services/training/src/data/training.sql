@@ -87,60 +87,60 @@ CREATE TABLE course_sync_configuration (
 TRUNCATE TABLE course RESTART IDENTITY;
 
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('1', 123, NULL, 'PITCHED', 'Flexbox roofing methodology', 'https://picsum.photos/274/206', TRUE, 'classroom', 'Learn about the Echo roofing methodology in our fantastic Swindon training centre supported by Advanced empowering workforce techniques');
+  VALUES ('1', 123, 'slug-1', 'PITCHED', 'Flexbox roofing methodology', 'https://picsum.photos/274/206', TRUE, 'classroom', 'Learn about the Echo roofing methodology in our fantastic Swindon training centre supported by Advanced empowering workforce techniques');
 
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('2', 124, NULL, 'FLAT', 'Sequel roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the I roofing methodology in our fantastic Swindon training centre supported by Reduced composite algorithm techniques');
+  VALUES ('2', 124, 'slug-2', 'FLAT', 'Sequel roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the I roofing methodology in our fantastic Swindon training centre supported by Reduced composite algorithm techniques');
 
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('3', 125, NULL, 'OTHER', 'GCP roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the XG350 roofing methodology in our fantastic Swindon training centre supported by Extended global frame techniques');
+  VALUES ('3', 125, 'slug-3', 'OTHER', 'GCP roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the XG350 roofing methodology in our fantastic Swindon training centre supported by Extended global frame techniques');
 
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('4', 126, NULL, 'PITCHED', 'LeMans roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the LeMans roofing methodology in our fantastic Swindon training centre supported by Pre-emptive optimizing task-force techniques');
+  VALUES ('4', 126, 'slug-4', 'PITCHED', 'LeMans roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the LeMans roofing methodology in our fantastic Swindon training centre supported by Pre-emptive optimizing task-force techniques');
 
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('5', 127, NULL, 'PITCHED', 'Express 2500 roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the Express 2500 roofing methodology in our fantastic Swindon training centre supported by Customizable static budgetary management techniques');
+  VALUES ('5', 127, 'alug-5', 'PITCHED', 'Express 2500 roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the Express 2500 roofing methodology in our fantastic Swindon training centre supported by Customizable static budgetary management techniques');
 
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('6', 128, NULL, 'OTHER', 'Legend roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Legend roofing methodology in our fantastic Swindon training centre supported by Grass-roots discrete policy techniques');
+  VALUES ('6', 128, 'slug-6', 'OTHER', 'Legend roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Legend roofing methodology in our fantastic Swindon training centre supported by Grass-roots discrete policy techniques');
 
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('7', 129, NULL, 'OTHER', 'X5 roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the X5 roofing methodology in our fantastic Swindon training centre supported by Multi-lateral impactful hub techniques');
+  VALUES ('7', 129, 'slug-7', 'OTHER', 'X5 roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the X5 roofing methodology in our fantastic Swindon training centre supported by Multi-lateral impactful hub techniques');
 
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('8', 130, NULL, 'OTHER', 'Grand Cherokee roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Grand Cherokee roofing methodology in our fantastic Swindon training centre supported by Open-source systemic capability techniques');
+  VALUES ('8', 130, 'slug-8', 'OTHER', 'Grand Cherokee roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Grand Cherokee roofing methodology in our fantastic Swindon training centre supported by Open-source systemic capability techniques');
 
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('9', 131, NULL, 'OTHER', 'Passat roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Passat roofing methodology in our fantastic Swindon training centre supported by Digitized intermediate benchmark techniques');
+  VALUES ('9', 131, 'slug-9', 'OTHER', 'Passat roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Passat roofing methodology in our fantastic Swindon training centre supported by Digitized intermediate benchmark techniques');
 
 TRUNCATE TABLE course_temp RESTART IDENTITY;
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('1', 123, NULL, 'PITCHED', 'Flexbox roofing methodology', 'https://picsum.photos/274/206', TRUE, 'classroom', 'Learn about the Echo roofing methodology in our fantastic Swindon training centre supported by Advanced empowering workforce techniques');
+  VALUES ('1', 123, 'slug-1', 'PITCHED', 'Flexbox roofing methodology', 'https://picsum.photos/274/206', TRUE, 'classroom', 'Learn about the Echo roofing methodology in our fantastic Swindon training centre supported by Advanced empowering workforce techniques');
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('2', 124, NULL, 'FLAT', 'Sequel roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the I roofing methodology in our fantastic Swindon training centre supported by Reduced composite algorithm techniques');
+  VALUES ('2', 124, 'slug-2', 'FLAT', 'Sequel roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the I roofing methodology in our fantastic Swindon training centre supported by Reduced composite algorithm techniques');
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('3', 125, NULL, 'OTHER', 'GCP roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the XG350 roofing methodology in our fantastic Swindon training centre supported by Extended global frame techniques');
+  VALUES ('3', 125, 'slug-3', 'OTHER', 'GCP roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the XG350 roofing methodology in our fantastic Swindon training centre supported by Extended global frame techniques');
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('4', 126, NULL, 'PITCHED', 'LeMans roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the LeMans roofing methodology in our fantastic Swindon training centre supported by Pre-emptive optimizing task-force techniques');
+  VALUES ('4', 126, 'slug-4', 'PITCHED', 'LeMans roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the LeMans roofing methodology in our fantastic Swindon training centre supported by Pre-emptive optimizing task-force techniques');
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('5', 127, NULL, 'PITCHED', 'Express 2500 roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the Express 2500 roofing methodology in our fantastic Swindon training centre supported by Customizable static budgetary management techniques');
+  VALUES ('5', 127, 'alug-5', 'PITCHED', 'Express 2500 roofing methodology', 'https://picsum.photos/274/206', FALSE, 'classroom', 'Learn about the Express 2500 roofing methodology in our fantastic Swindon training centre supported by Customizable static budgetary management techniques');
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('6', 128, NULL, 'OTHER', 'Legend roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Legend roofing methodology in our fantastic Swindon training centre supported by Grass-roots discrete policy techniques');
+  VALUES ('6', 128, 'slug-6', 'OTHER', 'Legend roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Legend roofing methodology in our fantastic Swindon training centre supported by Grass-roots discrete policy techniques');
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('7', 129, NULL, 'OTHER', 'X5 roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the X5 roofing methodology in our fantastic Swindon training centre supported by Multi-lateral impactful hub techniques');
+  VALUES ('7', 129, 'slug-7', 'OTHER', 'X5 roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the X5 roofing methodology in our fantastic Swindon training centre supported by Multi-lateral impactful hub techniques');
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('8', 130, NULL, 'OTHER', 'Grand Cherokee roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Grand Cherokee roofing methodology in our fantastic Swindon training centre supported by Open-source systemic capability techniques');
+  VALUES ('8', 130, 'slug-8', 'OTHER', 'Grand Cherokee roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Grand Cherokee roofing methodology in our fantastic Swindon training centre supported by Open-source systemic capability techniques');
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
-  VALUES ('9', 131, NULL, 'OTHER', 'Passat roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Passat roofing methodology in our fantastic Swindon training centre supported by Digitized intermediate benchmark techniques');
+  VALUES ('9', 131, 'slug-9', 'OTHER', 'Passat roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Passat roofing methodology in our fantastic Swindon training centre supported by Digitized intermediate benchmark techniques');
 
 TRUNCATE TABLE course_catalogue RESTART IDENTITY;
 
