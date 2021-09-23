@@ -117,7 +117,7 @@ export interface SystemDetails {
   name: string;
   categories: Category[];
   classifications: Classification[];
-  images: Partial<Image>[] | null;
+  images: Image[] | null;
   longDescription: string;
   shortDescription?: string;
   systemBenefits: SystemBenefits;
