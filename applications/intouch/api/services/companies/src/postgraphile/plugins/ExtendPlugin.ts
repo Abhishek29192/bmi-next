@@ -91,6 +91,11 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         }
       },
       EvidenceItem: {
+        signedUrl: async (parent, args, { storageClient }) => {
+          return await storageClient.getPrivateAssetSignedUrl(
+            parent.attachment
+          );
+        },
         customEvidenceCategory: async (_query, args, context) => {
           const { customEvidenceCategoryKey } = _query;
 

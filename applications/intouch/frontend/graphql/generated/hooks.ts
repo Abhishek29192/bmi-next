@@ -122,6 +122,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
       nodes {
         id
         name
+        signedUrl
         guaranteeId
         evidenceCategoryType
         customEvidenceCategoryKey

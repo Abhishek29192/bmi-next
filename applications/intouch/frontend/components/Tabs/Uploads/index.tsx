@@ -18,10 +18,15 @@ import {
 import styles from "./styles.module.scss";
 import { AddEvidenceDialog, EvidenceCategory } from "./AddEvidenceDialog";
 
+export type Evidence = {
+  name: string;
+  url?: string;
+};
+
 export type UploadsTabProps = {
   projectId: number;
   guaranteeId?: number;
-  uploads?: Map<string, string[]>;
+  uploads?: Map<string, Evidence[]>;
   isContentfulEvidenceAvailable?: boolean;
 };
 
@@ -126,7 +131,16 @@ export const UploadsTab = ({
                             key={`upload-items-${key}-${index}`}
                             data-testid="uploads-item"
                           >
-                            <Table.Cell>{value}</Table.Cell>
+                            <Table.Cell>
+                              <a
+                                className={styles.download}
+                                href={value.url}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                {value.name}
+                              </a>
+                            </Table.Cell>
                             <Table.Cell>
                               <VisibilityIcon />
                             </Table.Cell>

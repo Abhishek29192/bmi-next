@@ -12047,6 +12047,7 @@ type EvidenceItem implements Node {
   """
   guarantee: Guarantee
   customEvidenceCategory: ContentfulEvidenceCategory
+  signedUrl: String
 }
 
 """

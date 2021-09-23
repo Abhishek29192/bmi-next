@@ -7292,6 +7292,7 @@ export type EvidenceItem = Node & {
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
   customEvidenceCategory?: Maybe<ContentfulEvidenceCategory>;
+  signedUrl?: Maybe<Scalars["String"]>;
 };
 
 /**

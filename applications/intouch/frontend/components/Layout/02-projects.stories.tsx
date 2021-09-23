@@ -11,9 +11,8 @@ import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
 import { ProjectsHeader } from "../Cards/ProjectsHeader";
 import { ProjectsInsight } from "../Cards/ProjectsInsight";
 import { TabCard } from "../Cards/TabCard";
-import { TeamTab } from "../Tabs/Team";
 import { GuaranteeTab } from "../Tabs/Guarantee";
-import { UploadsTab } from "../Tabs/Uploads";
+import { UploadsTab, Evidence } from "../Tabs/Uploads";
 import { Layout, LayoutProps } from ".";
 
 export default {
@@ -130,47 +129,57 @@ Team.args = {
   title: "Projects"
 };
 
-const uploadedFiles = new Map<string, string[]>([
+const uploadedFiles = new Map<string, Evidence[]>([
   [
     "Ventilation systems",
     [
-      `Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      {
+        name: `Ut enim ad minim veniam, quis nostrud exercitation ullamco
   laboris nisi ut aliquip ex ea commodo consequat.`
+      }
     ]
   ],
   [
     "Roof corners",
     [
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      {
+        name: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
       eget.`
+      }
     ]
   ],
   [
     "Chimney",
     [
-      `Duis aute irure dolor in reprehenderit in voluptate velit esse
+      {
+        name: `Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt
       mollit anim id est laborum.`
+      }
     ]
   ],
   [
     "Receipt of purchase",
     [
-      `Duis aute irure dolor in reprehenderit in voluptate velit esse
+      {
+        name: `Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt
       mollit anim id est laborum.`
+      }
     ]
   ],
   [
     "Supporting files",
     [
-      `Duis aute irure dolor in reprehenderit in voluptate velit esse
+      {
+        name: `Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt
       mollit anim id est laborum.`
+      }
     ]
   ]
 ]);
