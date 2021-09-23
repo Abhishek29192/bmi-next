@@ -27,6 +27,11 @@ beforeEach(() => {
   jest.resetModules();
 });
 
+const getDynamicPropValue = (obj: any, prop: string): any => {
+  const result = Object.keys(obj).filter((key) => key === prop);
+  return result.length > 0 ? obj[result[0]] : undefined;
+};
+
 describe("transformProduct", () => {
   describe("stratigic transform tests", () => {
     it("should transform single Categorytype 'Category'", () => {
@@ -35,7 +40,10 @@ describe("transformProduct", () => {
         categories: [createCategory()]
       });
       const transformedProduct = transformProduct(product);
-      const categoryAsProp = transformedProduct[0]["Category"];
+      const categoryAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "Category"
+      );
       expect(categoryAsProp).toEqual([{ code: "code", name: "name" }]);
     });
 
@@ -44,7 +52,10 @@ describe("transformProduct", () => {
         variantOptions: [createVariantOption()]
       });
       const transformedProduct = transformProduct(product);
-      const newFeatureValueAsProp = transformedProduct[0]["Category"];
+      const newFeatureValueAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "Category"
+      );
 
       expect(newFeatureValueAsProp).toEqual([
         { code: "parent-category-code", name: "name" },
@@ -65,7 +76,10 @@ describe("transformProduct", () => {
         ]
       });
       const transformedProduct = transformProduct(product);
-      const categoryAsProp = transformedProduct[0]["ProductLine"];
+      const categoryAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "ProductLine"
+      );
       expect(categoryAsProp).toEqual([
         { code: "RoofTiles", name: "Roof Tiles" }
       ]);
@@ -82,7 +96,10 @@ describe("transformProduct", () => {
         ]
       });
       const transformedProduct = transformProduct(product);
-      const categoryAsProp = transformedProduct[0]["ProductFamily"];
+      const categoryAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "ProductFamily"
+      );
       expect(categoryAsProp).toEqual([{ code: "Tiles", name: "Tiles" }]);
     });
 
@@ -98,7 +115,10 @@ describe("transformProduct", () => {
         ]
       });
       const transformedProduct = transformProduct(product);
-      const categoryAsProp = transformedProduct[0]["Brand"];
+      const categoryAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "Brand"
+      );
       expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
     });
 
@@ -120,7 +140,10 @@ describe("transformProduct", () => {
         ]
       });
       const transformedProduct = transformProduct(product);
-      const featureNameAsProp = transformedProduct[0]["measurements.width"];
+      const featureNameAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "measurements.width"
+      );
 
       expect(featureNameAsProp).toEqual([
         { code: "100symbol", name: "100 symbol" }
@@ -148,7 +171,10 @@ describe("transformProduct", () => {
         ]
       });
       const transformedProduct = transformProduct(product);
-      const featureNameAsProp = transformedProduct[0]["measurements.height"];
+      const featureNameAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "measurements.height"
+      );
 
       expect(featureNameAsProp).toEqual([
         { code: "100symbol", name: "100 symbol" },

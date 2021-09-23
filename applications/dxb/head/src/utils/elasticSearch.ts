@@ -76,11 +76,7 @@ const searchTerms = {
   materials: "materialsCode.keyword",
   texturefamily: "texturefamilyCode.keyword",
   category: "categories.code.keyword",
-  // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
-  productFamily: "allCategories.code.keyword",
-  productLine: "allCategories.code.keyword",
-  brand: "allCategories.code.keyword",
-  plpBaseCategory: "allCategories.code.keyword"
+  allCategories: "allCategories.code.keyword"
 };
 
 export const compileElasticSearchQuery = (
@@ -206,7 +202,7 @@ export const compileElasticSearchQuery = (
           categoryCodes
             ? {
                 terms: {
-                  [searchTerms.plpBaseCategory]: categoryCodes
+                  [searchTerms.allCategories]: categoryCodes
                 }
               }
             : null,

@@ -12,19 +12,14 @@ import {
   mapProductClassifications,
   ProductCategoryTree
 } from "./product-details-transforms";
+import {
+  generateCategoryFilters,
+  generateFeatureFilters,
+  ProductFilter
+} from "./product-filters";
 
 export type filterOption = ProductFilter & {
   value: string[];
-};
-
-export type ProductFilter = {
-  label: string;
-  name: string;
-  options: ReadonlyArray<{
-    label: string;
-    value: string;
-  }>;
-  value?: string[];
 };
 
 export type URLProductFilter = {
@@ -64,9 +59,11 @@ const getProductsFromDocuments = (documents: DocumentResultsData) => {
 };
 
 export const sortAlphabeticallyBy = (propName) => (a, b) => {
+  // eslint-disable-next-line security/detect-object-injection
   if (a[propName] < b[propName]) {
     return -1;
   }
+  // eslint-disable-next-line security/detect-object-injection
   if (a[propName] > b[propName]) {
     return 1;
   }
@@ -414,6 +411,59 @@ export const getCategoryFilters = (productCategories: ProductCategoryTree) => {
           }))
       };
     });
+};
+
+type PlpFiltersArgs = {
+  products: readonly Product[];
+  allowedFilters?: string[];
+  pimClassificationNamespace?: string;
+  pageCategory?: Category;
+};
+
+export const getPlpFilters = ({
+  pimClassificationNamespace,
+  products = [],
+  allowedFilters = []
+}: PlpFiltersArgs) => {
+  if (
+    !allowedFilters ||
+    !products ||
+    allowedFilters.length === 0 ||
+    products.length === 0
+  )
+    return [];
+
+  const cagegoryFilters = generateCategoryFilters(
+    products.flatMap((product) => product.categories || []),
+    allowedFilters
+  );
+
+  const productClassifications = products.flatMap((product) => [
+    ...product.classifications,
+    ...product.variantOptions.flatMap((variant) => variant.classifications)
+  ]);
+
+  const classificationFeaturesFilters = generateFeatureFilters(
+    pimClassificationNamespace,
+    productClassifications,
+    allowedFilters
+  );
+
+  const uniqueAllowFilterKeys = Array.from(
+    new Set(allowedFilters.map((filter) => filter.split("|")[0].trim()))
+  );
+
+  const allFilters = [...cagegoryFilters, ...classificationFeaturesFilters];
+
+  //order them in the `allowFilterBy` specified order
+  // category filter names are now  prefixed with 'plpFilter' for Microcopy!
+  return uniqueAllowFilterKeys
+    .map((item) =>
+      allFilters.find(
+        (filter) => filter.name === item || filter.name === `plpFilter.${item}`
+      )
+    )
+    .filter(Boolean);
 };
 
 export const getFilters = (
