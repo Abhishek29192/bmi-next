@@ -68,7 +68,7 @@ export const handleDownloadClick = async (
         return {
           href:
             __typename === "ContentfulDocument"
-              ? `https:${asset.file.url}`
+              ? `https:${asset.file.url.replace(/https?:/, "")}`
               : url,
           name:
             __typename === "ContentfulDocument"

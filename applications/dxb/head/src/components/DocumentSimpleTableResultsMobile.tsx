@@ -62,7 +62,7 @@ export const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
               endIcon={<GetApp />}
               action={{
                 model: "download",
-                href: `https:${asset.url.replace("https:", "")}`
+                href: `https:${asset.url.replace(/https?:/, "")}`
               }}
             >
               {filesize(asset.size)}

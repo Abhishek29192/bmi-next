@@ -82,7 +82,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
       gtm={{ id: "download1", label: "Download", action: url }}
       action={{
         model: "download",
-        href: `https:${url.replace("https:", "")}`
+        href: `https:${url.replace(/https?:/, "")}`
       }}
       variant="text"
       startIcon={
