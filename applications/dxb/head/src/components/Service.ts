@@ -19,7 +19,7 @@ export const serviceTypesByEntity = (entityType: string) => {
   if (entityType === "Roofer") {
     return serviceTypes.slice(0, 4);
   } else if (entityType === "Branch") {
-    return serviceTypes.slice(0, 4);
+    return serviceTypes.slice(5, 8);
   } else return [];
 };
 
