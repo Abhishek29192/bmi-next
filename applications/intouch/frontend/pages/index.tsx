@@ -178,7 +178,6 @@ const Homepage = ({
                       />
                     }
                     brandImageSource={partnerBrand.logo.url}
-                    compoent={Link}
                     href="/partner-brands"
                     footer={
                       <Button component={"span"} variant="outlined">

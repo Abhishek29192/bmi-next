@@ -333,6 +333,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     />
   );
 
+  const isFeaturesArrayExist = features?.length > 0;
+  const isKeyFeatureBlockVisible = isFeaturesArrayExist || featuresLink;
   return (
     <Page
       brand={brandLogo}
@@ -371,23 +373,25 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   underlineHeadings={["h2", "h3", "h4"]}
                 />
               </LeadBlock.Content>
-              <LeadBlock.Card theme="pearl">
-                {features ? (
+              {isKeyFeatureBlockVisible ? (
+                <LeadBlock.Card theme="pearl">
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading hasUnderline>
                       {getMicroCopy("plp.keyFeatures.title")}
                     </LeadBlock.Card.Heading>
                     <LeadBlock.Card.Content>
-                      <IconList>
-                        {features.map((feature, index) => (
-                          <IconList.Item
-                            key={index}
-                            icon={BlueCheckIcon}
-                            title={feature}
-                            isCompact
-                          />
-                        ))}
-                      </IconList>
+                      {isFeaturesArrayExist && (
+                        <IconList>
+                          {features.map((feature, index) => (
+                            <IconList.Item
+                              key={index}
+                              icon={BlueCheckIcon}
+                              title={feature}
+                              isCompact
+                            />
+                          ))}
+                        </IconList>
+                      )}
                       {featuresLink && (
                         <AnchorLink
                           action={getClickableActionFromUrl(
@@ -403,8 +407,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                       )}
                     </LeadBlock.Card.Content>
                   </LeadBlock.Card.Section>
-                ) : null}
-              </LeadBlock.Card>
+                </LeadBlock.Card>
+              ) : null}
             </LeadBlock>
           </Section>
           <Section backgroundColor="pearl" overflowVisible>

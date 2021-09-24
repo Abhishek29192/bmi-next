@@ -169,7 +169,9 @@ export const TeamTab = ({
 export const DELETE_PROJECT_MEMBER = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {
-      ...ProjectMemberDetailsFragment
+      projectMember {
+        ...ProjectMemberDetailsFragment
+      }
     }
   }
 `;

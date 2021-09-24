@@ -69,7 +69,7 @@ exports[`CourseDescription component renders correctly 1`] = `
                   />
                 </svg>
               </span>
-              View training
+              viewTraining
             </span>
             <span
               class="MuiTouchRipple-root"

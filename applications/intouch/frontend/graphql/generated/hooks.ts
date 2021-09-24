@@ -122,6 +122,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
       nodes {
         id
         name
+        signedUrl
         guaranteeId
         evidenceCategoryType
         customEvidenceCategoryKey
@@ -365,7 +366,7 @@ export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProjectHiddenMutationVariables
 >;
 export const GetGlobalDataDocument = gql`
-  query GetGlobalData {
+  query GetGlobalData($accountId: Int!) {
     marketContentCollection(limit: 1) {
       items {
         footerLinksCollection {
@@ -380,6 +381,14 @@ export const GetGlobalDataDocument = gql`
         }
         externalLinkUrl
         externalLinkLabel
+      }
+    }
+    notifications(condition: { accountId: $accountId }) {
+      nodes {
+        body
+        sendDate
+        read
+        id
       }
     }
   }
@@ -397,11 +406,12 @@ export const GetGlobalDataDocument = gql`
  * @example
  * const { data, loading, error } = useGetGlobalDataQuery({
  *   variables: {
+ *      accountId: // value for 'accountId'
  *   },
  * });
  */
 export function useGetGlobalDataQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetGlobalDataQuery,
     OperationTypes.GetGlobalDataQueryVariables
   >
@@ -1334,13 +1344,12 @@ export type AddProjectNoteMutationOptions = Apollo.BaseMutationOptions<
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {
-      account {
-        id
-        firstName
-        lastName
+      projectMember {
+        ...ProjectMemberDetailsFragment
       }
     }
   }
+  ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
 export type DeleteProjectMemberMutationFn = Apollo.MutationFunction<
   OperationTypes.DeleteProjectMemberMutation,
@@ -3569,6 +3578,7 @@ export const TrainingDocument = gql`
         course {
           courseId
           name
+          slug
           technology
           image
           promoted

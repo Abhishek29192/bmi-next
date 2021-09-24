@@ -19,10 +19,12 @@
     padding: 5px;
     height: 50px;
     z-index: 2;
-
+    overflow: hidden;
     &--negative {
       margin-top: -50px;
     }
+    object-fit: contain;
+    object-position: left;
   }
 
   .header-picture {

@@ -6,6 +6,18 @@ import { CourseDescription } from "../CourseDescription";
 
 type TrainingCourseDetailProps = { course: Course; lmsUrl: string };
 
+const COURSE_BASE_PATH = "/learn/course/internal/view";
+
+const getCourseUrl = (course, lmsUrl) => {
+  const { trainingType, courseId, slug } = course || {};
+
+  if (trainingType && courseId && slug) {
+    return `${lmsUrl}?path=${COURSE_BASE_PATH}/${trainingType}/${courseId}/${slug}`;
+  }
+
+  return lmsUrl;
+};
+
 export const TrainingCourseDetail = ({
   course,
   lmsUrl
@@ -19,7 +31,7 @@ export const TrainingCourseDetail = ({
       type={trainingType}
       status={status}
       image={image}
-      lmsUrl={!url ? lmsUrl : `${lmsUrl}?path=${url}`}
+      lmsUrl={!url ? getCourseUrl(course, lmsUrl) : `${lmsUrl}?path=${url}`}
     >
       <Typography variant="h5">{t("Description")}</Typography>
 

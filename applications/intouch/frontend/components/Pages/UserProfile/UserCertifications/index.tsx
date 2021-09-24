@@ -14,9 +14,9 @@ export const UserCertifications = ({
     <Table>
       <Table.Head>
         <Table.Row>
-          <Table.Cell>{t("Type")}</Table.Cell>
-          <Table.Cell>{t("Certification")}</Table.Cell>
-          <Table.Cell>{t("Expiry")}</Table.Cell>
+          <Table.Cell>{t("certificationLabels.type")}</Table.Cell>
+          <Table.Cell>{t("certificationLabels.certification")}</Table.Cell>
+          <Table.Cell>{t("certificationLabels.expiry")}</Table.Cell>
         </Table.Row>
       </Table.Head>
       <Table.Body>

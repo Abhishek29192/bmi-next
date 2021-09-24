@@ -29,7 +29,7 @@
     "start": "gatsby build --prefix-paths && gatsby serve"
   },
   "dependencies": {
-    "@aaronhayes/react-use-hubspot-form": "^1.2.4",
+    "@aaronhayes/react-use-hubspot-form": "^2.1.0",
     "@babel/plugin-proposal-decorators": "^7.13.5",
     "@bmi/anchor-link": "0.0.0",
     "@bmi/autocomplete": "0.0.0",

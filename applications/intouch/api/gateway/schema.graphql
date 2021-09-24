@@ -7013,6 +7013,7 @@ type Course {
   description: String
   createdAt: Datetime!
   updatedAt: Datetime!
+  slug: String
 
   """
   Reads and enables pagination through a set of `CourseCatalogue`.
@@ -7899,6 +7900,7 @@ input CourseInput {
   description: String
   createdAt: Datetime
   updatedAt: Datetime
+  slug: String
 }
 
 """
@@ -7946,6 +7948,7 @@ input CoursePatch {
   description: String
   createdAt: Datetime
   updatedAt: Datetime
+  slug: String
 }
 
 """
@@ -8138,6 +8141,7 @@ type CourseTemp {
   description: String
   createdAt: Datetime!
   updatedAt: Datetime!
+  slug: String
 }
 
 """
@@ -8196,6 +8200,7 @@ input CourseTempInput {
   description: String
   createdAt: Datetime
   updatedAt: Datetime
+  slug: String
 }
 
 """
@@ -8243,6 +8248,7 @@ input CourseTempPatch {
   description: String
   createdAt: Datetime
   updatedAt: Datetime
+  slug: String
 }
 
 """
@@ -12041,6 +12047,7 @@ type EvidenceItem implements Node {
   """
   guarantee: Guarantee
   customEvidenceCategory: ContentfulEvidenceCategory
+  signedUrl: String
 }
 
 """

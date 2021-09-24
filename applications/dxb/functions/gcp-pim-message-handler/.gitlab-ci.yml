@@ -2,7 +2,7 @@ test_gcp-pim-message-handler:
   extends: .test_jest
   variables:
     WORKSPACE: "@bmi/gcp-pim-message-handler"
-    ROOT_DIR: "applications/functions/gcp-pim-message-handler"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
 
 build_gcp-pim-message-handler:
   extends: .build_function

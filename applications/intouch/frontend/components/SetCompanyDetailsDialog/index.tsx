@@ -111,22 +111,32 @@ export const SetCompanyDetailsDialog = ({
               <TextField {...getFieldProps("name")} isRequired />
               <TextField
                 {...getFieldProps("registeredAddress.firstLine")}
+                autoComplete="off"
                 isRequired
               />
-              <TextField {...getFieldProps("registeredAddress.secondLine")} />
+              <TextField
+                {...getFieldProps("registeredAddress.secondLine")}
+                autoComplete="off"
+              />
               <TextField
                 {...getFieldProps("registeredAddress.town")}
+                autoComplete="off"
                 isRequired
               />
               <TextField
                 {...getFieldProps("registeredAddress.postcode")}
+                autoComplete="off"
                 isRequired
               />
-              <TextField {...getFieldProps("registeredAddress.region")} />
+              <TextField
+                {...getFieldProps("registeredAddress.region")}
+                autoComplete="off"
+              />
 
               <TextField
                 {...getFieldProps("registeredAddress.country")}
                 isRequired
+                autoComplete="off"
               />
             </Grid>
 
@@ -216,6 +226,7 @@ export const SetCompanyDetailsDialog = ({
             <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("phone")}
+                type="tel"
                 getValidationError={validatePhoneNumber}
               />
               <TextField
@@ -248,6 +259,7 @@ export const SetCompanyDetailsDialog = ({
             <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("ownerPhone")}
+                type="tel"
                 getValidationError={validatePhoneNumber}
               />
             </Grid>

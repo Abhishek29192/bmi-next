@@ -160,26 +160,42 @@ export const SetTradingAddress = ({
                 )}
               </Typography>
 
-              <ControlledTextInput {...getFieldProps("firstLine")} />
-              <ControlledTextInput {...getFieldProps("secondLine")} />
-              <ControlledTextInput {...getFieldProps("town")} />
+              <ControlledTextInput
+                {...getFieldProps("firstLine")}
+                autoComplete="off"
+              />
+              <ControlledTextInput
+                {...getFieldProps("secondLine")}
+                autoComplete="off"
+              />
+              <ControlledTextInput
+                {...getFieldProps("town")}
+                autoComplete="off"
+              />
               <ControlledTextInput
                 {...getFieldProps("region")}
                 // the Grid below (with more trading address details) is separate in order to get the horizontal spacing right
                 // unfortunately the additional grid causes the vertical spacing to be 2x what is needed
                 // so we are resetting the bottom padding, so that it looks like a single grid
                 style={{ marginBottom: 12 }}
+                autoComplete="off"
               />
             </Grid>
           </Grid>
 
           <Grid container xs={12} spacing={3}>
             <Grid item xs={12} lg={6}>
-              <ControlledTextInput {...getFieldProps("country")} />
+              <ControlledTextInput
+                {...getFieldProps("country")}
+                autoComplete="off"
+              />
             </Grid>
 
             <Grid item xs={12} lg={6}>
-              <ControlledTextInput {...getFieldProps("postcode")} />
+              <ControlledTextInput
+                {...getFieldProps("postcode")}
+                autoComplete="off"
+              />
             </Grid>
           </Grid>
         </>

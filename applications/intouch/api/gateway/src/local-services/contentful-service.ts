@@ -1,4 +1,4 @@
-import { fetch } from "cross-fetch";
+import axios from "axios";
 import { GraphQLSchema, print } from "graphql";
 import { wrapSchema, introspectSchema } from "@graphql-tools/wrap";
 import { AsyncExecutor, ExecutionParams } from "@graphql-tools/delegate";
@@ -33,18 +33,18 @@ const executor: AsyncExecutor = async ({
     env
   } = parsedContentfulConfigs[`${market}`];
 
-  const fetchResult = await fetch(
-    `${CONTENTFUL_API_HOST}/spaces/${space}/environments/${env}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-      body: JSON.stringify({ query, variables })
-    }
-  );
-  return fetchResult.json();
+  const { data } = await axios({
+    url: `${CONTENTFUL_API_HOST}/spaces/${space}/environments/${env}`,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    data: { query, variables },
+    timeout: 3000
+  });
+
+  return data;
 };
 
 export default async (): Promise<GraphQLSchema> => {

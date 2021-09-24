@@ -5,7 +5,9 @@
   flex-direction: column;
   margin: 0;
   padding: 20px 0;
+}
 
+.desktop {
   @media (max-width: $breakpoint-md) {
     display: none;
   }
