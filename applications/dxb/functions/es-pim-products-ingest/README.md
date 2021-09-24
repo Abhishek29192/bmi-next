@@ -11,4 +11,71 @@ You can run the function locally using:
 $ yarn dev
 ```
 
+## Running Elastic Search Locally
+
+Assuming you have [docker running on your desktop] (https://www.docker.com/products/docker-desktop)
+
+## You can run local, Elastic Search instance and index documents locally as follows :
+
+```shell
+$ docker compose up
+```
+
+Above command will use the `docker-compose.yml` and instantiate a new 'Elastic Search' instance and will be reachable at 'http://localhost:9200' and its 'Kibana' tools can be accessible at 'http://localhost:5601/app/kibana#/home'
+
+you will need to update `.env.yml` with following two settings
+
+- `ES_CLOUD_ID: "http://localhost:9200"`,
+- `USE_LOCAL_ES: "true"`
+
+This is to configure this gcp function to find elastic search instance at the above URL and to bypass security handshake.
+
+after these settings are then run `yarn dev` in a new console instance.
+
+Once this gcp function is running in dev mode it will be listening to `http://localhost:8080` and you can post PIM data json in following format
+
+```
+{
+    "data": {
+        "data": {
+            "type": "UPDATED",
+            "itemType": "itemType",
+            "items": [
+                {
+                    "approvalStatus": "approved",
+                    "assets": []
+                }
+            ]
+        }
+    }
+}
+
+```
+
+## To view your indexes in local kibana instance you can run
+
+```
+GET /_cat/indices
+```
+
+## To search for documents in a given index you can run
+
+```
+GET /{YOUR_IINDEX_NAME}/_search?pretty
+```
+
+```
+GET /dxb_no_itemtype/_search?pretty
+```
+
+## To delete index, you can run
+
+```
+DELETE /{YOUR_INDEX_NAME}
+```
+
+```
+DELETE /dxb_no_itemtype
+```
+
 > Notes WIP, see root README for now
