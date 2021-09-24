@@ -3,7 +3,6 @@ import { GraphQLSchema, print } from "graphql";
 import { wrapSchema, introspectSchema } from "@graphql-tools/wrap";
 import { AsyncExecutor, ExecutionParams } from "@graphql-tools/delegate";
 import { transformSchemaFederation } from "graphql-transform-federation";
-
 import { getSecret } from "../utils/secrets";
 
 const { CONTENTFUL_API_HOST, CONTENTFUL_SPACE_ID, GCP_SECRET_PROJECT } =

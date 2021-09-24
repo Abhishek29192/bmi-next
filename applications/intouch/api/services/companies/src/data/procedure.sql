@@ -24,15 +24,23 @@ STABLE;
 CREATE OR REPLACE FUNCTION current_market ()
   RETURNS int
   AS $$
-  SELECT
-    market_id
-  FROM
-    account
-  WHERE
-    id = current_account_id ();
+DECLARE
+  _market_id int;
+  _account account % rowtype;
+BEGIN
+  
+  SELECT * INTO _account FROM account WHERE id = current_account_id ();
 
+  IF _account.role = 'SUPER_ADMIN' THEN
+    SELECT nullif (current_setting('app.current_market', TRUE), '')::int INTO _market_id;
+    return _market_id;
+  ELSE
+    RETURN _account.market_id;
+  END IF;
+
+END
 $$
-LANGUAGE sql
+LANGUAGE 'plpgsql'
 STABLE
 SECURITY DEFINER;
 

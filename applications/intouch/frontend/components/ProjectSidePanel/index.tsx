@@ -185,7 +185,7 @@ export const ProjectSidePanel = ({
             : guaranteeFilter(guarantees.nodes, filterSelection));
 
         const data = isPowerfulUser
-          ? [name, company.name]
+          ? [name, company?.name]
           : [
               name,
               siteAddress.town,

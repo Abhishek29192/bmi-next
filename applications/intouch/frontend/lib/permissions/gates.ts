@@ -20,16 +20,16 @@ const isCompanyMember = (
 };
 
 const canSeeProjects = (account) => {
+  if ([ROLES.SUPER_ADMIN].includes(account?.role)) {
+    return true;
+  }
+
   // Market config takes precedence as a feature flag effectively
   if (!account?.market?.projectsEnabled) {
     return false;
   }
 
-  if (
-    [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(
-      account?.role
-    )
-  ) {
+  if ([ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(account?.role)) {
     return true;
   }
 
