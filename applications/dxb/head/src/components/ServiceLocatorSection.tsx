@@ -390,14 +390,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setSelectedRoofer(service);
   };
 
-  const clearRooferAndResetMap = (selectedRoofer?) => {
+  const clearRooferAndResetMap = () => {
     setSelectedRoofer(null);
     setZoom(centre ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
     setCentre(centre || null);
     if (selectedRoofer) {
       pushToDataLayer({
         id: "cta-click1",
-        label: `${selectedRoofer?.name} - ${selectedRoofer.address} - ${selectedRoofer.certification} - ${selectedRoofer.entryType}`,
+        label: `${selectedRoofer.name} - ${selectedRoofer.address} - ${selectedRoofer.certification} - ${selectedRoofer.entryType} - close`,
         action: "href"
       });
     }
@@ -805,7 +805,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                           isIconButton
                           variant="text"
                           accessibilityLabel={getMicroCopy("global.close")}
-                          onClick={() => clearRooferAndResetMap(selectedRoofer)}
+                          onClick={clearRooferAndResetMap}
                           className={
                             styles["product-details-card__close-button"]
                           }
