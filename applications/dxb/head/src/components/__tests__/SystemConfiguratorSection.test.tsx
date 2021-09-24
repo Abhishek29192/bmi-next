@@ -738,6 +738,7 @@ describe("SystemConfiguratorSection component", () => {
     await findByText("Result Title");
     await findByText(pimSystems[0].name);
     await findByText(pimSystems[0].shortDescription);
+    await findByText("ijkl name");
 
     expect(container).toMatchSnapshot();
     expect(

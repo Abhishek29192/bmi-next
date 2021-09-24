@@ -3,7 +3,6 @@ import React, {
   useContext,
   useState,
   useEffect,
-  useMemo,
   createContext,
   ChangeEvent,
   useLayoutEffect
@@ -15,9 +14,7 @@ import ConfiguratorPanel from "@bmi/configurator-panel";
 import Section from "@bmi/section";
 import RadioPane from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
-import { Link as GatsbyLink } from "gatsby";
 import { useLocation, navigate } from "@reach/router";
-import { isEmpty, compact } from "lodash";
 import Button, { ButtonProps } from "@bmi/button";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { SystemCard, SystemCardProps } from "../components/RelatedSystems";
@@ -41,7 +38,7 @@ export type Data = {
   question: Partial<EntryData>;
   type: "Section";
   noResultItems: TitleWithContentData[];
-  pimSystems: Partial<SystemDetails>[] | null;
+  pimSystems: Partial<SystemDetails>[];
 };
 
 export type NextStepData = Partial<EntryData> | TitleWithContentData;
@@ -282,19 +279,19 @@ const SystemConfiguratorBlockResultSection = ({
     useState<Partial<SystemDetails>[]>([]);
 
   useEffect(() => {
-    const recommendedSystemPimObjects = recommendedSystems.map((systemId) => {
-      return pimSystems.find(({ code }) => code === systemId);
-    });
-    setRecommendedSystemPimObjects(
-      compact(recommendedSystemPimObjects.slice(0, maxDisplay))
-    );
-  }, [recommendedSystems]);
-
-  useEffect(() => {
+    const recommendedSystemPimObjects = recommendedSystems
+      .map((systemId) => {
+        return pimSystems.find(({ code }) => code === systemId);
+      })
+      .filter((object) => !!object);
     if (recommendedSystemPimObjects.length <= 0) {
       navigate("/404");
+    } else {
+      setRecommendedSystemPimObjects(
+        recommendedSystemPimObjects.slice(0, maxDisplay)
+      );
     }
-  }, [recommendedSystemPimObjects]);
+  }, [recommendedSystems]);
 
   return (
     <div ref={ref}>
@@ -308,8 +305,8 @@ const SystemConfiguratorBlockResultSection = ({
             <RichText document={description} />
           </div>
         )}
-        {!isEmpty(recommendedSystems) &&
-          !isEmpty(recommendedSystemPimObjects) &&
+        {recommendedSystems.length > 0 &&
+          recommendedSystemPimObjects.length > 0 &&
           recommendedSystemPimObjects.map((system, id) => {
             return (
               <Grid container spacing={3} key={`${system.code}-${id}`}>
