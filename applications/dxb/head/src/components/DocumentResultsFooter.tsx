@@ -6,7 +6,8 @@ import { flatten } from "lodash";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useMediaQuery } from "@material-ui/core";
-import { downloadAs } from "../utils/client-download";
+import { useTheme } from "@material-ui/core/styles";
+import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
   generateFileNamebyTitle,
@@ -68,7 +69,7 @@ export const handleDownloadClick = async (
         return {
           href:
             __typename === "ContentfulDocument"
-              ? `https:${asset.file.url.replace(/https?:/, "")}`
+              ? getDownloadLink(asset.file.url)
               : url,
           name:
             __typename === "ContentfulDocument"
@@ -108,7 +109,8 @@ const DocumentResultsFooter = ({
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const isMobile = useMediaQuery("(max-width:840px)");
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <div className={styles["DocumentResultsFooter"]}>

@@ -56,43 +56,4 @@
       content: "";
     }
   }
-
-  .list-item {
-    padding: 20px 0;
-    position: relative;
-    &:nth-child(2n + 1)::before {
-      content: "";
-      display: block;
-      position: absolute;
-      left: -20px;
-      right: -20px;
-      bottom: 0;
-      top: 0;
-      background-color: $color-pearl;
-    }
-  }
-  .document-title {
-    line-height: 31px;
-    color: $color-slate;
-    padding-top: 5px;
-  }
-  .document-type {
-    color: $color-slate;
-    line-height: 19px;
-  }
-  .list-title-row {
-    display: flex;
-    margin-bottom: 12px;
-    position: relative;
-  }
-  .list-download-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  }
-  .list-icon {
-    margin-right: 12px;
-    display: flex;
-  }
 }

@@ -8,6 +8,7 @@ import filesize from "filesize";
 import { get } from "lodash";
 import React, { useContext } from "react";
 import { useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import withGTM from "../utils/google-tag-manager";
 
 import {
@@ -15,6 +16,7 @@ import {
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
+import { getDownloadLink } from "../utils/client-download";
 import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
@@ -82,7 +84,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
       gtm={{ id: "download1", label: "Download", action: url }}
       action={{
         model: "download",
-        href: `https:${url.replace(/https?:/, "")}`
+        href: getDownloadLink(url)
       }}
       variant="text"
       startIcon={
@@ -116,7 +118,8 @@ const DocumentSimpleTableResults = ({
   headers = ["typeCode", "title", "download", "add"]
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
-  const isMobile = useMediaQuery("(max-width:840px)");
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.up("lg"));
   const { list } = useContext(DownloadListContext);
   const paginatedDocuments = documents.slice(
     (page - 1) * documentsPerPage,

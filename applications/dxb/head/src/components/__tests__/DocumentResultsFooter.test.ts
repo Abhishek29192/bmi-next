@@ -1,10 +1,19 @@
 import axios from "axios";
+import MockDate from "mockdate";
 import { handleDownloadClick } from "../DocumentResultsFooter";
 import createContentfulDocument from "../../__tests__/ContentfulDocumentHelper";
-import { downloadAs } from "../../utils/client-download";
+import * as ClientDownloadUtils from "../../utils/client-download";
 
 jest.mock("axios");
-jest.mock("../../utils/client-download");
+
+// Needed to mock only one method of module
+jest.spyOn(ClientDownloadUtils, "downloadAs").mockImplementation();
+
+jest.spyOn(Date.prototype, "getDate").mockReturnValue(0);
+
+const TEST_DATE = new Date(0);
+
+MockDate.set(TEST_DATE);
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -20,7 +29,6 @@ describe("DocumentResultsFooter component", () => {
   beforeEach(() => {
     jest.resetModules();
     jest.resetAllMocks();
-    process.env = { ...ENV };
   });
 
   afterAll(() => {
@@ -40,23 +48,27 @@ describe("DocumentResultsFooter component", () => {
       {
         documents: [
           {
-            href: "https://doesnot-exist.com/fileName",
+            href: "http://doesnot-exist.com/fileName",
             name: "contentful-document-title.fileName"
           },
           {
-            href: "https://doesnot-exist.com/fileName",
+            href: "http://doesnot-exist.com/fileName",
             name: "contentful-document-title.fileName"
           }
         ]
       },
       { headers: { "X-Recaptcha-Token": "token" }, responseType: "text" }
     );
+    expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledWith(
+      "url",
+      "BMI_19700101000000.zip"
+    );
     expect(resetList).toHaveBeenCalledTimes(1);
   });
 
   it("should not download empty list", async () => {
     await handleDownloadClick({}, token, resetList);
-    expect(downloadAs).toHaveBeenCalledTimes(0);
+    expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
   });
 
   it("should prevent download on GATSBY_PREVIEW", async () => {
@@ -66,7 +78,7 @@ describe("DocumentResultsFooter component", () => {
 
     await handleDownloadClick(list, token, resetList);
 
-    expect(downloadAs).toHaveBeenCalledTimes(0);
+    expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
     expect(window.alert).toHaveBeenCalledWith(
       "You cannot download documents on the preview enviornment."
     );

@@ -2,7 +2,7 @@
 
 exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
 <div
-  class="DocumentSimpleTableResults"
+  class="DocumentSimpleTableResultsMobile DocumentSimpleTableResults"
 >
   <div
     class="list-item"
@@ -35,7 +35,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
         aria-disabled="false"
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
-        href="https://doesnot-exist.com/fileName"
+        href="http://doesnot-exist.com/fileName"
         rel="noopener noreferrer"
         tabindex="0"
         target="_blank"

@@ -4,9 +4,12 @@ import Typography from "@bmi/typography";
 import { GetApp } from "@material-ui/icons";
 import filesize from "filesize";
 import React from "react";
+import classnames from "classnames";
 import withGTM from "../utils/google-tag-manager";
+import { getDownloadLink } from "../utils/client-download";
 import { Document, mapAssetToFileDownload } from "./DocumentSimpleTableResults";
 import fileIconsMap from "./FileIconsMap";
+import stylesMobile from "./styles/DocumentSimpleTableResultsMobile.module.scss";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
 type ListProps = {
@@ -25,12 +28,12 @@ export const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
     const asset =
       document.__typename !== "PIMLinkDocument"
         ? mapAssetToFileDownload(document)
-        : null;
+        : undefined;
 
     return (
-      <div key={document.id} className={styles["list-item"]}>
-        <div className={styles["list-title-row"]}>
-          <div className={styles["list-icon"]}>
+      <div key={document.id} className={stylesMobile["list-item"]}>
+        <div className={stylesMobile["list-title-row"]}>
+          <div className={stylesMobile["list-icon"]}>
             {document.__typename !== "PIMLinkDocument" ? (
               <Icon
                 source={fileIconsMap[asset.format]}
@@ -43,12 +46,12 @@ export const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
               />
             )}
           </div>
-          <Typography className={styles["document-title"]}>
+          <Typography className={stylesMobile["document-title"]}>
             {document.title}
           </Typography>
         </div>
-        <div className={styles["list-download-row"]}>
-          <Typography className={styles["document-type"]}>
+        <div className={stylesMobile["list-download-row"]}>
+          <Typography className={stylesMobile["document-type"]}>
             {document.assetType.name}
           </Typography>
           {document.__typename !== "PIMLinkDocument" ? (
@@ -62,7 +65,7 @@ export const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
               endIcon={<GetApp />}
               action={{
                 model: "download",
-                href: `https:${asset.url.replace(/https?:/, "")}`
+                href: getDownloadLink(asset.url)
               }}
             >
               {filesize(asset.size)}
@@ -80,7 +83,7 @@ export const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
             >
               <Icon
                 source={iconMap.External}
-                className={styles["external-link-icon"]}
+                className={stylesMobile["external-link-icon"]}
               />
             </Button>
           )}
@@ -89,5 +92,14 @@ export const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
     );
   });
 
-  return <div className={styles["DocumentSimpleTableResults"]}>{list}</div>;
+  return (
+    <div
+      className={classnames(
+        stylesMobile["DocumentSimpleTableResultsMobile"],
+        styles["DocumentSimpleTableResults"]
+      )}
+    >
+      {list}
+    </div>
+  );
 };
