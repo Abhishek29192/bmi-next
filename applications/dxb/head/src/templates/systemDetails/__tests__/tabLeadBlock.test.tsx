@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import Component from "../tabLeadBlock";
-import dataJson from "../../../data/pim-mock-data.json";
+import dataJson from "../../../data/systems/pim-mock-data.json";
 import "@testing-library/jest-dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { Classification, DocumentData } from "../types";

@@ -174,7 +174,7 @@ const RelatedSystems = ({
 export default RelatedSystems;
 
 export const query = graphql`
-  fragment RelatedSystemsFragment on DataJson {
+  fragment RelatedSystemsFragment on Systems {
     name
     shortDescription
     longDescription

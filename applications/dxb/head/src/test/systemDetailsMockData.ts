@@ -1,4 +1,4 @@
-import dataJson from "../data/pim-mock-data.json";
+import dataJson from "../data/systems/pim-mock-data.json";
 import type { SystemDetails } from "../templates/systemDetails/types";
 
 export const systemDetailsMockData = {

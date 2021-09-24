@@ -356,7 +356,7 @@ export const systemsQuery = graphql`
       }
     }
 
-    relatedSystems: allDataJson(filter: { code: { in: $relatedSystemCodes } }) {
+    relatedSystems: allSystems(filter: { code: { in: $relatedSystemCodes } }) {
       nodes {
         ...RelatedSystemsFragment
       }

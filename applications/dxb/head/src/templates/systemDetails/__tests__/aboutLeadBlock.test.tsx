@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import AboutLeadBlock from "../aboutLeadBlock";
-import dataJson from "../../../data/pim-mock-data.json";
+import dataJson from "../../../data/systems/pim-mock-data.json";
 import "@testing-library/jest-dom";
 import { Assets, Feature } from "../types";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
