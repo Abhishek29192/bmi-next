@@ -21,7 +21,7 @@ beforeAll(() => {
 beforeEach(() => {
   jest.resetAllMocks();
 
-  process.env.BRANCH = "master";
+  process.env.BRANCH = "pre-production";
   process.env.INCOMING_HOOK_BODY = JSON.stringify({
     event_name: "tag_push",
     ref: "refs/tags/v1.0.0-alpha.1"
@@ -48,6 +48,48 @@ describe("onPreBuild", () => {
   });
 
   it("should return if not pre-production or production branch", () => {
+    process.env.BRANCH = "master";
+
+    index.onPreBuild(mockMethods);
+
+    expect(mockCancelBuild).toBeCalledTimes(0);
+    expect(mockFailBuild).toBeCalledTimes(0);
+  });
+
+  it("should return if pre-production branch and INCOMING_HOOK_TITLE is Contentful integration", () => {
+    process.env.BRANCH = "pre-production";
+    process.env.INCOMING_HOOK_TITLE = "Contentful integration";
+
+    index.onPreBuild(mockMethods);
+
+    expect(mockCancelBuild).toBeCalledTimes(0);
+    expect(mockFailBuild).toBeCalledTimes(0);
+  });
+
+  it("should return if production branch and INCOMING_HOOK_TITLE is Contentful integration", () => {
+    process.env.BRANCH = "production";
+    process.env.INCOMING_HOOK_TITLE = "Contentful integration";
+
+    index.onPreBuild(mockMethods);
+
+    expect(mockCancelBuild).toBeCalledTimes(0);
+    expect(mockFailBuild).toBeCalledTimes(0);
+  });
+
+  it("should return if pre-production branch and INCOMING_HOOK_TITLE is Clean cache", () => {
+    process.env.BRANCH = "pre-production";
+    process.env.INCOMING_HOOK_TITLE = "Clean cache";
+
+    index.onPreBuild(mockMethods);
+
+    expect(mockCancelBuild).toBeCalledTimes(0);
+    expect(mockFailBuild).toBeCalledTimes(0);
+  });
+
+  it("should return if production branch and INCOMING_HOOK_TITLE is Clean cache", () => {
+    process.env.BRANCH = "production";
+    process.env.INCOMING_HOOK_TITLE = "Clean cache";
+
     index.onPreBuild(mockMethods);
 
     expect(mockCancelBuild).toBeCalledTimes(0);

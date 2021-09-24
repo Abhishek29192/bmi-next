@@ -1,7 +1,9 @@
 "use strict";
 
-const PRODUCTION_BRANCH = "production";
-const PRE_PRODUCTION_BRANCH = "pre-production";
+const productionBranch = "production";
+const preProductionBranch = "pre-production";
+const hooksToAllow = ["Contentful integration", "Clean cache"];
+const branchesToCheck = [productionBranch, preProductionBranch];
 
 // NOTE: https://github.com/semver/semver/issues/232#issuecomment-405596809
 const semVerRegex =
@@ -21,7 +23,8 @@ module.exports = {
     );
 
     if (
-      ![PRODUCTION_BRANCH, PRE_PRODUCTION_BRANCH].includes(BRANCH) ||
+      hooksToAllow.includes(INCOMING_HOOK_TITLE) ||
+      !branchesToCheck.includes(BRANCH) ||
       DXB_FORCE_NETLIFY_BUILD === "true"
     ) {
       return;
@@ -49,15 +52,15 @@ module.exports = {
 
     const semver = tag.match(semVerRegex).groups;
 
-    if (BRANCH === PRE_PRODUCTION_BRANCH && !semver.prerelease) {
+    if (BRANCH === preProductionBranch && !semver.prerelease) {
       return utils.build.cancelBuild(
-        `Skip build for tag event (tag: ${tag}) on ${BRANCH} as it is intended for ${PRODUCTION_BRANCH} only.`
+        `Skip build for tag event (tag: ${tag}) on ${BRANCH} as it is intended for ${productionBranch} only.`
       );
     }
 
-    if (BRANCH === PRODUCTION_BRANCH && semver.prerelease) {
+    if (BRANCH === productionBranch && semver.prerelease) {
       return utils.build.cancelBuild(
-        `Skip build for tag event (tag: ${tag}) on ${BRANCH} as it is intended for ${PRE_PRODUCTION_BRANCH} only.`
+        `Skip build for tag event (tag: ${tag}) on ${BRANCH} as it is intended for ${preProductionBranch} only.`
       );
     }
   }
