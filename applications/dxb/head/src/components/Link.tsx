@@ -15,6 +15,7 @@ import { SectionData, sectionsMap } from "./Sections";
 import { useSiteContext } from "./Site";
 import styles from "./styles/Link.module.scss";
 import { VisualiserContext } from "./Visualiser";
+import { Service } from "./ServiceLocatorSection";
 
 const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
@@ -38,8 +39,19 @@ export const getClickableActionFromUrl = (
   assetUrl?: string,
   label?: string,
   type?: Data["type"],
-  onClick?: (...args: any) => void
+  onClick?: (...args: any) => void,
+  service?: Service
 ): ClickableAction | undefined => {
+  const serviceDataGTM = service
+    ? {
+        id: "cta-click1",
+        label: `${service.name} - ${service.address}${
+          service.certification ? " - " + service.certification : ""
+        } - ${service.entryType}${url ? " - " + url : ""}`,
+        action: "href"
+      }
+    : null;
+
   if (type === "Visualiser") {
     const dataGtm = { id: "cta-visualiser1", action: "visualiser", label };
 
@@ -69,8 +81,7 @@ export const getClickableActionFromUrl = (
   }
 
   if (type === "Dialog") {
-    const dataGtm = { id: "cta-click1", action: type, label };
-
+    const dataGtm = serviceDataGTM || { id: "cta-click1", action: type, label };
     return {
       model: "default",
       onClick: (...args) => {
@@ -83,8 +94,11 @@ export const getClickableActionFromUrl = (
   }
 
   if (assetUrl) {
-    const dataGtm = { id: "cta-click1", action: assetUrl, label };
-
+    const dataGtm = serviceDataGTM || {
+      id: "cta-click1",
+      action: assetUrl,
+      label
+    };
     return {
       model: "download",
       href: assetUrl,
@@ -103,7 +117,7 @@ export const getClickableActionFromUrl = (
       /\/+/gi,
       "/"
     );
-    const dataGtm = { id: "cta-click1", action: to, label };
+    const dataGtm = serviceDataGTM || { id: "cta-click1", action: to, label };
 
     return {
       model: "routerLink",
@@ -121,7 +135,7 @@ export const getClickableActionFromUrl = (
       target: "_blank",
       rel: "noopener noreferrer"
     };
-    const dataGtm = { id: "cta-click1", action: url, label };
+    const dataGtm = serviceDataGTM || { id: "cta-click1", action: url, label };
 
     return {
       model: "htmlLink",

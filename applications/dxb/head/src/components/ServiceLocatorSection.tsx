@@ -397,7 +397,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     if (selectedRoofer) {
       pushToDataLayer({
         id: "cta-click1",
-        label: `${selectedRoofer.name} - ${selectedRoofer.address} - ${selectedRoofer.certification} - ${selectedRoofer.entryType} - close`,
+        label: `${selectedRoofer.name} - ${selectedRoofer.address} ${
+          selectedRoofer.certification
+            ? "- " + selectedRoofer.certification
+            : ""
+        } - ${selectedRoofer.entryType} - close`,
         action: "href"
       });
     }
@@ -452,7 +456,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         )}/`,
         countryCode,
         null,
-        getMicroCopy("findARoofer.getDirectionsLabel")
+        getMicroCopy("findARoofer.getDirectionsLabel"),
+        null,
+        null,
+        service
       ),
       label: getMicroCopy("findARoofer.getDirectionsLabel")
     };
@@ -467,7 +474,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             `tel:${service.phone}`,
             countryCode,
             null,
-            getMicroCopy("global.telephone")
+            getMicroCopy("global.telephone"),
+            null,
+            null,
+            service
           ),
           label: getMicroCopy("global.telephone")
         }
@@ -483,7 +493,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             `mailto:${service.email}`,
             countryCode,
             null,
-            getMicroCopy("global.email")
+            getMicroCopy("global.email"),
+            null,
+            null,
+            service
           ),
           label: getMicroCopy("global.email")
         }
@@ -503,7 +516,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             null,
             shouldShowWebsiteLinkAsLabel
               ? getMicroCopy("global.website")
-              : getMicroCopy("findARoofer.websiteLabel")
+              : getMicroCopy("findARoofer.websiteLabel"),
+            null,
+            null,
+            service
           ),
           label: shouldShowWebsiteLinkAsLabel
             ? getMicroCopy("global.website")
@@ -733,7 +749,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     title={service.name}
                     gtm={{
                       id: "cta-click1",
-                      label: `${service.name} - ${service.address} - ${service.certification} - ${service.entryType}`,
+                      label: `${service.name} - ${service.address} ${
+                        service.certification
+                          ? "- " + service.certification
+                          : ""
+                      } - ${service.entryType}`,
                       action: "href"
                     }}
                     subtitle={
