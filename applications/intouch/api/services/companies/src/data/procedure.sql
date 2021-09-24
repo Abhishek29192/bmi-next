@@ -156,7 +156,7 @@ BEGIN
   WHERE
     id = current_account_id ();
   INSERT INTO company ("market_id", "owner_fullname", "owner_email", "owner_phone", "business_type", "tier", "status", "name", "tax_number", "phone", "about_us", "public_email", "website", "facebook", "linked_in")
-    VALUES (current_market (), owner_fullname, owner_email, owner_phone, business_type, tier, status, NULL, tax_number, phone, about_us, public_email, website, facebook, linked_in)
+    VALUES (current_market (), owner_fullname, owner_email, owner_phone, business_type, tier, status, name, tax_number, phone, about_us, public_email, website, facebook, linked_in)
   RETURNING
     * INTO _company;
   INSERT INTO company_member ("account_id", "market_id", "company_id")

@@ -59,6 +59,8 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
       "app.current_account_id": user?.id,
       "app.current_account_email": user?.email,
       role: role.toLocaleLowerCase(),
+      // If we are super admin we don't have a market in the account table so
+      // we need to pass the current market in order to retrieve only the right data
       ...(role === "SUPER_ADMIN" && { "app.current_market": user?.marketId })
     };
   }

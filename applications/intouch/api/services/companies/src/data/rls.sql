@@ -3,7 +3,7 @@ DROP POLICY IF EXISTS policy_super_admin ON market;
 DROP POLICY IF EXISTS policy_market_admin ON market;
 DROP POLICY IF EXISTS policy_company_admin ON market;
 DROP POLICY IF EXISTS policy_installer ON market;
-CREATE POLICY policy_super_admin ON market FOR ALL TO super_admin USING (current_market() = id) WITH CHECK (current_market() = id);
+CREATE POLICY policy_super_admin ON market FOR ALL TO super_admin USING (true) WITH CHECK (true);
 CREATE POLICY policy_market_admin ON market FOR ALL TO market_admin USING (current_market() = id) WITH CHECK (current_market() = id);
 CREATE POLICY policy_company_admin ON market FOR SELECT TO company_admin USING (current_market() = id);
 CREATE POLICY policy_installer ON market FOR SELECT TO installer USING (current_market() = id);
@@ -39,7 +39,7 @@ DROP POLICY IF EXISTS policy_company_admin ON company;
 DROP POLICY IF EXISTS policy_installer ON company;
 CREATE POLICY policy_super_admin ON company FOR ALL TO super_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
 CREATE POLICY policy_market_admin ON company FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
-CREATE POLICY policy_company_admin ON company FOR ALL TO company_admin USING (current_company() = id) WITH CHECK(true);
+CREATE POLICY policy_company_admin ON company FOR ALL TO company_admin USING (current_company() = id) WITH CHECK(false);
 CREATE POLICY policy_installer ON company FOR ALL TO installer USING (
   current_company() = id OR id IN (SELECT * FROM invited_by_companies())
 ) WITH CHECK(true);
@@ -198,7 +198,7 @@ DROP POLICY IF EXISTS policy_super_admin ON notification;
 DROP POLICY IF EXISTS policy_market_admin ON notification;
 DROP POLICY IF EXISTS policy_company_admin ON notification;
 DROP POLICY IF EXISTS policy_installer ON notification;
-CREATE POLICY policy_super_admin ON notification FOR ALL TO super_admin USING (current_account_id() = account_id);
+CREATE POLICY policy_super_admin ON notification FOR ALL TO super_admin USING (current_market() = (SELECT market_id FROM account WHERE account.id = account_id));
 CREATE POLICY policy_market_admin ON notification FOR ALL TO market_admin USING (current_account_id() = account_id);
 CREATE POLICY policy_company_admin ON notification FOR ALL TO company_admin USING (current_account_id() = account_id);
 CREATE POLICY policy_installer ON notification FOR ALL TO installer USING (current_account_id() = account_id);
