@@ -450,6 +450,11 @@ type Course {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -480,7 +485,6 @@ type Course {
   description: String
   createdAt: Datetime!
   updatedAt: Datetime!
-  slug: String
 
   """
   Reads and enables pagination through a set of `CourseCatalogue`.
@@ -1199,6 +1203,11 @@ type CourseTemp {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -1229,7 +1238,6 @@ type CourseTemp {
   description: String
   createdAt: Datetime!
   updatedAt: Datetime!
-  slug: String
 }
 
 """
@@ -1868,6 +1876,11 @@ input CourseInput {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -1898,7 +1911,6 @@ input CourseInput {
   description: String
   createdAt: Datetime
   updatedAt: Datetime
-  slug: String
 }
 
 """
@@ -2338,6 +2350,11 @@ input CourseTempInput {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -2368,7 +2385,6 @@ input CourseTempInput {
   description: String
   createdAt: Datetime
   updatedAt: Datetime
-  slug: String
 }
 
 """
@@ -2438,6 +2454,11 @@ input CoursePatch {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -2468,7 +2489,6 @@ input CoursePatch {
   description: String
   createdAt: Datetime
   updatedAt: Datetime
-  slug: String
 }
 
 """
@@ -3158,6 +3178,11 @@ input CourseTempPatch {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -3188,7 +3213,6 @@ input CourseTempPatch {
   description: String
   createdAt: Datetime
   updatedAt: Datetime
-  slug: String
 }
 
 """

@@ -1351,12 +1351,12 @@ type Account implements Node {
   """
   First name
   """
-  firstName: String!
+  firstName: String
 
   """
   Last name
   """
-  lastName: String!
+  lastName: String
 
   """
   When the account was created
@@ -3781,12 +3781,13 @@ type Guarantee implements Node {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -12724,12 +12725,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -13045,12 +13047,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -14118,12 +14121,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -15107,12 +15111,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -15390,12 +15395,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -18801,12 +18807,13 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -18914,12 +18921,13 @@ input GuaranteePatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -18997,12 +19005,13 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -19204,12 +19213,13 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -20931,12 +20941,13 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -21545,12 +21556,13 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -22086,12 +22098,13 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -22239,12 +22252,13 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -24386,12 +24400,13 @@ input GuaranteeInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -28583,12 +28598,12 @@ input AccountInput {
   """
   First name
   """
-  firstName: String!
+  firstName: String
 
   """
   Last name
   """
-  lastName: String!
+  lastName: String
 
   """
   When the account was created
