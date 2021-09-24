@@ -32,6 +32,7 @@ import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { camelCase, intersectionWith } from "lodash";
 import { devLog } from "../utils/devLog";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import {
@@ -389,10 +390,17 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setSelectedRoofer(service);
   };
 
-  const clearRooferAndResetMap = () => {
+  const clearRooferAndResetMap = (selectedRoofer?) => {
     setSelectedRoofer(null);
     setZoom(centre ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
     setCentre(centre || null);
+    if (selectedRoofer) {
+      pushToDataLayer({
+        id: "cta-click1",
+        label: `${selectedRoofer?.name} - ${selectedRoofer.address} - ${selectedRoofer.certification} - ${selectedRoofer.entryType}`,
+        action: "href"
+      });
+    }
   };
 
   const getCompanyDetails = (
@@ -597,6 +605,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   };
 
   const microcopyPrefix = getMicroCopyPrefix(sectionType);
+  const GTMIntegratedLinkCard = withGTM<LinkCardProps>(IntegratedLinkCard);
 
   return (
     <Section
@@ -716,12 +725,17 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             <div className={styles["list"]}>
               {filteredRoofers.length ? (
                 filteredRoofers.map((service) => (
-                  <IntegratedLinkCard
+                  <GTMIntegratedLinkCard
                     key={service.id}
                     onClick={() => handleListClick(service)}
                     onCloseClick={clearRooferAndResetMap}
                     isOpen={selectedRoofer && selectedRoofer.id === service.id}
                     title={service.name}
+                    gtm={{
+                      id: "cta-click1",
+                      label: `${service.name} - ${service.address} - ${service.certification} - ${service.entryType}`,
+                      action: "href"
+                    }}
                     subtitle={
                       <>
                         {service.address}
@@ -744,7 +758,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     <CompanyDetails details={getCompanyDetails(service, true)}>
                       <Typography>{service.summary}</Typography>
                     </CompanyDetails>
-                  </IntegratedLinkCard>
+                  </GTMIntegratedLinkCard>
                 ))
               ) : (
                 <div className={styles["no-results"]}>
@@ -791,7 +805,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                           isIconButton
                           variant="text"
                           accessibilityLabel={getMicroCopy("global.close")}
-                          onClick={clearRooferAndResetMap}
+                          onClick={() => clearRooferAndResetMap(selectedRoofer)}
                           className={
                             styles["product-details-card__close-button"]
                           }
