@@ -1552,6 +1552,9 @@ type ContentfulService implements Node {
   "The type of this service."
   type: [String]
 
+  "The type of this branch."
+  branchType: [String]
+
   "The certification level of this service."
   certification: String
 
