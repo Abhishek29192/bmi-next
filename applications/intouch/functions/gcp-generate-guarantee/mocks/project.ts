@@ -1,4 +1,4 @@
-import { Project } from "@bmi-digital/intouch-api-types";
+import { Project } from "@bmi/intouch-api-types";
 import { mockSiteAddress } from "./address";
 import { mockCompany } from "./company";
 import { emptyNodes } from "./utils/graphileNodes";
@@ -15,6 +15,7 @@ export const mockProject: Project = {
   guarantees: emptyNodes,
   projectMembers: emptyNodes,
   notes: emptyNodes,
+  evidenceItems: emptyNodes,
   buildingOwnerFirstname: "Herion",
   buildingOwnerLastname: "Buildmaster",
   buildingOwnerMail: "umit@digital-detox.co.uk",

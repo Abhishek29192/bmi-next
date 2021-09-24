@@ -1,4 +1,4 @@
-import { Product } from "@bmi-digital/intouch-api-types";
+import { Product } from "@bmi/intouch-api-types";
 import { emptyNodes } from "./utils/graphileNodes";
 
 export const mockProduct: Product = {

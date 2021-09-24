@@ -1,4 +1,4 @@
-import { Guarantee } from "@bmi-digital/intouch-api-types";
+import { Guarantee } from "@bmi/intouch-api-types";
 import { mockGuaranteeType } from "./guaranteeType";
 import { mockProduct } from "./product";
 import { mockProject } from "./project";
@@ -12,6 +12,7 @@ export const mockGuarantee: Guarantee = {
   projectId: 1,
   systemBmiRef: null,
   reviewerAccountId: null,
+  guaranteeReferenceCode: null,
   guaranteeType: mockGuaranteeType,
   project: mockProject,
   startDate: "2020-12-18T12:00:00",

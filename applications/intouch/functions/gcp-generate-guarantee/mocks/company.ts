@@ -1,4 +1,4 @@
-import { Company } from "@bmi-digital/intouch-api-types";
+import { Company } from "@bmi/intouch-api-types";
 import { mockCompanyAddress } from "./address";
 import { mockProject } from "./project";
 import { emptyNodes, singlePageInfo } from "./utils/graphileNodes";
@@ -7,7 +7,7 @@ export const mockCompany: Company = {
   id: 2,
   nodeId: "",
   name: "Lehner-Gislason",
-  referenceNumber: "64772300",
+  referenceNumber: 64772300,
   createdAt: "",
   updatedAt: "",
   companyDocuments: emptyNodes,
@@ -16,6 +16,8 @@ export const mockCompany: Company = {
   registeredAddress: mockCompanyAddress,
   companyOperationsByCompany: null,
   invitations: null,
+  certifications: null,
+  isProfileComplete: true,
   projects: {
     nodes: [mockProject],
     edges: [],

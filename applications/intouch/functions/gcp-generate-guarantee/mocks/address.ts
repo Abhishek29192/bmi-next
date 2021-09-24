@@ -1,4 +1,4 @@
-import { Address } from "@bmi-digital/intouch-api-types";
+import { Address } from "@bmi/intouch-api-types";
 import { emptyNodes } from "./utils/graphileNodes";
 
 const mockAddressBoilerplate = {

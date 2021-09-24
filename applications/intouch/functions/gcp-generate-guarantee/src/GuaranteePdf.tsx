@@ -5,7 +5,7 @@ import {
   Guarantee,
   ContentfulGuaranteeTemplate,
   ContentfulGuaranteeType
-} from "@bmi-digital/intouch-api-types";
+} from "@bmi/intouch-api-types";
 import { vfs } from "./vfs_fonts";
 import { PdfDocument } from "./components";
 import { buffer_encode, toArrayBuffer } from "./util/bufferUtil";

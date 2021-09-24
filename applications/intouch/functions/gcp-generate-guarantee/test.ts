@@ -38,5 +38,5 @@ export const sendMail = async () => {
 
 // uncomment any of these lines to try out the code
 // (async () => await pdfCreate())();
-// (async () => await sendMail())();
+(async () => await sendMail())();
 // (async () => await pdfUpload())();

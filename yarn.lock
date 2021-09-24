@@ -2317,11 +2317,6 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/template/-/template-1.0.0.tgz#bf8828bc3ae8004d97904d78f64e3cc2cd216438"
   integrity sha512-J6WGZqCLdRMHUkyRG6fBSIFJ0rL60/nsQNh5rQvsYZ5u0PsKw6XQcJcA3DWvd9cN3j/IQx5yB1fexhCafwwUUw==
 
-"@bmi-digital/intouch-api-types@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/intouch-api-types/-/intouch-api-types-0.0.1.tgz#dbcc4dc78317fd55737b38eb7aaf5c938b06aae6"
-  integrity sha512-Rkdqkz86jm6mPfubeIzbjanLjbA5qpYSBeesu74OeabYpwnKWAcF8PMNm/zXzt3+QqmBNlcWM23B7irBOwWwaA==
-
 "@bmi-digital/logger@0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.3.tgz#f3cfc723a26a167a15f1258266a550f3750aae38"

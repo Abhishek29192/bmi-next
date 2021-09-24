@@ -1,9 +1,6 @@
 import React from "react";
 import { Document, Img } from "@bmi-digital/react-pdf-maker";
-import {
-  ContentfulGuaranteeTemplate,
-  Guarantee
-} from "@bmi-digital/intouch-api-types";
+import { ContentfulGuaranteeTemplate, Guarantee } from "@bmi/intouch-api-types";
 import { Typography } from "./Typography";
 import { LessWidth } from "./LessWidth";
 

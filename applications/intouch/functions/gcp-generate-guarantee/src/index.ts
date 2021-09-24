@@ -1,6 +1,6 @@
 import { MailService } from "@sendgrid/mail";
 import { AttachmentData } from "@sendgrid/helpers/classes/attachment";
-import { Guarantee } from "@bmi-digital/intouch-api-types";
+import { Guarantee } from "@bmi/intouch-api-types";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import GuaranteePdfGenerator from "./GuaranteePdf";
 import StorageClient from "./storage-client";
