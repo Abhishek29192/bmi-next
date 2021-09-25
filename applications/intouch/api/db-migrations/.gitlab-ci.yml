@@ -1,6 +1,42 @@
 services:
   - postgres
 
+build_intouch_migration_db_service:
+  stage: build
+  image: google/cloud-sdk
+  services:
+    - docker:dind
+  cache: {}
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script')"
+      # changes:
+      #   - applications/intouch/api/services/companies/src/script/**/*
+      #   - applications/intouch/api/services/companies/src/data/**/*
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gcloud builds submit . --config=applications/intouch/api/db-migrations/cloudbuild.migration.build.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
+
+deploy_intouch_migration_db_service:
+  stage: deploy
+  needs:
+    - build_intouch_migration_db_service
+  image: google/cloud-sdk
+  services:
+    - docker:dind
+  cache: {}
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script'"
+      # changes:
+      #   - applications/intouch/api/services/companies/src/script/**/*
+      #   - applications/intouch/api/services/companies/src/data/**/*
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gcloud builds submit . --config=applications/intouch/api/db-migrations/cloudbuild.migration.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
+
 migrate_company_db:
   stage: migration
   needs: []

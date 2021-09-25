@@ -1,0 +1,39 @@
+# deploy to Cloud Run
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "run",
+        "deploy",
+        "db-migrations",
+        "--image",
+        "eu.gcr.io/$PROJECT_ID/db-migrations:${_CI_COMMIT_SHORT_SHA}",
+        "--region",
+        "europe-west2",
+        "--platform",
+        "managed",
+        "--allow-unauthenticated",
+        "--add-cloudsql-instances=automated-style-303709:europe-west2:intouch-db",
+        "--set-env-vars=PG_SCHEMA=public",
+        "--set-env-vars=PG_USER=postgres",
+        "--set-env-vars=PG_DATABASE=companies-db",
+        "--set-env-vars=PG_PORT=5432",
+        "--set-env-vars=GCP_SECRET_PROJECT=734962646925"
+      ]
+
+  # promote to latest
+  # Terraform does not have the commit hash context
+  # and needs tag "latest" to execute the TF plan and deploy a new revision to Cloud Run
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "container",
+        "images",
+        "add-tag",
+        "eu.gcr.io/$PROJECT_ID/db-migrations:${_CI_COMMIT_SHORT_SHA}",
+        "eu.gcr.io/$PROJECT_ID/db-migrations:latest"
+      ]
+
+timeout: 1200s
+
+logsBucket: "gs://intouch-replaform-bucket"

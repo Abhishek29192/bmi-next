@@ -4,12 +4,12 @@ services:
 test_intouch_companies:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-      changes:
-        - applications/intouch/api/services/companies/**/*
-        - libraries/**/*
-        - package.json
-        - "**/package.json"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script')"
+      # changes:
+      #   - applications/intouch/api/services/companies/**/*
+      #   - libraries/**/*
+      #   - package.json
+      #   - "**/package.json"
   needs:
     - install
   variables:
@@ -18,11 +18,13 @@ test_intouch_companies:
     PG_SCHEMA: public
     PG_DATABASE: custom_db
     PG_PASSWORD: custom_pass
+    MIGRATION_SERVICE_URL: https://db-migrations-rfwslk3zjq-nw.a.run.app
     PG_PORT: 5432
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/intouch-api-service-companies migrate-db
+    - yarn workspace @bmi/intouch-api-migration-scripts migrate
     - yarn workspace @bmi/intouch-api-service-companies coverage
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
