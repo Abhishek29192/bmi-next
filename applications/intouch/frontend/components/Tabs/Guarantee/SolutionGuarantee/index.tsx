@@ -49,14 +49,18 @@ const SolutionGuaranteeCard = ({
 }: SolutionGuaranteeCardProps) => {
   const { t } = useTranslation(["common", "project-page"]);
 
-  const { systemBySystemBmiRef: system } = guarantee;
+  const {
+    systemBySystemBmiRef: system,
+    signedFileStorageUrl,
+    status
+  } = guarantee;
 
   const products = system.systemMembersBySystemBmiRef.nodes.map(
     (member) => member.productByProductBmiRef
   );
 
-  const showAlert = !canGuaranteeBeSubmitted && guarantee.status === "NEW";
-
+  const showAlert = !canGuaranteeBeSubmitted && status === "NEW";
+  const canGuaranteePdfDownload = signedFileStorageUrl && status === "APPROVED";
   return (
     <div className={styles.main}>
       {showAlert && (
@@ -80,16 +84,25 @@ const SolutionGuaranteeCard = ({
           </Typography>
         </div>
         <div className={styles.body__footer}>
-          <div>
-            <Button
-              variant="outlined"
-              startIcon={
-                <Icon className={styles.body__logo} source={FilePDF} />
-              }
-            >
-              {t("common:SavePdf")}
-            </Button>
-          </div>
+          {canGuaranteePdfDownload && (
+            <div>
+              <Button
+                variant="outlined"
+                action={{
+                  model: "htmlLink",
+                  href: signedFileStorageUrl,
+                  target: "_blank",
+                  rel: "noopener noreferrer"
+                }}
+                startIcon={
+                  <Icon className={styles.body__logo} source={FilePDF} />
+                }
+                disabled={!canGuaranteePdfDownload}
+              >
+                {t("common:SavePdf")}
+              </Button>
+            </div>
+          )}
           <div>
             <AccessControl dataModel="project" action="submitSolutionGuarantee">
               <Button
