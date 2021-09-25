@@ -532,6 +532,8 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                   | "reviewerAccountId"
                   | "coverage"
                   | "languageCode"
+                  | "fileStorageId"
+                  | "signedFileStorageUrl"
                   | "status"
                 > & {
                     readonly guaranteeType?: SchemaTypes.Maybe<
@@ -751,6 +753,8 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                   | "reviewerAccountId"
                   | "coverage"
                   | "languageCode"
+                  | "fileStorageId"
+                  | "signedFileStorageUrl"
                   | "status"
                 > & {
                     readonly guaranteeType?: SchemaTypes.Maybe<
@@ -1154,6 +1158,8 @@ export type ProjectDetailsFragmentFragment = {
           | "reviewerAccountId"
           | "coverage"
           | "languageCode"
+          | "fileStorageId"
+          | "signedFileStorageUrl"
           | "status"
         > & {
             readonly guaranteeType?: SchemaTypes.Maybe<
@@ -1354,6 +1360,8 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
               | "reviewerAccountId"
               | "coverage"
               | "languageCode"
+              | "fileStorageId"
+              | "signedFileStorageUrl"
               | "status"
             > & {
                 readonly guaranteeType?: SchemaTypes.Maybe<

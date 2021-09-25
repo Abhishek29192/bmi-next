@@ -115,6 +115,8 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
             }
           }
         }
+        fileStorageId
+        signedFileStorageUrl
         status
       }
     }

@@ -7829,6 +7829,7 @@ export type Guarantee = Node & {
   evidenceItems: EvidenceItemsConnection;
   guaranteeType?: Maybe<ContentfulGuaranteeType>;
   guaranteeTypes?: Maybe<ContentfulGuaranteeTypeCollection>;
+  signedFileStorageUrl?: Maybe<Scalars["String"]>;
 };
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
