@@ -87,6 +87,7 @@ describe("CLONE tests", () => {
         expect(result).toEqual({});
       });
     });
+
     describe("When single classification and single feature is passed with PIM classification namespace", () => {
       it("should return indexed object without namespace", () => {
         const classifications: Array<Classification> = [
@@ -129,7 +130,7 @@ describe("CLONE tests", () => {
       });
     });
 
-    describe("When single classification and multiple feature values are passed", () => {
+    describe("When single classification, single feature with multiple feature values are passed", () => {
       it("should return indexed object with feature code", () => {
         const classifications: Array<Classification> = [
           createClassification({
@@ -161,6 +162,71 @@ describe("CLONE tests", () => {
             {
               code: "value-3symbol",
               name: "value-3 symbol"
+            }
+          ]
+        });
+      });
+    });
+
+    describe("When multiple classification with multiple features and multiple feature values are passed", () => {
+      it("should return multiple features indexed object with feature values", () => {
+        const classifications: Array<Classification> = [
+          createClassification({
+            features: [
+              createFeature({
+                featureValues: [
+                  createFeatureValue({ code: "value-code1", value: "value-1" }),
+                  createFeatureValue({ code: "value-code2", value: "value-2" }),
+                  createFeatureValue({ code: "value-code3", value: "value-3" })
+                ]
+              })
+            ]
+          }),
+          createClassification({
+            code: "classification-2",
+            features: [
+              createFeature({
+                code: "classification-feature-code-2",
+                featureValues: [
+                  createFeatureValue({ code: "value-code4", value: "value-4" }),
+                  createFeatureValue({ code: "value-code5", value: "value-5" }),
+                  createFeatureValue({ code: "value-code6", value: "value-6" })
+                ]
+              })
+            ]
+          })
+        ];
+        const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+          "",
+          classifications
+        );
+        expect(result).toEqual({
+          "classification-feature-code": [
+            {
+              code: "value-1symbol",
+              name: "value-1 symbol"
+            },
+            {
+              code: "value-2symbol",
+              name: "value-2 symbol"
+            },
+            {
+              code: "value-3symbol",
+              name: "value-3 symbol"
+            }
+          ],
+          "classification-feature-code-2": [
+            {
+              code: "value-4symbol",
+              name: "value-4 symbol"
+            },
+            {
+              code: "value-5symbol",
+              name: "value-5 symbol"
+            },
+            {
+              code: "value-6symbol",
+              name: "value-6 symbol"
             }
           ]
         });

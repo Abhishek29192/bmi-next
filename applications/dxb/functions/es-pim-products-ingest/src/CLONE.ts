@@ -313,32 +313,30 @@ export const groupBy = <T extends IndexedItem>(
   return (array || []).reduce<IndexedItemGroup<T>>((map, item) => {
     const itemKey = item[key];
     map[itemKey] = map[itemKey] || [];
-    if (map[itemKey]) {
-      map[itemKey].push(item);
-    }
+    map[itemKey].push(item);
     return map;
   }, {});
 };
 
 const extractFeatureCode = (
   pimClassificationNameSpace: string,
-  feature: Feature
+  code: string
 ) => {
-  return feature.code.replace(`${pimClassificationNameSpace}/`, "");
+  return code.replace(`${pimClassificationNameSpace}/`, "");
 };
 
 export const IndexFeatures = (
   pimClassificationNameSpace: string = "",
   classifications: Classification[]
 ): IndexedItemGroup<ESIndexObject> => {
-  let allfeaturesAsProps = {};
-
-  (classifications || []).forEach((classification) => {
-    allfeaturesAsProps = (classification.features || []).reduce(
-      (featureAsProp, feature) => {
+  const allfeaturesAsProps = (classifications || []).reduce(
+    (acc, classification) => {
+      const classificationFeatureAsProp = (
+        classification.features || []
+      ).reduce((featureAsProp, feature) => {
         const featureCode = extractFeatureCode(
           pimClassificationNameSpace,
-          feature
+          feature.code
         );
         const nameAndCodeValues = feature.featureValues.map((featVal) => {
           return {
@@ -348,11 +346,15 @@ export const IndexFeatures = (
         });
         return {
           ...featureAsProp,
-          [featureCode]: [...nameAndCodeValues]
+          [featureCode]: nameAndCodeValues
         };
-      },
-      allfeaturesAsProps
-    );
-  });
+      }, {});
+      return {
+        ...acc,
+        ...classificationFeatureAsProp
+      };
+    },
+    {}
+  );
   return allfeaturesAsProps;
 };

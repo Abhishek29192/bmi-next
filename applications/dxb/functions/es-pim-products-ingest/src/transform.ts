@@ -211,8 +211,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     return {
       ...indexedFeatures,
       ...allCategoriesAsProps,
-      "category.codes": [...categoryCodesOnly],
-      "feature.codes": [...allfeatureCodes],
+      "category.codes": categoryCodesOnly,
+      "feature.codes": allfeatureCodes,
       ...baseAttributes,
       code: variant.code,
       baseProduct: product,
