@@ -67,7 +67,20 @@ exports[`ErrorView component renders correctly with title 1`] = `
           <div
             class="upperHeader"
           >
-            <nav />
+            <nav>
+              <a
+                href="/contact"
+              >
+                Contact
+              </a>
+              <a
+                href="https://www.bmigroup.com/no/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                BMI Norway Website
+              </a>
+            </nav>
           </div>
           <div
             class="midHeader"
@@ -80,7 +93,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
               class="midHeaderNav"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
                 id="notifications-panel-toggle"
                 tabindex="0"
                 type="button"
@@ -178,7 +191,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
               class="lowerHeaderNav"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
                 tabindex="0"
                 type="button"
               >
@@ -277,7 +290,13 @@ exports[`ErrorView component renders correctly with title 1`] = `
         />
         <nav
           class="footerNav"
-        />
+        >
+          <a
+            href="/footer/link/relativePath"
+          >
+            Footer link title
+          </a>
+        </nav>
         <svg
           style="width: 120px;"
         />
@@ -354,7 +373,20 @@ exports[`ErrorView component renders correctly without title 1`] = `
           <div
             class="upperHeader"
           >
-            <nav />
+            <nav>
+              <a
+                href="/contact"
+              >
+                Contact
+              </a>
+              <a
+                href="https://www.bmigroup.com/no/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                BMI Norway Website
+              </a>
+            </nav>
           </div>
           <div
             class="midHeader"
@@ -367,7 +399,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
               class="midHeaderNav"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
                 id="notifications-panel-toggle"
                 tabindex="0"
                 type="button"
@@ -465,7 +497,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
               class="lowerHeaderNav"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
                 tabindex="0"
                 type="button"
               >
@@ -560,7 +592,13 @@ exports[`ErrorView component renders correctly without title 1`] = `
         />
         <nav
           class="footerNav"
-        />
+        >
+          <a
+            href="/footer/link/relativePath"
+          >
+            Footer link title
+          </a>
+        </nav>
         <svg
           style="width: 120px;"
         />

@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
+import { Notification as NotificationType } from "@bmi/intouch-api-types";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import isToday from "dayjs/plugin/isToday";
@@ -7,22 +8,14 @@ import Typography from "@bmi/typography";
 import { Notification } from "../Notification";
 import styles from "./styles.module.scss";
 
+type Notification = Pick<NotificationType, "id" | "body" | "sendDate" | "read">;
+
 export type NotificationsPanelProps = {
-  notifications?: Array<{
-    body: string;
-    sendDate: string;
-    read: boolean;
-    id: number;
-  }>;
+  notifications?: ReadonlyArray<Notification>;
 };
 
 type NotificationsSetProps = {
-  notifications?: Array<{
-    body: string;
-    sendDate: string;
-    read: boolean;
-    id: number;
-  }>;
+  notifications?: ReadonlyArray<Notification>;
   title: string;
 };
 
@@ -57,10 +50,7 @@ function sortNotifications(notifications) {
   };
 }
 
-export const NotificationsSet = ({
-  notifications,
-  title
-}: NotificationsSetProps) => {
+const NotificationsSet = ({ notifications, title }: NotificationsSetProps) => {
   if (notifications.length) {
     return (
       <div className={styles.set}>
