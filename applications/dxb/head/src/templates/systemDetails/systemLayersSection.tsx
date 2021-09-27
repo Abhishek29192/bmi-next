@@ -29,7 +29,10 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
           .sort((a, b) => a.layerNumber - b.layerNumber)
           .map((layer, index) => {
             const [mandatoryProduct] = layer.relatedProducts;
-
+            const productLinkAction = createLinkAction(
+              mandatoryProduct,
+              countryCode
+            );
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
                 <Accordion.Summary>
@@ -44,13 +47,10 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       <GTMAnchorLink
                         gtm={{
                           id: "cta-click1",
-                          action: createLinkAction(
-                            mandatoryProduct,
-                            countryCode
-                          ).href,
+                          action: productLinkAction.href,
                           label: mandatoryProduct.name
                         }}
-                        action={createLinkAction(mandatoryProduct, countryCode)}
+                        action={productLinkAction}
                       >
                         {mandatoryProduct.name}
                       </GTMAnchorLink>
@@ -70,26 +70,32 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       </Grid>
                     )}
 
-                    {layer.relatedOptionalProducts?.map((product, id) => (
-                      <Grid
-                        item
-                        xs={12}
-                        md={12}
-                        lg={12}
-                        key={`related-optional-product-${id}`}
-                      >
-                        <GTMAnchorLink
-                          gtm={{
-                            id: "cta-click1",
-                            action: createLinkAction(product, countryCode).href,
-                            label: product.name
-                          }}
-                          action={createLinkAction(product, countryCode)}
+                    {layer.relatedOptionalProducts?.map((product, id) => {
+                      const productLinkAction = createLinkAction(
+                        product,
+                        countryCode
+                      );
+                      return (
+                        <Grid
+                          item
+                          xs={12}
+                          md={12}
+                          lg={12}
+                          key={`related-optional-product-${id}`}
                         >
-                          {product.name}
-                        </GTMAnchorLink>
-                      </Grid>
-                    ))}
+                          <GTMAnchorLink
+                            gtm={{
+                              id: "cta-click1",
+                              action: productLinkAction.href,
+                              label: product.name
+                            }}
+                            action={productLinkAction}
+                          >
+                            {product.name}
+                          </GTMAnchorLink>
+                        </Grid>
+                      );
+                    })}
                   </Grid>
                 </Accordion.Details>
               </Accordion.Item>

@@ -29,6 +29,8 @@ type Props = {
 };
 
 const SYSTEM_CONFIG_QUERY_KEY = "selected_system";
+const PREV_PAGE_KEY = "prev_page";
+const REFERER_KEY = "referer";
 
 const getBrandLogo = (categories: Category[]): null | ImageData => {
   const brandCategory = categories.find((c) => c.categoryType === "Brand");
@@ -77,6 +79,8 @@ const LeadBlockSection = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const [selectedSystemId, setSelectedSystemId] = useState("");
+  const [prevPagePath, setPrevPagePath] = useState("");
+  const [referer, setReferer] = useState("");
   const brandLogo = getBrandLogo(categories);
   const promotionalContent = getPromotionalContent(classifications);
   const location = useLocation();
@@ -84,13 +88,20 @@ const LeadBlockSection = ({
   const GTMButton = withGTM<ButtonProps>(Button);
 
   useEffect(() => {
-    const systemId = new URLSearchParams(location.search).get(
-      SYSTEM_CONFIG_QUERY_KEY
-    );
+    const params = new URLSearchParams(location.search);
+    const systemId = params.get(SYSTEM_CONFIG_QUERY_KEY);
+    const prevPagePath = params.get(PREV_PAGE_KEY);
+    const referer = params.get(REFERER_KEY);
 
     setSelectedSystemId(systemId);
+    setPrevPagePath(prevPagePath);
+    setReferer(referer);
   }, []);
 
+  const backToYourSelectionText = getMicroCopy(
+    "sdp.leadBlock.backToYourSelection"
+  );
+  const backToYourSelectionBtnHref = `${prevPagePath}?referer=${referer}`;
   return (
     <Section backgroundColor="white" className={styles["LeadBlockSection"]}>
       <LeadBlock>
@@ -113,22 +124,22 @@ const LeadBlockSection = ({
             </LeadBlock.Content.Section>
           )}
           <LeadBlock.Content.Section className={styles["ctaContainer"]}>
-            {selectedSystemId && (
+            {selectedSystemId && prevPagePath && (
               <GTMButton
                 variant="text"
                 action={{
                   model: "htmlLink",
-                  href: `system-configurator-page?referer=sys_details`,
+                  href: backToYourSelectionBtnHref,
                   rel: "noopener noreferrer"
                 }}
                 gtm={{
                   id: "cta-click1",
-                  label: getMicroCopy("sdp.leadBlock.backToYourSelection"),
-                  action: "system-configurator-page?referer=sys_details"
+                  label: backToYourSelectionText,
+                  action: backToYourSelectionBtnHref
                 }}
                 startIcon={<ArrowBackIcon />}
               >
-                {getMicroCopy("sdp.leadBlock.backToYourSelection")}
+                {backToYourSelectionText}
               </GTMButton>
             )}
             {Boolean(cta) && (
