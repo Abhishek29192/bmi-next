@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 # Copy workspace source files
 COPY ./applications/intouch/api/db-migrations ./applications/intouch/api/db-migrations
 COPY ./applications/intouch/api/services/companies/src/data ./applications/intouch/api/services/companies/src/data
+COPY ./applications/intouch/api/services/training/src/data ./applications/intouch/api/services/training/src/data
 
 WORKDIR /usr/src/app/applications/intouch/api/db-migrations
 

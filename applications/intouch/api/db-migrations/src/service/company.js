@@ -13,29 +13,27 @@ const getFile = (file) =>
     "utf8"
   );
 
-const importDb = async ({ PG_PASSWORD, PG_HOST }) => {
+const importCompanyDb = async ({ password, host }) => {
   const db = getFile("company.sql");
   const roles = getFile("roles.sql");
   const procedure = getFile("procedure.sql");
   const rls = getFile("rls.sql");
   const views = getFile("views.sql");
 
-  console.log("views", views);
-
   const PG_PORT = 5432;
 
-  console.log(`Connecting to ${PG_HOST}:${PG_PORT}`);
+  console.log(`Connecting to ${host}:${PG_PORT}`);
   console.log(
     `Connecting as user:'${PG_USER}' to db:'${PG_DATABASE}' database using`
   );
 
   const pgClient = new Client({
-    user: PG_USER,
-    database: PG_DATABASE,
+    connectionTimeoutMillis: 30000,
     port: parseInt(PG_PORT),
-    host: PG_HOST,
-    password: PG_PASSWORD,
-    connectionTimeoutMillis: 30000
+    database: PG_DATABASE,
+    user: PG_USER,
+    password,
+    host
   });
   await pgClient.connect();
 
@@ -67,4 +65,4 @@ const importDb = async ({ PG_PASSWORD, PG_HOST }) => {
   console.log("RLS imported");
 };
 
-module.exports = { importDb };
+module.exports = { importCompanyDb };

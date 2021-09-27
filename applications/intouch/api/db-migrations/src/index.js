@@ -6,7 +6,8 @@ dotenv.config();
 
 const express = require("express");
 const { SecretManagerServiceClient } = require("@google-cloud/secret-manager");
-const { importDb } = require("./service/db");
+const { importCompanyDb } = require("./service/company");
+const { importTrainingDb } = require("./service/training");
 
 const PORT = process.env.PORT || 4001;
 
@@ -20,8 +21,14 @@ const getSecret = async (client, key) => {
 
 async function main() {
   const client = new SecretManagerServiceClient();
-  const PG_PASSWORD = await getSecret(client, "COMPANIES_DB_PASSWORD");
-  const PG_HOST = await getSecret(client, "COMPANIES_DB_HOST");
+  const PG_COMPANIES_PASSWORD = await getSecret(
+    client,
+    "COMPANIES_DB_PASSWORD"
+  );
+  const PG_COMPANIES_HOST = await getSecret(client, "COMPANIES_DB_HOST");
+
+  const PG_TRAINING_PASSWORD = await getSecret(client, "TRAINING_DB_PASSWORD");
+  const PG_TRAINING_HOST = await getSecret(client, "TRAINING_DB_HOST");
 
   const app = express();
   app.use(express.json());
@@ -39,11 +46,28 @@ async function main() {
     });
   });
 
-  app.get("/migrate", async (req, res) => {
+  app.get("/migrate-companies", async (req, res) => {
     try {
-      await importDb({
-        PG_PASSWORD,
-        PG_HOST
+      await importCompanyDb({
+        password: PG_COMPANIES_PASSWORD,
+        host: PG_COMPANIES_HOST
+      });
+
+      return res.send({
+        status: "Imported"
+      });
+    } catch (error) {
+      return res.send({
+        status: "Not Imported",
+        message: error.message
+      });
+    }
+  });
+  app.get("/migrate-training", async (req, res) => {
+    try {
+      await importTrainingDb({
+        password: PG_TRAINING_PASSWORD,
+        host: PG_TRAINING_HOST
       });
 
       return res.send({
