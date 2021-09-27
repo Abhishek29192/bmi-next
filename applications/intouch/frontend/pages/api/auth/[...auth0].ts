@@ -109,7 +109,8 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
           return res.end();
         }
 
-        return res.status(error.status || 500).end(error.message);
+        res.writeHead(302, { Location: "/api/auth/logout" });
+        return res.end();
       }
     },
     async profile(req, res) {
