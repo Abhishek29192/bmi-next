@@ -3,6 +3,7 @@ import { FileUpload } from "graphql-upload";
 import {
   CreateGuaranteeInput,
   EvidenceCategoryType,
+  EvidenceItemGuaranteeIdFkeyInverseInput,
   Guarantee,
   UpdateGuaranteeInput
 } from "@bmi/intouch-api-types";
@@ -10,6 +11,7 @@ import { PoolClient } from "pg";
 import StorageClient from "../storage-client";
 import { PostGraphileContext } from "../../types";
 import { sendEmailWithTemplate } from "../mailer";
+import { tierBenefit } from "../contentful";
 import { solutionGuaranteeSubmitValidate } from "./validate";
 
 export const createGuarantee = async (
@@ -19,7 +21,6 @@ export const createGuarantee = async (
   context: PostGraphileContext,
   resolveInfo
 ) => {
-  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
   const { pgClient, logger: Logger, user } = context;
 
   const logger = Logger("service:guarantee");
@@ -28,64 +29,25 @@ export const createGuarantee = async (
 
   try {
     const { guarantee } = args.input;
-    const { projectId, coverage, evidenceItemsUsingId } = guarantee;
+    const { projectId, coverage, evidenceItemsUsingId, productBmiRef } =
+      guarantee;
 
     guarantee.requestorAccountId = +user.id;
     guarantee.bmiReferenceId = `${crypto.randomBytes(10).toString("hex")}`;
     guarantee.status = "NEW";
 
-    const evidenceCategoryType: EvidenceCategoryType = "PROOF_OF_PURCHASE";
-
-    if (evidenceItemsUsingId?.create?.length > 0) {
-      const storageClient = new StorageClient();
-      for (const evidence of evidenceItemsUsingId.create) {
-        const uploadedFile: FileUpload = await evidence.attachmentUpload;
-        evidence.name = uploadedFile.filename;
-        evidence.projectId = projectId;
-        evidence.evidenceCategoryType = evidenceCategoryType;
-        evidence.attachment = `evidence/${projectId}/${evidenceCategoryType}-${Date.now()}`;
-
-        await storageClient.uploadFileByStream(
-          GCP_PRIVATE_BUCKET_NAME,
-          evidence.attachment,
-          uploadedFile
-        );
-      }
-    }
+    await uploadEvidence(evidenceItemsUsingId, projectId);
 
     if (coverage !== "SOLUTION") {
       guarantee.status = "APPROVED";
+      guarantee.startDate = new Date();
+      guarantee.expiryDate = new Date();
 
-      const {
-        rows: [{ name: projectName }]
-      } = await pgClient.query("select name from project where project.id=$1", [
-        projectId
-      ]);
-
-      await sendEmailWithTemplate(context, "REQUEST_APPROVED", {
-        email: user.email,
-        firstname: user.firstName,
-        role: user.role,
-        project: `${projectName}`
-      });
-
-      //Get all company admins and send mail
-      const { rows: accounts } = await pgClient.query(
-        `select account.* from account 
-      join company_member on company_member.account_id =account.id 
-      where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
-        [user.company.id]
+      const max = await getProductMaximumValidityYears(productBmiRef, pgClient);
+      guarantee.expiryDate.setFullYear(
+        guarantee.expiryDate.getFullYear() + max
       );
-
-      for (let i = 0; i < accounts?.length; i++) {
-        const account = accounts[+i];
-        await sendEmailWithTemplate(context, "REQUEST_APPROVED", {
-          email: account.email,
-          firstname: account.first_name,
-          role: account.role,
-          project: `${projectName}`
-        });
-      }
+      await sendMail(context, projectId);
     }
 
     return await resolve(source, args, context, resolveInfo);
@@ -124,7 +86,10 @@ export const updateGuarantee = async (
 
     const { id, patch, guaranteeEventType } = args.input;
 
-    const { status, projectId } = await getGuarantee(id, pgClient);
+    const { status, projectId, systemBmiRef } = await getGuarantee(
+      id,
+      pgClient
+    );
 
     if (guaranteeEventType === "SUBMIT_SOLUTION") {
       const isValid = await solutionGuaranteeSubmitValidate(
@@ -164,6 +129,20 @@ export const updateGuarantee = async (
 
     if (guaranteeEventType === "APPROVE_SOLUTION" && status === "REVIEW") {
       patch.status = "APPROVED";
+
+      patch.startDate = new Date();
+      patch.expiryDate = new Date();
+
+      const { guaranteeValidityOffsetYears = 0 } = await tierBenefit(
+        context.clientGateway,
+        user.company.tier
+      );
+
+      const max = await getSystemMaximumValidityYears(systemBmiRef, pgClient);
+
+      patch.expiryDate.setFullYear(
+        patch.expiryDate.getFullYear() + max - guaranteeValidityOffsetYears
+      );
     }
 
     if (guaranteeEventType === "REJECT_SOLUTION" && status === "REVIEW") {
@@ -190,8 +169,107 @@ const getGuarantee = async (
   pgClient: PoolClient
 ): Promise<Guarantee> => {
   const { rows } = await pgClient.query<Guarantee>(
-    `SELECT g.id,g.project_id as "projectId" ,g.status FROM guarantee g where g.id=$1`,
+    `SELECT g.id, g.project_id as "projectId", g.system_bmi_ref as "systemBmiRef", 
+    g.status FROM guarantee g where g.id=$1`,
     [id]
   );
   return rows[0];
+};
+
+const getProductMaximumValidityYears = async (
+  bmiRef: string,
+  pgClient: PoolClient
+): Promise<number> => {
+  const {
+    rows: [{ maximum_validity_years }]
+  } = await pgClient.query(
+    `select product.maximum_validity_years from product
+    where product.bmi_ref=$1`,
+    [bmiRef]
+  );
+  return maximum_validity_years || 0;
+};
+
+const getSystemMaximumValidityYears = async (
+  bmiRef: string,
+  pgClient: PoolClient
+): Promise<number> => {
+  const {
+    rows: [{ maximum_validity_years }]
+  } = await pgClient.query(
+    `Select system.maximum_validity_years from system
+    where system.bmi_ref=$1`,
+    [bmiRef]
+  );
+  return maximum_validity_years || 0;
+};
+
+const getProjectName = async (
+  projectId: number,
+  pgClient: PoolClient
+): Promise<string> => {
+  const {
+    rows: [{ name: projectName }]
+  } = await pgClient.query(
+    `select project.name from project
+     where project.id=$1`,
+    [projectId]
+  );
+
+  return projectName;
+};
+
+const sendMail = async (context: PostGraphileContext, projectId: number) => {
+  const { pgClient, user } = context;
+
+  const projectName = await getProjectName(projectId, pgClient);
+  await sendEmailWithTemplate(context, "REQUEST_APPROVED", {
+    email: user.email,
+    firstname: user.firstName,
+    role: user.role,
+    project: `${projectName}`
+  });
+
+  //Get all company admins and send mail
+  const { rows: accounts } = await pgClient.query(
+    `select account.* from account 
+  join company_member on company_member.account_id =account.id 
+  where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
+    [user.company.id]
+  );
+
+  for (let i = 0; i < accounts?.length; i++) {
+    const account = accounts[+i];
+    await sendEmailWithTemplate(context, "REQUEST_APPROVED", {
+      email: account.email,
+      firstname: account.first_name,
+      role: account.role,
+      project: `${projectName}`
+    });
+  }
+};
+
+const uploadEvidence = async (
+  evidenceItemInput: EvidenceItemGuaranteeIdFkeyInverseInput,
+  projectId: number
+) => {
+  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
+  const evidenceCategoryType: EvidenceCategoryType = "PROOF_OF_PURCHASE";
+
+  if (evidenceItemInput?.create?.length > 0) {
+    const storageClient = new StorageClient();
+    for (const evidence of evidenceItemInput.create) {
+      const uploadedFile: FileUpload = await evidence.attachmentUpload;
+      evidence.name = uploadedFile.filename;
+      evidence.projectId = projectId;
+      evidence.evidenceCategoryType = evidenceCategoryType;
+      evidence.attachment = `evidence/${projectId}/${evidenceCategoryType}-${Date.now()}`;
+
+      await storageClient.uploadFileByStream(
+        GCP_PRIVATE_BUCKET_NAME,
+        evidence.attachment,
+        uploadedFile
+      );
+    }
+  }
 };

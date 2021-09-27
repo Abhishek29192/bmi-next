@@ -1,5 +1,5 @@
 import React from "react";
-import { Document, Img } from "@bmi/react-pdf-maker";
+import { Document, Img } from "@bmi-digital/react-pdf-maker";
 import { ContentfulGuaranteeTemplate, Guarantee } from "@bmi/intouch-api-types";
 import { Typography } from "./Typography";
 import { LessWidth } from "./LessWidth";
@@ -65,7 +65,7 @@ export const PdfDocument = ({
       </Typography>
 
       <Typography variant={"h6"} marginBottom={10}>
-        {template.headingProducts}: {productByProductBmiRef.name}
+        {template.headingProducts}: {productByProductBmiRef?.name}
       </Typography>
 
       <Typography variant={"h1"} marginBottom={20}>

@@ -1190,6 +1190,8 @@ export const CreateGuaranteeDocument = gql`
     createGuarantee(input: $input) {
       guarantee {
         id
+        coverage
+        status
       }
     }
   }
@@ -1237,11 +1239,63 @@ export type CreateGuaranteeMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateGuaranteeMutation,
   OperationTypes.CreateGuaranteeMutationVariables
 >;
+export const CreateGuaranteePdfDocument = gql`
+  mutation createGuaranteePdf($id: Int!) {
+    createGuaranteePdf(id: $id) {
+      messageId
+    }
+  }
+`;
+export type CreateGuaranteePdfMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateGuaranteePdfMutation,
+  OperationTypes.CreateGuaranteePdfMutationVariables
+>;
+
+/**
+ * __useCreateGuaranteePdfMutation__
+ *
+ * To run a mutation, you first call `useCreateGuaranteePdfMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateGuaranteePdfMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createGuaranteePdfMutation, { data, loading, error }] = useCreateGuaranteePdfMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useCreateGuaranteePdfMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateGuaranteePdfMutation,
+    OperationTypes.CreateGuaranteePdfMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateGuaranteePdfMutation,
+    OperationTypes.CreateGuaranteePdfMutationVariables
+  >(CreateGuaranteePdfDocument, options);
+}
+export type CreateGuaranteePdfMutationHookResult = ReturnType<
+  typeof useCreateGuaranteePdfMutation
+>;
+export type CreateGuaranteePdfMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateGuaranteePdfMutation>;
+export type CreateGuaranteePdfMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateGuaranteePdfMutation,
+  OperationTypes.CreateGuaranteePdfMutationVariables
+>;
 export const UpdateGuaranteeDocument = gql`
   mutation updateGuarantee($input: UpdateGuaranteeInput!) {
     updateGuarantee(input: $input) {
       guarantee {
         id
+        coverage
+        status
       }
     }
   }

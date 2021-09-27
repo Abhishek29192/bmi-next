@@ -1507,10 +1507,25 @@ export type CreateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
       readonly guarantee?: SchemaTypes.Maybe<
         { readonly __typename?: "Guarantee" } & Pick<
           SchemaTypes.Guarantee,
-          "id"
+          "id" | "coverage" | "status"
         >
       >;
     }
+  >;
+};
+
+export type CreateGuaranteePdfMutationVariables = SchemaTypes.Exact<{
+  id: SchemaTypes.Scalars["Int"];
+}>;
+
+export type CreateGuaranteePdfMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly createGuaranteePdf?: SchemaTypes.Maybe<
+    { readonly __typename?: "PublishOutput" } & Pick<
+      SchemaTypes.PublishOutput,
+      "messageId"
+    >
   >;
 };
 
@@ -1524,7 +1539,7 @@ export type UpdateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
       readonly guarantee?: SchemaTypes.Maybe<
         { readonly __typename?: "Guarantee" } & Pick<
           SchemaTypes.Guarantee,
-          "id"
+          "id" | "coverage" | "status"
         >
       >;
     }
