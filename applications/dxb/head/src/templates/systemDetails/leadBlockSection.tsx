@@ -153,7 +153,10 @@ const LeadBlockSection = ({
                     gtm={{
                       id: "cta-click1",
                       label: cta.label,
-                      action: cta.url
+                      action:
+                        cta.type === "Dialog"
+                          ? "Form-modal" + cta.dialogContent.__typename
+                          : cta.url
                     }}
                   >
                     {children}
