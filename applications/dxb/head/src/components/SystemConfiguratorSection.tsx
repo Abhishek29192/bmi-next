@@ -1,31 +1,30 @@
-import React, {
-  useCallback,
-  useContext,
-  useState,
-  useEffect,
-  createContext,
-  ChangeEvent,
-  useLayoutEffect
-} from "react";
-import { graphql } from "gatsby";
-import axios, { AxiosResponse, CancelToken } from "axios";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";
-import Section from "@bmi/section";
-import RadioPane, { RadioPaneProps } from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
 import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
-import { Link as GatsbyLink } from "gatsby";
+import RadioPane from "@bmi/radio-pane";
+import Section from "@bmi/section";
 import { useLocation } from "@reach/router";
-import Scrim from "../components/Scrim";
+import axios, { AxiosResponse, CancelToken } from "axios";
+import { graphql, Link as GatsbyLink } from "gatsby";
+import React, {
+  ChangeEvent,
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState
+} from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ProgressIndicator from "../components/ProgressIndicator";
+import Scrim from "../components/Scrim";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
-import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
-import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SystemConfiguratorSection.module.scss";
+import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 
 export type Data = {
   __typename: "ContentfulSystemConfiguratorBlock";
