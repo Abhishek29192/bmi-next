@@ -119,7 +119,7 @@ const DocumentSimpleTableResults = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { list } = useContext(DownloadListContext);
   const paginatedDocuments = documents.slice(
     (page - 1) * documentsPerPage,

@@ -110,7 +110,7 @@ const DocumentResultsFooter = ({
   const { resetList, list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <div className={styles["DocumentResultsFooter"]}>
