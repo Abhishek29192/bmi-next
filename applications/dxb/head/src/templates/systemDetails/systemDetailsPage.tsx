@@ -12,6 +12,7 @@ import { getBimIframeUrl } from "../../components/BimIframe";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 import RelatedSystems from "../../components/RelatedSystems";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import { pushToDataLayer } from "../../utils/google-tag-manager";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import {
@@ -64,6 +65,21 @@ export const IGNORED_DOCUMENTS_ASSETS = [
   "WARRANTIES"
 ];
 
+export const addToDataLayerOnSystemPageLanding = (loc: Location) => {
+  if (
+    loc.search?.split("=").length === 2 &&
+    loc.search?.split("=")[0].slice(1) === "selected_system"
+  ) {
+    pushToDataLayer({
+      id: "system-configurator01-results",
+      label: location.search?.split("=")[1],
+      action: location.toString()
+    });
+    return;
+  }
+  return;
+};
+
 const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, dataJson, relatedSystems, allContentfulAssetType } =
     data;
@@ -79,6 +95,9 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     systemBenefits,
     systemLayers
   } = dataJson;
+
+  addToDataLayerOnSystemPageLanding(window.location);
+
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Assets[] = useMemo(() => {
     return assets.filter(
