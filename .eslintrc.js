@@ -139,7 +139,7 @@ module.exports = {
       }
     },
     {
-      files: ["*.test.{ts,tsx}"],
+      files: ["*.test.{js,ts,tsx}"],
       globals: {
         document: true,
         window: true

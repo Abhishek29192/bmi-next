@@ -8,6 +8,7 @@ const course: Course = {
   id: 1,
   nodeId: "1",
   courseId: 125,
+  slug: "slug",
   technology: "OTHER",
   name: "GCP roofing methodology",
   trainingType: "classroom",
@@ -52,7 +53,7 @@ describe("TrainingCourseDetail component", () => {
       </I18nextProvider>
     );
     expect(screen.getByText("viewTraining").closest("a").href).toEqual(
-      "http://localhost/api/docebo-sso"
+      "http://localhost/api/docebo-sso?path=/learn/course/internal/view/classroom/125/slug"
     );
   });
 

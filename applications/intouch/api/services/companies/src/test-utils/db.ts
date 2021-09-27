@@ -28,36 +28,6 @@ export const getDbPool = (): Pool => {
   return pool;
 };
 
-export const transaction = async (
-  pool,
-  { role, accountUuid, accountEmail },
-  query: string,
-  params: any = []
-) => {
-  const client = await pool.connect();
-  try {
-    await client.query("BEGIN");
-    if (accountUuid) {
-      await client.query(
-        `SET LOCAL app.current_account_id TO '${accountUuid}'`
-      );
-      await client.query(
-        `SET LOCAL app.current_account_email TO '${accountEmail}'`
-      );
-    }
-    // Note: Postgres roles are lowercase
-    await client.query(`SET LOCAL ROLE TO '${role.toLowerCase()}'`);
-    const res = await client.query(query, params);
-    await client.query("COMMIT");
-    return res;
-  } catch (error) {
-    await client.query("ROLLBACK");
-    throw error;
-  } finally {
-    client.release();
-  }
-};
-
 // Sets the account credentials on the client connection
 // for the duration of a transaction
 export const actAs = async (client, account) => {
@@ -73,6 +43,13 @@ export const actAs = async (client, account) => {
   );
   // Note: Postgres roles are lowercase
   await client.query(`SET LOCAL ROLE TO '${account.role.toLowerCase()}'`);
+
+  if (account.role === "SUPER_ADMIN") {
+    // Set the market if super_admin
+    await client.query(
+      `SET LOCAL app.current_market TO '${account.market_id}'`
+    );
+  }
 };
 
 // We'd expect something here with an id at least
@@ -83,26 +60,28 @@ type DBRecord = {
 export type CleanupBucketType = Record<string, Array<DBRecord>>;
 export const cleanupBucket: CleanupBucketType = {};
 
-export const cleanup = (context: Context) => {
-  const { client, cleanupBucket } = context;
+export const cleanup = async (context: Context) => {
+  const { pool, cleanupBucket } = context;
 
-  // Delete all records in the cleanupBucket
-  Object.entries(cleanupBucket).forEach(async ([tableName, records]) => {
-    await records.forEach(async (record) => {
-      const query = `DELETE from ${tableName} WHERE id = $1`;
-      const parameters = [record.id];
+  for await (const entity of Object.entries(cleanupBucket)) {
+    const [tableName, records] = entity;
 
-      if (LOG_VERBOSE) {
-        // eslint-disable-next-line no-console
-        console.log({ query, parameters });
-      }
+    const ids = records.map((record) => record.id);
 
-      await client.query(query, parameters);
-    });
-  });
+    const query = `DELETE from ${tableName} WHERE id = ANY($1)`;
+    const parameters = [ids];
+
+    if (LOG_VERBOSE) {
+      // eslint-disable-next-line no-console
+      console.log({ query, parameters });
+    }
+
+    await pool.query(query, parameters);
+  }
 };
 
 export type Context = {
+  pool?: Pool;
   client: Client;
   // This is optional, probably don't need it if we always use transactions.
   // Leaving for now just in case.

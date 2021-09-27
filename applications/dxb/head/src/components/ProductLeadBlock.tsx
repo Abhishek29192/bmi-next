@@ -137,7 +137,8 @@ const ProductLeadBlock = ({
                       className={styles["image"]}
                     />
                   ))}
-                  {guaranteesDocuments.length > 0 && <br />}
+                  {guaranteesImages.length > 0 &&
+                    guaranteesDocuments.length > 0 && <br />}
                   {guaranteesDocuments.map((item, i) => (
                     <span
                       className={styles["document"]}
@@ -174,7 +175,7 @@ const ProductLeadBlock = ({
                       className={styles["image"]}
                     />
                   ))}
-                  {awardsDocs.length > 0 && <br />}
+                  {awardsImages.length > 0 && awardsDocs.length > 0 && <br />}
                   {awardsDocs.map((item, i) => (
                     <span className={styles["document"]} key={`award-doc-${i}`}>
                       <Button

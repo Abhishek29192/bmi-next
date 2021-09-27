@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { screen } from "@testing-library/react";
-import { UploadsTab } from "..";
+import { UploadsTab, Evidence } from "..";
 import { renderWithI18NProvider } from "../../../../lib/tests/utils";
 
 jest.mock("@bmi/use-dimensions", () => ({
@@ -14,14 +14,22 @@ jest.mock("../../../../graphql/generated/hooks", () => ({
 }));
 
 describe("Uploads Components", () => {
-  const files = new Map<string, string[]>([
+  const files = new Map<string, Evidence[]>([
     [
       "Ventilation systems",
-      ["Ventilation systemfile 1", "Ventilation systemfile 2"]
+      [
+        { name: "Ventilation systemfile 1", url: "http://image.png" },
+        { name: "Ventilation systemfile 2", url: "http://image.png" }
+      ]
     ],
     [
       "Roof corners",
-      ["Roof corners 1", "Roof corners 2", "Roof corners 3", "Roof corners 4"]
+      [
+        { name: "Roof corners 1", url: "https://image.png" },
+        { name: "Roof corners 2", url: "https://image.png" },
+        { name: "Roof corners 3", url: "https://image.png" },
+        { name: "Roof corners 4", url: "https://image.png" }
+      ]
     ]
   ]);
 

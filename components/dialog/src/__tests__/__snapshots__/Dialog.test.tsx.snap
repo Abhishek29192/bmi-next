@@ -21,65 +21,69 @@ exports[`Dialog component renders closed 1`] = `
       tabindex="0"
     />
     <div
-      class="Dialog Dialog--bg-white Dialog--width-md"
+      class="ColorPair ColorPair--white"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header"
+        class="Dialog Dialog--bg-white Dialog--width-md"
       >
-        <h3
-          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
+        <div
+          class="header"
         >
-          Heading
-        </h3>
-        <button
-          aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 iconButton"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiIconButton-label"
+          <h3
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+            Heading
+          </h3>
+          <button
+            aria-label="Close"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 iconButton"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
             >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div
-        class="content"
-      >
-        Some content
-      </div>
-      <div
-        class="actions"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 actionButton MuiButton-containedPrimary"
-          tabindex="0"
-          type="button"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="content"
         >
-          <span
-            class="MuiButton-label buttonStyles-label-44"
+          Some content
+        </div>
+        <div
+          class="actions"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 actionButton MuiButton-containedPrimary"
+            tabindex="0"
+            type="button"
           >
-            Close
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            <span
+              class="MuiButton-label buttonStyles-label-44"
+            >
+              Close
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
     <div
@@ -111,65 +115,69 @@ exports[`Dialog component renders correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="Dialog Dialog--bg-white Dialog--width-md"
+      class="ColorPair ColorPair--white"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header"
+        class="Dialog Dialog--bg-white Dialog--width-md"
       >
-        <h3
-          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
+        <div
+          class="header"
         >
-          Heading
-        </h3>
-        <button
-          aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiIconButton-label"
+          <h3
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+            Heading
+          </h3>
+          <button
+            aria-label="Close"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
             >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div
-        class="content"
-      >
-        Some content
-      </div>
-      <div
-        class="actions"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 actionButton MuiButton-containedPrimary"
-          tabindex="0"
-          type="button"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="content"
         >
-          <span
-            class="MuiButton-label buttonStyles-label-4"
+          Some content
+        </div>
+        <div
+          class="actions"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 actionButton MuiButton-containedPrimary"
+            tabindex="0"
+            type="button"
           >
-            Close
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              Close
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
     <div
@@ -201,60 +209,64 @@ exports[`Dialog component renders without a heading 1`] = `
       tabindex="0"
     />
     <div
-      class="Dialog Dialog--bg-white Dialog--width-md"
+      class="ColorPair ColorPair--white"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header"
+        class="Dialog Dialog--bg-white Dialog--width-md"
       >
-        <button
-          aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 iconButton"
-          tabindex="0"
-          type="button"
+        <div
+          class="header"
         >
-          <span
-            class="MuiIconButton-label"
+          <button
+            aria-label="Close"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 iconButton"
+            tabindex="0"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <span
+              class="MuiIconButton-label"
             >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div
-        class="content"
-      >
-        Some content
-      </div>
-      <div
-        class="actions"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 actionButton MuiButton-containedPrimary"
-          tabindex="0"
-          type="button"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="content"
         >
-          <span
-            class="MuiButton-label buttonStyles-label-64"
+          Some content
+        </div>
+        <div
+          class="actions"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 actionButton MuiButton-containedPrimary"
+            tabindex="0"
+            type="button"
           >
-            Close
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            <span
+              class="MuiButton-label buttonStyles-label-64"
+            >
+              Close
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
     <div
@@ -286,23 +298,27 @@ exports[`Dialog component renders without close icon 1`] = `
       tabindex="0"
     />
     <div
-      class="Dialog Dialog--bg-white Dialog--width-md"
+      class="ColorPair ColorPair--white"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header"
+        class="Dialog Dialog--bg-white Dialog--width-md"
       >
-        <h3
-          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
+        <div
+          class="header"
         >
-          Heading
-        </h3>
-      </div>
-      <div
-        class="content"
-      >
-        Some content
+          <h3
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
+          >
+            Heading
+          </h3>
+        </div>
+        <div
+          class="content"
+        >
+          Some content
+        </div>
       </div>
     </div>
     <div
@@ -334,51 +350,55 @@ exports[`Dialog component renders without confirm label 1`] = `
       tabindex="0"
     />
     <div
-      class="Dialog Dialog--bg-white Dialog--width-md"
+      class="ColorPair ColorPair--white"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header"
+        class="Dialog Dialog--bg-white Dialog--width-md"
       >
-        <h3
-          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
+        <div
+          class="header"
         >
-          Heading
-        </h3>
-        <button
-          aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiIconButton-label"
+          <h3
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+            Heading
+          </h3>
+          <button
+            aria-label="Close"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
             >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="content"
+        >
+          Some content
+        </div>
+        <div
+          class="actions"
+        />
       </div>
-      <div
-        class="content"
-      >
-        Some content
-      </div>
-      <div
-        class="actions"
-      />
     </div>
     <div
       data-test="sentinelEnd"

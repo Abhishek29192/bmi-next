@@ -621,6 +621,7 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                   SchemaTypes.EvidenceItem,
                   | "id"
                   | "name"
+                  | "signedUrl"
                   | "guaranteeId"
                   | "evidenceCategoryType"
                   | "customEvidenceCategoryKey"
@@ -662,7 +663,7 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                     readonly account?: SchemaTypes.Maybe<
                       { readonly __typename?: "Account" } & Pick<
                         SchemaTypes.Account,
-                        "firstName" | "lastName" | "role"
+                        "id" | "firstName" | "lastName" | "role"
                       > & {
                           readonly certificationsByDoceboUserId: {
                             readonly __typename?: "CertificationsConnection";
@@ -838,6 +839,7 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                   SchemaTypes.EvidenceItem,
                   | "id"
                   | "name"
+                  | "signedUrl"
                   | "guaranteeId"
                   | "evidenceCategoryType"
                   | "customEvidenceCategoryKey"
@@ -1223,6 +1225,7 @@ export type ProjectDetailsFragmentFragment = {
           SchemaTypes.EvidenceItem,
           | "id"
           | "name"
+          | "signedUrl"
           | "guaranteeId"
           | "evidenceCategoryType"
           | "customEvidenceCategoryKey"
@@ -1420,6 +1423,7 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
               SchemaTypes.EvidenceItem,
               | "id"
               | "name"
+              | "signedUrl"
               | "guaranteeId"
               | "evidenceCategoryType"
               | "customEvidenceCategoryKey"
@@ -1550,11 +1554,29 @@ export type DeleteProjectMemberMutation = {
 } & {
   readonly deleteProjectMember?: SchemaTypes.Maybe<
     { readonly __typename?: "DeleteProjectMemberPayload" } & {
-      readonly account?: SchemaTypes.Maybe<
-        { readonly __typename?: "Account" } & Pick<
-          SchemaTypes.Account,
-          "id" | "firstName" | "lastName"
-        >
+      readonly projectMember?: SchemaTypes.Maybe<
+        { readonly __typename?: "ProjectMember" } & Pick<
+          SchemaTypes.ProjectMember,
+          "id" | "accountId" | "isResponsibleInstaller"
+        > & {
+            readonly account?: SchemaTypes.Maybe<
+              { readonly __typename?: "Account" } & Pick<
+                SchemaTypes.Account,
+                "id" | "firstName" | "lastName" | "role"
+              > & {
+                  readonly certificationsByDoceboUserId: {
+                    readonly __typename?: "CertificationsConnection";
+                  } & {
+                    readonly nodes: ReadonlyArray<
+                      { readonly __typename?: "Certification" } & Pick<
+                        SchemaTypes.Certification,
+                        "name" | "technology"
+                      >
+                    >;
+                  };
+                }
+            >;
+          }
       >;
     }
   >;
@@ -3262,6 +3284,7 @@ export type TrainingQuery = { readonly __typename?: "Query" } & {
               SchemaTypes.Course,
               | "courseId"
               | "name"
+              | "slug"
               | "technology"
               | "image"
               | "promoted"

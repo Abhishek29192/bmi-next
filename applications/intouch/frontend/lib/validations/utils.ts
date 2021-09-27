@@ -42,10 +42,10 @@ export const validatePhoneNumberInput =
   (val: string): ValidationResult => {
     const isValid =
       !val ||
-      (validator.isNumeric(val) &&
-        validator.isLength(val, {
-          min: PHONE_NUMBER_MIN_LENGTH,
-          max: PHONE_NUMBER_MAX_LENGTH
-        }));
+      (validator.isLength(val, {
+        min: PHONE_NUMBER_MIN_LENGTH,
+        max: PHONE_NUMBER_MAX_LENGTH
+      }) &&
+        val.match(/^[\+\d]?(?:[\d-.\s()]*)$/gm)); // eslint-disable-line no-useless-escape
     return isValid ? null : t("common:error_messages.phone_number_format");
   };

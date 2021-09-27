@@ -152,6 +152,7 @@ export default gql`
   }
   extend type EvidenceItem {
     customEvidenceCategory: ContentfulEvidenceCategory
+    signedUrl: String @requires(columns: ["attachment"])
   }
   extend type Account {
     formattedRole: String

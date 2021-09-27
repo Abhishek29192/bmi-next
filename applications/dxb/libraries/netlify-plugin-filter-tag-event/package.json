@@ -1,0 +1,10 @@
+{
+  "name": "@bmi/netlify-plugin-filter-tag-event",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "private": true,
+  "main": "./index",
+  "scripts": {
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+  }
+}

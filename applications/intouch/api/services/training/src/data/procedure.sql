@@ -11,15 +11,16 @@ SET
     image=subquery.image,
     promoted=subquery.promoted,
     training_type=subquery.training_type,
-    description=subquery.description
+    description=subquery.description,
+    slug=subquery.slug
 FROM (SELECT 
-course_id,technology,name,image,promoted,training_type,description 
+course_id,technology,name,image,promoted,training_type,description, slug
 FROM  course_temp) AS subquery
 WHERE course.course_id=subquery.course_id;
 
-INSERT INTO course(course_id,technology,name,image,promoted,training_type,description)
+INSERT INTO course(course_id,technology,name,image,promoted,training_type,description, slug)
 SELECT 
-ct.course_id,ct.technology,ct.name,ct.image,ct.promoted,ct.training_type,ct.description 
+ct.course_id,ct.technology,ct.name,ct.image,ct.promoted,ct.training_type,ct.description, ct.slug
 FROM  course_temp ct  
 LEFT OUTER JOIN course c ON (c.course_id = ct.course_id)
 WHERE c.course_id IS NULL;
@@ -110,8 +111,8 @@ BEGIN
 	 course_length := array_length(courses , 1);
 if course_length>0 then
   TRUNCATE TABLE course_temp;
-  insert into course_temp(course_id,technology,name,image,promoted,training_type,description)
-    select ct.course_id,ct.technology,ct.name,ct.image,ct.promoted,ct.training_type,ct.description
+  insert into course_temp(course_id,technology,name,image,promoted,training_type,description, slug)
+    select ct.course_id,ct.technology,ct.name,ct.image,ct.promoted,ct.training_type,ct.description, ct.slug
     from unnest(courses) as ct;
 
   PERFORM public.course_update_by_temp();

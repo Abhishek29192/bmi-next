@@ -63,7 +63,7 @@ const ProjectForm = ({ project, onSubmit, isSubmitting }: ProjectFormProps) => {
         <Typography variant="h6" className={styles.sectionTitle}>
           {getFieldLabel(t, "technology")}
         </Typography>
-        <TechnologyInput defaultValue={project.technology} />
+        <TechnologyInput defaultValue={project?.technology} />
       </div>
 
       <TextField

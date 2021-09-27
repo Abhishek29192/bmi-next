@@ -450,6 +450,11 @@ type Course {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -1198,6 +1203,11 @@ type CourseTemp {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -1866,6 +1876,11 @@ input CourseInput {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -2335,6 +2350,11 @@ input CourseTempInput {
   courseId: Int
 
   """
+  Course slug
+  """
+  slug: String
+
+  """
   technology
   """
   technology: String
@@ -2432,6 +2452,11 @@ input CoursePatch {
   Docebo CourseId
   """
   courseId: Int
+
+  """
+  Course slug
+  """
+  slug: String
 
   """
   technology
@@ -3151,6 +3176,11 @@ input CourseTempPatch {
   Docebo CourseId
   """
   courseId: Int
+
+  """
+  Course slug
+  """
+  slug: String
 
   """
   technology
