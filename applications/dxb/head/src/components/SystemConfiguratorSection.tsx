@@ -92,8 +92,6 @@ const saveStateToLocalStorage = (stateToStore: string) => {
   storage.local.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
 };
 
-const GTMRadioPane = withGTM<RadioPaneProps>(RadioPane);
-
 const SystemConfiguratorBlock = ({
   id,
   index,
@@ -163,11 +161,7 @@ const SystemConfiguratorBlock = ({
     ACCORDION_TRANSITION
   );
 
-  if (!questionData) {
-    return null;
-  }
-
-  const { type, title, ...rest } = questionData;
+  const { type, title, ...rest } = questionData || {};
 
   const { answers = [], description } = rest;
 
@@ -184,6 +178,20 @@ const SystemConfiguratorBlock = ({
     answers.find(({ id }) => id === nextId) ||
     (answers.length === 1 && answers[0]);
 
+  useEffect(() => {
+    if (selectedAnswer) {
+      pushToDataLayer({
+        id: `system-configurator01-selected`,
+        label: title,
+        action: selectedAnswer.title
+      });
+    }
+  }, [selectedAnswer]);
+
+  if (!questionData) {
+    return null;
+  }
+
   return (
     <>
       <ConfiguratorPanel
@@ -195,16 +203,11 @@ const SystemConfiguratorBlock = ({
         handleOnChange={handleOnChange}
         options={answers.map(({ id, title: answerTitle, description }) => {
           return (
-            <GTMRadioPane
+            <RadioPane
               key={id}
               title={answerTitle}
               name={title}
               value={answerTitle}
-              gtm={{
-                id: `system-configurator01-selected`,
-                label: title,
-                action: answerTitle
-              }}
               onClick={() => {
                 setNextId(id);
                 setState((state) => ({ ...state, openIndex: null }));
@@ -213,20 +216,10 @@ const SystemConfiguratorBlock = ({
                 });
                 saveStateToLocalStorage(stateToSave);
               }}
-              defaultChecked={(() => {
-                if (id === selectedAnswer?.id) {
-                  pushToDataLayer({
-                    id: "system-configurator01-selected",
-                    label: title,
-                    action: answerTitle
-                  });
-                  return true;
-                }
-                return false;
-              })()}
+              defaultChecked={id === selectedAnswer?.id}
             >
               {description && <RichText document={description} />}
-            </GTMRadioPane>
+            </RadioPane>
           );
         })}
         TransitionProps={{
