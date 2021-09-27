@@ -17,6 +17,7 @@ import { NoProjectsCard } from "../Cards/NoProjects";
 import { NoteTab } from "../Tabs/Notes";
 import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
 import ProjectEditAction from "../Pages/Project/ProjectEditAction/Button";
+import BuildingOwnerDetailsEditButton from "../Pages/Project/BuildingOwnerDetailsEditAction/Button";
 import {
   GetProjectDocument,
   useCreateGuaranteePdfMutation,
@@ -166,6 +167,9 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           email={project.buildingOwnerMail}
           company={project.buildingOwnerCompany}
           address={project.buildingOwnerAddress}
+          renderActions={() => (
+            <BuildingOwnerDetailsEditButton project={project} />
+          )}
         />
       </Grid>
 
@@ -306,25 +310,14 @@ export const GET_PROJECT = gql`
     endDate
     description
     siteAddress {
-      id
-      firstLine
-      secondLine
-      town
-      region
-      postcode
-      country
+      ...AddressLinesFragment
     }
     buildingOwnerFirstname
     buildingOwnerLastname
     buildingOwnerCompany
     buildingOwnerMail
     buildingOwnerAddress {
-      id
-      firstLine
-      secondLine
-      town
-      region
-      postcode
+      ...AddressLinesFragment
     }
     guarantees {
       nodes {

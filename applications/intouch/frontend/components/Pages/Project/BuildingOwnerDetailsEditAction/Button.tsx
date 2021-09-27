@@ -5,13 +5,15 @@ import MaybeTooltip from "../../../MaybeTooltip";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { isProjectEditable } from "../../../../lib/utils/project";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
-import { ProjectEditActionDialog } from "./Dialog";
+import { BuildingOwnerDetailsEditDialog } from "./Dialog";
 
-type ProjectEditActionButtonProps = {
+type BuildingOwnerDetailsEditButtonProps = {
   project: GetProjectQuery["project"];
 };
 
-const ProjectEditAction = ({ project }: ProjectEditActionButtonProps) => {
+const BuildingOwnerDetailsEditButton = ({
+  project
+}: BuildingOwnerDetailsEditButtonProps) => {
   const { t } = useTranslation("project-page");
   const [isDialogOpen, setDialogOpen] = useState(false);
   const isEditable = useMemo(() => isProjectEditable(project), [project]);
@@ -34,7 +36,7 @@ const ProjectEditAction = ({ project }: ProjectEditActionButtonProps) => {
           {t(`projectDetails.cta.edit`)}
         </Button>
       </MaybeTooltip>
-      <ProjectEditActionDialog
+      <BuildingOwnerDetailsEditDialog
         project={project}
         isOpen={isDialogOpen}
         onCloseClick={handleCloseDialog}
@@ -44,4 +46,4 @@ const ProjectEditAction = ({ project }: ProjectEditActionButtonProps) => {
   );
 };
 
-export default ProjectEditAction;
+export default BuildingOwnerDetailsEditButton;

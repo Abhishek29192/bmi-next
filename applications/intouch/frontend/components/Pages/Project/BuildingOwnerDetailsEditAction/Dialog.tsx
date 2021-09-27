@@ -1,30 +1,30 @@
 import React, { useState, useCallback } from "react";
 import { useTranslation } from "next-i18next";
 import Dialog from "@bmi/dialog";
-import { gql } from "@apollo/client";
-import { ProjectSiteAddressIdFkeyInput } from "@bmi/intouch-api-types";
+import { ProjectBuildingOwnerAddressIdFkeyInput } from "@bmi/intouch-api-types";
 import { useUpdateProjectMutation } from "../../../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import { spreadObjectKeys } from "../../../../lib/utils/object";
 import { findProjectGuarantee } from "../../../../lib/utils/project";
 import log from "../../../../lib/logger";
-import ProjectForm, { isFieldDisabled } from "../Form";
+import BuildingOwnerForm from "../BuildingOwnerForm";
+import { isFieldDisabled } from "../Form";
 // TODO: move/split styles?
 import styles from "../CreateProject/styles.module.scss";
 
-type ProjectEditActionDialogProps = {
+type BuildingOwnerDetailsEditDialogProps = {
   project: GetProjectQuery["project"];
   isOpen: boolean;
   onCloseClick?: () => void;
   onCompleted?: () => void;
 };
 
-export const ProjectEditActionDialog = ({
+export const BuildingOwnerDetailsEditDialog = ({
   project,
   isOpen,
   onCloseClick,
   onCompleted
-}: ProjectEditActionDialogProps) => {
+}: BuildingOwnerDetailsEditDialogProps) => {
   const { t } = useTranslation();
   const guarantee = findProjectGuarantee(project);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,7 +32,7 @@ export const ProjectEditActionDialog = ({
     onError: (error) => {
       log({
         severity: "ERROR",
-        message: `There was an error updating a project: ${error.toString()}`
+        message: `There was an error updating project building owner details: ${error.toString()}`
       });
       // TODO: show some visual error
       setIsSubmitting(false);
@@ -40,7 +40,7 @@ export const ProjectEditActionDialog = ({
     onCompleted: ({ updateProject: { project } }) => {
       log({
         severity: "INFO",
-        message: `Updated project - id: ${project.id}`
+        message: `Updated project building owner details - project.id: ${project.id}`
       });
 
       onCompleted && onCompleted();
@@ -64,30 +64,27 @@ export const ProjectEditActionDialog = ({
         return undefined;
       }
 
-      if (key === "roofArea") {
-        return Number.parseInt(value);
-      }
-
       return value;
     });
 
-    const { siteAddress, ...createProjectValues } = valuesObject;
+    const { buildingOwnerAddress, ...createProjectValues } = valuesObject;
 
-    // siteAddress may have been disabled therefore not in the filtered form values
-    const addressToSiteAddressId: ProjectSiteAddressIdFkeyInput = siteAddress
-      ? project.siteAddress?.id
-        ? {
-            // updates the address (already linked to the project)
-            updateById: {
-              id: project?.siteAddress.id,
-              patch: siteAddress
+    // buildingOwnerAddress may have been disabled therefore not in the filtered form values
+    const addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput =
+      buildingOwnerAddress
+        ? project?.buildingOwnerAddress?.id
+          ? {
+              // updates the address (already linked to the project)
+              updateById: {
+                id: project.buildingOwnerAddress.id,
+                patch: buildingOwnerAddress
+              }
             }
-          }
-        : {
-            // creates the address and links it to the project
-            create: siteAddress
-          }
-      : undefined;
+          : {
+              // creates the address and links it to the project
+              create: buildingOwnerAddress
+            }
+        : undefined;
 
     updateProject({
       variables: {
@@ -95,7 +92,7 @@ export const ProjectEditActionDialog = ({
           id: project.id,
           patch: {
             ...createProjectValues,
-            addressToSiteAddressId
+            addressToBuildingOwnerAddressId
           }
         }
       }
@@ -110,11 +107,11 @@ export const ProjectEditActionDialog = ({
       disablePortal={false}
     >
       <Dialog.Title hasUnderline>
-        {t("project-page:addProject.dialog.title")}
+        {t("project-page:buildingOwnerDetails.edit.title")}
       </Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
-        <ProjectForm
+        <BuildingOwnerForm
           project={project}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}
@@ -123,13 +120,3 @@ export const ProjectEditActionDialog = ({
     </Dialog>
   );
 };
-
-export const UPDATE_PROJET = gql`
-  mutation updateProject($input: UpdateProjectInput!) {
-    updateProject(input: $input) {
-      project {
-        ...ProjectDetailsFragment
-      }
-    }
-  }
-`;

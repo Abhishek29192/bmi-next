@@ -20,16 +20,25 @@ const RadioButton = ({
   before,
   className,
   style,
+  disabled,
   ...rest
 }: Props) => {
   return (
-    <div className={classnames(styles["RadioButton"], className)} style={style}>
+    <div
+      className={classnames(
+        styles["RadioButton"],
+        { [styles["RadioButton--disabled"] as string]: disabled },
+        className
+      )}
+      style={style}
+    >
       <input
         id={id}
         className={styles["input"]}
         type="radio"
         name={name}
         value={value}
+        disabled={disabled}
         {...rest}
       />
       <label className={styles["label"]} htmlFor={id}>
