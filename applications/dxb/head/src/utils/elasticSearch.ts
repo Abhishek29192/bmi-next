@@ -86,7 +86,7 @@ const searchTerms = {
 export const compileElasticSearchQuery = (
   filters: Filter[],
   // TODO: Handle this being optional differently
-  categoryCode: string,
+  categoryCodes: string[],
   page: number,
   pageSize: number,
   searchQuery?: string
@@ -203,10 +203,10 @@ export const compileElasticSearchQuery = (
                 }
               }
             : null,
-          categoryCode
+          categoryCodes
             ? {
-                term: {
-                  [searchTerms.plpBaseCategory]: categoryCode
+                terms: {
+                  [searchTerms.plpBaseCategory]: categoryCodes
                 }
               }
             : null,

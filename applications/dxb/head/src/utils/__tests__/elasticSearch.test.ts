@@ -145,7 +145,7 @@ describe("compileElasticSearchQuery function", () => {
   ];
 
   it("should ignore filters with no value", () => {
-    const query = compileElasticSearchQuery(filters, "foo", 0, 10, "bar");
+    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar");
 
     expect(query).toMatchInlineSnapshot(`
       Object {
@@ -207,8 +207,10 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "foo",
+                "terms": Object {
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
                 },
               },
               Object {
@@ -239,7 +241,7 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should ignore filters with no searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, "foo", 0, 10);
+    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10);
 
     expect(query).toMatchInlineSnapshot(`
       Object {
@@ -280,8 +282,10 @@ describe("compileElasticSearchQuery function", () => {
           "bool": Object {
             "must": Array [
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "foo",
+                "terms": Object {
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
                 },
               },
               Object {
@@ -312,7 +316,7 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should ignore filters with no categoryCode", () => {
-    const query = compileElasticSearchQuery(filters, "", 0, 10);
+    const query = compileElasticSearchQuery(filters, [], 0, 10);
 
     expect(query).toMatchInlineSnapshot(`
       Object {
@@ -353,6 +357,11 @@ describe("compileElasticSearchQuery function", () => {
           "bool": Object {
             "must": Array [
               Object {
+                "terms": Object {
+                  "allCategories.code.keyword": Array [],
+                },
+              },
+              Object {
                 "term": Object {
                   "categories.code.keyword": "BAR",
                 },
@@ -380,7 +389,7 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should transform slash in searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, "foo", 0, 10, "bar/");
+    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar/");
 
     expect(query).toMatchInlineSnapshot(`
       Object {
@@ -442,8 +451,10 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "foo",
+                "terms": Object {
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
                 },
               },
               Object {
