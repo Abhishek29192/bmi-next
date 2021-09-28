@@ -3973,7 +3973,7 @@ export type ContentfulGuaranteeTypeCollection = {
 export type ContentfulMessage = {
   __typename?: "ContentfulMessage";
   event?: Maybe<ContentfulMessageEventType>;
-  format?: Maybe<ContentfulMessageFormat>;
+  format?: Maybe<Array<Maybe<ContentfulMessageFormat>>>;
   subject?: Maybe<Scalars["String"]>;
   notificationBody?: Maybe<Scalars["String"]>;
   emailBody?: Maybe<Scalars["String"]>;

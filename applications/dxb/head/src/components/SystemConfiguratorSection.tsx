@@ -1,13 +1,13 @@
+import { graphql } from "gatsby";
 import React, {
+  ChangeEvent,
+  createContext,
   useCallback,
   useContext,
-  useState,
   useEffect,
-  createContext,
-  ChangeEvent,
-  useLayoutEffect
+  useLayoutEffect,
+  useState
 } from "react";
-import { graphql } from "gatsby";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";
@@ -18,17 +18,17 @@ import { useLocation, navigate } from "@reach/router";
 import Button, { ButtonProps } from "@bmi/button";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { SystemCard, SystemCardProps } from "../components/RelatedSystems";
-import Scrim from "../components/Scrim";
 import ProgressIndicator from "../components/ProgressIndicator";
+import Scrim from "../components/Scrim";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
-import withGTM from "../utils/google-tag-manager";
 import { SystemDetails } from "../templates/systemDetails/types";
 import { queryElasticSearch } from "../utils/elasticSearch";
 import RichText, { RichTextData } from "./RichText";
-import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SystemConfiguratorSection.module.scss";
+import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 
 export type Data = {
   __typename: "ContentfulSystemConfiguratorBlock";
@@ -171,11 +171,7 @@ const SystemConfiguratorBlock = ({
     ACCORDION_TRANSITION
   );
 
-  if (!questionData) {
-    return null;
-  }
-
-  const { type, title, ...rest } = questionData;
+  const { type, title, ...rest } = questionData || {};
 
   const { answers = [], description } = rest;
 
@@ -191,6 +187,20 @@ const SystemConfiguratorBlock = ({
   const selectedAnswer =
     answers.find(({ id }) => id === nextId) ||
     (answers.length === 1 && answers[0]);
+
+  useEffect(() => {
+    if (selectedAnswer) {
+      pushToDataLayer({
+        id: `system-configurator01-selected`,
+        label: title,
+        action: selectedAnswer.title
+      });
+    }
+  }, [selectedAnswer]);
+
+  if (!questionData) {
+    return null;
+  }
 
   return (
     <>
@@ -247,6 +257,14 @@ const SystemConfiguratorBlockNoResultsSection = ({
   content
 }: Partial<TitleWithContentData>) => {
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
+
+  useEffect(() => {
+    pushToDataLayer({
+      id: "system-configurator01-results",
+      label: "No system found",
+      action: "No system found"
+    });
+  }, []);
 
   return (
     <div ref={ref}>
@@ -321,6 +339,7 @@ const SystemConfiguratorBlockResultSection = ({
         {recommendedSystems.length > 0 &&
           recommendedSystemPimObjects.length > 0 &&
           recommendedSystemPimObjects.map((system, id) => {
+            const linkToSDP = `system-details-page?selected_system=${system.code}&prev_page=system-configurator-page&referer=sys_details`;
             return (
               <Grid container spacing={3} key={`${system.code}-${id}`}>
                 {
@@ -331,9 +350,9 @@ const SystemConfiguratorBlockResultSection = ({
                     gtm={{
                       event: `${title}-results`,
                       id: system.code,
-                      action: `/${countryCode}/system-details-page?selected_system=${system.code}`
+                      action: `${linkToSDP}`
                     }}
-                    path={`system-details-page?selected_system=${system.code}`}
+                    path={linkToSDP}
                     onClick={() => {
                       const storedState = storage.local.getItem(
                         SYSTEM_CONFIG_STORAGE_KEY

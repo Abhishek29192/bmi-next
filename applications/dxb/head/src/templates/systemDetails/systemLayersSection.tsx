@@ -27,7 +27,10 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
           .sort((a, b) => a.layerNumber - b.layerNumber)
           .map((layer, index) => {
             const [mandatoryProduct] = layer.relatedProducts;
-
+            const productLinkAction = createLinkAction(
+              mandatoryProduct,
+              countryCode
+            );
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
                 <Accordion.Summary>
@@ -39,9 +42,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                 <Accordion.Details>
                   <Grid container spacing={3}>
                     <Grid item xs={12} md={12} lg={12}>
-                      <AnchorLink
-                        action={createLinkAction(mandatoryProduct, countryCode)}
-                      >
+                      <AnchorLink action={productLinkAction}>
                         {mandatoryProduct.name}
                       </AnchorLink>
                     </Grid>
@@ -60,21 +61,25 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       </Grid>
                     )}
 
-                    {layer.relatedOptionalProducts?.map((product, id) => (
-                      <Grid
-                        item
-                        xs={12}
-                        md={12}
-                        lg={12}
-                        key={`related-optional-product-${id}`}
-                      >
-                        <AnchorLink
-                          action={createLinkAction(product, countryCode)}
+                    {layer.relatedOptionalProducts?.map((product, id) => {
+                      const productLinkAction = createLinkAction(
+                        product,
+                        countryCode
+                      );
+                      return (
+                        <Grid
+                          item
+                          xs={12}
+                          md={12}
+                          lg={12}
+                          key={`related-optional-product-${id}`}
                         >
-                          {product.name}
-                        </AnchorLink>
-                      </Grid>
-                    ))}
+                          <AnchorLink action={productLinkAction}>
+                            {product.name}
+                          </AnchorLink>
+                        </Grid>
+                      );
+                    })}
                   </Grid>
                 </Accordion.Details>
               </Accordion.Item>

@@ -9,6 +9,7 @@ import { updateCompany, deleteCompanyMember } from "../../services/company";
 import { createAccount, updateAccount } from "../../services/account";
 import { evidenceItemsAdd } from "../../services/evidenceItem";
 import { createGuarantee, updateGuarantee } from "../../services/guarantee";
+import * as projectMutations from "../../services/project/mutations";
 import { PostGraphileContext } from "../../types";
 import { updateProjectMember } from "../../services/projectMember";
 
@@ -116,7 +117,8 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
             resolveInfo
           );
         }
-      }
+      },
+      ...projectMutations
     }
   };
 });

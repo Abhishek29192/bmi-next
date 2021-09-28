@@ -4,7 +4,7 @@ export type AddressLinesFragmentFragment = {
   readonly __typename?: "Address";
 } & Pick<
   SchemaTypes.Address,
-  "firstLine" | "secondLine" | "town" | "region" | "country" | "postcode"
+  "id" | "firstLine" | "secondLine" | "town" | "region" | "country" | "postcode"
 >;
 
 export type CompanyCertificationsFragment = {
@@ -505,8 +505,8 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                 | "secondLine"
                 | "town"
                 | "region"
-                | "postcode"
                 | "country"
+                | "postcode"
               >
             >;
             readonly buildingOwnerAddress?: SchemaTypes.Maybe<
@@ -517,6 +517,7 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                 | "secondLine"
                 | "town"
                 | "region"
+                | "country"
                 | "postcode"
               >
             >;
@@ -723,8 +724,8 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                 | "secondLine"
                 | "town"
                 | "region"
-                | "postcode"
                 | "country"
+                | "postcode"
               >
             >;
             readonly buildingOwnerAddress?: SchemaTypes.Maybe<
@@ -735,6 +736,7 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                 | "secondLine"
                 | "town"
                 | "region"
+                | "country"
                 | "postcode"
               >
             >;
@@ -1127,14 +1129,20 @@ export type ProjectDetailsFragmentFragment = {
         | "secondLine"
         | "town"
         | "region"
-        | "postcode"
         | "country"
+        | "postcode"
       >
     >;
     readonly buildingOwnerAddress?: SchemaTypes.Maybe<
       { readonly __typename?: "Address" } & Pick<
         SchemaTypes.Address,
-        "id" | "firstLine" | "secondLine" | "town" | "region" | "postcode"
+        | "id"
+        | "firstLine"
+        | "secondLine"
+        | "town"
+        | "region"
+        | "country"
+        | "postcode"
       >
     >;
     readonly guarantees: { readonly __typename?: "GuaranteesConnection" } & {
@@ -1319,14 +1327,20 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
             | "secondLine"
             | "town"
             | "region"
-            | "postcode"
             | "country"
+            | "postcode"
           >
         >;
         readonly buildingOwnerAddress?: SchemaTypes.Maybe<
           { readonly __typename?: "Address" } & Pick<
             SchemaTypes.Address,
-            "id" | "firstLine" | "secondLine" | "town" | "region" | "postcode"
+            | "id"
+            | "firstLine"
+            | "secondLine"
+            | "town"
+            | "region"
+            | "country"
+            | "postcode"
           >
         >;
         readonly guarantees: {
@@ -1507,10 +1521,25 @@ export type CreateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
       readonly guarantee?: SchemaTypes.Maybe<
         { readonly __typename?: "Guarantee" } & Pick<
           SchemaTypes.Guarantee,
-          "id"
+          "id" | "coverage" | "status"
         >
       >;
     }
+  >;
+};
+
+export type CreateGuaranteePdfMutationVariables = SchemaTypes.Exact<{
+  id: SchemaTypes.Scalars["Int"];
+}>;
+
+export type CreateGuaranteePdfMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly createGuaranteePdf?: SchemaTypes.Maybe<
+    { readonly __typename?: "PublishOutput" } & Pick<
+      SchemaTypes.PublishOutput,
+      "messageId"
+    >
   >;
 };
 
@@ -1524,7 +1553,7 @@ export type UpdateGuaranteeMutation = { readonly __typename?: "Mutation" } & {
       readonly guarantee?: SchemaTypes.Maybe<
         { readonly __typename?: "Guarantee" } & Pick<
           SchemaTypes.Guarantee,
-          "id"
+          "id" | "coverage" | "status"
         >
       >;
     }

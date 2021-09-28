@@ -87,6 +87,7 @@ describe("Guarantee", () => {
     can: userCanMock
   };
   const mockQuery = jest.fn();
+  const mockClientGateway = jest.fn();
 
   const context: any = {
     pubSub: {},
@@ -99,7 +100,8 @@ describe("Guarantee", () => {
     pgClient: {
       query: mockQuery
     },
-    user: mockUser
+    user: mockUser,
+    clientGateway: mockClientGateway
   };
   beforeEach(() => {
     jest.clearAllMocks();
@@ -115,11 +117,26 @@ describe("Guarantee", () => {
       mockQuery
         .mockImplementationOnce(() => {})
         .mockImplementationOnce(() => ({
+          rows: [{ maximum_validity_years: 1 }]
+        }))
+        .mockImplementationOnce(() => ({
           rows: [{ name: "project" }]
         }))
         .mockImplementationOnce(() => ({
           rows: []
         }));
+
+      mockClientGateway.mockImplementationOnce(() => ({
+        data: {
+          tierBenefitCollection: {
+            items: [
+              {
+                guaranteeValidityOffsetYears: 0
+              }
+            ]
+          }
+        }
+      }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
 
@@ -143,6 +160,9 @@ describe("Guarantee", () => {
       mockQuery
         .mockImplementationOnce(() => {})
         .mockImplementationOnce(() => ({
+          rows: [{ maximum_validity_years: 1 }]
+        }))
+        .mockImplementationOnce(() => ({
           rows: [{ name: "project" }]
         }))
         .mockImplementationOnce(() => ({
@@ -162,7 +182,8 @@ describe("Guarantee", () => {
     const resolve = jest.fn();
     const mockGuarante = {
       id: 1,
-      status: ""
+      status: "",
+      systemBmiRef: ""
     };
     const guaranteMockImplementation = () => ({
       rows: [mockGuarante]
@@ -278,6 +299,13 @@ describe("Guarantee", () => {
         }
       };
       mockGuarante.status = "REVIEW";
+
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(guaranteMockImplementation)
+        .mockImplementationOnce(() => ({
+          rows: [{ maximum_validity_years: 1 }]
+        }));
 
       await updateGuarantee(resolve, source, args, context, resolveInfo);
 

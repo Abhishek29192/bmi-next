@@ -77,4 +77,17 @@ describe("Postgraphile", () => {
       role: "installer"
     });
   });
+
+  it("pgSetting should not set user information if trustedConnection", async () => {
+    const req: any = {
+      user: {},
+      trustedConnection: true
+    };
+    const pgSettings =
+      typeof postGraphileOpts.pgSettings === "function"
+        ? await postGraphileOpts.pgSettings(req)
+        : postGraphileOpts.pgSettings;
+
+    expect(pgSettings).toEqual({});
+  });
 });

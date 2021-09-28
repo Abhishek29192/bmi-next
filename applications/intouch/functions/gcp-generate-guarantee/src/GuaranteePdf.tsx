@@ -1,6 +1,6 @@
 import { PDFDocument as PdfLibDocument } from "pdf-lib";
 import * as React from "react";
-import { pdf } from "@bmi/react-pdf-maker";
+import { pdf } from "@bmi-digital/react-pdf-maker";
 import {
   Guarantee,
   ContentfulGuaranteeTemplate,
@@ -73,33 +73,26 @@ export default class GuaranteePdfGenerator {
     });
   }
 
-  public async create(): Promise<GuaranteeFileType[]> {
-    const { guaranteeType } = this.guaranteeData;
-    const templates = guaranteeType.guaranteeTemplatesCollection.items;
+  public async create(): Promise<GuaranteeFileType> {
+    const { id, guaranteeType } = this.guaranteeData;
+    const template = guaranteeType.guaranteeTemplatesCollection.items[0];
 
-    return Promise.all(
-      templates.map(async (template) => {
-        const guaranteePdf = await this.getGuaranteePdf(
-          guaranteeType,
-          template
-        );
+    const guaranteePdf = await this.getGuaranteePdf(guaranteeType, template);
 
-        const maintanance = await this.getPdfFromUrl(
-          template.maintenanceTemplate.url
-        );
-        const termAndCondition = await this.getPdfFromUrl(template.terms.url);
-        const data = await this.mergePdf(
-          guaranteePdf,
-          maintanance,
-          termAndCondition
-        );
-
-        return {
-          name: template.maintenanceTemplate.fileName,
-          data
-        };
-      })
+    const maintanance = await this.getPdfFromUrl(
+      template.maintenanceTemplate.url
     );
+    const termAndCondition = await this.getPdfFromUrl(template.terms.url);
+    const data = await this.mergePdf(
+      guaranteePdf,
+      maintanance,
+      termAndCondition
+    );
+
+    return {
+      name: `${template.filenamePrefix} ${id}.pdf`,
+      data
+    };
   }
 
   private async getPdfFromUrl(url: string): Promise<ArrayBuffer> {
