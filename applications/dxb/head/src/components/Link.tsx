@@ -15,7 +15,6 @@ import { SectionData, sectionsMap } from "./Sections";
 import { useSiteContext } from "./Site";
 import styles from "./styles/Link.module.scss";
 import { VisualiserContext } from "./Visualiser";
-import { Service } from "./ServiceLocatorSection";
 
 const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
@@ -40,18 +39,12 @@ export const getClickableActionFromUrl = (
   label?: string,
   type?: Data["type"],
   onClick?: (...args: any) => void,
-  service?: Service
+  serviceDataGTM?: {
+    id: string;
+    label: string;
+    action: string;
+  }
 ): ClickableAction | undefined => {
-  const serviceDataGTM = service
-    ? {
-        id: "cta-click1",
-        label: `${service.name} - ${service.address}${
-          service.certification ? " - " + service.certification : ""
-        } - ${service.entryType}${url ? " - " + url : ""}`,
-        action: "href"
-      }
-    : null;
-
   if (type === "Visualiser") {
     const dataGtm = { id: "cta-visualiser1", action: "visualiser", label };
 
@@ -94,7 +87,7 @@ export const getClickableActionFromUrl = (
   }
 
   if (assetUrl) {
-    const dataGtm = serviceDataGTM || {
+    const dataGtm = {
       id: "cta-click1",
       action: assetUrl,
       label
@@ -117,7 +110,7 @@ export const getClickableActionFromUrl = (
       /\/+/gi,
       "/"
     );
-    const dataGtm = serviceDataGTM || { id: "cta-click1", action: to, label };
+    const dataGtm = { id: "cta-click1", action: to, label };
 
     return {
       model: "routerLink",
