@@ -282,11 +282,7 @@ describe("SystemConfiguratorSection component", () => {
     const { container, findByLabelText, findByRole, findByText } = render(
       <SiteContextProvider value={getSiteContext()}>
         <LocationProvider>
-          <SystemConfiguratorSection
-            data={{
-              ...initialData
-            }}
-          />
+          <SystemConfiguratorSection data={initialData} />
         </LocationProvider>
       </SiteContextProvider>
     );

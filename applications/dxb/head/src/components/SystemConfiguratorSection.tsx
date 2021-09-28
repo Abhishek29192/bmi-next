@@ -294,34 +294,35 @@ const SystemConfiguratorBlockResultSection = ({
 
   useEffect(() => {
     const fetchESData = async () => {
-      if (recommendedSystems.length > 0) {
-        const query = {
-          query: {
-            terms: {
-              code: recommendedSystems
-            }
+      const query = {
+        query: {
+          terms: {
+            code: recommendedSystems
           }
-        };
-        try {
-          const repsonse = await queryElasticSearch(query, ES_INDEX_NAME);
-          if (repsonse.hits?.total.value > 0) {
-            const pimObject = repsonse.hits?.hits.map(({ _source }) => _source);
-            setRecommendedSystemPimObjects(pimObject.slice(0, maxDisplay));
-          } else {
-            navigate("/404");
-          }
-        } catch (error) {
-          if (process.env.NODE_ENV === "development") {
-            // eslint-disable-next-line no-console
-            console.error(error);
-          }
+        }
+      };
+      try {
+        const repsonse = await queryElasticSearch(query, ES_INDEX_NAME);
+        if (repsonse.hits?.total.value > 0) {
+          const pimObject = repsonse.hits?.hits.map(({ _source }) => _source);
+          setRecommendedSystemPimObjects(pimObject.slice(0, maxDisplay));
+        } else {
           navigate("/404");
         }
-      } else {
-        setRecommendedSystemPimObjects([]);
+      } catch (error) {
+        if (process.env.NODE_ENV === "development") {
+          // eslint-disable-next-line no-console
+          console.error(error);
+        }
+        navigate("/404");
       }
     };
-    fetchESData();
+
+    if (recommendedSystems.length > 0) {
+      fetchESData();
+    } else {
+      setRecommendedSystemPimObjects([]);
+    }
   }, [recommendedSystems]);
 
   return (
@@ -350,7 +351,7 @@ const SystemConfiguratorBlockResultSection = ({
                     gtm={{
                       event: `${title}-results`,
                       id: system.code,
-                      action: `${linkToSDP}`
+                      action: linkToSDP
                     }}
                     path={linkToSDP}
                     onClick={() => {

@@ -1367,7 +1367,6 @@ type DataJson implements Node {
   id: String!
   systemLayers: [SystemLayer]
   categories: [Categories]
-  code: String!
   images: [SystemImage]
 }
 
