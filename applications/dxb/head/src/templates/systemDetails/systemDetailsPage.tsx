@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { graphql } from "gatsby";
 import { compact, first } from "lodash";
 import Section from "@bmi/section";
@@ -66,18 +66,15 @@ export const IGNORED_DOCUMENTS_ASSETS = [
 ];
 
 export const addToDataLayerOnSystemPageLanding = (loc: Location) => {
-  if (
-    loc.search?.split("=").length === 2 &&
-    loc.search?.split("=")[0].slice(1) === "selected_system"
-  ) {
+  const paramsString = loc.search ? loc.search.slice(1) : undefined;
+  let searchParams = new URLSearchParams(paramsString);
+  if (searchParams.has("selected_system")) {
     pushToDataLayer({
       id: "system-configurator01-results",
-      label: location.search?.split("=")[1],
-      action: location.toString()
+      label: searchParams.get("selected_system"),
+      action: loc.toString()
     });
-    return;
   }
-  return;
 };
 
 const SystemDetailsPage = ({ pageContext, data }: Props) => {
@@ -95,8 +92,9 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     systemBenefits,
     systemLayers
   } = dataJson;
-
-  addToDataLayerOnSystemPageLanding(window.location);
+  useEffect(() => {
+    addToDataLayerOnSystemPageLanding(window.location);
+  }, [window.location]);
 
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Assets[] = useMemo(() => {
