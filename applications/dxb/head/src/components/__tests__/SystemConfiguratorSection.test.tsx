@@ -759,7 +759,7 @@ describe("SystemConfiguratorSection component", () => {
     fireEvent.click(label);
 
     await findByRole("progressbar");
-    // await findByText("Result Title");
+    await findByText("Result Title");
     await findByText(pimSystem._source.name);
     await findByText(pimSystem._source.shortDescription);
     await findByText("ijkl name");
