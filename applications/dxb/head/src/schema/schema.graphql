@@ -1377,6 +1377,7 @@ type Systems implements Node {
   shortDescription: String
   systemBenefits: [String]!
   systemLayers: [SystemLayer]!
+  path: String!
 }
 
 type Asset {
