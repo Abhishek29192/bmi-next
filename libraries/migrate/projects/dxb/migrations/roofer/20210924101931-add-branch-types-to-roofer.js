@@ -1,5 +1,7 @@
 "use strict";
 
+const branchTypes = require("../../variables/branchTypes/20210928085352.js");
+
 module.exports.description = "Add Branch Types and options";
 
 module.exports.up = async (
@@ -16,12 +18,7 @@ module.exports.up = async (
       type: "Symbol",
       validations: [
         {
-          in: [
-            "Headquarters",
-            "Country offices",
-            "Manufacturing and export",
-            "Technical centre & BMI academy"
-          ]
+          in: branchTypes
         }
       ]
     });
