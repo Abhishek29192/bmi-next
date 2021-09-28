@@ -7,21 +7,26 @@ import classnames from "classnames";
 import filesize from "filesize";
 import { get } from "lodash";
 import React, { useContext } from "react";
+import { useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import withGTM from "../utils/google-tag-manager";
+
 import {
   PIMDocumentData,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
+import { getDownloadLink } from "../utils/client-download";
 import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 import { Format } from "./types";
 import fileIconsMap from "./FileIconsMap";
+import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
 
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
-type Document =
+export type Document =
   | DocumentData
   | PIMDocumentData
   | PIMLinkDocumentData
@@ -41,7 +46,7 @@ const GTMButton =
     }
   >(Button);
 
-const mapAssetToFileDownload = (
+export const mapAssetToFileDownload = (
   data: DocumentData | PIMDocumentData | SDPDocumentData
 ): FileDownloadButtonProps => {
   if (data.__typename === "PIMDocument") {
@@ -79,7 +84,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
       gtm={{ id: "download1", label: "Download", action: url }}
       action={{
         model: "download",
-        href: `https:${url.replace("https:", "")}`
+        href: getDownloadLink(url)
       }}
       variant="text"
       startIcon={
@@ -113,11 +118,17 @@ const DocumentSimpleTableResults = ({
   headers = ["typeCode", "title", "download", "add"]
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { list } = useContext(DownloadListContext);
   const paginatedDocuments = documents.slice(
     (page - 1) * documentsPerPage,
     page * documentsPerPage
   );
+
+  if (isMobile) {
+    return <DocumentSimpleTableResultsMobile documents={paginatedDocuments} />;
+  }
 
   return (
     <div className={styles["DocumentSimpleTableResults"]}>
