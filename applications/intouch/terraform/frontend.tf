@@ -10,7 +10,6 @@ resource "google_cloud_run_service" "default" {
         "autoscaling.knative.dev/minScale" = "1"
         "autoscaling.knative.dev/maxScale" = "10"
       }
-
     }
     spec {
       containers {
