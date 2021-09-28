@@ -5,7 +5,8 @@ const fs = require("fs");
 const path = require("path");
 const { Client } = require("pg");
 
-const { PG_USER = "postgres", PG_DATABASE = "companies-db" } = process.env;
+const { PG_USER = "postgres", PG_COMPANY_DATABASE = "companies-db" } =
+  process.env;
 
 const getFile = (file) =>
   fs.readFileSync(
@@ -24,18 +25,20 @@ const importCompanyDb = async ({ password, host }) => {
 
   console.log(`Connecting to ${host}:${PG_PORT}`);
   console.log(
-    `Connecting as user:'${PG_USER}' to db:'${PG_DATABASE}' database using`
+    `Connecting as user:'${PG_USER}' to db:'${PG_COMPANY_DATABASE}' database using`
   );
 
   const pgClient = new Client({
     connectionTimeoutMillis: 30000,
     port: parseInt(PG_PORT),
-    database: PG_DATABASE,
+    database: PG_COMPANY_DATABASE,
     user: PG_USER,
     password,
     host
   });
   await pgClient.connect();
+
+  console.log("************ Importing company database ******************");
 
   console.log("Dropping the schema");
   await pgClient.query("DROP SCHEMA IF EXISTS public CASCADE");
@@ -63,6 +66,8 @@ const importCompanyDb = async ({ password, host }) => {
   console.log("Importing RLS");
   await pgClient.query(rls);
   console.log("RLS imported");
+
+  console.log("************ Company database imported ******************");
 };
 
 module.exports = { importCompanyDb };

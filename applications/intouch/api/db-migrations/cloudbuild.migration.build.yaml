@@ -6,14 +6,14 @@ steps:
         "build",
         ".",
         "-t",
-        "eu.gcr.io/$PROJECT_ID/db-migrations:${_CI_COMMIT_SHORT_SHA}",
+        "eu.gcr.io/$PROJECT_ID/tf-db-migrations:${_CI_COMMIT_SHORT_SHA}",
         "-f",
         "./applications/intouch/api/db-migrations/dockerfile"
       ]
 
   - name: "gcr.io/cloud-builders/docker"
     args:
-      ["push", "eu.gcr.io/$PROJECT_ID/db-migrations:${_CI_COMMIT_SHORT_SHA}"]
+      ["push", "eu.gcr.io/$PROJECT_ID/tf-db-migrations:${_CI_COMMIT_SHORT_SHA}"]
 
 timeout: 1200s
 

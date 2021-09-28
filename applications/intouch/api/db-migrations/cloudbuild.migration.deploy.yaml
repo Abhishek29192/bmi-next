@@ -5,9 +5,9 @@ steps:
       [
         "run",
         "deploy",
-        "db-migrations",
+        "tf-db-migrations",
         "--image",
-        "eu.gcr.io/$PROJECT_ID/db-migrations:${_CI_COMMIT_SHORT_SHA}",
+        "eu.gcr.io/$PROJECT_ID/tf-db-migrations:${_CI_COMMIT_SHORT_SHA}",
         "--region",
         "europe-west2",
         "--platform",
@@ -30,8 +30,8 @@ steps:
         "container",
         "images",
         "add-tag",
-        "eu.gcr.io/$PROJECT_ID/db-migrations:${_CI_COMMIT_SHORT_SHA}",
-        "eu.gcr.io/$PROJECT_ID/db-migrations:latest"
+        "eu.gcr.io/$PROJECT_ID/tf-db-migrations:${_CI_COMMIT_SHORT_SHA}",
+        "eu.gcr.io/$PROJECT_ID/tf-db-migrations:latest"
       ]
 
 timeout: 1200s

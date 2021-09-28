@@ -5,10 +5,10 @@ build_intouch_migration_db_service:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script')"
-      # changes:
-      #   - applications/intouch/api/services/companies/src/script/**/*
-      #   - applications/intouch/api/services/companies/src/data/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/companies/src/script/**/*
+        - applications/intouch/api/services/companies/src/data/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
@@ -24,10 +24,10 @@ deploy_intouch_migration_db_service:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script'"
-      # changes:
-      #   - applications/intouch/api/services/companies/src/script/**/*
-      #   - applications/intouch/api/services/companies/src/data/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/api/services/companies/src/script/**/*
+        - applications/intouch/api/services/companies/src/data/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
@@ -41,11 +41,11 @@ migrate_company_db:
     - job: deploy_intouch_migration_db_service
       optional: true
   variables:
-    MIGRATION_SERVICE_URL: https://db-migrations-rfwslk3zjq-nw.a.run.app
+    MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script'"
-      # changes:
-      #   - applications/intouch/api/services/companies/src/data/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/api/services/companies/src/data/*
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -58,11 +58,11 @@ migrate_training_db:
     - job: deploy_intouch_migration_db_service
       optional: true
   variables:
-    MIGRATION_SERVICE_URL: https://db-migrations-rfwslk3zjq-nw.a.run.app
+    MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script'"
-      # changes:
-      #   - applications/intouch/api/services/training/src/data/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/api/services/training/src/data/*
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:

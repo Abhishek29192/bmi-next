@@ -4,12 +4,12 @@ services:
 test_intouch_companies:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script')"
-      # changes:
-      #   - applications/intouch/api/services/companies/**/*
-      #   - libraries/**/*
-      #   - package.json
-      #   - "**/package.json"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+        - libraries/**/*
+        - package.json
+        - "**/package.json"
   needs:
     - install
   variables:
@@ -39,7 +39,7 @@ build_intouch_api_companies_dev:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/services/companies/**/*
         - libraries/**/*
@@ -63,7 +63,7 @@ deploy_intouch_api_companies_dev:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'IRP-743/dockerize-migration-script'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/api/services/companies/**/*
   script:

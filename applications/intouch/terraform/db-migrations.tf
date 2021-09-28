@@ -13,21 +13,29 @@ resource "google_cloud_run_service" "db-migrations" {
     }
     spec {
       containers {
-        image = "eu.gcr.io/automated-style-303709/db-migrations:latest"
+        image = "eu.gcr.io/automated-style-303709/tf-db-migrations:latest"
         ports {
           container_port = 3000
-        }
-        env {
-          name  = "PG_SCHEMA"
-          value = "public"
         }
         env {
           name  = "PG_USER"
           value = "postgres"
         }
         env {
-          name  = "PG_DATABASE"
+          name  = "PG_COMPANY_SCHEMA"
+          value = "public"
+        }
+        env {
+          name  = "PG_COMPANY_DATABASE"
           value = "companies-db"
+        }
+        env {
+          name  = "PG_TRAINING_DATABASE"
+          value = "training-db"
+        }
+        env {
+          name  = "PG_TRAINING_SCHEMA"
+          value = "public"
         }
         env {
           name  = "PG_PORT"
