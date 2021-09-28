@@ -6,10 +6,22 @@ export const serviceTypes = [
   "Flat roof",
   "Pitched roof - Bitumen roofs",
   "Pitched roof - Tile roofs",
-  "Pitched roof - Roof coaters"
+  "Pitched roof - Roof coaters",
+  "Headquarters",
+  "Country offices",
+  "Manufacturing and export",
+  "Technical centre & BMI academy"
 ] as const;
 
 export type ServiceType = typeof serviceTypes[number];
+
+export const serviceTypesByEntity = (entityType: string) => {
+  if (entityType === "Roofer") {
+    return serviceTypes.slice(0, 4);
+  } else if (entityType === "Branch") {
+    return serviceTypes.slice(5, 8);
+  } else return [];
+};
 
 export type Data = {
   __typename: "ContentfulService";
@@ -26,6 +38,7 @@ export type Data = {
   website: string | null;
   fax: string | null;
   type: ServiceType[] | null;
+  branchType: ServiceType[] | null;
   certification: RoofProLevel | null;
   summary: string | null;
 };
@@ -46,6 +59,7 @@ export const query = graphql`
     website
     fax
     type
+    branchType
     certification
     summary
   }

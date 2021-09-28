@@ -182,16 +182,47 @@ describe("ServiceLocatorSection component", () => {
         services: [
           createService({
             entryType: "Branch",
-            id: "roofer_1",
-            name: "roofer 1",
-            type: [serviceTypes[0]],
+            id: "roofer_7",
+            name: "roofer 7",
+            type: [],
+            branchType: [serviceTypes[7]],
             fax: "222222"
           }),
           createService({
             entryType: "Branch",
-            id: "roofer_2",
-            name: "roofer 2",
-            type: [serviceTypes[0]]
+            id: "roofer_8",
+            name: "roofer 8",
+            type: [],
+            branchType: [serviceTypes[8]]
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("for Branches with invalid service type", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: "Branch",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({
+            entryType: "Branch",
+            id: "roofer_7",
+            name: "roofer 7",
+            fax: "222222"
+          }),
+          createService({
+            entryType: "Branch",
+            id: "roofer_8",
+            name: "roofer 8"
           })
         ]
       };
@@ -496,7 +527,7 @@ describe("ServiceLocatorSection component", () => {
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
-  it("filters using chip click", () => {
+  it("filters roofers using chip click", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: "Roofer",
@@ -531,6 +562,42 @@ describe("ServiceLocatorSection component", () => {
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
       name: `MC: findARoofer.filters.${camelCase(serviceTypes[0])}`
+    });
+    chipButton.click();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it("filters branch using chip click", () => {
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Branch",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [
+        createService({
+          entryType: "Branch",
+          id: "roofer_9",
+          name: "roofer 9",
+          distance: 10,
+          branchType: [serviceTypes[6]]
+        }),
+        createService({
+          entryType: "Branch",
+          id: "roofer_10",
+          name: "roofer 10",
+          distance: 5,
+          branchType: [serviceTypes[7]]
+        })
+      ]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const chipButton = wrapper.getByRole("button", {
+      name: `MC: findABranch.filters.${camelCase(serviceTypes[6])}`
     });
     chipButton.click();
     expect(wrapper.container.firstChild).toMatchSnapshot();
@@ -589,6 +656,21 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_2",
           name: "roofer 2",
           type: [serviceTypes[1]]
+        }),
+        createService({
+          id: "roofer_3",
+          name: "roofer 3",
+          type: [serviceTypes[2]]
+        }),
+        createService({
+          id: "roofer_4",
+          name: "roofer 4",
+          type: [serviceTypes[3]]
+        }),
+        createService({
+          id: "roofer_5",
+          name: "roofer 5",
+          type: [serviceTypes[4]]
         })
       ]
     };
@@ -600,8 +682,20 @@ describe("ServiceLocatorSection component", () => {
     const chipButton2 = wrapper.getByRole("button", {
       name: `MC: findARoofer.filters.${camelCase(serviceTypes[1])}`
     });
+    const chipButton3 = wrapper.getByRole("button", {
+      name: `MC: findARoofer.filters.${camelCase(serviceTypes[2])}`
+    });
+    const chipButton4 = wrapper.getByRole("button", {
+      name: `MC: findARoofer.filters.${camelCase(serviceTypes[3])}`
+    });
+    const chipButton5 = wrapper.getByRole("button", {
+      name: `MC: findARoofer.filters.${camelCase(serviceTypes[4])}`
+    });
     chipButton1.click();
     chipButton2.click();
+    chipButton3.click();
+    chipButton4.click();
+    chipButton5.click();
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
