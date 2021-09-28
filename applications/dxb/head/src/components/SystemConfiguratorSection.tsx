@@ -284,7 +284,7 @@ const SystemConfiguratorBlockResultSection = ({
   title,
   description,
   recommendedSystems,
-  selectedSystem: _selectedSystem
+  selectedSystem
 }: Partial<EntryData>) => {
   const maxDisplay = 4;
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
@@ -373,7 +373,7 @@ const SystemConfiguratorBlockResultSection = ({
                         {"Read More"}
                       </Button>
                     }
-                    isHighlighted={_selectedSystem === system.code}
+                    isHighlighted={selectedSystem === system.code}
                   />
                 }
               </Grid>
