@@ -1,8 +1,8 @@
 import { deleteCompanyMember } from "..";
-import { sendEmailWithTemplate } from "../../../services/mailer";
+import { sendMessageWithTemplate } from "../../../services/mailer";
 
 jest.mock("../../../services/mailer", () => ({
-  sendEmailWithTemplate: jest.fn()
+  sendMessageWithTemplate: jest.fn()
 }));
 
 describe("Company", () => {
@@ -80,7 +80,7 @@ describe("Company", () => {
       await deleteCompanyMember(resolve, source, args, context, resolveInfo);
 
       expect(resolve).toBeCalledTimes(1);
-      expect(sendEmailWithTemplate).toBeCalledTimes(1);
+      expect(sendMessageWithTemplate).toBeCalledTimes(1);
       expect(query.mock.calls).toMatchInlineSnapshot(`
         Array [
           Array [

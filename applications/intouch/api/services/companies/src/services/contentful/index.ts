@@ -123,6 +123,8 @@ export const messageTemplate = async (client, event: EventMessage) => {
       items {
         subject
         emailBody
+        notificationBody
+        format
       }
     }
   }`;

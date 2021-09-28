@@ -2,6 +2,7 @@ import { Source } from "graphql";
 import { makeWrapResolversPlugin } from "graphile-utils";
 import {
   CreateGuaranteeInput,
+  CreateNoteInput,
   UpdateGuaranteeInput,
   UpdateProjectMemberInput
 } from "@bmi/intouch-api-types";
@@ -12,6 +13,7 @@ import { createGuarantee, updateGuarantee } from "../../services/guarantee";
 import * as projectMutations from "../../services/project/mutations";
 import { PostGraphileContext } from "../../types";
 import { updateProjectMember } from "../../services/projectMember";
+import { createNote } from "../../services/note";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -118,7 +120,18 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
           );
         }
       },
-      ...projectMutations
+      ...projectMutations,
+      createNote: {
+        async resolve(
+          resolve,
+          source: Source | string,
+          args: { input: CreateNoteInput },
+          context: PostGraphileContext,
+          resolveInfo
+        ) {
+          return createNote(resolve, source, args, context, resolveInfo);
+        }
+      }
     }
   };
 });
