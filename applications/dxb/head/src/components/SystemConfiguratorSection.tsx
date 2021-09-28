@@ -24,6 +24,7 @@ import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import withGTM from "../utils/google-tag-manager";
 import { SystemDetails } from "../templates/systemDetails/types";
+import { queryElasticSearch } from "../utils/elasticSearch";
 import RichText, { RichTextData } from "./RichText";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
@@ -38,7 +39,6 @@ export type Data = {
   question: Partial<EntryData>;
   type: "Section";
   noResultItems: TitleWithContentData[];
-  pimSystems: Partial<SystemDetails>[];
 };
 
 export type NextStepData = Partial<EntryData> | TitleWithContentData;
@@ -60,8 +60,7 @@ type EntryData = {
   description: RichTextData | null;
   selectedSystem?: string;
 } & QuestionData &
-  ResultData &
-  PimSystems;
+  ResultData;
 
 type QuestionData = {
   answers: Partial<EntryData>[] | null;
@@ -73,10 +72,6 @@ type TitleWithContentData = DefaultTitleWithContentData & {
 
 type ResultData = {
   recommendedSystems: string[] | null;
-};
-
-type PimSystems = {
-  pimSystems: Partial<SystemDetails>[];
 };
 
 type SystemConfiguratorBlockProps = {
@@ -104,6 +99,8 @@ const SystemConfigurtorContext = createContext(undefined);
 const saveStateToLocalStorage = (stateToStore: string) => {
   storage.local.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
 };
+
+const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_SYSTEMS;
 
 const SystemConfiguratorBlock = ({
   id,
@@ -269,7 +266,6 @@ const SystemConfiguratorBlockResultSection = ({
   title,
   description,
   recommendedSystems,
-  pimSystems,
   selectedSystem: _selectedSystem
 }: Partial<EntryData>) => {
   const maxDisplay = 4;
@@ -279,18 +275,35 @@ const SystemConfiguratorBlockResultSection = ({
     useState<Partial<SystemDetails>[]>([]);
 
   useEffect(() => {
-    const recommendedSystemPimObjects = recommendedSystems
-      .map((systemId) => {
-        return pimSystems.find(({ code }) => code === systemId);
-      })
-      .filter((object) => !!object);
-    if (recommendedSystemPimObjects.length <= 0) {
-      navigate("/404");
-    } else {
-      setRecommendedSystemPimObjects(
-        recommendedSystemPimObjects.slice(0, maxDisplay)
-      );
-    }
+    const fetchESData = async () => {
+      if (recommendedSystems.length > 0) {
+        const query = {
+          query: {
+            terms: {
+              code: recommendedSystems
+            }
+          }
+        };
+        try {
+          const repsonse = await queryElasticSearch(query, ES_INDEX_NAME);
+          if (repsonse.hits?.total.value > 0) {
+            const pimObject = repsonse.hits?.hits.map(({ _source }) => _source);
+            setRecommendedSystemPimObjects(pimObject.slice(0, maxDisplay));
+          } else {
+            navigate("/404");
+          }
+        } catch (error) {
+          if (process.env.NODE_ENV === "development") {
+            // eslint-disable-next-line no-console
+            console.error(error);
+          }
+          navigate("/404");
+        }
+      } else {
+        setRecommendedSystemPimObjects([]);
+      }
+    };
+    fetchESData();
   }, [recommendedSystems]);
 
   return (
@@ -385,15 +398,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
     );
   }, []);
 
-  const {
-    title,
-    description,
-    type,
-    question,
-    locale,
-    noResultItems,
-    pimSystems
-  } = data;
+  const { title, description, type, question, locale, noResultItems } = data;
   const [state, setState] = useState<SystemConfiguratorSectionState>({
     isLoading: false,
     openIndex: null,
@@ -505,7 +510,6 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       {state.result && (
         <SystemConfiguratorBlockResultSection
           {...state.result}
-          pimSystems={pimSystems}
           selectedSystem={storedAnswers.selectedSystem}
         />
       )}
@@ -547,16 +551,6 @@ export const query = graphql`
     noResultItems {
       contentful_id
       ...TitleWithContentFragment
-    }
-    pimSystems {
-      code
-      name
-      shortDescription
-      images {
-        format
-        assetType
-        url
-      }
     }
   }
 `;

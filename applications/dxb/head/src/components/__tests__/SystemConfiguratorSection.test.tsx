@@ -14,6 +14,7 @@ import SystemConfiguratorSection, {
   Data,
   NextStepData
 } from "../SystemConfiguratorSection";
+import * as elasticSearch from "../../utils/elasticSearch";
 
 jest.mock("react-google-recaptcha-v3", () => {
   return {
@@ -125,8 +126,7 @@ const initialData: Data = {
         type: "Answer"
       }
     ]
-  },
-  pimSystems: []
+  }
 };
 
 const nextStepData: NextStepData = {
@@ -163,8 +163,8 @@ const getSiteContext = (
   }
 });
 
-const pimSystems = [
-  {
+const pimSystem = {
+  _source: {
     code: "efgh",
     name: "efgh name",
     shortDescription: "efgh description",
@@ -182,7 +182,18 @@ const pimSystems = [
       }
     ]
   }
-];
+};
+
+const mockQueryES = jest
+  .spyOn(elasticSearch, "queryElasticSearch")
+  .mockResolvedValue({
+    hits: {
+      hits: [pimSystem],
+      total: {
+        value: 1
+      }
+    }
+  });
 
 describe("SystemConfiguratorSection component", () => {
   it("renders correctly", () => {
@@ -197,8 +208,7 @@ describe("SystemConfiguratorSection component", () => {
             type: "Section",
             locale: "en-US",
             question: null,
-            noResultItems: [],
-            pimSystems: []
+            noResultItems: []
           }}
         />
       </LocationProvider>
@@ -218,8 +228,7 @@ describe("SystemConfiguratorSection component", () => {
             type: "Section",
             locale: "en-US",
             question: null,
-            noResultItems: [],
-            pimSystems: []
+            noResultItems: []
           }}
         />
       </LocationProvider>
@@ -275,8 +284,7 @@ describe("SystemConfiguratorSection component", () => {
         <LocationProvider>
           <SystemConfiguratorSection
             data={{
-              ...initialData,
-              pimSystems
+              ...initialData
             }}
           />
         </LocationProvider>
@@ -288,10 +296,11 @@ describe("SystemConfiguratorSection component", () => {
 
     await findByRole("progressbar");
     await findByText("Result Title");
-    await findByText(pimSystems[0].name);
-    await findByText(pimSystems[0].shortDescription);
+    await findByText(pimSystem._source.name);
+    await findByText(pimSystem._source.shortDescription);
 
     expect(container).toMatchSnapshot();
+    expect(mockQueryES).toBeCalledTimes(1);
   });
 
   it("stores selected system when a result system card clicked", async () => {
@@ -312,8 +321,7 @@ describe("SystemConfiguratorSection component", () => {
         <LocationProvider>
           <SystemConfiguratorSection
             data={{
-              ...initialData,
-              pimSystems
+              ...initialData
             }}
           />
         </LocationProvider>
@@ -325,7 +333,7 @@ describe("SystemConfiguratorSection component", () => {
 
     await findByRole("progressbar");
     await findByText("Result Title");
-    const label2 = await findByText(pimSystems[0].name);
+    const label2 = await findByText(pimSystem._source.name);
     fireEvent.click(label2);
 
     expect(window.localStorage.setItem).toHaveBeenLastCalledWith(
@@ -334,6 +342,7 @@ describe("SystemConfiguratorSection component", () => {
       `{\"selectedAnswers\":[\"A1c\"],\"selectedSystem\":\"efgh\"}`
     );
     expect(container).toMatchSnapshot();
+    expect(mockQueryES).toBeCalledTimes(1);
   });
 
   it("renders a no result section when answer clicked", async () => {
@@ -647,7 +656,7 @@ describe("SystemConfiguratorSection component", () => {
       const { container, findByText, findByLabelText } = render(
         <SiteContextProvider value={getSiteContext()}>
           <LocationProvider history={history}>
-            <SystemConfiguratorSection data={{ ...initialData, pimSystems }} />
+            <SystemConfiguratorSection data={{ ...initialData }} />
           </LocationProvider>
         </SiteContextProvider>
       );
@@ -656,8 +665,8 @@ describe("SystemConfiguratorSection component", () => {
       fireEvent.click(label);
 
       await findByText("Result Title");
-      await findByText(pimSystems[0].name);
-      await findByText(pimSystems[0].shortDescription);
+      await findByText(pimSystem._source.name);
+      await findByText(pimSystem._source.shortDescription);
 
       expect(window.history.replaceState).toHaveBeenLastCalledWith(
         null,
@@ -684,7 +693,7 @@ describe("SystemConfiguratorSection component", () => {
       const { container, findByText, findByLabelText } = render(
         <SiteContextProvider value={getSiteContext()}>
           <LocationProvider history={history}>
-            <SystemConfiguratorSection data={{ ...initialData, pimSystems }} />
+            <SystemConfiguratorSection data={{ ...initialData }} />
           </LocationProvider>
         </SiteContextProvider>
       );
@@ -693,15 +702,15 @@ describe("SystemConfiguratorSection component", () => {
       fireEvent.click(label);
 
       await findByText("Result Title");
-      await findByText(pimSystems[0].name);
-      await findByText(pimSystems[0].shortDescription);
+      await findByText(pimSystem._source.name);
+      await findByText(pimSystem._source.shortDescription);
 
       expect(window.history.replaceState).toBeCalled();
       expect(container).toMatchSnapshot();
     });
   });
 
-  it("renders only the recommendedSystems that match the pimSystems list from contentful", async () => {
+  it("renders only the recommendedSystems that match the pimSystem list from contentful", async () => {
     mockedAxios.get.mockResolvedValue({
       data: {
         __typename: "ContentfulSystemConfiguratorBlock",
@@ -711,20 +720,35 @@ describe("SystemConfiguratorSection component", () => {
         recommendedSystems: ["abcd", "efgh", "ijkl"]
       }
     });
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          pimSystem,
+          {
+            _source: {
+              code: "ijkl",
+              name: "ijkl name"
+            }
+          }
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
 
-    const { container, findByLabelText, findByRole, findByText } = render(
+    const {
+      container,
+      findByLabelText,
+      findByRole,
+      findByText,
+      findAllByText
+    } = render(
       <SiteContextProvider value={getSiteContext()}>
         <LocationProvider>
           <SystemConfiguratorSection
             data={{
-              ...initialData,
-              pimSystems: [
-                ...pimSystems,
-                {
-                  code: "ijkl",
-                  name: "ijkl name"
-                }
-              ]
+              ...initialData
             }}
           />
         </LocationProvider>
@@ -735,12 +759,14 @@ describe("SystemConfiguratorSection component", () => {
     fireEvent.click(label);
 
     await findByRole("progressbar");
-    await findByText("Result Title");
-    await findByText(pimSystems[0].name);
-    await findByText(pimSystems[0].shortDescription);
+    // await findByText("Result Title");
+    await findByText(pimSystem._source.name);
+    await findByText(pimSystem._source.shortDescription);
     await findByText("ijkl name");
 
+    console.log(findAllByText("Result Title"));
     expect(container).toMatchSnapshot();
+    expect(mockQueryES).toBeCalledTimes(1);
     expect(
       container.querySelectorAll(".SystemConfigurator-result .OverviewCard")
         .length
@@ -757,35 +783,52 @@ describe("SystemConfiguratorSection component", () => {
         recommendedSystems: ["abcd", "efgh", "ijkl", "mnop", "qrst"]
       }
     });
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          {
+            _source: {
+              code: "abcd",
+              name: "abcd name"
+            }
+          },
+          {
+            _source: {
+              code: "efgh",
+              name: "efgh name"
+            }
+          },
+          {
+            _source: {
+              code: "ijkl",
+              name: "ijkl name"
+            }
+          },
+          {
+            _source: {
+              code: "mnop",
+              name: "mnop name"
+            }
+          },
+          {
+            _source: {
+              code: "qrst",
+              name: "qrst name"
+            }
+          }
+        ],
+        total: {
+          value: 5
+        }
+      }
+    });
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <SiteContextProvider value={getSiteContext()}>
         <LocationProvider>
           <SystemConfiguratorSection
             data={{
-              ...initialData,
-              pimSystems: [
-                {
-                  code: "abcd",
-                  name: "abcd name"
-                },
-                {
-                  code: "efgh",
-                  name: "efgh name"
-                },
-                {
-                  code: "ijkl",
-                  name: "ijkl name"
-                },
-                {
-                  code: "mnop",
-                  name: "ijkl name"
-                },
-                {
-                  code: "qrst",
-                  name: "ijkl name"
-                }
-              ]
+              ...initialData
             }}
           />
         </LocationProvider>
@@ -799,13 +842,14 @@ describe("SystemConfiguratorSection component", () => {
     await findByText("Result Title");
 
     expect(container).toMatchSnapshot();
+    expect(mockQueryES).toBeCalledTimes(1);
     expect(
       container.querySelectorAll(".SystemConfigurator-result .OverviewCard")
         .length
     ).toBe(4);
   });
 
-  it("redirect to 404 page if no matches to pimSystems code", async () => {
+  it("redirect to 404 page if no matches to pimSystem code", async () => {
     mockedAxios.get.mockResolvedValue({
       data: {
         __typename: "ContentfulSystemConfiguratorBlock",
@@ -816,18 +860,20 @@ describe("SystemConfiguratorSection component", () => {
       }
     });
     const redirection = jest.spyOn(ReactRoter, "navigate");
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [],
+        total: {
+          value: 0
+        }
+      }
+    });
     const { container, findByLabelText, findByText } = render(
       <SiteContextProvider value={getSiteContext()}>
         <LocationProvider>
           <SystemConfiguratorSection
             data={{
-              ...initialData,
-              pimSystems: [
-                {
-                  code: "abcd",
-                  name: "abcd name"
-                }
-              ]
+              ...initialData
             }}
           />
         </LocationProvider>
@@ -840,6 +886,7 @@ describe("SystemConfiguratorSection component", () => {
     await findByText("Result Title");
 
     expect(container).toMatchSnapshot();
+    expect(mockQueryES).toBeCalledTimes(1);
     expect(redirection).toHaveBeenCalledWith("/404");
   });
 });

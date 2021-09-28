@@ -642,7 +642,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
 </div>
 `;
 
-exports[`SystemConfiguratorSection component redirect to 404 page if no matches to pimSystems code 1`] = `
+exports[`SystemConfiguratorSection component redirect to 404 page if no matches to pimSystem code 1`] = `
 <div>
   <div
     class="SystemConfigurator Section Section--white"
@@ -1416,7 +1416,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-container MuiCollapse-hidden"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -2118,7 +2118,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-container MuiCollapse-hidden"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -3581,7 +3581,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   <h5
                     class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
-                    ijkl name
+                    mnop name
                   </h5>
                   <div
                     class="children text"
@@ -3632,7 +3632,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
 </div>
 `;
 
-exports[`SystemConfiguratorSection component renders only the recommendedSystems that match the pimSystems list from contentful 1`] = `
+exports[`SystemConfiguratorSection component renders only the recommendedSystems that match the pimSystem list from contentful 1`] = `
 <div>
   <div
     class="SystemConfigurator Section Section--white"

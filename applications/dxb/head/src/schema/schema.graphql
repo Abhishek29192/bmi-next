@@ -1713,5 +1713,4 @@ type ContentfulSystemConfiguratorBlock implements Node {
     @link(from: "noResultItems___NODE")
 
   recommendedSystems: [String!]
-  pimSystems: [DataJson]
 }
