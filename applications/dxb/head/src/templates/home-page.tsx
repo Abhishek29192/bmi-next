@@ -47,7 +47,7 @@ const getHeroItemsWithContext = (
       const callToAction =
         rest.__typename === "ContentfulPromo" && rest.cta ? (
           <Link component={Button} data={rest.cta}>
-            {rest.cta.label}
+            {rest.cta?.label}
           </Link>
         ) : (
           <Link
