@@ -1,10 +1,11 @@
+/* eslint-disable security/detect-object-injection */
 // THIS IS A CLONE OF EXTERNAL DEPENDENCIES I COULDN'T REQUIRE FROM HEAD ATM
 // POSSIBLY WITH SOME CHANGES
 // product-details-trasnforms.ts
 // @ts-nocheck
 
 import { result, find } from "lodash";
-import { Product } from "./pim";
+import { Product, Classification } from "./pim";
 
 export type Category = {
   parentCategoryCode: string;
@@ -290,4 +291,70 @@ export const getSizeLabel = (
       // Add extra space if units don't match
       .join(sameUnit ? "x" : " x ") + unit
   );
+};
+
+export type ESIndexObject = {
+  code: string;
+  name: string;
+};
+
+export interface IndexedItem<T = any> {
+  [key: string]: T;
+}
+
+export interface IndexedItemGroup<T> {
+  [key: string]: T[];
+}
+
+export const groupBy = <T extends IndexedItem>(
+  array: readonly T[],
+  key: keyof T
+): IndexedItemGroup<T> => {
+  return (array || []).reduce<IndexedItemGroup<T>>((map, item) => {
+    const itemKey = item[key];
+    map[itemKey] = map[itemKey] || [];
+    map[itemKey].push(item);
+    return map;
+  }, {});
+};
+
+const extractFeatureCode = (
+  pimClassificationNameSpace: string,
+  code: string
+) => {
+  return code.replace(`${pimClassificationNameSpace}/`, "");
+};
+
+export const IndexFeatures = (
+  pimClassificationNameSpace: string = "",
+  classifications: Classification[]
+): IndexedItemGroup<ESIndexObject> => {
+  const allfeaturesAsProps = (classifications || []).reduce(
+    (acc, classification) => {
+      const classificationFeatureAsProp = (
+        classification.features || []
+      ).reduce((featureAsProp, feature) => {
+        const featureCode = extractFeatureCode(
+          pimClassificationNameSpace,
+          feature.code
+        );
+        const nameAndCodeValues = feature.featureValues.map((featVal) => {
+          return {
+            code: `${featVal.value}${feature.featureUnit?.symbol || ""}`,
+            name: `${featVal.value} ${feature.featureUnit?.symbol || ""}`
+          };
+        });
+        return {
+          ...featureAsProp,
+          [featureCode]: nameAndCodeValues
+        };
+      }, {});
+      return {
+        ...acc,
+        ...classificationFeatureAsProp
+      };
+    },
+    {}
+  );
+  return allfeaturesAsProps;
 };

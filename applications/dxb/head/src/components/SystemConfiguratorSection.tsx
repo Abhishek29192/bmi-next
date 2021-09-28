@@ -1,32 +1,30 @@
-import React, {
-  useCallback,
-  useContext,
-  useState,
-  useEffect,
-  createContext,
-  ChangeEvent,
-  useLayoutEffect
-} from "react";
-import { graphql } from "gatsby";
-import { Box } from "@material-ui/core";
-import axios, { AxiosResponse, CancelToken } from "axios";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";
-import Section from "@bmi/section";
-import RadioPane from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
 import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
-import { Link as GatsbyLink } from "gatsby";
+import RadioPane from "@bmi/radio-pane";
+import Section from "@bmi/section";
 import { useLocation } from "@reach/router";
-import Scrim from "../components/Scrim";
+import axios, { AxiosResponse, CancelToken } from "axios";
+import { graphql, Link as GatsbyLink } from "gatsby";
+import React, {
+  ChangeEvent,
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState
+} from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ProgressIndicator from "../components/ProgressIndicator";
+import Scrim from "../components/Scrim";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
-import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
-import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SystemConfiguratorSection.module.scss";
+import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 
 export type Data = {
   __typename: "ContentfulSystemConfiguratorBlock";
@@ -162,11 +160,7 @@ const SystemConfiguratorBlock = ({
     ACCORDION_TRANSITION
   );
 
-  if (!questionData) {
-    return null;
-  }
-
-  const { type, title, ...rest } = questionData;
+  const { type, title, ...rest } = questionData || {};
 
   const { answers = [], description } = rest;
 
@@ -182,6 +176,20 @@ const SystemConfiguratorBlock = ({
   const selectedAnswer =
     answers.find(({ id }) => id === nextId) ||
     (answers.length === 1 && answers[0]);
+
+  useEffect(() => {
+    if (selectedAnswer) {
+      pushToDataLayer({
+        id: `system-configurator01-selected`,
+        label: title,
+        action: selectedAnswer.title
+      });
+    }
+  }, [selectedAnswer]);
+
+  if (!questionData) {
+    return null;
+  }
 
   return (
     <>
@@ -239,6 +247,14 @@ const SystemConfiguratorBlockNoResultsSection = ({
 }: Partial<TitleWithContentData>) => {
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
 
+  useEffect(() => {
+    pushToDataLayer({
+      id: "system-configurator01-results",
+      label: "No system found",
+      action: "No system found"
+    });
+  }, []);
+
   return (
     <div ref={ref}>
       <Section backgroundColor="alabaster">
@@ -273,37 +289,43 @@ const SystemConfiguratorBlockResultSection = ({
         {description && <RichText document={description} />}
         {recommendedSystems && (
           <Grid container spacing={3}>
-            {recommendedSystems.map((system) => (
-              <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
-                <GTMOverviewCard
-                  title={`System-${system}`}
-                  titleVariant="h5"
-                  subtitleVariant="h6"
-                  imageSize="contain"
-                  gtm={{
-                    event: `${title}-results`,
-                    id: system,
-                    action: `/${countryCode}/system-details-page?selected_system=${system}`
-                  }}
-                  action={{
-                    model: "routerLink",
-                    linkComponent: GatsbyLink,
-                    to: `/${countryCode}/system-details-page?selected_system=${system}`
-                  }}
-                  onClick={() => {
-                    const storedState = storage.local.getItem(
-                      SYSTEM_CONFIG_STORAGE_KEY
-                    );
-                    const stateObject = JSON.parse(storedState || "");
-                    const newState = { ...stateObject, selectedSystem: system };
-                    saveStateToLocalStorage(JSON.stringify(newState));
-                  }}
-                  isHighlighted={false}
-                >
-                  {undefined}
-                </GTMOverviewCard>
-              </Grid>
-            ))}
+            {recommendedSystems.map((system) => {
+              const linkToSDP = `/${countryCode}/system-details-page?selected_system=${system}&prev_page=system-configurator-page&referer=sys_details`;
+              return (
+                <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
+                  <GTMOverviewCard
+                    title={`System-${system}`}
+                    titleVariant="h5"
+                    subtitleVariant="h6"
+                    imageSize="contain"
+                    gtm={{
+                      event: `${title}-results`,
+                      id: system,
+                      action: linkToSDP
+                    }}
+                    action={{
+                      model: "routerLink",
+                      linkComponent: GatsbyLink,
+                      to: linkToSDP
+                    }}
+                    onClick={() => {
+                      const storedState = storage.local.getItem(
+                        SYSTEM_CONFIG_STORAGE_KEY
+                      );
+                      const stateObject = JSON.parse(storedState || "");
+                      const newState = {
+                        ...stateObject,
+                        selectedSystem: system
+                      };
+                      saveStateToLocalStorage(JSON.stringify(newState));
+                    }}
+                    isHighlighted={false}
+                  >
+                    {undefined}
+                  </GTMOverviewCard>
+                </Grid>
+              );
+            })}
           </Grid>
         )}
       </Section>

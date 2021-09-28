@@ -81,7 +81,7 @@ export const handler = async function (
   createProxyMiddleware({
     target: GRAPHQL_URL,
     changeOrigin: true,
-    proxyTimeout: 5000,
+    proxyTimeout: process.env.NODE_ENV === "development" ? 10000 : 3000,
     secure: false,
     pathRewrite: {
       "^/api/graphql": ""

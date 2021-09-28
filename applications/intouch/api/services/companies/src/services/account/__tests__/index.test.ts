@@ -7,7 +7,7 @@ import {
 } from "../";
 import * as mailerSrv from "../../../services/mailer";
 import * as trainingSrv from "../../../services/training";
-import { transaction, getDbPool } from "../../../test-utils/db";
+import { getDbPool } from "../../../test-utils/db";
 import { company } from "../../../fixtures";
 
 const mockPubSub = jest.fn();
@@ -98,54 +98,6 @@ describe("Account", () => {
 
   describe("Update", () => {
     describe("Role", () => {
-      it("should throw an error if an installer try to update the role", async () => {
-        const email1 = "joe@email.invalid";
-        const email2 = "jane@email.invalid";
-
-        const {
-          rows: [installer]
-        } = await transaction(
-          pool,
-          {
-            role: "super_admin",
-            accountUuid: -1,
-            accountEmail: ""
-          },
-          "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
-          ["INSTALLER", "joe", "doe", email1]
-        );
-        await transaction(
-          pool,
-          {
-            role: "super_admin",
-            accountUuid: -1,
-            accountEmail: ""
-          },
-          "insert into account (role, first_name, last_name, email) VALUES($1, $2, $3, $4) RETURNING *",
-          ["COMPANY_ADMIN", "jane", "doe", email2]
-        );
-
-        try {
-          await transaction(
-            pool,
-            {
-              role: "installer",
-              accountUuid: installer.id,
-              accountEmail: installer.email
-            },
-            "update account set role=$1",
-            ["INSTALLER"]
-          );
-        } catch (error) {
-          expect(error.message).toEqual("permission denied for table account");
-        }
-
-        await pool.query("delete from account where email = $1 OR email=$2", [
-          email1,
-          email2
-        ]);
-      });
-
       it("should resolve if a company admin promote a installer", async () => {
         contextMock.user.can = () => true;
         contextMock.user.company = {

@@ -57,11 +57,11 @@ deploy_gcp-intouch-generate-guarantee:
       GCP_INTOUCH_REPLATFORM_PROJECT_ID=$GCP_INTOUCH_REPLATFORM_PROJECT_ID
       GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE
 
-      INTOUCH_SENDGRID_API_KEY_DEV=$INTOUCH_SENDGRID_API_KEY_DEV
       INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM
+      GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-generate-guarantee.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud builds submit . --config=applications/intouch/functions/gcp-generate-guarantee/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_SENDGRID_API_KEY_DEV=$INTOUCH_SENDGRID_API_KEY_DEV,_INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM,_NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
+    - gcloud builds submit . --config=applications/intouch/functions/gcp-generate-guarantee/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,_NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN

@@ -1,9 +1,9 @@
 "use strict";
 
-const PRODUCTION_BRANCH = "production";
-const PRE_PRODUCTION_BRANCH = "pre-production";
-
-const recognisedHooks = ["Gitlab Tag Trigger"];
+const productionBranch = "production";
+const preProductionBranch = "pre-production";
+const hooksToAllow = ["Contentful integration", "Clean cache"];
+const branchesToCheck = [productionBranch, preProductionBranch];
 
 // NOTE: https://github.com/semver/semver/issues/232#issuecomment-405596809
 const semVerRegex =
@@ -18,23 +18,19 @@ module.exports = {
       DXB_FORCE_NETLIFY_BUILD
     } = process.env;
 
-    console.log(
+    console.info(
       `Build triggered with the hook: ${INCOMING_HOOK_TITLE || "unknown"}`
     );
 
-    if (!recognisedHooks.includes(INCOMING_HOOK_TITLE)) {
+    if (
+      hooksToAllow.includes(INCOMING_HOOK_TITLE) ||
+      !branchesToCheck.includes(BRANCH) ||
+      DXB_FORCE_NETLIFY_BUILD === "true"
+    ) {
       return;
     }
 
-    if (DXB_FORCE_NETLIFY_BUILD && DXB_FORCE_NETLIFY_BUILD === "true") {
-      return;
-    }
-
-    if (![PRODUCTION_BRANCH, PRE_PRODUCTION_BRANCH].includes(BRANCH)) {
-      return;
-    }
-
-    let tag = "";
+    let tag = undefined;
 
     if (INCOMING_HOOK_BODY) {
       const { event_name, ref } = JSON.parse(INCOMING_HOOK_BODY);
@@ -44,7 +40,7 @@ module.exports = {
       }
     }
 
-    if (!tag && [PRODUCTION_BRANCH, PRE_PRODUCTION_BRANCH].includes(BRANCH)) {
+    if (!tag) {
       return utils.build.cancelBuild(
         `Skip build for merge event into ${BRANCH} without tag`
       );
@@ -56,15 +52,15 @@ module.exports = {
 
     const semver = tag.match(semVerRegex).groups;
 
-    if (BRANCH === PRODUCTION_BRANCH && semver.prerelease) {
+    if (BRANCH === preProductionBranch && !semver.prerelease) {
       return utils.build.cancelBuild(
-        `Skip build for tag event (tag: ${tag}) on ${BRANCH} as it is intended for ${PRE_PRODUCTION_BRANCH} only.`
+        `Skip build for tag event (tag: ${tag}) on ${BRANCH} as it is intended for ${productionBranch} only.`
       );
     }
 
-    if (BRANCH === PRE_PRODUCTION_BRANCH && !semver.prerelease) {
+    if (BRANCH === productionBranch && semver.prerelease) {
       return utils.build.cancelBuild(
-        `Skip build for tag event (tag: ${tag}) on ${BRANCH} as it is intended for ${PRODUCTION_BRANCH} only.`
+        `Skip build for tag event (tag: ${tag}) on ${BRANCH} as it is intended for ${preProductionBranch} only.`
       );
     }
   }

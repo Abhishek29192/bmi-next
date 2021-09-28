@@ -41,10 +41,14 @@ export const getProjectStatus = (startDate, endDate) => {
   return ProjectStatus.NOT_STARTED;
 };
 
+export const findProjectGuarantee = (project: DeepPartial<Project>) => {
+  return project?.guarantees?.nodes?.[0];
+};
+
 export const getProjectGuaranteeStatus = (
   project: DeepPartial<Project>
 ): GuaranteeStatus => {
-  const guarantee = project?.guarantees?.nodes?.[0];
+  const guarantee = findProjectGuarantee(project);
 
   // Guarantee associated with the Project - Not Applicable
   if (!guarantee) {
@@ -94,6 +98,18 @@ export const isProjectApprovable = (
   return (
     guarantee.status === "REVIEW" && guarantee.reviewerAccountId === accountId
   );
+};
+
+export const isProjectEditable = (project) => {
+  const guarantee = findProjectGuarantee(project);
+
+  // If there is no guarantee, all fields can be edited
+  if (!guarantee) {
+    return true;
+  }
+
+  // If there is a guarantee, some fields can be edited, if it's in certain statuses
+  return !["APPROVED", "SUBMITTED", "REVIEW"].includes(guarantee.status);
 };
 
 export const checkProjectGuaranteeReview = (

@@ -7,7 +7,7 @@ export const mockCompany: Company = {
   id: 2,
   nodeId: "",
   name: "Lehner-Gislason",
-  referenceNumber: "64772300",
+  referenceNumber: 64772300,
   createdAt: "",
   updatedAt: "",
   companyDocuments: emptyNodes,
@@ -16,6 +16,8 @@ export const mockCompany: Company = {
   registeredAddress: mockCompanyAddress,
   companyOperationsByCompany: null,
   invitations: null,
+  certifications: null,
+  isProfileComplete: true,
   projects: {
     nodes: [mockProject],
     edges: [],

@@ -41,7 +41,7 @@ export default gql`
 
   type ContentfulMessage {
     event: ContentfulMessageEventType
-    format: ContentfulMessageFormat
+    format: [ContentfulMessageFormat]
     subject: String
     notificationBody: String
     emailBody: String

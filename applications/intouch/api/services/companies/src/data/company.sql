@@ -172,8 +172,8 @@ CREATE TABLE account (
   ROLE ROLE,
   email text NOT NULL,
   phone text,
-  first_name text NOT NULL,
-  last_name text NOT NULL,
+  first_name text,
+  last_name text,
   created timestamp,
   docebo_user_id int,
   docebo_username text,
@@ -727,7 +727,7 @@ INSERT INTO market (id,
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle, location_bias_radius_km)
-  VALUES ('2', 'no', 'no', 'evpdf7auu9nf', 'BMI InTouch Norge', 'BMI Norge', 'intouch.no@bmigroup.com', '28', '29', 14, 'https://bmiportalen.bk.no/', TRUE, 'UA-141761217-6', '60.4720,8.4689', 500);
+  VALUES ('2', 'no', 'no', 'evpdf7auu9nf', 'BMI InTouch Norge', 'BMI Norge', 'intouch.no@bmigroup.com', '28', '29', 38, 'https://bmiportalen.bk.no/', TRUE, 'UA-141761217-6', '60.4720,8.4689', 500);
 
 TRUNCATE TABLE note RESTART IDENTITY;
 
@@ -1413,9 +1413,10 @@ COMMENT ON COLUMN guarantee.language_code IS 'ek';
 
 COMMENT ON COLUMN guarantee.status IS 'ek';
 
-COMMENT ON COLUMN guarantee.start_date IS 'The date that the Guarantee is approved either automatically or manually';
+COMMENT ON COLUMN guarantee.start_date IS 'The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.';
 
-COMMENT ON COLUMN guarantee.expiry_date IS 'When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier';
+COMMENT ON COLUMN guarantee.expiry_date IS 'When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+The date is stored in UTC.';
 
 COMMENT ON COLUMN guarantee.bmi_reference_id IS 'This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id';
 

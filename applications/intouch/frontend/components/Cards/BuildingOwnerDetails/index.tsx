@@ -12,6 +12,7 @@ export type BuildingOwnerDetailsProps = {
   email?: string;
   company?: string;
   address?: AddressProps["address"];
+  renderActions?: () => React.ReactNode;
 };
 
 const InfoPair = (props) => {
@@ -26,7 +27,8 @@ export const BuildingOwnerDetails = ({
   name,
   email,
   company,
-  address
+  address,
+  renderActions
 }: BuildingOwnerDetailsProps) => {
   const { t } = useTranslation("project-page");
 
@@ -38,16 +40,21 @@ export const BuildingOwnerDetails = ({
       {empty ? (
         <NoContent message={t("buildingOwnerDetails.noContent")} />
       ) : (
-        <div className={styles.body}>
-          <InfoPair title={t("buildingOwnerDetails.name")}>{name}</InfoPair>
-          <InfoPair title={t("buildingOwnerDetails.email")}>{email}</InfoPair>
-          <InfoPair title={t("buildingOwnerDetails.company")}>
-            {company}
-          </InfoPair>
-          <InfoPair title={t("buildingOwnerDetails.address")}>
-            <Address address={address} />
-          </InfoPair>
-        </div>
+        <>
+          <div className={styles.body}>
+            <InfoPair title={t("buildingOwnerDetails.name")}>{name}</InfoPair>
+            <InfoPair title={t("buildingOwnerDetails.email")}>{email}</InfoPair>
+            <InfoPair title={t("buildingOwnerDetails.company")}>
+              {company}
+            </InfoPair>
+            <InfoPair title={t("buildingOwnerDetails.address")}>
+              <Address address={address} />
+            </InfoPair>
+          </div>
+          {renderActions ? (
+            <div className={styles.footer}>{renderActions()}</div>
+          ) : null}
+        </>
       )}
     </SimpleCard>
   );
