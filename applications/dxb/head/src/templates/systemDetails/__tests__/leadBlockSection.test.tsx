@@ -194,7 +194,8 @@ describe("LeadBlockSection tests", () => {
 
   describe("When user navigates with selected systems query string", () => {
     it("should render back to your selection button", () => {
-      const route = "/jest-test-page?selected_system=123";
+      const route =
+        "/jest-test-page?selected_system=123&prev_page=system-configurator-page&referer=sys_details";
       const history = createHistory(createMemorySource(route));
       const { container, queryByText } = render(
         <LocationProvider history={history}>

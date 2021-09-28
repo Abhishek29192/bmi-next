@@ -249,8 +249,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
-                href="/no/system-details-page?selected_system=abcd"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details\\"}"
+                href="/no/system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -277,8 +277,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
-                href="/no/system-details-page?selected_system=efgh"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details\\"}"
+                href="/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -556,8 +556,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
-                href="/no/system-details-page?selected_system=abcd"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details\\"}"
+                href="/no/system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -584,8 +584,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
-                href="/no/system-details-page?selected_system=efgh"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details\\"}"
+                href="/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -1318,8 +1318,8 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
-                href="/no/system-details-page?selected_system=abcd"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details\\"}"
+                href="/no/system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -1346,8 +1346,8 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
-                href="/no/system-details-page?selected_system=efgh"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details\\"}"
+                href="/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -3953,8 +3953,8 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
-                href="/no/system-details-page?selected_system=abcd"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details\\"}"
+                href="/no/system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -3981,8 +3981,8 @@ exports[`SystemConfiguratorSection component stores selected system when a resul
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
-                href="/no/system-details-page?selected_system=efgh"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details\\"}"
+                href="/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >

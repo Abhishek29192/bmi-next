@@ -273,37 +273,43 @@ const SystemConfiguratorBlockResultSection = ({
         {description && <RichText document={description} />}
         {recommendedSystems && (
           <Grid container spacing={3}>
-            {recommendedSystems.map((system) => (
-              <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
-                <GTMOverviewCard
-                  title={`System-${system}`}
-                  titleVariant="h5"
-                  subtitleVariant="h6"
-                  imageSize="contain"
-                  gtm={{
-                    event: `${title}-results`,
-                    id: system,
-                    action: `/${countryCode}/system-details-page?selected_system=${system}`
-                  }}
-                  action={{
-                    model: "routerLink",
-                    linkComponent: GatsbyLink,
-                    to: `/${countryCode}/system-details-page?selected_system=${system}`
-                  }}
-                  onClick={() => {
-                    const storedState = storage.local.getItem(
-                      SYSTEM_CONFIG_STORAGE_KEY
-                    );
-                    const stateObject = JSON.parse(storedState || "");
-                    const newState = { ...stateObject, selectedSystem: system };
-                    saveStateToLocalStorage(JSON.stringify(newState));
-                  }}
-                  isHighlighted={false}
-                >
-                  {undefined}
-                </GTMOverviewCard>
-              </Grid>
-            ))}
+            {recommendedSystems.map((system) => {
+              const linkToSDP = `/${countryCode}/system-details-page?selected_system=${system}&prev_page=system-configurator-page&referer=sys_details`;
+              return (
+                <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
+                  <GTMOverviewCard
+                    title={`System-${system}`}
+                    titleVariant="h5"
+                    subtitleVariant="h6"
+                    imageSize="contain"
+                    gtm={{
+                      event: `${title}-results`,
+                      id: system,
+                      action: linkToSDP
+                    }}
+                    action={{
+                      model: "routerLink",
+                      linkComponent: GatsbyLink,
+                      to: linkToSDP
+                    }}
+                    onClick={() => {
+                      const storedState = storage.local.getItem(
+                        SYSTEM_CONFIG_STORAGE_KEY
+                      );
+                      const stateObject = JSON.parse(storedState || "");
+                      const newState = {
+                        ...stateObject,
+                        selectedSystem: system
+                      };
+                      saveStateToLocalStorage(JSON.stringify(newState));
+                    }}
+                    isHighlighted={false}
+                  >
+                    {undefined}
+                  </GTMOverviewCard>
+                </Grid>
+              );
+            })}
           </Grid>
         )}
       </Section>
