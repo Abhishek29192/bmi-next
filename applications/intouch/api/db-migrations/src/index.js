@@ -81,7 +81,7 @@ async function main() {
     }
   });
 
-  app.use((err, req, res, next) => {
+  app.use((err, req, res) => {
     return res.send(err);
   });
 

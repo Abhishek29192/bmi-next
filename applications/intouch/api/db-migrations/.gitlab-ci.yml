@@ -7,7 +7,7 @@ build_intouch_migration_db_service:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
-        - applications/intouch/api/services/companies/src/script/**/*
+        - applications/intouch/api/services/companies/src/scripts/**/*
         - applications/intouch/api/services/companies/src/data/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
@@ -26,7 +26,7 @@ deploy_intouch_migration_db_service:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
-        - applications/intouch/api/services/companies/src/script/**/*
+        - applications/intouch/api/services/companies/src/scripts/**/*
         - applications/intouch/api/services/companies/src/data/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
