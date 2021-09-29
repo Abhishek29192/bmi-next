@@ -40,7 +40,7 @@ const SystemCard = ({
 }) => {
   const brandLogoCode = findSystemBrandLogoCode(system);
   const brandLogo = iconMap[brandLogoCode];
-  const systemUrl = getSystemUrl(countryCode, path || "system-details-page");
+  const systemUrl = getSystemUrl(countryCode, path);
   const mainImage = findMasterImageUrl(system.images || []);
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
   return (
@@ -93,14 +93,12 @@ const SystemListing = ({
   countryCode,
   systems,
   initialNumberShown = 8,
-  pageSize = 8,
-  path
+  pageSize = 8
 }: {
   countryCode: string;
   systems: ReadonlyArray<SystemDetails>;
   initialNumberShown?: number;
   pageSize?: number;
-  path?: string;
 }) => {
   const [numberShown, setNumberShown] = useState(initialNumberShown);
   const { getMicroCopy } = useSiteContext();
@@ -119,7 +117,7 @@ const SystemListing = ({
             key={`${system.code}`}
             system={system}
             countryCode={countryCode}
-            path={path}
+            path={system.path}
           />
         ))}
       </Grid>
@@ -162,10 +160,7 @@ const RelatedSystems = ({
         {sectionTitle || getMicroCopy("sdp.recommendedSystemsTitle")}
       </Section.Title>
       <div className={styles["RelatedProducts"]}>
-        <SystemListing
-          systems={systems}
-          countryCode={countryCode}
-        ></SystemListing>
+        <SystemListing systems={systems} countryCode={countryCode} />
       </div>
     </Section>
   );
@@ -187,6 +182,7 @@ export const query = graphql`
         name
       }
     }
+    path
     assets {
       allowedToDownload
       assetType
@@ -230,25 +226,6 @@ export const query = graphql`
       url
       format
       containerId
-    }
-    systemLayers {
-      layerNumber
-      type
-      name
-      shortDescription
-      relatedProducts {
-        name
-        variantOptions {
-          path
-        }
-      }
-      relatedOptionalProducts {
-        name
-        code
-        variantOptions {
-          path
-        }
-      }
     }
   }
 `;

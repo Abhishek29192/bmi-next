@@ -356,7 +356,12 @@ export const systemsQuery = graphql`
       }
     }
 
-    relatedSystems: allSystems(filter: { code: { in: $relatedSystemCodes } }) {
+    relatedSystems: allSystems(
+      filter: {
+        code: { in: $relatedSystemCodes }
+        approvalStatus: { eq: "approved" }
+      }
+    ) {
       nodes {
         ...RelatedSystemsFragment
       }
