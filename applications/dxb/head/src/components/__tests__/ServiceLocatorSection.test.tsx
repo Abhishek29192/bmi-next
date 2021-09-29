@@ -944,4 +944,31 @@ describe("ServiceLocatorSection component", () => {
     expect(wrapper.getAllByText("roofer 1")).toHaveLength(2);
     expect(wrapper.getAllByText("roofer 2")).toHaveLength(1);
   });
+
+  it("close button", () => {
+    const roofer1 = createService({ name: "roofer 1" });
+    const roofer2 = createService({ name: "roofer 2" });
+
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Roofer",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [roofer1, roofer2]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+
+    act(() => {
+      callMarkerOnClick("MC: global.close");
+    });
+    const closeButton = wrapper.getByLabelText("MC: global.close");
+    closeButton.click();
+
+    expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
 });
