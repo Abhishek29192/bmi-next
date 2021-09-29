@@ -349,7 +349,6 @@ describe("Link component", () => {
         null,
         { id: "foo1", label: "foo", action: "foo.com" }
       );
-      console.log(clickableAction);
       expect(clickableAction["data-gtm"]).toBe(
         JSON.stringify({ id: "foo1", label: "foo", action: "foo.com" })
       );
