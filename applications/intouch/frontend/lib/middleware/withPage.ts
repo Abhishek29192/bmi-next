@@ -1,4 +1,5 @@
 import merge from "lodash/merge";
+import { v4 } from "uuid";
 import { gql } from "@apollo/client";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -74,53 +75,88 @@ export const innerGetServerSideProps = async (
   ctx
 ) => {
   const { req, res } = ctx;
+
+  if (!req.headers["x-request-id"]) {
+    req.headers["x-request-id"] = v4();
+  }
+
   const session: Session = auth0.getSession(req, res);
 
+  const logger = req.logger("withPage");
   const apolloClient = initializeApollo(null, { req, res });
 
-  const {
-    data: { accountByEmail: account }
-  } = await apolloClient.query({
-    query: queryAccountByEmail,
-    variables: {
-      email: session.user.email
-    }
-  });
+  let market = null;
+  let account = null;
+  let globalPageData = null;
+  const defaultMarket = "en";
 
-  // Redirect based on market, this will overwrite the above redirect
-  // we will redirect the user to the company registration after landed
-  // on the right market
-
-  let redirect = marketRedirect(req, account);
-  if (redirect) return redirect;
-
-  // Redirect to user registration if missing data in the user profile
-  redirect = userRegistration(ctx.resolvedUrl, account);
-  if (redirect) return redirect;
-
-  // Redirect to company registration if new company
-  redirect = redirectCompanyRegistration(ctx.resolvedUrl, account);
-  if (redirect) return redirect;
-
-  const domain = isSingleMarket ? "en" : req.headers.host?.split(".")?.[0];
-  const {
-    data: {
-      markets: {
-        nodes: [market]
+  try {
+    const {
+      data: { accountByEmail }
+    } = await apolloClient.query({
+      query: queryAccountByEmail,
+      variables: {
+        email: session.user.email
       }
-    }
-  } = await apolloClient.query({
-    query: queryMarketsByDomain,
-    variables: { domain }
-  });
+    });
 
-  // TODO: get all in 1 query (the previous one)?
-  const {
-    props: { data: globalPageData }
-  } = await getServerPageGetGlobalData(
-    { variables: { accountId: account.id } },
-    apolloClient
-  );
+    account = accountByEmail;
+
+    if (!account) {
+      logger.error(`User not found in db: ${session.user.sub}`);
+
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/api/auth/logout"
+        }
+      };
+    }
+
+    // Redirect based on market, this will overwrite the above redirect
+    // we will redirect the user to the company registration after landed
+    // on the right market
+
+    let redirect = marketRedirect(req, account);
+    if (redirect) return redirect;
+
+    // Redirect to user registration if missing data in the user profile
+    redirect = userRegistration(ctx.resolvedUrl, account);
+    if (redirect) return redirect;
+
+    // Redirect to company registration if new company
+    redirect = redirectCompanyRegistration(ctx.resolvedUrl, account);
+    if (redirect) return redirect;
+
+    const domain = isSingleMarket
+      ? defaultMarket
+      : req.headers.host?.split(".")?.[0];
+
+    const {
+      data: {
+        markets: { nodes: markets = [defaultMarket] }
+      }
+    } = await apolloClient.query({
+      query: queryMarketsByDomain,
+      variables: { domain }
+    });
+
+    market = markets[0];
+
+    // TODO: get all in 1 query (the previous one)?
+    const {
+      props: { data }
+    } = await getServerPageGetGlobalData(
+      { variables: { accountId: account.id } },
+      apolloClient
+    );
+
+    globalPageData = data;
+  } catch (error) {
+    logger.error("Generic error", logger);
+
+    throw error;
+  }
 
   return merge(
     await getServerSideProps({
