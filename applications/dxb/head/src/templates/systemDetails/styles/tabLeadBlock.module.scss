@@ -15,10 +15,10 @@
       padding-top: 0;
       padding-bottom: 0;
     }
-    .MuiContainer-root {
+    [class*="TabsBar"] .MuiContainer-root {
       @media (min-width: $breakpoint-xl) {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 24px;
+        padding-right: 24px;
       }
     }
   }
