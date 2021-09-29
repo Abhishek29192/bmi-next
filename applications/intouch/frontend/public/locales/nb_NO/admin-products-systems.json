@@ -1,0 +1,45 @@
+{
+  "technology": "Teknologi",
+  "bmiRef": "BMI referansenummer",
+  "brand": "Merke",
+  "description": "Beskrivelse",
+  "family": "Familie",
+  "published": "Publisert",
+  "maximumValidityYears": "Maksimal gyldighet år",
+  "updatedAt": "Sist oppdatert",
+  "show": "Vis mer",
+  "edit": "Rediger",
+  "submit": "Send",
+  "bulkImport": "Masseimport",
+  "products": "Produkter",
+  "system": "System",
+  "sidePanel": {
+    "search": {
+      "label": "Søk",
+      "noResult": "Ingen objekter funnet"
+    }
+  },
+  "dryRun": "Test opplasting",
+  "confirm": "Bekreft import",
+  "dryRunError": "Det er noen feil i de importerte filene",
+  "importCompleted": "Import fullført",
+  "productToInsert": "Disse produktene blir lastet opp",
+  "systemToInsert": "Disse systemene vil bli lastet opp",
+  "systemToUpdate": "Disse systemene vil bli oppdatert",
+  "productToUpdate": "Disse produktene vil bli oppdatert",
+  "errorSystemsToUpdate": "Oppdater BMI -system",
+  "errorSystemsToInsert": "Legg til BMI -system",
+  "errorProductsToUpdate": "Produkt som skal oppdateres",
+  "errorProductsToInsert": "Produkt som skal settes inn",
+  "errorSystemMembersInsert": "Legg til BMI -produkter i systemet",
+  "importError": "En feil oppsto under import",
+  "form": {
+    "productTitle": "Rediger produkt",
+    "systemTitle": "Rediger system"
+  },
+  "errors": {
+    "filename_wrong_format": "Feil filtype",
+    "unauthorized": "Ikke autorisert"
+  },
+  "dryRunCompleted": "Test fullført"
+}
