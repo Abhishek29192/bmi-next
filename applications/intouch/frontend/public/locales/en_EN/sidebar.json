@@ -2,5 +2,6 @@
   "daysRemaining": "Number of days remaining",
   "projectInsight": "Project insight",
   "certifiedInstallers": "Certified installers",
-  "noCertifiedInstallers": "There are no BMI certified installers"
+  "noCertifiedInstallers": "There are no BMI certified installers",
+  "projectsInsightCertifiedInstallers": "There are {{count}} BMI certified installers on this project"
 }

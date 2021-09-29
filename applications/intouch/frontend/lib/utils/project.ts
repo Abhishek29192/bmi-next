@@ -3,6 +3,8 @@ import {
   Project,
   RequestStatus
 } from "@bmi/intouch-api-types";
+import dayjs from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import { DeepPartial } from "./types";
 import {
@@ -10,6 +12,8 @@ import {
   guaranteePrerequsitesMet,
   guaranteeSolutionGuaranteeValidate
 } from "./guarantee";
+
+dayjs.extend(isBetween);
 
 export enum ProjectStatus {
   NOT_STARTED = "Not started",
@@ -135,4 +139,41 @@ export const getGuaranteeStatus = (
   const guarantee = project.guarantees.nodes?.[0];
 
   return guarantee?.status;
+};
+
+export const getProjectDaysRemaining = (startDate, endDate) => {
+  const now = Date.now();
+  startDate = new Date(startDate).getTime();
+  endDate = new Date(endDate).getTime();
+
+  // Start date in the future
+  if (dayjs(startDate).isAfter(now)) {
+    return dayjs(endDate).diff(startDate, "day");
+  }
+  // End date in the past
+  if (dayjs(endDate).isBefore(now)) {
+    return 0;
+  }
+  // now between start and end date
+  if (dayjs(now).isBetween(startDate, endDate)) {
+    return dayjs(endDate).diff(now, "day");
+  }
+
+  return 0;
+};
+
+export const getProjectCertifiedInstallers = (
+  project: GetProjectQuery["project"]
+) => {
+  if (project.projectMembers.nodes.length === 0) {
+    return 0;
+  }
+
+  const certificatedInstallers = project.projectMembers.nodes.filter((member) =>
+    member.account?.certificationsByDoceboUserId?.nodes?.some(
+      (certificate) => certificate.technology === project.technology
+    )
+  );
+
+  return certificatedInstallers.length;
 };
