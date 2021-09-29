@@ -271,3 +271,10 @@ $$
 LANGUAGE sql
 stable STRICT
 SECURITY DEFINER;
+
+--- Function to mark all notifications as read for the account id passed to it.
+CREATE OR REPLACE FUNCTION mark_all_notifications_as_read(account_to_update_id int)
+RETURNS SETOF notification
+AS $$
+  UPDATE notification SET read = true WHERE account_id = account_to_update_id AND read = false RETURNING *;
+$$ LANGUAGE sql VOLATILE;

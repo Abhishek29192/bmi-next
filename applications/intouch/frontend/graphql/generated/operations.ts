@@ -44,6 +44,27 @@ export type ContactDetailsCollectionFragmentFragment = {
   >;
 };
 
+export type MarkAllNotificationsAsReadMutationVariables = SchemaTypes.Exact<{
+  accountId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type MarkAllNotificationsAsReadMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly markAllNotificationsAsRead?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarkAllNotificationsAsReadPayload" } & {
+      readonly notifications?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          { readonly __typename?: "Notification" } & Pick<
+            SchemaTypes.Notification,
+            "id" | "read"
+          >
+        >
+      >;
+    }
+  >;
+};
+
 export type GetGlobalDataQueryVariables = SchemaTypes.Exact<{
   accountId: SchemaTypes.Scalars["Int"];
 }>;

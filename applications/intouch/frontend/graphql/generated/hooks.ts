@@ -356,6 +356,60 @@ export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProjectHiddenMutation,
   OperationTypes.UpdateProjectHiddenMutationVariables
 >;
+export const MarkAllNotificationsAsReadDocument = gql`
+  mutation markAllNotificationsAsRead($accountId: Int!) {
+    markAllNotificationsAsRead(input: { accountToUpdateId: $accountId }) {
+      notifications {
+        id
+        read
+      }
+    }
+  }
+`;
+export type MarkAllNotificationsAsReadMutationFn = Apollo.MutationFunction<
+  OperationTypes.MarkAllNotificationsAsReadMutation,
+  OperationTypes.MarkAllNotificationsAsReadMutationVariables
+>;
+
+/**
+ * __useMarkAllNotificationsAsReadMutation__
+ *
+ * To run a mutation, you first call `useMarkAllNotificationsAsReadMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useMarkAllNotificationsAsReadMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [markAllNotificationsAsReadMutation, { data, loading, error }] = useMarkAllNotificationsAsReadMutation({
+ *   variables: {
+ *      accountId: // value for 'accountId'
+ *   },
+ * });
+ */
+export function useMarkAllNotificationsAsReadMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.MarkAllNotificationsAsReadMutation,
+    OperationTypes.MarkAllNotificationsAsReadMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.MarkAllNotificationsAsReadMutation,
+    OperationTypes.MarkAllNotificationsAsReadMutationVariables
+  >(MarkAllNotificationsAsReadDocument, options);
+}
+export type MarkAllNotificationsAsReadMutationHookResult = ReturnType<
+  typeof useMarkAllNotificationsAsReadMutation
+>;
+export type MarkAllNotificationsAsReadMutationResult =
+  Apollo.MutationResult<OperationTypes.MarkAllNotificationsAsReadMutation>;
+export type MarkAllNotificationsAsReadMutationOptions =
+  Apollo.BaseMutationOptions<
+    OperationTypes.MarkAllNotificationsAsReadMutation,
+    OperationTypes.MarkAllNotificationsAsReadMutationVariables
+  >;
 export const GetGlobalDataDocument = gql`
   query GetGlobalData($accountId: Int!) {
     marketContentCollection(limit: 1) {
