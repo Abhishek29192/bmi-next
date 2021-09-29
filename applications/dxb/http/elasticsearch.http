@@ -1,0 +1,306 @@
+###
+
+# @name Product search request
+POST {{esHost}}/{{productsIndex}}/_search
+Content-Type: application/json
+Authorization: ApiKey {{esApiKey}}
+
+{
+  "size": 10,
+  "from": 0,
+  "sort": [
+    "_score",
+    {
+      "scoringWeightInt": "desc"
+    },
+    {
+      "name.keyword": "asc"
+    }
+  ],
+  "aggs": {
+    "categories": {
+      "terms": {
+        "size": "100",
+        "field": "categories.code.keyword"
+      }
+    },
+    "allCategories": {
+      "terms": {
+        "size": "100",
+        "field": "allCategories.code.keyword"
+      }
+    },
+    "materials": {
+      "terms": {
+        "size": "100",
+        "field": "materialsCode.keyword"
+      }
+    },
+    "texturefamily": {
+      "terms": {
+        "size": "100",
+        "field": "texturefamilyCode.keyword"
+      }
+    },
+    "colourfamily": {
+      "terms": {
+        "size": "100",
+        "field": "colourfamilyCode.keyword"
+      }
+    }
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "**",
+            "type": "cross_fields",
+            "fields": [
+              "externalProductCode",
+              "name^5",
+              "summary",
+              "description",
+              "longDescription",
+              "shortDescription",
+              "colourfamilyValue.keyword",
+              "materialsValue.keyword",
+              "texturefamilyValue.keyword",
+              "measurementValue.keyword",
+              "categories.value.keyword",
+              "allCategories.value.keyword",
+              "classifications.features.featureValues.value^6"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+###
+
+# @name Document search request
+POST {{esHost}}/{{documentsIndex}}/_search
+Content-Type: application/json
+Authorization: ApiKey {{esApiKey}}
+
+{
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "assetType.name.keyword": "asc",
+      "title.keyword": "asc"
+    }
+  ],
+  "aggs": {
+    "assetTypes": {
+      "terms": {
+        "size": "100",
+        "field": "assetType.pimCode.keyword"
+      }
+    }
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "**",
+            "type": "cross_fields",
+            "fields": [
+              "title"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+###
+
+# @name Pages search request
+POST {{esHost}}/{{pagesIndex}}/_search
+Content-Type: application/json
+Authorization: ApiKey {{esApiKey}}
+
+{
+  "size": 10,
+  "from": 0,
+  "_source": {
+    "excludes": [
+      "pageData"
+    ]
+  },
+  "aggs": {
+    "tags": {
+      "terms": {
+        "size": "100",
+        "field": "tags.title.keyword"
+      }
+    }
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "**",
+            "type": "cross_fields",
+            "fields": [
+              "pageData"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+###
+
+# @name System search request
+POST {{esHost}}/{{systemsIndex}}/_search
+Content-Type: application/json
+Authorization: ApiKey {{esApiKey}}
+
+{
+  "size": 10,
+  "from": 0,
+  "sort": [
+    "_score",
+    {
+      "scoringWeightInt": "desc"
+    },
+    {
+      "name.keyword": "asc"
+    }
+  ],
+  "aggs": {
+    "categories": {
+      "terms": {
+        "size": "100",
+        "field": "categories.code.keyword"
+      }
+    },
+    "allCategories": {
+      "terms": {
+        "size": "100",
+        "field": "allCategories.code.keyword"
+      }
+    },
+    "materials": {
+      "terms": {
+        "size": "100",
+        "field": "materialsCode.keyword"
+      }
+    },
+    "texturefamily": {
+      "terms": {
+        "size": "100",
+        "field": "texturefamilyCode.keyword"
+      }
+    },
+    "colourfamily": {
+      "terms": {
+        "size": "100",
+        "field": "colourfamilyCode.keyword"
+      }
+    }
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "**",
+            "type": "cross_fields",
+            "fields": [
+              "externalProductCode",
+              "name^5",
+              "summary",
+              "description",
+              "longDescription",
+              "shortDescription",
+              "colourfamilyValue.keyword",
+              "materialsValue.keyword",
+              "texturefamilyValue.keyword",
+              "measurementValue.keyword",
+              "categories.value.keyword",
+              "allCategories.value.keyword",
+              "classifications.features.featureValues.value^6"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+###
+
+# @name PLP request
+POST {{esHost}}/{{productsIndex}}/_search
+Content-Type: application/json
+Authorization: ApiKey {{esApiKey}}
+
+{
+  "size": 10,
+  "from": 0,
+  "sort": [
+    "_score",
+    {
+      "scoringWeightInt": "desc"
+    },
+    {
+      "name.keyword": "asc"
+    }
+  ],
+  "aggs": {
+    "categories": {
+      "terms": {
+        "size": "100",
+        "field": "categories.code.keyword"
+      }
+    },
+    "allCategories": {
+      "terms": {
+        "size": "100",
+        "field": "allCategories.code.keyword"
+      }
+    },
+    "materials": {
+      "terms": {
+        "size": "100",
+        "field": "materialsCode.keyword"
+      }
+    },
+    "texturefamily": {
+      "terms": {
+        "size": "100",
+        "field": "texturefamilyCode.keyword"
+      }
+    },
+    "colourfamily": {
+      "terms": {
+        "size": "100",
+        "field": "colourfamilyCode.keyword"
+      }
+    }
+  },
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "terms": {
+            "allCategories.code.keyword": [
+              "NO_PRODUCTS"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
