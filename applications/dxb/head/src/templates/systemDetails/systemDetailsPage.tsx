@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { compact, first } from "lodash";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
+import { useLocation } from "@reach/router";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
@@ -49,6 +50,7 @@ type Props = {
     };
   };
 };
+const SYSTEM_CONFIG_QUERY_KEY = "selected_system";
 
 const IGNORED_ATTRIBUTES = [
   "scoringweight",
@@ -65,18 +67,6 @@ export const IGNORED_DOCUMENTS_ASSETS = [
   "WARRANTIES"
 ];
 
-export const addToDataLayerOnSystemPageLanding = (loc: Location) => {
-  const paramsString = loc.search ? loc.search.slice(1) : undefined;
-  let searchParams = new URLSearchParams(paramsString);
-  if (searchParams.has("selected_system")) {
-    pushToDataLayer({
-      id: "system-configurator01-results",
-      label: searchParams.get("selected_system"),
-      action: loc.toString()
-    });
-  }
-};
-
 const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, dataJson, relatedSystems, allContentfulAssetType } =
     data;
@@ -92,9 +82,19 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     systemBenefits,
     systemLayers
   } = dataJson;
+  const location = useLocation();
+
   useEffect(() => {
-    addToDataLayerOnSystemPageLanding(window.location);
-  }, [window.location]);
+    const selectedSystem = new URLSearchParams(location.search).get(
+      SYSTEM_CONFIG_QUERY_KEY
+    );
+    selectedSystem &&
+      pushToDataLayer({
+        id: "system-configurator01-results",
+        label: selectedSystem,
+        action: location.href.toString()
+      });
+  }, []);
 
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Assets[] = useMemo(() => {
