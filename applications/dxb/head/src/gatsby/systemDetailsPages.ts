@@ -66,13 +66,13 @@ export const createSystemPages = async ({
   await Promise.all(
     allPimSystems.map(
       async ({ id: systemPageId, path, approvalStatus, systemReferences }) => {
-        const relatedSystemCodes = systemReferences
-          ?.filter(
-            (systemRefObj) => systemRefObj.referenceType === "CROSSELLING"
-          )
-          .map(({ target: { code } }) => code);
-
         if (approvalStatus === "approved") {
+          const relatedSystemCodes = systemReferences
+            ?.filter(
+              (systemRefObj) => systemRefObj.referenceType === "CROSSELLING"
+            )
+            .map(({ target: { code } }) => code);
+
           await createPage<PageContext>({
             path: getPathWithCountryCode(countryCode, path),
             component,
@@ -82,6 +82,8 @@ export const createSystemPages = async ({
               relatedSystemCodes
             }
           });
+        } else {
+          Promise.resolve();
         }
       }
     )

@@ -46,7 +46,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System1",
         images: null,
         name: "NO System 1",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test"
       }
     ];
 
@@ -83,7 +84,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System1",
         images: null,
         name: "NO System 1",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test"
       }
     ];
 
@@ -110,7 +112,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System1",
         images: null,
         name: "NO System 1",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test"
       }
     ];
 
@@ -152,7 +155,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System1",
         images: null,
         name: "NO System 1",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test"
       },
       {
         assets: null,
@@ -185,7 +189,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System2",
         images: null,
         name: "NO System 2",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test2"
       }
     ];
 
@@ -228,7 +233,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System1",
         images: null,
         name: "NO System 1",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test"
       },
       {
         assets: null,
@@ -261,7 +267,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System2",
         images: null,
         name: "NO System 2",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test2"
       }
     ];
 
@@ -304,7 +311,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System1",
         images: null,
         name: "NO System 1",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test"
       },
       {
         assets: null,
@@ -337,7 +345,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System2",
         images: null,
         name: "NO System 1",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test2"
       }
     ];
 
@@ -380,7 +389,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System1",
         images: null,
         name: "NO System 2",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test"
       },
       {
         assets: null,
@@ -413,7 +423,8 @@ describe("RelatedSystems component", () => {
         code: "Test_PIM_System2",
         images: null,
         name: "NO System 1",
-        shortDescription: "SDescription 1 NO"
+        shortDescription: "SDescription 1 NO",
+        path: "/s/test2"
       }
     ];
 

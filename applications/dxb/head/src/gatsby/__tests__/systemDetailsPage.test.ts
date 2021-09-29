@@ -1,26 +1,49 @@
 import { createSystemPages } from "../systemDetailsPages";
+import { getPathWithCountryCode } from "../../schema/resolvers/utils/path";
 
 const siteId = "foo";
 const countryCode = "en";
-const relatedSystemCodes = ["code1", "code2"];
 const createPage = jest.fn();
 const graphql = jest.fn();
+const system1 = {
+  id: "bar",
+  path: "s/test",
+  approvalStatus: "approved",
+  systemReferences: [
+    { referenceType: "CROSSELLING", target: { code: "code2" } },
+    { referenceType: "CROSSELLING", target: { code: "code3" } }
+  ]
+};
+const system2 = {
+  id: "bar2",
+  path: "s/test2",
+  approvalStatus: "approved",
+  systemReferences: [
+    { referenceType: "CROSSELLING", target: { code: "code1" } },
+    { referenceType: "CROSSELLING", target: { code: "code3" } }
+  ]
+};
+const system3 = {
+  id: "bar3",
+  path: "s/test3",
+  approvalStatus: "pending",
+  systemReferences: [
+    { referenceType: "CROSSELLING", target: { code: "code1" } },
+    { referenceType: "CROSSELLING", target: { code: "code2" } }
+  ]
+};
 
 beforeEach(() => {
   jest.resetAllMocks();
 });
 
 describe("createSystemPages function", () => {
-  it("should create the system details pages", async () => {
+  it("should create the system details pages accordingly", async () => {
     graphql.mockResolvedValue({
       errors: null,
       data: {
-        systems: {
-          id: "bar",
-          systemReferences: [
-            { referenceType: "CROSSELLING", target: { code: "code1" } },
-            { referenceType: "CROSSELLING", target: { code: "code2" } }
-          ]
+        allSystems: {
+          nodes: [system1, system2]
         }
       }
     });
@@ -32,34 +55,54 @@ describe("createSystemPages function", () => {
       graphql
     });
 
-    expect(graphql).toHaveBeenNthCalledWith(
-      1,
-      `
-    {
-      systems {
-        id
-        systemReferences {
-          referenceType
-          target {
-            code
-          }
-        }
-      }
-    }
-  `
-    );
     expect(graphql).toHaveBeenCalledTimes(1);
-
     expect(createPage).toHaveBeenNthCalledWith(1, {
       component: expect.any(String),
       context: {
-        systemPageId: "bar",
+        systemPageId: system1.id,
         siteId,
-        relatedSystemCodes
+        relatedSystemCodes: ["code2", "code3"]
       },
-      path: "/en/system-details-page/"
+      path: getPathWithCountryCode(countryCode, system1.path)
     });
-    expect(createPage).toHaveBeenCalledTimes(1);
+    expect(createPage).toHaveBeenNthCalledWith(2, {
+      component: expect.any(String),
+      context: {
+        systemPageId: system2.id,
+        siteId,
+        relatedSystemCodes: ["code1", "code3"]
+      },
+      path: getPathWithCountryCode(countryCode, system2.path)
+    });
+  });
+
+  it("should create the approved system details pages only", async () => {
+    graphql.mockResolvedValue({
+      errors: null,
+      data: {
+        allSystems: {
+          nodes: [system1, system3]
+        }
+      }
+    });
+
+    await createSystemPages({
+      siteId,
+      countryCode,
+      createPage,
+      graphql
+    });
+
+    expect(graphql).toHaveBeenCalledTimes(1);
+    expect(createPage).toHaveBeenNthCalledWith(1, {
+      component: expect.any(String),
+      context: {
+        systemPageId: system1.id,
+        siteId,
+        relatedSystemCodes: ["code2", "code3"]
+      },
+      path: getPathWithCountryCode(countryCode, system1.path)
+    });
   });
 
   it("should catch any errors", async () => {
@@ -77,24 +120,7 @@ describe("createSystemPages function", () => {
       })
     ).rejects.toThrow("Something went wrong");
 
-    expect(graphql).toHaveBeenNthCalledWith(
-      1,
-      `
-    {
-      systems {
-        id
-        systemReferences {
-          referenceType
-          target {
-            code
-          }
-        }
-      }
-    }
-  `
-    );
     expect(graphql).toHaveBeenCalledTimes(1);
-
     expect(createPage).toHaveBeenCalledTimes(0);
   });
 });
