@@ -337,6 +337,24 @@ describe("Link component", () => {
       );
       expect(clickableAction).toMatchSnapshot();
     });
+
+    it("override gtm correctly", () => {
+      const clickableAction = getClickableActionFromUrl(
+        null,
+        "foo.com",
+        "en",
+        null,
+        "ImALabel",
+        null,
+        null,
+        { id: "foo1", label: "foo", action: "foo.com" }
+      );
+      console.log(clickableAction);
+      expect(clickableAction["data-gtm"]).toBe(
+        JSON.stringify({ id: "foo1", label: "foo", action: "foo.com" })
+      );
+      expect(clickableAction).toMatchSnapshot();
+    });
   });
 
   describe("getCTA function", () => {

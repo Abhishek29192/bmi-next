@@ -1699,7 +1699,7 @@ HTMLCollection [
                                   <a
                                     aria-disabled="false"
                                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-6 MuiButton-contained buttonStyles-contained-8 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - https://www.google.com/maps/dir//address%201/\\",\\"action\\":\\"href\\"}"
+                                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
@@ -1742,7 +1742,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - tel:phone 1\\",\\"action\\":\\"href\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -1778,7 +1778,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - mailto:test@test.com\\",\\"action\\":\\"href\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -1814,7 +1814,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - www.test.com\\",\\"action\\":\\"href\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
                                       rel="noopener noreferrer"
                                       target="_blank"
@@ -1933,7 +1933,7 @@ HTMLCollection [
                                   <a
                                     aria-disabled="false"
                                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-6 MuiButton-contained buttonStyles-contained-8 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - https://www.google.com/maps/dir//address%201/\\",\\"action\\":\\"href\\"}"
+                                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
@@ -1976,7 +1976,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - tel:phone 1\\",\\"action\\":\\"href\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -2012,7 +2012,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - mailto:test@test.com\\",\\"action\\":\\"href\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -2048,7 +2048,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - www.test.com\\",\\"action\\":\\"href\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
                                       rel="noopener noreferrer"
                                       target="_blank"

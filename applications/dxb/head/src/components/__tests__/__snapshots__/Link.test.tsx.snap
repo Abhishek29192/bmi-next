@@ -77,12 +77,23 @@ exports[`Link component getCTA function returns a null object with page with emp
 
 exports[`Link component getCTA function returns a null object with page without path 1`] = `null`;
 
+<<<<<<< HEAD
 exports[`Link component getClickableActionFromUrl function internal urls doesn't open in a new window 1`] = `
 Object {
   "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost\\"}",
   "href": "http://localhost",
   "model": "htmlLink",
   "onClick": [Function],
+=======
+exports[`Link component getClickableActionFromUrl function override gtm correctly 1`] = `
+Object {
+  "data-gtm": "{\\"id\\":\\"foo1\\",\\"label\\":\\"foo\\",\\"action\\":\\"foo.com\\"}",
+  "href": "foo.com",
+  "model": "htmlLink",
+  "onClick": [Function],
+  "rel": "noopener noreferrer",
+  "target": "_blank",
+>>>>>>> 4289bcb0f (refactor(servicelocator): function to handle gtm)
 }
 `;
 

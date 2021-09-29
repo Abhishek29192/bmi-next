@@ -39,14 +39,18 @@ export const getClickableActionFromUrl = (
   label?: string,
   type?: Data["type"],
   onClick?: (...args: any) => void,
-  serviceDataGTM?: {
+  gtmData?: {
     id: string;
     label: string;
     action: string;
   }
 ): ClickableAction | undefined => {
   if (type === "Visualiser") {
-    const dataGtm = { id: "cta-visualiser1", action: "visualiser", label };
+    const dataGtm = gtmData || {
+      id: "cta-visualiser1",
+      action: "visualiser",
+      label
+    };
 
     return {
       model: "default",
@@ -60,7 +64,11 @@ export const getClickableActionFromUrl = (
   }
 
   if (type === "Calculator") {
-    const dataGtm = { id: "cta-calculator1", action: "calculator", label };
+    const dataGtm = gtmData || {
+      id: "cta-calculator1",
+      action: "calculator",
+      label
+    };
 
     return {
       model: "default",
@@ -74,7 +82,7 @@ export const getClickableActionFromUrl = (
   }
 
   if (type === "Dialog") {
-    const dataGtm = serviceDataGTM || { id: "cta-click1", action: type, label };
+    const dataGtm = gtmData || { id: "cta-click1", action: type, label };
     return {
       model: "default",
       onClick: (...args) => {
@@ -87,7 +95,7 @@ export const getClickableActionFromUrl = (
   }
 
   if (assetUrl) {
-    const dataGtm = {
+    const dataGtm = gtmData || {
       id: "cta-click1",
       action: assetUrl,
       label
@@ -110,7 +118,7 @@ export const getClickableActionFromUrl = (
       /\/+/gi,
       "/"
     );
-    const dataGtm = { id: "cta-click1", action: to, label };
+    const dataGtm = gtmData || { id: "cta-click1", action: to, label };
 
     return {
       model: "routerLink",
@@ -128,7 +136,7 @@ export const getClickableActionFromUrl = (
       target: "_blank",
       rel: "noopener noreferrer"
     };
-    const dataGtm = serviceDataGTM || { id: "cta-click1", action: url, label };
+    const dataGtm = gtmData || { id: "cta-click1", action: url, label };
 
     return {
       model: "htmlLink",

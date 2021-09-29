@@ -31,8 +31,10 @@ import CloseIcon from "@material-ui/icons/Close";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { camelCase, intersectionWith } from "lodash";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { devLog } from "../utils/devLog";
-import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
+import withGTM from "../utils/google-tag-manager";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import {
@@ -129,6 +131,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const shouldListCertification = sectionType === EntryTypeEnum.ROOFER_TYPE;
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("lg"));
+
   const nameSearchLabelKey =
     sectionType === EntryTypeEnum.MERCHANT_TYPE
       ? "merchantNameSearchLabel"
@@ -140,6 +145,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
+  const gtmActionLinkCard =
+    typeof window !== `undefined`
+      ? window.location.href?.toString()
+      : "undefined";
   const userQueryString = useMemo(
     () => params.get(QUERY_CHIP_FILTER_KEY),
     [params]
@@ -394,17 +403,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setSelectedRoofer(null);
     setZoom(centre ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
     setCentre(centre || null);
-    if (selectedRoofer) {
-      pushToDataLayer({
-        id: "cta-click1",
-        label: `${selectedRoofer.name} - ${selectedRoofer.address}${
-          selectedRoofer.certification
-            ? ` - ${selectedRoofer.certification}`
-            : ""
-        } - ${selectedRoofer.entryType} - close`,
-        action: "href"
-      });
-    }
   };
 
   const getCompanyDetails = (
@@ -418,16 +416,25 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
-    const getServiceDataGTM = (linkOrButtonText?) => {
+    const getServiceDataGTM = (action: string, linkOrButtonText?: string) => {
       const serviceType =
         service.type && service.type.length === 1
           ? service.type[0]
           : service.entryType;
       const label = `${service.name} - ${service.address}${
         service.certification ? ` - ${service.certification}` : ""
-      } - ${serviceType}${linkOrButtonText ? ` - ${linkOrButtonText}` : ""}`;
-      return { id: "cta-click1", label, action: "href" };
+      } - ${serviceType}`;
+      if (matches || sectionType !== "Roofer") {
+        return {
+          id: "cta-click1",
+          label: `${label}${linkOrButtonText ? ` - ${linkOrButtonText}` : ""}`,
+          action
+        };
+      } else {
+        return { id: "selector-cards6", label, action };
+      }
     };
+    const globalAddress = getMicroCopy("global.address");
 
     const address: DetailProps = {
       type: "address",
@@ -442,10 +449,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             )}/`,
             countryCode,
             null,
-            getMicroCopy("global.address"),
+            globalAddress,
             null,
             null,
-            getServiceDataGTM(getMicroCopy("global.address"))
+            getServiceDataGTM(
+              `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+                service.address
+              )}/`,
+              globalAddress
+            )
           )
         : undefined
     };
@@ -460,6 +472,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           }
         : undefined;
 
+    const getDirectionsLabel = getMicroCopy("findARoofer.getDirectionsLabel");
     const directions: DetailProps | undefined = {
       type: "cta",
       text: getMicroCopy("findARoofer.getDirectionsLabel"),
@@ -470,14 +483,20 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         )}/`,
         countryCode,
         null,
-        getMicroCopy("findARoofer.getDirectionsLabel"),
+        getDirectionsLabel,
         null,
         null,
-        getServiceDataGTM(getMicroCopy("findARoofer.getDirectionsLabel"))
+        getServiceDataGTM(
+          `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+            service.address
+          )}/`,
+          getDirectionsLabel
+        )
       ),
-      label: getMicroCopy("findARoofer.getDirectionsLabel")
+      label: getDirectionsLabel
     };
 
+    const globalTelephone = getMicroCopy("global.telephone");
     const phone: DetailProps | undefined = service.phone
       ? {
           type: "phone",
@@ -488,15 +507,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             `tel:${service.phone}`,
             countryCode,
             null,
-            getMicroCopy("global.telephone"),
+            globalTelephone,
             null,
             null,
-            getServiceDataGTM(getMicroCopy("global.telephone"))
+            getServiceDataGTM(`tel:${service.phone}`, globalTelephone)
           ),
-          label: getMicroCopy("global.telephone")
+          label: globalTelephone
         }
       : undefined;
-
+    const gloablEmail = getMicroCopy("global.email");
     const email: DetailProps | undefined = service.email
       ? {
           type: "email",
@@ -507,41 +526,35 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             `mailto:${service.email}`,
             countryCode,
             null,
-            getMicroCopy("global.email"),
+            gloablEmail,
             null,
             null,
-            getServiceDataGTM(getMicroCopy("global.email"))
+            getServiceDataGTM(`mailto:${service.email}`, gloablEmail)
           ),
-          label: getMicroCopy("global.email")
+          label: gloablEmail
         }
       : undefined;
-
+    const globalWebsite = getMicroCopy("global.website");
+    const websiteLabel = getMicroCopy("findARoofer.websiteLabel");
     const website: DetailProps | undefined = service.website
       ? {
           type: "website",
           display: shouldShowIcons ? "icon" : "label",
-          text: shouldShowWebsiteLinkAsLabel
-            ? service.website
-            : getMicroCopy("findARoofer.websiteLabel"),
+          text: shouldShowWebsiteLinkAsLabel ? service.website : websiteLabel,
           action: getClickableActionFromUrl(
             null,
             service.website,
             countryCode,
             null,
-            shouldShowWebsiteLinkAsLabel
-              ? getMicroCopy("global.website")
-              : getMicroCopy("findARoofer.websiteLabel"),
+            shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel,
             null,
             null,
             getServiceDataGTM(
-              shouldShowWebsiteLinkAsLabel
-                ? getMicroCopy("global.website")
-                : getMicroCopy("findARoofer.websiteLabel")
+              service.website,
+              shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel
             )
           ),
-          label: shouldShowWebsiteLinkAsLabel
-            ? getMicroCopy("global.website")
-            : getMicroCopy("findARoofer.websiteLabel")
+          label: shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel
         }
       : undefined;
 
@@ -765,19 +778,31 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     onCloseClick={clearRooferAndResetMap}
                     isOpen={selectedRoofer && selectedRoofer.id === service.id}
                     title={service.name}
-                    gtm={{
-                      id: "cta-click1",
-                      label: `${service.name} - ${service.address}${
-                        service.certification
-                          ? ` - ${service.certification}`
-                          : ""
-                      } - ${
-                        service.type && service.type.length === 1
-                          ? service.type[0]
-                          : service.entryType
-                      } - result`,
-                      action: "href"
-                    }}
+                    gtm={
+                      matches
+                        ? {
+                            id: "cta-click1",
+                            label: `${service.name} - ${service.address}${
+                              service.certification
+                                ? ` - ${service.certification}`
+                                : ""
+                            }${
+                              service.type && service.type.length === 1
+                                ? ` - ${service.type[0]}`
+                                : ` - ${service.entryType}`
+                            } - result`,
+                            action: gtmActionLinkCard
+                          }
+                        : {
+                            id: "selector-cards6",
+                            label: `${service.name} - ${service.address}${
+                              service.type && service.type.length === 1
+                                ? ` - ${service.type[0]}`
+                                : ` - ${service.entryType}`
+                            }`,
+                            action: gtmActionLinkCard
+                          }
+                    }
                     subtitle={
                       <>
                         {service.address}
