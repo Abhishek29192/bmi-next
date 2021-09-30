@@ -16,6 +16,7 @@ const createRoofer = (service?: Partial<Service>): Service => ({
   fax: "fax 1",
   type: null,
   branchType: null,
+  merchantType: null,
   certification: null,
   summary: "roofer summary",
   distance: 10,

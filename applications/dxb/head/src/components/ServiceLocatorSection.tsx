@@ -37,8 +37,13 @@ import RichText, { RichTextData } from "./RichText";
 import {
   Data as ServiceData,
   ServiceType,
-  serviceTypes,
-  serviceTypesByEntity
+  serviceTypesByEntity,
+  ROOFER_TYPE,
+  BRANCH_TYPE,
+  MERCHANT_TYPE,
+  ServiceTypesPrefixesEnum,
+  EntryType,
+  ServiceTypesEnum
 } from "./Service";
 import { useSiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
@@ -117,9 +122,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     zoom: initialMapZoom
   } = data;
 
-  const shouldEnableSearch = sectionType !== "Branch";
-  const shouldListCertification = sectionType === "Roofer";
-  const isBranchLocator = sectionType == "Branch";
+  const shouldEnableSearch =
+    sectionType !== BRANCH_TYPE && sectionType !== MERCHANT_TYPE;
+  const shouldListCertification = sectionType === ROOFER_TYPE;
+  const isBranchLocator = sectionType == BRANCH_TYPE;
+  const isMerchantLocator = sectionType == MERCHANT_TYPE;
 
   const nameSearchLabelKey =
     sectionType === "Merchant"
@@ -163,7 +170,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       return;
     }
     const uniqueRooferTypes: ServiceType[] = Array.from(
-      new Set(services.flatMap((service) => service.type || service.branchType))
+      new Set(
+        services.flatMap(
+          (service) =>
+            service.type || service.branchType || service.merchantType
+        )
+      )
     ).filter((x) => x !== null);
 
     setUniqueRoofTypeByData(uniqueRooferTypes);
@@ -239,23 +251,32 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   }, []);
 
   const typeFilter = (
-    type: Service["type"],
-    branchType: Service["branchType"]
+    type: Service["type"] | null,
+    branchType: Service["branchType"] | null,
+    merchantType: Service["merchantType"] | null
   ): boolean => {
     // user has not selected any chip(s) to filter hence show all services
     // i.e initial load or user has de-selected ALL chips
-    if (
-      Object.keys(activeFilters).every((key) => activeFilters[key] === false)
-    ) {
+    const isAllChipsUnSelected = Object.keys(activeFilters).every(
+      (key) => activeFilters[key] === false
+    );
+
+    if (isAllChipsUnSelected) {
       return true;
     }
 
     // user has selcted the filter chip the service must have type and it must match
-    if (Object.keys(activeFilters).some((key) => activeFilters[key] === true)) {
+    const isSomeChipSelected = Object.keys(activeFilters).some(
+      (key) => activeFilters[key] === true
+    );
+
+    if (isSomeChipSelected) {
       return (
         (type?.length && type.some((filter) => activeFilters[filter])) ||
         (branchType?.length &&
-          branchType.some((filter) => activeFilters[filter]))
+          branchType.some((filter) => activeFilters[filter])) ||
+        (merchantType?.length &&
+          merchantType.some((filter) => activeFilters[filter]))
       );
     }
     // service's types are null hence return true
@@ -272,13 +293,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     () =>
       (services || [])
         .reduce((carry, current) => {
-          const { name, location, type, branchType } = current;
+          const { name, location, type, branchType, merchantType } = current;
           const distance = computeDistanceBetween(centre, {
             lat: location.lat,
             lng: location.lon
           });
           if (
-            typeFilter(type, branchType) &&
+            typeFilter(type, branchType, merchantType) &&
             nameFilter(name) &&
             distanceFilter(distance)
           ) {
@@ -473,34 +494,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           label: getMicroCopy("global.fax")
         }
       : undefined;
-
     const type: DetailProps | undefined =
-      service.type || service.branchType
+      service.type || service.branchType || service.merchantType
         ? {
             type: "content",
             label: getMicroCopy("findARoofer.roofTypeLabel"),
-            text: (
-              <b>
-                {service.type
-                  ? service.type
-                      .map((type) =>
-                        getMicroCopy(
-                          `findARoofer.filters.${camelCase(type)}`
-                        ).replace(" roof", "")
-                      )
-                      .join(" | ")
-                  : ""}
-                {service.branchType
-                  ? service.branchType
-                      .map((type) =>
-                        getMicroCopy(
-                          `findABranch.filters.${camelCase(type)}`
-                        ).replace(" roof", "")
-                      )
-                      .join(" | ")
-                  : ""}
-              </b>
-            )
+            text: getMicroCopyForServiceType(service)
           }
         : undefined;
 
@@ -555,7 +554,32 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     partner: RoofProPartnerSmall,
     elite: RoofProElite
   };
-  const microcopyPrefix = isBranchLocator ? "findABranch" : "findARoofer";
+
+  const getMicroCopyPrefix = (serviceType: EntryType) => {
+    return ServiceTypesPrefixesEnum[serviceType];
+  };
+
+  const getMicroCopyForServiceType = (service: Service) => {
+    return Object.keys(ServiceTypesEnum).reduce((acc, nextServiceType) => {
+      if (service[nextServiceType]) {
+        const currentTypeMC = service[nextServiceType]
+          .map((type) => {
+            const serviceType = ServiceTypesEnum[nextServiceType];
+            const prefix = ServiceTypesPrefixesEnum[serviceType];
+            return getMicroCopy(`${prefix}.filters.${camelCase(type)}`).replace(
+              " roof",
+              ""
+            );
+          })
+          .join(" | ");
+
+        return [...acc, currentTypeMC];
+      }
+      return acc;
+    }, []);
+  };
+
+  const microcopyPrefix = getMicroCopyPrefix(sectionType);
 
   return (
     <Section

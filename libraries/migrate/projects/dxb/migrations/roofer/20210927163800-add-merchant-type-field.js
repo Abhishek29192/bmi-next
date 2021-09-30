@@ -1,5 +1,8 @@
-module.exports.description =
-  "Add merchant type field to select one or more systems stocked by that Type of Merchant";
+"use strict";
+
+const merchantTypes = require("../../variables/merchantTypes/20210929064001.js");
+
+module.exports.description = "Add Merchant Types and options";
 
 module.exports.up = (migration) => {
   const roofer = migration.editContentType("roofer");
@@ -11,16 +14,12 @@ module.exports.up = (migration) => {
       type: "Symbol",
       validations: [
         {
-          in: [
-            "Merchant Type 1",
-            "Merchant Type 2",
-            "Merchant Type 3",
-            "Merchant Type 4",
-            "Merchant Type 5"
-          ]
+          in: merchantTypes
         }
       ]
     });
+
+  roofer.moveField("merchantType").afterField("branchType");
 
   roofer.changeFieldControl("merchantType", "builtin", "checkbox");
 };

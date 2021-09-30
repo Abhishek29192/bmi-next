@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
 import { SiteContextProvider } from "../Site";
-import { serviceTypes } from "../Service";
+import { rooferTypes } from "../Service";
 import createService from "../../__tests__/ServiceHelper";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -407,12 +407,12 @@ describe("Sections component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [serviceTypes[0], serviceTypes[1]]
+            type: [rooferTypes[0], rooferTypes[1]]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [serviceTypes[0], serviceTypes[1]]
+            type: [rooferTypes[0], rooferTypes[1]]
           })
         ],
         position: 0,

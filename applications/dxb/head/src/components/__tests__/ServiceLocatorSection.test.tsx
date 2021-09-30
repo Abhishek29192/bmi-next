@@ -4,7 +4,7 @@ import { render, fireEvent, act } from "@testing-library/react";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../ServiceLocatorSection";
-import { serviceTypes } from "../Service";
+import { rooferTypes, branchTypes, merchantTypes } from "../Service";
 import createService from "../../__tests__/ServiceHelper";
 
 let callMarkerOnClick;
@@ -95,7 +95,7 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [createService({ type: [serviceTypes[0]] })]
+        services: [createService({ type: [rooferTypes[0]] })]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
@@ -112,7 +112,7 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [createService({ type: [serviceTypes[0], serviceTypes[0]] })]
+        services: [createService({ type: [rooferTypes[0], rooferTypes[0]] })]
       };
 
       const { container } = render(<ServiceLocatorSection data={data} />);
@@ -155,12 +155,12 @@ describe("ServiceLocatorSection component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [serviceTypes[0]]
+            type: [rooferTypes[0]]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [serviceTypes[0]]
+            type: [rooferTypes[0]]
           })
         ]
       };
@@ -185,7 +185,7 @@ describe("ServiceLocatorSection component", () => {
             id: "roofer_7",
             name: "roofer 7",
             type: [],
-            branchType: [serviceTypes[7]],
+            branchType: [branchTypes[0]],
             fax: "222222"
           }),
           createService({
@@ -193,7 +193,40 @@ describe("ServiceLocatorSection component", () => {
             id: "roofer_8",
             name: "roofer 8",
             type: [],
-            branchType: [serviceTypes[8]]
+            branchType: [branchTypes[1]]
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("for Merchant", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: "Merchant",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({
+            entryType: "Branch",
+            id: "roofer_7",
+            name: "roofer 7",
+            type: [],
+            branchType: [merchantTypes[0]],
+            fax: "222222"
+          }),
+          createService({
+            entryType: "Branch",
+            id: "roofer_8",
+            name: "roofer 8",
+            type: [],
+            branchType: [merchantTypes[1]]
           })
         ]
       };
@@ -231,6 +264,35 @@ describe("ServiceLocatorSection component", () => {
       expect(container.firstChild).toMatchSnapshot();
     });
 
+    it("for Merchant with invalid service type", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: "Merchant",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [
+          createService({
+            entryType: "Merchant",
+            id: "roofer_7",
+            name: "roofer 7",
+            fax: "222222"
+          }),
+          createService({
+            entryType: "Branch",
+            id: "roofer_8",
+            name: "roofer 8"
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
     it("for Merchants", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
@@ -246,13 +308,13 @@ describe("ServiceLocatorSection component", () => {
             entryType: "Merchant",
             id: "roofer_1",
             name: "roofer 1",
-            type: [serviceTypes[0]]
+            type: [rooferTypes[0]]
           }),
           createService({
             entryType: "Merchant",
             id: "roofer_2",
             name: "roofer 2",
-            type: [serviceTypes[0]]
+            type: [rooferTypes[0]]
           })
         ]
       };
@@ -277,13 +339,13 @@ describe("ServiceLocatorSection component", () => {
             entryType: "Merchant",
             id: "roofer_1",
             name: "roofer 1",
-            type: [serviceTypes[0]]
+            type: [rooferTypes[0]]
           }),
           createService({
             entryType: "Merchant",
             id: "roofer_2",
             name: "roofer 2",
-            type: [serviceTypes[0]]
+            type: [rooferTypes[0]]
           })
         ]
       };
@@ -306,12 +368,12 @@ describe("ServiceLocatorSection component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [serviceTypes[0], serviceTypes[1]]
+            type: [rooferTypes[0], rooferTypes[1]]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [serviceTypes[0], serviceTypes[1]]
+            type: [rooferTypes[0], rooferTypes[1]]
           })
         ]
       };
@@ -335,22 +397,22 @@ describe("ServiceLocatorSection component", () => {
             id: "roofer_1",
             name: "roofer 1",
             type: [
-              serviceTypes[0],
-              serviceTypes[1],
-              serviceTypes[2],
-              serviceTypes[3],
-              serviceTypes[4]
+              rooferTypes[0],
+              rooferTypes[1],
+              rooferTypes[2],
+              rooferTypes[3],
+              rooferTypes[4]
             ]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
             type: [
-              serviceTypes[0],
-              serviceTypes[1],
-              serviceTypes[2],
-              serviceTypes[3],
-              serviceTypes[4]
+              rooferTypes[0],
+              rooferTypes[1],
+              rooferTypes[2],
+              rooferTypes[3],
+              rooferTypes[4]
             ]
           })
         ]
@@ -542,13 +604,13 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_1",
           name: "roofer 1",
           distance: 10,
-          type: [serviceTypes[0]]
+          type: [rooferTypes[0]]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
           distance: 5,
-          type: [serviceTypes[1]]
+          type: [rooferTypes[1]]
         }),
         createService({
           id: "roofer_3",
@@ -561,7 +623,7 @@ describe("ServiceLocatorSection component", () => {
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(serviceTypes[0])}`
+      name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
     });
     chipButton.click();
     expect(wrapper.container.firstChild).toMatchSnapshot();
@@ -583,21 +645,57 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_9",
           name: "roofer 9",
           distance: 10,
-          branchType: [serviceTypes[6]]
+          branchType: [branchTypes[0]]
         }),
         createService({
           entryType: "Branch",
           id: "roofer_10",
           name: "roofer 10",
           distance: 5,
-          branchType: [serviceTypes[7]]
+          branchType: [branchTypes[1]]
         })
       ]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
-      name: `MC: findABranch.filters.${camelCase(serviceTypes[6])}`
+      name: `MC: findABranch.filters.${camelCase(branchTypes[0])}`
+    });
+    chipButton.click();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it("filters merchant using chip click", () => {
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: "Merchant",
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [
+        createService({
+          entryType: "Merchant",
+          id: "roofer_9",
+          name: "roofer 9",
+          distance: 10,
+          branchType: [merchantTypes[0]]
+        }),
+        createService({
+          entryType: "Merchant",
+          id: "roofer_10",
+          name: "roofer 10",
+          distance: 5,
+          branchType: [merchantTypes[1]]
+        })
+      ]
+    };
+
+    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const chipButton = wrapper.getByRole("button", {
+      name: `MC: findAMerchant.filters.${camelCase(merchantTypes[0])}`
     });
     chipButton.click();
     expect(wrapper.container.firstChild).toMatchSnapshot();
@@ -617,26 +715,26 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [serviceTypes[0]]
+          type: [rooferTypes[0]]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [serviceTypes[1]]
+          type: [rooferTypes[1]]
         })
       ]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(serviceTypes[0])}`
+      name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
     });
     chipButton.click();
     chipButton.click();
     expect(wrapper.queryByText("roofer 1")).toBeTruthy();
   });
 
-  it("click all chips", () => {
+  it("click all roofer chips", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: "Roofer",
@@ -650,46 +748,46 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [serviceTypes[0]]
+          type: [rooferTypes[0]]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [serviceTypes[1]]
+          type: [rooferTypes[1]]
         }),
         createService({
           id: "roofer_3",
           name: "roofer 3",
-          type: [serviceTypes[2]]
+          type: [rooferTypes[2]]
         }),
         createService({
           id: "roofer_4",
           name: "roofer 4",
-          type: [serviceTypes[3]]
+          type: [rooferTypes[3]]
         }),
         createService({
           id: "roofer_5",
           name: "roofer 5",
-          type: [serviceTypes[4]]
+          type: [rooferTypes[4]]
         })
       ]
     };
 
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const chipButton1 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(serviceTypes[0])}`
+      name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
     });
     const chipButton2 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(serviceTypes[1])}`
+      name: `MC: findARoofer.filters.${camelCase(rooferTypes[1])}`
     });
     const chipButton3 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(serviceTypes[2])}`
+      name: `MC: findARoofer.filters.${camelCase(rooferTypes[2])}`
     });
     const chipButton4 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(serviceTypes[3])}`
+      name: `MC: findARoofer.filters.${camelCase(rooferTypes[3])}`
     });
     const chipButton5 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(serviceTypes[4])}`
+      name: `MC: findARoofer.filters.${camelCase(rooferTypes[4])}`
     });
     chipButton1.click();
     chipButton2.click();
@@ -720,12 +818,12 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [serviceTypes[0]]
+          type: [rooferTypes[0]]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [serviceTypes[1]]
+          type: [rooferTypes[1]]
         })
       ]
     };
@@ -756,7 +854,7 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [serviceTypes[0]]
+          type: [rooferTypes[0]]
         })
       ]
     };
@@ -769,7 +867,9 @@ describe("ServiceLocatorSection component", () => {
     // Might affect other tests in this file
     Object.defineProperty(global.window, "location", {
       value: {
-        search: `?chip=${encodeURIComponent(serviceTypes.join(","))}`
+        search: `?chip=${encodeURIComponent(
+          [...rooferTypes, ...branchTypes, ...merchantTypes].join(",")
+        )}`
       }
     });
 
@@ -786,7 +886,7 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [...serviceTypes]
+          type: [...rooferTypes, ...branchTypes, ...merchantTypes]
         })
       ]
     };
@@ -809,12 +909,12 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [serviceTypes[0]]
+          type: [rooferTypes[0]]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [serviceTypes[0]]
+          type: [rooferTypes[0]]
         })
       ]
     };
