@@ -274,7 +274,12 @@ export const Header = ({
         </div>
       </div>
 
-      <Drawer anchor="right" open={state["notifications"]} hideBackdrop>
+      <Drawer
+        className={styles.notificationsContainer}
+        anchor="right"
+        open={state["notifications"]}
+        hideBackdrop
+      >
         <div className={styles.notifications}>
           <div className={styles.notificationsHeader}>
             <Typography variant="h5">{t("Notifications")}</Typography>
