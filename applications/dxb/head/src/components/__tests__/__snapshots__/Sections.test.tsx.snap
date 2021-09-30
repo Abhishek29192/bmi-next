@@ -1840,7 +1840,9 @@ HTMLCollection [
                                   <dd
                                     class="description"
                                   >
-                                    findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
+                                    <b>
+                                      findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
+                                    </b>
                                   </dd>
                                 </div>
                               </dl>
@@ -2072,7 +2074,9 @@ HTMLCollection [
                                   <dd
                                     class="description"
                                   >
-                                    findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
+                                    <b>
+                                      findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
+                                    </b>
                                   </dd>
                                 </div>
                               </dl>

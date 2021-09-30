@@ -499,7 +499,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         ? {
             type: "content",
             label: getMicroCopy("findARoofer.roofTypeLabel"),
-            text: getMicroCopyForServiceType(service)
+            text: <b>{getMicroCopyForServiceType(service)}</b>
           }
         : undefined;
 

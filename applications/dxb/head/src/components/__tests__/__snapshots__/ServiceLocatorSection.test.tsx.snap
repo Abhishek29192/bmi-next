@@ -620,7 +620,9 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.headquarters | MC: findARoofer.filters.countryOffices | MC: findARoofer.filters.manufacturingAndExport | MC: findARoofer.filters.technicalCentreBmiAcademy | MC: findARoofer.filters.bmiRedlandPitchedRoofSystems | MC: findARoofer.filters.bmiIcopalFlatRoofSystems | MC: findARoofer.filters.depotsDeProximiteSiplast | MC: findARoofer.filters.distributeursSiplast | MC: findARoofer.filters.distributeursMonier
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.headquarters | MC: findARoofer.filters.countryOffices | MC: findARoofer.filters.manufacturingAndExport | MC: findARoofer.filters.technicalCentreBmiAcademy | MC: findARoofer.filters.bmiRedlandPitchedRoofSystems | MC: findARoofer.filters.bmiIcopalFlatRoofSystems | MC: findARoofer.filters.depotsDeProximiteSiplast | MC: findARoofer.filters.distributeursSiplast | MC: findARoofer.filters.distributeursMonier
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -2078,7 +2080,9 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -2280,7 +2284,9 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.flatRoof
+                                <b>
+                                  MC: findARoofer.filters.flatRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -2482,7 +2488,9 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoofBitumenRoofs
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoofBitumenRoofs
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -2684,7 +2692,9 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoofTileRoofs
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoofTileRoofs
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -2883,7 +2893,9 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -4555,7 +4567,9 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -7660,7 +7674,9 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -7862,7 +7878,9 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -9026,7 +9044,9 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -9228,7 +9248,9 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -10138,7 +10160,9 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -10340,7 +10364,9 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -11278,7 +11304,9 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                               <dd
                                 class="description"
                               >
-                                
+                                <b>
+                                  
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -11756,7 +11784,9 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.pitchedRoof
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.pitchedRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -12234,7 +12264,9 @@ exports[`ServiceLocatorSection component renders single service with single serv
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
@@ -15468,7 +15500,9 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                               <dd
                                 class="description"
                               >
-                                MC: findARoofer.filters.pitchedRoof
+                                <b>
+                                  MC: findARoofer.filters.pitchedRoof
+                                </b>
                               </dd>
                             </div>
                           </dl>
