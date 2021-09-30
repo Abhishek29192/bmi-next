@@ -1857,6 +1857,25 @@ export type ContentfulEvidenceCategoriesQuery = {
   >;
 };
 
+export type DeleteEvidenceItemMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.DeleteEvidenceItemInput;
+}>;
+
+export type DeleteEvidenceItemMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly deleteEvidenceItem?: SchemaTypes.Maybe<
+    { readonly __typename?: "DeleteEvidenceItemPayload" } & {
+      readonly evidenceItem?: SchemaTypes.Maybe<
+        { readonly __typename?: "EvidenceItem" } & Pick<
+          SchemaTypes.EvidenceItem,
+          "id" | "name" | "attachment" | "guaranteeId" | "evidenceCategoryType"
+        >
+      >;
+    }
+  >;
+};
+
 export type GetGuaranteeTemplatesQueryVariables = SchemaTypes.Exact<{
   technology: SchemaTypes.Scalars["String"];
   coverage: SchemaTypes.Scalars["String"];
