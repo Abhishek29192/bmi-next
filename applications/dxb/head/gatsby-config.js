@@ -6,7 +6,6 @@ const getCredentialData = require("./src/utils/get-credentials-data");
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
 });
-const data = require("../head/src/data/pim-mock-data.json");
 
 const contentfulCredentialData = getCredentialData(process.env);
 
@@ -381,7 +380,7 @@ module.exports = {
             collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
             map: (doc) => {
               return {
-                ...data
+                ...doc
               };
             }
           }

@@ -1449,7 +1449,7 @@ type Classification {
 
 type Feature {
   code: String
-  FeatureUnit: FeatureUnit
+  featureUnit: FeatureUnit
   featureValues: [FeatureValue]
   name: String!
 }
