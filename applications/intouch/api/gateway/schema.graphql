@@ -13083,6 +13083,7 @@ type Guarantee implements Node {
   ): EvidenceItemsConnection!
   guaranteeType: ContentfulGuaranteeType
   guaranteeTypes: ContentfulGuaranteeTypeCollection
+  signedFileStorageUrl: String
 }
 
 """

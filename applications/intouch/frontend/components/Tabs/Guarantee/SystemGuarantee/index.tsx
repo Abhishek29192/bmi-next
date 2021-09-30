@@ -30,11 +30,12 @@ type SystemGuaranteeCardProps = {
 const SystemGuaranteeCard = ({ guarantee }: SystemGuaranteeCardProps) => {
   const { t } = useTranslation(["common", "project-page"]);
 
-  const { systemBySystemBmiRef: system } = guarantee;
+  const { systemBySystemBmiRef: system, signedFileStorageUrl } = guarantee;
 
-  const products = system.systemMembersBySystemBmiRef.nodes.map(
-    (member) => member.productByProductBmiRef
-  );
+  const products =
+    system.systemMembersBySystemBmiRef?.nodes?.map(
+      (member) => member.productByProductBmiRef
+    ) || [];
 
   return (
     <div className={styles.main}>
@@ -49,10 +50,16 @@ const SystemGuaranteeCard = ({ guarantee }: SystemGuaranteeCardProps) => {
             {system.description}
           </Typography>
         </div>
-        <div className={styles.body__footer}>
-          <div>
+        {signedFileStorageUrl && (
+          <div className={styles.body__footer}>
             <Button
               variant="outlined"
+              action={{
+                model: "htmlLink",
+                href: signedFileStorageUrl,
+                target: "_blank",
+                rel: "noopener noreferrer"
+              }}
               startIcon={
                 <Icon className={styles.body__logo} source={FilePDF} />
               }
@@ -60,7 +67,7 @@ const SystemGuaranteeCard = ({ guarantee }: SystemGuaranteeCardProps) => {
               {t("common:SavePdf")}
             </Button>
           </div>
-        </div>
+        )}
         <div>
           <Table>
             <Table.Body>

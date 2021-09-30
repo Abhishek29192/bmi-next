@@ -366,6 +366,8 @@ export const GET_PROJECT = gql`
             }
           }
         }
+        fileStorageId
+        signedFileStorageUrl
         status
       }
     }
