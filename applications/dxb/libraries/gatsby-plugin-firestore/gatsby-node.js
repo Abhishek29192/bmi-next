@@ -38,12 +38,10 @@ exports.sourceNodes = async (
   const promises = types.map(
     async ({ collection, type, map = (node) => node }) => {
       const snapshot = await db.collection(collection).get();
-      const docs = snapshot.docs.length <= 0 ? map({}) : snapshot.docs;
-      for (let doc of docs) {
-        const mappedData = doc.data ? map(doc.data()) : doc;
-        const contentDigest = createContentDigest(mappedData);
+      for (let doc of snapshot.docs) {
+        const contentDigest = createContentDigest(doc.data());
         createNode(
-          Object.assign(mappedData, {
+          Object.assign({}, map(doc.data()), {
             id: doc.id,
             parent: null,
             children: [],

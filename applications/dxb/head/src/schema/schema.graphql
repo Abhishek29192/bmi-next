@@ -1371,29 +1371,17 @@ type Systems implements Node {
   categories: [Categories!]!
   classifications: [Classification!]!
   code: String!
-  images: [Image!]!
+  images: [PimImage!]!
   longDescription: String
   name: String!
   shortDescription: String
   systemBenefits: [String]!
   systemLayers: [SystemLayer]!
-  path: String
+  path: String!
 }
 
-type Asset {
-  allowedToDownload: String!
-  assetType: String!
-  fileSize: Int
-  mime: String!
-  name: String!
-  realFileName: String
-  url: String!
-}
-
-type Image {
-  containerId: String!
-  format: String
-  allowedToDownload: String
+type PimAsset {
+  allowedToDownload: Boolean!
   assetType: String!
   fileSize: Int
   mime: String!
@@ -1424,18 +1412,21 @@ type SystemProduct {
 type Categories {
   categoryType: String!
   code: String!
-  image: CategoryImage
+  image: PimImage
   name: String!
   parentCategoryCode: String
 }
 
-type CategoryImage {
+type PimImage {
   allowedToDownload: Boolean
   fileSize: Int
   mime: String
   name: String
   realFileName: String
   url: String
+  containerId: String
+  format: String
+  assetType: String
 }
 
 type Classification {

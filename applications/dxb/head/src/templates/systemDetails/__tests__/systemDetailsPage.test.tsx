@@ -1,7 +1,7 @@
 import React from "react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import dataJson from "../../../data/systems/pim-mock-data.json";
+import dataJson from "../../../data/pim-mock-data.json";
 import Component from "../systemDetailsPage";
 import { SystemDetails, DocumentData, AssetType, Assets } from "../types";
 import SystemDetailsPage, {

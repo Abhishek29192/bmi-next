@@ -123,5 +123,5 @@ export interface SystemDetails {
   systemBenefits: SystemBenefits;
   systemLayers?: SystemLayer[];
   systemReferences?: any[];
-  path: string | null;
+  path: string;
 }

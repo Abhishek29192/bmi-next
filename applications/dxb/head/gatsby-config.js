@@ -2,7 +2,6 @@
 
 const path = require("path");
 const fs = require("fs");
-const _ = require("lodash");
 const getCredentialData = require("./src/utils/get-credentials-data");
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -198,6 +197,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `mockData`,
+        path: `${__dirname}/src/data`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `region`,
         path: `${__dirname}/src/countries`
       }
@@ -373,24 +379,9 @@ module.exports = {
             type: "Systems",
             collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
             map: (doc) => {
-              const mockDataFile = fs
-                .readdirSync(`${__dirname}/src/data/systems`)
-                .filter((file) => path.extname(file) === ".json");
-              const mockData = mockDataFile.map((file, id) => {
-                const fileData = path.join(
-                  `${__dirname}/src/data/systems`,
-                  file
-                );
-                return {
-                  id: `systems-${id}`,
-                  ...JSON.parse(fs.readFileSync(fileData))
-                };
-              });
-              return process.env.NODE_ENV === "development" && _.isEmpty(doc)
-                ? mockData
-                : {
-                    ...doc
-                  };
+              return {
+                ...doc
+              };
             }
           }
         ]

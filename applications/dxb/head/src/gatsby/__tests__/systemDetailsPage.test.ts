@@ -8,7 +8,6 @@ const graphql = jest.fn();
 const system1 = {
   id: "bar",
   path: "s/test",
-  approvalStatus: "approved",
   systemReferences: [
     { referenceType: "CROSSELLING", target: { code: "code2" } },
     { referenceType: "CROSSELLING", target: { code: "code3" } }
@@ -17,7 +16,6 @@ const system1 = {
 const system2 = {
   id: "bar2",
   path: "s/test2",
-  approvalStatus: "approved",
   systemReferences: [
     { referenceType: "CROSSELLING", target: { code: "code1" } },
     { referenceType: "CROSSELLING", target: { code: "code3" } }
@@ -26,10 +24,9 @@ const system2 = {
 const system3 = {
   id: "bar3",
   path: "s/test3",
-  approvalStatus: "pending",
   systemReferences: [
     { referenceType: "CROSSELLING", target: { code: "code1" } },
-    { referenceType: "CROSSELLING", target: { code: "code2" } }
+    { referenceType: "NON-CROSSELLING", target: { code: "code2" } }
   ]
 };
 
@@ -55,7 +52,22 @@ describe("createSystemPages function", () => {
       graphql
     });
 
-    expect(graphql).toHaveBeenCalledTimes(1);
+    expect(graphql).toHaveBeenCalledWith(`
+    {
+      allSystems {
+        nodes {
+          id
+          path
+          systemReferences {
+            referenceType
+            target {
+              code
+            }
+          }
+        }
+      }
+    }
+  `);
     expect(createPage).toHaveBeenNthCalledWith(1, {
       component: expect.any(String),
       context: {
@@ -76,12 +88,12 @@ describe("createSystemPages function", () => {
     });
   });
 
-  it("should create the approved system details pages only", async () => {
+  it("should filter out systemReferences only crosselling referenceType", async () => {
     graphql.mockResolvedValue({
       errors: null,
       data: {
         allSystems: {
-          nodes: [system1, system3]
+          nodes: [system3]
         }
       }
     });
@@ -93,15 +105,30 @@ describe("createSystemPages function", () => {
       graphql
     });
 
-    expect(graphql).toHaveBeenCalledTimes(1);
+    expect(graphql).toHaveBeenCalledWith(`
+    {
+      allSystems {
+        nodes {
+          id
+          path
+          systemReferences {
+            referenceType
+            target {
+              code
+            }
+          }
+        }
+      }
+    }
+  `);
     expect(createPage).toHaveBeenNthCalledWith(1, {
       component: expect.any(String),
       context: {
-        systemPageId: system1.id,
+        systemPageId: system3.id,
         siteId,
-        relatedSystemCodes: ["code2", "code3"]
+        relatedSystemCodes: ["code1"]
       },
-      path: getPathWithCountryCode(countryCode, system1.path)
+      path: getPathWithCountryCode(countryCode, system3.path)
     });
   });
 
@@ -120,7 +147,22 @@ describe("createSystemPages function", () => {
       })
     ).rejects.toThrow("Something went wrong");
 
-    expect(graphql).toHaveBeenCalledTimes(1);
+    expect(graphql).toHaveBeenCalledWith(`
+    {
+      allSystems {
+        nodes {
+          id
+          path
+          systemReferences {
+            referenceType
+            target {
+              code
+            }
+          }
+        }
+      }
+    }
+  `);
     expect(createPage).toHaveBeenCalledTimes(0);
   });
 });
