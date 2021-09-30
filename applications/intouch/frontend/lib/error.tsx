@@ -3,12 +3,14 @@ import ErrorView from "../components/ErrorView";
 
 export enum ErrorStatusCode {
   UNAUTHORISED = 401,
-  NOT_FOUND = 404
+  NOT_FOUND = 404,
+  INTERNAL_SERVER_ERROR = 500
 }
 
 const errorMessages: Record<ErrorStatusCode, string> = {
   [ErrorStatusCode.UNAUTHORISED]: "Unauthorised",
-  [ErrorStatusCode.NOT_FOUND]: "Not found"
+  [ErrorStatusCode.NOT_FOUND]: "Not found",
+  [ErrorStatusCode.INTERNAL_SERVER_ERROR]: "Internal server error"
 };
 
 export const generatePageError = function (

@@ -51,7 +51,10 @@ AuthApp.getInitialProps = async (appContext) => {
   let pageProps = {};
 
   if (appContext.Component.getInitialProps) {
-    pageProps = await appContext.Component.getInitialProps(appContext.ctx);
+    pageProps = {
+      ...pageProps,
+      ...(await appContext.Component.getInitialProps(appContext))
+    };
   }
 
   if (appContext.Component.getServerSideProps) {

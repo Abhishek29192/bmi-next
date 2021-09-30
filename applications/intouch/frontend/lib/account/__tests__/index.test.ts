@@ -21,7 +21,9 @@ describe("Account", () => {
 
   const mockQuery = jest.fn();
   const mockMutate = jest.fn();
-  const session = {};
+  const session = {
+    user: {}
+  };
   const logger = () => ({
     info: () => {},
     error: () => {}
