@@ -525,7 +525,7 @@ exports[`FormSection component renders correctly 1`] = `
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
           href="https://policies.google.com/privacy"
-          rel="noreferrer"
+          rel="noreferrer noopener"
           target="_blank"
         >
           <span>
@@ -536,7 +536,7 @@ exports[`FormSection component renders correctly 1`] = `
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
           href="https://policies.google.com/terms"
-          rel="noreferrer"
+          rel="noreferrer noopener"
           target="_blank"
         >
           <span>

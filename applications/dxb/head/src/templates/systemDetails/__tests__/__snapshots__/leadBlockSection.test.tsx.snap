@@ -201,7 +201,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 backToYourSelectionBtn MuiButton-textPrimary MuiButton-textSizeLarge MuiButton-sizeLarge"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.leadBlock.backToYourSelection\\",\\"action\\":\\"system-configurator-page?referer=sys_details\\"}"
                 href="system-configurator-page?referer=sys_details"
                 rel="noopener noreferrer"
@@ -211,7 +211,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                   class="MuiButton-label buttonStyles-label-124"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-125 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-125 MuiButton-iconSizeLarge"
                   >
                     <svg
                       aria-hidden="true"

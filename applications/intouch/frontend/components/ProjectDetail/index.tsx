@@ -31,7 +31,9 @@ import {
   getGuaranteeEventType,
   isProjectApprovable,
   isSolutionOrSystemGuaranteeExist,
-  getGuaranteeStatus
+  getGuaranteeStatus,
+  getProjectDaysRemaining,
+  getProjectCertifiedInstallers
 } from "../../lib/utils/project";
 import log from "../../lib/logger";
 import { useAccountContext } from "../../context/AccountContext";
@@ -175,9 +177,11 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
 
       <Grid item xs={12} md={4}>
         <ProjectsInsight
-          daysRemaining="1"
-          totalDays="5"
-          certifiedInstallers="0"
+          daysRemaining={getProjectDaysRemaining(
+            project.startDate,
+            project.endDate
+          )}
+          certifiedInstallers={getProjectCertifiedInstallers(project)}
         />
       </Grid>
       <Grid item xs={12}>
@@ -362,6 +366,8 @@ export const GET_PROJECT = gql`
             }
           }
         }
+        fileStorageId
+        signedFileStorageUrl
         status
       }
     }

@@ -1,11 +1,29 @@
+@import "@bmi/styles";
+
 .LeadBlockSection {
   .ctaContainer {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-lg) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .backToYourSelectionBtn {
+    @media (max-width: $breakpoint-lg) {
+      padding-left: 0;
+      margin-bottom: 24px;
+    }
   }
 
   .quotationBtn {
-    margin-left: 20px;
+    margin-left: 0;
+    @media (min-width: $breakpoint-lg) {
+      margin-left: 20px;
+    }
   }
 
   .brandLogo {

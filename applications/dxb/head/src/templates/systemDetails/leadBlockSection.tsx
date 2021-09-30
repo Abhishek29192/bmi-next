@@ -127,6 +127,8 @@ const LeadBlockSection = ({
             {selectedSystemId && prevPagePath && (
               <GTMButton
                 variant="text"
+                size="large"
+                className={styles["backToYourSelectionBtn"]}
                 action={{
                   model: "htmlLink",
                   href: backToYourSelectionBtnHref,

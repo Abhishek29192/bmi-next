@@ -1367,7 +1367,7 @@ type Systems implements Node {
   id: String!
   type: String!
   approvalStatus: String!
-  assets: [Asset!]!
+  assets: [PimAsset!]!
   categories: [Categories!]!
   classifications: [Classification!]!
   code: String!
@@ -1450,6 +1450,18 @@ type FeatureUnit {
   name: String
   symbol: String
   unitType: String
+}
+
+type SystemImage {
+  allowedToDownload: Boolean
+  assetType: String
+  containerId: String
+  fileSize: Int
+  format: String
+  mime: String
+  name: String
+  realFileName: String
+  url: String
 }
 
 type Products implements Node {

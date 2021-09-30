@@ -17,16 +17,27 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
   const isBrowser = typeof window !== "undefined";
 
   const errorLink = onError(({ graphQLErrors, networkError }) => {
+    const logger = ctx?.req?.logger("apollo");
     if (graphQLErrors)
       graphQLErrors.forEach(({ message, locations, path }) => {
-        // eslint-disable-next-line no-console
-        console.log(
-          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-        );
+        if (logger) {
+          logger.error(
+            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+          );
+        } else {
+          // eslint-disable-next-line no-console
+          console.log(
+            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+          );
+        }
       });
     if (networkError) {
-      // eslint-disable-next-line no-console
-      console.log(`[Network error]: ${networkError}`);
+      if (logger) {
+        logger.error(`[Network error]: ${networkError}`);
+      } else {
+        // eslint-disable-next-line no-console
+        console.log(`[Network error]: ${networkError}`);
+      }
     }
   });
 

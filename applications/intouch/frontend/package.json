@@ -7,7 +7,7 @@
     "build": "next build",
     "build-storybook": "build-storybook",
     "codegen": "graphql-codegen -r dotenv/config --config codegen.yml",
-    "codegen:watch": "yarn codegen --watch \"**/!(generated)/*.(ts|tsx|graphql)\"",
+    "codegen:watch": "yarn codegen -e --watch \"**/!(generated)/*.(ts|tsx|graphql)\"",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "concurrently \"next dev\" \"yarn codegen:watch\"",
     "dev:debug": "NODE_OPTIONS='--inspect' next dev",

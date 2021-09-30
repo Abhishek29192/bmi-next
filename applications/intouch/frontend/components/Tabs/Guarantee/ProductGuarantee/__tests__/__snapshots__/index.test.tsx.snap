@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductGuarantee Component renders correctly 1`] = `
+<div
+  class="main"
+>
+  <div
+    class="body"
+  >
+    <h1
+      class="MuiTypography-root Typography MuiTypography-h6"
+    >
+      guarantee.type.PRODUCT
+    </h1>
+  </div>
+  <div
+    class="productCard"
+  >
+    <div
+      class="productCard__title"
+    >
+      <h2
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        Product
+      </h2>
+    </div>
+    <div>
+      <h6
+        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+      >
+        description
+      </h6>
+    </div>
+    <div>
+      <div>
+        <table
+          class="MuiTable-root Table Table--row-even-color"
+        >
+          <thead
+            class="MuiTableHead-root ColorPair ColorPair--pearl"
+          >
+            <tr
+              class="MuiTableRow-root MuiTableRow-head"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                productDetails.name
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                productDetails.family
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                productDetails.brand
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="MuiTableBody-root"
+          >
+            <tr
+              class="MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                Product
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                family
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                brand
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProductGuarantee Component renders multiple guarantee 1`] = `
+<div
+  class="main"
+>
+  <div
+    class="body"
+  >
+    <h1
+      class="MuiTypography-root Typography MuiTypography-h6"
+    >
+      guarantee.type.PRODUCT
+    </h1>
+  </div>
+  <div
+    class="productCard"
+  >
+    <div
+      class="productCard__title"
+    >
+      <h2
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        Product
+      </h2>
+    </div>
+    <div>
+      <h6
+        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+      >
+        description
+      </h6>
+    </div>
+    <div>
+      <div>
+        <table
+          class="MuiTable-root Table Table--row-even-color"
+        >
+          <thead
+            class="MuiTableHead-root ColorPair ColorPair--pearl"
+          >
+            <tr
+              class="MuiTableRow-root MuiTableRow-head"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                productDetails.name
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                productDetails.family
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                productDetails.brand
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="MuiTableBody-root"
+          >
+            <tr
+              class="MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                Product
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                family
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                brand
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div
+    class="productCard"
+  >
+    <div
+      class="productCard__title"
+    >
+      <h2
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        Product
+      </h2>
+    </div>
+    <div>
+      <h6
+        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+      >
+        description
+      </h6>
+    </div>
+    <div>
+      <div>
+        <table
+          class="MuiTable-root Table Table--row-even-color"
+        >
+          <thead
+            class="MuiTableHead-root ColorPair ColorPair--pearl"
+          >
+            <tr
+              class="MuiTableRow-root MuiTableRow-head"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                productDetails.name
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                productDetails.family
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                productDetails.brand
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="MuiTableBody-root"
+          >
+            <tr
+              class="MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                Product
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                family
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                brand
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;

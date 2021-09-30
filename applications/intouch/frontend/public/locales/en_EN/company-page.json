@@ -106,7 +106,8 @@
         "ownerEmail": "E-mail address (optional)"
       },
       "actions": {
-        "submit": "Save & Close"
+        "submit": "Save & Close",
+        "cancel": "Cancel"
       }
     }
   }

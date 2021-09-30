@@ -43,7 +43,10 @@ describe("Middleware withPage", () => {
       resolvedUrl: "/",
       res: {},
       req: {
-        logger: null,
+        logger: () => ({
+          info: jest.fn(),
+          error: jest.fn()
+        }),
         headers: {
           host: "es.local.intouch",
           "x-forwarded-proto": "http"
@@ -59,6 +62,27 @@ describe("Middleware withPage", () => {
     await withPage(getServerSideProps)(ctx);
 
     expect(ctx.req.logger).not.toBeNull();
+  });
+
+  it("should redirect if no account found", async () => {
+    mockQuery.mockResolvedValueOnce({
+      data: {
+        accountByEmail: null
+      }
+    });
+
+    let result = await innerGetServerSideProps(
+      getServerSideProps,
+      auth0Mock,
+      ctx
+    );
+
+    expect(result).toEqual({
+      redirect: {
+        permanent: false,
+        destination: "/api/auth/logout"
+      }
+    });
   });
 
   it("should redirect if wrong market", async () => {

@@ -1,0 +1,58 @@
+###
+
+# @name Get authentication token
+# @noRejectUnauthorized
+
+POST {{pimHost}}/authorizationserver/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id={{pimClientId}}&client_secret={{pimClientSecret}}&grant_type=client_credentials
+
+> {%
+client.global.set("pimToken", response.body.access_token);
+%}
+
+###
+
+# @name Get products
+# @noRejectUnauthorized
+
+GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/export/products
+Content-Type: application/json
+Authorization: Bearer {{pimToken}}
+
+###
+
+# @name Get categories
+# @noRejectUnauthorized
+
+GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/export/categories
+Content-Type: application/json
+Authorization: Bearer {{pimToken}}
+
+###
+
+# @name Get systems
+# @noRejectUnauthorized
+
+GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/export/systems
+Content-Type: application/json
+Authorization: Bearer {{pimToken}}
+
+###
+
+# @name Get catalogs
+# @noRejectUnauthorized
+
+GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/catalogs
+Content-Type: application/json
+Authorization: Bearer {{pimToken}}
+
+###
+
+# @name Get feature values
+# @noRejectUnauthorized
+
+GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/featureValues
+Content-Type: application/json
+Authorization: Bearer {{pimToken}}
