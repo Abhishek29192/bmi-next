@@ -1,5 +1,4 @@
 import get from "lodash/get";
-import set from "lodash/set";
 import React, { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import Grid from "@bmi/grid";
@@ -273,6 +272,11 @@ export const SetCompanyDetailsDialog = ({
           </Grid>
 
           <Form.ButtonWrapper>
+            {company.status !== "NEW" ? (
+              <Form.Button onClick={onCloseClick}>
+                {t("company-page:edit_dialog.form.actions.cancel")}
+              </Form.Button>
+            ) : null}
             <Form.SubmitButton>
               {t("company-page:edit_dialog.form.actions.submit")}
             </Form.SubmitButton>

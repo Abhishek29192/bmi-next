@@ -129,7 +129,7 @@ export const EditCompanyDialog = ({
   return (
     <SetCompanyDetailsDialog
       title={t("company-page:edit_dialog.title")}
-      company={company}
+      company={{ ...company }}
       isOpen={isOpen}
       onCloseClick={onCloseClick}
       onSubmit={onSubmit}
