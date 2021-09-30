@@ -88,7 +88,7 @@ describe("handleMessage", () => {
   it("should publish message to the GCP PubSub", async () => {
     const req = mockRequest("GET", {}, "/", {
       message: createEvent({
-        itemType: "SYSTEM",
+        itemType: "SYSTEMS",
         type: "UPDATED"
       })
     });
