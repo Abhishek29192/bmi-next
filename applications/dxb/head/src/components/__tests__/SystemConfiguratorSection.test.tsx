@@ -299,48 +299,6 @@ describe("SystemConfiguratorSection component", () => {
     expect(mockQueryES).toBeCalledTimes(1);
   });
 
-  it("stores selected system when a result system card clicked", async () => {
-    jest.spyOn(window.localStorage.__proto__, "setItem");
-    window.localStorage.__proto__.setItem = jest.fn();
-    mockedAxios.get.mockResolvedValue({
-      data: {
-        __typename: "ContentfulSystemConfiguratorBlock",
-        title: "Result Title",
-        description: { raw: JSON.stringify(richTextRaw), references: null },
-        type: "Result",
-        recommendedSystems: ["abcd", "efgh"]
-      }
-    });
-
-    const { container, findByText, findByLabelText, findByRole } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <LocationProvider>
-          <SystemConfiguratorSection
-            data={{
-              ...initialData
-            }}
-          />
-        </LocationProvider>
-      </SiteContextProvider>
-    );
-
-    const label = await findByLabelText("Answer 1c title");
-    fireEvent.click(label);
-
-    await findByRole("progressbar");
-    await findByText("Result Title");
-    const label2 = await findByText(pimSystem._source.name);
-    fireEvent.click(label2);
-
-    expect(window.localStorage.setItem).toHaveBeenLastCalledWith(
-      "SystemConfiguratorBlock",
-      // eslint-disable-next-line no-useless-escape
-      `{\"selectedAnswers\":[\"A1c\"],\"selectedSystem\":\"efgh\"}`
-    );
-    expect(container).toMatchSnapshot();
-    expect(mockQueryES).toBeCalledTimes(1);
-  });
-
   it("renders a no result section when answer clicked", async () => {
     mockedAxios.get.mockResolvedValue({
       data: {

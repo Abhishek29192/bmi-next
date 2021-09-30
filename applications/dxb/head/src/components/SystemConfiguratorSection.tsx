@@ -43,11 +43,9 @@ export type NextStepData = Partial<EntryData> | TitleWithContentData;
 
 type StoredStateType = {
   selectedAnswers: Array<string>;
-  selectedSystem: string;
 };
 const initialStorageState: StoredStateType = {
-  selectedAnswers: [],
-  selectedSystem: ""
+  selectedAnswers: []
 };
 
 type EntryData = {
@@ -56,7 +54,6 @@ type EntryData = {
   title: string;
   type: "Question" | "Answer" | "Result";
   description: RichTextData | null;
-  selectedSystem?: string;
 } & QuestionData &
   ResultData;
 
@@ -272,8 +269,7 @@ const SystemConfiguratorBlockNoResultsSection = ({
 const SystemConfiguratorBlockResultSection = ({
   title,
   description,
-  recommendedSystems,
-  selectedSystem
+  recommendedSystems
 }: Partial<EntryData>) => {
   const maxDisplay = 4;
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
@@ -498,10 +494,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
         ) : null}
       </Section>
       {state.result && (
-        <SystemConfiguratorBlockResultSection
-          {...state.result}
-          selectedSystem={storedAnswers.selectedSystem}
-        />
+        <SystemConfiguratorBlockResultSection {...state.result} />
       )}
       {noResult && <SystemConfiguratorBlockNoResultsSection {...noResult} />}
     </>
