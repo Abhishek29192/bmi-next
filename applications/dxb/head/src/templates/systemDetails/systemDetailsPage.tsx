@@ -92,7 +92,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       pushToDataLayer({
         id: "system-configurator01-results",
         label: selectedSystem,
-        action: location.href.toString()
+        action: location.href?.toString()
       });
   }, []);
 
