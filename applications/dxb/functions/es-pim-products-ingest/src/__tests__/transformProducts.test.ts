@@ -16,7 +16,7 @@ import createCategory from "./helpers/CategoryHelper";
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
 const transformProduct = (product: Partial<Product>): ProductVariant[] =>
-  require("../transform").transformProduct(product as Product);
+  require("../transformProducts").transformProduct(product as Product);
 
 beforeAll(() => {
   mockConsole();
@@ -154,6 +154,124 @@ describe("transformProduct", () => {
         { code: "100symbol", name: "100 symbol" },
         { code: "200symbol", name: "200 symbol" }
       ]);
+    });
+
+    it("should transform nothing into measurementValue if not width, length or height", () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createMeasurementsClassification({
+                features: [
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.something`,
+                    featureValues: [createFeatureValue({ value: "100" })]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const transformedProduct = transformProduct(product);
+
+      expect(transformedProduct[0].measurementValue).toBeUndefined();
+    });
+
+    it("should transform width into measurementValue", () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createMeasurementsClassification({
+                features: [
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.width`,
+                    featureValues: [createFeatureValue({ value: "100" })]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const transformedProduct = transformProduct(product);
+
+      expect(transformedProduct[0].measurementValue).toEqual("100symbol");
+    });
+
+    it("should transform length into measurementValue", () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createMeasurementsClassification({
+                features: [
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.length`,
+                    featureValues: [createFeatureValue({ value: "10" })]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const transformedProduct = transformProduct(product);
+
+      expect(transformedProduct[0].measurementValue).toEqual("10symbol");
+    });
+
+    it("should transform height into measurementValue", () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createMeasurementsClassification({
+                features: [
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
+                    featureValues: [createFeatureValue({ value: "1" })]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const transformedProduct = transformProduct(product);
+
+      expect(transformedProduct[0].measurementValue).toEqual("1symbol");
+    });
+
+    it("should transform width, legnth and height into measurementValue", () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createMeasurementsClassification({
+                features: [
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
+                    featureValues: [createFeatureValue({ value: "10" })]
+                  }),
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.width`,
+                    featureValues: [createFeatureValue({ value: "100" })]
+                  }),
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.length`,
+                    featureValues: [createFeatureValue({ value: "1" })]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const transformedProduct = transformProduct(product);
+
+      expect(transformedProduct[0].measurementValue).toEqual("100x1x10symbol");
     });
   });
 
