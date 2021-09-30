@@ -3907,7 +3907,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/privacy"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -3918,7 +3918,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/terms"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -9809,7 +9809,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/privacy"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -9820,7 +9820,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/terms"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -15841,7 +15841,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/privacy"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -15852,7 +15852,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/terms"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -21873,7 +21873,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/privacy"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -21884,7 +21884,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/terms"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -25319,38 +25319,8 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-325 MuiButton-text buttonStyles-text-326 MuiButton-textPrimary"
-                  href="system-configurator-page?referer=sys_details"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label-328"
-                  >
-                    <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-329 MuiButton-iconSizeMedium"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                        />
-                      </svg>
-                    </span>
-                    MC: sdp.leadBlock.backToYourSelection
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-                <a
-                  aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-325 MuiButton-contained buttonStyles-contained-327 quotationBtn MuiButton-containedPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\",\\"label\\":\\"Get a Quotation\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Get a Quotation\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\"}"
                   href="/en/roof-tiles/betongtakstein/"
                   role="button"
                   tabindex="0"
@@ -27288,291 +27258,295 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                 class="MuiContainer-root MuiContainer-maxWidthXl"
               >
                 <div
-                  class="section"
+                  class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="content"
+                    class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
                   >
                     <div
-                      class="SystemDetailsTechnicalSpec"
+                      class="LeadBlockContentSection"
                     >
                       <div
-                        class="Accordion Accordion--no-inner-padding"
+                        class="SystemDetailsTechnicalSpec"
                       >
                         <div
-                          class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                          class="Accordion Accordion--no-inner-padding"
                         >
                           <div
-                            aria-disabled="false"
-                            aria-expanded="true"
-                            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
-                            role="button"
-                            tabindex="0"
+                            class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                           >
-                            <div
-                              class="MuiAccordionSummary-content Mui-expanded"
-                            >
-                              <h6
-                                class="MuiTypography-root Typography MuiTypography-h6"
-                              >
-                                France Flat System Attributes
-                              </h6>
-                            </div>
                             <div
                               aria-disabled="false"
-                              aria-hidden="true"
-                              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-                            >
-                              <span
-                                class="MuiIconButton-label"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                                  />
-                                </svg>
-                              </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            class="MuiCollapse-container MuiCollapse-entered"
-                            style="min-height: 0px;"
-                          >
-                            <div
-                              class="MuiCollapse-wrapper"
+                              aria-expanded="true"
+                              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+                              role="button"
+                              tabindex="0"
                             >
                               <div
-                                class="MuiCollapse-wrapperInner"
+                                class="MuiAccordionSummary-content Mui-expanded"
+                              >
+                                <h6
+                                  class="MuiTypography-root Typography MuiTypography-h6"
+                                >
+                                  France Flat System Attributes
+                                </h6>
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-hidden="true"
+                                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="MuiCollapse-container MuiCollapse-entered"
+                              style="min-height: 0px;"
+                            >
+                              <div
+                                class="MuiCollapse-wrapper"
                               >
                                 <div
-                                  role="region"
+                                  class="MuiCollapse-wrapperInner"
                                 >
                                   <div
-                                    class="MuiAccordionDetails-root accordion-details"
+                                    role="region"
                                   >
-                                    <div>
-                                      <table
-                                        class="MuiTable-root Table Table--row-even-color Table--no-border"
-                                      >
-                                        <tbody
-                                          class="MuiTableBody-root"
+                                    <div
+                                      class="MuiAccordionDetails-root accordion-details"
+                                    >
+                                      <div>
+                                        <table
+                                          class="MuiTable-root Table Table--row-even-color Table--no-border"
                                         >
-                                          <tr
-                                            class="MuiTableRow-root"
+                                          <tbody
+                                            class="MuiTableBody-root"
                                           >
-                                            <td
-                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                            <tr
+                                              class="MuiTableRow-root"
                                             >
-                                              Brooft3 classification
-                                            </td>
-                                            <td
-                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
-                                            >
-                                              44 
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
+                                              <td
+                                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                              >
+                                                Brooft3 classification
+                                              </td>
+                                              <td
+                                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                              >
+                                                44 
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-                        >
                           <div
-                            aria-disabled="false"
-                            aria-expanded="true"
-                            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
-                            role="button"
-                            tabindex="0"
+                            class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                           >
-                            <div
-                              class="MuiAccordionSummary-content Mui-expanded"
-                            >
-                              <h6
-                                class="MuiTypography-root Typography MuiTypography-h6"
-                              >
-                                Measurements
-                              </h6>
-                            </div>
                             <div
                               aria-disabled="false"
-                              aria-hidden="true"
-                              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-                            >
-                              <span
-                                class="MuiIconButton-label"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                                  />
-                                </svg>
-                              </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            class="MuiCollapse-container MuiCollapse-entered"
-                            style="min-height: 0px;"
-                          >
-                            <div
-                              class="MuiCollapse-wrapper"
+                              aria-expanded="true"
+                              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+                              role="button"
+                              tabindex="0"
                             >
                               <div
-                                class="MuiCollapse-wrapperInner"
+                                class="MuiAccordionSummary-content Mui-expanded"
+                              >
+                                <h6
+                                  class="MuiTypography-root Typography MuiTypography-h6"
+                                >
+                                  Measurements
+                                </h6>
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-hidden="true"
+                                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="MuiCollapse-container MuiCollapse-entered"
+                              style="min-height: 0px;"
+                            >
+                              <div
+                                class="MuiCollapse-wrapper"
                               >
                                 <div
-                                  role="region"
+                                  class="MuiCollapse-wrapperInner"
                                 >
                                   <div
-                                    class="MuiAccordionDetails-root accordion-details"
+                                    role="region"
                                   >
-                                    <div>
-                                      <table
-                                        class="MuiTable-root Table Table--row-even-color Table--no-border"
-                                      >
-                                        <tbody
-                                          class="MuiTableBody-root"
+                                    <div
+                                      class="MuiAccordionDetails-root accordion-details"
+                                    >
+                                      <div>
+                                        <table
+                                          class="MuiTable-root Table Table--row-even-color Table--no-border"
                                         >
-                                          <tr
-                                            class="MuiTableRow-root"
+                                          <tbody
+                                            class="MuiTableBody-root"
                                           >
-                                            <td
-                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                            <tr
+                                              class="MuiTableRow-root"
                                             >
-                                              Length NO
-                                            </td>
-                                            <td
-                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                              <td
+                                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                              >
+                                                Length NO
+                                              </td>
+                                              <td
+                                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                              >
+                                                22 cm
+                                              </td>
+                                            </tr>
+                                            <tr
+                                              class="MuiTableRow-root"
                                             >
-                                              22 cm
-                                            </td>
-                                          </tr>
-                                          <tr
-                                            class="MuiTableRow-root"
-                                          >
-                                            <td
-                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                                            >
-                                              Width NO
-                                            </td>
-                                            <td
-                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
-                                            >
-                                              33 mm
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
+                                              <td
+                                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                              >
+                                                Width NO
+                                              </td>
+                                              <td
+                                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                              >
+                                                33 mm
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-                        >
                           <div
-                            aria-disabled="false"
-                            aria-expanded="true"
-                            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
-                            role="button"
-                            tabindex="0"
+                            class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                           >
-                            <div
-                              class="MuiAccordionSummary-content Mui-expanded"
-                            >
-                              <h6
-                                class="MuiTypography-root Typography MuiTypography-h6"
-                              >
-                                System Attributes
-                              </h6>
-                            </div>
                             <div
                               aria-disabled="false"
-                              aria-hidden="true"
-                              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-                            >
-                              <span
-                                class="MuiIconButton-label"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                                  />
-                                </svg>
-                              </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            class="MuiCollapse-container MuiCollapse-entered"
-                            style="min-height: 0px;"
-                          >
-                            <div
-                              class="MuiCollapse-wrapper"
+                              aria-expanded="true"
+                              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+                              role="button"
+                              tabindex="0"
                             >
                               <div
-                                class="MuiCollapse-wrapperInner"
+                                class="MuiAccordionSummary-content Mui-expanded"
+                              >
+                                <h6
+                                  class="MuiTypography-root Typography MuiTypography-h6"
+                                >
+                                  System Attributes
+                                </h6>
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-hidden="true"
+                                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="MuiCollapse-container MuiCollapse-entered"
+                              style="min-height: 0px;"
+                            >
+                              <div
+                                class="MuiCollapse-wrapper"
                               >
                                 <div
-                                  role="region"
+                                  class="MuiCollapse-wrapperInner"
                                 >
                                   <div
-                                    class="MuiAccordionDetails-root accordion-details"
+                                    role="region"
                                   >
-                                    <div>
-                                      <table
-                                        class="MuiTable-root Table Table--row-even-color Table--no-border"
-                                      >
-                                        <tbody
-                                          class="MuiTableBody-root"
+                                    <div
+                                      class="MuiAccordionDetails-root accordion-details"
+                                    >
+                                      <div>
+                                        <table
+                                          class="MuiTable-root Table Table--row-even-color Table--no-border"
                                         >
-                                          <tr
-                                            class="MuiTableRow-root"
+                                          <tbody
+                                            class="MuiTableBody-root"
                                           >
-                                            <td
-                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                            <tr
+                                              class="MuiTableRow-root"
                                             >
-                                              Roof build-up
-                                            </td>
-                                            <td
-                                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
-                                            >
-                                              Yes 
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
+                                              <td
+                                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                              >
+                                                Roof build-up
+                                              </td>
+                                              <td
+                                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                              >
+                                                Yes 
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -27931,7 +27905,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/privacy"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -27942,7 +27916,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/terms"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
