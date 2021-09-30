@@ -241,6 +241,7 @@ const UploadedFiles = ({
 }) => {
   const { t } = useTranslation("project-page");
   const { id, guarantees, evidenceItems } = project;
+  const { account } = useAccountContext();
 
   const map = new Map<string, Evidence[]>();
   //Default category
@@ -260,13 +261,20 @@ const UploadedFiles = ({
         ? t(evidence.evidenceCategoryType)
         : evidence.customEvidenceCategory?.name ||
           t(evidence.evidenceCategoryType);
+    const canEvidenceDelete =
+      can(account, "project", "deleteEvidence") &&
+      (evidence.evidenceCategoryType === "MISCELLANEOUS" ||
+        (evidence.evidenceCategoryType === "CUSTOM" &&
+          !["REVIEW", "APPROVED"].includes(getGuaranteeStatus(project))));
 
     const existFiles = map.has(categoryLabel) ? map.get(categoryLabel) : [];
     map.set(categoryLabel, [
       ...existFiles,
       {
+        id: evidence.id,
         name: evidence.name,
-        url: evidence.signedUrl
+        url: evidence.signedUrl,
+        canEvidenceDelete
       }
     ]);
   }
