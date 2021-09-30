@@ -112,7 +112,7 @@ describe("Account", () => {
           }
         };
 
-        (mailerSrv.sendEmailWithTemplate as jest.Mock).mockResolvedValueOnce(
+        (mailerSrv.sendMessageWithTemplate as jest.Mock).mockResolvedValueOnce(
           {}
         );
 
@@ -142,7 +142,7 @@ describe("Account", () => {
             level: 4
           }
         );
-        expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+        expect(mailerSrv.sendMessageWithTemplate).toBeCalledWith(
           contextMock,
           "ROLE_ASSIGNED",
           {
@@ -167,7 +167,7 @@ describe("Account", () => {
           }
         };
 
-        (mailerSrv.sendEmailWithTemplate as jest.Mock).mockResolvedValueOnce(
+        (mailerSrv.sendMessageWithTemplate as jest.Mock).mockResolvedValueOnce(
           {}
         );
 
@@ -200,7 +200,7 @@ describe("Account", () => {
             level: 6
           }
         );
-        expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+        expect(mailerSrv.sendMessageWithTemplate).toBeCalledWith(
           contextMock,
           "ROLE_ASSIGNED",
           {
@@ -225,7 +225,7 @@ describe("Account", () => {
           }
         };
 
-        (mailerSrv.sendEmailWithTemplate as jest.Mock).mockResolvedValueOnce(
+        (mailerSrv.sendMessageWithTemplate as jest.Mock).mockResolvedValueOnce(
           {}
         );
 
@@ -304,7 +304,7 @@ describe("Account", () => {
 
       await createAccount(mockResolve, null, args, contextMock, resolveInfo);
 
-      expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+      expect(mailerSrv.sendMessageWithTemplate).toBeCalledWith(
         {
           ...contextMock,
           user: {
@@ -417,7 +417,7 @@ describe("Account", () => {
         ticket: "my-ticket"
       });
 
-      const spy = jest.spyOn(mailerSrv, "sendEmailWithTemplate");
+      const spy = jest.spyOn(mailerSrv, "sendMessageWithTemplate");
 
       mockRootQuery
         // get user
@@ -453,7 +453,7 @@ describe("Account", () => {
         email: "email@email.co.uk"
       });
 
-      const spy = jest.spyOn(mailerSrv, "sendEmailWithTemplate");
+      const spy = jest.spyOn(mailerSrv, "sendMessageWithTemplate");
 
       mockRootQuery
         // get user
@@ -577,7 +577,7 @@ describe("Account", () => {
         build
       );
 
-      expect(mailerSrv.sendEmailWithTemplate).toBeCalledWith(
+      expect(mailerSrv.sendMessageWithTemplate).toBeCalledWith(
         {
           ...contextMock,
           user: {

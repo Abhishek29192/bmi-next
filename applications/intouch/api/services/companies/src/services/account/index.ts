@@ -3,7 +3,7 @@ import camelcaseKeys from "camelcase-keys";
 import { FileUpload } from "graphql-upload";
 import { AccountPatch, InviteInput, Role } from "@bmi/intouch-api-types";
 import { UpdateAccountInput, Market } from "@bmi/intouch-api-types";
-import { sendEmailWithTemplate } from "../../services/mailer";
+import { sendMessageWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
 import { Account, PostGraphileContext } from "../../types";
 
@@ -84,7 +84,7 @@ export const createAccount = async (
       }
     };
 
-    await sendEmailWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+    await sendMessageWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
       email: result.data.$email,
       firstname: result.data.$first_name,
       marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`
@@ -181,7 +181,7 @@ export const updateAccount = async (
           level
         });
 
-        await sendEmailWithTemplate(context, "ROLE_ASSIGNED", {
+        await sendMessageWithTemplate(context, "ROLE_ASSIGNED", {
           email: result.data.$email,
           firstname: result.data.$first_name,
           role: role?.toLowerCase().replace("_", " ")
@@ -348,7 +348,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
           user_id: auth0User?.user_id,
           result_url: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
         });
-        await sendEmailWithTemplate(updatedContext, "NEWUSER_INVITED", {
+        await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetee,
           company: user.company.name,
           registerlink: ticket.ticket,
@@ -356,7 +356,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         });
         logger.info("Reset password email sent");
       } else {
-        await sendEmailWithTemplate(updatedContext, "NEWUSER_INVITED", {
+        await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetees[0].first_name,
           company: user.company.name,
           registerlink: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
@@ -454,7 +454,7 @@ export const completeInvitation = async (
         }
       };
 
-      await sendEmailWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+      await sendMessageWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
         email: user.email,
         firstname: user.firstName,
         marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`

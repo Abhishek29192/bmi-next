@@ -167,6 +167,32 @@
   top: 0;
 }
 
+.notificationsIcon {
+  position: relative;
+
+  &:after {
+    content: "";
+    display: none;
+    background: $color-orange-400;
+    border: 2px solid $color-white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 0.7em;
+    right: 0.7em;
+
+    @media (min-width: $breakpoint-md) {
+      top: 0.5em;
+      right: 0.5em;
+    }
+  }
+
+  &--unread:after {
+    display: block;
+  }
+}
+
 .mobileUserMenu {
   padding: 1rem;
 }

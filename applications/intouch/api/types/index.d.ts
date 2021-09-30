@@ -7829,6 +7829,7 @@ export type Guarantee = Node & {
   evidenceItems: EvidenceItemsConnection;
   guaranteeType?: Maybe<ContentfulGuaranteeType>;
   guaranteeTypes?: Maybe<ContentfulGuaranteeTypeCollection>;
+  signedFileStorageUrl?: Maybe<Scalars["String"]>;
 };
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
@@ -10103,6 +10104,29 @@ export type LinkAccountToCompanyPayloadCompanyMemberEdgeArgs = {
   orderBy?: Maybe<Array<CompanyMembersOrderBy>>;
 };
 
+/** All input for the `markAllNotificationsAsRead` mutation. */
+export type MarkAllNotificationsAsReadInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  accountToUpdateId?: Maybe<Scalars["Int"]>;
+};
+
+/** The output of our `markAllNotificationsAsRead` mutation. */
+export type MarkAllNotificationsAsReadPayload = {
+  __typename?: "MarkAllNotificationsAsReadPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  notifications?: Maybe<Array<Notification>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** A country that BMI operates in */
 export type Market = Node & {
   __typename?: "Market";
@@ -11451,6 +11475,7 @@ export type Mutation = {
   evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
+  markAllNotificationsAsRead?: Maybe<MarkAllNotificationsAsReadPayload>;
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
   resetPassword?: Maybe<Scalars["String"]>;
@@ -12105,6 +12130,11 @@ export type MutationInviteArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationLinkAccountToCompanyArgs = {
   input: LinkAccountToCompanyInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationMarkAllNotificationsAsReadArgs = {
+  input: MarkAllNotificationsAsReadInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */

@@ -1,86 +1,69 @@
-services:
-  - postgres
+build_intouch_migration_db_service:
+  stage: build
+  image: google/cloud-sdk
+  services:
+    - docker:dind
+  cache: {}
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/companies/src/scripts/**/*
+        - applications/intouch/api/services/companies/src/data/**/*
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gcloud builds submit . --config=applications/intouch/api/db-migrations/cloudbuild.migration.build.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
+
+deploy_intouch_migration_db_service:
+  stage: migration
+  needs:
+    - build_intouch_migration_db_service
+  image: google/cloud-sdk
+  services:
+    - docker:dind
+  cache: {}
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/api/services/companies/src/scripts/**/*
+        - applications/intouch/api/services/companies/src/data/**/*
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gcloud builds submit . --config=applications/intouch/api/db-migrations/cloudbuild.migration.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
 
 migrate_company_db:
   stage: migration
-  needs: []
-  image: google/cloud-sdk
-  services:
-    - docker:dind
-  cache: {}
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/intouch/api/services/companies/src/data/*
-  script:
-    # Authenticating as service account
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    # Running DB migration from CloudBuild (with Cloud SQL Proxy)
-    - gcloud builds submit . --config=applications/intouch/api/db-migrations/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_PROJECT_ID=$GCP_INTOUCH_REPLATFORM_PROJECT_ID,_PG_USER=$INTOUCH_DATABASE_SERVER_USER,_PG_DATABASE=$INTOUCH_COMPANY_DATABASE_NAME,_PG_HOST=$INTOUCH_DATABASE_SERVER_HOSTNAME,_PG_PORT=5432,_PG_PASSWORD=$INTOUCH_DATABASE_USER_PASSWORD,_NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_DATABASE_SERVICE='@bmi/intouch-api-service-companies'
-
-redeploy_company_service:
-  stage: deploy
   needs:
-    - migrate_company_db
-    # we need the build to have completed in order to have the docker image with the current commit SHA
-    - build_intouch_api_companies_dev
-  image: google/cloud-sdk
-  services:
-    - docker:dind
-  cache: {}
+    - install
+    - job: deploy_intouch_migration_db_service
+      optional: true
+  variables:
+    MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/api/services/companies/src/data/*
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    # Authenticate as service account
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    # deploy company service
-    - gcloud builds submit . --config=applications/intouch/api/services/companies/cloudbuild.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
-    # The gateway deploys as the last step in any case
+    - yarn workspace @bmi/intouch-api-migration-scripts migrate:companies
 
 migrate_training_db:
   stage: migration
-  needs: []
-  image: google/cloud-sdk
-  services:
-    - docker:dind
-  cache: {}
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/intouch/api/services/training/src/data/*
-  script:
-    # Authenticate as service account
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    # Running DB migration from CloudBuild (with Cloud SQL Proxy)
-    - gcloud builds submit . --config=applications/intouch/api/db-migrations/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_PROJECT_ID=$GCP_INTOUCH_REPLATFORM_PROJECT_ID,_PG_USER=$INTOUCH_DATABASE_SERVER_USER,_PG_DATABASE=$INTOUCH_TRAINING_DATABASE_NAME,_PG_HOST=$INTOUCH_DATABASE_SERVER_HOSTNAME,_PG_PORT=5432,_PG_PASSWORD=$INTOUCH_DATABASE_USER_PASSWORD,_NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_DATABASE_SERVICE='@bmi/intouch-api-service-training'
-
-redeploy_training_service:
-  stage: deploy
   needs:
-    - migrate_training_db
-    # we need the build to have completed in order to have the docker image with the current commit SHA
-    - build_intouch_api_training_dev
-  image: google/cloud-sdk
-  services:
-    - docker:dind
-  cache: {}
+    - install
+    - job: deploy_intouch_migration_db_service
+      optional: true
+  variables:
+    MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/api/services/training/src/data/*
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    # Authenticating as service account
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    # deploy training service
-    - gcloud builds submit . --config=applications/intouch/api/services/training/cloudbuild.deploy.yaml --substitutions _DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
-    # The gateway deploys as the last step in any case
+    - yarn workspace @bmi/intouch-api-migration-scripts migrate:training

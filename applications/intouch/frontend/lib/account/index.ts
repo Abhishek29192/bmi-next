@@ -199,142 +199,181 @@ export default class AccountService {
   }
 
   createDoceboSSOUrl = async (req, session): Promise<string> => {
-    const { user } = session;
-    const { email } = parseAccount(user);
+    try {
+      const { user } = session;
+      const { email } = parseAccount(user);
 
-    const path = req.query.path || "/learn/mycourses";
-    const { data: { createSSOUrl: { url = null } = {} } = {} } =
-      await this.apolloClient.mutate({
-        mutation: mutationDoceboCreateSSOUrl,
-        variables: {
-          username: email,
-          path
-        }
-      });
+      const path = req.query.path || "/learn/mycourses";
+      const { data: { createSSOUrl: { url = null } = {} } = {} } =
+        await this.apolloClient.mutate({
+          mutation: mutationDoceboCreateSSOUrl,
+          variables: {
+            username: email,
+            path
+          }
+        });
 
-    this.logger.info(`Docebo SSO url created`);
+      this.logger.info(`Docebo SSO url created`);
 
-    return url;
+      return url;
+    } catch (error) {
+      this.logger.error(`Error creating docebo SSO url created`, error);
+      throw error;
+    }
   };
 
   getAccount = async (session) => {
-    const {
-      user: { email }
-    } = session;
+    try {
+      const {
+        user: { email }
+      } = session;
 
-    this.logger.info(`Getting account`);
+      this.logger.info(`Getting account`);
 
-    const {
-      data: { accountByEmail }
-    } = await this.apolloClient.query({
-      query: queryAccountByEmail,
-      variables: {
-        email
-      }
-    });
+      const {
+        data: { accountByEmail }
+      } = await this.apolloClient.query({
+        query: queryAccountByEmail,
+        variables: {
+          email
+        }
+      });
 
-    this.logger.info(`Get account with id: ${accountByEmail?.id}`);
+      this.logger.info(`Get account with id: ${accountByEmail?.id}`);
 
-    return accountByEmail;
+      return accountByEmail;
+    } catch (error) {
+      this.logger.error(`Error fetching account: `, error);
+      throw error;
+    }
   };
 
   createAccount = async (session) => {
-    const { user } = session;
+    try {
+      const { user } = session;
 
-    this.logger.info(`Creating account`);
+      this.logger.info(`Creating account`);
 
-    const { firstName, lastName, intouch_role, marketCode, email } =
-      parseAccount(user);
+      const { firstName, lastName, intouch_role, marketCode, email } =
+        parseAccount(user);
 
-    const { data } = await this.apolloClient.mutate({
-      mutation: mutationCreateAccount,
-      variables: {
-        input: {
-          account: {
-            role: intouch_role,
-            email,
-            lastName,
-            firstName
-          },
-          marketCode
+      const { data } = await this.apolloClient.mutate({
+        mutation: mutationCreateAccount,
+        variables: {
+          input: {
+            account: {
+              role: intouch_role,
+              email,
+              lastName,
+              firstName
+            },
+            marketCode
+          }
         }
-      }
-    });
+      });
 
-    const {
-      createAccount: { account }
-    } = data;
+      const {
+        createAccount: { account }
+      } = data;
 
-    this.logger.info(`Account with id: ${account.id} created`);
+      this.logger.info(`Account with id: ${account.id} created`);
 
-    return account;
+      return account;
+    } catch (error) {
+      this.logger.error(`Error creating account: `, error);
+      throw error;
+    }
   };
 
-  completeAccountInvitation = async (req) => {
-    this.logger.info(`Completing account invitation`);
+  completeAccountInvitation = async ({ query }) => {
+    const { user } = this.session;
 
-    const { data } = await this.apolloClient.mutate({
-      mutation: mutationCompleteInvitation,
-      variables: {
-        companyId: parseInt(req.query.company_id)
-      }
-    });
+    const { sub } = parseAccount(user);
 
-    this.logger.info(
-      `Invitation for user: ${data.completeInvitation.id} completed`
-    );
+    try {
+      this.logger.info(`Completing account invitation`);
 
-    return data;
+      const { data } = await this.apolloClient.mutate({
+        mutation: mutationCompleteInvitation,
+        variables: {
+          companyId: parseInt(query.company_id)
+        }
+      });
+
+      this.logger.info(
+        `Invitation for user: ${data.completeInvitation.id} completed`
+      );
+
+      return data;
+    } catch (error) {
+      this.logger.error(
+        `Error completing invitation for user: ${sub} and company: ${query.company_id} `,
+        error.toString()
+      );
+      throw error;
+    }
   };
 
   updateAccount = async (accountId, patch) => {
-    this.logger.info(`Updating account`);
+    try {
+      this.logger.info(`Updating account`);
 
-    const body = {
-      mutation: mutationUpdateAccount,
-      variables: {
-        input: {
-          id: accountId,
-          patch
+      const body = {
+        mutation: mutationUpdateAccount,
+        variables: {
+          input: {
+            id: accountId,
+            patch
+          }
         }
-      }
-    };
+      };
 
-    this.logger.info(`Updating account with id: ${accountId}`);
-    const { data } = await this.apolloClient.mutate(body);
-    const {
-      updateAccount: { account }
-    } = data;
+      this.logger.info(`Updating account with id: ${accountId}`);
+      const { data } = await this.apolloClient.mutate(body);
+      const {
+        updateAccount: { account }
+      } = data;
 
-    this.logger.info(`Account with id: ${account.id} updated`);
+      this.logger.info(`Account with id: ${account?.id} updated`);
 
-    return data;
+      return data;
+    } catch (error) {
+      this.logger.error(`Error updating account with id: ${accountId}`, error);
+      throw error;
+    }
   };
 
   getInvitation = async (session) => {
-    const {
-      user: { email }
-    } = session;
+    const { user } = session;
+    const { sub, email } = parseAccount(user);
 
-    this.logger.info(`Getting invitation`);
+    try {
+      this.logger.info(`Getting invitation`);
 
-    const { data } = await this.apolloClient.query({
-      query: queryInvitation,
-      variables: {
-        invitee: email
-      }
-    });
+      const { data } = await this.apolloClient.query({
+        query: queryInvitation,
+        variables: {
+          invitee: email
+        }
+      });
 
-    this.logger.info(`Get invitation with id: ${data.id}`);
+      this.logger.info(`Get invitation with id: ${data.id}`);
 
-    return data?.invitations?.nodes?.[0];
+      return data?.invitations?.nodes?.[0];
+    } catch (error) {
+      this.logger.error(
+        `Error getting invitation for account with id: ${sub}`,
+        error
+      );
+      throw error;
+    }
   };
 
   createDoceboUser = async (account) => {
     const POWER_USER_LEVEL = 4;
     const REGULAR_USER_LEVEL = 6;
 
-    const { firstName, lastName, role, market, email } = account;
+    const { firstName, lastName, role, market, email, sub } = account;
     const { doceboCompanyAdminBranchId, doceboInstallersBranchId } = market;
 
     this.logger.info(`Get user by email`);
@@ -363,45 +402,56 @@ export default class AccountService {
 
       this.logger.info(`Creating docebo account for user ${account.id}`);
 
-      const { data } = await this.apolloClient.mutate({
-        mutation: mutationCreateDoceboUser,
-        variables: {
-          input: {
-            userid: email,
-            email: email,
-            password: randomPassword(),
-            firstname: firstName,
-            lastname: lastName,
-            language,
-            level,
-            valid: 1,
-            email_validation_status: 1,
-            can_manage_subordinates: false,
-            send_notification_email: false,
-            select_orgchart: {
-              branch_id: branchId
+      try {
+        const { data } = await this.apolloClient.mutate({
+          mutation: mutationCreateDoceboUser,
+          variables: {
+            input: {
+              userid: email,
+              email: email,
+              password: randomPassword(),
+              firstname: firstName,
+              lastname: lastName,
+              language,
+              level,
+              valid: 1,
+              email_validation_status: 1,
+              can_manage_subordinates: false,
+              send_notification_email: false,
+              select_orgchart: {
+                branch_id: branchId
+              }
             }
           }
+        });
+        const { createDoceboUser } = data;
+
+        if (!createDoceboUser) {
+          throw new Error("Error creating docebo user");
         }
-      });
-      const { createDoceboUser } = data;
 
-      if (!createDoceboUser) {
-        throw new Error("Error creating docebo user");
+        doceboUserId = createDoceboUser?.user_id;
+
+        this.logger.info(`Docebo account with id ${doceboUserId} created`);
+      } catch (error) {
+        this.logger.error(
+          `Error creating docebo account for user: ${sub}`,
+          error
+        );
       }
-
-      doceboUserId = createDoceboUser?.user_id;
-
-      this.logger.info(`Docebo account with id ${doceboUserId} created`);
     }
 
-    await this.updateAccount(account.id, {
-      doceboUserId: doceboUserId,
-      doceboUsername: email
-    });
+    try {
+      await this.updateAccount(account.id, {
+        doceboUserId: doceboUserId,
+        doceboUsername: email
+      });
 
-    this.logger.info(
-      `Account with id ${account.id} udpated with docebo id: ${doceboUserId}`
-    );
+      this.logger.info(
+        `Account with id ${account.id} udpated with docebo id: ${doceboUserId}`
+      );
+    } catch (error) {
+      this.logger.error(`Error updagint docebo user: ${doceboUserId}`, error);
+    }
   };
 }

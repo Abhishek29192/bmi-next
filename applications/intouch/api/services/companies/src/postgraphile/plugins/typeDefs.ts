@@ -149,6 +149,7 @@ export default gql`
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType
     guaranteeTypes: ContentfulGuaranteeTypeCollection
+    signedFileStorageUrl: String
   }
   extend type EvidenceItem {
     customEvidenceCategory: ContentfulEvidenceCategory

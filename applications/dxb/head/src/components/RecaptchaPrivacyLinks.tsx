@@ -21,7 +21,7 @@ const RecaptchaPrivacyLinks = () => {
             href: recaptchaContent.privacyPolicyUrl
           }}
           target="_blank"
-          rel="noreferrer"
+          rel="noreferrer noopener"
         >
           {recaptchaContent.privacyPloicyText}
         </AnchorLink>
@@ -32,7 +32,7 @@ const RecaptchaPrivacyLinks = () => {
             href: recaptchaContent.termsOfServiceUrl
           }}
           target="_blank"
-          rel="noreferrer"
+          rel="noreferrer noopener"
         >
           {recaptchaContent.termsOfServiceText}
         </AnchorLink>

@@ -33,3 +33,32 @@ export const spreadObjectKeys = (
     return set(obj, key, value);
   }, {});
 };
+
+/**
+ * Returns a new array which is the result of merging 2nd array's objects onto first array by a specified key.
+ *
+ * mergeByKey(
+ *  [{ id: 1, foo: "Bar", success: true }],
+ *  [{ id: 1, foo: "Baz" }],
+ *  "id"
+ * )
+ *
+ * Returns: [
+ *  [{ id: 1, foo: "Baz", success: true }]
+ * ]
+ */
+// TODO: Needs tests
+export const mergeByKey = <T extends object>(
+  arrA: ReadonlyArray<T>,
+  arrB: ReadonlyArray<object>,
+  key: string
+): ReadonlyArray<T> => {
+  const map = new Map(arrA.map((val) => [val[`${key}`], val]));
+
+  arrB.forEach((val) => {
+    const newValue = { ...(map.get(val[`${key}`]) || {}), ...val };
+    map.set(val[`${key}`], newValue as T);
+  });
+
+  return Array.from(map.values());
+};

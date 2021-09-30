@@ -53,7 +53,7 @@ const getHeroItemsWithContext = (
         cta:
           rest.__typename === "ContentfulPromo" ? (
             <Link component={Button} data={rest.cta}>
-              {rest.cta.label}
+              {rest.cta?.label}
             </Link>
           ) : (
             <Link component={Button} data={{ linkedPage: { path: rest.path } }}>

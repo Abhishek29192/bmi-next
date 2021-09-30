@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductGuaranteeCard Component renders correctly 1`] = `
+<div
+  class="productCard"
+>
+  <div
+    class="productCard__title"
+  >
+    <h2
+      class="MuiTypography-root Typography MuiTypography-h6"
+    >
+      product_name
+    </h2>
+  </div>
+  <div>
+    <h6
+      class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+    />
+  </div>
+  <div>
+    <div>
+      <table
+        class="MuiTable-root Table Table--row-even-color"
+      >
+        <thead
+          class="MuiTableHead-root ColorPair ColorPair--pearl"
+        >
+          <tr
+            class="MuiTableRow-root MuiTableRow-head"
+          >
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.name
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.family
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.brand
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              product_name
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              famil
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              brand
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;

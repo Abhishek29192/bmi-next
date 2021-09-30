@@ -66,6 +66,11 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             return null;
           }
           return { ...guaranteeTypeCollection.items[0], languageCode };
+        },
+        signedFileStorageUrl: async (parent, args, { storageClient }) => {
+          return await storageClient.getPrivateAssetSignedUrl(
+            parent.fileStorageId
+          );
         }
       },
       ContentfulGuaranteeType: {

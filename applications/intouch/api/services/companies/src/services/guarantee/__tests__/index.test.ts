@@ -3,7 +3,7 @@ import {
   UpdateGuaranteeInput
 } from "@bmi/intouch-api-types";
 import { createGuarantee, updateGuarantee } from "..";
-import { sendEmailWithTemplate } from "../../../services/mailer";
+import { sendMessageWithTemplate } from "../../../services/mailer";
 
 const storage = {
   uploadFileByStream: jest.fn()
@@ -15,7 +15,7 @@ jest.mock("../../storage-client", () => {
   return jest.fn().mockImplementation(() => storage);
 });
 jest.mock("../../../services/mailer", () => ({
-  sendEmailWithTemplate: jest.fn()
+  sendMessageWithTemplate: jest.fn()
 }));
 jest.mock("crypto", () => {
   return {
@@ -141,7 +141,7 @@ describe("Guarantee", () => {
       await createGuarantee(resolve, source, args, context, resolveInfo);
 
       expect(resolve).toBeCalledTimes(1);
-      expect(sendEmailWithTemplate).toBeCalledTimes(1);
+      expect(sendMessageWithTemplate).toBeCalledTimes(1);
     });
     it("should create a guarantee with evidences", async () => {
       const resolve = jest.fn();

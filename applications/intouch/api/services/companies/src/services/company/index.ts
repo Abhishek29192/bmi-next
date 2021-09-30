@@ -1,5 +1,5 @@
 import { CompanyPatch, DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
-import { sendEmailWithTemplate } from "../../services/mailer";
+import { sendMessageWithTemplate } from "../../services/mailer";
 
 export const updateCompany = async (
   resolve,
@@ -81,7 +81,7 @@ export const updateCompany = async (
     await pgClient.query("SELECT * FROM activate_company($1)", [args.input.id]);
 
     // send email for registration
-    await sendEmailWithTemplate(context, "COMPANY_REGISTERED", {
+    await sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
       email: user.email,
       firstname: user.firstName,
       companyname: user.company.name
@@ -147,7 +147,7 @@ export const deleteCompanyMember = async (
 
     const result = await resolve(source, args, context, resolveInfo);
 
-    await sendEmailWithTemplate(context, "COMPANY_MEMBER_REMOVED", {
+    await sendMessageWithTemplate(context, "COMPANY_MEMBER_REMOVED", {
       account: userToRemove.email,
       firstName: userToRemove.first_name,
       company: userToRemove.name,

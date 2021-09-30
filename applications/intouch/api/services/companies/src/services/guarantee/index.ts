@@ -10,7 +10,7 @@ import {
 import { PoolClient } from "pg";
 import StorageClient from "../storage-client";
 import { PostGraphileContext } from "../../types";
-import { sendEmailWithTemplate } from "../mailer";
+import { sendMessageWithTemplate } from "../mailer";
 import { tierBenefit } from "../contentful";
 import { solutionGuaranteeSubmitValidate } from "./validate";
 
@@ -223,7 +223,7 @@ const sendMail = async (context: PostGraphileContext, projectId: number) => {
   const { pgClient, user } = context;
 
   const projectName = await getProjectName(projectId, pgClient);
-  await sendEmailWithTemplate(context, "REQUEST_APPROVED", {
+  await sendMessageWithTemplate(context, "REQUEST_APPROVED", {
     email: user.email,
     firstname: user.firstName,
     role: user.role,
@@ -240,7 +240,7 @@ const sendMail = async (context: PostGraphileContext, projectId: number) => {
 
   for (let i = 0; i < accounts?.length; i++) {
     const account = accounts[+i];
-    await sendEmailWithTemplate(context, "REQUEST_APPROVED", {
+    await sendMessageWithTemplate(context, "REQUEST_APPROVED", {
       email: account.email,
       firstname: account.first_name,
       role: account.role,

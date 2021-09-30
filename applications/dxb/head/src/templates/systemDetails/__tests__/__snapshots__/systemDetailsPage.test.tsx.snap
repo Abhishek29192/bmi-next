@@ -3907,7 +3907,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/privacy"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -3918,7 +3918,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/terms"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -9809,7 +9809,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/privacy"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -9820,7 +9820,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/terms"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -15841,7 +15841,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/privacy"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -15852,7 +15852,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/terms"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -21873,7 +21873,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/privacy"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>
@@ -21884,7 +21884,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             href="https://policies.google.com/terms"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                           >
                             <span>

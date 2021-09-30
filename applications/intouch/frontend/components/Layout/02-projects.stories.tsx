@@ -97,11 +97,7 @@ export const Team = ({ title }: LayoutProps) => (
         </Grid>
 
         <Grid item xs={12} md={4}>
-          <ProjectsInsight
-            daysRemaining="180"
-            totalDays="185"
-            certifiedInstallers="0"
-          />
+          <ProjectsInsight daysRemaining={180} certifiedInstallers={0} />
         </Grid>
         <Grid item xs={12}>
           <Tabs initialValue="one">
