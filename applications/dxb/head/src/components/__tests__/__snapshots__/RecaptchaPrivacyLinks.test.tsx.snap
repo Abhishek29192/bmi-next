@@ -8,7 +8,7 @@ exports[`RecaptchaPrivacyLinks component When 'de' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/privacy?hl=de-de"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -19,7 +19,7 @@ exports[`RecaptchaPrivacyLinks component When 'de' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/terms?hl=de-de"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -38,7 +38,7 @@ exports[`RecaptchaPrivacyLinks component When 'fi' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/privacy?hl=fi-fi"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -49,7 +49,7 @@ exports[`RecaptchaPrivacyLinks component When 'fi' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/terms?hl=fi-fi"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -68,7 +68,7 @@ exports[`RecaptchaPrivacyLinks component When 'fr' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/privacy?hl=fr-fr"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -79,7 +79,7 @@ exports[`RecaptchaPrivacyLinks component When 'fr' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/terms?hl=fr-fr"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -98,7 +98,7 @@ exports[`RecaptchaPrivacyLinks component When 'it' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/privacy?hl=it-it"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -109,7 +109,7 @@ exports[`RecaptchaPrivacyLinks component When 'it' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/terms?hl=it-it"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -128,7 +128,7 @@ exports[`RecaptchaPrivacyLinks component When 'no' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/privacy?hl=no-nb"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -139,7 +139,7 @@ exports[`RecaptchaPrivacyLinks component When 'no' country code is provided rend
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/terms?hl=no-nb"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -158,7 +158,7 @@ exports[`RecaptchaPrivacyLinks component When invalid country code is provided r
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/privacy"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
@@ -169,7 +169,7 @@ exports[`RecaptchaPrivacyLinks component When invalid country code is provided r
   <a
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
     href="https://policies.google.com/terms"
-    rel="noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <span>
