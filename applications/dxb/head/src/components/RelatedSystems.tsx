@@ -19,6 +19,12 @@ export type SystemCardProps = {
   system: Partial<SystemDetails>;
   countryCode: string;
   path: string;
+  gtm: {
+    event?: string;
+    id: string;
+    label?: string;
+    action?: string;
+  };
 } & Partial<OverviewCardProps>;
 
 const findSystemBrandLogoCode = (system: Partial<SystemDetails>) => {
@@ -39,13 +45,16 @@ export const SystemCard = ({
   system,
   countryCode,
   path,
-  ...rest
+  gtm,
+  isHighlighted
 }: SystemCardProps) => {
+  const { getMicroCopy } = useSiteContext();
   const brandLogoCode = findSystemBrandLogoCode(system);
   const brandLogo = iconMap[brandLogoCode];
-  const systemUrl = getSystemUrl(countryCode, path || "system-details-page");
+  const systemUrl = getSystemUrl(countryCode, path);
   const mainImage = findMasterImageUrl(system.images || []);
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
+
   return (
     <Grid item xs={12} md={6} lg={3}>
       <GTMOverviewCard
@@ -59,13 +68,13 @@ export const SystemCard = ({
           linkComponent: Link,
           to: systemUrl
         }}
-        gtm={{
-          id: "cta-click1",
-          label: "Read More",
-          action: systemUrl
-        }}
-        footer={<Button variant="outlined">{"Read More"}</Button>}
-        {...rest}
+        gtm={gtm}
+        footer={
+          <Button variant="outlined">
+            {getMicroCopy("sdp.system.readMore")}
+          </Button>
+        }
+        isHighlighted={isHighlighted}
       >
         {system.shortDescription}
       </GTMOverviewCard>
@@ -97,14 +106,12 @@ const SystemListing = ({
   countryCode,
   systems,
   initialNumberShown = 8,
-  pageSize = 8,
-  path
+  pageSize = 8
 }: {
   countryCode: string;
   systems: ReadonlyArray<SystemDetails>;
   initialNumberShown?: number;
   pageSize?: number;
-  path?: string;
 }) => {
   const [numberShown, setNumberShown] = useState(initialNumberShown);
   const { getMicroCopy } = useSiteContext();
@@ -118,14 +125,22 @@ const SystemListing = ({
   return (
     <>
       <Grid container spacing={3}>
-        {weightedSystems.slice(0, numberShown).map((system) => (
-          <SystemCard
-            key={`${system.code}`}
-            system={system}
-            countryCode={countryCode}
-            path={path}
-          />
-        ))}
+        {weightedSystems.slice(0, numberShown).map((system) => {
+          const path = "system-details-page";
+          return (
+            <SystemCard
+              key={`${system.code}`}
+              system={system}
+              countryCode={countryCode}
+              path={path}
+              gtm={{
+                id: "cta-click1",
+                label: getMicroCopy("sdp.system.readMore"),
+                action: getSystemUrl(countryCode, path)
+              }}
+            />
+          );
+        })}
       </Grid>
       {numberShown < weightedSystems.length ? (
         <div className={styles["load-more-wrapper"]}>

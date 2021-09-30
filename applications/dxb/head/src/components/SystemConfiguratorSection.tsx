@@ -15,12 +15,10 @@ import Section from "@bmi/section";
 import RadioPane from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
 import { useLocation, navigate } from "@reach/router";
-import Button, { ButtonProps } from "@bmi/button";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { SystemCard, SystemCardProps } from "../components/RelatedSystems";
+import { SystemCard } from "../components/RelatedSystems";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
-import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
+import { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { SystemDetails } from "../templates/systemDetails/types";
@@ -86,11 +84,6 @@ type SystemConfiguratorBlockProps = {
   storedAnswers?: string[];
   stateSoFar?: string[];
 };
-
-type GTMSystemCardProps = {
-  onClick: Function;
-  footer: React.ReactElement<ButtonProps>;
-} & SystemCardProps;
 
 const ACCORDION_TRANSITION = 500;
 
@@ -276,10 +269,6 @@ const SystemConfiguratorBlockNoResultsSection = ({
   );
 };
 
-const GTMSystemCard = withGTM<GTMSystemCardProps>(SystemCard, {
-  label: "title"
-});
-
 const SystemConfiguratorBlockResultSection = ({
   title,
   description,
@@ -344,36 +333,17 @@ const SystemConfiguratorBlockResultSection = ({
             return (
               <Grid container spacing={3} key={`${system.code}-${id}`}>
                 {
-                  <GTMSystemCard
+                  <SystemCard
                     system={system}
                     countryCode={countryCode}
-                    className={styles["OverviewCard"]}
                     gtm={{
                       event: `${title}-results`,
                       id: system.code,
-                      action: linkToSDP
+                      action: linkToSDP,
+                      label: title
                     }}
                     path={linkToSDP}
-                    onClick={() => {
-                      const storedState = storage.local.getItem(
-                        SYSTEM_CONFIG_STORAGE_KEY
-                      );
-                      const stateObject = JSON.parse(storedState || "");
-                      const newState = {
-                        ...stateObject,
-                        selectedSystem: system.code
-                      };
-                      saveStateToLocalStorage(JSON.stringify(newState));
-                    }}
-                    footer={
-                      <Button
-                        startIcon={<ArrowForwardIcon />}
-                        variant="outlined"
-                      >
-                        {"Read More"}
-                      </Button>
-                    }
-                    isHighlighted={selectedSystem === system.code}
+                    isHighlighted={id === 0}
                   />
                 }
               </Grid>
