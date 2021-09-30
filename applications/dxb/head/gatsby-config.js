@@ -205,13 +205,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `mockData`,
-        path: `${__dirname}/src/data`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `region`,
         path: `${__dirname}/src/countries`
       }

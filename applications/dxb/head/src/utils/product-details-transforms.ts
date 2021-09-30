@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import { result, uniqBy, groupBy, find, pickBy, sortBy, unionBy } from "lodash";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
+import React from "react";
 import {
   Category,
   Classification,
@@ -8,7 +9,8 @@ import {
   Image,
   Product,
   VariantOption,
-  VariantOptionWithProduct
+  VariantOptionWithProduct,
+  ImageAssetTypesEnum
 } from "../components/types/pim";
 import { GalleryImageType } from "../templates/systemDetails/types";
 import { getPathWithCountryCode } from "./path";
@@ -76,7 +78,7 @@ export const getSizeLabel = (
 export const findMasterImageUrl = (images): string => {
   return result<string>(
     find(images, {
-      assetType: "MASTER_IMAGE",
+      assetType: ImageAssetTypesEnum.MASTER_IMAGE,
       format: "Product-Listing-Card-Large-Desktop"
     }),
     "url"
@@ -92,6 +94,13 @@ export const findProductBrandLogoCode = (product: Product) => {
   );
 };
 
+export const transformImages = (images) => {
+  return images.map(({ mainSource, thumbnail, altText }) => ({
+    media: React.createElement("img", { src: mainSource, alt: altText }),
+    thumbnail
+  }));
+};
+
 // typed this function as this is using all the same type and data in both
 // system details page and also in product details page et.
 //TODO: potentially change the type name to be more generic (SystemProductImageType => ProductImageType)
@@ -105,7 +114,8 @@ export const mapGalleryImages = (
       return (
         self.findIndex((images) =>
           images.some(
-            ({ assetType, format }) => format && assetType === "MASTER_IMAGE"
+            ({ assetType, format }) =>
+              format && assetType === ImageAssetTypesEnum.MASTER_IMAGE
           )
         ) === index
       );
@@ -114,24 +124,24 @@ export const mapGalleryImages = (
   const imageSets = [
     ...masterImageSet,
     ...imagesByFormat.filter((images) =>
-      images.some((image) => image.assetType === "GALLERY")
+      images.some((image) => image.assetType === ImageAssetTypesEnum.GALLERY)
     )
   ];
 
+  return convertImageSetToMediaFormat(imageSets);
+};
+
+export const convertImageSetToMediaFormat = (
+  imageSets: Image[][]
+): GalleryImageType[] => {
   return imageSets.map((images) => ({
-    mainSource: result<string>(
-      find(images, {
-        format: "Product-Hero-Small-Desktop-Tablet"
-      }),
-      "url"
-    ),
-    thumbnail: result<string>(
-      find(images, {
-        format: "Product-Color-Selector-Mobile"
-      }),
-      "url"
-    ),
-    altText: images[0]?.altText || images[0].name
+    mainSource: images.find(
+      (image) => image.format === "Product-Hero-Small-Desktop-Tablet"
+    )?.url,
+    thumbnail: images.find(
+      (image) => image.format === "Product-Color-Selector-Mobile"
+    )?.url,
+    altText: images[0]?.altText || images[0]?.name
   }));
 };
 
@@ -139,7 +149,7 @@ export const getColourThumbnailUrl = (images): string =>
   result(
     find(images, {
       format: "Product-Color-Selector-Mobile",
-      assetType: "MASTER_IMAGE"
+      assetType: ImageAssetTypesEnum.MASTER_IMAGE
     }),
     "url"
   );

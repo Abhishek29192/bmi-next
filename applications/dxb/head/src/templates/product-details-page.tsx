@@ -16,7 +16,9 @@ import {
   mapGalleryImages,
   mapProductClassifications,
   getMergedClassifications,
-  VariantCodeToPathMap
+  VariantCodeToPathMap,
+  transformImages,
+  convertImageSetToMediaFormat
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
 import { getCTA } from "../components/Link";
@@ -27,7 +29,9 @@ import { renderImage } from "../components/Image";
 import {
   ClassificationCodeEnum,
   FeatureCodeEnum,
-  Product
+  ImageAssetTypesEnum,
+  Product,
+  Image
 } from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
 import { getBimIframeUrl } from "../components/BimIframe";
@@ -55,13 +59,6 @@ type Props = {
     };
     contentfulSite: SiteData;
   };
-};
-
-const transformImages = (images) => {
-  return images.map(({ mainSource, thumbnail, altText }) => ({
-    media: <img src={mainSource} alt={altText} />,
-    thumbnail
-  }));
 };
 
 const getDescription = (product: Product, variantCode?: string): string => {
@@ -150,6 +147,22 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       );
     }
     return false;
+  };
+
+  const getTechDrawings = (
+    images: readonly Image[],
+    selfProdImages: readonly Image[]
+  ): Image[] => {
+    const techDrawings = [...(images || []), ...(selfProdImages || [])].filter(
+      (img: Image) => {
+        return img.assetType === ImageAssetTypesEnum.TECHNICAL_DRAWINGS;
+      }
+    );
+
+    if (!techDrawings.length) {
+      return [];
+    }
+    return transformImages(convertImageSetToMediaFormat([techDrawings]));
   };
 
   const classificationConfig = {
@@ -254,6 +267,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   pageContext.pimClassificationCatalogueNamespace
                 }
                 bimIframeUrl={bimIframeUrl}
+                techDrawings={getTechDrawings(
+                  product.images,
+                  selfProduct.images
+                )}
               />
             </Section>
             <RelatedProducts

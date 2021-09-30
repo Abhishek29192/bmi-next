@@ -1,13 +1,12 @@
 import React from "react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import dataJson from "../../../data/pim-mock-data.json";
 import Component from "../systemDetailsPage";
 import { System, AssetAssetType, Asset } from "../../../components/types/pim";
 import SystemDetailsPage, {
   IGNORED_DOCUMENTS_ASSETS
 } from "../systemDetailsPage";
-import { systemDetailsMockData } from "../../../test/systemDetailsMockData";
+import createSystemDetails from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 
 const systemPageId = "1234";
@@ -20,7 +19,7 @@ const allContentfulAssetType = {
     }
   ]
 };
-
+const systemDetailsMockData = createSystemDetails();
 jest.mock("gatsby");
 
 describe("SystemDetailsPage template component", () => {
@@ -94,7 +93,7 @@ describe("SystemDetailsPage template component", () => {
       const categoryName2 = "Accoridion Title 2";
       const categoryName3 = "Accoridion Title 2";
       const newDatajson = {
-        ...dataJson,
+        ...systemDetailsMockData,
         classifications: [
           {
             code: "scoringWeightAttributes",

@@ -27,7 +27,11 @@ import {
   createVariantOptionWithProduct
 } from "../../__tests__/PimDocumentProductHelper";
 import createCategory from "../../__tests__/CategoryHelper";
-import { Image, Product } from "../../components/types/pim";
+import {
+  ImageAssetTypesEnum,
+  Product,
+  Image
+} from "../../components/types/pim";
 
 describe("product-details-transforms tests", () => {
   describe("getProductUrl tests", () => {
@@ -1014,7 +1018,7 @@ describe("product-details-transforms tests", () => {
           {
             realFileName:
               "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-            assetType: "MASTER_IMAGE",
+            assetType: ImageAssetTypesEnum.MASTER_IMAGE,
             mime: "image/jpeg",
             url: "http://nowhere.com",
             allowedToDownload: true,
@@ -1054,7 +1058,7 @@ describe("product-details-transforms tests", () => {
           {
             realFileName:
               "Product-Color-Selector-Mobile_Zanda Arktis normalstein1.jpg",
-            assetType: "MASTER_IMAGE",
+            assetType: ImageAssetTypesEnum.MASTER_IMAGE,
             mime: "image/jpeg",
             url: "http://nowhere.com",
             allowedToDownload: true,
@@ -1081,7 +1085,7 @@ describe("product-details-transforms tests", () => {
           const inputData: Image[] = [
             {
               realFileName: "Turmalin-monestein-Turmalin-monestein.jpg",
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               mime: "image/jpeg",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h0c/h7b/8796944990238/Turmalin-monestein-Turmalin-monestein.jpg",
               allowedToDownload: true,
@@ -1093,7 +1097,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 30668,
               name: "297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h0f/h4f/8805394972702/297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-grey.jpg",
@@ -1105,7 +1109,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 56614,
               name: "Web_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h60/hb8/9003278794782/Web-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1117,7 +1121,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 58265,
               name: "Print_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hbb/9003278860318/Print-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greytiff",
@@ -1129,7 +1133,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 23116,
               name: "Product-Color-Selector-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h13/ha7/9003278270494/Product-Color-Selector-Mobile-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1141,7 +1145,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 59645,
               name: "Product-Hero-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h52/ha6/9003278204958/Product-Hero-Large-Desktop-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1153,7 +1157,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 27196,
               name: "Product-Listing-Card-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h11/haa/9003278336030/Product-Listing-Card-Large-Desktop-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1165,7 +1169,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 39516,
               name: "Product-Hero-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h22/had/9003278401566/Product-Hero-Small-Desktop-Tablet-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1177,7 +1181,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 36171,
               name: "Product-Color-Selector-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he1/hb0/9003278532638/Product-Color-Selector-Large-Desktop-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1189,7 +1193,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 27688,
               name: "Product-Hero-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd0/had/9003278467102/Product-Hero-Mobile-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1201,7 +1205,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 21808,
               name: "Product-Listing-Card-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h9f/hb7/9003278729246/Product-Listing-Card-Mobile-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1213,7 +1217,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 27688,
               name: "Product-Color-Selector-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/hb1/9003278598174/Product-Color-Selector-Small-Desktop-Tablet-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1225,7 +1229,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 21312,
               name: "Product-Listing-Card-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha0/hb4/9003278663710/Product-Listing-Card-Small-Desktop-Tablet-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1255,7 +1259,7 @@ describe("product-details-transforms tests", () => {
             {
               realFileName:
                 "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-              assetType: "GALLERY",
+              assetType: ImageAssetTypesEnum.GALLERY,
               mime: "image/jpeg",
               url: "http://nowhere.com",
               allowedToDownload: true,
@@ -1267,7 +1271,7 @@ describe("product-details-transforms tests", () => {
             {
               realFileName:
                 "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-              assetType: "GALLERY",
+              assetType: ImageAssetTypesEnum.GALLERY,
               mime: "image/jpeg",
               url: "http://nowhere.com",
               allowedToDownload: true,
@@ -1279,7 +1283,7 @@ describe("product-details-transforms tests", () => {
             {
               realFileName:
                 "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-              assetType: "GALLERY",
+              assetType: ImageAssetTypesEnum.GALLERY,
               mime: "image/jpeg",
               url: "http://nowhere.com",
               allowedToDownload: true,

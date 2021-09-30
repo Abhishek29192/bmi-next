@@ -1,7 +1,7 @@
 import React from "react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import ImageGallerySection from "../imageGallerySection";
-import { Image } from "../../../components/types/pim";
+import { Image, ImageAssetTypesEnum } from "../../../components/types/pim";
 
 describe("ImageGallerySection tests", () => {
   describe("When images are null", () => {
@@ -24,12 +24,12 @@ describe("ImageGallerySection tests", () => {
   });
 
   describe("When ONLY master images are provided", () => {
-    it("should render siingle master image", async () => {
+    it("should render single master image", async () => {
       const img_1_altText = "TBK SN-403 T";
       const images: Image[] = [
         {
           allowedToDownload: true,
-          assetType: "MASTER_IMAGE",
+          assetType: ImageAssetTypesEnum.MASTER_IMAGE,
           containerId: "master_container_1",
           fileSize: 185391,
           mime: "image/jpeg",
@@ -40,7 +40,7 @@ describe("ImageGallerySection tests", () => {
         },
         {
           allowedToDownload: true,
-          assetType: "MASTER_IMAGE",
+          assetType: ImageAssetTypesEnum.MASTER_IMAGE,
           containerId:
             "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
           fileSize: 11351,
@@ -67,7 +67,7 @@ describe("ImageGallerySection tests", () => {
       const images: Image[] = [
         {
           allowedToDownload: true,
-          assetType: "MASTER_IMAGE",
+          assetType: ImageAssetTypesEnum.MASTER_IMAGE,
           containerId: "master_container_1",
           fileSize: 185391,
           mime: "image/jpeg",
@@ -78,7 +78,7 @@ describe("ImageGallerySection tests", () => {
         },
         {
           allowedToDownload: true,
-          assetType: "GALLERY",
+          assetType: ImageAssetTypesEnum.GALLERY,
           containerId: "container_Test_Image",
           fileSize: 28759,
           format: "Product-Color-Selector-Mobile",
@@ -90,7 +90,7 @@ describe("ImageGallerySection tests", () => {
         },
         {
           allowedToDownload: true,
-          assetType: "GALLERY",
+          assetType: ImageAssetTypesEnum.GALLERY,
           containerId: "container_Test_Image_2",
           fileSize: 28759,
           format: "Product-Color-Selector-Mobile",

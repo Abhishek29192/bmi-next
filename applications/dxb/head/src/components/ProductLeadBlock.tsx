@@ -9,6 +9,7 @@ import CheckIcon from "@material-ui/icons/Check";
 import { Tab, TabProps } from "@material-ui/core";
 import DownloadList from "@bmi/download-list";
 import Icon from "@bmi/icon";
+import ImageGallery from "@bmi/image-gallery";
 import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
@@ -18,7 +19,7 @@ import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { Asset, Classification } from "./types/pim";
+import { Asset, Classification, Image } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import BimIframe from "./BimIframe";
 
@@ -38,6 +39,7 @@ type Props = {
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
   validClassifications: Classification[];
   classificationNamespace: string;
+  techDrawings: Image[];
 };
 
 const DOCUMENTS_PER_PAGE = 24;
@@ -53,7 +55,8 @@ const ProductLeadBlock = ({
   awardsAndCertificates,
   documents,
   validClassifications,
-  classificationNamespace
+  classificationNamespace,
+  techDrawings
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const [page, setPage] = useState(1);
@@ -289,6 +292,21 @@ const ProductLeadBlock = ({
             index="four"
           >
             <BimIframe url={bimIframeUrl} />
+          </Tabs.TabPanel>
+        )}
+        {techDrawings.length > 0 && (
+          <Tabs.TabPanel
+            heading={getMicroCopy("pdp.leadBlock.technicalDrawings")}
+            index="five"
+            data-testid="technicalDrawings"
+          >
+            <LeadBlock justify="center">
+              <LeadBlock.Content>
+                <LeadBlock.Content.Section>
+                  <ImageGallery images={techDrawings} />
+                </LeadBlock.Content.Section>
+              </LeadBlock.Content>
+            </LeadBlock>
           </Tabs.TabPanel>
         )}
       </Tabs>
