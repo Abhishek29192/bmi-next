@@ -33,7 +33,7 @@ const ENDPOINTS = {
   // NOTE: Not handling categories for now because DXB doesn't need this
   // CATEGORIES: "/export/categories",
   PRODUCTS: "/export/products",
-  SYSTEM: "/export/systems"
+  SYSTEMS: "/export/systems"
 };
 
 const base64ToAscii = (base64String: string) => {
