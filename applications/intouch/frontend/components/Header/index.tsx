@@ -278,7 +278,8 @@ export const Header = ({
         className={styles.notificationsContainer}
         anchor="right"
         open={state["notifications"]}
-        hideBackdrop
+        onClose={toggleDrawer("notifications", false)}
+        BackdropProps={{ style: { opacity: 0 } }}
       >
         <div className={styles.notifications}>
           <div className={styles.notificationsHeader}>
