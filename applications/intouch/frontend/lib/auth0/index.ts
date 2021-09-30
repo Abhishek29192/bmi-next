@@ -44,7 +44,7 @@ export const getAuth0Instance = async (req, res) => {
         issuerBaseURL: AUTH0_ISSUER_BASE_URL,
         clientID: AUTH0_CLIENT_ID,
         clientSecret: AUTH0_CLIENT_SECRET,
-        secret: AUTH0_SECRET,
+        secret: AUTH0_SECRET, // Used to signing the cookie
         session: {
           cookie: {
             domain: AUTH0_COOKIE_DOMAIN

@@ -1,5 +1,8 @@
 import { handler } from "../../pages/api/graphql";
 
+jest.mock("uuid", () => ({
+  v4: () => "uuid"
+}));
 jest.mock("http-proxy-middleware", () => ({
   createProxyMiddleware: (req, res, next) => jest.fn()
 }));
@@ -68,6 +71,7 @@ describe("GraphQL proxy", () => {
       Object {
         "authorization": "Bearer xx.eyJ1c2VyL2VtYWlsIjoidXNlci5lbWFpbCIsImlzcyI6InVzZXIuaXNzIiwiaWF0IjoidXNlci5pYXQiLCJleHAiOiJ1c2VyLmV4cCIsInNjb3BlIjoidXNlci5leHAiLCJzdWIiOiJ1c2VyLnN1YiIsImF1ZCI6InVzZXIuYXVkIiwidXNlciI6eyJodHRwczovL2ludG91Y2gvaW50b3VjaF9tYXJrZXRfY29kZSI6ImVuIn19.xx",
         "host": "intouch",
+        "x-request-id": "uuid",
         "x-request-market-domain": "en",
       }
     `);
@@ -89,6 +93,7 @@ describe("GraphQL proxy", () => {
       Object {
         "authorization": "Bearer xx.eyJ1c2VyL2VtYWlsIjoidXNlci5lbWFpbCIsImlzcyI6InVzZXIuaXNzIiwiaWF0IjoidXNlci5pYXQiLCJleHAiOiJ1c2VyLmV4cCIsInNjb3BlIjoidXNlci5leHAiLCJzdWIiOiJ1c2VyLnN1YiIsImF1ZCI6InVzZXIuYXVkIiwidXNlciI6eyJodHRwczovL2ludG91Y2gvaW50b3VjaF9tYXJrZXRfY29kZSI6ImVuIn19.xx",
         "host": "no.intouch",
+        "x-request-id": "uuid",
         "x-request-market-domain": "no",
       }
     `);

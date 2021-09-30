@@ -53,6 +53,7 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
   });
 
   const authLink = setContext(async (req, { headers }) => {
+    let userId;
     let accessToken;
 
     if (ctx.req) {
@@ -65,13 +66,19 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
       accessToken = `Bearer ${
         session?.accessToken || ctx.session?.accessToken
       }`;
+      userId = session?.user?.sub || ctx.session?.user?.sub;
     }
 
     return {
       headers: {
         ...headers,
         authorization: accessToken || "",
-        "x-request-id": v4()
+        ...(headers?.["x-request-id"] && {
+          "x-request-id": headers?.["x-request-id"]
+        }),
+        ...(headers?.["x-authenticated-user-id"] && {
+          "x-authenticated-user-id": headers?.["x-authenticated-user-id"]
+        })
       }
     };
   });

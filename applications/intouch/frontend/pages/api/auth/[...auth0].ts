@@ -1,4 +1,7 @@
+import { v4 } from "uuid";
 import { Session } from "@auth0/nextjs-auth0";
+import { NextLogger } from "@bmi-digital/logger";
+
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
 import { initializeApollo } from "../../../lib/apolloClient";
@@ -16,6 +19,11 @@ export const afterCallback = async (
   session: Session,
   state
 ) => {
+  req.headers["x-authenticated-user-id"] = session?.user?.sub;
+
+  // Set the logger again with the session attached
+  NextLogger(req, res);
+
   const apolloClient = await initializeApollo(null, { res, req, session });
 
   const accountSrv = new Account(req.logger, apolloClient, session);
@@ -88,6 +96,11 @@ export const loginHandler = async (req, res, auth0, logger) => {
 };
 
 export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
+  // Add a request id to track the request
+  if (!req.headers["x-request-id"]) {
+    req.headers["x-request-id"] = v4();
+  }
+
   const auth0 = await getAuth0Instance(req, res);
 
   const logger = req.logger("Auth0");

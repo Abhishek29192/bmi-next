@@ -31,7 +31,17 @@ export const sendMessageWithTemplate = async (
       if (format === "NOTIFICATION") {
         await addNotification(context, template, body);
       } else if (format === "EMAIL") {
-        await sendMail(context, template, body);
+        try {
+          await sendMail(context, template, body);
+
+          logger.info(`Email sent with templates`, {
+            event
+          });
+        } catch (console) {
+          logger.info(`Error sending email with template:`, {
+            event
+          });
+        }
       }
     }
   } else {
@@ -59,6 +69,8 @@ const sendMail = async (
   template: MessageTemplate,
   body: any
 ) => {
+  const logger = context.logger("sendMail");
+
   // If I'm sending an email I need to send it based on the market
   // if a sendMailbox is sent we use that email, otherwise we use the default email
   // for the particular market
