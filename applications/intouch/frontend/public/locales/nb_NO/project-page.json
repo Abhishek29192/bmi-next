@@ -1,6 +1,277 @@
 {
-  "Projects": "Norway - Projects",
-  "MISCELLANEOUS": "Norway - Supporting files",
-  "PROOF_OF_PURCHASE": "Norway - Proof of purchase",
-  "CUSTOM": "Norway - Custom Files"
+  "Projects": "Prosjekter",
+  "MISCELLANEOUS": "Last opp dokumentasjon",
+  "PROOF_OF_PURCHASE": "Kjøpsbevis",
+  "CUSTOM": "Bevis på utførelse",
+  "search": {
+    "inputLabel": "Søk etter et prosjekt"
+  },
+  "addProject": {
+    "cta": "Opprett prosjekt",
+    "dialog": {
+      "title": "Opprett prosjekt",
+      "sections": {
+        "projectDetails": {
+          "title": "Produktdetaljer"
+        },
+        "dates": {
+          "title": "Project dates"
+        },
+        "siteAddress": {
+          "title": "Site address"
+        }
+      },
+      "form": {
+        "fields": {
+          "name": "Project name",
+          "technology": "Project type",
+          "roofArea": "Total tak måling (m2)",
+          "description": "Prosjektbeskrivelse (optional)",
+          "startDate": "Startdato",
+          "endDate": "Sluttdato",
+          "siteAddress": {
+            "firstLine": "Adresse linje 1",
+            "secondLine": "Adresse linje 2 (optional)",
+            "town": "By",
+            "postcode": "Postnummer/ Sted",
+            "region": "Område",
+            "country": "Land"
+          }
+        },
+        "values": {
+          "technology": {
+            "PITCHED": "Skråtak",
+            "FLAT": "Flatt tak"
+          }
+        },
+        "hints": {
+          "technology": {
+            "PITCHED": "A roof covered with ceramic or tin tiles. Usually it is sloping",
+            "FLAT": "A roof covered with bituminous or concrete materials. It is usually horizontal and flat."
+          }
+        },
+        "actions": {
+          "submit": "Save & Close"
+        }
+      }
+    }
+  },
+  "projectDetails": {
+    "code": "Prosjektkode",
+    "status": "Prosjekt status",
+    "roofArea": "Total tak måling",
+    "buildingAddress": "Bygningsadresse",
+    "description": "Prosjektbeskrivelse",
+    "startDate": "Startdato",
+    "endDate": "Sluttdato",
+    "guaranteeType": "Garanti",
+    "guaranteeStatus": "Garantistatus",
+    "cta": {
+      "ASSIGN_SOLUTION": "Tildel til meg",
+      "REASSIGN_SOLUTION": "Tildel til meg",
+      "UNASSIGN_SOLUTION": "Fjern tildeling",
+      "NOT_ASSIGNABLE": "Not Assignable",
+      "edit": "Edit"
+    }
+  },
+  "buildingOwnerDetails": {
+    "title": "Bygning kontaktinformasjon",
+    "noContent": "Bygningseiers detaljer har ikke blitt lagt til i prosjektet",
+    "name": "Navn",
+    "email": "Email",
+    "company": "Bedrift",
+    "address": "Bygningseier adresse"
+  },
+  "guarantee": {
+    "notRequested": "Ikke forespurt",
+    "status": {
+      "NOT_APPLICABLE": "N/A",
+      "STARTED": "Startet",
+      "READY": "Ferdig",
+      "SUBMITTED": "Submitted",
+      "REVIEW": "Sendt inn",
+      "REJECTED": "Returnert",
+      "APPROVED": "Godkjent"
+    },
+    "type": {
+      "PRODUCT": "Produktgaranti",
+      "SYSTEM": "System Garanti",
+      "SOLUTION": "Løsnings Garanti"
+    },
+    "incompleteGuaranteeAlert": {
+      "title": "Informasjon påkrevet",
+      "description": "For å registrere deg for en garanti må du legge til en sertifisert installatør og laste opp nødvendige bevis."
+    }
+  },
+  "filters": {
+    "labels": {
+      "ALL": "Alle",
+      "NOT_STARTED": "Ikke påbegynt",
+      "IN_PROGRESS": "I prosess",
+      "COMPLETED": "Fullført",
+      "FLAT": "Flatt tak",
+      "PITCHED": "Pitched",
+      "UNASSIGNED": "UnAssigned",
+      "ASSIGNED": "Assigned",
+      "MY_QUEUE": "My Queue"
+    }
+  },
+  "noProjects": {
+    "title": "Ingen prosjekter å vise",
+    "body1": "Du har ikke opprettet noen prosjekter ennå!",
+    "body2": "Velg \"Opprett prosjekt\" -knappen nedenfor for å komme i gang."
+  },
+  "noProjectSelected": {
+    "title": "Ingen prosjekter å vise",
+    "body1": "Du har ikke opprettet noen prosjekter ennå!",
+    "body2": "Velg \"Opprett prosjekt\" -knappen nedenfor for å komme i gang."
+  },
+  "teamTab": {
+    "header": "Legg til teammedlem",
+    "table": {
+      "responsibleInstaller": "Ansvarlig installatør",
+      "teamMember": "Team-medlem",
+      "role": "Rolle",
+      "certification": "Sertifisering",
+      "remove": "Fjern"
+    },
+    "add_team_member_modal": {
+      "title": "Legg til team-medlem",
+      "caption": "Tilordne teammedlemmer til å jobbe med dette prosjektet",
+      "table": {
+        "name": "Navn",
+        "email": "Email",
+        "certification": "Sertifisering"
+      },
+      "confirm_label": "Legg til teammedlemmer",
+      "cancel_label": "Avbryt"
+    }
+  },
+  "upload_tab": {
+    "header": "Last opp fil",
+    "add_evidence_modal": {
+      "title": "Bevis lastet opp",
+      "button_label": "Last opp filer",
+      "microcopy": {
+        "drop": "Miste",
+        "browse": "Bla gjennom"
+      },
+      "instruction": "Du kan legge til filer",
+      "confirm_label": "Add Evidences",
+      "cancel_label": "Avbryt",
+      "file_validation_message": "Du kan ikke laste opp filer som er større enn",
+      "evidence_category": "Bevis kategori"
+    }
+  },
+  "guarantee_tab": {
+    "header": "Søk om garanti",
+    "nocontent_message": "Ingen garanti er lagt til ennå",
+    "apply_guarantee": {
+      "title": "Søk om garanti",
+      "confirm_label": "Registrer",
+      "cancel_label": "Avbryt",
+      "message": {
+        "not_available_tier": "Denne garantitypen er ikke tilgjengelig i ditt nivå",
+        "guarantee_exists_error": "Du kan ikke registrere deg for en BMI -løsningsgaranti eller en BMI -systemgaranti for et prosjekt som allerede har en BMI -produktgaranti"
+      },
+      "review": {
+        "preferred_language": "Bekreft språk",
+        "header": "Garantidokumentasjon",
+        "product_title": "Produktdetaljer",
+        "system_title": "System detaljer",
+        "receipt_title": "Kvittering detaljer",
+        "receipt_subTitle": "Kvittering for kjøpet",
+        "alert_banner": {
+          "title": "Trenger å vite",
+          "description": "Når garantien er godkjent, vil bygningseieren motta garantidokumentasjonen automatisk til den oppgitte e-postadressen."
+        },
+        "responsible_installer": {
+          "title": "Ansvarlig installatør",
+          "description": "Velg en installatør fra prosjektgruppen som fungerer som ansvarlig installatør. De bør ha et sertifikat i samme teknologi som prosjektet du vil garantere."
+        },
+        "required": {
+          "title": "Fullfør søknaden din ved å oppgi følgende:",
+          "evidence": "Kom med bevis"
+        }
+      },
+      "wizard": {
+        "step1": {
+          "title": "Søk om garanti",
+          "subTitle": "Velg garantitype"
+        },
+        "step2": {
+          "title": "Søk om garanti",
+          "subTitle": "Velg foretrukket språk for garantidokumentasjonen"
+        },
+        "step3": {
+          "product_title": "Produktgaranti",
+          "product_subTitle": "Velg BMI -produktet for garantidokumentasjonen",
+          "system_title": "System Garanti",
+          "system_subTitle": "Velg BMI -systemet for garantidokumentasjonen"
+        },
+        "step4": {
+          "title": "Kvittering detaljer",
+          "subTitle": "Last opp en kopi av kvitteringen for produktet / produktene du vil garantere"
+        },
+        "step5": {
+          "title": "Review",
+          "subTitle": "Se gjennom informasjonen du har gitt før du sender søknaden."
+        },
+        "stepDefault": {
+          "title": "Garantisøknad",
+          "subTitle": "Garantisøknad"
+        },
+        "footer": {
+          "goBack": "Tilbake",
+          "next": "Neste",
+          "submit": "Send inn"
+        }
+      }
+    },
+    "dialog": {
+      "title": "Garantien din er behandlet",
+      "description": "BMI -garantien vil være tilgjengelig for nedlasting på prosjekter siden etter at den er godkjent.",
+      "confirm_label": "Lukk"
+    }
+  },
+  "building_owner": {
+    "title": "Bygningseier detaljer",
+    "contact_detail": "Bygning kontaktinformasjon",
+    "email": "Bygningseier epost",
+    "address": "Bygningseier adresse"
+  },
+  "responsible_installer": {
+    "title": "Ansvarlig installatør",
+    "contact_detail": "Responsible Installer contact details",
+    "email": "Responsible Installer email",
+    "address": "Responsible Installer address"
+  },
+  "productDetails": {
+    "name": "Produkt navn",
+    "family": "Familie",
+    "brand": "Merke"
+  },
+  "projectActions": {
+    "heading": "Prosjekthandlinger",
+    "cta": {
+      "archive": "Arkiv prosjekt",
+      "unarchive": "Av-arkiv prosjekt",
+      "requestInformation": "Be om mer informasjon",
+      "approveGuarantee": "Approve guarantee"
+    }
+  },
+  "noteTab": {
+    "header": "Add Note",
+    "table": {
+      "author": "Author",
+      "note": "Note",
+      "date": "Date"
+    },
+    "addNoteDialog": {
+      "title": "Add a note",
+      "detailHeading": "Please fill in the details below to share information on this project",
+      "cancel": "Avbryt",
+      "send": "Send"
+    }
+  }
 }
