@@ -98,16 +98,18 @@ export const UserCard = ({
           {/* TODO: Fix CompanyDetails child requirement in DXB */}
           <CompanyDetails details={details}>&nbsp;</CompanyDetails>
         </div>
-        <AccessControl dataModel="company" action="removeUser">
-          <div className={styles.buttonHolder}>
-            <Button
-              data-testid="remove-member"
-              onClick={onRemoveUserFromCompany}
-            >
-              {t("Remove from company")}
-            </Button>
-          </div>
-        </AccessControl>
+        {account.role === "INSTALLER" && (
+          <AccessControl dataModel="company" action="removeUser">
+            <div className={styles.buttonHolder}>
+              <Button
+                data-testid="remove-member"
+                onClick={onRemoveUserFromCompany}
+              >
+                {t("Remove from company")}
+              </Button>
+            </div>
+          </AccessControl>
+        )}
       </div>
       <ConfirmDialog
         dialogState={dialogState}

@@ -39,11 +39,13 @@ export const UserProfilePageContent = ({
             <CompanyDetails
               company={currentCompany}
               actions={
-                <div className={styles.leaveButtonContainer}>
-                  <LeaveCompanyButton
-                    onLeaveCurrentCompanySuccess={setAccount}
-                  />
-                </div>
+                account.role === "INSTALLER" ? (
+                  <div className={styles.leaveButtonContainer}>
+                    <LeaveCompanyButton
+                      onLeaveCurrentCompanySuccess={setAccount}
+                    />
+                  </div>
+                ) : null
               }
               showName
               showBusinessType={false}
