@@ -1,4 +1,4 @@
-import { transformSystem } from "../transform";
+import { transformSystem } from "../transformSystems";
 import type { Category } from "../pim";
 import createSystem from "./helpers/SystemHelper";
 
@@ -38,11 +38,12 @@ describe("transformSystem", () => {
     });
   });
 
-  it("should find brand by categoryapprovalStatus, Type", () => {
+  it("should find brand Category by categoryType", () => {
     const brandCategory: Category = {
       categoryType: "Brand",
       code: "MONARFLEX",
-      name: "Monarflex"
+      name: "Monarflex",
+      parentCategoryCode: "BMI_Brands"
     };
 
     const system = createSystem({ categories: [brandCategory] });
@@ -60,11 +61,12 @@ describe("transformSystem", () => {
     });
   });
 
-  it("should find brand by parentCategoryType", () => {
+  it("should not find brand Category if no brand categoryType", () => {
     const brandCategory: Category = {
-      parentCategoryCode: "BMI_Brands",
+      categoryType: "Category",
       code: "MONARFLEX",
-      name: "Monarflex"
+      name: "Monarflex",
+      parentCategoryCode: "BMI_Brands"
     };
 
     const system = createSystem({ categories: [brandCategory] });
@@ -72,8 +74,8 @@ describe("transformSystem", () => {
       system;
 
     expect(transformSystem(system)).toStrictEqual({
+      brand: undefined,
       approvalStatus,
-      brand: brandCategory.code,
       type,
       images,
       code,

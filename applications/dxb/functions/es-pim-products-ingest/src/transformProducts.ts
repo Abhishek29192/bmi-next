@@ -1,6 +1,7 @@
 /* eslint-disable security/detect-object-injection */
 import {
   Category,
+  Classification,
   Product as PIMProduct,
   VariantOption as PIMVariant
 } from "./pim";
@@ -35,7 +36,7 @@ const {
 const combineVariantClassifications = (
   product: PIMProduct,
   variant: PIMVariant
-) => {
+): Classification[] => {
   const baseClassifications = product.classifications || [];
   // scoringWeightAttributes is special in that we ignore it in variants
   // it may or may not appear in base, but variant's is ignored
@@ -86,8 +87,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     "categoryType"
   );
 
-  const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = (
-    Object.keys(categoryGroups) || []
+  const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
+    categoryGroups
   ).reduce((categoryAsProps, catName) => {
     // eslint-disable-next-line security/detect-object-injection
     const nameAndCodeValues = categoryGroups[catName].map((cat) => {
@@ -114,10 +115,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
 
     let indexedFeatures = IndexFeatures(
       PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
-      classifications || []
+      classifications
     );
 
-    const allfeatureCodes: string[] = Object.keys(indexedFeatures || {});
+    const allfeatureCodes: string[] = Object.keys(indexedFeatures);
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const scoringWeightClassification = classifications.find(
