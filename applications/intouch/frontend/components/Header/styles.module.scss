@@ -1,5 +1,7 @@
 @import "@bmi/styles";
 
+$tablet-width: 1024px;
+
 .headerContainer {
   position: sticky;
   top: 0;
@@ -43,7 +45,7 @@
   height: 72px;
   background: $color-white;
 
-  @media (min-width: 1024px) {
+  @media (min-width: $tablet-width + 1) {
     display: none;
   }
 }
@@ -66,7 +68,7 @@
     height: 90px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet-width) {
     display: none;
   }
 }
@@ -100,7 +102,7 @@
 .tabletSidebarContainer {
   display: none;
   z-index: 1250 !important;
-  @media (min-width: $breakpoint-md) and (max-width: 1024px) {
+  @media (min-width: $breakpoint-md) and (max-width: $tablet-width) {
     display: block;
   }
 }
@@ -116,7 +118,7 @@
 
 .tabletNavButton {
   display: none;
-  @media (min-width: $breakpoint-md) and (max-width: 1024px) {
+  @media (min-width: $breakpoint-md) and (max-width: $tablet-width + 1) {
     display: block;
   }
 }
@@ -157,7 +159,7 @@
   padding: 1rem;
   padding-top: 112px;
   position: relative;
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet-width) {
     padding-top: 122px;
   }
   @media (min-width: $breakpoint-md) {
