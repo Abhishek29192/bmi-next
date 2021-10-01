@@ -36,14 +36,11 @@ import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import {
   Data as ServiceData,
-  ServiceType,
   serviceTypesByEntity,
-  ROOFER_TYPE,
-  BRANCH_TYPE,
-  MERCHANT_TYPE,
   ServiceTypesPrefixesEnum,
-  EntryType,
-  ServiceTypesEnum
+  EntryTypeEnum,
+  ServiceTypesEnum,
+  ServiceType
 } from "./Service";
 import { useSiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
@@ -55,7 +52,7 @@ export type Service = ServiceData & {
 };
 export type Data = {
   __typename: "ContentfulServiceLocatorSection";
-  type: "Roofer" | "Branch" | "Merchant";
+  type: EntryTypeEnum;
   title: string;
   label: string;
   body: RichTextData | null;
@@ -78,7 +75,10 @@ const DEFAULT_LEVEL_ZOOM = 5;
 
 const activeFilterReducer = (
   state: Record<ServiceType, boolean>,
-  filter: { name: ServiceType; state?: boolean }
+  filter: {
+    name: ServiceType;
+    state?: boolean;
+  }
 ) => ({
   ...state,
   [filter.name]: filter.state ? filter.state : !state[filter.name]
@@ -123,13 +123,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   } = data;
 
   const shouldEnableSearch =
-    sectionType !== BRANCH_TYPE && sectionType !== MERCHANT_TYPE;
-  const shouldListCertification = sectionType === ROOFER_TYPE;
-  const isBranchLocator = sectionType == BRANCH_TYPE;
-  const isMerchantLocator = sectionType == MERCHANT_TYPE;
+    sectionType !== EntryTypeEnum.BRANCH_TYPE &&
+    sectionType !== EntryTypeEnum.MERCHANT_TYPE;
+  const shouldListCertification = sectionType === EntryTypeEnum.ROOFER_TYPE;
+  const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
   const nameSearchLabelKey =
-    sectionType === "Merchant"
+    sectionType === EntryTypeEnum.MERCHANT_TYPE
       ? "merchantNameSearchLabel"
       : "companyFieldLabel";
 
@@ -154,8 +154,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     initialMapZoom || DEFAULT_LEVEL_ZOOM
   );
 
-  const initialActiveFilters = serviceTypesByEntity(sectionType).reduce(
-    (carry, key) => ({ ...carry, [key]: false }),
+  const serviceTypesByEntityItems: ServiceType[] =
+    serviceTypesByEntity(sectionType);
+
+  const initialActiveFilters = (
+    serviceTypesByEntityItems as ServiceType[]
+  ).reduce(
+    (carry, key: ServiceType) => ({ ...carry, [key]: false }),
     {}
   ) as Record<ServiceType, boolean>;
 
@@ -169,14 +174,25 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     if (!services) {
       return;
     }
-    const uniqueRooferTypes: ServiceType[] = Array.from(
-      new Set(
-        services.flatMap(
-          (service) =>
-            service.type || service.branchType || service.merchantType
-        )
-      )
-    ).filter((x) => x !== null);
+
+    const allServiceTypesFromServices: ServiceType[] = services.reduce(
+      (acc, service) => {
+        if (service.type) {
+          return [...acc, ...service.type];
+        }
+        if (service.branchType) {
+          return [...acc, ...service.branchType];
+        }
+        if (service.merchantType) {
+          return [...acc, ...service.merchantType];
+        }
+        return acc;
+      },
+      []
+    );
+    const uniqueRooferTypes: ServiceType[] = [
+      ...new Set(allServiceTypesFromServices)
+    ];
 
     setUniqueRoofTypeByData(uniqueRooferTypes);
 
@@ -257,11 +273,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   ): boolean => {
     // user has not selected any chip(s) to filter hence show all services
     // i.e initial load or user has de-selected ALL chips
-    const isAllChipsUnSelected = Object.keys(activeFilters).every(
+    const allChipsUnSelected = Object.keys(activeFilters).every(
       (key) => activeFilters[key] === false
     );
 
-    if (isAllChipsUnSelected) {
+    if (allChipsUnSelected) {
       return true;
     }
 
@@ -383,9 +399,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     service: Service,
     isAddressHidden?: boolean
   ): DetailProps[] => {
-    const shouldShowIcons = sectionType === "Roofer";
-    const isAddressClickable = sectionType === "Branch";
-    const shouldShowWebsiteLinkAsLabel = sectionType === "Merchant";
+    const shouldShowIcons = sectionType === EntryTypeEnum.ROOFER_TYPE;
+    const isAddressClickable = sectionType === EntryTypeEnum.BRANCH_TYPE;
+    const shouldShowWebsiteLinkAsLabel =
+      sectionType === EntryTypeEnum.MERCHANT_TYPE;
 
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
@@ -514,7 +531,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     const detailsStart = isAddressHidden ? [] : [address];
 
     switch (sectionType) {
-      case "Roofer":
+      case EntryTypeEnum.ROOFER_TYPE:
         return [
           ...detailsStart,
           distance,
@@ -525,7 +542,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           type,
           certification
         ].filter(Boolean);
-      case "Branch":
+      case EntryTypeEnum.BRANCH_TYPE:
         return [
           ...detailsStart,
           distance,
@@ -534,7 +551,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           fax,
           directions
         ].filter(Boolean);
-      case "Merchant":
+      case EntryTypeEnum.MERCHANT_TYPE:
         return [
           ...detailsStart,
           distance,
@@ -555,7 +572,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     elite: RoofProElite
   };
 
-  const getMicroCopyPrefix = (serviceType: EntryType) => {
+  const getMicroCopyPrefix = (serviceType: EntryTypeEnum) => {
     return ServiceTypesPrefixesEnum[serviceType];
   };
 

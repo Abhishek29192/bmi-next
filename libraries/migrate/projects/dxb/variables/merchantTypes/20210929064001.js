@@ -1,6 +1,6 @@
 "use strict";
 
-const branchTypes = [
+const merchantTypes = [
   "BMI Redland Pitched roof systems",
   "BMI Icopal Flat roof Systems",
   "Dépôts de proximité Siplast",
@@ -8,4 +8,4 @@ const branchTypes = [
   "Distributeurs Monier"
 ];
 
-module.exports = branchTypes;
+module.exports = merchantTypes;

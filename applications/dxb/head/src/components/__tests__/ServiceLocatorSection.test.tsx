@@ -4,7 +4,12 @@ import { render, fireEvent, act } from "@testing-library/react";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../ServiceLocatorSection";
-import { rooferTypes, branchTypes, merchantTypes } from "../Service";
+import {
+  rooferTypes,
+  branchTypes,
+  merchantTypes,
+  EntryTypeEnum
+} from "../Service";
 import createService from "../../__tests__/ServiceHelper";
 
 let callMarkerOnClick;
@@ -36,7 +41,7 @@ describe("ServiceLocatorSection component", () => {
   it("renders correctly with NO service", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -54,7 +59,7 @@ describe("ServiceLocatorSection component", () => {
     it("with No service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -71,7 +76,7 @@ describe("ServiceLocatorSection component", () => {
     it("with empty service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -88,7 +93,7 @@ describe("ServiceLocatorSection component", () => {
     it("with single service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -105,7 +110,7 @@ describe("ServiceLocatorSection component", () => {
     it("with multiple service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -124,7 +129,7 @@ describe("ServiceLocatorSection component", () => {
     it("with No service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -144,7 +149,7 @@ describe("ServiceLocatorSection component", () => {
     it("with single service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -172,7 +177,7 @@ describe("ServiceLocatorSection component", () => {
     it("for Branches", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Branch",
+        type: EntryTypeEnum.BRANCH_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -181,7 +186,7 @@ describe("ServiceLocatorSection component", () => {
         zoom: 8,
         services: [
           createService({
-            entryType: "Branch",
+            entryType: EntryTypeEnum.BRANCH_TYPE,
             id: "roofer_7",
             name: "roofer 7",
             type: [],
@@ -189,7 +194,7 @@ describe("ServiceLocatorSection component", () => {
             fax: "222222"
           }),
           createService({
-            entryType: "Branch",
+            entryType: EntryTypeEnum.BRANCH_TYPE,
             id: "roofer_8",
             name: "roofer 8",
             type: [],
@@ -205,7 +210,7 @@ describe("ServiceLocatorSection component", () => {
     it("for Merchant", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Merchant",
+        type: EntryTypeEnum.MERCHANT_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -214,19 +219,21 @@ describe("ServiceLocatorSection component", () => {
         zoom: 8,
         services: [
           createService({
-            entryType: "Branch",
+            entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_7",
             name: "roofer 7",
             type: [],
-            branchType: [merchantTypes[0]],
+            branchType: [],
+            merchantType: [merchantTypes[0]],
             fax: "222222"
           }),
           createService({
-            entryType: "Branch",
+            entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_8",
             name: "roofer 8",
             type: [],
-            branchType: [merchantTypes[1]]
+            branchType: [],
+            merchantType: [merchantTypes[1]]
           })
         ]
       };
@@ -238,7 +245,7 @@ describe("ServiceLocatorSection component", () => {
     it("for Branches with invalid service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Branch",
+        type: EntryTypeEnum.BRANCH_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -247,13 +254,13 @@ describe("ServiceLocatorSection component", () => {
         zoom: 8,
         services: [
           createService({
-            entryType: "Branch",
+            entryType: EntryTypeEnum.BRANCH_TYPE,
             id: "roofer_7",
             name: "roofer 7",
             fax: "222222"
           }),
           createService({
-            entryType: "Branch",
+            entryType: EntryTypeEnum.BRANCH_TYPE,
             id: "roofer_8",
             name: "roofer 8"
           })
@@ -267,7 +274,7 @@ describe("ServiceLocatorSection component", () => {
     it("for Merchant with invalid service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Merchant",
+        type: EntryTypeEnum.MERCHANT_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -276,13 +283,13 @@ describe("ServiceLocatorSection component", () => {
         zoom: 8,
         services: [
           createService({
-            entryType: "Merchant",
+            entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_7",
             name: "roofer 7",
             fax: "222222"
           }),
           createService({
-            entryType: "Branch",
+            entryType: EntryTypeEnum.BRANCH_TYPE,
             id: "roofer_8",
             name: "roofer 8"
           })
@@ -296,7 +303,7 @@ describe("ServiceLocatorSection component", () => {
     it("for Merchants", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Merchant",
+        type: EntryTypeEnum.MERCHANT_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -305,13 +312,13 @@ describe("ServiceLocatorSection component", () => {
         zoom: 8,
         services: [
           createService({
-            entryType: "Merchant",
+            entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_1",
             name: "roofer 1",
             type: [rooferTypes[0]]
           }),
           createService({
-            entryType: "Merchant",
+            entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_2",
             name: "roofer 2",
             type: [rooferTypes[0]]
@@ -336,13 +343,13 @@ describe("ServiceLocatorSection component", () => {
         zoom: 8,
         services: [
           createService({
-            entryType: "Merchant",
+            entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_1",
             name: "roofer 1",
             type: [rooferTypes[0]]
           }),
           createService({
-            entryType: "Merchant",
+            entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_2",
             name: "roofer 2",
             type: [rooferTypes[0]]
@@ -357,7 +364,7 @@ describe("ServiceLocatorSection component", () => {
     it("with multiple service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -385,7 +392,7 @@ describe("ServiceLocatorSection component", () => {
     it("with ALL service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -426,7 +433,7 @@ describe("ServiceLocatorSection component", () => {
   it("searchs for a service", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -442,7 +449,9 @@ describe("ServiceLocatorSection component", () => {
     const wrapper = render(<ServiceLocatorSection data={data} />);
     const nameInput = wrapper.container.querySelector("#company-autocomplete");
 
-    fireEvent.change(nameInput, { target: { value: "roofer" } });
+    fireEvent.change(nameInput, {
+      target: { value: EntryTypeEnum.ROOFER_TYPE }
+    });
 
     expect(wrapper.container.parentElement).toMatchSnapshot(
       "Filtered option list"
@@ -462,7 +471,7 @@ describe("ServiceLocatorSection component", () => {
   it("doesn't search on entring the first letter", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -499,7 +508,7 @@ describe("ServiceLocatorSection component", () => {
 
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -531,7 +540,7 @@ describe("ServiceLocatorSection component", () => {
 
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -553,7 +562,7 @@ describe("ServiceLocatorSection component", () => {
   it("selects service", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -572,7 +581,7 @@ describe("ServiceLocatorSection component", () => {
   it("selects and unselects service", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -592,7 +601,7 @@ describe("ServiceLocatorSection component", () => {
   it("filters roofers using chip click", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -632,7 +641,7 @@ describe("ServiceLocatorSection component", () => {
   it("filters branch using chip click", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Branch",
+      type: EntryTypeEnum.BRANCH_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -641,14 +650,14 @@ describe("ServiceLocatorSection component", () => {
       zoom: 8,
       services: [
         createService({
-          entryType: "Branch",
+          entryType: EntryTypeEnum.BRANCH_TYPE,
           id: "roofer_9",
           name: "roofer 9",
           distance: 10,
           branchType: [branchTypes[0]]
         }),
         createService({
-          entryType: "Branch",
+          entryType: EntryTypeEnum.BRANCH_TYPE,
           id: "roofer_10",
           name: "roofer 10",
           distance: 5,
@@ -668,7 +677,7 @@ describe("ServiceLocatorSection component", () => {
   it("filters merchant using chip click", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Merchant",
+      type: EntryTypeEnum.MERCHANT_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -677,18 +686,18 @@ describe("ServiceLocatorSection component", () => {
       zoom: 8,
       services: [
         createService({
-          entryType: "Merchant",
+          entryType: EntryTypeEnum.MERCHANT_TYPE,
           id: "roofer_9",
           name: "roofer 9",
           distance: 10,
-          branchType: [merchantTypes[0]]
+          merchantType: [merchantTypes[0]]
         }),
         createService({
-          entryType: "Merchant",
+          entryType: EntryTypeEnum.MERCHANT_TYPE,
           id: "roofer_10",
           name: "roofer 10",
           distance: 5,
-          branchType: [merchantTypes[1]]
+          merchantType: [merchantTypes[1]]
         })
       ]
     };
@@ -704,7 +713,7 @@ describe("ServiceLocatorSection component", () => {
   it("click and unclick chip", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -737,7 +746,7 @@ describe("ServiceLocatorSection component", () => {
   it("click all roofer chips", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -807,7 +816,7 @@ describe("ServiceLocatorSection component", () => {
 
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -843,7 +852,7 @@ describe("ServiceLocatorSection component", () => {
 
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -875,7 +884,7 @@ describe("ServiceLocatorSection component", () => {
 
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -886,7 +895,9 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [...rooferTypes, ...branchTypes, ...merchantTypes]
+          type: [...rooferTypes],
+          branchType: [...branchTypes],
+          merchantType: [...merchantTypes]
         })
       ]
     };
@@ -898,7 +909,7 @@ describe("ServiceLocatorSection component", () => {
   it("filters using autocomplete", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,

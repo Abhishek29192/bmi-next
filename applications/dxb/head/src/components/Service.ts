@@ -1,57 +1,80 @@
 import { graphql } from "gatsby";
 import { RoofProLevel } from "@bmi/company-details";
 
+export type ServiceType = RooferTypesEnum | BranchTypesEnum | MerchantTypesEnum;
+
+export enum RooferTypesEnum {
+  PITCHED_ROOF = "Pitched roof",
+  FLAT_ROOF = "Flat roof",
+  PITCHED_ROOF_BITUMEN_ROOFS = "Pitched roof - Bitumen roofs",
+  PITCHED_ROOF_TILE_ROOFS = "Pitched roof - Tile roofs",
+  PITCHED_ROOF_ROOF_COATERS = "Pitched roof - Roof coaters"
+}
+
 export const rooferTypes = [
-  "Pitched roof",
-  "Flat roof",
-  "Pitched roof - Bitumen roofs",
-  "Pitched roof - Tile roofs",
-  "Pitched roof - Roof coaters",
-  "Pitched roof - Roof coaters"
+  RooferTypesEnum.PITCHED_ROOF,
+  RooferTypesEnum.FLAT_ROOF,
+  RooferTypesEnum.PITCHED_ROOF_BITUMEN_ROOFS,
+  RooferTypesEnum.PITCHED_ROOF_TILE_ROOFS,
+  RooferTypesEnum.PITCHED_ROOF_ROOF_COATERS,
+  RooferTypesEnum.PITCHED_ROOF_ROOF_COATERS
 ];
+
+export enum BranchTypesEnum {
+  HEADQUARTERS = "Headquarters",
+  COUNTRY_OFFICES = "Country offices",
+  MANUFACTURING_AND_EXPORT = "Manufacturing and export",
+  TECHNICAL_CENTRE_BMI_ACADEMY = "Technical centre & BMI academy"
+}
 
 export const branchTypes = [
-  "Headquarters",
-  "Country offices",
-  "Manufacturing and export",
-  "Technical centre & BMI academy"
+  BranchTypesEnum.HEADQUARTERS,
+  BranchTypesEnum.COUNTRY_OFFICES,
+  BranchTypesEnum.MANUFACTURING_AND_EXPORT,
+  BranchTypesEnum.TECHNICAL_CENTRE_BMI_ACADEMY
 ];
+
+export enum MerchantTypesEnum {
+  BMI_REDLAND_PITCHED_ROOF_SYSTEMS = "BMI Redland Pitched roof systems",
+  BMI_ICOPAL_FLAT_ROOF_SYSTEMS = "BMI Icopal Flat roof Systems",
+  DEPOTS_DE_PROXIMITE_SIPLAST = "Dépôts de proximité Siplast",
+  DISTRIBUTEURS_SIPLAST = "Distributeurs Siplast",
+  DISTRIBUTEURS_MONIER = "Distributeurs Monier"
+}
 
 export const merchantTypes = [
-  "BMI Redland Pitched roof systems",
-  "BMI Icopal Flat roof Systems",
-  "Dépôts de proximité Siplast",
-  "Distributeurs Siplast",
-  "Distributeurs Monier"
+  MerchantTypesEnum.BMI_REDLAND_PITCHED_ROOF_SYSTEMS,
+  MerchantTypesEnum.BMI_ICOPAL_FLAT_ROOF_SYSTEMS,
+  MerchantTypesEnum.DEPOTS_DE_PROXIMITE_SIPLAST,
+  MerchantTypesEnum.DISTRIBUTEURS_SIPLAST,
+  MerchantTypesEnum.DISTRIBUTEURS_MONIER
 ];
 
-export type ServiceType =
-  | typeof rooferTypes[number]
-  | typeof branchTypes[number]
-  | typeof merchantTypes[number];
+export enum EntryTypeEnum {
+  ROOFER_TYPE = "Roofer",
+  BRANCH_TYPE = "Branch",
+  MERCHANT_TYPE = "Merchant"
+}
 
-export const ROOFER_TYPE = "Roofer";
-export const BRANCH_TYPE = "Branch";
-export const MERCHANT_TYPE = "Merchant";
-export type EntryType = "Roofer" | "Branch" | "Merchant";
 export enum ServiceTypesPrefixesEnum {
   Roofer = "findARoofer",
   Branch = "findABranch",
   Merchant = "findAMerchant"
 }
+
 export enum ServiceTypesEnum {
   type = "Roofer",
   branchType = "Branch",
   merchantType = "Merchant"
 }
 
-export const serviceTypesByEntity = (entityType: EntryType) => {
+export const serviceTypesByEntity = (entityType: EntryTypeEnum) => {
   switch (entityType) {
-    case ROOFER_TYPE:
+    case EntryTypeEnum.ROOFER_TYPE:
       return rooferTypes;
-    case BRANCH_TYPE:
+    case EntryTypeEnum.BRANCH_TYPE:
       return branchTypes;
-    case MERCHANT_TYPE:
+    case EntryTypeEnum.MERCHANT_TYPE:
       return merchantTypes;
     default:
       return [];
@@ -61,7 +84,7 @@ export const serviceTypesByEntity = (entityType: EntryType) => {
 export type Data = {
   __typename: "ContentfulService";
   id: string;
-  entryType: EntryType;
+  entryType: EntryTypeEnum;
   name: string;
   location: {
     lat: number;
@@ -72,9 +95,9 @@ export type Data = {
   email: string | null;
   website: string | null;
   fax: string | null;
-  type: ServiceType[] | null;
-  branchType: ServiceType[] | null;
-  merchantType: ServiceType[] | null;
+  type: RooferTypesEnum[] | null;
+  branchType: BranchTypesEnum[] | null;
+  merchantType: MerchantTypesEnum[] | null;
   certification: RoofProLevel | null;
   summary: string | null;
 };

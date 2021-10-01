@@ -240,132 +240,6 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   class="MuiTouchRipple-root"
                 />
               </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.headquarters
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.countryOffices
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.manufacturingAndExport
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.technicalCentreBmiAcademy
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.bmiRedlandPitchedRoofSystems
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.bmiIcopalFlatRoofSystems
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.depotsDeProximiteSiplast
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.distributeursSiplast
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.distributeursMonier
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -621,7 +495,9 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                                 class="description"
                               >
                                 <b>
-                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.headquarters | MC: findARoofer.filters.countryOffices | MC: findARoofer.filters.manufacturingAndExport | MC: findARoofer.filters.technicalCentreBmiAcademy | MC: findARoofer.filters.bmiRedlandPitchedRoofSystems | MC: findARoofer.filters.bmiIcopalFlatRoofSystems | MC: findARoofer.filters.depotsDeProximiteSiplast | MC: findARoofer.filters.distributeursSiplast | MC: findARoofer.filters.distributeursMonier
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                  MC: findABranch.filters.headquarters | MC: findABranch.filters.countryOffices | MC: findABranch.filters.manufacturingAndExport | MC: findABranch.filters.technicalCentreBmiAcademy
+                                  MC: findAMerchant.filters.bmiRedlandPitchedRoofSystems | MC: findAMerchant.filters.bmiIcopalFlatRoofSystems | MC: findAMerchant.filters.depotsDeProximiteSiplast | MC: findAMerchant.filters.distributeursSiplast | MC: findAMerchant.filters.distributeursMonier
                                 </b>
                               </dd>
                             </div>
@@ -4308,6 +4184,20 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                   class="MuiChip-label"
                 >
                   MC: findARoofer.filters.flatRoof
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.
                 </span>
                 <span
                   class="MuiTouchRipple-root"
@@ -12855,7 +12745,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                       name="autocomplete-field"
                       spellcheck="false"
                       type="text"
-                      value="roofer"
+                      value="Roofer"
                     />
                     <div
                       class="MuiAutocomplete-endAdornment"
