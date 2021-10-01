@@ -12,9 +12,9 @@ import { buffer_encode, toArrayBuffer } from "./util/bufferUtil";
 import { base64_encode } from "./util/imageUtil";
 
 const fonts = {
-  Roboto: {
-    normal: "Roboto-Regular.ttf",
-    bold: "Roboto-Regular.ttf"
+  Effra: {
+    normal: "Effra_Rg.ttf",
+    bold: "Effra_Bd.ttf"
   }
 };
 
