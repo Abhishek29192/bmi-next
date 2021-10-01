@@ -42,7 +42,7 @@ export const PdfDocument = ({
         signature: ``
       }}
       defaultStyle={{
-        font: "Roboto"
+        font: "Effra"
       }}
     >
       <LessWidth>
