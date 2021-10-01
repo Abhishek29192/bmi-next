@@ -443,15 +443,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       label: getMicroCopy("global.address"),
       action: isAddressClickable
         ? getClickableActionFromUrl(
-            null,
+            undefined,
             `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
               service.address
             )}/`,
             countryCode,
-            null,
+            undefined,
             globalAddress,
-            null,
-            null,
+            undefined,
+            undefined,
             getServiceDataGTM(
               `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
                 service.address
@@ -477,15 +477,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       type: "cta",
       text: getMicroCopy("findARoofer.getDirectionsLabel"),
       action: getClickableActionFromUrl(
-        null,
+        undefined,
         `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
           service.address
         )}/`,
         countryCode,
-        null,
+        undefined,
         getDirectionsLabel,
-        null,
-        null,
+        undefined,
+        undefined,
         getServiceDataGTM(
           `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
             service.address
@@ -503,13 +503,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           display: shouldShowIcons ? "icon" : "label",
           text: service.phone,
           action: getClickableActionFromUrl(
-            null,
+            undefined,
             `tel:${service.phone}`,
             countryCode,
-            null,
+            undefined,
             globalTelephone,
-            null,
-            null,
+            undefined,
+            undefined,
             getServiceDataGTM(`tel:${service.phone}`, globalTelephone)
           ),
           label: globalTelephone
@@ -522,13 +522,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           display: shouldShowIcons ? "icon" : "label",
           text: service.email,
           action: getClickableActionFromUrl(
-            null,
+            undefined,
             `mailto:${service.email}`,
             countryCode,
-            null,
+            undefined,
             gloablEmail,
-            null,
-            null,
+            undefined,
+            undefined,
             getServiceDataGTM(`mailto:${service.email}`, gloablEmail)
           ),
           label: gloablEmail
@@ -542,13 +542,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           display: shouldShowIcons ? "icon" : "label",
           text: shouldShowWebsiteLinkAsLabel ? service.website : websiteLabel,
           action: getClickableActionFromUrl(
-            null,
+            undefined,
             service.website,
             countryCode,
-            null,
+            undefined,
             shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel,
-            null,
-            null,
+            undefined,
+            undefined,
             getServiceDataGTM(
               service.website,
               shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel
