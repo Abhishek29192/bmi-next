@@ -50,7 +50,8 @@ type Props = {
     };
   };
 };
-const SYSTEM_CONFIG_QUERY_KEY = "selected_system";
+const SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE = "prev_page";
+const SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM = "selected_system";
 
 const IGNORED_ATTRIBUTES = [
   "scoringweight",
@@ -86,15 +87,19 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
 
   useEffect(() => {
     const selectedSystem = new URLSearchParams(location.search).get(
-      SYSTEM_CONFIG_QUERY_KEY
+      SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
     );
-    selectedSystem &&
+    const prevPage = new URLSearchParams(location.search).get(
+      SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE
+    );
+    prevPage &&
+      selectedSystem &&
       pushToDataLayer({
         id: "system-configurator01-results",
-        label: selectedSystem,
+        label: name,
         action: location.href?.toString()
       });
-  }, []);
+  }, [location]);
 
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Assets[] = useMemo(() => {
