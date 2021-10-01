@@ -83,7 +83,8 @@ grant select, insert, update, delete on project_member to super_admin;
 -- notification
 grant select on notification to installer;
 grant update (read) on notification to installer;
-grant select, insert, update, delete on notification to super_admin;
+grant select, insert, update on notification to super_admin;
+grant select, insert, update on notification to company_admin;
 
 -- invitation
 grant select on invitation to installer;
@@ -116,8 +117,8 @@ grant select, insert, update, delete on product to market_admin;
 -- note
 grant select on note to installer;
 grant select, insert on note to market_admin;
-grant select, insert, update, delete on note to super_admin;
-grant select, insert on note to super_admin;
+grant select, insert, update on note to super_admin;
+grant select, insert on note to company_admin;
 
 
 

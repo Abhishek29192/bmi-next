@@ -199,8 +199,14 @@ DROP POLICY IF EXISTS policy_market_admin ON notification;
 DROP POLICY IF EXISTS policy_company_admin ON notification;
 DROP POLICY IF EXISTS policy_installer ON notification;
 CREATE POLICY policy_super_admin ON notification FOR ALL TO super_admin USING (current_market() = (SELECT market_id FROM account WHERE account.id = account_id));
-CREATE POLICY policy_market_admin ON notification FOR ALL TO market_admin USING (current_account_id() = account_id);
-CREATE POLICY policy_company_admin ON notification FOR ALL TO company_admin USING (current_account_id() = account_id);
+CREATE POLICY policy_market_admin ON notification FOR ALL TO market_admin USING (current_market() = (SELECT market_id FROM account WHERE account.id = account_id));
+CREATE POLICY policy_company_admin ON notification FOR ALL TO company_admin 
+  USING (
+     current_company() IN (select company_id from company_member where account_id = account_id)
+  )
+  WITH CHECK (
+    current_company() IN (select company_id from company_member where account_id = account_id)
+  );
 CREATE POLICY policy_installer ON notification FOR ALL TO installer USING (current_account_id() = account_id);
 
 ALTER TABLE invitation ENABLE ROW LEVEL SECURITY;
