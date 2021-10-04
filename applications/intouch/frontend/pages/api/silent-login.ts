@@ -4,7 +4,8 @@ import { withApi } from "../../lib/middleware/withApi";
 
 // This api endpoint let us do a silent login, if the user has a valid session in auth0 but not in our application we can login him without adding any credential
 // This is also usefull to get the last state of the user
-export default withApi(async (req, res) => {
+
+const silentLogin = async (req, res) => {
   const { returnTo } = req.query;
   const logger = req.logger("silent-login");
 
@@ -26,4 +27,6 @@ export default withApi(async (req, res) => {
     logger.error(error.message);
     res.status(error.status || 500).end(error.message);
   }
-});
+};
+
+export default withApi(silentLogin);

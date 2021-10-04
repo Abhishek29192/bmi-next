@@ -272,7 +272,7 @@ export const SetCompanyDetailsDialog = ({
           </Grid>
 
           <Form.ButtonWrapper>
-            {company.status !== "NEW" ? (
+            {company?.status !== "NEW" ? (
               <Form.Button onClick={onCloseClick}>
                 {t("company-page:edit_dialog.form.actions.cancel")}
               </Form.Button>

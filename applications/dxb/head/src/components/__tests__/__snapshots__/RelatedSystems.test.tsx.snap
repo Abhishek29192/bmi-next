@@ -27,7 +27,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -56,7 +56,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                     <span
                       class="MuiButton-label buttonStyles-label-104"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -105,7 +105,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -134,7 +134,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                     <span
                       class="MuiButton-label buttonStyles-label-64"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -153,7 +153,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -182,7 +182,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                     <span
                       class="MuiButton-label buttonStyles-label-64"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -229,7 +229,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -258,7 +258,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                     <span
                       class="MuiButton-label buttonStyles-label-124"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -277,7 +277,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -306,7 +306,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                     <span
                       class="MuiButton-label buttonStyles-label-124"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -353,7 +353,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -382,7 +382,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                     <span
                       class="MuiButton-label buttonStyles-label-84"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -401,7 +401,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -430,7 +430,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                     <span
                       class="MuiButton-label buttonStyles-label-84"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -477,7 +477,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -506,7 +506,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
                     <span
                       class="MuiButton-label buttonStyles-label-4"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -553,7 +553,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -582,7 +582,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
                     <span
                       class="MuiButton-label buttonStyles-label-24"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -629,7 +629,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
             <a
               aria-disabled="false"
               class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read More\\",\\"action\\":\\"/en/system-details-page\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.system.readMore\\",\\"action\\":\\"/en/system-details-page\\"}"
               href="/en/system-details-page"
               role="button"
               tabindex="0"
@@ -658,7 +658,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
                     <span
                       class="MuiButton-label buttonStyles-label-44"
                     >
-                      Read More
+                      MC: sdp.system.readMore
                     </span>
                     <span
                       class="MuiTouchRipple-root"

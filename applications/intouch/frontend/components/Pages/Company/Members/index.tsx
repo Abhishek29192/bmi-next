@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
@@ -25,6 +26,7 @@ import {
 } from "../../../../graphql/generated/hooks";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { formatDate } from "../../../../lib/utils";
+import { useAccountContext } from "../../../../context/AccountContext";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 import Alert from "./Alert";
@@ -80,6 +82,9 @@ const getValidCertDate = () => {
 
 const CompanyMembers = ({ data }: PageProps) => {
   const { t } = useTranslation("team-page");
+
+  const { account } = useAccountContext();
+  const router = useRouter();
 
   const [dialogOpen, setDialogOpen] = useState(false);
   const [messages, setMessages] = useState<MessageProp[]>([]);
@@ -153,7 +158,12 @@ const CompanyMembers = ({ data }: PageProps) => {
         }
       ]);
     },
-    onCompleted: () => {
+    onCompleted: ({ updateAccount }) => {
+      //if a user changes his/her role we should redirect
+      if (account.id === updateAccount.account.id) {
+        router.push(`/profile`, undefined, { shallow: false });
+      }
+
       const expiryDate = getValidCertDate();
 
       fetchCompanyMembers({

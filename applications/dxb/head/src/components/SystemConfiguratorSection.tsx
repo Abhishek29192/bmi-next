@@ -1,11 +1,4 @@
-import ConfiguratorPanel from "@bmi/configurator-panel";
-import Grid from "@bmi/grid";
-import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
-import RadioPane from "@bmi/radio-pane";
-import Section from "@bmi/section";
-import { useLocation } from "@reach/router";
-import axios, { AxiosResponse, CancelToken } from "axios";
-import { graphql, Link as GatsbyLink } from "gatsby";
+import { graphql } from "gatsby";
 import React, {
   ChangeEvent,
   createContext,
@@ -15,13 +8,22 @@ import React, {
   useLayoutEffect,
   useState
 } from "react";
+import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import ConfiguratorPanel from "@bmi/configurator-panel";
+import Section from "@bmi/section";
+import RadioPane from "@bmi/radio-pane";
+import Grid from "@bmi/grid";
+import { useLocation, navigate } from "@reach/router";
+import { SystemCard } from "../components/RelatedSystems";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
+import { SystemDetails } from "../templates/systemDetails/types";
+import { queryElasticSearch } from "../utils/elasticSearch";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SystemConfiguratorSection.module.scss";
@@ -42,11 +44,9 @@ export type NextStepData = Partial<EntryData> | TitleWithContentData;
 
 type StoredStateType = {
   selectedAnswers: Array<string>;
-  selectedSystem: string;
 };
 const initialStorageState: StoredStateType = {
-  selectedAnswers: [],
-  selectedSystem: ""
+  selectedAnswers: []
 };
 
 type EntryData = {
@@ -55,7 +55,6 @@ type EntryData = {
   title: string;
   type: "Question" | "Answer" | "Result";
   description: RichTextData | null;
-  selectedSystem?: string;
 } & QuestionData &
   ResultData;
 
@@ -91,6 +90,8 @@ const SystemConfigurtorContext = createContext(undefined);
 const saveStateToLocalStorage = (stateToStore: string) => {
   storage.local.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
 };
+
+const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_SYSTEMS;
 
 const SystemConfiguratorBlock = ({
   id,
@@ -266,69 +267,85 @@ const SystemConfiguratorBlockNoResultsSection = ({
   );
 };
 
-const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard, {
-  label: "title"
-});
-
 const SystemConfiguratorBlockResultSection = ({
   title,
   description,
-  recommendedSystems,
-  selectedSystem: _selectedSystem
+  recommendedSystems
 }: Partial<EntryData>) => {
+  const maxDisplay = 4;
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
-  // put this line at line 258 when implementing card highlight
-  // isHighlighted={selectedSystem === system}
+  const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
+    useState<Partial<SystemDetails>[]>([]);
+
+  useEffect(() => {
+    const fetchESData = async () => {
+      const query = {
+        query: {
+          terms: {
+            code: recommendedSystems
+          }
+        }
+      };
+      try {
+        const repsonse = await queryElasticSearch(query, ES_INDEX_NAME);
+        if (repsonse.hits?.total.value > 0) {
+          const pimObject = repsonse.hits?.hits.map(({ _source }) => _source);
+          setRecommendedSystemPimObjects(pimObject.slice(0, maxDisplay));
+        } else {
+          navigate("/404");
+        }
+      } catch (error) {
+        if (process.env.NODE_ENV === "development") {
+          // eslint-disable-next-line no-console
+          console.error(error);
+        }
+        navigate("/404");
+      }
+    };
+
+    if (recommendedSystems.length > 0) {
+      fetchESData();
+    } else {
+      setRecommendedSystemPimObjects([]);
+    }
+  }, [recommendedSystems]);
+
   return (
     <div ref={ref}>
       <Section
-        backgroundColor="white"
+        backgroundColor="pearl"
         className={styles["SystemConfigurator-result"]}
       >
         <Section.Title className={styles["title"]}>{title}</Section.Title>
-        {description && <RichText document={description} />}
-        {recommendedSystems && (
-          <Grid container spacing={3}>
-            {recommendedSystems.map((system) => {
-              const linkToSDP = `/${countryCode}/system-details-page?selected_system=${system}&prev_page=system-configurator-page&referer=sys_details`;
-              return (
-                <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
-                  <GTMOverviewCard
-                    title={`System-${system}`}
-                    titleVariant="h5"
-                    subtitleVariant="h6"
-                    imageSize="contain"
+        {description && (
+          <div className={styles["description"]}>
+            <RichText document={description} />
+          </div>
+        )}
+        {recommendedSystems.length > 0 &&
+          recommendedSystemPimObjects.length > 0 &&
+          recommendedSystemPimObjects.map((system, id) => {
+            const linkToSDP = `system-details-page?selected_system=${system.code}&prev_page=system-configurator-page&referer=sys_details`;
+            return (
+              <Grid container spacing={3} key={`${system.code}-${id}`}>
+                {
+                  <SystemCard
+                    system={system}
+                    countryCode={countryCode}
                     gtm={{
                       event: `${title}-results`,
-                      id: system,
-                      action: linkToSDP
+                      id: system.code,
+                      action: linkToSDP,
+                      label: title
                     }}
-                    action={{
-                      model: "routerLink",
-                      linkComponent: GatsbyLink,
-                      to: linkToSDP
-                    }}
-                    onClick={() => {
-                      const storedState = storage.local.getItem(
-                        SYSTEM_CONFIG_STORAGE_KEY
-                      );
-                      const stateObject = JSON.parse(storedState || "");
-                      const newState = {
-                        ...stateObject,
-                        selectedSystem: system
-                      };
-                      saveStateToLocalStorage(JSON.stringify(newState));
-                    }}
-                    isHighlighted={false}
-                  >
-                    {undefined}
-                  </GTMOverviewCard>
-                </Grid>
-              );
-            })}
-          </Grid>
-        )}
+                    path={linkToSDP}
+                    isHighlighted={id === 0}
+                  />
+                }
+              </Grid>
+            );
+          })}
       </Section>
     </div>
   );
@@ -350,7 +367,6 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
   const [storedAnswers, setStoredAnswers] =
     useState<StoredStateType>(undefined);
   const location = useLocation();
-
   // useLayoutEffect for getting value from local storage
   // as Local storage in ssr value appears after first rendering
   // see useStickyState hook
@@ -478,10 +494,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
         ) : null}
       </Section>
       {state.result && (
-        <SystemConfiguratorBlockResultSection
-          {...state.result}
-          selectedSystem={storedAnswers.selectedSystem}
-        />
+        <SystemConfiguratorBlockResultSection {...state.result} />
       )}
       {noResult && <SystemConfiguratorBlockNoResultsSection {...noResult} />}
     </>

@@ -1367,13 +1367,13 @@ type DataJson implements Node {
   id: String!
   systemLayers: [SystemLayer]
   categories: [Categories]
+  images: [SystemImage]
 }
 
 type SystemLayer {
   addon: Boolean
   approvalStatus: String!
   code: String!
-  # images: []
   layerNumber: Int
   longDescription: String
   name: String
@@ -1396,6 +1396,18 @@ type Categories {
 type CategoryImage {
   allowedToDownload: Boolean
   fileSize: Int
+  mime: String
+  name: String
+  realFileName: String
+  url: String
+}
+
+type SystemImage {
+  allowedToDownload: Boolean
+  assetType: String
+  containerId: String
+  fileSize: Int
+  format: String
   mime: String
   name: String
   realFileName: String

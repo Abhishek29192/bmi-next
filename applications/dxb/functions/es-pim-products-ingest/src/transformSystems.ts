@@ -11,8 +11,8 @@ export type EsSystem = {
 };
 
 const getBrandCode = (categories: System["categories"]): string | undefined => {
-  return categories.find(({ categoryType, parentCategoryCode }) => {
-    return categoryType === "Brand" || parentCategoryCode === "BMI_Brands";
+  return categories.find(({ categoryType }) => {
+    return categoryType === "Brand";
   })?.code;
 };
 

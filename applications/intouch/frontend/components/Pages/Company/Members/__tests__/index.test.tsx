@@ -11,8 +11,13 @@ import {
 import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
 import Apollo from "../../../../../lib/tests/fixtures/apollo";
 import CompanyMembersPage, { PageProps } from "..";
-import { companyMembers } from "../../../../../fixtures/companyMembers";
+import {
+  adminCompanyMembers,
+  companyMembers,
+  installerCompanyMembers
+} from "../../../../../fixtures/companyMembers";
 import { useAccountContext } from "../../../../../context/AccountContext";
+import { CompanyMembersQuery } from "../../../../../graphql/generated/operations";
 
 const inviteMock = jest.fn();
 const mockDelete = jest.fn();
@@ -75,7 +80,7 @@ describe("Company Members Page", () => {
       within(listItem).getByTestId("icon-FLAT");
       within(listItem).getByTestId("icon-PITCHED");
 
-      listItem = elements[1];
+      listItem = elements[3];
       expect(listItem).toHaveTextContent("Aron Musk");
       expect(listItem).toHaveTextContent("Installer");
       within(listItem).getByTestId("icon-FLAT");
@@ -193,7 +198,39 @@ describe("Company Members Page", () => {
     });
 
     describe("Remove Member", () => {
+      const installerData: CompanyMembersQuery = {
+        companyMembers: {
+          nodes: installerCompanyMembers
+        }
+      };
+      const adminData: CompanyMembersQuery = {
+        companyMembers: {
+          nodes: adminCompanyMembers
+        }
+      };
+      it("the remove button shouldn't be visible if selected account not Installer", async () => {
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage data={adminData} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        expect(
+          within(wrapper.container).queryByTestId("remove-member")
+        ).toBeNull();
+      });
+
       it("Should not remove the member if press cancel", async () => {
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage data={installerData} />
+            </I18nProvider>
+          </Apollo>
+        );
+
         fireEvent.click(screen.getByTestId("remove-member"));
 
         await waitFor(() => screen.getByText("user_card.cancel"));
@@ -208,6 +245,14 @@ describe("Company Members Page", () => {
       });
 
       it("Should remove the member", async () => {
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage data={installerData} />
+            </I18nProvider>
+          </Apollo>
+        );
+
         fireEvent.click(screen.getByTestId("remove-member"));
 
         await waitFor(() => screen.getByText("user_card.confirm"));
@@ -221,7 +266,7 @@ describe("Company Members Page", () => {
         mockDelete.mockResolvedValueOnce(() => ({}));
 
         expect(mockDelete).toHaveBeenCalledWith({
-          variables: { id: 1 }
+          variables: { id: 2 }
         });
       });
 

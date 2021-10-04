@@ -839,7 +839,7 @@ export type Address = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -849,7 +849,7 @@ export type Address = Node & {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<Point>;
   /** Used for reference when importing data from the legacy system */
@@ -949,7 +949,7 @@ export type AddressInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -959,7 +959,7 @@ export type AddressInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -3467,7 +3467,7 @@ export type CompanyRegisteredAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -3477,7 +3477,7 @@ export type CompanyRegisteredAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -3557,7 +3557,7 @@ export type CompanyTradingAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -3567,7 +3567,7 @@ export type CompanyTradingAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -13760,7 +13760,7 @@ export type ProjectBuildingOwnerAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -13770,7 +13770,7 @@ export type ProjectBuildingOwnerAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -14591,7 +14591,7 @@ export type ProjectSiteAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -14601,7 +14601,7 @@ export type ProjectSiteAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */

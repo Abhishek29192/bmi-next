@@ -1,11 +1,9 @@
 import merge from "lodash/merge";
-import { v4 } from "uuid";
 import { gql } from "@apollo/client";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { Session } from "@auth0/nextjs-auth0";
 import { Account } from "@bmi/intouch-api-types";
-import { NextLogger } from "@bmi/logger";
 import { getServerPageGetGlobalData } from "../../graphql/generated/page";
 import {
   GetGlobalDataQuery,
@@ -18,6 +16,7 @@ import { initializeApollo } from "../apolloClient";
 import { marketRedirect } from "../redirects/market";
 import { redirectCompanyRegistration } from "../redirects/companyRegistration";
 import { userRegistration } from "../redirects/userRegistration";
+import { withLogger } from "../middleware/withLogger";
 
 type PageContext = {
   req: NextApiRequest;
@@ -75,10 +74,6 @@ export const innerGetServerSideProps = async (
   ctx
 ) => {
   const { req, res } = ctx;
-
-  if (!req.headers["x-request-id"]) {
-    req.headers["x-request-id"] = v4();
-  }
 
   const session: Session = auth0.getSession(req, res);
 
@@ -182,15 +177,12 @@ export const innerGetServerSideProps = async (
   );
 };
 
-export const withPage =
-  (getServerSideProps) => async (context: PageContext) => {
-    if (context.req) {
-      NextLogger(context.req, context.res);
-    }
+export const withPage = (getServerSideProps) =>
+  withLogger(async (context: PageContext) => {
     const auth0 = await getAuth0Instance(context.req, context.res);
     return auth0.withPageAuthRequired({
       async getServerSideProps(ctx: PageContext) {
         return innerGetServerSideProps(getServerSideProps, auth0, ctx);
       }
     })(context);
-  };
+  });

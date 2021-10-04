@@ -1,20 +1,60 @@
 {
-  "Home": "Norway - Home",
-  "Projects": "Norway - Projects",
-  "Training": "Norway - Training",
-  "Team": "Norway - Team",
-  "Company": "Norway - Company",
-  "Toolkit": "Norway - Toolkit",
-  "Edit": "Norway - Edit",
-  "Company Description": "Norway - Company Description",
-  "About Us": "Norway - About Us",
-  "Registered Details": "Norway - Registered Details",
-  "Registered Name": "Norway - Registered Name",
-  "Registered Address": "Norway - Registered Address",
-  "Main office address": "Norway - Main office address",
-  "CONTRACTOR": "Norway - Contractor",
-  "ARCHITECT": "Norway - Architect",
-  "MERCHANT": "Norway - Merchant",
-  "CORP_DEVELOPER": "Norway - Developer",
-  "COMPANY_ADMIN": "Norway - Company administrator"
+  "Home": "Hjem",
+  "Projects": "Prosjekter",
+  "Training": "Kurs",
+  "Team": "Team",
+  "Companies": "Bedrifter",
+  "Company": "Bedrift",
+  "Toolkit": "Verktøy",
+  "Edit": "Rediger",
+  "Company Description": "Company Description",
+  "About Us": "Om oss",
+  "Registered Details": "Registrerte detaljer",
+  "Registered Name": "Registrert navn",
+  "Registered Address": "Registrert adresse",
+  "Main office address": "Adresse til hovedkontoret",
+  "CONTRACTOR": "Entreprenør",
+  "ARCHITECT": "Arkitekt",
+  "MERCHANT": "Kjøpmann",
+  "CORP_DEVELOPER": "Utvikler",
+  "roles": {
+    "INSTALLER": "Medlem",
+    "COMPANY_ADMIN": "Bedriftsadministrator",
+    "MARKET_ADMIN": "Markedsadministrator",
+    "SUPER_ADMIN": "Super Admin"
+  },
+  "tier": {
+    "T1": "Medlem",
+    "T2": "Partner",
+    "T3": "Expert",
+    "T4": "Elite"
+  },
+  "error_messages": {
+    "required": "Obligatorisk",
+    "url_format": "Ugyldig URL",
+    "email_format": "Invalid email address",
+    "phone_number_format": "Ugyldig telefonnummer"
+  },
+  "Products": "Products",
+  "fallback": {
+    "notAdded": "Ikke lagt til"
+  },
+  "Download": "Last ned",
+  "SavePdf": "Lagre som PDF",
+  "visitWebsite": "Visit Website",
+  "certifications": {
+    "pitched": "Skråtak",
+    "flat": "Flatt tak",
+    "other": "Annet"
+  },
+  "certificationLabels": {
+    "type": "Type",
+    "certification": "Sertifiseringer",
+    "expiry": "Expiry"
+  },
+  "notifications": {
+    "today": "I dag",
+    "earlier": "Tidligere",
+    "older": "Eldre enn 2 måneder"
+  }
 }

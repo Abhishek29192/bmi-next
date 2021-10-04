@@ -3,12 +3,16 @@ import { makeWrapResolversPlugin } from "graphile-utils";
 import {
   CreateGuaranteeInput,
   CreateNoteInput,
+  DeleteEvidenceItemInput,
   UpdateGuaranteeInput,
   UpdateProjectMemberInput
 } from "@bmi/intouch-api-types";
 import { updateCompany, deleteCompanyMember } from "../../services/company";
 import { createAccount, updateAccount } from "../../services/account";
-import { evidenceItemsAdd } from "../../services/evidenceItem";
+import {
+  deleteEvidenceItem,
+  evidenceItemsAdd
+} from "../../services/evidenceItem";
 import { createGuarantee, updateGuarantee } from "../../services/guarantee";
 import * as projectMutations from "../../services/project/mutations";
 import { PostGraphileContext } from "../../types";
@@ -79,6 +83,23 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
       evidenceItemsAdd: {
         async resolve(resolve: any, source, args: any, context, resolveInfo) {
           return evidenceItemsAdd(resolve, source, args, context, resolveInfo);
+        }
+      },
+      deleteEvidenceItem: {
+        async resolve(
+          resolve,
+          source: Source | string,
+          args: { input: DeleteEvidenceItemInput },
+          context: PostGraphileContext,
+          resolveInfo
+        ) {
+          return deleteEvidenceItem(
+            resolve,
+            source,
+            args,
+            context,
+            resolveInfo
+          );
         }
       },
       createGuarantee: {

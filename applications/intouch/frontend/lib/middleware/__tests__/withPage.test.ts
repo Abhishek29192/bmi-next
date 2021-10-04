@@ -10,7 +10,12 @@ jest.mock("../../../lib/config", () => ({
 
 jest.mock("../../auth0", () => ({
   getAuth0Instance: () => ({
-    withPageAuthRequired: () => jest.fn()
+    withPageAuthRequired: () => jest.fn(),
+    getSession: () => ({
+      user: {
+        sub: "123"
+      }
+    })
   })
 }));
 

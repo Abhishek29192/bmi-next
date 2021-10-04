@@ -2,17 +2,22 @@ import { RequestParams } from "@elastic/elasticsearch";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
 import { ProductVariant } from "../es-model";
-import { Product } from "../pim";
-import { ProductMessage } from "..";
+import { Product, System } from "../pim";
+import { ProductMessage, SystemMessage } from "../types";
+import { EsSystem } from "../transformSystems";
 import createProductVariant from "./helpers/ProductVariantHelper";
 import createPimProduct from "./helpers/PimProductHelper";
+import { createEsSystem } from "./helpers/EsSystemHelper";
+import createSystem from "./helpers/SystemHelper";
 
 const { ES_INDEX_PREFIX, SECRET_MAN_GCP_PROJECT_NAME, ES_PASSWORD_SECRET } =
   process.env;
 
 const esPassword = "es-password";
 
-const createEvent = (message?: ProductMessage): { data: string } => {
+const createEvent = (
+  message?: ProductMessage | SystemMessage
+): { data: string } => {
   if (!message) {
     return { data: "" };
   }
@@ -47,9 +52,14 @@ jest.mock("@elastic/elasticsearch", () => {
 });
 
 const transformProduct = jest.fn();
-jest.mock("../transform", () => ({
+jest.mock("../transformProducts", () => ({
   transformProduct: (product: Product): ProductVariant[] =>
     transformProduct(product)
+}));
+
+const transformSystem = jest.fn();
+jest.mock("../transformSystems", () => ({
+  transformSystem: (system: System): EsSystem => transformSystem(system)
 }));
 
 beforeAll(() => {
@@ -85,6 +95,7 @@ describe("handleMessage", () => {
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(ping).toBeCalledTimes(0);
     expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
 
@@ -105,6 +116,7 @@ describe("handleMessage", () => {
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(ping).toBeCalledTimes(0);
     expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
 
@@ -126,6 +138,7 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalledTimes(0);
     expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
   });
@@ -143,6 +156,7 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
   });
@@ -160,18 +174,19 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
   });
 
-  it("should do nothing if transform returns empty array", async () => {
+  it("should do nothing if transform product returns empty array", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
     ping.mockImplementation((args) => {
       args();
     });
     transformProduct.mockReturnValue([]);
 
-    const message = {
+    const message: ProductMessage = {
       type: "UPDATED",
       itemType: "PRODUCTS",
       items: [createPimProduct()]
@@ -183,6 +198,31 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
+    expect(bulk).toBeCalledTimes(0);
+    expect(count).toBeCalledTimes(0);
+  });
+
+  it("should do nothing if transform system returns empty array", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
+    transformSystem.mockReturnValue([]);
+
+    const message: SystemMessage = {
+      type: "UPDATED",
+      itemType: "SYSTEMS",
+      items: [createSystem()]
+    };
+    await handleMessage(createEvent(message), createContext());
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledWith(message.items[0]);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
   });
@@ -194,7 +234,7 @@ describe("handleMessage", () => {
     });
     transformProduct.mockReturnValue([createProductVariant()]);
 
-    const message = {
+    const message: ProductMessage = {
       type: "INVALID",
       itemType: "PRODUCTS",
       items: [createPimProduct()]
@@ -206,6 +246,31 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
+    expect(bulk).toBeCalledTimes(0);
+    expect(count).toBeCalledTimes(0);
+  });
+
+  it("should do nothing if transform returns transformed systems but type is invalid", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
+    transformSystem.mockReturnValue([createProductVariant()]);
+
+    const message: SystemMessage = {
+      type: "INVALID",
+      itemType: "SYSTEMS",
+      items: [createSystem()]
+    };
+    await handleMessage(createEvent(message), createContext());
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledWith(message.items[0]);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
   });
@@ -217,7 +282,7 @@ describe("handleMessage", () => {
     });
     const productVariant = createProductVariant();
     transformProduct.mockReturnValue([productVariant]);
-    const message = {
+    const message: ProductMessage = {
       type: "UPDATED",
       itemType: "PRODUCTS",
       items: [createPimProduct()]
@@ -244,6 +309,7 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
@@ -255,6 +321,49 @@ describe("handleMessage", () => {
     expect(count).toBeCalledWith({ index });
   });
 
+  it("should perform a bulk update for approved systems on updated message", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
+    const esSystem = createEsSystem();
+    transformSystem.mockReturnValue([esSystem]);
+    const message: SystemMessage = {
+      type: "UPDATED",
+      itemType: "SYSTEMS",
+      items: [createSystem()]
+    };
+    const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
+    bulk.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledWith(message.items[0]);
+    expect(bulk).toBeCalledWith({
+      index: index,
+      refresh: true,
+      body: [{ index: { _index: index, _id: esSystem.code } }, esSystem]
+    });
+    expect(count).toBeCalledWith({ index });
+  });
+
   it("should perform a bulk delete for check variants on updated message", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
     ping.mockImplementation((args) => {
@@ -262,7 +371,7 @@ describe("handleMessage", () => {
     });
     const productVariant = createProductVariant({ approvalStatus: "check" });
     transformProduct.mockReturnValue([productVariant]);
-    const message = {
+    const message: ProductMessage = {
       type: "UPDATED",
       itemType: "PRODUCTS",
       items: [createPimProduct()]
@@ -289,10 +398,54 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
       body: [{ delete: { _index: index, _id: productVariant.code } }]
+    });
+    expect(count).toBeCalledWith({ index });
+  });
+
+  it("should perform a bulk delete for check systems on updated message", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
+    const esSystem = createEsSystem({ approvalStatus: "check" });
+    transformSystem.mockReturnValue([esSystem]);
+    const message: SystemMessage = {
+      type: "UPDATED",
+      itemType: "SYSTEMS",
+      items: [createSystem()]
+    };
+    const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
+    bulk.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledWith(message.items[0]);
+    expect(bulk).toBeCalledWith({
+      index: index,
+      refresh: true,
+      body: [{ delete: { _index: index, _id: esSystem.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -306,7 +459,7 @@ describe("handleMessage", () => {
       approvalStatus: "unapproved"
     });
     transformProduct.mockReturnValue([productVariant]);
-    const message = {
+    const message: ProductMessage = {
       type: "UPDATED",
       itemType: "PRODUCTS",
       items: [createPimProduct()]
@@ -333,10 +486,56 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
       body: [{ delete: { _index: index, _id: productVariant.code } }]
+    });
+    expect(count).toBeCalledWith({ index });
+  });
+
+  it("should perform a bulk delete for unapproved systems on updated message", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
+    const esSystem = createEsSystem({
+      approvalStatus: "unapproved"
+    });
+    transformSystem.mockReturnValue([esSystem]);
+    const message: SystemMessage = {
+      type: "UPDATED",
+      itemType: "SYSTEMS",
+      items: [createSystem()]
+    };
+    const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
+    bulk.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledWith(message.items[0]);
+    expect(bulk).toBeCalledWith({
+      index: index,
+      refresh: true,
+      body: [{ delete: { _index: index, _id: esSystem.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -348,7 +547,7 @@ describe("handleMessage", () => {
     });
     const productVariant = createProductVariant();
     transformProduct.mockReturnValue([productVariant]);
-    const message = {
+    const message: ProductMessage = {
       type: "DELETED",
       itemType: "PRODUCTS",
       items: [createPimProduct()]
@@ -375,10 +574,54 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
       body: [{ delete: { _index: index, _id: productVariant.code } }]
+    });
+    expect(count).toBeCalledWith({ index });
+  });
+
+  it("should perform a bulk delete for approved systems on delete message", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
+    const esSystem = createEsSystem();
+    transformSystem.mockReturnValue([esSystem]);
+    const message: SystemMessage = {
+      type: "DELETED",
+      itemType: "SYSTEMS",
+      items: [createSystem()]
+    };
+    const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
+    bulk.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledWith(message.items[0]);
+    expect(bulk).toBeCalledWith({
+      index: index,
+      refresh: true,
+      body: [{ delete: { _index: index, _id: esSystem.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -390,7 +633,7 @@ describe("handleMessage", () => {
     });
     const productVariant = createProductVariant({ approvalStatus: "check" });
     transformProduct.mockReturnValue([productVariant]);
-    const message = {
+    const message: ProductMessage = {
       type: "DELETED",
       itemType: "PRODUCTS",
       items: [createPimProduct()]
@@ -417,10 +660,54 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
       body: [{ delete: { _index: index, _id: productVariant.code } }]
+    });
+    expect(count).toBeCalledWith({ index });
+  });
+
+  it("should perform a bulk delete for check systems on deleted message", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
+    const esSystem = createEsSystem({ approvalStatus: "check" });
+    transformSystem.mockReturnValue([esSystem]);
+    const message: SystemMessage = {
+      type: "DELETED",
+      itemType: "SYSTEMS",
+      items: [createSystem()]
+    };
+    const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
+    bulk.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledWith(message.items[0]);
+    expect(bulk).toBeCalledWith({
+      index: index,
+      refresh: true,
+      body: [{ delete: { _index: index, _id: esSystem.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -434,7 +721,7 @@ describe("handleMessage", () => {
       approvalStatus: "unapproved"
     });
     transformProduct.mockReturnValue([productVariant]);
-    const message = {
+    const message: ProductMessage = {
       type: "DELETED",
       itemType: "PRODUCTS",
       items: [createPimProduct()]
@@ -461,10 +748,56 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
       body: [{ delete: { _index: index, _id: productVariant.code } }]
+    });
+    expect(count).toBeCalledWith({ index });
+  });
+
+  it("should perform a bulk delete for unapproved systems on deleted message", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
+    const esSystem = createEsSystem({
+      approvalStatus: "unapproved"
+    });
+    transformSystem.mockReturnValue([esSystem]);
+    const message: SystemMessage = {
+      type: "DELETED",
+      itemType: "SYSTEMS",
+      items: [createSystem()]
+    };
+    const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
+    bulk.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(transformSystem).toBeCalledWith(message.items[0]);
+    expect(bulk).toBeCalledWith({
+      index: index,
+      refresh: true,
+      body: [{ delete: { _index: index, _id: esSystem.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -476,7 +809,7 @@ describe("handleMessage", () => {
     });
     const productVariant = createProductVariant();
     transformProduct.mockReturnValue([productVariant]);
-    const message = {
+    const message: ProductMessage = {
       type: "UPDATED",
       itemType: "PRODUCTS",
       items: [createPimProduct()]
@@ -509,6 +842,7 @@ describe("handleMessage", () => {
     });
     expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
@@ -527,7 +861,7 @@ describe("handleMessage", () => {
     });
     const productVariant = createProductVariant();
     transformProduct.mockReturnValue([productVariant]);
-    const message = {
+    const message: ProductMessage = {
       type: "UPDATED",
       itemType: "PRODUCTS",
       items: [createPimProduct()]

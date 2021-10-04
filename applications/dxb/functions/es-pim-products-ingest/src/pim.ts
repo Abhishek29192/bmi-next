@@ -1,12 +1,46 @@
+export type System = {
+  type: string;
+  approvalStatus: ApprovalStatus;
+  assets: readonly Asset[];
+  categories: readonly Category[];
+  classifications?: readonly Classification[];
+  code: string;
+  images: readonly Image[];
+  longDescription: HTML;
+  name: string;
+  shortDescription: string;
+  systemBenefits?: string[];
+  systemLayers: SystemLayer[];
+  systemReferences: SystemReference[];
+  description: HTML;
+};
+
+export type ApprovalStatus = "approved" | "check" | "unapproved";
+
 type HTML = string;
 
-type AssetAssetType = "ASSEMBLY_INSTRUCTIONS"; // TODO: there are more
+export type AssetAssetType =
+  | "ASSEMBLY_INSTRUCTIONS"
+  | "AWARDS"
+  | "BIM"
+  | "CAD"
+  | "CERTIFICATES"
+  | "DATA_SHEETS"
+  | "GUARANTIES"
+  | "SPECIFICATION"
+  | "WARRANTIES";
+
+type Mime =
+  | "application/octet-stream"
+  | "application/pdf"
+  | "image/jpeg"
+  | "image/png";
 
 export type Asset = {
   allowedToDownload: boolean;
   assetType: AssetAssetType;
   fileSize: number;
-  mime: "application/pdf"; // TODO
+  mime?: Mime;
   name: string;
   realFileName: string; // includes file extension
   url: string;
@@ -32,8 +66,8 @@ export type Category = {
   parentCategoryCode: string;
 };
 
-// TODO: Distinction between ImageAssetType and AssetAssetType might make sense if they're enforced as different in PIM?
-type ImageAssetType = string; // "MASTER_IMAGE"; // TODO: others
+export type ImageMime = "image/jpeg" | "image/png" | "image/tiff";
+
 type ImageFormat =
   | "Product-Hero-Small-Desktop-Tablet"
   | "Product-Hero-Large-Desktop"
@@ -46,26 +80,18 @@ type ImageFormat =
   | "Product-Listing-Card-Mobile"
   | "Web"
   | "Print";
-// Seems like a type of an Asset
+
 export type Image = {
   allowedToDownload: boolean;
-  assetType: ImageAssetType;
+  assetType: string;
   containerId: string;
   fileSize: number;
-  format?: string; //ImageFormat;
-  mime: string; // "image/jpeg"; // TODO
+  format?: ImageFormat;
+  mime: ImageMime;
   name: string;
   realFileName: string; // includes file extension
   url: string;
 };
-
-type ClassificationCode =
-  | "scoringWeightAttributes"
-  | "appearanceAttributes"
-  | "measurements"
-  | "generalInformation"; // TODO: there are more
-
-type ClassificationFeatureCode = string; // Contains namespaces prefix, cannot enumerate
 
 export type FeatureValue = {
   value: string;
@@ -78,20 +104,45 @@ export type FeatureUnit = {
   unitType: string;
 };
 
-export type Feature = {
-  code: ClassificationFeatureCode;
-  featureValues: readonly FeatureValue[];
-  featureUnit?: FeatureUnit;
-  name: string;
-};
-
 export type Classification = {
   code: string; // ClassificationCode;
   features?: Feature[];
   name: string;
 };
 
-export type ApprovalStatus = "approved" | "check" | "unapproved";
+export type Feature = {
+  code: string;
+  featureValues: readonly FeatureValue[];
+  featureUnit?: FeatureUnit;
+  name: string;
+};
+
+type SystemLayerProduct = {
+  code: string;
+};
+
+export type SystemLayer = {
+  addon: boolean;
+  approvalStatus: ApprovalStatus;
+  code: string;
+  layerNumber: number;
+  longDescription: string;
+  optionalProducts?: SystemLayerProduct[];
+  products?: SystemLayerProduct[];
+  shortDescription?: string;
+  type?: string;
+};
+
+export type SystemReferenceTarget = {
+  code: string;
+  name?: string;
+};
+
+export type SystemReference = {
+  referenceType: string;
+  target: SystemReferenceTarget;
+  preselected: boolean;
+};
 
 export type VariantOption = {
   approvalStatus: ApprovalStatus;

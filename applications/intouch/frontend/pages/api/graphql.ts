@@ -1,4 +1,5 @@
 import { Buffer } from "buffer";
+import { v4 } from "uuid";
 import { NextApiRequest, NextApiResponse } from "next";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import { getAuth0Instance } from "../../lib/auth0";
@@ -76,7 +77,9 @@ export const handler = async function (
     }
   }
 
-  req.headers["x-request-market-domain"] = market;
+  req.headers["x-request-market-domain"] = market || "en";
+
+  if (!req.headers["x-request-id"]) req.headers["x-request-id"] = v4();
 
   createProxyMiddleware({
     target: GRAPHQL_URL,
@@ -87,8 +90,15 @@ export const handler = async function (
       "^/api/graphql": ""
     },
     xfwd: true,
-    logLevel: "error"
-  })(req as any, res as any, next);
+    logLevel: "error",
+    onError: (error) => {
+      logger.error("Error proxying the request: ", error);
+    }
+  })(req as any, res as any, (error) => {
+    logger.error("Error proxying the request in the next function: ", error);
+
+    return next;
+  });
 };
 
 export default withLoggerApi(handler);

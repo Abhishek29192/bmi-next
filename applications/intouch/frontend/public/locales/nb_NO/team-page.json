@@ -1,30 +1,46 @@
 {
   "sidePanel": {
     "search": {
-      "label": "Norway - Search for a user",
-      "noResult": "Norway - Member not found"
+      "label": "Search for a user",
+      "noResult": "Member not found"
     },
-    "inviteLabel": "Norway - + Invite team members"
+    "inviteLabel": "+ Invite team members"
   },
   "table": {
-    "title": "Norway - Certification(s)",
-    "type": "Norway - Type",
-    "certification": "Norway - Certification",
-    "validity": "Norway - Validity"
+    "title": "Certification(s)",
+    "type": "Type",
+    "certification": "Sertifisering",
+    "validity": "Validity"
   },
   "invitation": {
     "dialog": {
-      "title": "Norway - Invite members",
+      "title": "Invite members",
       "emails": {
-        "label": "Norway - Recipient’s email address",
-        "helperText": "Norway - Add multiple members by separating each email address with a comma"
+        "label": "Recipient’s email address",
+        "helperText": "Add multiple members by separating each email address with a comma"
       },
       "personalNote": {
-        "label": "Norway - Your message (optional)"
+        "label": "Your message (optional)"
       },
-      "cancel": "Norway - Cancel",
-      "send": "Norway - Send email",
-      "success": "Norway - The invitation has been sent"
+      "cancel": "Avbryt",
+      "send": "Send email",
+      "success": "The invitation has been sent"
     }
-  }
+  },
+  "user_card": {
+    "add_admin": "Assign as Company Admin",
+    "remove_admin": "Remove as Company Admin",
+    "confirm": "Confirm",
+    "cancel": "Avbryt",
+    "role_dialog": {
+      "title": "Change role",
+      "text": "Do you want to change the role?"
+    },
+    "remove_user_dialog": {
+      "title": "Fjern fra selskap",
+      "text": "Do you want to remove this company member?"
+    }
+  },
+  "memberRemoved": "Member succesfully removed",
+  "genericError": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator."
 }
