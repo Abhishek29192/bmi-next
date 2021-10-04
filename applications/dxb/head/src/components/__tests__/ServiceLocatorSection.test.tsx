@@ -951,7 +951,7 @@ describe("ServiceLocatorSection component", () => {
 
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
-      type: "Roofer",
+      type: EntryTypeEnum.ROOFER_TYPE,
       title: "service locator section",
       label: "Main",
       body: null,

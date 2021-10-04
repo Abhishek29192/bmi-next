@@ -2044,12 +2044,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-653 MuiButton-contained buttonStyles-contained-655 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-656"
+                                  class="MuiButton-label buttonStyles-label-730"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -2156,7 +2156,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 <b>
                                   MC: findARoofer.filters.flatRoof
-                                  
                                 </b>
                               </dd>
                             </div>
@@ -2246,12 +2245,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-653 MuiButton-contained buttonStyles-contained-655 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-656"
+                                  class="MuiButton-label buttonStyles-label-730"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -2358,7 +2357,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 <b>
                                   MC: findARoofer.filters.pitchedRoofBitumenRoofs
-                                  
                                 </b>
                               </dd>
                             </div>
@@ -2448,12 +2446,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-653 MuiButton-contained buttonStyles-contained-655 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-656"
+                                  class="MuiButton-label buttonStyles-label-730"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -2560,7 +2558,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 <b>
                                   MC: findARoofer.filters.pitchedRoofTileRoofs
-                                  
                                 </b>
                               </dd>
                             </div>
@@ -2761,12 +2758,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                 class="description"
                               >
                                 <b>
-<<<<<<< HEAD
-                                  MC: findARoofer.filters.flatRoof
-=======
                                   MC: findARoofer.filters.pitchedRoofRoofCoaters
-                                  
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
                                 </b>
                               </dd>
                             </div>
@@ -2814,7 +2806,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-678 TabPanelBox"
+            class="MuiBox-root MuiBox-root-752 TabPanelBox"
           >
             <div
               class="map"
@@ -2921,10 +2913,10 @@ exports[`ServiceLocatorSection component close button 1`] = `
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-799 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-873 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-801 PrivateNotchedOutline-legendNotched-802"
+                    class="PrivateNotchedOutline-legendLabelled-875 PrivateNotchedOutline-legendNotched-876"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -2965,16 +2957,16 @@ exports[`ServiceLocatorSection component close button 1`] = `
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-803 MuiButton-text buttonStyles-text-804 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-877 MuiButton-text buttonStyles-text-878 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-806"
+              class="MuiButton-label buttonStyles-label-880"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-807 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-881 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -3049,175 +3041,15 @@ exports[`ServiceLocatorSection component close button 1`] = `
                       <span
                         class="MuiTab-wrapper"
                       >
-<<<<<<< HEAD
-                        <div
-                          class="scrollbar-container ps"
-                        >
-                          <dl
-                            class="list"
-                          >
-                            <div
-                              class="row, row--cta"
-                            >
-                              <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
-                                tabindex="0"
-                                type="button"
-                              >
-                                <span
-                                  class="MuiButton-label buttonStyles-label-730"
-                                >
-                                  MC: findARoofer.getDirectionsLabel
-                                </span>
-                                <span
-                                  class="MuiTouchRipple-root"
-                                />
-                              </button>
-                            </div>
-                            <div
-                              class="row"
-                            >
-                              <dt
-                                class="term"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root icon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                                  />
-                                </svg>
-                                <span
-                                  class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                >
-                                  MC: global.telephone
-                                </span>
-                              </dt>
-                              <dd
-                                class="description"
-                              >
-                                phone 1
-                              </dd>
-                            </div>
-                            <div
-                              class="row"
-                            >
-                              <dt
-                                class="term"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root icon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-                                  />
-                                </svg>
-                                <span
-                                  class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                >
-                                  MC: global.email
-                                </span>
-                              </dt>
-                              <dd
-                                class="description"
-                              >
-                                test@test.com
-                              </dd>
-                            </div>
-                            <div
-                              class="row"
-                            >
-                              <dt
-                                class="term"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root icon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-                                  />
-                                </svg>
-                                <span
-                                  class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                >
-                                  MC: findARoofer.websiteLabel
-                                </span>
-                              </dt>
-                              <dd
-                                class="description"
-                              >
-                                MC: findARoofer.websiteLabel
-                              </dd>
-                            </div>
-                            <div
-                              class="row"
-                            >
-                              <dt
-                                class="term"
-                              >
-                                <span
-                                  class="MuiTypography-root label Typography MuiTypography-body1"
-                                >
-                                  MC: findARoofer.roofTypeLabel
-                                </span>
-                              </dt>
-                              <dd
-                                class="description"
-                              >
-                                <b>
-                                  MC: findARoofer.filters.pitchedRoofBitumenRoofs
-                                </b>
-                              </dd>
-                            </div>
-                          </dl>
-                          <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
-                          >
-                            roofer summary
-                          </p>
-                          <div
-                            class="ps__rail-x"
-                            style="left: 0px; top: 0px;"
-                          >
-                            <div
-                              class="ps__thumb-x"
-                              style="left: 0px; width: 0px;"
-                              tabindex="0"
-                            />
-                          </div>
-                          <div
-                            class="ps__rail-y"
-                            style="top: 0px; left: 0px;"
-                          >
-                            <div
-                              class="ps__thumb-y"
-                              style="top: 0px; height: 0px;"
-                              tabindex="0"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-=======
                         MC: findARoofer.mapLabel
                       </span>
                       <span
                         class="MuiTouchRipple-root"
                       />
                     </button>
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-823 PrivateTabIndicator-colorPrimary-824 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-897 PrivateTabIndicator-colorPrimary-898 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -3233,7 +3065,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-827 TabPanelBox"
+            class="MuiBox-root MuiBox-root-901 TabPanelBox"
           >
             <div
               class="list"
@@ -3292,20 +3124,12 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               class="row, row--cta"
                             >
                               <button
-<<<<<<< HEAD
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
-=======
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-803 MuiButton-contained buttonStyles-contained-805 cta-button MuiButton-containedPrimary"
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-877 MuiButton-contained buttonStyles-contained-879 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-<<<<<<< HEAD
-                                  class="MuiButton-label buttonStyles-label-730"
-=======
-                                  class="MuiButton-label buttonStyles-label-806"
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
+                                  class="MuiButton-label buttonStyles-label-880"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -3395,29 +3219,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                                 MC: findARoofer.websiteLabel
                               </dd>
                             </div>
-<<<<<<< HEAD
-                            <div
-                              class="row"
-                            >
-                              <dt
-                                class="term"
-                              >
-                                <span
-                                  class="MuiTypography-root label Typography MuiTypography-body1"
-                                >
-                                  MC: findARoofer.roofTypeLabel
-                                </span>
-                              </dt>
-                              <dd
-                                class="description"
-                              >
-                                <b>
-                                  MC: findARoofer.filters.pitchedRoofTileRoofs
-                                </b>
-                              </dd>
-                            </div>
-=======
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
                           </dl>
                           <p
                             class="MuiTypography-root Typography MuiTypography-body1"
@@ -3504,20 +3305,12 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               class="row, row--cta"
                             >
                               <button
-<<<<<<< HEAD
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
-=======
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-803 MuiButton-contained buttonStyles-contained-805 cta-button MuiButton-containedPrimary"
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-877 MuiButton-contained buttonStyles-contained-879 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-<<<<<<< HEAD
-                                  class="MuiButton-label buttonStyles-label-730"
-=======
-                                  class="MuiButton-label buttonStyles-label-806"
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
+                                  class="MuiButton-label buttonStyles-label-880"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -3607,29 +3400,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                                 MC: findARoofer.websiteLabel
                               </dd>
                             </div>
-<<<<<<< HEAD
-                            <div
-                              class="row"
-                            >
-                              <dt
-                                class="term"
-                              >
-                                <span
-                                  class="MuiTypography-root label Typography MuiTypography-body1"
-                                >
-                                  MC: findARoofer.roofTypeLabel
-                                </span>
-                              </dt>
-                              <dd
-                                class="description"
-                              >
-                                <b>
-                                  MC: findARoofer.filters.pitchedRoofRoofCoaters
-                                </b>
-                              </dd>
-                            </div>
-=======
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
                           </dl>
                           <p
                             class="MuiTypography-root Typography MuiTypography-body1"
@@ -3674,11 +3444,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
           role="tabpanel"
         >
           <div
-<<<<<<< HEAD
-            class="MuiBox-root MuiBox-root-752 TabPanelBox"
-=======
-            class="MuiBox-root MuiBox-root-828 TabPanelBox"
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
+            class="MuiBox-root MuiBox-root-902 TabPanelBox"
           >
             <div
               class="map"
@@ -4712,24 +4478,6 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                             class="list"
                           >
                             <div
-<<<<<<< HEAD
-=======
-                              class="row, row--cta"
-                            >
-                              <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-567 MuiButton-contained buttonStyles-contained-569 cta-button MuiButton-containedPrimary"
-                                tabindex="0"
-                                type="button"
-                              >
-                                <span
-                                  class="MuiButton-label buttonStyles-label-570"
-                                >
-                                  MC: findARoofer.getDirectionsLabel
-                                </span>
-                              </button>
-                            </div>
-                            <div
->>>>>>> 2432aeaa9 (refactor: rebase update snapshots)
                               class="row"
                             >
                               <dt
@@ -4796,9 +4544,6 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
-                                <span
-                                  class="MuiTouchRipple-root"
-                                />
                               </button>
                             </div>
                           </dl>
@@ -5228,9 +4973,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
-                                <span
-                                  class="MuiTouchRipple-root"
-                                />
                               </button>
                             </div>
                             <div
@@ -14712,7 +14454,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                       >
                         <button
                           aria-label="MC: global.close"
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-548 iconButtonStyles-medium-554 iconButtonStyles-text-550 product-details-card__close-button"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-596 iconButtonStyles-medium-602 iconButtonStyles-text-598 product-details-card__close-button"
                           tabindex="0"
                           type="button"
                         >
@@ -14777,12 +14519,12 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-537 MuiButton-contained buttonStyles-contained-539 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-585 MuiButton-contained buttonStyles-contained-587 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-540"
+                                  class="MuiButton-label buttonStyles-label-588"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
