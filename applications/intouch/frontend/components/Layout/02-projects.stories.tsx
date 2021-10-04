@@ -130,6 +130,7 @@ const uploadedFiles = new Map<string, Evidence[]>([
     "Ventilation systems",
     [
       {
+        id: 1,
         name: `Ut enim ad minim veniam, quis nostrud exercitation ullamco
   laboris nisi ut aliquip ex ea commodo consequat.`
       }
@@ -139,6 +140,7 @@ const uploadedFiles = new Map<string, Evidence[]>([
     "Roof corners",
     [
       {
+        id: 2,
         name: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
       eget.`
@@ -149,6 +151,7 @@ const uploadedFiles = new Map<string, Evidence[]>([
     "Chimney",
     [
       {
+        id: 3,
         name: `Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt
@@ -160,6 +163,7 @@ const uploadedFiles = new Map<string, Evidence[]>([
     "Receipt of purchase",
     [
       {
+        id: 4,
         name: `Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt
@@ -171,6 +175,7 @@ const uploadedFiles = new Map<string, Evidence[]>([
     "Supporting files",
     [
       {
+        id: 5,
         name: `Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt

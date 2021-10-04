@@ -1856,6 +1856,62 @@ export type ContentfulEvidenceCategoriesQueryResult = Apollo.QueryResult<
   OperationTypes.ContentfulEvidenceCategoriesQuery,
   OperationTypes.ContentfulEvidenceCategoriesQueryVariables
 >;
+export const DeleteEvidenceItemDocument = gql`
+  mutation deleteEvidenceItem($input: DeleteEvidenceItemInput!) {
+    deleteEvidenceItem(input: $input) {
+      evidenceItem {
+        id
+        name
+        attachment
+        guaranteeId
+        evidenceCategoryType
+      }
+    }
+  }
+`;
+export type DeleteEvidenceItemMutationFn = Apollo.MutationFunction<
+  OperationTypes.DeleteEvidenceItemMutation,
+  OperationTypes.DeleteEvidenceItemMutationVariables
+>;
+
+/**
+ * __useDeleteEvidenceItemMutation__
+ *
+ * To run a mutation, you first call `useDeleteEvidenceItemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteEvidenceItemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteEvidenceItemMutation, { data, loading, error }] = useDeleteEvidenceItemMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useDeleteEvidenceItemMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.DeleteEvidenceItemMutation,
+    OperationTypes.DeleteEvidenceItemMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.DeleteEvidenceItemMutation,
+    OperationTypes.DeleteEvidenceItemMutationVariables
+  >(DeleteEvidenceItemDocument, options);
+}
+export type DeleteEvidenceItemMutationHookResult = ReturnType<
+  typeof useDeleteEvidenceItemMutation
+>;
+export type DeleteEvidenceItemMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteEvidenceItemMutation>;
+export type DeleteEvidenceItemMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.DeleteEvidenceItemMutation,
+  OperationTypes.DeleteEvidenceItemMutationVariables
+>;
 export const GetGuaranteeTemplatesDocument = gql`
   query getGuaranteeTemplates(
     $technology: String!

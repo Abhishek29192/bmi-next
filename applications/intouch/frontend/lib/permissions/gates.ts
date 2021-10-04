@@ -129,6 +129,12 @@ const gates = {
       MARKET_ADMIN: false,
       COMPANY_ADMIN: true,
       INSTALLER: false
+    },
+    deleteEvidence: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
     }
   },
   page: {
