@@ -188,12 +188,12 @@ DROP TABLE IF EXISTS address CASCADE;
 
 CREATE TABLE address (
   id serial PRIMARY KEY,
-  first_line text NOT NULL,
+  first_line text,
   second_line text,
   town text,
   region text,
   country text,
-  postcode text NOT NULL,
+  postcode text,
   coordinates point,
   migration_id text,
   created_at timestamp NOT NULL DEFAULT now(),
