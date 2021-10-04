@@ -7,8 +7,8 @@ type GTM = {
     "data-gtm"?: string;
   };
   gtm?: {
-    event?: string;
     id: string;
+    event?: string;
     label?: string;
     action?: string;
   };
@@ -17,7 +17,7 @@ type GTM = {
 type Map<P> = Partial<Record<keyof GTM["gtm"], string>>;
 
 declare let window: Window & {
-  dataLayer: object[];
+  dataLayer: { push: (data: GTM["gtm"]) => {} };
 };
 
 type Context = {
@@ -27,7 +27,8 @@ type Context = {
 export const GTMContext = createContext<Context>({ idMap: {} });
 
 export function pushToDataLayer(dataGtm: GTM["gtm"]) {
-  window.dataLayer && window.dataLayer.push(dataGtm);
+  window.dataLayer &&
+    window.dataLayer.push({ ...dataGtm, event: dataGtm.event ?? "gtm.click" });
 }
 
 export default function withGTM<P>(
