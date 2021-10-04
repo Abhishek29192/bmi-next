@@ -13,6 +13,11 @@ import Link, { Data as LinkData } from "../../components/Link";
 import Image, { Data as ImageData } from "../../components/Image";
 import withGTM from "../../utils/google-tag-manager";
 import { useSiteContext } from "../../components/Site";
+import {
+  SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
+  SYSTEM_CONFIG_QUERY_KEY_REFERER,
+  SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
+} from "../../constants/queryConstants";
 import styles from "./styles/leadBlockSection.module.scss";
 import { Category, Classification, Feature } from "./types";
 
@@ -27,10 +32,6 @@ type Props = {
   cta?: LinkData;
   uniqueSellingPropositions?: Feature;
 };
-
-const SYSTEM_CONFIG_QUERY_KEY = "selected_system";
-const PREV_PAGE_KEY = "prev_page";
-const REFERER_KEY = "referer";
 
 const getBrandLogo = (categories: Category[]): null | ImageData => {
   const brandCategory = categories.find((c) => c.categoryType === "Brand");
@@ -89,9 +90,9 @@ const LeadBlockSection = ({
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const systemId = params.get(SYSTEM_CONFIG_QUERY_KEY);
-    const prevPagePath = params.get(PREV_PAGE_KEY);
-    const referer = params.get(REFERER_KEY);
+    const systemId = params.get(SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM);
+    const prevPagePath = params.get(SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE);
+    const referer = params.get(SYSTEM_CONFIG_QUERY_KEY_REFERER);
 
     setSelectedSystemId(systemId);
     setPrevPagePath(prevPagePath);

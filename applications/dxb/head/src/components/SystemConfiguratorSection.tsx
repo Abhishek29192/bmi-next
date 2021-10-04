@@ -18,7 +18,8 @@ import { useLocation, navigate } from "@reach/router";
 import { SystemCard } from "../components/RelatedSystems";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
-import { pushToDataLayer } from "../utils/google-tag-manager";
+import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { SystemDetails } from "../templates/systemDetails/types";
@@ -358,7 +359,6 @@ type SystemConfiguratorSectionState = {
   error: Error | null;
 };
 
-const SYSTEM_CONFIG_QUERY_KEY = "referer";
 const SYSTEM_CONFIG_STORAGE_KEY = "SystemConfiguratorBlock";
 const VALID_REFERER = "sys_details";
 
@@ -372,7 +372,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
   // see useStickyState hook
   useLayoutEffect(() => {
     const urlReferer = new URLSearchParams(location.search).get(
-      SYSTEM_CONFIG_QUERY_KEY
+      SYSTEM_CONFIG_QUERY_KEY_REFERER
     );
     const storedValues = storage.local.getItem(SYSTEM_CONFIG_STORAGE_KEY);
     setReferer(urlReferer);

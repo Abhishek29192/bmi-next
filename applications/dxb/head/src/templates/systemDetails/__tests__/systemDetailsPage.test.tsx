@@ -257,3 +257,30 @@ describe("SystemDetailsPage template component", () => {
     });
   });
 });
+
+describe("gtm on landing on sdp from sc", (): void => {
+  it("run pushtogtm data layer if selected_system in query param", (): void => {
+    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
+    process.env.SPACE_MARKET_CODE = "no";
+    const { container } = renderWithRouter(
+      <Component
+        data={{
+          contentfulSite: createMockSiteData(),
+          shareWidget: null,
+          dataJson: systemDetailsMockData,
+          allContentfulAssetType
+        }}
+        pageContext={{
+          systemPageId,
+          siteId
+        }}
+      />,
+      {
+        route:
+          "http://localhost:8000/no/system-details-page?selected_system=Recomended_System1&prev_page=system-configurator-page"
+      }
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+});

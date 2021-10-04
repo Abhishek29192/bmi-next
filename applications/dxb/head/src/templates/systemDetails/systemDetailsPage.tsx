@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { graphql } from "gatsby";
 import { compact, first } from "lodash";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
+import { useLocation } from "@reach/router";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
@@ -12,6 +13,11 @@ import { getBimIframeUrl } from "../../components/BimIframe";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 import RelatedSystems from "../../components/RelatedSystems";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import { pushToDataLayer } from "../../utils/google-tag-manager";
+import {
+  SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
+  SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
+} from "../../constants/queryConstants";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import {
@@ -79,18 +85,35 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     systemBenefits,
     systemLayers
   } = dataJson;
+  const location = useLocation();
+
+  useEffect(() => {
+    const queryParamsFromUrl = new URLSearchParams(location.search);
+    const selectedSystem = queryParamsFromUrl.get(
+      SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
+    );
+    const prevPage = queryParamsFromUrl.get(SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE);
+    prevPage &&
+      selectedSystem &&
+      pushToDataLayer({
+        id: "system-configurator01-results",
+        label: name,
+        action: location.href?.toString()
+      });
+  }, [location, name]);
+
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Assets[] = useMemo(() => {
     return assets.filter(
       ({ assetType }) =>
         assetType === "GUARANTIES" || assetType === "WARRANTIES"
     );
-  }, []);
+  }, [assets]);
   const awardsAndCertificates: Assets[] = useMemo(() => {
     return assets.filter(
       ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
     );
-  }, []);
+  }, [assets]);
   const keyFeatures: Feature = useMemo(() => {
     return first(
       compact(
@@ -102,10 +125,10 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         })
       )
     );
-  }, []);
+  }, [classifications]);
   const specification: Assets = useMemo(() => {
     return assets.find(({ assetType }) => assetType === "SPECIFICATION");
-  }, []);
+  }, [assets]);
   const technicalSpecClassifications: Classification[] = useMemo(() => {
     return classifications
       .filter(
@@ -127,7 +150,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       })
       .filter(({ features }) => features.length > 0)
       .sort((a, b) => (a.name < b.name ? -1 : 1));
-  }, []);
+  }, [classifications]);
   const uniqueSellingPropositions: Feature = useMemo(() => {
     return first(
       compact(
@@ -141,7 +164,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         })
       )
     );
-  }, []);
+  }, [classifications]);
   const brandName = useMemo(
     () =>
       (categories || []).find(({ categoryType }) => {
@@ -157,7 +180,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       description: resources?.sdpBimDescription,
       bimIframeUrl
     };
-  }, []);
+  }, [assets, bimIframeUrl, resources?.sdpBimDescription]);
   const documentsAndDownloads: DocumentData[] = useMemo(() => {
     return assets
       .filter(
@@ -191,7 +214,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
           }
         );
       });
-  }, []);
+  }, [assets, allContentfulAssetType.nodes]);
 
   const breadcrumbs = (
     <Section backgroundColor="pearl" isSlim>
