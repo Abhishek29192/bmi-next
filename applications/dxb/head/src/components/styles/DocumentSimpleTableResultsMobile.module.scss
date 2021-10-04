@@ -2,8 +2,12 @@
 
 .DocumentSimpleTableResultsMobile {
   .list-item {
-    padding: 20px 0;
+    padding: 20px 0 12px;
     position: relative;
+    min-height: 126px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     &:nth-child(2n + 1)::before {
       content: "";
       display: block;
@@ -19,6 +23,7 @@
     line-height: 31px;
     color: $color-slate;
     padding-top: 5px;
+    font-family: "Effra Medium";
   }
   .document-type {
     color: $color-slate;
@@ -26,7 +31,6 @@
   }
   .list-title-row {
     display: flex;
-    margin-bottom: 12px;
     position: relative;
   }
   .list-download-row {
