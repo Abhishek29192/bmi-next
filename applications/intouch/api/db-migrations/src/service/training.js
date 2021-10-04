@@ -14,8 +14,10 @@ const getFile = (file) =>
     "utf8"
   );
 
-const importTrainingDb = async ({ password, host }) => {
+const importTrainingDb = async ({ password, host }, query) => {
   const db = getFile("training.sql");
+  const dbData = getFile("training.data.sql");
+  const contraints = getFile("training.contraints.sql");
   const procedure = getFile("procedure.sql");
 
   const PG_PORT = 5432;
@@ -50,6 +52,16 @@ const importTrainingDb = async ({ password, host }) => {
   console.log("Importing procedure");
   await pgClient.query(procedure);
   console.log("Procedure imported");
+
+  if (query.importData === "true") {
+    console.log("Importing data");
+    await pgClient.query(dbData);
+    console.log("Data imported");
+  }
+
+  console.log("Importing contraints");
+  await pgClient.query(contraints);
+  console.log("Contraints imported");
 
   console.log("************ Training database imported ******************");
 };
