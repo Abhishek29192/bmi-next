@@ -19,6 +19,7 @@ export const mockGuarantee: Guarantee = {
   expiryDate: "2050-12-18T12:00:00",
   evidenceItems: emptyNodes,
   bmiReferenceId: "61715-062",
+  languageCode: "EN",
   productByProductBmiRef: mockProduct,
   createdAt: Date.now(),
   updatedAt: Date.now()
