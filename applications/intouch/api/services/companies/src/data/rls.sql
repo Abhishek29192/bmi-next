@@ -270,13 +270,12 @@ DROP POLICY IF EXISTS policy_super_admin ON evidence_item;
 DROP POLICY IF EXISTS policy_market_admin ON evidence_item;
 DROP POLICY IF EXISTS policy_company_admin ON evidence_item;
 DROP POLICY IF EXISTS policy_installer_select ON evidence_item;
-CREATE POLICY policy_super_admin ON evidence_item FOR ALL TO super_admin USING (
-  current_company() IN (SELECT company_id FROM project WHERE project.id = project_id)
-)
-WITH CHECK (
-  current_company() IN (SELECT company_id FROM project WHERE project.id = project_id)
+CREATE POLICY policy_super_admin ON evidence_item FOR ALL TO super_admin 
+USING (
+  current_market() = (
+    SELECT market_id FROM company JOIN project ON project.company_id = company.id WHERE project.id = project_id
+  )
 );
-
 CREATE POLICY policy_company_admin ON evidence_item FOR ALL TO company_admin 
   USING (
      current_company() IN (SELECT company_id FROM project WHERE project.id = project_id)
@@ -284,7 +283,6 @@ CREATE POLICY policy_company_admin ON evidence_item FOR ALL TO company_admin
   WITH CHECK (
     current_company() IN (SELECT company_id FROM project WHERE project.id = project_id)
   );
-
 CREATE POLICY policy_installer_select ON evidence_item FOR SELECT TO installer USING (
   current_company() = (SELECT company_id FROM project WHERE project.id = project_id)
 );

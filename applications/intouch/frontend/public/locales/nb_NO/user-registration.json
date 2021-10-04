@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "title": "Fullfør registrering",
+    "form": {
+      "firstName": "Fornavn",
+      "lastName": "Etternavn"
+    }
+  }
+}

@@ -193,9 +193,9 @@ export default class AccountService {
   apolloClient: ApolloClient<NormalizedCacheObject>;
 
   constructor(logger, apolloClient, session) {
-    this.logger = logger("account");
     this.apolloClient = apolloClient;
     this.session = session;
+    this.logger = logger("account");
   }
 
   createDoceboSSOUrl = async (req, session): Promise<string> => {

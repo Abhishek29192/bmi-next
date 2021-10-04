@@ -10,17 +10,21 @@ import {
   CustomEvidenceCategoryKey
 } from "@bmi/intouch-api-types";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+import DeleteIcon from "@material-ui/icons/Delete";
 import {
   useAddEvidencesMutation,
   GetProjectDocument,
-  useContentfulEvidenceCategoriesLazyQuery
+  useContentfulEvidenceCategoriesLazyQuery,
+  useDeleteEvidenceItemMutation
 } from "../../../graphql/generated/hooks";
 import styles from "./styles.module.scss";
 import { AddEvidenceDialog, EvidenceCategory } from "./AddEvidenceDialog";
 
 export type Evidence = {
+  id: number;
   name: string;
   url?: string;
+  canEvidenceDelete?: boolean;
 };
 
 export type UploadsTabProps = {
@@ -67,6 +71,17 @@ export const UploadsTab = ({
     }
   });
 
+  const [deleteEvidence] = useDeleteEvidenceItemMutation({
+    refetchQueries: [
+      {
+        query: GetProjectDocument,
+        variables: {
+          projectId
+        }
+      }
+    ]
+  });
+
   const evidenceDialogConfirmHandler = async (
     evidenceCategoryType: EvidenceCategoryType,
     customEvidenceCategoryKey: string,
@@ -93,6 +108,16 @@ export const UploadsTab = ({
       });
     }
     setEvidenceDialogOpen(false);
+  };
+
+  const onDeleteClickHandler = async (id: number) => {
+    deleteEvidence({
+      variables: {
+        input: {
+          id
+        }
+      }
+    });
   };
 
   useEffect(() => {
@@ -141,8 +166,24 @@ export const UploadsTab = ({
                                 {value.name}
                               </a>
                             </Table.Cell>
-                            <Table.Cell>
-                              <VisibilityIcon />
+                            <Table.Cell style={{ textAlign: "right" }}>
+                              <Button
+                                data-testid="upload-item-view"
+                                variant="text"
+                              >
+                                <VisibilityIcon color="disabled" />
+                              </Button>
+                              {value.canEvidenceDelete && (
+                                <Button
+                                  data-testid="upload-item-delete"
+                                  variant="text"
+                                  onClick={() => {
+                                    onDeleteClickHandler(value.id);
+                                  }}
+                                >
+                                  <DeleteIcon color="primary" />
+                                </Button>
+                              )}
                             </Table.Cell>
                           </Table.Row>
                         ))}
@@ -188,6 +229,19 @@ export const GET_CONTENTFUL_EVIDENCE_CATEGORIES = gql`
         name
         referenceCode
         minimumUploads
+      }
+    }
+  }
+`;
+export const DELETE_PROJECT_EVIDENCE = gql`
+  mutation deleteEvidenceItem($input: DeleteEvidenceItemInput!) {
+    deleteEvidenceItem(input: $input) {
+      evidenceItem {
+        id
+        name
+        attachment
+        guaranteeId
+        evidenceCategoryType
       }
     }
   }

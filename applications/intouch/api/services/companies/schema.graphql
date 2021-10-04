@@ -2951,7 +2951,7 @@ type Address implements Node {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -2976,7 +2976,7 @@ type Address implements Node {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -8194,7 +8194,7 @@ input AddressInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -8219,7 +8219,7 @@ input AddressInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -13671,7 +13671,7 @@ input ProjectBuildingOwnerAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -13696,7 +13696,7 @@ input ProjectBuildingOwnerAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -21872,7 +21872,7 @@ input ProjectSiteAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -21897,7 +21897,7 @@ input ProjectSiteAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -23285,7 +23285,7 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -23310,7 +23310,7 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -23401,7 +23401,7 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -23426,7 +23426,7 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world

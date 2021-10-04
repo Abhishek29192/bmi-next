@@ -22,7 +22,7 @@ export const SideBarLink = ({ href, icon, label }: SideBarLinkProps) => (
 );
 
 export const Sidebar = () => {
-  const { t } = useTranslation("navigation");
+  const { t } = useTranslation("common");
   const { account } = useAccountContext();
 
   const links = useMemo(() => getSidebarLinks(account, t), [account, t]);

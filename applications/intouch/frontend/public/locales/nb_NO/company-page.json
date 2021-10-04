@@ -1,36 +1,113 @@
 {
-  "Company description": "Norway - Company Description",
-  "About Us": "Norway - About Us",
-  "Registered Details": "Norway - Registered Details",
-  "Registered Name": "Norway - Registered Name",
-  "Registered Address": "Norway - Registered Address",
-  "Main office address": "Norway - Main office address",
-  "Phone": "Norway - Phone",
-  "supportTitle": "Norway - Roofpro Support",
+  "titleMember": "Bedrift",
+  "titleAdmin": "Bedrifter",
+  "details": {
+    "title": "Firmadetaljer",
+    "name": "Firmanavn",
+    "aboutUs": "Om oss",
+    "tradingAddress": "Adresse til hovedkontoret",
+    "owner": "Bedriftseier",
+    "contactDetails": "Kontaktopplysninger",
+    "registeredDetails": "Registrerte detaljer",
+    "referenceNumber": "Firmaets referansenummer",
+    "registeredAddress": "Registrert adresse",
+    "taxNumber": "Bedriftens VAT-nummer",
+    "phone": "Telefon"
+  },
+  "noCompanies": "This market has no companies yet",
+  "search": {
+    "inputLabel": "Search for a company",
+    "profileComplete": "Profile complete",
+    "profileIncomplete": "Profile incomplete"
+  },
+  "supportTitle": "Kontakt BMI RoofPro -teamet",
   "incompleteProfile": {
-    "warning": "Norway - In order to take part of the BMI Contract Locator please provide the required information listed below.",
-    "phone": "Norway - Phone",
-    "email": "Norway - Email",
-    "description": "Norway - Description",
-    "address": "Norway - Main office address",
-    "logo": "Norway - Logo",
-    "closeAlertAccessibilityLabel": "Norway - Close Alert"
+    "fields": {
+      "phone": "Telefon",
+      "publicEmail": "Email",
+      "aboutUs": "Beskrivelse",
+      "tradingAddress": "Adresse til hovedkontoret",
+      "logo": "Logo"
+    },
+    "warning": "For å ta del av BMI Finn din takpartner, vennligst oppgi nødvendig informasjon som er oppført nedenfor.",
+    "closeAlertAccessibilityLabel": "Lukk"
   },
   "businessType": {
-    "CONTRACTOR": "Norway - Contractor",
-    "ARCHITECT": "Norway - Architect",
-    "MERCHANT": "Norway - Merchant",
-    "CORP_DEVELOPER": "Norway - Developer"
+    "CONTRACTOR": "Entreprenør",
+    "ARCHITECT": "Arkitekt",
+    "MERCHANT": "Kjøpmann",
+    "CORP_DEVELOPER": "Utvikler"
   },
-  "companyOperations": "Norway - Operation Type",
-  "companyOperationsSuffix": "Norway - roofing",
+  "companyOperations": "Operasjonstype",
+  "companyOperationsSuffix": "Taktype",
   "operationTypes": {
-    "FLAT": "Norway - flat",
-    "PITCHED": "Norway - pitched",
-    "SOLAR": "Norway - solar",
-    "BITUMEN": "Norway - bitumen",
-    "TILE": "Norway - tile",
-    "COATER": "Norway - coater",
-    "GREEN": "Norway - green"
+    "FLAT": "Flatt tak",
+    "PITCHED": "Skråtak",
+    "SOLAR": "Solar PV tak",
+    "BITUMEN": "bitumen",
+    "TILE": "Flis",
+    "COATER": "Takmålning",
+    "GREEN": "Grønn"
+  },
+  "register_dialog": {
+    "title": "Registrer"
+  },
+  "edit_dialog": {
+    "title": "Registrerte detaljer",
+    "sections": {
+      "registered_details": "Registrerte detaljer",
+      "trading_address": "Handelsadresse",
+      "trading_address_fields_heading": "Kontaktopplysninger",
+      "trading_address_description": "Vennligst oppgi din handelsadresse for å vises på BMIGroup.com 'Finn din takpartner' lokalisator for at bygningseiere kan kontakte deg om dine tjenester",
+      "contact_details": "Kontaktopplysninger",
+      "owner_details": "Bedriftseier detaljer"
+    },
+    "form": {
+      "fields": {
+        "name": "Registrert navn",
+        "registeredAddress": {
+          "firstLine": "Adresse linje 1",
+          "secondLine": "Adresse linje 2",
+          "town": "By",
+          "postcode": "Postnummer/ Sted",
+          "region": "Område",
+          "country": "Land"
+        },
+        "tradingAddress": {
+          "autocomplete": "Postnummer, by eller gate",
+          "firstLine": "Adresse linje 1",
+          "secondLine": "Adresse linje 2",
+          "town": "By",
+          "postcode": "Postnummer/ Sted",
+          "region": "Område",
+          "country": "Land"
+        },
+        "logo": {
+          "label": "Logo",
+          "alt_text": "Firma logo",
+          "buttons": {
+            "upload": "Last opp nytt bilde",
+            "remove": "Fjern"
+          },
+          "fileTypesMessage": "Du kan laste opp jpg-, gif- eller png -filer.",
+          "fileSizeMessage": "Maks filstørrelse 3 mb."
+        },
+        "taxNumber": "Bedriftens VAT-nummer",
+        "businessType": "Selskapstype",
+        "operationTypes": "Operasjonstyper",
+        "tier": "Nivå",
+        "aboutUs": "Om oss (valgfri)",
+        "phone": "Telefon (valgfri)",
+        "website": "Firma nettside (valgfri)",
+        "facebook": "Facebook profil (valgfri)",
+        "publicEmail": "E-mail adresse (valgfri)",
+        "linkedIn": "Linkedin-profil (valgfri)",
+        "ownerPhone": "Telefon (valgfri)",
+        "ownerEmail": "E-mail adresse (valgfri)"
+      },
+      "actions": {
+        "submit": "Lagre og lukk"
+      }
+    }
   }
 }

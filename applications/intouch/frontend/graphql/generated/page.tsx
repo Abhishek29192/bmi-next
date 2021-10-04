@@ -574,17 +574,18 @@ export const ssrGetMediaFolders = {
 
   usePage: useGetMediaFolders
 };
-export async function getServerPageGetMediaItemById(
+export async function getServerPageGetMediaFolderContents(
   options: Omit<
-    Apollo.QueryOptions<OperationTypes.GetMediaItemByIdQueryVariables>,
+    Apollo.QueryOptions<OperationTypes.GetMediaFolderContentsQueryVariables>,
     "query"
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data = await apolloClient.query<OperationTypes.GetMediaItemByIdQuery>({
-    ...options,
-    query: Operations.GetMediaItemByIdDocument
-  });
+  const data =
+    await apolloClient.query<OperationTypes.GetMediaFolderContentsQuery>({
+      ...options,
+      query: Operations.GetMediaFolderContentsDocument
+    });
 
   const apolloState = apolloClient.cache.extract();
 
@@ -596,26 +597,26 @@ export async function getServerPageGetMediaItemById(
     }
   };
 }
-export const useGetMediaItemById = (
+export const useGetMediaFolderContents = (
   optionsFunc?: (
     router: NextRouter
   ) => QueryHookOptions<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
   >
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.GetMediaItemByIdDocument, options);
+  return useQuery(Operations.GetMediaFolderContentsDocument, options);
 };
-export type PageGetMediaItemByIdComp = React.FC<{
-  data?: OperationTypes.GetMediaItemByIdQuery;
+export type PageGetMediaFolderContentsComp = React.FC<{
+  data?: OperationTypes.GetMediaFolderContentsQuery;
   error?: Apollo.ApolloError;
 }>;
-export const ssrGetMediaItemById = {
-  getServerPage: getServerPageGetMediaItemById,
+export const ssrGetMediaFolderContents = {
+  getServerPage: getServerPageGetMediaFolderContents,
 
-  usePage: useGetMediaItemById
+  usePage: useGetMediaFolderContents
 };
 export async function getServerPageAccountInfoByEmail(
   options: Omit<

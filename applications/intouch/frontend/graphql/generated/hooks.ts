@@ -1856,6 +1856,62 @@ export type ContentfulEvidenceCategoriesQueryResult = Apollo.QueryResult<
   OperationTypes.ContentfulEvidenceCategoriesQuery,
   OperationTypes.ContentfulEvidenceCategoriesQueryVariables
 >;
+export const DeleteEvidenceItemDocument = gql`
+  mutation deleteEvidenceItem($input: DeleteEvidenceItemInput!) {
+    deleteEvidenceItem(input: $input) {
+      evidenceItem {
+        id
+        name
+        attachment
+        guaranteeId
+        evidenceCategoryType
+      }
+    }
+  }
+`;
+export type DeleteEvidenceItemMutationFn = Apollo.MutationFunction<
+  OperationTypes.DeleteEvidenceItemMutation,
+  OperationTypes.DeleteEvidenceItemMutationVariables
+>;
+
+/**
+ * __useDeleteEvidenceItemMutation__
+ *
+ * To run a mutation, you first call `useDeleteEvidenceItemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteEvidenceItemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteEvidenceItemMutation, { data, loading, error }] = useDeleteEvidenceItemMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useDeleteEvidenceItemMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.DeleteEvidenceItemMutation,
+    OperationTypes.DeleteEvidenceItemMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.DeleteEvidenceItemMutation,
+    OperationTypes.DeleteEvidenceItemMutationVariables
+  >(DeleteEvidenceItemDocument, options);
+}
+export type DeleteEvidenceItemMutationHookResult = ReturnType<
+  typeof useDeleteEvidenceItemMutation
+>;
+export type DeleteEvidenceItemMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteEvidenceItemMutation>;
+export type DeleteEvidenceItemMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.DeleteEvidenceItemMutation,
+  OperationTypes.DeleteEvidenceItemMutationVariables
+>;
 export const GetGuaranteeTemplatesDocument = gql`
   query getGuaranteeTemplates(
     $technology: String!
@@ -2730,6 +2786,7 @@ export const GetMediaFoldersDocument = gql`
       items {
         mediaLibraryRootCollection {
           items {
+            __typename
             sys {
               id
             }
@@ -2741,6 +2798,7 @@ export const GetMediaFoldersDocument = gql`
     mediaFolderCollection {
       total
       items {
+        __typename
         sys {
           id
         }
@@ -2818,10 +2876,11 @@ export type GetMediaFoldersQueryResult = Apollo.QueryResult<
   OperationTypes.GetMediaFoldersQuery,
   OperationTypes.GetMediaFoldersQueryVariables
 >;
-export const GetMediaItemByIdDocument = gql`
-  query getMediaItemById($mediaItemId: String!) {
-    mediaFolderCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
+export const GetMediaFolderContentsDocument = gql`
+  query getMediaFolderContents($mediaFolderId: String!) {
+    mediaFolderCollection(where: { sys: { id: $mediaFolderId } }, limit: 1) {
       items {
+        __typename
         sys {
           id
         }
@@ -2830,18 +2889,7 @@ export const GetMediaItemByIdDocument = gql`
           total
           items {
             ... on MediaTool {
-              __typename
-              sys {
-                id
-              }
-              name
-              thumbnail {
-                ...ImageFragment
-              }
-              media {
-                ...ImageFragment
-              }
-              url
+              ...MediaToolDetails
             }
             ... on MediaFolder {
               __typename
@@ -2854,74 +2902,59 @@ export const GetMediaItemByIdDocument = gql`
         }
       }
     }
-    mediaToolCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
-      items {
-        sys {
-          id
-        }
-        name
-        media {
-          ...ImageFragment
-        }
-        thumbnail {
-          ...ImageFragment
-        }
-        url
-      }
-    }
   }
-  ${ImageFragmentFragmentDoc}
+  ${MediaToolDetailsFragmentDoc}
 `;
 
 /**
- * __useGetMediaItemByIdQuery__
+ * __useGetMediaFolderContentsQuery__
  *
- * To run a query within a React component, call `useGetMediaItemByIdQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetMediaItemByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetMediaFolderContentsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMediaFolderContentsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetMediaItemByIdQuery({
+ * const { data, loading, error } = useGetMediaFolderContentsQuery({
  *   variables: {
- *      mediaItemId: // value for 'mediaItemId'
+ *      mediaFolderId: // value for 'mediaFolderId'
  *   },
  * });
  */
-export function useGetMediaItemByIdQuery(
+export function useGetMediaFolderContentsQuery(
   baseOptions: Apollo.QueryHookOptions<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
-  >(GetMediaItemByIdDocument, options);
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
+  >(GetMediaFolderContentsDocument, options);
 }
-export function useGetMediaItemByIdLazyQuery(
+export function useGetMediaFolderContentsLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
-  >(GetMediaItemByIdDocument, options);
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
+  >(GetMediaFolderContentsDocument, options);
 }
-export type GetMediaItemByIdQueryHookResult = ReturnType<
-  typeof useGetMediaItemByIdQuery
+export type GetMediaFolderContentsQueryHookResult = ReturnType<
+  typeof useGetMediaFolderContentsQuery
 >;
-export type GetMediaItemByIdLazyQueryHookResult = ReturnType<
-  typeof useGetMediaItemByIdLazyQuery
+export type GetMediaFolderContentsLazyQueryHookResult = ReturnType<
+  typeof useGetMediaFolderContentsLazyQuery
 >;
-export type GetMediaItemByIdQueryResult = Apollo.QueryResult<
-  OperationTypes.GetMediaItemByIdQuery,
-  OperationTypes.GetMediaItemByIdQueryVariables
+export type GetMediaFolderContentsQueryResult = Apollo.QueryResult<
+  OperationTypes.GetMediaFolderContentsQuery,
+  OperationTypes.GetMediaFolderContentsQueryVariables
 >;
 export const AccountInfoByEmailDocument = gql`
   query accountInfoByEmail($email: String!) {
