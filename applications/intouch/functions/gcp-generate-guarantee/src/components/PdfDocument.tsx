@@ -9,6 +9,7 @@ import {
 } from "@bmi-digital/react-pdf-maker";
 import { ContentfulGuaranteeTemplate, Guarantee } from "@bmi/intouch-api-types";
 import React from "react";
+import locales from "../locales.json";
 import Logo from "../svgs/BMI";
 import svgMap from "../util/svgMap";
 import { Field } from "./Field";
@@ -31,10 +32,12 @@ export const PdfDocument = ({
     project,
     bmiReferenceId,
     startDate,
-    expiryDate
+    expiryDate,
+    languageCode = "NO"
   } = guaranteeData;
 
   const address = project.siteAddress;
+  const technology = locales[languageCode][guaranteeType.technology];
 
   if (!address) {
     throw new Error("project site address can not be undefined");
@@ -112,10 +115,7 @@ export const PdfDocument = ({
             title={template.headingRoofArea}
             values={[`${project.roofArea}`]}
           />
-          <Field
-            title={template.headingRoofType}
-            values={[guaranteeType.technology]}
-          />
+          <Field title={template.headingRoofType} values={[technology]} />
         </Col>
 
         <Col width={250}>
