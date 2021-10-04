@@ -1,14 +1,13 @@
 import React from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@bmi/typography";
-import { GetMediaItemByIdQuery } from "../../graphql/generated/operations";
-import { MediaItem } from "../../lib/media/types";
+import { MediaFolder, MediaItem } from "../../lib/media/types";
 import { MediaTile } from "../MediaTile";
 import styles from "./styles.module.scss";
 
 export type MediaGridProps = {
   isLoading: boolean;
-  items: GetMediaItemByIdQuery["mediaFolderCollection"]["items"][0]["childrenCollection"]["items"];
+  items: MediaFolder["childrenCollection"]["items"];
   totalNumItems: number;
   onMediaItemClick: (mediaItem: MediaItem) => any;
 };

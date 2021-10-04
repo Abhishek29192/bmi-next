@@ -37,15 +37,10 @@ describe("mediaUtils", () => {
 
   describe("getParentFolder", () => {
     it("finds parent folder for another folder", () => {
-      expect(
-        getParentFolder(
-          {
-            sys: { id: "4cMlAdSxDHY2S8mrU2jNzL" },
-            name: "Tiles Specification"
-          },
-          allFolders
-        )
-      ).toEqual(
+      const child = allFolders.find(
+        (f) => f.sys.id === "4cMlAdSxDHY2S8mrU2jNzL"
+      );
+      expect(getParentFolder(child, allFolders)).toEqual(
         expect.objectContaining({
           sys: { id: "4nG2CwGJ5HYFjzmTudiKuX" },
           name: "Technical Information"
@@ -54,17 +49,14 @@ describe("mediaUtils", () => {
     });
 
     it("finds parent folder for a media tool", () => {
-      expect(
-        getParentFolder(
-          {
-            sys: {
-              id: "22CAX9URDUN1rxH041V5jd"
-            },
-            name: "Horizon 8"
-          },
-          allFolders
-        )
-      ).toEqual(
+      const child = {
+        __typename: "MediaTool",
+        sys: {
+          id: "22CAX9URDUN1rxH041V5jd"
+        },
+        name: "Horizon 8"
+      };
+      expect(getParentFolder(child as MediaItem, allFolders)).toEqual(
         expect.objectContaining({
           sys: {
             id: "4cMlAdSxDHY2S8mrU2jNzL"
@@ -81,22 +73,25 @@ describe("mediaUtils", () => {
     });
 
     it("returns 1 level for root folder", () => {
-      const rootFolder = {
-        sys: { id: "4nG2CwGJ5HYFjzmTudiKuX" },
-        name: "Technical Information"
-      };
+      const rootFolder = rootFolders.find(
+        (f) => f.sys.id === "4nG2CwGJ5HYFjzmTudiKuX"
+      );
       expect(getMediaItemPath(rootFolder, allFolders, rootFolders)).toEqual([
         expect.objectContaining(rootFolder)
       ]);
     });
 
     it("returns hierarchy for nested media folders + media tools", () => {
-      const folder = {
-        sys: { id: "4AUyMVzfgZIrLNBhrPD8RX" },
+      const child = {
+        __typename: "MediaTool",
+        sys: {
+          id: "4AUyMVzfgZIrLNBhrPD8RX"
+        },
         name: "Advanced Contour"
       };
-
-      expect(getMediaItemPath(folder, allFolders, rootFolders)).toEqual([
+      expect(
+        getMediaItemPath(child as MediaItem, allFolders, rootFolders)
+      ).toEqual([
         expect.objectContaining({
           sys: { id: "4nG2CwGJ5HYFjzmTudiKuX" },
           name: "Technical Information"
@@ -105,7 +100,7 @@ describe("mediaUtils", () => {
           sys: { id: "4cMlAdSxDHY2S8mrU2jNzL" },
           name: "Tiles Specification"
         }),
-        expect.objectContaining(folder)
+        expect.objectContaining(child)
       ]);
     });
   });
@@ -117,24 +112,24 @@ describe("mediaUtils", () => {
       );
     });
     it("pdf", () => {
-      expect(getMediaItemMeta(generateMediaTool({ type: "pdf" }))).toEqual(
-        "PDF"
-      );
+      expect(
+        getMediaItemMeta(generateMediaTool({ type: "pdf" }) as MediaItem)
+      ).toEqual("PDF");
     });
     it("image", () => {
-      expect(getMediaItemMeta(generateMediaTool({ type: "image" }))).toEqual(
-        "IMAGE"
-      );
+      expect(
+        getMediaItemMeta(generateMediaTool({ type: "image" }) as MediaItem)
+      ).toEqual("IMAGE");
     });
     it("vimeo", () => {
-      expect(getMediaItemMeta(generateMediaTool({ type: "vimeo" }))).toEqual(
-        "VIDEO"
-      );
+      expect(
+        getMediaItemMeta(generateMediaTool({ type: "vimeo" }) as MediaItem)
+      ).toEqual("VIDEO");
     });
     it("external", () => {
-      expect(getMediaItemMeta(generateMediaTool({ type: "external" }))).toEqual(
-        "EXTERNAL_LINK"
-      );
+      expect(
+        getMediaItemMeta(generateMediaTool({ type: "external" }) as MediaItem)
+      ).toEqual("EXTERNAL_LINK");
     });
   });
 
@@ -160,7 +155,7 @@ describe("mediaUtils", () => {
           generateMediaTool({
             type: "image",
             media: { size: 41.02 * MB }
-          })
+          }) as MediaItem
         )
       ).toEqual("41.02 MB");
     });
@@ -171,15 +166,15 @@ describe("mediaUtils", () => {
           generateMediaTool({
             type: "pdf",
             media: { size: 211.37 * MB }
-          })
+          }) as MediaItem
         )
       ).toEqual("211.37 MB");
     });
 
     it("does not throw error for media tools without media", () => {
-      expect(getMediaItemSize(generateMediaTool({ type: "external" }))).toEqual(
-        ""
-      );
+      expect(
+        getMediaItemSize(generateMediaTool({ type: "external" }) as MediaItem)
+      ).toEqual("");
     });
   });
 });

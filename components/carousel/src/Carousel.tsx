@@ -39,6 +39,7 @@ type Props = {
   hasOpacityAnimation?: boolean;
   scroll?: "infinite" | "finite";
   hasGutter?: boolean;
+  disableAnimateHeight?: boolean;
 } & WithWidth &
   (
     | {
@@ -301,6 +302,7 @@ const Carousel = ({
   width: currentBreakpoint,
   scroll = "infinite",
   hasGutter,
+  disableAnimateHeight = false,
   ...autoPlayProps
 }: Props) => {
   const [hasUserInteracted, setHasUserInteracted] = useState<boolean>(false);
@@ -439,7 +441,7 @@ const Carousel = ({
           ref={wrapper}
         >
           <CarouselComponent
-            animateHeight={isMobile}
+            animateHeight={disableAnimateHeight ? false : isMobile}
             hysteresis={0.25}
             autoplay={Boolean(autoPlayProps.hasAutoPlay) && !hasUserInteracted}
             interval={
