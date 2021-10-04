@@ -14,6 +14,10 @@ import { Data as TitleWithContentData } from "../../components/TitleWithContent"
 import RelatedSystems from "../../components/RelatedSystems";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
+import {
+  SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
+  SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
+} from "../../constants/queryConstants";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import {
@@ -50,8 +54,6 @@ type Props = {
     };
   };
 };
-const SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE = "prev_page";
-const SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM = "selected_system";
 
 const IGNORED_ATTRIBUTES = [
   "scoringweight",
