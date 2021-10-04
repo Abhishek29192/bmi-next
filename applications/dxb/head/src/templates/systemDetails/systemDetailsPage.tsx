@@ -88,12 +88,11 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const location = useLocation();
 
   useEffect(() => {
-    const selectedSystem = new URLSearchParams(location.search).get(
+    const queryParamsFromUrl = new URLSearchParams(location.search);
+    const selectedSystem = queryParamsFromUrl.get(
       SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
     );
-    const prevPage = new URLSearchParams(location.search).get(
-      SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE
-    );
+    const prevPage = queryParamsFromUrl.get(SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE);
     prevPage &&
       selectedSystem &&
       pushToDataLayer({
