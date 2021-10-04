@@ -99,7 +99,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         label: name,
         action: location.href?.toString()
       });
-  }, [location]);
+  }, [location, name]);
 
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Assets[] = useMemo(() => {
@@ -107,12 +107,12 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       ({ assetType }) =>
         assetType === "GUARANTIES" || assetType === "WARRANTIES"
     );
-  }, []);
+  }, [assets]);
   const awardsAndCertificates: Assets[] = useMemo(() => {
     return assets.filter(
       ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
     );
-  }, []);
+  }, [assets]);
   const keyFeatures: Feature = useMemo(() => {
     return first(
       compact(
@@ -124,10 +124,10 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         })
       )
     );
-  }, []);
+  }, [classifications]);
   const specification: Assets = useMemo(() => {
     return assets.find(({ assetType }) => assetType === "SPECIFICATION");
-  }, []);
+  }, [assets]);
   const technicalSpecClassifications: Classification[] = useMemo(() => {
     return classifications
       .filter(
@@ -149,7 +149,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       })
       .filter(({ features }) => features.length > 0)
       .sort((a, b) => (a.name < b.name ? -1 : 1));
-  }, []);
+  }, [classifications]);
   const uniqueSellingPropositions: Feature = useMemo(() => {
     return first(
       compact(
@@ -163,7 +163,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         })
       )
     );
-  }, []);
+  }, [classifications]);
   const brandName = useMemo(
     () =>
       (categories || []).find(({ categoryType }) => {
@@ -179,7 +179,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       description: resources?.sdpBimDescription,
       bimIframeUrl
     };
-  }, []);
+  }, [assets, bimIframeUrl, resources?.sdpBimDescription]);
   const documentsAndDownloads: DocumentData[] = useMemo(() => {
     return assets
       .filter(
@@ -213,7 +213,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
           }
         );
       });
-  }, []);
+  }, [assets, allContentfulAssetType.nodes]);
 
   const breadcrumbs = (
     <Section backgroundColor="pearl" isSlim>
