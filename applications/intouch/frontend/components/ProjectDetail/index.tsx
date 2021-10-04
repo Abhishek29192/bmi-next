@@ -126,11 +126,16 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       severity: "ERROR",
       message: `Error loading project details. ID: ${projectId}. Error: ${error.toString()}`
     });
-    return <div>Error loading project details.</div>;
+    return (
+      <div style={{ minHeight: "100vh" }}>Error loading project details.</div>
+    );
   }
 
   // TODO: Microcopy
-  if (loading) return <>Loading project details...</>;
+  if (loading)
+    return (
+      <div style={{ minHeight: "100vh" }}>Error loading project details.</div>
+    );
 
   const isGuaranteeAppliable =
     can(account, "project", "submitSolutionGuarantee") &&
