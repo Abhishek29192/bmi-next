@@ -1567,6 +1567,9 @@ type ContentfulService implements Node {
   "The type of this branch."
   branchType: [String]
 
+  "The type of this merchant."
+  merchantType: [String!]
+
   "The certification level of this service."
   certification: String
 
