@@ -14,8 +14,10 @@ const getFile = (file) =>
     "utf8"
   );
 
-const importCompanyDb = async ({ password, host }) => {
+const importCompanyDb = async ({ password, host }, query) => {
   const db = getFile("company.sql");
+  const dbData = getFile("company.data.sql");
+  const contraints = getFile("company.contraints.sql");
   const roles = getFile("roles.sql");
   const procedure = getFile("procedure.sql");
   const rls = getFile("rls.sql");
@@ -50,6 +52,16 @@ const importCompanyDb = async ({ password, host }) => {
   console.log("Importing main db");
   await pgClient.query(db);
   console.log("DB imported");
+
+  if (query.importData === "true") {
+    console.log("Importing data");
+    await pgClient.query(dbData);
+    console.log("Data imported");
+  }
+
+  console.log("Importing contraints");
+  await pgClient.query(contraints);
+  console.log("Contraints imported");
 
   console.log("Importing views");
   await pgClient.query(views);

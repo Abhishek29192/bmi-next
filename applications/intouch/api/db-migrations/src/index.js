@@ -27,8 +27,8 @@ async function main() {
   );
   const PG_COMPANIES_HOST = await getSecret(client, "COMPANIES_DB_HOST");
 
-  const PG_TRAINING_PASSWORD = await getSecret(client, "TRAINING_DB_PASSWORD");
   const PG_TRAINING_HOST = await getSecret(client, "TRAINING_DB_HOST");
+  const PG_TRAINING_PASSWORD = await getSecret(client, "TRAINING_DB_PASSWORD");
 
   const app = express();
   app.use(express.json());
@@ -47,11 +47,15 @@ async function main() {
   });
 
   app.get("/migrate-companies", async (req, res) => {
+    const { query } = req;
     try {
-      await importCompanyDb({
-        password: PG_COMPANIES_PASSWORD,
-        host: PG_COMPANIES_HOST
-      });
+      await importCompanyDb(
+        {
+          password: PG_COMPANIES_PASSWORD,
+          host: PG_COMPANIES_HOST
+        },
+        query
+      );
 
       return res.send({
         status: "Imported"
@@ -64,11 +68,15 @@ async function main() {
     }
   });
   app.get("/migrate-training", async (req, res) => {
+    const { query } = req;
     try {
-      await importTrainingDb({
-        password: PG_TRAINING_PASSWORD,
-        host: PG_TRAINING_HOST
-      });
+      await importTrainingDb(
+        {
+          password: PG_TRAINING_PASSWORD,
+          host: PG_TRAINING_HOST
+        },
+        query
+      );
 
       return res.send({
         status: "Imported"
@@ -81,7 +89,8 @@ async function main() {
     }
   });
 
-  app.use((err, req, res) => {
+  // eslint-disable-next-line no-unused-vars
+  app.use((err, req, res, next) => {
     return res.send(err);
   });
 
