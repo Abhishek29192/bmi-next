@@ -241,7 +241,9 @@
           "product_title": "Product Guarantee",
           "product_subTitle": "Select the Product for the guarantee documentation",
           "system_title": "System Guarantee",
-          "system_subTitle": "Select the System for the guarantee documentation"
+          "system_subTitle": "Select the System for the guarantee documentation",
+          "solution_title": "Solution Guarantee",
+          "solution_subTitle": "Select the System for the guarantee documentation"
         },
         "step4": {
           "title": "Receipt details",
