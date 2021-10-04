@@ -277,7 +277,7 @@ describe("gtm on landing on sdp from sc", (): void => {
       />,
       {
         route:
-          "http://localhost:8000/no/system-details-page?selected_system=Recomended_System1"
+          "http://localhost:8000/no/system-details-page?selected_system=Recomended_System1&prev_page=system-configurator-page"
       }
     );
 
