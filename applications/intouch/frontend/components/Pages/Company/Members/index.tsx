@@ -11,22 +11,26 @@ import {
 } from "@bmi/icon";
 import Table from "@bmi/table";
 import { SvgIcon } from "@material-ui/core";
-import { Technology, CompanyMember, Role } from "@bmi/intouch-api-types";
+import { Technology, Role, Account } from "@bmi/intouch-api-types";
 import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
 import { SidePanel } from "../../../SidePanel";
 import { FilterResult } from "../../../FilterResult";
-import { reorderMembers } from "../../../../lib/utils/companyMembers";
-import { CompanyMembersQuery } from "../../../../graphql/generated/operations";
+import { sortByFirstName } from "../../../../lib/utils/account";
+import { TeamMembersQuery } from "../../../../graphql/generated/operations";
 import { useUpdateRoleAccountMutation } from "../../../../graphql/generated/hooks";
 import { TableContainer } from "../../../TableContainer";
 import { UserCard } from "../../../UserCard";
 import {
   useDeleteCompanyMemberMutation,
-  useCompanyMembersLazyQuery
+  useTeamMembersLazyQuery
 } from "../../../../graphql/generated/hooks";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { formatDate } from "../../../../lib/utils";
 import { useAccountContext } from "../../../../context/AccountContext";
+import {
+  findAccountCompany,
+  isSuperOrMarketAdmin
+} from "../../../../lib/account";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 import Alert from "./Alert";
@@ -40,7 +44,7 @@ export const REMOVE_MEMBER = gql`
 `;
 
 export type PageProps = {
-  data: CompanyMembersQuery;
+  data: TeamMembersQuery;
   error?: {
     message: string;
   };
@@ -86,11 +90,13 @@ const CompanyMembers = ({ data }: PageProps) => {
   const { account } = useAccountContext();
   const router = useRouter();
 
+  const isPowerfulUser = isSuperOrMarketAdmin(account);
+
   const [dialogOpen, setDialogOpen] = useState(false);
   const [messages, setMessages] = useState<MessageProp[]>([]);
-  const [members, setMembers] = useState(data.companyMembers.nodes);
-  const [currentMember, setCurrentMember] = useState<Partial<CompanyMember>>(
-    data?.companyMembers?.nodes?.[0] as CompanyMember
+  const [members, setMembers] = useState(data.accounts.nodes);
+  const [currentMember, setCurrentMember] = useState<Account>(
+    data?.accounts?.nodes?.[0] as Account
   );
 
   const [deleteMember] = useDeleteCompanyMemberMutation({
@@ -129,14 +135,14 @@ const CompanyMembers = ({ data }: PageProps) => {
     }, 2000);
   };
 
-  const [fetchCompanyMembers] = useCompanyMembersLazyQuery({
+  const [fetchCompanyMembers] = useTeamMembersLazyQuery({
     fetchPolicy: "network-only",
     onCompleted: (data) => {
-      const newCurrent = data?.companyMembers?.nodes.find(
+      const newCurrent = data?.accounts?.nodes.find(
         ({ id }) => id === currentMember.id
-      ) as Partial<CompanyMember>;
+      ) as Account;
 
-      setMembers(reorderMembers(data?.companyMembers?.nodes));
+      setMembers(sortByFirstName(data?.accounts?.nodes));
 
       setCurrentMember(newCurrent);
     }
@@ -187,16 +193,21 @@ const CompanyMembers = ({ data }: PageProps) => {
     });
 
   const onSearch = (value: string): void => {
-    const valueToSearch = value.toLowerCase();
-    setMembers([
-      ...data.companyMembers.nodes.filter(
-        ({ account: { email = "", firstName = "", lastName = "" } }) =>
-          (email && email.toLowerCase().indexOf(valueToSearch) !== -1) ||
-          (firstName &&
-            firstName.toLowerCase().indexOf(valueToSearch) !== -1) ||
-          (lastName && lastName.toLowerCase().indexOf(valueToSearch) !== -1)
-      )
-    ]);
+    const query = value.toLowerCase().trim();
+
+    const membersResult = [...data.accounts.nodes].filter((account) => {
+      const { email = "", firstName = "", lastName = "" } = account;
+      const companyName = findAccountCompany(account as Account)?.name;
+
+      const defaultFilterData = [email, firstName, lastName];
+      const data = !isPowerfulUser
+        ? defaultFilterData
+        : [...defaultFilterData, companyName];
+
+      return data.filter(Boolean).join(" ").toLowerCase().includes(query);
+    });
+
+    setMembers(membersResult);
   };
 
   return (
@@ -221,27 +232,27 @@ const CompanyMembers = ({ data }: PageProps) => {
             </AccessControl>
           )}
         >
-          {members.map(({ account, ...rest }) => (
+          {members.map((member) => (
             <FilterResult
               testId="list-item"
-              label={`${account.firstName} ${account.lastName}`}
-              key={account.id}
-              onClick={() =>
-                setCurrentMember({
-                  account,
-                  ...rest
-                } as Partial<CompanyMember>)
-              }
+              label={`${member.firstName} ${member.lastName}`}
+              key={member.id}
+              onClick={() => setCurrentMember(member as Account)}
             >
               <Typography
                 style={{ textTransform: "capitalize" }}
                 variant="subtitle1"
                 color="textSecondary"
               >
-                {account.formattedRole}
+                {member.formattedRole}
               </Typography>
+              {isPowerfulUser && (
+                <Typography variant="subtitle1" color="textPrimary">
+                  {member.companyMembers?.nodes?.[0]?.company?.name}
+                </Typography>
+              )}
               <div className={styles.icons}>
-                {getTechnologies(account).map((technology, index) => (
+                {getTechnologies(member).map((technology, index) => (
                   <SvgIcon
                     key={`${account.id}-${index}-${technology}`}
                     viewBox="0 0 48 48"
@@ -260,8 +271,7 @@ const CompanyMembers = ({ data }: PageProps) => {
               title={t("table.title")}
               testid="certification-table"
             >
-              {currentMember?.account?.certificationsByDoceboUserId?.nodes
-                .length && (
+              {currentMember?.certificationsByDoceboUserId?.nodes.length && (
                 <Table>
                   <Table.Head>
                     <Table.Row>
@@ -271,7 +281,7 @@ const CompanyMembers = ({ data }: PageProps) => {
                     </Table.Row>
                   </Table.Head>
                   <Table.Body>
-                    {currentMember?.account.certificationsByDoceboUserId.nodes.map(
+                    {currentMember?.certificationsByDoceboUserId.nodes.map(
                       (certification, index) => (
                         <Table.Row
                           key={`certification-${index}-${certification.id}`}
@@ -306,24 +316,24 @@ const CompanyMembers = ({ data }: PageProps) => {
             testid="user-card"
             onAccountUpdate={onAccountUpdate}
             onRemoveUser={onRemoveUser}
-            account={currentMember?.account}
-            companyName={currentMember?.company.name}
+            account={currentMember}
+            companyName={findAccountCompany(currentMember)?.name}
             details={[
               {
                 type: "phone",
-                text: currentMember?.account.phone,
+                text: currentMember?.phone,
                 action: {
                   model: "htmlLink",
-                  href: `tel:${currentMember?.account.phone}`
+                  href: `tel:${currentMember?.phone}`
                 },
                 label: t("common:telephone")
               },
               {
                 type: "email",
-                text: currentMember?.account.email,
+                text: currentMember?.email,
                 action: {
                   model: "htmlLink",
-                  href: `mailto:${currentMember?.account.email}`
+                  href: `mailto:${currentMember?.email}`
                 },
                 label: t("common:email")
               }

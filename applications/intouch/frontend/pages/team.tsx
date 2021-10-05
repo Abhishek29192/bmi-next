@@ -10,35 +10,39 @@ import {
 } from "../lib/error";
 import { Layout } from "../components/Layout";
 import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
-import { reorderMembers } from "../lib/utils/companyMembers";
+import { sortByFirstName } from "../lib/utils/account";
 import CompanyMembers, { PageProps } from "../components/Pages/Company/Members";
-import { getServerPageCompanyMembers } from "../graphql/generated/page";
+import { getServerPageTeamMembers } from "../graphql/generated/page";
+import { isSuperOrMarketAdmin } from "../lib/account";
 
 export const pageQuery = gql`
-  query companyMembers($expiryDate: Datetime) {
-    companyMembers {
+  query teamMembers($expiryDate: Datetime) {
+    accounts {
+      totalCount
       nodes {
         id
-        company {
-          name
+        role
+        email
+        phone
+        photo
+        lastName
+        firstName
+        formattedRole
+        certificationsByDoceboUserId(
+          filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
+        ) {
+          nodes {
+            id
+            name
+            technology
+            expiryDate
+          }
         }
-        account {
-          id
-          role
-          email
-          phone
-          photo
-          lastName
-          firstName
-          formattedRole
-          certificationsByDoceboUserId(
-            filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
-          ) {
-            nodes {
-              id
+        companyMembers(first: 1) {
+          nodes {
+            id
+            company {
               name
-              technology
-              expiryDate
             }
           }
         }
@@ -75,7 +79,7 @@ export const getServerSideProps = withPage(
     expiryDate.setHours(0, 0, 0, 0);
     expiryDate.setMonth(expiryDate.getMonth() - 6);
 
-    const { props } = await getServerPageCompanyMembers(
+    const { props } = await getServerPageTeamMembers(
       {
         variables: {
           expiryDate
@@ -84,7 +88,10 @@ export const getServerSideProps = withPage(
       apolloClient
     );
 
-    if (account?.companyMembers?.nodes.length === 0) {
+    if (
+      !isSuperOrMarketAdmin(account) &&
+      account?.companyMembers?.nodes.length === 0
+    ) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
       return generatePageError(404);
@@ -95,9 +102,9 @@ export const getServerSideProps = withPage(
         ...props,
         data: {
           ...props.data,
-          companyMembers: {
-            ...props.data.companyMembers,
-            nodes: reorderMembers(props.data.companyMembers.nodes)
+          accounts: {
+            ...props.data.accounts,
+            nodes: sortByFirstName(props.data.accounts.nodes)
           }
         },
         ...(await serverSideTranslations(locale, [

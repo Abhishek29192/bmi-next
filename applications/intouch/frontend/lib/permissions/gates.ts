@@ -80,9 +80,10 @@ const gates = {
       INSTALLER: false,
       COMPANY_ADMIN: false
     },
+    //Only company admin invites people to their company. Market admin and super admin have more company
     inviteUser: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
+      SUPER_ADMIN: false,
+      MARKET_ADMIN: false,
       INSTALLER: false,
       COMPANY_ADMIN: true
     },

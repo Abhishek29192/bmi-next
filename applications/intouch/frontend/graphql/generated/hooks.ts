@@ -3549,31 +3549,34 @@ export type GetProjectsQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectsQuery,
   OperationTypes.GetProjectsQueryVariables
 >;
-export const CompanyMembersDocument = gql`
-  query companyMembers($expiryDate: Datetime) {
-    companyMembers {
+export const TeamMembersDocument = gql`
+  query teamMembers($expiryDate: Datetime) {
+    accounts {
+      totalCount
       nodes {
         id
-        company {
-          name
+        role
+        email
+        phone
+        photo
+        lastName
+        firstName
+        formattedRole
+        certificationsByDoceboUserId(
+          filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
+        ) {
+          nodes {
+            id
+            name
+            technology
+            expiryDate
+          }
         }
-        account {
-          id
-          role
-          email
-          phone
-          photo
-          lastName
-          firstName
-          formattedRole
-          certificationsByDoceboUserId(
-            filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
-          ) {
-            nodes {
-              id
+        companyMembers(first: 1) {
+          nodes {
+            id
+            company {
               name
-              technology
-              expiryDate
             }
           }
         }
@@ -3583,54 +3586,52 @@ export const CompanyMembersDocument = gql`
 `;
 
 /**
- * __useCompanyMembersQuery__
+ * __useTeamMembersQuery__
  *
- * To run a query within a React component, call `useCompanyMembersQuery` and pass it any options that fit your needs.
- * When your component renders, `useCompanyMembersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useTeamMembersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTeamMembersQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useCompanyMembersQuery({
+ * const { data, loading, error } = useTeamMembersQuery({
  *   variables: {
  *      expiryDate: // value for 'expiryDate'
  *   },
  * });
  */
-export function useCompanyMembersQuery(
+export function useTeamMembersQuery(
   baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
-  >(CompanyMembersDocument, options);
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
+  >(TeamMembersDocument, options);
 }
-export function useCompanyMembersLazyQuery(
+export function useTeamMembersLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
-  >(CompanyMembersDocument, options);
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
+  >(TeamMembersDocument, options);
 }
-export type CompanyMembersQueryHookResult = ReturnType<
-  typeof useCompanyMembersQuery
+export type TeamMembersQueryHookResult = ReturnType<typeof useTeamMembersQuery>;
+export type TeamMembersLazyQueryHookResult = ReturnType<
+  typeof useTeamMembersLazyQuery
 >;
-export type CompanyMembersLazyQueryHookResult = ReturnType<
-  typeof useCompanyMembersLazyQuery
->;
-export type CompanyMembersQueryResult = Apollo.QueryResult<
-  OperationTypes.CompanyMembersQuery,
-  OperationTypes.CompanyMembersQueryVariables
+export type TeamMembersQueryResult = Apollo.QueryResult<
+  OperationTypes.TeamMembersQuery,
+  OperationTypes.TeamMembersQueryVariables
 >;
 export const UpdateRoleAccountDocument = gql`
   mutation UpdateRoleAccount($input: UpdateAccountInput!) {
