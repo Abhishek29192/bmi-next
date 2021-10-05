@@ -28,12 +28,12 @@ function main() {
     return;
   }
 
-  request(`${process.env.MIGRATION_SERVICE_URL}/migrate-${args[0]}`).catch(
-    (err) => {
-      console.error(err.message);
-      process.exitCode = 1;
-    }
-  );
+  request(
+    `${process.env.MIGRATION_SERVICE_URL}/migrate-${args[0]}?importData=true`
+  ).catch((err) => {
+    console.error(err.message);
+    process.exitCode = 1;
+  });
 }
 
 main();
