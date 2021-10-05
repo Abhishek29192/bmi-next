@@ -2,24 +2,6 @@ import { PoolConfig, Pool, PoolClient } from "pg";
 
 let pool;
 
-const formatCert = (cert) => {
-  return cert
-    .replace("-----BEGIN CERTIFICATE-----", "-----BEGIN CERTIFICATE-----\\n")
-    .replace("-----END CERTIFICATE-----", "\\n-----END CERTIFICATE-----");
-};
-
-const formatKey = (cert) => {
-  return cert
-    .replace(
-      "-----BEGIN RSA PRIVATE KEY-----",
-      "-----BEGIN RSA PRIVATE KEY-----\\n"
-    )
-    .replace(
-      "-----END RSA PRIVATE KEY-----",
-      "\\n-----END RSA PRIVATE KEY-----"
-    );
-};
-
 export const getDbPool = () => {
   if (!pool) {
     const {
@@ -46,9 +28,9 @@ export const getDbPool = () => {
         PG_SSL === "true"
           ? {
               rejectUnauthorized: PG_REJECT_UNAUTHORIZED === "true",
-              ca: formatCert(PG_SSL_SERVER_CA).replace(/\\n/g, "\n"),
-              key: formatKey(PG_SSL_CLIENT_KEY).replace(/\\n/g, "\n"),
-              cert: formatCert(PG_SSL_CLIENT_CERT).replace(/\\n/g, "\n"),
+              ca: PG_SSL_SERVER_CA,
+              key: PG_SSL_CLIENT_KEY,
+              cert: PG_SSL_CLIENT_CERT,
               host: PG_SSL_HOST
             }
           : false
