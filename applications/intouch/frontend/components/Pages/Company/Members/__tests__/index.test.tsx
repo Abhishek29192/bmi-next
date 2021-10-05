@@ -12,12 +12,12 @@ import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
 import Apollo from "../../../../../lib/tests/fixtures/apollo";
 import CompanyMembersPage, { PageProps } from "..";
 import {
-  adminCompanyMembers,
-  companyMembers,
-  installerCompanyMembers
-} from "../../../../../fixtures/companyMembers";
+  adminTeamMembers,
+  teamMembers,
+  installerTeamMembers
+} from "../../../../../fixtures/teamMembers";
 import { useAccountContext } from "../../../../../context/AccountContext";
-import { CompanyMembersQuery } from "../../../../../graphql/generated/operations";
+import { TeamMembersQuery } from "../../../../../graphql/generated/operations";
 
 const inviteMock = jest.fn();
 const mockDelete = jest.fn();
@@ -28,7 +28,7 @@ jest.mock("../../../../../graphql/generated/hooks", () => ({
   __esModule: true,
   useInviteMutation: () => [inviteMock],
   useDeleteCompanyMemberMutation: () => [mockDelete],
-  useCompanyMembersLazyQuery: () => [mockCompanyMembers],
+  useTeamMembersLazyQuery: () => [mockCompanyMembers],
   useUpdateRoleAccountMutation: () => [mockRoleAccountMutation]
 }));
 
@@ -45,7 +45,7 @@ describe("Company Members Page", () => {
   let wrapper;
 
   let props: PageProps = {
-    data: companyMembers
+    data: teamMembers
   };
 
   afterEach(() => {
@@ -198,14 +198,16 @@ describe("Company Members Page", () => {
     });
 
     describe("Remove Member", () => {
-      const installerData: CompanyMembersQuery = {
-        companyMembers: {
-          nodes: installerCompanyMembers
+      const installerData: TeamMembersQuery = {
+        accounts: {
+          totalCount: 1,
+          nodes: installerTeamMembers
         }
       };
-      const adminData: CompanyMembersQuery = {
-        companyMembers: {
-          nodes: adminCompanyMembers
+      const adminData: TeamMembersQuery = {
+        accounts: {
+          totalCount: 3,
+          nodes: adminTeamMembers
         }
       };
       it("the remove button shouldn't be visible if selected account not Installer", async () => {

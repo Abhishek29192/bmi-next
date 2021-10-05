@@ -184,6 +184,7 @@ export const ssrContentfulEvidenceCategories = {
 
   usePage: useContentfulEvidenceCategories
 };
+
 export async function getServerPageGetGuaranteeTemplates(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetGuaranteeTemplatesQueryVariables>,
@@ -962,16 +963,16 @@ export const ssrGetProjects = {
 
   usePage: useGetProjects
 };
-export async function getServerPageCompanyMembers(
+export async function getServerPageTeamMembers(
   options: Omit<
-    Apollo.QueryOptions<OperationTypes.CompanyMembersQueryVariables>,
+    Apollo.QueryOptions<OperationTypes.TeamMembersQueryVariables>,
     "query"
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data = await apolloClient.query<OperationTypes.CompanyMembersQuery>({
+  const data = await apolloClient.query<OperationTypes.TeamMembersQuery>({
     ...options,
-    query: Operations.CompanyMembersDocument
+    query: Operations.TeamMembersDocument
   });
 
   const apolloState = apolloClient.cache.extract();
@@ -984,26 +985,26 @@ export async function getServerPageCompanyMembers(
     }
   };
 }
-export const useCompanyMembers = (
+export const useTeamMembers = (
   optionsFunc?: (
     router: NextRouter
   ) => QueryHookOptions<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
   >
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.CompanyMembersDocument, options);
+  return useQuery(Operations.TeamMembersDocument, options);
 };
-export type PageCompanyMembersComp = React.FC<{
-  data?: OperationTypes.CompanyMembersQuery;
+export type PageTeamMembersComp = React.FC<{
+  data?: OperationTypes.TeamMembersQuery;
   error?: Apollo.ApolloError;
 }>;
-export const ssrCompanyMembers = {
-  getServerPage: getServerPageCompanyMembers,
+export const ssrTeamMembers = {
+  getServerPage: getServerPageTeamMembers,
 
-  usePage: useCompanyMembers
+  usePage: useTeamMembers
 };
 
 export async function getServerPageTraining(

@@ -3199,51 +3199,58 @@ export type GetProjectsQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
-export type CompanyMembersQueryVariables = SchemaTypes.Exact<{
+export type TeamMembersQueryVariables = SchemaTypes.Exact<{
   expiryDate?: SchemaTypes.Maybe<SchemaTypes.Scalars["Datetime"]>;
 }>;
 
-export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
-  readonly companyMembers?: SchemaTypes.Maybe<
-    { readonly __typename?: "CompanyMembersConnection" } & {
-      readonly nodes: ReadonlyArray<
-        { readonly __typename?: "CompanyMember" } & Pick<
-          SchemaTypes.CompanyMember,
-          "id"
-        > & {
-            readonly company?: SchemaTypes.Maybe<
-              { readonly __typename?: "Company" } & Pick<
-                SchemaTypes.Company,
-                "name"
-              >
-            >;
-            readonly account?: SchemaTypes.Maybe<
-              { readonly __typename?: "Account" } & Pick<
-                SchemaTypes.Account,
-                | "id"
-                | "role"
-                | "email"
-                | "phone"
-                | "photo"
-                | "lastName"
-                | "firstName"
-                | "formattedRole"
-              > & {
-                  readonly certificationsByDoceboUserId: {
-                    readonly __typename?: "CertificationsConnection";
-                  } & {
-                    readonly nodes: ReadonlyArray<
-                      { readonly __typename?: "Certification" } & Pick<
-                        SchemaTypes.Certification,
-                        "id" | "name" | "technology" | "expiryDate"
-                      >
-                    >;
-                  };
-                }
-            >;
-          }
-      >;
-    }
+export type TeamMembersQuery = { readonly __typename?: "Query" } & {
+  readonly accounts?: SchemaTypes.Maybe<
+    { readonly __typename?: "AccountsConnection" } & Pick<
+      SchemaTypes.AccountsConnection,
+      "totalCount"
+    > & {
+        readonly nodes: ReadonlyArray<
+          { readonly __typename?: "Account" } & Pick<
+            SchemaTypes.Account,
+            | "id"
+            | "role"
+            | "email"
+            | "phone"
+            | "photo"
+            | "lastName"
+            | "firstName"
+            | "formattedRole"
+          > & {
+              readonly certificationsByDoceboUserId: {
+                readonly __typename?: "CertificationsConnection";
+              } & {
+                readonly nodes: ReadonlyArray<
+                  { readonly __typename?: "Certification" } & Pick<
+                    SchemaTypes.Certification,
+                    "id" | "name" | "technology" | "expiryDate"
+                  >
+                >;
+              };
+              readonly companyMembers: {
+                readonly __typename?: "CompanyMembersConnection";
+              } & {
+                readonly nodes: ReadonlyArray<
+                  { readonly __typename?: "CompanyMember" } & Pick<
+                    SchemaTypes.CompanyMember,
+                    "id"
+                  > & {
+                      readonly company?: SchemaTypes.Maybe<
+                        { readonly __typename?: "Company" } & Pick<
+                          SchemaTypes.Company,
+                          "name"
+                        >
+                      >;
+                    }
+                >;
+              };
+            }
+        >;
+      }
   >;
 };
 

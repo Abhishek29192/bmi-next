@@ -1,5 +1,5 @@
 import { getServerSideProps } from "../../pages/team";
-import { getServerPageCompanyMembers } from "../../graphql/generated/page";
+import { getServerPageTeamMembers } from "../../graphql/generated/page";
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (fn) => {
@@ -9,7 +9,7 @@ jest.mock("../../lib/middleware/withPage", () => ({
   }
 }));
 jest.mock("../../graphql/generated/page", () => ({
-  getServerPageCompanyMembers: jest.fn()
+  getServerPageTeamMembers: jest.fn()
 }));
 jest.mock("next-i18next/serverSideTranslations", () => ({
   serverSideTranslations: () => Promise.resolve({})
@@ -38,7 +38,7 @@ describe("Team page server side props", () => {
   });
 
   it("should send an ordered list of members", async () => {
-    (getServerPageCompanyMembers as jest.Mock).mockImplementationOnce(() =>
+    (getServerPageTeamMembers as jest.Mock).mockImplementationOnce(() =>
       Promise.resolve({
         props: {
           account: {
@@ -51,12 +51,13 @@ describe("Team page server side props", () => {
             }
           },
           data: {
-            companyMembers: {
+            accounts: {
+              totalCount: 4,
               nodes: [
-                { account: { firstName: "Aron" } },
-                { account: { firstName: "Alex" } },
-                { account: { firstName: "Luke" } },
-                { account: { firstName: "Elon" } }
+                { firstName: "Aron" },
+                { firstName: "Alex" },
+                { firstName: "Luke" },
+                { firstName: "Elon" }
               ]
             }
           }
@@ -78,12 +79,13 @@ describe("Team page server side props", () => {
           }
         },
         data: {
-          companyMembers: {
+          accounts: {
+            totalCount: 4,
             nodes: [
-              { account: { firstName: "Alex" } },
-              { account: { firstName: "Aron" } },
-              { account: { firstName: "Elon" } },
-              { account: { firstName: "Luke" } }
+              { firstName: "Alex" },
+              { firstName: "Aron" },
+              { firstName: "Elon" },
+              { firstName: "Luke" }
             ]
           }
         }
