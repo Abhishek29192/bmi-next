@@ -116,9 +116,10 @@ export const updateAccount = async (
   source,
   args: { input: UpdateAccountInput },
   context: PostGraphileContext,
-  resolveInfo
+  resolveInfo,
+  auth0
 ) => {
-  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
+  const { GCP_PRIVATE_BUCKET_NAME, AUTH0_NAMESPACE } = process.env;
 
   const { pgClient, user, logger: Logger, storageClient } = context;
   const { photoUpload, role, shouldRemovePhoto }: AccountPatch =
@@ -129,6 +130,16 @@ export const updateAccount = async (
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
+    const termsToAccept = user[`${AUTH0_NAMESPACE}/terms_to_accept`];
+
+    if (termsToAccept && args.input.patch.termsCondition) {
+      await auth0.updateUser(user.sub, {
+        app_metadata: {
+          terms_to_accept: false
+        }
+      });
+    }
+
     if (role) {
       const { rows: users } = await pgClient.query(
         "select account.* from account join company_member on account.id = company_member.account_id where company_member.company_id = $1",

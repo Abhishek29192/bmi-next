@@ -791,6 +791,7 @@ export type AccountPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 export type AccountStatus = "NEW" | "ACTIVE" | "SUSPENDED";
@@ -19195,6 +19196,7 @@ export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19239,6 +19241,7 @@ export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
     projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
     photoUpload?: Maybe<Scalars["Upload"]>;
     shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+    termsCondition?: Maybe<Scalars["Boolean"]>;
   };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19284,6 +19287,7 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19329,6 +19333,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19374,6 +19379,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19419,6 +19425,7 @@ export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19464,6 +19471,7 @@ export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19509,6 +19517,7 @@ export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19554,6 +19563,7 @@ export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `address` being updated. */

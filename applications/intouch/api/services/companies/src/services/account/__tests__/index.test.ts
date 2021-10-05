@@ -38,12 +38,14 @@ let logger = () => ({
 });
 
 process.env.FRONTEND_URL = "intouch.dddev.io";
+process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 
 describe("Account", () => {
   let args;
   let pool;
   let resolveInfo;
   const userCanMock = jest.fn();
+  const userTermsToAccept = jest.fn();
   const auth0 = {
     updateUser: mockAuth0Update,
     createResetPasswordTicket: mockCreateResetPasswordTicket,
@@ -63,6 +65,7 @@ describe("Account", () => {
     user: {
       sub: "user-sub",
       id: null,
+      [`${process.env.AUTH0_NAMESPACE}/terms_to_accept`]: userTermsToAccept,
       can: userCanMock
     },
     pubSub: mockPubSub,
@@ -132,7 +135,14 @@ describe("Account", () => {
           }
         });
 
-        await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
+        await updateAccount(
+          mockResolve,
+          null,
+          args,
+          contextMock,
+          resolveInfo,
+          auth0
+        );
 
         expect(mockResolve).toBeCalled();
         expect(trainingSrv.updateUser).toBeCalledWith(
@@ -190,7 +200,14 @@ describe("Account", () => {
           }
         });
 
-        await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
+        await updateAccount(
+          mockResolve,
+          null,
+          args,
+          contextMock,
+          resolveInfo,
+          auth0
+        );
 
         expect(mockResolve).toBeCalled();
         expect(trainingSrv.updateUser).toBeCalledWith(
@@ -251,11 +268,42 @@ describe("Account", () => {
             null,
             args,
             contextMock,
-            resolveInfo
+            resolveInfo,
+            auth0
           );
         } catch (error) {
           expect(error.message).toEqual("last_company_admin");
         }
+      });
+    });
+
+    describe("Accept terms and condition", () => {
+      it("should update the auth0 user_meta.terms_to_accept value if imported user", async () => {
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              termsCondition: true
+            }
+          }
+        };
+
+        userTermsToAccept.mockReturnValueOnce(true);
+
+        await updateAccount(
+          mockResolve,
+          null,
+          args,
+          contextMock,
+          resolveInfo,
+          auth0
+        );
+
+        expect(auth0.updateUser).toHaveBeenCalledWith("user-sub", {
+          app_metadata: {
+            terms_to_accept: false
+          }
+        });
       });
     });
   });

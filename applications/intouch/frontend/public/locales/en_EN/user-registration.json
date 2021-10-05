@@ -3,7 +3,11 @@
     "title": "Complete registration",
     "form": {
       "firstName": "First name",
-      "lastName": "Last name"
+      "lastName": "Last name",
+      "agree_label": "I agree to BMI's ",
+      "terms_condition": "Terms & Conditions",
+      "and": " and ",
+      "privacy_policy": "Privacy Policy"
     }
   }
 }

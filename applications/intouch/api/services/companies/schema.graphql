@@ -9044,6 +9044,7 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -11290,6 +11291,7 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -11581,6 +11583,7 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -12540,6 +12543,7 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -12922,6 +12926,7 @@ input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -15592,6 +15597,7 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -16339,6 +16345,7 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -17196,6 +17203,7 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -17492,6 +17500,7 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -17782,6 +17791,7 @@ input AccountPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """

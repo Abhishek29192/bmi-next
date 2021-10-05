@@ -18,6 +18,7 @@ import * as projectMutations from "../../services/project/mutations";
 import { PostGraphileContext } from "../../types";
 import { updateProjectMember } from "../../services/projectMember";
 import { createNote } from "../../services/note";
+import Auth0 from "../../services/auth0";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -49,7 +50,16 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
           context: any,
           resolveInfo
         ) {
-          return updateAccount(resolve, source, args, context, resolveInfo);
+          const auth0 = await Auth0.init(context.logger);
+
+          return updateAccount(
+            resolve,
+            source,
+            args,
+            context,
+            resolveInfo,
+            auth0
+          );
         }
       },
       updateCompany: {

@@ -124,6 +124,7 @@ describe("ParseUserInfo", () => {
           "x-request-market-domain": "en"
         },
         user: {
+          "user/email": "user.email",
           email: "user.email",
           iss: "user.iss",
           iat: "user.iat",

@@ -180,6 +180,7 @@ export default gql`
   extend input AccountPatch {
     photoUpload: Upload
     shouldRemovePhoto: Boolean
+    termsCondition: Boolean
   }
 
   extend input CompanyPatch {

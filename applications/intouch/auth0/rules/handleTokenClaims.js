@@ -1,9 +1,13 @@
 async function handleTokenClaims(user, context, callback) {
+  const { namespace, appUrl, logoutUrl } = configuration;
+
   if (!user.email_verified) {
-    return callback(new UnauthorizedError("email_not_verified"));
+    context.redirect = {
+      url: `${logoutUrl}?client_id=${context.clientID}&returnTo=${appUrl}/email-verification`
+    };
+    return callback(null, user, context);
   }
 
-  const { namespace } = configuration;
   const { app_metadata = {}, user_metadata = {} } = user;
 
   // I need this data to complete the registration
@@ -21,6 +25,17 @@ async function handleTokenClaims(user, context, callback) {
     [`${namespace}/intouch_role`]: user_metadata.intouch_role,
     [`${namespace}/intouch_market_code`]: user_metadata.market
   };
+
+  if (app_metadata.terms_to_accept) {
+    context.idToken = {
+      ...context.idToken,
+      [`${namespace}/terms_to_accept`]: app_metadata.terms_to_accept
+    };
+    context.accessToken = {
+      ...context.accessToken,
+      [`${namespace}/terms_to_accept`]: app_metadata.terms_to_accept
+    };
+  }
 
   return callback(null, user, context);
 }
