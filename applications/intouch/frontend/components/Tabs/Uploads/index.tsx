@@ -17,6 +17,7 @@ import {
   useContentfulEvidenceCategoriesLazyQuery,
   useDeleteEvidenceItemMutation
 } from "../../../graphql/generated/hooks";
+import { NoContent } from "../../NoContent";
 import styles from "./styles.module.scss";
 import { AddEvidenceDialog, EvidenceCategory } from "./AddEvidenceDialog";
 
@@ -149,46 +150,52 @@ export const UploadsTab = ({
                     </Typography>
                   </Accordion.Summary>
                   <Accordion.Details>
-                    <Table>
-                      <Table.Body>
-                        {values.map((value, index) => (
-                          <Table.Row
-                            key={`upload-items-${key}-${index}`}
-                            data-testid="uploads-item"
-                          >
-                            <Table.Cell>
-                              <a
-                                className={styles.download}
-                                href={value.url}
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                {value.name}
-                              </a>
-                            </Table.Cell>
-                            <Table.Cell style={{ textAlign: "right" }}>
-                              <Button
-                                data-testid="upload-item-view"
-                                variant="text"
-                              >
-                                <VisibilityIcon color="disabled" />
-                              </Button>
-                              {value.canEvidenceDelete && (
-                                <Button
-                                  data-testid="upload-item-delete"
-                                  variant="text"
-                                  onClick={() => {
-                                    onDeleteClickHandler(value.id);
-                                  }}
+                    {values.length > 0 ? (
+                      <Table>
+                        <Table.Body>
+                          {values.map((value, index) => (
+                            <Table.Row
+                              key={`upload-items-${key}-${index}`}
+                              data-testid="uploads-item"
+                            >
+                              <Table.Cell>
+                                <a
+                                  className={styles.download}
+                                  href={value.url}
+                                  target="_blank"
+                                  rel="noreferrer"
                                 >
-                                  <DeleteIcon color="primary" />
+                                  {value.name}
+                                </a>
+                              </Table.Cell>
+                              <Table.Cell style={{ textAlign: "right" }}>
+                                <Button
+                                  data-testid="upload-item-view"
+                                  variant="text"
+                                >
+                                  <VisibilityIcon color="disabled" />
                                 </Button>
-                              )}
-                            </Table.Cell>
-                          </Table.Row>
-                        ))}
-                      </Table.Body>
-                    </Table>
+                                {value.canEvidenceDelete && (
+                                  <Button
+                                    data-testid="upload-item-delete"
+                                    variant="text"
+                                    onClick={() => {
+                                      onDeleteClickHandler(value.id);
+                                    }}
+                                  >
+                                    <DeleteIcon color="primary" />
+                                  </Button>
+                                )}
+                              </Table.Cell>
+                            </Table.Row>
+                          ))}
+                        </Table.Body>
+                      </Table>
+                    ) : (
+                      <div className={styles.noContent}>
+                        <NoContent message={t("upload_tab.noContent")} />
+                      </div>
+                    )}
                   </Accordion.Details>
                 </Accordion.Item>
               );

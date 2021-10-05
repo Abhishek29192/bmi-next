@@ -34,3 +34,11 @@
     color: $color-cyan-500;
   }
 }
+
+.noContent {
+  & > * {
+    min-height: 1px;
+    padding: 2rem;
+    margin-top: 0;
+  }
+}

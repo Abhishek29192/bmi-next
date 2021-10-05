@@ -74,5 +74,16 @@ describe("Uploads Components", () => {
       renderWithI18NProvider(<UploadsTab projectId={1} uploads={files} />);
       expect(screen.queryAllByTestId("upload-item-delete")).toHaveLength(2);
     });
+
+    it("no uploads", () => {
+      renderWithI18NProvider(
+        <UploadsTab
+          projectId={1}
+          uploads={new Map([["Ventilation systems", []]])}
+        />
+      );
+      expect(screen.queryByTestId("uploads-item")).toBeFalsy();
+      expect(screen.findByLabelText("upload_tab.noContent")).toBeTruthy();
+    });
   });
 });
