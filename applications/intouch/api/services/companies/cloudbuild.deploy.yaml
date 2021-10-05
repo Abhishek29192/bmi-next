@@ -17,6 +17,8 @@ steps:
         "--set-env-vars=NODE_ENV=production",
         "--set-env-vars=PG_SCHEMA=public",
         "--set-env-vars=PG_USER=postgres",
+        "--set-env-vars=PG_REJECT_UNAUTHORIZED=true",
+        "--set-env-vars=PG_SSL=true",
         "--set-env-vars=PG_DATABASE=companies-db",
         "--set-env-vars=PG_PORT=5432",
         "--set-env-vars=FRONTEND_URL=intouch.dddev.io",
