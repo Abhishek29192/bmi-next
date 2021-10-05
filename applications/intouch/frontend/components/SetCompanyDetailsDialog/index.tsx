@@ -101,7 +101,14 @@ export const SetCompanyDetailsDialog = ({
       <Dialog.Title hasUnderline>{title}</Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
-        <Form className={styles.form} onSubmit={handleSubmit} rightAlignButton>
+        <Form
+          className={styles.form}
+          onSubmit={handleSubmit}
+          rightAlignButton
+          onKeyDown={(e) => {
+            if (e.key === "Enter") e.preventDefault();
+          }}
+        >
           <Typography variant="h6" className={styles.sectionText}>
             {t("company-page:edit_dialog.sections.registered_details")}
           </Typography>
