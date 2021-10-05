@@ -32,6 +32,7 @@ const GTMTab = withGTM<TabProps>(Tab, {
 });
 
 const TeamSection = ({ data, className }: Props) => {
+  if (!data.backgroundColor) data.backgroundColor = "white";
   return (
     <Section
       className={classnames(
