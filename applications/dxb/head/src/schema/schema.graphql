@@ -1363,11 +1363,32 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
 union ProductDocument = PIMDocument | PIMLinkDocument
 
-type DataJson implements Node {
+type Systems implements Node {
   id: String!
-  systemLayers: [SystemLayer]
-  categories: [Categories]
-  images: [SystemImage]
+  type: String!
+  approvalStatus: String!
+  assets: [PimAsset!]!
+  categories: [Categories!]!
+  classifications: [Classification!]!
+  code: String!
+  images: [PimImage!]!
+  longDescription: String
+  name: String!
+  shortDescription: String
+  systemBenefits: [String]!
+  systemLayers: [SystemLayer]!
+  systemReferences: [PimSystemReference]
+  path: String!
+}
+
+type PimAsset {
+  allowedToDownload: Boolean!
+  assetType: String!
+  fileSize: Int
+  mime: String!
+  name: String!
+  realFileName: String
+  url: String!
 }
 
 type SystemLayer {
@@ -1385,21 +1406,62 @@ type SystemLayer {
   relatedOptionalProducts: [Products] @link(from: "products___NODE")
 }
 
+type PimSystemReference {
+  referenceType: String
+  target: PimSystemReferenceTarget
+  preselected: Boolean
+}
+
+type PimSystemReferenceTarget {
+  code: String
+  name: String
+}
+
 type SystemProduct {
   code: String!
 }
 
 type Categories {
-  image: CategoryImage
+  categoryType: String!
+  code: String!
+  image: PimImage
+  name: String!
+  parentCategoryCode: String
 }
 
-type CategoryImage {
+type PimImage {
   allowedToDownload: Boolean
   fileSize: Int
   mime: String
   name: String
   realFileName: String
   url: String
+  containerId: String
+  format: String
+  assetType: String
+}
+
+type Classification {
+  code: String
+  features: [Feature]
+  name: String
+}
+
+type Feature {
+  code: String
+  featureUnit: FeatureUnit
+  featureValues: [FeatureValue]
+  name: String!
+}
+
+type FeatureValue {
+  value: String
+}
+
+type FeatureUnit {
+  name: String
+  symbol: String
+  unitType: String
 }
 
 type SystemImage {

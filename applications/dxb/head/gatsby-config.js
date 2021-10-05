@@ -374,6 +374,15 @@ module.exports = {
               // Certain things (the arrays) should be split into collections?
               ...doc
             })
+          },
+          {
+            type: "Systems",
+            collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
+            map: (doc) => {
+              return {
+                ...doc
+              };
+            }
           }
         ]
       }

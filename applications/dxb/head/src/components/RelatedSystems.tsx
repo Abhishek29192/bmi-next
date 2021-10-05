@@ -126,17 +126,16 @@ const SystemListing = ({
     <>
       <Grid container spacing={3}>
         {weightedSystems.slice(0, numberShown).map((system) => {
-          const path = "system-details-page";
           return (
             <SystemCard
               key={`${system.code}`}
               system={system}
               countryCode={countryCode}
-              path={path}
+              path={system.path}
               gtm={{
                 id: "cta-click1",
                 label: getMicroCopy("sdp.system.readMore"),
-                action: getSystemUrl(countryCode, path)
+                action: getSystemUrl(countryCode, system.path)
               }}
             />
           );
@@ -190,7 +189,7 @@ const RelatedSystems = ({
 export default RelatedSystems;
 
 export const query = graphql`
-  fragment RelatedSystemsFragment on DataJson {
+  fragment RelatedSystemsFragment on Systems {
     name
     shortDescription
     longDescription
@@ -203,6 +202,7 @@ export const query = graphql`
         name
       }
     }
+    path
     assets {
       allowedToDownload
       assetType
@@ -246,25 +246,6 @@ export const query = graphql`
       url
       format
       containerId
-    }
-    systemLayers {
-      layerNumber
-      type
-      name
-      shortDescription
-      relatedProducts {
-        name
-        variantOptions {
-          path
-        }
-      }
-      relatedOptionalProducts {
-        name
-        code
-        variantOptions {
-          path
-        }
-      }
     }
   }
 `;

@@ -1,6 +1,5 @@
 import path from "path";
 import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
-
 import { CreatePagesOptions } from "./types";
 
 interface PageContext {
@@ -8,6 +7,7 @@ interface PageContext {
   siteId: string;
   relatedSystemCodes: string[];
 }
+
 interface SystemReference {
   referenceType: string;
   target: {
@@ -16,9 +16,12 @@ interface SystemReference {
 }
 
 interface QueryData {
-  dataJson: {
-    id: string;
-    systemReferences: SystemReference[];
+  allSystems: {
+    nodes: {
+      id: string;
+      path: string;
+      systemReferences: SystemReference[];
+    }[];
   };
 }
 
@@ -31,15 +34,17 @@ export const createSystemPages = async ({
   const component = path.resolve(
     "./src/templates/systemDetails/systemDetailsPage.tsx"
   );
-
   const result = await graphql<QueryData>(`
     {
-      dataJson {
-        id
-        systemReferences {
-          referenceType
-          target {
-            code
+      allSystems {
+        nodes {
+          id
+          path
+          systemReferences {
+            referenceType
+            target {
+              code
+            }
           }
         }
       }
@@ -52,24 +57,25 @@ export const createSystemPages = async ({
 
   const {
     data: {
-      dataJson: { id, systemReferences }
+      allSystems: { nodes: allPimSystems }
     }
   } = result;
-  let relatedSystemCodes: string[] = [];
 
-  // TODO: Probably a way of abstracting this into a function
+  await Promise.all(
+    allPimSystems.map(async ({ id: systemPageId, path, systemReferences }) => {
+      const relatedSystemCodes = systemReferences
+        ?.filter((systemRefObj) => systemRefObj.referenceType === "CROSSELLING")
+        .map(({ target: { code } }) => code);
 
-  relatedSystemCodes = systemReferences
-    ?.filter((systemRefObj) => systemRefObj.referenceType === "CROSSELLING")
-    .map(({ target: { code } }) => code);
-
-  await createPage<PageContext>({
-    path: getPathWithCountryCode(countryCode, "system-details-page/"),
-    component,
-    context: {
-      systemPageId: id,
-      siteId,
-      relatedSystemCodes
-    }
-  });
+      await createPage<PageContext>({
+        path: getPathWithCountryCode(countryCode, path),
+        component,
+        context: {
+          systemPageId,
+          siteId,
+          relatedSystemCodes
+        }
+      });
+    })
+  );
 };

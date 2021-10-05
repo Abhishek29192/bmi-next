@@ -253,8 +253,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details\\"}"
-                href="/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -560,8 +560,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details\\"}"
-                href="/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -1573,8 +1573,8 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details\\"}"
-                href="/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -3336,8 +3336,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details\\"}"
-                href="/no/system-details-page?selected_system=abcd&prev_page=system-configurator-page&referer=sys_details"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"undefined?selected_system=abcd&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/undefined?selected_system=abcd&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -3386,8 +3386,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details\\"}"
-                href="/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -3436,8 +3436,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"ijkl\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"system-details-page?selected_system=ijkl&prev_page=system-configurator-page&referer=sys_details\\"}"
-                href="/no/system-details-page?selected_system=ijkl&prev_page=system-configurator-page&referer=sys_details"
+                data-gtm="{\\"id\\":\\"ijkl\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"undefined?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/undefined?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -3486,8 +3486,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"mnop\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"system-details-page?selected_system=mnop&prev_page=system-configurator-page&referer=sys_details\\"}"
-                href="/no/system-details-page?selected_system=mnop&prev_page=system-configurator-page&referer=sys_details"
+                data-gtm="{\\"id\\":\\"mnop\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"undefined?selected_system=mnop&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/undefined?selected_system=mnop&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -3787,8 +3787,8 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details\\"}"
-                href="/no/system-details-page?selected_system=efgh&prev_page=system-configurator-page&referer=sys_details"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/undefined?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -3843,8 +3843,8 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"ijkl\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"system-details-page?selected_system=ijkl&prev_page=system-configurator-page&referer=sys_details\\"}"
-                href="/no/system-details-page?selected_system=ijkl&prev_page=system-configurator-page&referer=sys_details"
+                data-gtm="{\\"id\\":\\"ijkl\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"undefined?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/undefined?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >

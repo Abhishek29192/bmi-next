@@ -41,7 +41,7 @@ type Props = {
   };
   data: {
     contentfulSite: SiteData;
-    dataJson: SystemDetails;
+    systems: SystemDetails;
     relatedSystems?: {
       nodes: ReadonlyArray<SystemDetails>;
     };
@@ -71,7 +71,7 @@ export const IGNORED_DOCUMENTS_ASSETS = [
 ];
 
 const SystemDetailsPage = ({ pageContext, data }: Props) => {
-  const { contentfulSite, dataJson, relatedSystems, allContentfulAssetType } =
+  const { contentfulSite, systems, relatedSystems, allContentfulAssetType } =
     data;
   const { countryCode, resources } = contentfulSite;
 
@@ -84,7 +84,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     assets,
     systemBenefits,
     systemLayers
-  } = dataJson;
+  } = systems;
   const location = useLocation();
 
   useEffect(() => {
@@ -301,7 +301,7 @@ export const systemsQuery = graphql`
         pimCode
       }
     }
-    dataJson(id: { eq: $systemPageId }) {
+    systems(id: { eq: $systemPageId }) {
       name
       shortDescription
       longDescription
@@ -379,7 +379,7 @@ export const systemsQuery = graphql`
       }
     }
 
-    relatedSystems: allDataJson(filter: { code: { in: $relatedSystemCodes } }) {
+    relatedSystems: allSystems(filter: { code: { in: $relatedSystemCodes } }) {
       nodes {
         ...RelatedSystemsFragment
       }

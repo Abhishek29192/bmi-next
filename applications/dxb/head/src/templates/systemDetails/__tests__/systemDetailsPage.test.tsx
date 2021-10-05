@@ -3,7 +3,7 @@ import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import dataJson from "../../../data/pim-mock-data.json";
 import Component from "../systemDetailsPage";
-import { SystemDetails, DocumentData, AssetType, Assets } from "../types";
+import { SystemDetails, AssetType, Assets } from "../types";
 import SystemDetailsPage, {
   IGNORED_DOCUMENTS_ASSETS
 } from "../systemDetailsPage";
@@ -50,7 +50,7 @@ describe("SystemDetailsPage template component", () => {
         data={{
           contentfulSite: createMockSiteData(),
           shareWidget: null,
-          dataJson: systemDetailsMockData,
+          systems: systemDetailsMockData,
           allContentfulAssetType
         }}
         pageContext={{
@@ -70,7 +70,7 @@ describe("SystemDetailsPage template component", () => {
         data={{
           contentfulSite: createMockSiteData(),
           shareWidget: null,
-          dataJson: systemDetailsMockData,
+          systems: systemDetailsMockData,
           allContentfulAssetType
         }}
         pageContext={{
@@ -167,7 +167,7 @@ describe("SystemDetailsPage template component", () => {
           data={{
             contentfulSite: createMockSiteData(),
             shareWidget: null,
-            dataJson: newDatajson as SystemDetails,
+            systems: newDatajson as SystemDetails,
             allContentfulAssetType
           }}
           pageContext={{
@@ -240,7 +240,7 @@ describe("SystemDetailsPage template component", () => {
           data={{
             contentfulSite: createMockSiteData(),
             shareWidget: null,
-            dataJson: { ...systemDetailsMockData, assets: documents },
+            systems: { ...systemDetailsMockData, assets: documents },
             allContentfulAssetType
           }}
           pageContext={{
@@ -267,7 +267,7 @@ describe("gtm on landing on sdp from sc", (): void => {
         data={{
           contentfulSite: createMockSiteData(),
           shareWidget: null,
-          dataJson: systemDetailsMockData,
+          systems: systemDetailsMockData,
           allContentfulAssetType
         }}
         pageContext={{
