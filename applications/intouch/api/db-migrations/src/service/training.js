@@ -4,7 +4,6 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const { Client } = require("pg");
-const { formatCert, formatKey } = require("../utils");
 
 const { PG_USER = "postgres", PG_TRAINING_DATABASE = "training-db" } =
   process.env;
@@ -44,9 +43,9 @@ const importTrainingDb = async (
       PG_SSL === "true"
         ? {
             rejectUnauthorized: PG_REJECT_UNAUTHORIZED === "true",
-            ca: formatCert(server_ca).replace(/\\n/g, "\n"),
-            key: formatKey(client_key).replace(/\\n/g, "\n"),
-            cert: formatCert(client_cert).replace(/\\n/g, "\n"),
+            ca: server_ca,
+            key: client_key,
+            cert: client_cert,
             host: PG_SSL_HOST
           }
         : false
