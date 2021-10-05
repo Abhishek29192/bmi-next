@@ -20,6 +20,7 @@ steps:
         "--set-env-vars=PG_USER=postgres",
         "--set-env-vars=PG_DATABASE=companies-db",
         "--set-env-vars=PG_PORT=5432",
+        "--set-env-vars=PG_SSL_HOST=automated-style-303709:intouch-db",
         "--set-env-vars=GCP_SECRET_PROJECT=734962646925"
       ]
 

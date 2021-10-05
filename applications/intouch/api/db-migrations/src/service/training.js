@@ -31,6 +31,8 @@ const importTrainingDb = async (
     `Connecting as user:'${PG_USER}' to db:'${PG_TRAINING_DATABASE}' database using`
   );
 
+  const { PG_REJECT_UNAUTHORIZED, PG_SSL, PG_SSL_HOST } = process.env;
+
   const pgClient = new Client({
     connectionTimeoutMillis: 30000,
     port: parseInt(PG_PORT),
@@ -39,12 +41,13 @@ const importTrainingDb = async (
     password,
     host,
     ssl:
-      process.env.PG_SSL === "true"
+      PG_SSL === "true"
         ? {
-            rejectUnauthorized: process.env.PG_REJECT_UNAUTHORIZED === "true",
+            rejectUnauthorized: PG_REJECT_UNAUTHORIZED === "true",
             ca: formatCert(server_ca).replace(/\\n/g, "\n"),
             key: formatKey(client_key).replace(/\\n/g, "\n"),
-            cert: formatCert(client_cert).replace(/\\n/g, "\n")
+            cert: formatCert(client_cert).replace(/\\n/g, "\n"),
+            host: PG_SSL_HOST
           }
         : false
   });
