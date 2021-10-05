@@ -32,10 +32,11 @@ export const getDbPool = () => {
       PG_SSL_CLIENT_KEY,
       PG_SSL_CLIENT_CERT,
       PG_SSL_SERVER_CA,
-      PG_REJECT_UNAUTHORIZED
+      PG_REJECT_UNAUTHORIZED,
+      PG_SSL_HOST
     } = process.env;
 
-    let dbConfig: PoolConfig = {
+    const dbConfig: PoolConfig = {
       host: PG_HOST,
       port: parseInt(PG_PORT),
       user: PG_USER,
@@ -47,7 +48,8 @@ export const getDbPool = () => {
               rejectUnauthorized: PG_REJECT_UNAUTHORIZED === "true",
               ca: formatCert(PG_SSL_SERVER_CA).replace(/\\n/g, "\n"),
               key: formatKey(PG_SSL_CLIENT_KEY).replace(/\\n/g, "\n"),
-              cert: formatCert(PG_SSL_CLIENT_CERT).replace(/\\n/g, "\n")
+              cert: formatCert(PG_SSL_CLIENT_CERT).replace(/\\n/g, "\n"),
+              host: PG_SSL_HOST
             }
           : false
     };

@@ -23,6 +23,7 @@ steps:
         "--set-env-vars=PG_REJECT_UNAUTHORIZED=true",
         "--set-env-vars=PG_SSL=true",
         "--set-env-vars=LOG_LEVEL=info",
+        "--set-env-vars=PG_SSL_HOST=automated-style-303709:intouch-db",
         "--set-env-vars=GCP_SECRET_PROJECT=734962646925"
       ]
 

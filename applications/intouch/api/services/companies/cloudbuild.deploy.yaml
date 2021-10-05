@@ -21,6 +21,7 @@ steps:
         "--set-env-vars=PG_SSL=true",
         "--set-env-vars=PG_DATABASE=companies-db",
         "--set-env-vars=PG_PORT=5432",
+        "--set-env-vars=PG_SSL_HOST=automated-style-303709:intouch-db",
         "--set-env-vars=FRONTEND_URL=intouch.dddev.io",
         "--set-env-vars=AUTH0_API_CLIENT_ID=M9fxKSvan4Jx0zyLdUhUWm2YO7UqnoyS",
         "--set-env-vars=AUTH0_API_DOMAIN=intouch-dev.eu.auth0.com",
