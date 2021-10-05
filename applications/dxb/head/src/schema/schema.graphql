@@ -915,6 +915,7 @@ union ContentfulSection =
   | ContentfulVideoSection
   | ContentfulIframe
   | ContentfulSystemConfiguratorBlock
+  | ContentfulTeamSection
 
 """
 Represents a key value pair for UI strings.
