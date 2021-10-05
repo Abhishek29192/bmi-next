@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { useTranslation } from "next-i18next";
 import { Account } from "@bmi/intouch-api-types";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import TextField from "@bmi/text-field";
+import Checkbox from "@bmi/checkbox";
 import Dialog from "@bmi/dialog";
 import Form from "@bmi/form";
 import { useUpdateAccountMutation } from "../graphql/generated/hooks";
@@ -14,14 +16,17 @@ const fields = ["firstName", "lastName"];
 
 type Props = {
   account: Account;
+  termsToAccept: Boolean;
 };
 
-const UserRegistration = ({ account }: Props) => {
+const UserRegistration = ({ account, termsToAccept }: Props) => {
   const { t } = useTranslation("user-registration");
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const [updateAccount] = useUpdateAccountMutation({
     onCompleted: () => {
-      window.location.assign("/");
+      // I've updated a value in Auth0 so I need to re-create the token
+      window.location.assign("/api/silent-login");
     }
   });
   const onSubmit = (event, values) => {
@@ -32,7 +37,8 @@ const UserRegistration = ({ account }: Props) => {
           id: account.id,
           patch: {
             firstName: values.firstName,
-            lastName: values.lastName
+            lastName: values.lastName,
+            ...(termsAccepted && { termsCondition: termsAccepted })
           }
         }
       }
@@ -58,6 +64,29 @@ const UserRegistration = ({ account }: Props) => {
                   fullWidth
                 />
               ))}
+              {termsToAccept && (
+                <Checkbox
+                  name="terms-condition"
+                  onChange={(checked) => setTermsAccepted(checked)}
+                  label={
+                    <>
+                      {t("dialog.form.agree_label")}
+                      <Link href="https://www.bmigroup.com/legal/legal">
+                        <a style={{ textDecoration: "underline" }}>
+                          {t("dialog.form.terms_condition")}
+                        </a>
+                      </Link>
+                      {t("dialog.form.and")}
+                      <Link href="https://www.bmigroup.com/legal/third-party-privacy-notice">
+                        <a style={{ textDecoration: "underline" }}>
+                          {t("dialog.form.privacy_policy")}
+                        </a>
+                      </Link>
+                    </>
+                  }
+                  required
+                />
+              )}
             </Form.Row>
             <Form.ButtonWrapper>
               <Form.SubmitButton>{t("save")}</Form.SubmitButton>
@@ -69,13 +98,22 @@ const UserRegistration = ({ account }: Props) => {
   );
 };
 
-export const getServerSideProps = withPage(async ({ locale, account }) => {
-  return {
-    props: {
-      account,
-      ...(await serverSideTranslations(locale, ["common", "user-registration"]))
-    }
-  };
-});
+export const getServerSideProps = withPage(
+  async ({ locale, account, session }) => {
+    const termsToAccept =
+      session.user[`${process.env.AUTH0_NAMESPACE}/terms_to_accept`] || false;
+
+    return {
+      props: {
+        account,
+        termsToAccept,
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "user-registration"
+        ]))
+      }
+    };
+  }
+);
 
 export default withPageAuthRequired(UserRegistration);

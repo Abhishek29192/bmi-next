@@ -116,7 +116,7 @@ export const innerGetServerSideProps = async (
     if (redirect) return redirect;
 
     // Redirect to user registration if missing data in the user profile
-    redirect = userRegistration(ctx.resolvedUrl, account);
+    redirect = userRegistration(ctx.resolvedUrl, account, session);
     if (redirect) return redirect;
 
     // Redirect to company registration if new company

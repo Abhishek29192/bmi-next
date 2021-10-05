@@ -40,12 +40,7 @@ export default async (req, res, next) => {
     } else {
       req.user = {
         email: user[`${process.env.AUTH0_NAMESPACE}/email`],
-        iss: user.iss,
-        iat: user.iat,
-        exp: user.exp,
-        scope: user.exp,
-        sub: user.sub,
-        aud: user.aud
+        ...user
       };
 
       const {
