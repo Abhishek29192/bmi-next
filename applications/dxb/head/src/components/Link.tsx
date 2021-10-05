@@ -20,6 +20,15 @@ const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
   return actionUrls.some((actionUrl) => url.startsWith(actionUrl));
 };
+export enum DataTypeEnum {
+  External = "External",
+  Internal = "Internal",
+  Asset = "Asset",
+  Visualiser = "Visualiser",
+  Calculator = "Calculator",
+  Dialog = "Dialog",
+  HubSpotCta = "HubSpot CTA"
+}
 
 const isExternalUrl = (url: string): boolean => {
   try {
@@ -45,7 +54,7 @@ export const getClickableActionFromUrl = (
     action: string;
   }
 ): ClickableAction | undefined => {
-  if (type === "Visualiser") {
+  if (type === DataTypeEnum.Visualiser) {
     const dataGtm = gtmData || {
       id: "cta-visualiser1",
       action: "visualiser",
@@ -63,7 +72,7 @@ export const getClickableActionFromUrl = (
     };
   }
 
-  if (type === "Calculator") {
+  if (type === DataTypeEnum.Calculator) {
     const dataGtm = gtmData || {
       id: "cta-calculator1",
       action: "calculator",
@@ -81,7 +90,7 @@ export const getClickableActionFromUrl = (
     };
   }
 
-  if (type === "Dialog") {
+  if (type === DataTypeEnum.Dialog) {
     const dataGtm = gtmData || { id: "cta-click1", action: type, label };
     return {
       model: "default",
@@ -208,15 +217,7 @@ export type Data = {
   icon: IconName | null;
   isLabelHidden: boolean | null;
   url: string | null;
-  type:
-    | "External"
-    | "Internal"
-    | "Asset"
-    | "Visualiser"
-    | "Calculator"
-    | "Dialog"
-    | "HubSpot CTA"
-    | null;
+  type: DataTypeEnum | null;
   parameters: { [key: string]: any } | null;
   dialogContent: SectionData | null;
   linkedPage: {
