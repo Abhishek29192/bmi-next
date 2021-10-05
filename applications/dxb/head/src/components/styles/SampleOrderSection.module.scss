@@ -1,0 +1,10 @@
+@import "@bmi/styles";
+
+.SampleOrderSection {
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-top: 1px solid $color-storm;
+  }
+}
