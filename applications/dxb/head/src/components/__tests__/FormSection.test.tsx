@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import FormSection, { Data } from "../FormSection";
+import { DataTypeEnum } from "../Link";
 
 describe("FormSection component", () => {
   it("renders correctly", () => {
@@ -79,7 +80,7 @@ describe("FormSection component", () => {
         isLabelHidden: false,
         url: "link-to-page",
         linkedPage: null,
-        type: "Internal",
+        type: DataTypeEnum.Internal,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: null
@@ -112,7 +113,7 @@ describe("Hubspot FormSection component", () => {
         isLabelHidden: false,
         url: "link-to-page",
         linkedPage: null,
-        type: "Internal",
+        type: DataTypeEnum.Internal,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: null

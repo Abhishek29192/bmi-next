@@ -4,6 +4,7 @@ import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import {
   Data as LinkData,
+  DataTypeEnum,
   getClickableActionFromUrl,
   getCTA,
   getLinkURL,
@@ -39,7 +40,7 @@ describe("Link component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "External",
+        type: DataTypeEnum.External,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: null
@@ -62,7 +63,7 @@ describe("Link component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "External",
+        type: DataTypeEnum.External,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: null
@@ -88,7 +89,7 @@ describe("Link component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "Dialog",
+        type: DataTypeEnum.Dialog,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: null
@@ -114,7 +115,7 @@ describe("Link component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "Calculator",
+        type: DataTypeEnum.Calculator,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: null
@@ -140,7 +141,7 @@ describe("Link component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "Visualiser",
+        type: DataTypeEnum.Visualiser,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: null
@@ -180,7 +181,7 @@ describe("Link component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "External",
+        type: DataTypeEnum.External,
         parameters: null,
         dialogContent: promo,
         hubSpotCTAID: null
@@ -216,7 +217,7 @@ describe("Link component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "External",
+        type: DataTypeEnum.External,
         parameters: { key: "value" },
         dialogContent: promo,
         hubSpotCTAID: null
@@ -238,7 +239,7 @@ describe("Link component", () => {
         isLabelHidden: false,
         url: null,
         linkedPage: null,
-        type: "HubSpot CTA",
+        type: DataTypeEnum.HubSpotCta,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: "123abc"
@@ -260,7 +261,7 @@ describe("Link component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "Dialog",
+        type: DataTypeEnum.Dialog,
         parameters: null,
         dialogContent: {
           __typename: "ContentfulFormSection",
@@ -321,7 +322,7 @@ describe("Link component", () => {
         "en",
         null,
         "ImALabel",
-        "External"
+        DataTypeEnum.External
       );
       expect(clickableAction).toMatchSnapshot();
     });
@@ -333,7 +334,7 @@ describe("Link component", () => {
         "en",
         "assetUrl",
         "ImALabel",
-        "Asset"
+        DataTypeEnum.Asset
       );
       expect(clickableAction).toMatchSnapshot();
     });
@@ -369,7 +370,7 @@ describe("Link component", () => {
               isLabelHidden: null,
               url: "https://www.external.co.uk",
               linkedPage: null,
-              type: "External",
+              type: DataTypeEnum.External,
               parameters: null,
               dialogContent: null,
               hubSpotCTAID: null
@@ -428,7 +429,7 @@ describe("Link component", () => {
               isLabelHidden: null,
               url: "https://www.external.co.uk",
               linkedPage: null,
-              type: "External",
+              type: DataTypeEnum.External,
               parameters: null,
               dialogContent: null,
               hubSpotCTAID: null
@@ -463,7 +464,7 @@ describe("Link component", () => {
         isLabelHidden: false,
         url: null,
         linkedPage: null,
-        type: "HubSpot CTA",
+        type: DataTypeEnum.HubSpotCta,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: "123abc"
@@ -481,7 +482,7 @@ describe("Link component", () => {
         isLabelHidden: false,
         url: externalURL,
         linkedPage: null,
-        type: "HubSpot CTA",
+        type: DataTypeEnum.HubSpotCta,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: null

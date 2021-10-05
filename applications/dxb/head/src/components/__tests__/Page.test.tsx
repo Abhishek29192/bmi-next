@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
 import regions from "../../countries/region.json";
 import { Data as SiteData } from "../Site";
-import { NavigationData } from "../Link";
+import { DataTypeEnum, NavigationData } from "../Link";
 import Page, { Data } from "../Page";
 
 const mockNavigation: NavigationData = {
@@ -19,7 +19,7 @@ const mockNavigation: NavigationData = {
       isLabelHidden: false,
       url: "link-to-page",
       linkedPage: null,
-      type: "External",
+      type: DataTypeEnum.External,
       parameters: null,
       dialogContent: null,
       hubSpotCTAID: null
@@ -45,7 +45,7 @@ const mockNestedNavigation: NavigationData = {
           isLabelHidden: null,
           icon: "Phone",
           linkedPage: null,
-          type: "External",
+          type: DataTypeEnum.External,
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null
@@ -67,7 +67,7 @@ const mockNestedNavigation: NavigationData = {
           linkedPage: {
             path: "landing-page"
           },
-          type: "Internal",
+          type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null
@@ -82,7 +82,7 @@ const mockNestedNavigation: NavigationData = {
       isLabelHidden: false,
       url: "link-to-page",
       linkedPage: null,
-      type: "External",
+      type: DataTypeEnum.External,
       parameters: null,
       dialogContent: null,
       hubSpotCTAID: null

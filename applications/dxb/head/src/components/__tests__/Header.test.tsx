@@ -1,7 +1,7 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
-import { Data as LinkData, NavigationData } from "../Link";
+import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import Header from "../Header";
@@ -131,7 +131,7 @@ const linkData: LinkData = {
   isLabelHidden: null,
   url: "https://www.external.co.uk",
   linkedPage: null,
-  type: "External",
+  type: DataTypeEnum.External,
   parameters: null,
   dialogContent: null,
   hubSpotCTAID: null
@@ -155,7 +155,7 @@ const navigationData: NavigationData = {
           isLabelHidden: null,
           icon: "Phone",
           linkedPage: null,
-          type: "External",
+          type: DataTypeEnum.External,
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null
@@ -183,7 +183,7 @@ const navigationData: NavigationData = {
           linkedPage: {
             path: "landing-page"
           },
-          type: "Internal",
+          type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null
@@ -209,7 +209,7 @@ const utilitiesData: NavigationData = {
       linkedPage: {
         path: "landing-page"
       },
-      type: "Internal",
+      type: DataTypeEnum.Internal,
       parameters: null,
       dialogContent: null,
       hubSpotCTAID: null

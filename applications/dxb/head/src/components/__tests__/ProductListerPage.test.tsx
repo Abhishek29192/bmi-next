@@ -14,7 +14,7 @@ import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as PageData } from "../../components/Page";
 import { RichTextData } from "../../components/RichText";
 import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
-import { Data as LinkData } from "../../components/Link";
+import { Data as LinkData, DataTypeEnum } from "../../components/Link";
 import regions from "../../countries/region.json";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
@@ -117,7 +117,7 @@ const mockNavigation: NavigationData = {
       isLabelHidden: false,
       url: "link-to-page",
       linkedPage: null,
-      type: "External",
+      type: DataTypeEnum.External,
       parameters: null,
       dialogContent: null,
       hubSpotCTAID: null

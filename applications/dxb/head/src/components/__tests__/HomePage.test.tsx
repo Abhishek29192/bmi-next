@@ -9,7 +9,7 @@ import { Data as SectionsData } from "../../components/Sections";
 import regions from "../../countries/region.json";
 import { Data as PromoData } from "../Promo";
 import { Data as SiteData } from "../Site";
-import { NavigationData } from "../Link";
+import { DataTypeEnum, NavigationData } from "../Link";
 import { getPathWithCountryCode } from "../../schema/resolvers/utils/path";
 
 type HomepageData = {
@@ -195,7 +195,7 @@ const mockNavigation: NavigationData = {
       isLabelHidden: false,
       url: "link-to-page",
       linkedPage: null,
-      type: "External",
+      type: DataTypeEnum.External,
       parameters: null,
       dialogContent: null,
       hubSpotCTAID: null
