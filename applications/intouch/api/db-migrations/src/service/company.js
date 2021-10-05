@@ -4,6 +4,7 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const { Client } = require("pg");
+const { formatCert, formatKey } = require("../utils");
 
 const { PG_USER = "postgres", PG_COMPANY_DATABASE = "companies-db" } =
   process.env;
@@ -14,7 +15,10 @@ const getFile = (file) =>
     "utf8"
   );
 
-const importCompanyDb = async ({ password, host }, query) => {
+const importCompanyDb = async (
+  { password, host, client_key, client_cert, server_ca },
+  query
+) => {
   const db = getFile("company.sql");
   const dbData = getFile("company.data.sql");
   const contraints = getFile("company.contraints.sql");
@@ -36,7 +40,16 @@ const importCompanyDb = async ({ password, host }, query) => {
     database: PG_COMPANY_DATABASE,
     user: PG_USER,
     password,
-    host
+    host,
+    ssl:
+      process.env.PG_SSL === "true"
+        ? {
+            rejectUnauthorized: process.env.PG_REJECT_UNAUTHORIZED === "true",
+            ca: formatCert(server_ca).replace(/\\n/g, "\n"),
+            key: formatKey(client_key).replace(/\\n/g, "\n"),
+            cert: formatCert(client_cert).replace(/\\n/g, "\n")
+          }
+        : false
   });
   await pgClient.connect();
 

@@ -30,6 +30,10 @@ async function main() {
   const PG_TRAINING_HOST = await getSecret(client, "TRAINING_DB_HOST");
   const PG_TRAINING_PASSWORD = await getSecret(client, "TRAINING_DB_PASSWORD");
 
+  const PG_SSL_CLIENT_KEY = await getSecret(client, "PG_SSL_CLIENT_KEY");
+  const PG_SSL_CLIENT_CERT = await getSecret(client, "PG_SSL_CLIENT_CERT");
+  const PG_SSL_SERVER_CA = await getSecret(client, "PG_SSL_SERVER_CA");
+
   const app = express();
   app.use(express.json());
 
@@ -52,7 +56,10 @@ async function main() {
       await importCompanyDb(
         {
           password: PG_COMPANIES_PASSWORD,
-          host: PG_COMPANIES_HOST
+          host: PG_COMPANIES_HOST,
+          client_key: PG_SSL_CLIENT_KEY,
+          client_cert: PG_SSL_CLIENT_CERT,
+          server_ca: PG_SSL_SERVER_CA
         },
         query
       );
@@ -73,7 +80,10 @@ async function main() {
       await importTrainingDb(
         {
           password: PG_TRAINING_PASSWORD,
-          host: PG_TRAINING_HOST
+          host: PG_TRAINING_HOST,
+          client_key: PG_SSL_CLIENT_KEY,
+          client_cert: PG_SSL_CLIENT_CERT,
+          server_ca: PG_SSL_SERVER_CA
         },
         query
       );
