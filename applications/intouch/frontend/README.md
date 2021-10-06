@@ -12,9 +12,9 @@ To know more about BMI InTouch, see the related [Confluence documents](https://b
 
 - run `yarn workspace @bmi/intouch-frontend dev` from the monorepo root directory
 
-- visit [http://intouch.local:3000/](http://intouch.local:3000/)
+- visit [http://local.intouch:3000/](http://local.intouch:3000/)
 
-- visit [http://intouch.local:3000/api/graphql](http://intouch.local:3000/api/graphql) to work directly on the apollo federated server without need to use the auth0 token
+- visit [http://local.intouch:3000/api/graphql](http://local.intouch:3000/api/graphql) to work directly on the apollo federated server without need to use the auth0 token
 
 The `AUTH0_COOKIE_DOMAIN` define when using multi market or single market.
 
