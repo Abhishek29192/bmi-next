@@ -23,15 +23,15 @@ resource "google_cloud_run_service" "default" {
         }
         env {
           name  = "AUTH0_AUDIENCE"
-          value = "https://dev-api.intouch.dev"
+          value = "https://api.intouch.bmigroup.com"
         }
         env {
           name  = "AUTH0_ISSUER_BASE_URL"
-          value = "https://intouch-dev.eu.auth0.com"
+          value = "https://intouch-prod.eu.auth0.com"
         }
         env {
           name  = "AUTH0_CLIENT_ID"
-          value = "W4gH2YagDOBdMpEUESoC4xZhsZbc3W1S"
+          value = "Ewm7rbqSA3cFsmoNvN0CMfY4kuQV25fF"
         }
         env {
           name  = "AUTH0_COOKIE_DOMAIN"
