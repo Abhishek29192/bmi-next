@@ -1,7 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { CompanyMember } from "@bmi/intouch-api-types";
 import { AddTeamMemberDialog } from "../AddTeamMemberDialog";
-import { renderWithI18NProvider, screen } from "../../../../lib/tests/utils";
+import {
+  renderWithI18NProvider,
+  screen,
+  waitFor,
+  fireEvent
+} from "../../../../lib/tests/utils";
 
 jest.mock("@bmi/use-dimensions", () => ({
   __esModule: true,
@@ -130,5 +135,55 @@ describe("AddTeamMemberDialog Components", () => {
       />
     );
     expect(screen.getAllByTestId("team-member-item")).toHaveLength(4);
+  });
+
+  it("should uncheck boxes on state change", async () => {
+    const allMembers = members as CompanyMember[];
+
+    const AddTeamMemberDialogTest = () => {
+      const [testMembers, setTestMembers] = useState(
+        allMembers as CompanyMember[]
+      );
+
+      const changeMembers = () => {
+        // Add only first two members
+        setTestMembers([allMembers[0], allMembers[1]]);
+      };
+
+      return (
+        <>
+          <AddTeamMemberDialog
+            isOpen={true}
+            onCloseClick={null}
+            onConfirmClick={null}
+            members={testMembers}
+          />
+          <button onClick={changeMembers}>Change</button>
+        </>
+      );
+    };
+
+    renderWithI18NProvider(<AddTeamMemberDialogTest />);
+
+    const checkboxes = (await waitFor(() =>
+      screen.getAllByRole("checkbox")
+    )) as HTMLInputElement[];
+    const changeButton = await waitFor(() => screen.getByText("Change"));
+
+    fireEvent.click(checkboxes[1]);
+    fireEvent.click(checkboxes[2]);
+
+    expect(checkboxes[1].checked).toBeTruthy();
+    expect(checkboxes[2].checked).toBeTruthy();
+
+    // Change the state
+    fireEvent.click(changeButton);
+
+    const updatedCheckboxes = (await waitFor(() =>
+      screen.getAllByRole("checkbox")
+    )) as HTMLInputElement[];
+
+    expect(updatedCheckboxes[1].checked).toBeFalsy();
+    expect(updatedCheckboxes[2].checked).toBeFalsy();
   });
 });
