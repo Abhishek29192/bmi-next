@@ -4,6 +4,7 @@ import Card, { CardContent, CardHeader } from "@bmi/card";
 import Icon from "@bmi/icon";
 import { Delete } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
+import classnames from "classnames";
 import styles from "./styles.module.scss";
 
 export type WizardProductDetailCardProp = {
@@ -32,15 +33,28 @@ export const WizardProductDetailCard = ({
           )
         }
         title={name}
+        component={(props) => (
+          <span
+            {...props}
+            className={classnames(props.className, styles.cardHeader)}
+          />
+        )}
+        titleTypographyProps={{ variant: "body1" }}
       />
-      <CardContent>
-        <Typography variant="subtitle2" color="textSecondary">
-          {description}
-        </Typography>
-      </CardContent>
+      {description && (
+        <CardContent>
+          <Typography variant="subtitle2" color="textSecondary">
+            {description}
+          </Typography>
+        </CardContent>
+      )}
       <div className={styles.footer}>
-        <Typography>{brand}</Typography>
-        <Typography>{family}</Typography>
+        <Typography variant="caption" className={styles.footer__inner}>
+          {brand}
+        </Typography>
+        <Typography variant="caption" className={styles.footer__inner}>
+          {family}
+        </Typography>
       </div>
     </Card>
   );
