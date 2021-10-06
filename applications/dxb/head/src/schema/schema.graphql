@@ -1244,7 +1244,7 @@ type ContentfulDocument implements Node {
   "The image for this document."
   image: ContentfulAsset @link(by: "id", from: "image___NODE")
 
-  "The main image of brand page. Can be used when referencing this page."
+  "The main image document."
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 }
 
