@@ -5,7 +5,8 @@ const {
   SECRET_MAN_GCP_PROJECT_NAME,
   ES_PASSWORD_SECRET,
   ES_CLOUD_ID,
-  ES_USERNAME
+  ES_USERNAME,
+  USE_LOCAL_ES
 } = process.env;
 
 const secretManagerClient = new SecretManagerServiceClient();
@@ -14,6 +15,13 @@ let esClientCache: Client;
 
 export const getEsClient = async () => {
   if (!esClientCache) {
+    if (USE_LOCAL_ES === "true") {
+      esClientCache = new Client({
+        node: ES_CLOUD_ID
+      });
+      return esClientCache;
+    }
+
     const esPasswordSecret = await secretManagerClient.accessSecretVersion({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });

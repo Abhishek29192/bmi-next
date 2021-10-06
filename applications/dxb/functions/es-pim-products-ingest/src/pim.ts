@@ -1,5 +1,5 @@
 export type System = {
-  type: string;
+  type?: string;
   approvalStatus: ApprovalStatus;
   assets: readonly Asset[];
   categories: readonly Category[];

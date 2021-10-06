@@ -36,7 +36,7 @@ const buildEsSystems = (systems: readonly System[]): EsSystem[] => {
   );
 };
 
-export const handleMessage: MessageFunction = async (event, context) => {
+export const handleMessage: MessageFunction = async (data, context) => {
   /* istanbul ignore next */
   if (USE_LOCAL_ES !== "true") {
     if (!ES_CLOUD_ID) {
@@ -48,22 +48,16 @@ export const handleMessage: MessageFunction = async (event, context) => {
     }
   }
   // eslint-disable-next-line no-console
-  console.info("event", event);
+  console.info("data", data);
   // eslint-disable-next-line no-console
   console.info("context", context);
 
   await pingEsCluster();
 
   let message: ProductMessage | SystemMessage;
-  /* istanbul ignore next */
-  if (USE_LOCAL_ES === "true") {
-    message = event.data as ProductMessage | SystemMessage;
-  } else {
-    // For some reason event is undefined when triggering locally
-    message = event.data
-      ? JSON.parse(Buffer.from(event.data as string, "base64").toString())
-      : {};
-  }
+  message = data.data
+    ? JSON.parse(Buffer.from(data.data as string, "base64").toString())
+    : {};
 
   const { type, itemType, items } = message;
   if (!items) {

@@ -203,30 +203,6 @@ describe("handleMessage", () => {
     expect(count).toBeCalledTimes(0);
   });
 
-  it("should do nothing if transform system returns empty array", async () => {
-    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
-    ping.mockImplementation((args) => {
-      args();
-    });
-    transformSystem.mockReturnValue([]);
-
-    const message: SystemMessage = {
-      type: "UPDATED",
-      itemType: "SYSTEMS",
-      items: [createSystem()]
-    };
-    await handleMessage(createEvent(message), createContext());
-
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
-    });
-    expect(ping).toBeCalled();
-    expect(transformProduct).toBeCalledTimes(0);
-    expect(transformSystem).toBeCalledWith(message.items[0]);
-    expect(bulk).toBeCalledTimes(0);
-    expect(count).toBeCalledTimes(0);
-  });
-
   it("should do nothing if transform returns transformed products but type is invalid", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
     ping.mockImplementation((args) => {
@@ -256,7 +232,7 @@ describe("handleMessage", () => {
     ping.mockImplementation((args) => {
       args();
     });
-    transformSystem.mockReturnValue([createProductVariant()]);
+    transformSystem.mockReturnValue(createEsSystem());
 
     const message: SystemMessage = {
       type: "INVALID",
@@ -327,7 +303,7 @@ describe("handleMessage", () => {
       args();
     });
     const esSystem = createEsSystem();
-    transformSystem.mockReturnValue([esSystem]);
+    transformSystem.mockReturnValue(esSystem);
     const message: SystemMessage = {
       type: "UPDATED",
       itemType: "SYSTEMS",
@@ -413,7 +389,7 @@ describe("handleMessage", () => {
       args();
     });
     const esSystem = createEsSystem({ approvalStatus: "check" });
-    transformSystem.mockReturnValue([esSystem]);
+    transformSystem.mockReturnValue(esSystem);
     const message: SystemMessage = {
       type: "UPDATED",
       itemType: "SYSTEMS",
@@ -503,7 +479,7 @@ describe("handleMessage", () => {
     const esSystem = createEsSystem({
       approvalStatus: "unapproved"
     });
-    transformSystem.mockReturnValue([esSystem]);
+    transformSystem.mockReturnValue(esSystem);
     const message: SystemMessage = {
       type: "UPDATED",
       itemType: "SYSTEMS",
@@ -589,7 +565,7 @@ describe("handleMessage", () => {
       args();
     });
     const esSystem = createEsSystem();
-    transformSystem.mockReturnValue([esSystem]);
+    transformSystem.mockReturnValue(esSystem);
     const message: SystemMessage = {
       type: "DELETED",
       itemType: "SYSTEMS",
@@ -675,7 +651,7 @@ describe("handleMessage", () => {
       args();
     });
     const esSystem = createEsSystem({ approvalStatus: "check" });
-    transformSystem.mockReturnValue([esSystem]);
+    transformSystem.mockReturnValue(esSystem);
     const message: SystemMessage = {
       type: "DELETED",
       itemType: "SYSTEMS",
@@ -765,7 +741,7 @@ describe("handleMessage", () => {
     const esSystem = createEsSystem({
       approvalStatus: "unapproved"
     });
-    transformSystem.mockReturnValue([esSystem]);
+    transformSystem.mockReturnValue(esSystem);
     const message: SystemMessage = {
       type: "DELETED",
       itemType: "SYSTEMS",
