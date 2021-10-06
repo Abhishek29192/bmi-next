@@ -659,7 +659,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             service.type && service.type.length === 1
               ? ` - ${service.type[0]}`
               : ` - ${service.entryType}`
-          } - result`,
+          } - selected`,
           action: gtmActionLinkCard
         }
       : {
