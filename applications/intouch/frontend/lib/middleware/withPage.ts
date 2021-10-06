@@ -83,7 +83,7 @@ export const innerGetServerSideProps = async (
   let market = null;
   let account = null;
   let globalPageData = null;
-  const defaultMarket = "en";
+  const defaultMarket = "no";
 
   try {
     const {
