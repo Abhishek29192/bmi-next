@@ -299,13 +299,19 @@ describe("Link component", () => {
     });
     it("returns a url", () => {
       expect(
-        getClickableActionFromUrl(undefined, "some-page", "en")
+        getClickableActionFromUrl(undefined, "http://example.com", "en")
       ).toMatchSnapshot();
     });
     it("returns undefined", () => {
       expect(
         getClickableActionFromUrl(undefined, undefined, "en")
       ).toBeUndefined();
+    });
+
+    it("internal urls doesn't open in a new window", () => {
+      expect(
+        getClickableActionFromUrl(undefined, "http://localhost", "en")
+      ).toMatchSnapshot();
     });
 
     it("returns external returns correctly", () => {

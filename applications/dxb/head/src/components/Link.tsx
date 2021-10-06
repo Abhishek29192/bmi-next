@@ -21,6 +21,15 @@ const checkUrlAction = (url: string): boolean => {
   return actionUrls.some((actionUrl) => url.startsWith(actionUrl));
 };
 
+const isExternalUrl = (url: string): boolean => {
+  try {
+    const linkUrl = new URL(url);
+    return linkUrl.host !== window.location.host;
+  } catch (e) {
+    return false;
+  }
+};
+
 // TODO: This whole function needs refactoring
 export const getClickableActionFromUrl = (
   linkedPage?: Data["linkedPage"],
@@ -107,7 +116,7 @@ export const getClickableActionFromUrl = (
   }
 
   if (url) {
-    const externalUrl = {
+    const externalLinkProps = {
       // NOTE: External links should always open in a new tab.
       target: "_blank",
       rel: "noopener noreferrer"
@@ -117,7 +126,7 @@ export const getClickableActionFromUrl = (
     return {
       model: "htmlLink",
       href: url,
-      ...(checkUrlAction(url) ? {} : externalUrl),
+      ...(checkUrlAction(url) || !isExternalUrl(url) ? {} : externalLinkProps),
       // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm),
       onClick: () => pushToDataLayer(dataGtm)
