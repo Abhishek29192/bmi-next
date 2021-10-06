@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Typography from "@bmi/typography";
 import { SvgIcon } from "@material-ui/core";
 import { Technology } from "@bmi/intouch-api-types";
@@ -9,12 +10,6 @@ import { PitchIcon, FlatIcon, OtherIcon } from "../../icons";
 
 const DEFAULT_FILTER_CRITERIA = "all";
 
-const courseTech: { [K in Technology]: string } = {
-  FLAT: "FLAT",
-  PITCHED: "PITCHED",
-  OTHER: "OTHER"
-};
-
 const TECHNOLOGIES_ICONS: {
   [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;
 } = {
@@ -22,19 +17,6 @@ const TECHNOLOGIES_ICONS: {
   PITCHED: PitchIcon,
   OTHER: OtherIcon
 };
-
-const trainingFilters = [
-  {
-    label: DEFAULT_FILTER_CRITERIA.toLowerCase(),
-    attr: DEFAULT_FILTER_CRITERIA,
-    isActive: false
-  },
-  ...Object.keys(courseTech).map((key) => ({
-    label: `${courseTech[`${key}`]}`.toLowerCase(),
-    attr: courseTech[`${key}`],
-    isActive: false
-  }))
-];
 
 type TrainingSidePanelProps = {
   courseCatalog?: TrainingQuery["courseCatalogues"];
@@ -47,6 +29,27 @@ export const TrainingSidePanel = ({
   onCourseSelected,
   onFilterChange
 }: TrainingSidePanelProps) => {
+  const { t } = useTranslation("common");
+
+  const courseTech: { [K in Technology]: string } = {
+    FLAT: t("certifications.flat"),
+    PITCHED: t("certifications.pitched"),
+    OTHER: t("certifications.other")
+  };
+
+  const trainingFilters = [
+    {
+      label: DEFAULT_FILTER_CRITERIA.toLowerCase(),
+      attr: DEFAULT_FILTER_CRITERIA,
+      isActive: false
+    },
+    ...Object.entries(courseTech).map(([key, label]) => ({
+      label,
+      attr: key.toLowerCase(),
+      isActive: false
+    }))
+  ];
+
   const [filterCriteria, setFilterCriteria] = useState<string>(
     DEFAULT_FILTER_CRITERIA
   );
@@ -64,7 +67,7 @@ export const TrainingSidePanel = ({
   const courses = nodes.filter(
     ({ course: { name, technology } }) =>
       (filterCriteria === DEFAULT_FILTER_CRITERIA ||
-        technology === filterCriteria) &&
+        (technology && technology.toLowerCase() === filterCriteria)) &&
       (!searchCriteria ||
         name.toLowerCase().includes(searchCriteria.toLowerCase()))
   );

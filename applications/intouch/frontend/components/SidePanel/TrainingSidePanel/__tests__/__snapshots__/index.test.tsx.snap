@@ -90,7 +90,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
           <span
             class="MuiButton-label"
           >
-            flat
+            certifications.flat
           </span>
           <span
             class="MuiTouchRipple-root"
@@ -104,7 +104,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
           <span
             class="MuiButton-label"
           >
-            pitched
+            certifications.pitched
           </span>
           <span
             class="MuiTouchRipple-root"
@@ -118,7 +118,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
           <span
             class="MuiButton-label"
           >
-            other
+            certifications.other
           </span>
           <span
             class="MuiTouchRipple-root"
@@ -327,7 +327,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
           <span
             class="MuiButton-label"
           >
-            flat
+            certifications.flat
           </span>
           <span
             class="MuiTouchRipple-root"
@@ -341,7 +341,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
           <span
             class="MuiButton-label"
           >
-            pitched
+            certifications.pitched
           </span>
           <span
             class="MuiTouchRipple-root"
@@ -355,7 +355,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
           <span
             class="MuiButton-label"
           >
-            other
+            certifications.other
           </span>
           <span
             class="MuiTouchRipple-root"
