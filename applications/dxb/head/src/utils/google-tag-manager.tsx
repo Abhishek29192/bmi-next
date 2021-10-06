@@ -47,22 +47,11 @@ export default function withGTM<P>(
       action: gtm.action || props[propsToGtmMap.action] || gtmDataset?.action
     };
 
-    const handleClick = (...args) => {
-      // NOTE: Even if window.dataLayer doesn't exist in PREVIEW environment,
-      // it's better to add an extra independent check here.
-      if (!process.env.GATSBY_PREVIEW) {
-        pushToDataLayer(dataGtm);
-      }
-      // @ts-ignore TS does not realise P could include `onClick`
-      props.onClick && props.onClick(...args);
-    };
-
     return (
       <Component
         {...props}
         {...(action && { action: actionRest })}
         data-gtm={JSON.stringify(dataGtm)}
-        onClick={handleClick}
       />
     );
   };
