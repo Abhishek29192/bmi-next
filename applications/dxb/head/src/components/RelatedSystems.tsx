@@ -8,7 +8,7 @@ import { Add as AddIcon } from "@material-ui/icons";
 import { uniqBy } from "lodash";
 import { BackgroundColor } from "@bmi/section/src/Section";
 import withGTM from "../utils/google-tag-manager";
-import { SystemDetails } from "../templates/systemDetails/types";
+import { System } from "../components/types/pim";
 import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import { findMasterImageUrl } from "../utils/product-details-transforms";
 import { iconMap } from "./Icon";
@@ -16,7 +16,7 @@ import styles from "./styles/RelatedSystems.module.scss";
 import { useSiteContext } from "./Site";
 
 export type SystemCardProps = {
-  system: Partial<SystemDetails>;
+  system: Partial<System>;
   countryCode: string;
   path: string;
   gtm: {
@@ -27,7 +27,7 @@ export type SystemCardProps = {
   };
 } & Partial<OverviewCardProps>;
 
-const findSystemBrandLogoCode = (system: Partial<SystemDetails>) => {
+const findSystemBrandLogoCode = (system: Partial<System>) => {
   //check if system is tagged to more than one brand
   const totalBrand = system.categories?.filter(
     (category) => category.categoryType === "Brand"
@@ -82,7 +82,7 @@ export const SystemCard = ({
   );
 };
 
-const getWeightedSystems = (systems: ReadonlyArray<SystemDetails>) =>
+const getWeightedSystems = (systems: ReadonlyArray<System>) =>
   uniqBy(systems, (system) => system.name).sort((a, b) => {
     const getWeightValue = (system) =>
       system.classifications?.find(
@@ -109,7 +109,7 @@ const SystemListing = ({
   pageSize = 8
 }: {
   countryCode: string;
-  systems: ReadonlyArray<SystemDetails>;
+  systems: ReadonlyArray<System>;
   initialNumberShown?: number;
   pageSize?: number;
 }) => {
@@ -153,7 +153,7 @@ const SystemListing = ({
 };
 
 export type Props = {
-  systems: ReadonlyArray<SystemDetails>;
+  systems: ReadonlyArray<System>;
   countryCode: string;
   sectionTitle?: string;
   sectionDescription?: string;

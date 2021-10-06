@@ -19,7 +19,7 @@ import {
   groupProductsByCategory,
   findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
-import { Product, VariantOption } from "./types/ProductBaseTypes"; // Hmmmmmm
+import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
 import { useSiteContext } from "./Site";
 

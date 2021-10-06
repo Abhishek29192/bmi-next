@@ -52,7 +52,7 @@ import {
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
 import FiltersSidebar from "../components/FiltersSidebar";
-import { Product } from "../components/types/ProductBaseTypes";
+import { Product } from "../components/types/pim";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 

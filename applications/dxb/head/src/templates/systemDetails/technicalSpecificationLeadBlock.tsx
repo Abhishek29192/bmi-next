@@ -4,7 +4,7 @@ import Table from "@bmi/table";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
 import ProductFeaturesTable from "../../components/ProductFeaturesTable";
-import { Classification } from "./types";
+import { Classification } from "../../components/types/pim";
 import styles from "./styles/technicalSpecificationLeadBlock.module.scss";
 
 type Props = {

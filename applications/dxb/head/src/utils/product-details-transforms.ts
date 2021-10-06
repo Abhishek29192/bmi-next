@@ -2,14 +2,15 @@ import { Link } from "gatsby";
 import { result, uniqBy, groupBy, find, pickBy, sortBy, unionBy } from "lodash";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 import {
+  Category,
   Classification,
-  ClassificationFeatureValue,
+  FeatureValue,
+  Image,
   Product,
   VariantOption,
   VariantOptionWithProduct
-} from "../components/types/ProductBaseTypes";
+} from "../components/types/pim";
 import { GalleryImageType } from "../templates/systemDetails/types";
-import { Image } from "../components/types/ProductBaseTypes";
 import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 
 export const getProductUrl = (countryCode, path) =>
@@ -99,8 +100,8 @@ export const findProductBrandLogoCode = (product: Product) => {
 // system details page and also in product details page et.
 //TODO: potentially change the type name to be more generic (SystemProductImageType => ProductImageType)
 export const mapGalleryImages = (
-  images: Array<Image>
-): Array<GalleryImageType> => {
+  images: readonly Image[]
+): GalleryImageType[] => {
   const imagesByFormat = Object.values(groupBy(images, "containerId"));
   const masterImageSet = imagesByFormat.filter(
     // NOTE: Only use one MASTER_IMAGE between the main product and the variant.
@@ -149,7 +150,7 @@ export const getColourThumbnailUrl = (images): string =>
 
 export type TransformedClassificationValue = {
   name: string;
-  value: ClassificationFeatureValue | "n/a";
+  value: FeatureValue | "n/a";
   thumbnailUrl?: string;
 };
 
@@ -592,13 +593,6 @@ export const getValidFeatures = (classificationNamespace: string, features) => {
   );
 
   return featureToReturn;
-};
-
-export type Category = {
-  parentCategoryCode: string;
-  name: string;
-  categoryType: string;
-  code: string;
 };
 
 type CategoryPath = readonly Category[];

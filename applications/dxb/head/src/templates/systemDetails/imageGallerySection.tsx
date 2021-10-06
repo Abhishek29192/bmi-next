@@ -1,12 +1,12 @@
 import React from "react";
 import ImageGallery from "@bmi/image-gallery";
 import { mapGalleryImages } from "../../utils/product-details-transforms";
-import { Image } from "../../components/types/ProductBaseTypes";
+import { Image } from "../../components/types/pim";
 import { GalleryImageType } from "./types";
 import styles from "./styles/imageGallerySection.module.scss";
 
 type Props = {
-  images: Image[];
+  images: readonly Image[];
 };
 
 const transformImages = (images: Array<GalleryImageType>) => {

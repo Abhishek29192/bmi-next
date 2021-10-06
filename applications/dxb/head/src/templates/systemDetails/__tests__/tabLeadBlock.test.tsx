@@ -4,7 +4,8 @@ import Component from "../tabLeadBlock";
 import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
-import { Classification, DocumentData } from "../types";
+import { Classification } from "../../../components/types/pim";
+import { DocumentData } from "../types";
 import { BimContent } from "../tabLeadBlock";
 
 const techSpecValue = "accordion item value 1";

@@ -1,7 +1,7 @@
 import React from "react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import ImageGallerySection from "../imageGallerySection";
-import { Image } from "../../../components/types/ProductBaseTypes";
+import { Image } from "../../../components/types/pim";
 
 describe("ImageGallerySection tests", () => {
   describe("When images are null", () => {

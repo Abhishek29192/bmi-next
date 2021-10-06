@@ -3,15 +3,15 @@ import { render, cleanup } from "@testing-library/react";
 import AboutLeadBlock from "../aboutLeadBlock";
 import dataJson from "../../../data/pim-mock-data.json";
 import "@testing-library/jest-dom";
-import { Assets, Feature } from "../types";
+import { Asset, Feature } from "../../../components/types/pim";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
 
-const guaranteesAndWarranties: Assets[] = dataJson.assets.filter(
+const guaranteesAndWarranties: Asset[] = dataJson.assets.filter(
   ({ assetType }) => assetType === "WARRANTIES"
-) as Assets[];
-const awardsAndCertificates: Assets[] = dataJson.assets.filter(
+) as Asset[];
+const awardsAndCertificates: Asset[] = dataJson.assets.filter(
   ({ assetType }) => assetType === "AWARDS"
-) as Assets[];
+) as Asset[];
 
 const keyFeatures: Feature = {
   code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
@@ -28,7 +28,7 @@ const keyFeatures: Feature = {
 
 const systemBenefits = dataJson.systemBenefits;
 
-const specification: Assets = {
+const specification: Asset = {
   allowedToDownload: true,
   assetType: "SPECIFICATION",
   fileSize: 689490,

@@ -9,16 +9,16 @@ import { Launch } from "@material-ui/icons";
 import { useSiteContext } from "../../components/Site";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText from "../../components/RichText";
-import { Assets, Feature, SystemBenefits } from "./types";
+import { Asset, Feature } from "../../components/types/pim";
 import styles from "./styles/aboutLeadBlock.module.scss";
 
 type Props = {
   longDescription: string;
-  guaranteesAndWarranties?: Assets[];
-  awardsAndCertificates?: Assets[];
+  guaranteesAndWarranties?: Asset[];
+  awardsAndCertificates?: Asset[];
   keyFeatures?: Feature;
-  systemBenefits?: SystemBenefits;
-  specification?: Assets;
+  systemBenefits?: string[];
+  specification?: Asset;
   sidebarItem?: ContentfulTitleWithContent;
 };
 

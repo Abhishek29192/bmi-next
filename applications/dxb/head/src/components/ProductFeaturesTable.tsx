@@ -1,9 +1,9 @@
 import React from "react";
 import Table from "@bmi/table";
-import { ClassificationFeature } from "./types/ProductBaseTypes";
+import { Feature } from "./types/pim";
 
 type featureTableProps = {
-  features: ClassificationFeature[];
+  features: Feature[];
   rowBgColorPattern?: "odd" | "even";
   HeadRow?: React.ReactNode;
   hasNoBorder: boolean;

@@ -24,7 +24,7 @@ import ExploreBar from "../components/ExploreBar";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { Product } from "../components/types/ProductBaseTypes";
+import { Product } from "../components/types/pim";
 import { getBimIframeUrl } from "../components/BimIframe";
 
 export type Data = PageData & {
@@ -34,7 +34,7 @@ export type Data = PageData & {
 type Props = {
   pageContext: {
     productId: string;
-    variantCode?: string;
+    variantCode: string;
     siteId: string;
     countryCode: string;
     relatedProductCodes: ReadonlyArray<string>;
@@ -73,11 +73,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   // Which variant (including base) are we looking at
   // TODO: Merge data here!
-  const selfProduct = pageContext.variantCode
-    ? product.variantOptions.find(
-        ({ code }) => code === pageContext.variantCode
-      )
-    : product;
+  const selfProduct = product.variantOptions.find(
+    ({ code }) => code === pageContext.variantCode
+  );
 
   if (!selfProduct) {
     throw new Error("Could not find product");

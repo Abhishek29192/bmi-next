@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import RelatedSystems from "../RelatedSystems";
-import { SystemDetails } from "../../templates/systemDetails/types";
+import { System } from "../types/pim";
 
 describe("RelatedSystems component", () => {
   it("renders correctly with no systems", () => {
-    const systems: SystemDetails[] = [];
+    const systems: System[] = [];
 
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
@@ -14,8 +14,9 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders correctly with systems", () => {
-    const systems: SystemDetails[] = [
+    const systems: System[] = [
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -58,8 +59,9 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders correctly without categories", () => {
-    const systems: SystemDetails[] = [
+    const systems: System[] = [
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -96,8 +98,9 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders systems correctly without classifications", () => {
-    const systems: SystemDetails[] = [
+    const systems: System[] = [
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -123,8 +126,9 @@ describe("RelatedSystems component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
   it("renders correctly with scoringweight", () => {
-    const systems: SystemDetails[] = [
+    const systems: System[] = [
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -159,6 +163,7 @@ describe("RelatedSystems component", () => {
         path: "/s/test"
       },
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -201,8 +206,9 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders correctly with scoringweight equal", () => {
-    const systems: SystemDetails[] = [
+    const systems: System[] = [
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -237,6 +243,7 @@ describe("RelatedSystems component", () => {
         path: "/s/test"
       },
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -279,8 +286,9 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders correctly when scoringweight equal & names equal", () => {
-    const systems: SystemDetails[] = [
+    const systems: System[] = [
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -315,6 +323,7 @@ describe("RelatedSystems component", () => {
         path: "/s/test"
       },
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -357,8 +366,9 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders correctly with scoringweight equal & names sorted opposite", () => {
-    const systems: SystemDetails[] = [
+    const systems: System[] = [
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,
@@ -393,6 +403,7 @@ describe("RelatedSystems component", () => {
         path: "/s/test"
       },
       {
+        approvalStatus: "approved",
         assets: null,
         longDescription: null,
         systemBenefits: null,

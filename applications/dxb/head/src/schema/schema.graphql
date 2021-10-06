@@ -1367,44 +1367,44 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 union ProductDocument = PIMDocument | PIMLinkDocument
 
 type Systems implements Node {
-  id: String!
-  type: String!
+  type: String
   approvalStatus: String!
-  assets: [PimAsset!]!
-  categories: [Categories!]!
-  classifications: [Classification!]!
+  assets: [PimAsset!]
+  categories: [Categories!]
+  classifications: [Classification!]
   code: String!
-  images: [PimImage!]!
-  longDescription: String
-  name: String!
+  images: [PimImage!]
+  longDescription: String!
+  name: String
   shortDescription: String
-  systemBenefits: [String]!
-  systemLayers: [SystemLayer]!
+  systemBenefits: [String]
+  systemLayers: [SystemLayer]
   systemReferences: [PimSystemReference]
   path: String!
 }
 
 type PimAsset {
-  allowedToDownload: Boolean!
-  assetType: String!
+  allowedToDownload: Boolean
+  assetType: String
   fileSize: Int
-  mime: String!
-  name: String!
+  format: String
+  mime: String
+  name: String
   realFileName: String
-  url: String!
+  url: String
 }
 
 type SystemLayer {
   addon: Boolean
   approvalStatus: String!
   code: String!
-  layerNumber: Int
-  longDescription: String
+  layerNumber: Int!
+  longDescription: String!
   name: String
   optionalProducts: [SystemProduct]
   products: [SystemProduct]
   shortDescription: String
-  type: String!
+  type: String
   relatedProducts: [Products] @link(from: "products___NODE")
   relatedOptionalProducts: [Products] @link(from: "products___NODE")
 }
@@ -1416,12 +1416,18 @@ type PimSystemReference {
 }
 
 type PimSystemReferenceTarget {
-  code: String
+  code: String!
   name: String
 }
 
 type SystemProduct {
   code: String!
+  name: String
+  variantOptions: [SystemProductVariantOption]
+}
+
+type SystemProductVariantOption {
+  path: String
 }
 
 type Categories {

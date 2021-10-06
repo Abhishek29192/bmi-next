@@ -10,13 +10,8 @@ import withGTM from "../../utils/google-tag-manager";
 import BimIframe from "../../components/BimIframe";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText, { RichTextData } from "../../components/RichText";
-import {
-  Assets,
-  Feature,
-  SystemBenefits,
-  Classification,
-  DocumentData
-} from "./types";
+import { Asset, Feature, Classification } from "../../components/types/pim";
+import { DocumentData } from "./types";
 import AboutLeadBlock from "./aboutLeadBlock";
 import TechnicalSpecificationLeadBlock from "./technicalSpecificationLeadBlock";
 import styles from "./styles/tabLeadBlock.module.scss";
@@ -30,11 +25,11 @@ export type BimContent = {
 
 type Props = {
   longDescription: string;
-  guaranteesAndWarranties?: Assets[];
-  awardsAndCertificates?: Assets[];
+  guaranteesAndWarranties?: Asset[];
+  awardsAndCertificates?: Asset[];
   keyFeatures?: Feature;
-  systemBenefits?: SystemBenefits;
-  specification?: Assets;
+  systemBenefits?: string[];
+  specification?: Asset;
   technicalSpecClassifications?: Classification[];
   documentsAndDownloads?: DocumentData[];
   aboutLeadBlockGenericContent?: ContentfulTitleWithContent;

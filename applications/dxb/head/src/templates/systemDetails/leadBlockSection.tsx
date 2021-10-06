@@ -13,13 +13,13 @@ import Link, { Data as LinkData } from "../../components/Link";
 import Image, { Data as ImageData } from "../../components/Image";
 import withGTM from "../../utils/google-tag-manager";
 import { useSiteContext } from "../../components/Site";
+import { Category, Classification, Feature } from "../../components/types/pim";
 import {
   SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
   SYSTEM_CONFIG_QUERY_KEY_REFERER,
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
 import styles from "./styles/leadBlockSection.module.scss";
-import { Category, Classification, Feature } from "./types";
 
 const BlueCheckIcon = (
   <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
@@ -27,13 +27,13 @@ const BlueCheckIcon = (
 
 type Props = {
   name: string;
-  categories: Category[];
-  classifications: Classification[];
+  categories: readonly Category[];
+  classifications: readonly Classification[];
   cta?: LinkData;
   uniqueSellingPropositions?: Feature;
 };
 
-const getBrandLogo = (categories: Category[]): null | ImageData => {
+const getBrandLogo = (categories: readonly Category[]): null | ImageData => {
   const brandCategory = categories.find((c) => c.categoryType === "Brand");
   if (!brandCategory) return null;
 
@@ -52,9 +52,9 @@ const getBrandLogo = (categories: Category[]): null | ImageData => {
 };
 
 const getPromotionalContent = (
-  classifications: Classification[]
+  classifications?: readonly Classification[]
 ): string | null => {
-  const systemAttributes = classifications.find(
+  const systemAttributes = classifications?.find(
     (c) => c.code === "systemAttributes"
   );
   if (!systemAttributes) return null;

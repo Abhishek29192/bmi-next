@@ -19,11 +19,11 @@ import { SystemCard } from "../components/RelatedSystems";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
-import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
+import { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
-import { SystemDetails } from "../templates/systemDetails/types";
 import { queryElasticSearch } from "../utils/elasticSearch";
+import { System } from "./types/pim";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SystemConfiguratorSection.module.scss";
@@ -276,7 +276,7 @@ const SystemConfiguratorBlockResultSection = ({
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
   const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
-    useState<Partial<SystemDetails>[]>([]);
+    useState<Partial<System>[]>([]);
 
   useEffect(() => {
     const fetchESData = async () => {

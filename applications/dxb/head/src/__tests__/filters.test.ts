@@ -19,7 +19,7 @@ import {
   updateFilterValue,
   getCategoryFilters
 } from "../utils/filters";
-import { Product } from "../components/types/ProductBaseTypes";
+import { Product } from "../components/types/pim";
 import createPimDocument from "./PimDocumentHelper";
 import createPimLinkDocument from "./PimLinkDocumentHelper";
 import createContentfuldocument from "./ContentfulDocumentHelper";

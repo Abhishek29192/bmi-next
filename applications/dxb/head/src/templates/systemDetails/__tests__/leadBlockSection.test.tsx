@@ -8,18 +8,19 @@ import {
 import LeadBlockSection from "../leadBlockSection";
 import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
 import "@testing-library/jest-dom";
-import { Category, Classification } from "../../systemDetails/types";
+import { Category, Classification } from "../../../components/types/pim";
 
 const leadBlockSectionName = "lead Block section";
 const leadBlockCategories: Category[] = [
   {
     categoryType: "Brand",
+    code: "code_category_1",
     name: "category_1",
     image: {
       realFileName: "test",
       url: "dummy",
       fileSize: 0,
-      mime: "jpeg",
+      mime: "image/png",
       name: "test_img",
       allowedToDownload: false
     }
@@ -204,12 +205,13 @@ describe("LeadBlockSection tests", () => {
             categories={[
               {
                 categoryType: "Brand",
+                code: "code_category_1",
                 name: "category_1",
                 image: {
                   realFileName: "test",
                   url: "dummy",
                   fileSize: 0,
-                  mime: "jpeg",
+                  mime: "image/png",
                   name: "test_img",
                   allowedToDownload: false
                 }

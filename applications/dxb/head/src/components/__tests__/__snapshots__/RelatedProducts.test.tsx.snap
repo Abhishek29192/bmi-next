@@ -47,11 +47,11 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       role="tablist"
                     >
                       <button
-                        aria-controls="tabpanel-Root"
+                        aria-controls="tabpanel-category-name"
                         aria-selected="true"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-Root"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-category-name"
                         role="tab"
                         tabindex="0"
                         type="button"
@@ -59,7 +59,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                         <span
                           class="MuiTab-wrapper"
                         >
-                          Root
+                          category-name
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -67,7 +67,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-26 PrivateTabIndicator-colorPrimary-27 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorPrimary-22 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -76,14 +76,14 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
             </div>
           </div>
           <div
-            aria-labelledby="tab-Root"
+            aria-labelledby="tab-category-name"
             class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="Root"
-            id="tabpanel-Root"
+            heading="category-name"
+            id="tabpanel-category-name"
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-30 TabPanelBox"
+              class="MuiBox-root MuiBox-root-25 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -94,8 +94,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                    href="/en/some-path"
                     role="button"
                     tabindex="0"
                   >
@@ -105,7 +105,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       <h5
                         class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                       >
-                        imaproduct
+                        product
                       </h5>
                       
                       <div
@@ -115,7 +115,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                         :
                          
                         <b>
-                          test1
+                          variant-product-code
                         </b>
                       </div>
                       <div
@@ -198,11 +198,11 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       role="tablist"
                     >
                       <button
-                        aria-controls="tabpanel-Root"
+                        aria-controls="tabpanel-category-name"
                         aria-selected="true"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-Root"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-category-name"
                         role="tab"
                         tabindex="0"
                         type="button"
@@ -210,7 +210,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                         <span
                           class="MuiTab-wrapper"
                         >
-                          Root
+                          category-name
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -218,7 +218,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-31 PrivateTabIndicator-colorPrimary-32 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-26 PrivateTabIndicator-colorPrimary-27 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -227,14 +227,14 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
             </div>
           </div>
           <div
-            aria-labelledby="tab-Root"
+            aria-labelledby="tab-category-name"
             class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="Root"
-            id="tabpanel-Root"
+            heading="category-name"
+            id="tabpanel-category-name"
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-35 TabPanelBox"
+              class="MuiBox-root MuiBox-root-30 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -245,8 +245,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                    href="/en/some-path"
                     role="button"
                     tabindex="0"
                   >
@@ -256,7 +256,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       <h5
                         class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                       >
-                        imaproduct1
+                        product-1
                       </h5>
                       
                       <div
@@ -266,7 +266,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                         :
                          
                         <b>
-                          test2
+                          variant-product-code
                         </b>
                       </div>
                       <div
@@ -298,8 +298,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                    href="/en/some-path"
                     role="button"
                     tabindex="0"
                   >
@@ -309,7 +309,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       <h5
                         class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                       >
-                        imaproduct2
+                        product-2
                       </h5>
                       
                       <div
@@ -319,7 +319,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                         :
                          
                         <b>
-                          test1
+                          variant-product-code
                         </b>
                       </div>
                       <div
@@ -402,11 +402,11 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       role="tablist"
                     >
                       <button
-                        aria-controls="tabpanel-Root"
+                        aria-controls="tabpanel-category-name"
                         aria-selected="true"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-Root"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-category-name"
                         role="tab"
                         tabindex="0"
                         type="button"
@@ -414,7 +414,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                         <span
                           class="MuiTab-wrapper"
                         >
-                          Root
+                          category-name
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -422,7 +422,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorPrimary-22 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-16 PrivateTabIndicator-colorPrimary-17 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -431,14 +431,14 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
             </div>
           </div>
           <div
-            aria-labelledby="tab-Root"
+            aria-labelledby="tab-category-name"
             class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="Root"
-            id="tabpanel-Root"
+            heading="category-name"
+            id="tabpanel-category-name"
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-25 TabPanelBox"
+              class="MuiBox-root MuiBox-root-20 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -449,8 +449,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                    href="/en/some-path"
                     role="button"
                     tabindex="0"
                   >
@@ -460,7 +460,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       <h5
                         class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                       >
-                        imaproduct
+                        product-1
                       </h5>
                       
                       <div
@@ -470,7 +470,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                         :
                          
                         <b>
-                          test1
+                          variant-product-code
                         </b>
                       </div>
                       <div
@@ -502,8 +502,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                    href="/en/some-path"
                     role="button"
                     tabindex="0"
                   >
@@ -513,7 +513,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       <h5
                         class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                       >
-                        imaproduct2
+                        product-2
                       </h5>
                       
                       <div
@@ -523,7 +523,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                         :
                          
                         <b>
-                          test2
+                          variant-product-code
                         </b>
                       </div>
                       <div
@@ -608,11 +608,11 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
                       role="tablist"
                     >
                       <button
-                        aria-controls="tabpanel-Root"
+                        aria-controls="tabpanel-category-name"
                         aria-selected="true"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-Root"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-category-name"
                         role="tab"
                         tabindex="0"
                         type="button"
@@ -620,7 +620,7 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
                         <span
                           class="MuiTab-wrapper"
                         >
-                          Root
+                          category-name
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -637,10 +637,10 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
             </div>
           </div>
           <div
-            aria-labelledby="tab-Root"
+            aria-labelledby="tab-category-name"
             class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="Root"
-            id="tabpanel-Root"
+            heading="category-name"
+            id="tabpanel-category-name"
             role="tabpanel"
           >
             <div
@@ -654,156 +654,7 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
 </div>
 `;
 
-exports[`RelatedProducts component renders correctly with products 1`] = `
-<div
-  class="Section Section--alabaster"
->
-  <div
-    class="Container"
-  >
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
-    >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: pdp.relatedProducts.title
-      </h2>
-      <div
-        class="RelatedProducts"
-      >
-        <div
-          class="Tabs Tabs--secondary"
-        >
-          <div
-            class="TabsBar"
-          >
-            <div
-              class="Container"
-            >
-              <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
-              >
-                <div
-                  class="MuiTabs-root"
-                >
-                  <div
-                    class="MuiTabs-scrollable"
-                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                  />
-                  <div
-                    class="MuiTabs-scroller MuiTabs-scrollable"
-                    style="margin-bottom: 0px;"
-                  >
-                    <div
-                      aria-label="tabs"
-                      class="MuiTabs-flexContainer"
-                      role="tablist"
-                    >
-                      <button
-                        aria-controls="tabpanel-Root"
-                        aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-Root"
-                        role="tab"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiTab-wrapper"
-                        >
-                          Root
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                    </div>
-                    <span
-                      class="PrivateTabIndicator-root-6 PrivateTabIndicator-colorPrimary-7 MuiTabs-indicator"
-                      style="left: 0px; width: 0px;"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-labelledby="tab-Root"
-            class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="Root"
-            id="tabpanel-Root"
-            role="tabpanel"
-          >
-            <div
-              class="MuiBox-root MuiBox-root-10 TabPanelBox"
-            >
-              <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-              >
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
-                >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <div
-                      class="body"
-                    >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        imaproduct
-                      </h5>
-                      
-                      <div
-                        class="children text"
-                      >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          test1
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
-                        >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
-                          </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
-                      </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
+exports[`RelatedProducts component renders correctly with products 1`] = `null`;
 
 exports[`RelatedProducts component renders correctly with products without categories 1`] = `null`;
 
@@ -854,11 +705,11 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       role="tablist"
                     >
                       <button
-                        aria-controls="tabpanel-Root"
+                        aria-controls="tabpanel-category-name"
                         aria-selected="true"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-Root"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-category-name"
                         role="tab"
                         tabindex="0"
                         type="button"
@@ -866,7 +717,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                         <span
                           class="MuiTab-wrapper"
                         >
-                          Root
+                          category-name
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -874,7 +725,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-16 PrivateTabIndicator-colorPrimary-17 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -883,14 +734,14 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
             </div>
           </div>
           <div
-            aria-labelledby="tab-Root"
+            aria-labelledby="tab-category-name"
             class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="Root"
-            id="tabpanel-Root"
+            heading="category-name"
+            id="tabpanel-category-name"
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-20 TabPanelBox"
+              class="MuiBox-root MuiBox-root-15 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -901,8 +752,8 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                    href="/en/some-path"
                     role="button"
                     tabindex="0"
                   >
@@ -912,7 +763,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       <h5
                         class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                       >
-                        imaproduct2
+                        product-2
                       </h5>
                       
                       <div
@@ -922,7 +773,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                         :
                          
                         <b>
-                          test2
+                          variant-product-code
                         </b>
                       </div>
                       <div
@@ -954,8 +805,8 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                    href="/en/some-path"
                     role="button"
                     tabindex="0"
                   >
@@ -965,7 +816,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       <h5
                         class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                       >
-                        imaproduct
+                        product-1
                       </h5>
                       
                       <div
@@ -975,7 +826,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                         :
                          
                         <b>
-                          test1
+                          variant-product-code
                         </b>
                       </div>
                       <div
@@ -1058,11 +909,11 @@ exports[`RelatedProducts component renders variants correctly with products with
                       role="tablist"
                     >
                       <button
-                        aria-controls="tabpanel-Root"
+                        aria-controls="tabpanel-category-name"
                         aria-selected="true"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-Root"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-category-name"
                         role="tab"
                         tabindex="0"
                         type="button"
@@ -1070,7 +921,7 @@ exports[`RelatedProducts component renders variants correctly with products with
                         <span
                           class="MuiTab-wrapper"
                         >
-                          Root
+                          category-name
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -1078,7 +929,7 @@ exports[`RelatedProducts component renders variants correctly with products with
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-6 PrivateTabIndicator-colorPrimary-7 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -1087,14 +938,14 @@ exports[`RelatedProducts component renders variants correctly with products with
             </div>
           </div>
           <div
-            aria-labelledby="tab-Root"
+            aria-labelledby="tab-category-name"
             class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="Root"
-            id="tabpanel-Root"
+            heading="category-name"
+            id="tabpanel-category-name"
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-15 TabPanelBox"
+              class="MuiBox-root MuiBox-root-10 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1105,8 +956,8 @@ exports[`RelatedProducts component renders variants correctly with products with
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                    href="/en/some-path"
                     role="button"
                     tabindex="0"
                   >
@@ -1116,7 +967,7 @@ exports[`RelatedProducts component renders variants correctly with products with
                       <h5
                         class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                       >
-                        imaproduct
+                        product-name
                       </h5>
                       
                       <div
@@ -1126,55 +977,9 @@ exports[`RelatedProducts component renders variants correctly with products with
                         :
                          
                         <b>
-                          test1
+                          variant-product-code
                         </b>
                       </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
-                        >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
-                          </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
-                      </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </div>
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
-                >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                    href="/en/"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <div
-                      class="body"
-                    >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        imaproduct2
-                      </h5>
-                      
-                      <div
-                        class="children text"
-                      />
                       <div
                         class="footer"
                       >
