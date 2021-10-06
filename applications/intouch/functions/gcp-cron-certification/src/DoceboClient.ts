@@ -1,13 +1,6 @@
 import axios from "axios";
 
-const {
-  DOCEBO_API_URL,
-  DOCEBO_API_CLIENT_ID,
-  DOCEBO_API_CLIENT_SECRET,
-  DOCEBO_API_USERNAME,
-  DOCEBO_API_PASSWORD,
-  USER_CERTIFICATION_REPORT_ID
-} = process.env;
+const { USER_CERTIFICATION_REPORT_ID, DOCEBO_API_URL } = process.env;
 
 export default class DoceboClient {
   private async getTokenByUserInfo() {
@@ -17,10 +10,10 @@ export default class DoceboClient {
       headers: { "content-type": "application/json" },
       data: {
         grant_type: "password",
-        client_id: DOCEBO_API_CLIENT_ID,
-        client_secret: DOCEBO_API_CLIENT_SECRET,
-        username: DOCEBO_API_USERNAME,
-        password: DOCEBO_API_PASSWORD
+        client_id: process.env.DOCEBO_API_CLIENT_ID,
+        client_secret: process.env.DOCEBO_API_CLIENT_SECRET,
+        username: process.env.DOCEBO_API_USERNAME,
+        password: process.env.DOCEBO_API_PASSWORD
       }
     });
     return data;
