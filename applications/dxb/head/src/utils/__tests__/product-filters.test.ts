@@ -1,3 +1,4 @@
+import createCategory from "../../__tests__/CategoryHelper";
 import createClassification, {
   createFeature
 } from "../../__tests__/ClassificationHelper";
@@ -9,7 +10,7 @@ import {
 } from "../product-filters";
 
 describe("product-filters tests", () => {
-  describe("groupByDistinctBy tests", () => {
+  describe("groupDistinctBy tests", () => {
     describe("When empty collection is passed ", () => {
       it("returns empty object", () => {
         const result = groupDistinctBy([], "categoryType", "code");
@@ -107,6 +108,131 @@ describe("product-filters tests", () => {
           Category: [
             { name: "AeroDeck", categoryType: "Category", code: "AeroDeck" }
           ]
+        });
+      });
+    });
+  });
+
+  describe("generateCategoryFilters tests", () => {
+    describe("When categories are empty array", () => {
+      it("should return empty productFilters", () => {
+        expect(generateCategoryFilters([], ["Category"])).toEqual([]);
+      });
+    });
+    describe("When allow filters are empty array", () => {
+      it("should return empty productFilters", () => {
+        expect(generateCategoryFilters([createCategory()], [])).toEqual([]);
+      });
+    });
+
+    describe("When categories have valid categories list", () => {
+      describe("and allow filters does not match", () => {
+        it("should return empty productFilters", () => {
+          expect(
+            generateCategoryFilters([createCategory()], ["invalid-category"])
+          ).toEqual([]);
+        });
+      });
+      describe("and allow filters match catgoryType", () => {
+        it("should return valid filters", () => {
+          expect(
+            generateCategoryFilters(
+              [
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-1",
+                  name: "category-1"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-2",
+                  name: "category-2"
+                })
+              ],
+              ["Category"]
+            )
+          ).toEqual([
+            {
+              name: "plpFilter.Category",
+              label: "",
+              options: [
+                { label: "category-1", value: "category-1" },
+                { label: "category-2", value: "category-2" }
+              ]
+            }
+          ]);
+        });
+      });
+      describe("and allow filters match parent catgory code", () => {
+        it("should return valid filters", () => {
+          expect(
+            generateCategoryFilters(
+              [
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-1",
+                  name: "category-1",
+                  parentCategoryCode: "PITCHROOF_NO"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-2",
+                  name: "category-2",
+                  parentCategoryCode: "PITCHROOF_NO"
+                })
+              ],
+              ["PITCHROOF_NO"]
+            )
+          ).toEqual([
+            {
+              name: "plpFilter.PITCHROOF_NO",
+              label: "",
+              options: [
+                { label: "category-1", value: "category-1" },
+                { label: "category-2", value: "category-2" }
+              ]
+            }
+          ]);
+        });
+      });
+      describe("and allow filters match Category Type and Parent catgory code", () => {
+        it("should return valid filters", () => {
+          expect(
+            generateCategoryFilters(
+              [
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-1",
+                  name: "category-1",
+                  parentCategoryCode: "PITCHROOF_NO"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-2",
+                  name: "category-2",
+                  parentCategoryCode: "PITCHROOF_NO"
+                })
+              ],
+              ["PITCHROOF_NO", "Category"]
+            )
+          ).toEqual([
+            {
+              name: "plpFilter.Category",
+              label: "",
+              options: [
+                { label: "category-1", value: "category-1" },
+                { label: "category-2", value: "category-2" }
+              ]
+            },
+            {
+              name: "plpFilter.PITCHROOF_NO",
+              label: "",
+              options: [
+                { label: "category-1", value: "category-1" },
+                { label: "category-2", value: "category-2" }
+              ]
+            }
+          ]);
         });
       });
     });

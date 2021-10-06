@@ -122,6 +122,68 @@ describe("transformProduct", () => {
       expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
     });
 
+    it("should transform All Parent Categories", () => {
+      const product = createPimProduct({
+        variantOptions: [createVariantOption()],
+        categories: [
+          createCategory({
+            categoryType: "Brand",
+            code: "Aerodek",
+            name: "Aerodek",
+            parentCategoryCode: "BMI_Brands"
+          }),
+          createCategory({
+            categoryType: "Category",
+            code: "CONCRETE_NO",
+            name: "Betongtakstein",
+            parentCategoryCode: "PITCHEDROOF_NO"
+          }),
+          createCategory({
+            categoryType: "Category",
+            code: "MAINTILE_CONCRETE_NO",
+            name: "Normalstein",
+            parentCategoryCode: "CONCRETE_NO"
+          }),
+          createCategory({
+            categoryType: "Category",
+            code: "ROOF_NO",
+            name: "Takprodukter",
+            parentCategoryCode: "PRODUCTS_NO"
+          })
+        ]
+      });
+      const transformedProduct = transformProduct(product);
+      let categoryAsProp = getDynamicPropValue(transformedProduct[0], "Brand");
+      expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
+
+      categoryAsProp = getDynamicPropValue(transformedProduct[0], "BMI_Brands");
+      expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
+
+      categoryAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "PITCHEDROOF_NO"
+      );
+      expect(categoryAsProp).toEqual([
+        { code: "CONCRETE_NO", name: "Betongtakstein" }
+      ]);
+
+      categoryAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "CONCRETE_NO"
+      );
+      expect(categoryAsProp).toEqual([
+        { code: "MAINTILE_CONCRETE_NO", name: "Normalstein" }
+      ]);
+
+      categoryAsProp = getDynamicPropValue(
+        transformedProduct[0],
+        "PRODUCTS_NO"
+      );
+      expect(categoryAsProp).toEqual([
+        { code: "ROOF_NO", name: "Takprodukter" }
+      ]);
+    });
+
     it("should transform single feature values from a variant classification", () => {
       const product = createPimProduct({
         variantOptions: [

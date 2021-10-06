@@ -3300,9 +3300,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -4510,9 +4508,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -5793,9 +5789,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -6812,9 +6806,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -7826,9 +7818,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -8888,9 +8878,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -9950,9 +9938,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -11007,9 +10993,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"

@@ -61,13 +61,11 @@ export const compileESQueryPLP = ({
     query: {
       bool: {
         must: [
-          categoryCodes
-            ? {
-                terms: {
-                  [searchTerms.allCategories]: categoryCodes
-                }
-              }
-            : null,
+          {
+            terms: {
+              [searchTerms.allCategories]: categoryCodes
+            }
+          },
           ...userSelectedFilterTerms
         ].filter(Boolean)
       }

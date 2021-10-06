@@ -335,19 +335,23 @@ describe("ProductListerPage template", () => {
     describe("ProductListerPage with multiple category codes", () => {
       describe("And First Category code on first initial product match", () => {
         it("renders category code Section Title", async () => {
-          const localPageData = { ...pageData };
-          const localProductWithVariant = { ...productWithVariantAndBase };
-          localProductWithVariant.categories = [
-            {
-              name: "category-code-2",
-              categoryType: "Category",
-              code: "category-code-2",
-              parentCategoryCode: ""
-            }
-          ];
-
-          localPageData.initialProducts = [localProductWithVariant];
-          localPageData.plpFilters = [];
+          const localPageData = {
+            ...pageData,
+            initialProducts: [
+              {
+                ...productWithVariantAndBase,
+                categories: [
+                  {
+                    name: "category-code-2",
+                    categoryType: "Category",
+                    code: "category-code-2",
+                    parentCategoryCode: ""
+                  }
+                ]
+              }
+            ],
+            plpFilters: []
+          };
           const localPageContext: PageContextType = {
             allowFilterBy: [],
             variantCode: "variant1",
@@ -373,19 +377,23 @@ describe("ProductListerPage template", () => {
 
       describe("And First Category code on first initial product does NOT match", () => {
         it("then, Renders category code Section Title", async () => {
-          const localPageData = { ...pageData };
-          const localProductWithVariant = { ...productWithVariantAndBase };
-          localProductWithVariant.categories = [
-            {
-              name: "category-code-3",
-              categoryType: "Category",
-              code: "category-code-3",
-              parentCategoryCode: ""
-            }
-          ];
-
-          localPageData.initialProducts = [localProductWithVariant];
-          localPageData.plpFilters = [];
+          const localPageData = {
+            ...pageData,
+            initialProducts: [
+              {
+                ...productWithVariantAndBase,
+                categories: [
+                  {
+                    name: "category-code-3",
+                    categoryType: "Category",
+                    code: "category-code-3",
+                    parentCategoryCode: ""
+                  }
+                ]
+              }
+            ],
+            plpFilters: []
+          };
           const localPageContext = {
             allowFilterBy: [],
             variantCode: "variant1",
@@ -534,19 +542,23 @@ describe("ProductListerPage template", () => {
     describe("ProductListerPage with multiple category codes", () => {
       describe("And First Category code on first initial product match", () => {
         it("then, Renders category code Section Title", async () => {
-          const localPageData = { ...pageData };
-          const localProductWithVariant = { ...productWithVariantAndBase };
-          localProductWithVariant.categories = [
-            {
-              name: "category-code-2",
-              categoryType: "Category",
-              code: "category-code-2",
-              parentCategoryCode: ""
-            }
-          ];
-
-          localPageData.initialProducts = [localProductWithVariant];
-          localPageData.productFilters = [];
+          const localPageData = {
+            ...pageData,
+            initialProducts: [
+              {
+                ...productWithVariantAndBase,
+                categories: [
+                  {
+                    name: "category-code-2",
+                    categoryType: "Category",
+                    code: "category-code-2",
+                    parentCategoryCode: ""
+                  }
+                ]
+              }
+            ],
+            plpFilters: []
+          };
           const localPageContext: PageContextType = {
             allowFilterBy: [],
             variantCode: "variant1",
@@ -572,19 +584,23 @@ describe("ProductListerPage template", () => {
 
       describe("And First Category code on first initial product does NOT match", () => {
         it("then, Renders category code Section Title", async () => {
-          const localPageData = { ...pageData };
-          const localProductWithVariant = { ...productWithVariantAndBase };
-          localProductWithVariant.categories = [
-            {
-              name: "category-code-3",
-              categoryType: "Category",
-              code: "category-code-3",
-              parentCategoryCode: ""
-            }
-          ];
-
-          localPageData.initialProducts = [localProductWithVariant];
-          localPageData.productFilters = [];
+          const localPageData = {
+            ...pageData,
+            initialProducts: [
+              {
+                ...productWithVariantAndBase,
+                categories: [
+                  {
+                    name: "category-code-3",
+                    categoryType: "Category",
+                    code: "category-code-3",
+                    parentCategoryCode: ""
+                  }
+                ]
+              }
+            ],
+            plpFilters: []
+          };
           const localPageContext = {
             allowFilterBy: [],
             variantCode: "variant1",
