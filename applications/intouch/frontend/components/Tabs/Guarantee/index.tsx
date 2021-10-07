@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Button from "@bmi/button";
 import Modal from "@bmi/dialog";
+import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { checkProjectGuaranteeReview } from "../../../lib/utils/project";
-import { isGuaranteeApplicationEnable } from "../../../lib/utils/guarantee";
+import { guaranteeApplicationValidate } from "../../../lib/utils/guarantee";
 import styles from "./styles.module.scss";
 import { ApplyGuaranteeDialog } from "./ApplyGuaranteeDialog";
 import { ProjectGuarantee } from "./ProjectGuarantee";
@@ -26,18 +27,31 @@ export const GuaranteeTab = ({
 
   const { guarantees } = project;
 
-  const guaranteeApplicationEnable = isGuaranteeApplicationEnable(project);
+  const guaranteeApplicationValidateResult =
+    guaranteeApplicationValidate(project);
 
   return (
     <div className={styles.main}>
       {isApplyGuarantee && (
-        <div className={styles.header}>
-          <Button
-            onClick={() => setDialogOpen(true)}
-            disabled={!guaranteeApplicationEnable}
-          >
-            {t("guarantee_tab.header")}
-          </Button>
+        <div>
+          {!guaranteeApplicationValidateResult.isValid && (
+            <div className={styles.alert}>
+              <AlertBanner severity={"warning"}>
+                <AlertBanner.Title>
+                  {t("guaranteeApplyAlert.title")}
+                </AlertBanner.Title>
+                {t(guaranteeApplicationValidateResult.validationError)}
+              </AlertBanner>
+            </div>
+          )}
+          <div className={styles.header}>
+            <Button
+              onClick={() => setDialogOpen(true)}
+              disabled={!guaranteeApplicationValidateResult.isValid}
+            >
+              {t("guarantee_tab.header")}
+            </Button>
+          </div>
         </div>
       )}
 
