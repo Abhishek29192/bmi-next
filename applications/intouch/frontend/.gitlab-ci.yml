@@ -20,13 +20,13 @@ build_intouch_frontend_dev:
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-      changes:
-        - applications/intouch/frontend/**/*
-        - components/**/*
-        - libraries/**/*
-        - package.json
-        - "**/package.json"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/domain-debug')"
+      # changes:
+      #   - applications/intouch/frontend/**/*
+      #   - components/**/*
+      #   - libraries/**/*
+      #   - package.json
+      #   - "**/package.json"
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
@@ -38,14 +38,14 @@ deploy_intouch_frontend_dev_to_cloudrun:
   cache: {}
   needs:
     - build_intouch_frontend_dev
-    - test_intouch_frontend
+    # - test_intouch_frontend
   image: google/cloud-sdk
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/intouch/frontend/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/domain-debug'"
+      # changes:
+      #   - applications/intouch/frontend/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json

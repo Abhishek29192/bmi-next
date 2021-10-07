@@ -6,7 +6,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
 import { initializeApollo } from "../../../lib/apolloClient";
 import Account from "../../../lib/account";
-import { redirectMap } from "../../../lib/config/redirects";
+import { getMarketAndEnvFromReq } from "../../../lib/utils";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
 interface Request extends NextApiRequest {
@@ -57,42 +57,7 @@ export const afterCallback = async (
     state.returnTo = "/api/silent-login";
     return session;
   }
-
   return session;
-};
-
-export const getMarketFromReq = (req, res) => {
-  let { host } = req.headers;
-
-  // local
-  if (host.indexOf(":") !== -1) {
-    host = host.split(":")[0];
-
-    return redirectMap[`${host}`];
-  }
-
-  return redirectMap[`${host}`];
-};
-
-export const loginHandler = async (req, res, auth0, logger) => {
-  try {
-    logger.info("Login and redirect with this params: ", {
-      authorizationParams: {
-        market: getMarketFromReq(req, res)
-      },
-      returnTo: req.query.returnTo || "/"
-    });
-
-    await auth0.handleLogin(req, res, {
-      authorizationParams: {
-        market: getMarketFromReq(req, res)
-      },
-      returnTo: req.query.returnTo || "/"
-    });
-  } catch (error) {
-    logger.error(`handle login:`, error);
-    return res.status(error.status || 500).end(error.message);
-  }
 };
 
 export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
@@ -104,12 +69,33 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
   const auth0 = await getAuth0Instance(req, res);
 
   const logger = req.logger("Auth0");
+  const protocol = req.headers["x-forwarded-proto"] || "http";
 
   const { handleAuth, handleCallback, handleProfile, handleLogout } = auth0;
 
   return handleAuth({
     async login(req, res) {
-      return loginHandler(req, res, auth0, logger);
+      try {
+        let { market, currentHost } = getMarketAndEnvFromReq(req);
+        const targetUrl = encodeURIComponent(`${protocol}://${currentHost}`);
+
+        const getLoginState = (req, loginOptions) => {
+          return {
+            currentHost,
+            returnTo: `/api/redirector?current=${targetUrl}`
+          };
+        };
+
+        await auth0.handleLogin(req, res, {
+          authorizationParams: {
+            market
+          },
+          getLoginState
+        });
+      } catch (error) {
+        logger.error(`handle login:`, error);
+        return res.status(error.status || 500).end(error.message);
+      }
     },
     async callback(req, res) {
       try {
@@ -139,7 +125,12 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
     },
     async logout(req, res) {
       try {
-        await handleLogout(req, res);
+        const { currentHost } = getMarketAndEnvFromReq(req);
+        const targetUrl = `${protocol}://${currentHost}`;
+
+        await handleLogout(req, res, {
+          returnTo: targetUrl
+        });
       } catch (error) {
         logger.error(`handle logout: `, error);
         return res.status(error.status || 500).end(error.message);
