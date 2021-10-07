@@ -22,6 +22,14 @@ export const getEsClient = async () => {
       return esClientCache;
     }
 
+    if (!ES_CLOUD_ID) {
+      throw Error("ES_CLOUD_ID was not provided");
+    }
+
+    if (!ES_USERNAME) {
+      throw Error("ES_USERNAME was not provided");
+    }
+
     const esPasswordSecret = await secretManagerClient.accessSecretVersion({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
