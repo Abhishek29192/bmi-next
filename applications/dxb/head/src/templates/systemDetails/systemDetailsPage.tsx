@@ -13,6 +13,12 @@ import { getBimIframeUrl } from "../../components/BimIframe";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 import RelatedSystems from "../../components/RelatedSystems";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import {
+  System,
+  Asset,
+  Feature,
+  Classification
+} from "../../components/types/pim";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
 import {
   SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
@@ -20,13 +26,7 @@ import {
 } from "../../constants/queryConstants";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
-import {
-  SystemDetails,
-  Assets,
-  Feature,
-  Classification,
-  DocumentData
-} from "./types";
+import { DocumentData } from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 import SystemLayersSection from "./systemLayersSection";
 import styles from "./styles/systemDetailsPage.module.scss";
@@ -41,9 +41,9 @@ type Props = {
   };
   data: {
     contentfulSite: SiteData;
-    systems: SystemDetails;
+    systems: System;
     relatedSystems?: {
-      nodes: ReadonlyArray<SystemDetails>;
+      nodes: ReadonlyArray<System>;
     };
     shareWidget: ShareWidgetSectionData | null;
     allContentfulAssetType: {
@@ -103,21 +103,21 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
   }, [location, name]);
 
   const bimIframeUrl = getBimIframeUrl(assets);
-  const guaranteesAndWarranties: Assets[] = useMemo(() => {
-    return assets.filter(
+  const guaranteesAndWarranties: Asset[] = useMemo(() => {
+    return (assets || []).filter(
       ({ assetType }) =>
         assetType === "GUARANTIES" || assetType === "WARRANTIES"
     );
   }, [assets]);
-  const awardsAndCertificates: Assets[] = useMemo(() => {
-    return assets.filter(
+  const awardsAndCertificates: Asset[] = useMemo(() => {
+    return (assets || []).filter(
       ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
     );
   }, [assets]);
-  const keyFeatures: Feature = useMemo(() => {
+  const keyFeatures: Feature | undefined = useMemo(() => {
     return first(
       compact(
-        classifications.map(({ features }) => {
+        (classifications || []).map(({ features }) => {
           return (
             features &&
             features.find(({ code }) => code.includes("keyfeatures"))
@@ -126,11 +126,11 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       )
     );
   }, [classifications]);
-  const specification: Assets = useMemo(() => {
-    return assets.find(({ assetType }) => assetType === "SPECIFICATION");
+  const specification: Asset | undefined = useMemo(() => {
+    return assets?.find(({ assetType }) => assetType === "SPECIFICATION");
   }, [assets]);
   const technicalSpecClassifications: Classification[] = useMemo(() => {
-    return classifications
+    return (classifications || [])
       .filter(
         ({ code }) =>
           !IGNORED_ATTRIBUTES.some((attribute) =>
@@ -151,10 +151,10 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       .filter(({ features }) => features.length > 0)
       .sort((a, b) => (a.name < b.name ? -1 : 1));
   }, [classifications]);
-  const uniqueSellingPropositions: Feature = useMemo(() => {
+  const uniqueSellingPropositions: Feature | undefined = useMemo(() => {
     return first(
       compact(
-        classifications.map(({ features }) => {
+        (classifications || []).map(({ features }) => {
           return (
             features &&
             features.find(({ code }) =>
@@ -169,20 +169,20 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     () =>
       (categories || []).find(({ categoryType }) => {
         return categoryType === "Brand";
-      }).name,
+      })?.name,
     [categories]
   );
   const aboutLeadBlockGenericContent: TitleWithContentData =
     resources?.sdpSidebarItems?.length > 0 && resources?.sdpSidebarItems[0];
   const bimContent: BimContent = useMemo(() => {
     return {
-      title: assets.find(({ assetType }) => assetType === "BIM")?.name,
+      title: assets?.find(({ assetType }) => assetType === "BIM")?.name,
       description: resources?.sdpBimDescription,
       bimIframeUrl
     };
   }, [assets, bimIframeUrl, resources?.sdpBimDescription]);
   const documentsAndDownloads: DocumentData[] = useMemo(() => {
-    return assets
+    return (assets || [])
       .filter(
         ({ assetType, allowedToDownload }) =>
           !IGNORED_DOCUMENTS_ASSETS.includes(assetType) && allowedToDownload
@@ -290,7 +290,7 @@ export const systemsQuery = graphql`
   query SystemDetailsPage(
     $siteId: String!
     $systemPageId: String!
-    $relatedSystemCodes: [String]
+    $relatedSystemCodes: [String]!
   ) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
@@ -363,13 +363,13 @@ export const systemsQuery = graphql`
         type
         name
         shortDescription
-        relatedProducts {
+        products {
           name
           variantOptions {
             path
           }
         }
-        relatedOptionalProducts {
+        optionalProducts {
           name
           code
           variantOptions {

@@ -1,6 +1,6 @@
 import { uniqBy, map } from "lodash";
 import { Filter } from "@bmi/filters";
-import { Product, Category } from "../components/types/ProductBaseTypes";
+import { Product, Category } from "../components/types/pim";
 import { Data as DocumentResultsData } from "../components/DocumentResults";
 import {
   PIMDocumentData,

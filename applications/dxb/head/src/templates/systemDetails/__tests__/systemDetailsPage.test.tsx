@@ -3,7 +3,7 @@ import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import dataJson from "../../../data/pim-mock-data.json";
 import Component from "../systemDetailsPage";
-import { SystemDetails, AssetType, Assets } from "../types";
+import { System, AssetAssetType, Asset } from "../../../components/types/pim";
 import SystemDetailsPage, {
   IGNORED_DOCUMENTS_ASSETS
 } from "../systemDetailsPage";
@@ -167,7 +167,7 @@ describe("SystemDetailsPage template component", () => {
           data={{
             contentfulSite: createMockSiteData(),
             shareWidget: null,
-            systems: newDatajson as SystemDetails,
+            systems: newDatajson as System,
             allContentfulAssetType
           }}
           pageContext={{
@@ -207,7 +207,7 @@ describe("SystemDetailsPage template component", () => {
     });
 
     it("filter documentsAndDownload by assetsType and allowedToDownload", () => {
-      const document: Assets = {
+      const document: Asset = {
         allowedToDownload: true,
         assetType: "CAD",
         fileSize: 270539,
@@ -216,13 +216,13 @@ describe("SystemDetailsPage template component", () => {
         realFileName: "1344416763.pdf",
         url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
       };
-      const notAllowToDownload: Assets = {
+      const notAllowToDownload: Asset = {
         ...document,
         allowedToDownload: false,
         realFileName: "notallow.pdf"
       };
-      const ignoredDocument: Assets[] = IGNORED_DOCUMENTS_ASSETS.map(
-        (ignoredAssetType: AssetType): Assets => {
+      const ignoredDocument: Asset[] = IGNORED_DOCUMENTS_ASSETS.map(
+        (ignoredAssetType: AssetAssetType): Asset => {
           return {
             ...document,
             assetType: ignoredAssetType,
@@ -230,7 +230,7 @@ describe("SystemDetailsPage template component", () => {
           };
         }
       );
-      const documents: Assets[] = [
+      const documents: Asset[] = [
         document,
         notAllowToDownload,
         ...ignoredDocument

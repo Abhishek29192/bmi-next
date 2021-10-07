@@ -27,7 +27,7 @@ import {
   createVariantOptionWithProduct
 } from "../../__tests__/PimDocumentProductHelper";
 import createCategory from "../../__tests__/CategoryHelper";
-import { Product } from "../../components/types/ProductBaseTypes";
+import { Image, Product } from "../../components/types/pim";
 
 describe("product-details-transforms tests", () => {
   describe("getProductUrl tests", () => {
@@ -1078,7 +1078,7 @@ describe("product-details-transforms tests", () => {
     describe("when master images are present", () => {
       describe("And some images format is null", () => {
         it("returns master image with format only", () => {
-          const inputData = [
+          const inputData: Image[] = [
             {
               realFileName: "Turmalin-monestein-Turmalin-monestein.jpg",
               assetType: "MASTER_IMAGE",
@@ -1251,7 +1251,7 @@ describe("product-details-transforms tests", () => {
       });
       describe("And All images have format specified", () => {
         it("returns master image result", () => {
-          const inputData = [
+          const inputData: Image[] = [
             {
               realFileName:
                 "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
@@ -1325,7 +1325,7 @@ describe("product-details-transforms tests", () => {
         });
       });
       describe("And categories are populated", () => {
-        it("returns products grouped by categoies", () => {
+        it("returns products grouped by categories", () => {
           const baseProduct = createBaseProduct({
             documents: [],
             classifications: [],
@@ -1347,62 +1347,7 @@ describe("product-details-transforms tests", () => {
           });
 
           const expectedResult = {
-            "category-z": [
-              {
-                code: "product-code",
-                externalProductCode: "external-product-code",
-                name: "product-name",
-                description: "product-description",
-                images: [],
-                assets: [],
-                productBenefits: [],
-                categories: [
-                  {
-                    name: "category-z",
-                    categoryType: "Category",
-                    code: "category-z",
-                    parentCategoryCode: ""
-                  },
-                  {
-                    name: "category-2",
-                    categoryType: "Category",
-                    code: "category-2",
-                    parentCategoryCode: "category-z"
-                  }
-                ],
-                classifications: [],
-                variantOptions: [],
-                documents: [],
-                breadcrumbs: null
-              },
-              {
-                code: "product-code",
-                externalProductCode: "external-product-code",
-                name: "product-name",
-                description: "product-description",
-                images: [],
-                assets: [],
-                productBenefits: [],
-                categories: [
-                  {
-                    name: "category-z",
-                    categoryType: "Category",
-                    code: "category-z",
-                    parentCategoryCode: ""
-                  },
-                  {
-                    name: "category-2",
-                    categoryType: "Category",
-                    code: "category-2",
-                    parentCategoryCode: "category-z"
-                  }
-                ],
-                classifications: [],
-                variantOptions: [],
-                documents: [],
-                breadcrumbs: null
-              }
-            ]
+            "category-z": [baseProduct, baseProduct]
           };
           const inputData: Array<Product> = [baseProduct, baseProduct];
           const result = groupProductsByCategory(inputData);

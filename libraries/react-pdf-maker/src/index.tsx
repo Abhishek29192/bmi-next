@@ -11,4 +11,4 @@ export { default as Link } from "./components/Link";
 
 export { default as styled } from "./styled";
 
-export { default as pdf, pdfMake } from "./pdf";
+export { default as pdf } from "./pdf";

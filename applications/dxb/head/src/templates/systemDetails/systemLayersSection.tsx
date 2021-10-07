@@ -3,9 +3,8 @@ import Grid from "@bmi/grid";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
 import AnchorLink from "@bmi/anchor-link";
-import { Product } from "../../components/types/ProductBaseTypes";
+import { Product, SystemLayer } from "../../components/types/pim";
 import { useSiteContext } from "../../components/Site";
-import { SystemLayer } from "./types";
 
 type Props = {
   systemLayers: SystemLayer[];
@@ -23,7 +22,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
     <Accordion>
       {systemLayers &&
         systemLayers
-          .filter((layer) => layer?.relatedProducts[0])
+          .filter((layer) => layer?.relatedProducts?.[0])
           .sort((a, b) => a.layerNumber - b.layerNumber)
           .map((layer, index) => {
             const [mandatoryProduct] = layer.relatedProducts;

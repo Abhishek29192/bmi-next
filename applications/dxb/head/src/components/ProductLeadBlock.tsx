@@ -18,19 +18,13 @@ import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { Asset, Classification } from "./types/ProductBaseTypes";
+import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import BimIframe from "./BimIframe";
 
 const BlueCheckIcon = (
   <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
 );
-
-type GuaranteesAndAwardsAsset = {
-  url: string;
-  name: string;
-};
-
 type Props = {
   bimIframeUrl?: string;
   description?: string;

@@ -1,5 +1,5 @@
 import { Data as AssetTypeData } from "../AssetType";
-import { Product } from "./ProductBaseTypes";
+import { Product } from "./pim";
 
 export type PIMDocumentProduct = Pick<
   Product,

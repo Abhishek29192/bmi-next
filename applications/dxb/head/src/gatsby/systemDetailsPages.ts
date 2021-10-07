@@ -63,8 +63,8 @@ export const createSystemPages = async ({
 
   await Promise.all(
     allPimSystems.map(async ({ id: systemPageId, path, systemReferences }) => {
-      const relatedSystemCodes = systemReferences
-        ?.filter((systemRefObj) => systemRefObj.referenceType === "CROSSELLING")
+      const relatedSystemCodes = (systemReferences || [])
+        .filter((systemRefObj) => systemRefObj.referenceType === "CROSSELLING")
         .map(({ target: { code } }) => code);
 
       await createPage<PageContext>({
