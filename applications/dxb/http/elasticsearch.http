@@ -169,71 +169,13 @@ Authorization: ApiKey {{esApiKey}}
 {
   "size": 10,
   "from": 0,
-  "sort": [
-    "_score",
-    {
-      "scoringWeightInt": "desc"
-    },
-    {
-      "name.keyword": "asc"
-    }
-  ],
-  "aggs": {
-    "categories": {
-      "terms": {
-        "size": "100",
-        "field": "categories.code.keyword"
-      }
-    },
-    "allCategories": {
-      "terms": {
-        "size": "100",
-        "field": "allCategories.code.keyword"
-      }
-    },
-    "materials": {
-      "terms": {
-        "size": "100",
-        "field": "materialsCode.keyword"
-      }
-    },
-    "texturefamily": {
-      "terms": {
-        "size": "100",
-        "field": "texturefamilyCode.keyword"
-      }
-    },
-    "colourfamily": {
-      "terms": {
-        "size": "100",
-        "field": "colourfamilyCode.keyword"
-      }
-    }
-  },
   "query": {
-    "bool": {
-      "must": [
-        {
-          "query_string": {
-            "query": "**",
-            "type": "cross_fields",
-            "fields": [
-              "externalProductCode",
-              "name^5",
-              "summary",
-              "description",
-              "longDescription",
-              "shortDescription",
-              "colourfamilyValue.keyword",
-              "materialsValue.keyword",
-              "texturefamilyValue.keyword",
-              "measurementValue.keyword",
-              "categories.value.keyword",
-              "allCategories.value.keyword",
-              "classifications.features.featureValues.value^6"
-            ]
-          }
-        }
+    "terms": {
+      "code.keyword": [
+        "Test_PIM_System1",
+        "Test_PIM_System2",
+        "Test_PIM_System3",
+        "Recomended_System1"
       ]
     }
   }
