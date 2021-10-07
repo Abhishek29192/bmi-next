@@ -16,7 +16,6 @@ const SampleOrderSection = () => {
       className={styles["SampleOrderSection"]}
       hasNoPadding
     >
-      <hr />
       <Button endIcon={<Add />}>
         {getMicroCopy("pdp.overview.addSample")}
       </Button>
