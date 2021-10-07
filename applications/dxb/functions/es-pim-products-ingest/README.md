@@ -15,7 +15,7 @@ $ yarn dev
 
 Assuming you have [docker running on your desktop] (https://www.docker.com/products/docker-desktop)
 
-## You can run local, Elastic Search instance and index documents locally as follows :
+### Using local Elastic Search instance
 
 ```shell
 $ docker compose up
@@ -32,21 +32,12 @@ This is to configure this gcp function to find elastic search instance at the ab
 
 after these settings are then run `yarn dev` in a new console instance.
 
-Once this gcp function is running in dev mode it will be listening to `http://localhost:8080` and you can post PIM data json in following format
+Once this gcp function is running in dev mode it will be listening to `http://localhost:8080` and you can post base64 encoded PIM data json in the following format
 
 ```
 {
     "data": {
-        "data": {
-            "type": "UPDATED",
-            "itemType": "itemType",
-            "items": [
-                {
-                    "approvalStatus": "approved",
-                    "assets": []
-                }
-            ]
-        }
+        "data": "ew0KICAgICAgICAgICAgInR5cGUiOiAiVVBEQVRFRCIsDQogICAgICAgICAgICAiaXRlbVR5cGUiOiAiaXRlbVR5cGUiLA0KICAgICAgICAgICAgIml0ZW1zIjogWw0KICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgImFwcHJvdmFsU3RhdHVzIjogImFwcHJvdmVkIiwNCiAgICAgICAgICAgICAgICAgICAgImFzc2V0cyI6IFtdDQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgXQ0KICAgICAgICB9"
     }
 }
 
@@ -61,7 +52,7 @@ GET /_cat/indices
 ## To search for documents in a given index you can run
 
 ```
-GET /{YOUR_IINDEX_NAME}/_search?pretty
+GET /{YOUR_INDEX_NAME}/_search?pretty
 ```
 
 ```

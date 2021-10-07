@@ -17,7 +17,7 @@ export type SystemMessage = {
 
 // This type is speculative at best
 export type MessageFunction = (
-  event: { data: string } | { data: ProductMessage | SystemMessage },
+  data: { data: string } | { data: ProductMessage | SystemMessage },
   context: {
     message: {
       data: ProductMessage | SystemMessage;

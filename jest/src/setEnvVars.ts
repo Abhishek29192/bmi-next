@@ -42,6 +42,7 @@ process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE =
 process.env.ES_HOST = "http://localhost:3000";
 process.env.ES_CLOUD_ID = "es-cloud-id";
 process.env.ES_USERNAME = "es-username";
+process.env.ES_PASSWORD_SECRET = "es-password-secret";
 
 process.env.LC_ALL = "en_US.UTF-8";
 
