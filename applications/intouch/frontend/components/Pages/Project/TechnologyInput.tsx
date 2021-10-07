@@ -11,12 +11,15 @@ import { getFieldValueLabel } from "./Form";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";
 
+const FlatIconWrapper: React.FunctionComponent<React.SVGProps<SVGSVGElement>> =
+  (props) => <FlatRoof viewBox="0 7 48 48" {...props} />;
+
 // TODO: Use this once "OTHER" is removed from it
 const technologyIcons: Record<
   Exclude<Technology, "OTHER">,
   React.SFC<React.SVGProps<SVGSVGElement>>
 > = {
-  FLAT: FlatRoof,
+  FLAT: FlatIconWrapper,
   PITCHED: PitchedRoof
 };
 
@@ -75,7 +78,11 @@ const TechnologyInput = ({ defaultValue, disabled }: TechnologyInputProps) => {
               />
               {getFieldValueLabel(t, "technology", value)}
             </RadioGroup.Item>
-            <Typography variant="caption" component="div">
+            <Typography
+              variant="caption"
+              component="div"
+              className={styles.technologyCaption}
+            >
               {t(
                 `project-page:addProject.dialog.form.hints.technology.${value}`
               )}
