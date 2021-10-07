@@ -75,7 +75,8 @@
     },
     "hints": {
       "projectEditGuaranteeStatus": "Project details cannot be edited due to guarantee status."
-    }
+    },
+    "loading": "Loading project details"
   },
   "buildingOwnerDetails": {
     "title": "Building Owner Details",
@@ -309,6 +310,15 @@
       "detailHeading": "Please fill in the details below to share information on this project",
       "cancel": "Cancel",
       "send": "Send"
+    }
+  },
+  "guaranteeApplyAlert": {
+    "title": "You cannot apply for a guarantee yet",
+    "message": {
+      "buildingOwner": "Builder Owner details are not completed",
+      "projectDetails": "Project details are not completed",
+      "tier": "You are not in a Tier that supports Guarantees",
+      "guaranteeType": "Guarantee Type is not defined"
     }
   }
 }

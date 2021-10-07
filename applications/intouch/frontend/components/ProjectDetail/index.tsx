@@ -131,10 +131,9 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     );
   }
 
-  // TODO: Microcopy
   if (loading)
     return (
-      <div style={{ minHeight: "100vh" }}>Error loading project details.</div>
+      <div style={{ minHeight: "100vh" }}>{t("projectDetails.loading")}</div>
     );
 
   const isGuaranteeAppliable =
