@@ -363,98 +363,253 @@ describe("product-filters tests", () => {
 
       describe("And Multiple classification is passed with multiple features", () => {
         describe("And some of the filterBy criteria match feature codes", () => {
-          it("returns matching unique filters", () => {
-            const result = generateFeatureFilters(
-              "",
-              [
-                createClassification({
-                  features: [
-                    createFeature({
-                      code: "roofAttributes.minimumpitch",
-                      name: "minimumpitch",
-                      featureValues: [{ code: "8", value: "8" }],
-                      featureUnit: {
-                        name: "degree",
-                        symbol: "°",
-                        unitType: "slope"
-                      }
+          describe("And feature does not have featureUnit", () => {
+            describe("And all feature values are numeric", () => {
+              it("returns matching filters in numerical order", () => {
+                const result = generateFeatureFilters(
+                  "",
+                  [
+                    createClassification({
+                      features: [
+                        createFeature({
+                          code: "roofAttributes.minimumpitch",
+                          name: "minimumpitch",
+                          featureValues: [{ code: "8", value: "8" }]
+                        }),
+                        createFeature({
+                          code: "roofAttributes.minimumpitch",
+                          name: "minimumpitch",
+                          featureValues: [{ code: "9", value: "9" }]
+                        })
+                      ]
                     }),
-                    createFeature({
-                      code: "roofAttributes.minimumpitch",
-                      name: "minimumpitch",
-                      featureValues: [{ code: "9", value: "9" }],
-                      featureUnit: {
-                        name: "degree",
-                        symbol: "°",
-                        unitType: "slope"
-                      }
+                    createClassification({
+                      features: [
+                        createFeature({
+                          code: "roofAttributes.minimumpitch",
+                          name: "minimumpitch",
+                          featureValues: [{ code: "10", value: "10" }]
+                        }),
+                        createFeature({
+                          code: "roofAttributes.minimumpitch",
+                          name: "minimumpitch",
+                          featureValues: [{ code: "8", value: "8" }]
+                        }),
+                        createFeature({
+                          code: "roofAttributes.minimumpitch",
+                          name: "minimumpitch",
+                          featureValues: [{ code: "9", value: "9" }]
+                        })
+                      ]
                     })
-                  ]
-                }),
-                createClassification({
-                  features: [
-                    createFeature({
-                      code: "roofAttributes.minimumpitch",
-                      name: "minimumpitch",
-                      featureValues: [{ code: "10", value: "10" }],
-                      featureUnit: {
-                        name: "degree",
-                        symbol: "°",
-                        unitType: "slope"
-                      }
-                    }),
-                    createFeature({
-                      code: "roofAttributes.minimumpitch",
-                      name: "minimumpitch",
-                      featureValues: [{ code: "8", value: "8" }],
-                      featureUnit: {
-                        name: "degree",
-                        symbol: "°",
-                        unitType: "slope"
-                      }
-                    }),
-                    createFeature({
-                      code: "roofAttributes.minimumpitch",
-                      name: "minimumpitch",
-                      featureValues: [{ code: "9", value: "9" }],
-                      featureUnit: {
-                        name: "degree",
-                        symbol: "°",
-                        unitType: "slope"
-                      }
-                    })
-                  ]
-                })
-              ],
-              [
-                "Category",
-                "Category | MAINTILE_STEELROOF_NO",
-                "roofAttributes.minimumpitch"
-              ]
-            );
-            expect(result).toEqual([
-              {
-                name: "roofAttributes.minimumpitch",
-                label: "minimumpitch",
-                options: [
+                  ],
+                  ["roofAttributes.minimumpitch"]
+                );
+
+                expect(result).toEqual([
                   {
-                    label: "8 °",
-                    value: "8°",
-                    sortValue: 8
-                  },
-                  {
-                    label: "9 °",
-                    value: "9°",
-                    sortValue: 9
-                  },
-                  {
-                    label: "10 °",
-                    value: "10°",
-                    sortValue: 10
+                    name: "roofAttributes.minimumpitch",
+                    label: "minimumpitch",
+                    options: [
+                      {
+                        label: "8 classification-feature-feature-unit-symbol",
+                        value: "8classification-feature-feature-unit-symbol",
+                        sortValue: 8
+                      },
+                      {
+                        label: "9 classification-feature-feature-unit-symbol",
+                        value: "9classification-feature-feature-unit-symbol",
+                        sortValue: 9
+                      },
+                      {
+                        label: "10 classification-feature-feature-unit-symbol",
+                        value: "10classification-feature-feature-unit-symbol",
+                        sortValue: 10
+                      }
+                    ]
                   }
+                ]);
+              });
+            });
+            describe("And all feature values are Aphabetic", () => {
+              it("returns matching filters in alphabetic order", () => {
+                const result = generateFeatureFilters(
+                  "",
+                  [
+                    createClassification({
+                      features: [
+                        createFeature({
+                          code: "roofAttributes.color",
+                          name: "color",
+                          featureValues: [{ code: "green", value: "green" }]
+                        }),
+                        createFeature({
+                          code: "roofAttributes.color",
+                          name: "color",
+                          featureValues: [{ code: "red", value: "red" }]
+                        })
+                      ]
+                    }),
+                    createClassification({
+                      features: [
+                        createFeature({
+                          code: "roofAttributes.color",
+                          name: "color",
+                          featureValues: [{ code: "blue", value: "blue" }]
+                        }),
+                        createFeature({
+                          code: "roofAttributes.color",
+                          name: "color",
+                          featureValues: [{ code: "white", value: "white" }]
+                        }),
+                        createFeature({
+                          code: "roofAttributes.color",
+                          name: "color",
+                          featureValues: [{ code: "amber", value: "amber" }]
+                        })
+                      ]
+                    })
+                  ],
+                  ["roofAttributes.color"]
+                );
+                expect(result).toEqual([
+                  {
+                    name: "roofAttributes.color",
+                    label: "color",
+                    options: [
+                      {
+                        label:
+                          "amber classification-feature-feature-unit-symbol",
+                        value:
+                          "amberclassification-feature-feature-unit-symbol",
+                        sortValue: "amber"
+                      },
+                      {
+                        label:
+                          "blue classification-feature-feature-unit-symbol",
+                        value: "blueclassification-feature-feature-unit-symbol",
+                        sortValue: "blue"
+                      },
+                      {
+                        label:
+                          "green classification-feature-feature-unit-symbol",
+                        value:
+                          "greenclassification-feature-feature-unit-symbol",
+                        sortValue: "green"
+                      },
+                      {
+                        label: "red classification-feature-feature-unit-symbol",
+                        value: "redclassification-feature-feature-unit-symbol",
+                        sortValue: "red"
+                      },
+                      {
+                        label:
+                          "white classification-feature-feature-unit-symbol",
+                        value:
+                          "whiteclassification-feature-feature-unit-symbol",
+                        sortValue: "white"
+                      }
+                    ]
+                  }
+                ]);
+              });
+            });
+          });
+
+          describe("And feature has featureUnit", () => {
+            it("returns matching unique filters", () => {
+              const result = generateFeatureFilters(
+                "",
+                [
+                  createClassification({
+                    features: [
+                      createFeature({
+                        code: "roofAttributes.minimumpitch",
+                        name: "minimumpitch",
+                        featureValues: [{ code: "8", value: "8" }],
+                        featureUnit: {
+                          name: "degree",
+                          symbol: "°",
+                          unitType: "slope"
+                        }
+                      }),
+                      createFeature({
+                        code: "roofAttributes.minimumpitch",
+                        name: "minimumpitch",
+                        featureValues: [{ code: "9", value: "9" }],
+                        featureUnit: {
+                          name: "degree",
+                          symbol: "°",
+                          unitType: "slope"
+                        }
+                      })
+                    ]
+                  }),
+                  createClassification({
+                    features: [
+                      createFeature({
+                        code: "roofAttributes.minimumpitch",
+                        name: "minimumpitch",
+                        featureValues: [{ code: "10", value: "10" }],
+                        featureUnit: {
+                          name: "degree",
+                          symbol: "°",
+                          unitType: "slope"
+                        }
+                      }),
+                      createFeature({
+                        code: "roofAttributes.minimumpitch",
+                        name: "minimumpitch",
+                        featureValues: [{ code: "8", value: "8" }],
+                        featureUnit: {
+                          name: "degree",
+                          symbol: "°",
+                          unitType: "slope"
+                        }
+                      }),
+                      createFeature({
+                        code: "roofAttributes.minimumpitch",
+                        name: "minimumpitch",
+                        featureValues: [{ code: "9", value: "9" }],
+                        featureUnit: {
+                          name: "degree",
+                          symbol: "°",
+                          unitType: "slope"
+                        }
+                      })
+                    ]
+                  })
+                ],
+                [
+                  "Category",
+                  "Category | MAINTILE_STEELROOF_NO",
+                  "roofAttributes.minimumpitch"
                 ]
-              }
-            ]);
+              );
+              expect(result).toEqual([
+                {
+                  name: "roofAttributes.minimumpitch",
+                  label: "minimumpitch",
+                  options: [
+                    {
+                      label: "8 °",
+                      value: "8°",
+                      sortValue: 8
+                    },
+                    {
+                      label: "9 °",
+                      value: "9°",
+                      sortValue: 9
+                    },
+                    {
+                      label: "10 °",
+                      value: "10°",
+                      sortValue: 10
+                    }
+                  ]
+                }
+              ]);
+            });
           });
         });
       });

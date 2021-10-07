@@ -94,7 +94,8 @@ describe("filters tests", () => {
             product: {
               code: "product-code",
               name: "product-name",
-              categories: undefined
+              categories: undefined,
+              classifications: undefined
             }
           });
         const result = findPIMDocumentBrandCategories(inputDataItems);
@@ -1521,7 +1522,7 @@ describe("filters tests", () => {
                 createFeature({
                   code: "measurements.length",
                   name: "length",
-                  featureValues: [{ value: "100" }]
+                  featureValues: [{ value: "100", code: "100" }]
                 })
               ]
             })
@@ -1535,7 +1536,7 @@ describe("filters tests", () => {
                 createFeature({
                   code: "measurements.length",
                   name: "length",
-                  featureValues: [{ value: "100" }]
+                  featureValues: [{ value: "100", code: "100" }]
                 })
               ]
             })
@@ -1594,7 +1595,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.length",
                     name: "length",
-                    featureValues: [{ value: "100" }]
+                    featureValues: [{ value: "100", code: "100" }]
                   })
                 ]
               }),
@@ -1604,7 +1605,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.width",
                     name: "width",
-                    featureValues: [{ value: "200" }]
+                    featureValues: [{ value: "200", code: "200" }]
                   })
                 ]
               })
@@ -1618,7 +1619,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.length",
                     name: "length",
-                    featureValues: [{ value: "100" }]
+                    featureValues: [{ value: "100", code: "100" }]
                   })
                 ]
               }),
@@ -1628,7 +1629,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.width",
                     name: "width",
-                    featureValues: [{ value: "300" }]
+                    featureValues: [{ value: "300", code: "300" }]
                   })
                 ]
               })
@@ -1681,7 +1682,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.length",
                     name: "length",
-                    featureValues: [{ value: "100" }]
+                    featureValues: [{ value: "100", code: "100" }]
                   })
                 ]
               }),
@@ -1691,7 +1692,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.width",
                     name: "width",
-                    featureValues: [{ value: "200" }]
+                    featureValues: [{ value: "200", code: "200" }]
                   })
                 ]
               })
@@ -1705,7 +1706,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.length",
                     name: "length",
-                    featureValues: [{ value: "100" }]
+                    featureValues: [{ value: "100", code: "100" }]
                   })
                 ]
               }),
@@ -1715,7 +1716,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.width",
                     name: "width",
-                    featureValues: [{ value: "300" }]
+                    featureValues: [{ value: "300", code: "300" }]
                   })
                 ]
               })
@@ -1863,7 +1864,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.length",
                     name: "length",
-                    featureValues: [{ value: "100" }]
+                    featureValues: [{ value: "100", code: "100" }]
                   })
                 ]
               }),
@@ -1873,7 +1874,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.width",
                     name: "width",
-                    featureValues: [{ value: "200" }]
+                    featureValues: [{ value: "200", code: "200" }]
                   })
                 ]
               })
@@ -1914,7 +1915,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.length",
                     name: "length",
-                    featureValues: [{ value: "100" }]
+                    featureValues: [{ value: "100", code: "100" }]
                   })
                 ]
               }),
@@ -1924,7 +1925,7 @@ describe("filters tests", () => {
                   createFeature({
                     code: "measurements.width",
                     name: "width",
-                    featureValues: [{ value: "300" }]
+                    featureValues: [{ value: "300", code: "300" }]
                   })
                 ]
               })

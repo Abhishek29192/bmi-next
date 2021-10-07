@@ -182,22 +182,34 @@ export const generateFeatureFilters = (
   const featureFilterGroup = allFeatures.reduce((prevValue, feature) => {
     const previousValues: ProductFilterOptionExtended[] =
       prevValue[feature.featureCode]?.options || [];
+
+    const createOptionValueWithUnit = (item) =>
+      `${item.code}${feature?.featureUnit?.symbol || ""}`;
+
+    const tryConvertToNumber = (value) =>
+      parseInt(`${value}`.replace(/[^0-9]+/gi, ""));
+
     const uniqueValues = feature.featureValues
       .filter(
         (filValue) =>
           !previousValues.some(
-            (prevVal) =>
-              prevVal.value ===
-              `${filValue.value}${feature.featureUnit?.symbol}`
+            (prevVal) => prevVal.value === createOptionValueWithUnit(filValue)
           )
       )
-      .map((item) => ({
-        label: `${item.value} ${feature.featureUnit?.symbol}`,
-        value: `${item.value}${feature.featureUnit?.symbol}`,
-        // convert values in whole numbers(including any locale based decimals!)
-        // this is the best we can do for ordering the values
-        sortValue: parseInt(`${item.value}`.replace(/[^0-9]+/gi, ""))
-      }));
+      .map((item) => {
+        const optionLabel = `${item.value} ${
+          feature?.featureUnit?.symbol || ""
+        }`;
+        const optionValue = createOptionValueWithUnit(item);
+        const optionSortValue = tryConvertToNumber(item.value);
+        return {
+          label: optionLabel,
+          value: optionValue,
+          // convert values in whole numbers(removing any locale based decimals!)
+          // if it cannot be converted to keep it as string
+          sortValue: isNaN(optionSortValue) ? item.value : optionSortValue
+        };
+      });
     const allOptions = [...previousValues, ...uniqueValues];
     if (allOptions.length === 0) return prevValue;
 
@@ -206,9 +218,19 @@ export const generateFeatureFilters = (
       [feature.featureCode]: {
         name: feature.featureCode,
         label: feature.name,
-        options: allOptions.sort((a, b) => a.sortValue - b.sortValue)
+        options: allOptions.sort((a, b) => {
+          //sort based on string or number value
+          if (
+            typeof a.sortValue === "string" ||
+            typeof b.sortValue === "string"
+          ) {
+            return a.sortValue > b.sortValue ? 1 : -1;
+          }
+          return a.sortValue - b.sortValue;
+        })
       }
     };
+
     return returnValue;
   }, {});
 

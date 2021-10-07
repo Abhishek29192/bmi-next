@@ -159,22 +159,23 @@ const queries = [
   }
 ].filter(Boolean);
 
-const elasticSearchPlugin = process.env.GATSBY_PREVIEW
-  ? []
-  : [
-      {
-        resolve: `@bmi/gatsby-plugin-elasticsearch`,
-        options: {
-          node: process.env.GATSBY_ES_ENDPOINT,
-          auth: {
-            username: process.env.ES_ADMIN_USERNAME,
-            password: process.env.ES_ADMIN_PASSWORD
-          },
-          queries,
-          chunkSize: 100
+const elasticSearchPlugin =
+  process.env.GATSBY_PREVIEW || process.env.DISABLE_ES_INDEXING
+    ? []
+    : [
+        {
+          resolve: `@bmi/gatsby-plugin-elasticsearch`,
+          options: {
+            node: process.env.GATSBY_ES_ENDPOINT,
+            auth: {
+              username: process.env.ES_ADMIN_USERNAME,
+              password: process.env.ES_ADMIN_PASSWORD
+            },
+            queries,
+            chunkSize: 100
+          }
         }
-      }
-    ];
+      ];
 
 module.exports = {
   siteMetadata: {
