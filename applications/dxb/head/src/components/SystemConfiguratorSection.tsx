@@ -12,14 +12,14 @@ import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";
 import Section from "@bmi/section";
-import RadioPane from "@bmi/radio-pane";
+import RadioPane, { RadioPaneProps } from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
 import { useLocation, navigate } from "@reach/router";
 import { SystemCard } from "../components/RelatedSystems";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
-import { pushToDataLayer } from "../utils/google-tag-manager";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { queryElasticSearch } from "../utils/elasticSearch";
@@ -93,6 +93,8 @@ const saveStateToLocalStorage = (stateToStore: string) => {
 };
 
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_SYSTEMS;
+
+const GTMRadioPane = withGTM<RadioPaneProps>(RadioPane);
 
 const SystemConfiguratorBlock = ({
   id,
@@ -205,7 +207,7 @@ const SystemConfiguratorBlock = ({
         handleOnChange={handleOnChange}
         options={answers.map(({ id, title: answerTitle, description }) => {
           return (
-            <RadioPane
+            <GTMRadioPane
               key={id}
               title={answerTitle}
               name={title}
@@ -219,9 +221,14 @@ const SystemConfiguratorBlock = ({
                 saveStateToLocalStorage(stateToSave);
               }}
               defaultChecked={id === selectedAnswer?.id}
+              gtm={{
+                id: "system-configurator01-selected",
+                label: title,
+                action: answerTitle
+              }}
             >
               {description && <RichText document={description} />}
-            </RadioPane>
+            </GTMRadioPane>
           );
         })}
         TransitionProps={{

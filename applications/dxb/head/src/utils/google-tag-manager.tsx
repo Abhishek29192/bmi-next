@@ -2,10 +2,11 @@ import { ClickableAction } from "@bmi/clickable";
 import { ButtonBaseActions } from "@material-ui/core";
 import React, { createContext, useContext } from "react";
 
-type GTM = {
+type Props = {
   action?: (ClickableAction | Omit<ButtonBaseActions, "focusVisible">) & {
     "data-gtm"?: string;
   };
+  children?: React.ReactNode;
   gtm?: {
     id: string;
     event?: string;
@@ -14,10 +15,10 @@ type GTM = {
   };
 };
 
-type Map<P> = Partial<Record<keyof GTM["gtm"], string>>;
+type Map = Partial<Record<keyof Props["gtm"], string>>;
 
 declare let window: Window & {
-  dataLayer: { push: (data: GTM["gtm"]) => {} };
+  dataLayer: { push: (data: Props["gtm"]) => {} };
 };
 
 type Context = {
@@ -26,16 +27,16 @@ type Context = {
 
 export const GTMContext = createContext<Context>({ idMap: {} });
 
-export function pushToDataLayer(dataGtm: GTM["gtm"]) {
+export function pushToDataLayer(dataGtm: Props["gtm"]) {
   window.dataLayer &&
     window.dataLayer.push({ ...dataGtm, event: dataGtm.event ?? "gtm.click" });
 }
 
 export default function withGTM<P>(
   Component: React.ComponentType<any>,
-  propsToGtmMap: Map<P> = {}
+  propsToGtmMap: Map = {}
 ) {
-  const ComponentWithGTM = ({ gtm, action, ...props }: GTM & P) => {
+  const ComponentWithGTM = ({ gtm, action, children, ...props }: Props & P) => {
     const { idMap } = useContext(GTMContext);
     const { "data-gtm": gtmDatasetJson, ...actionRest } = action || {};
     const gtmDataset = gtmDatasetJson && JSON.parse(gtmDatasetJson);
@@ -52,7 +53,9 @@ export default function withGTM<P>(
         {...props}
         {...(action && { action: actionRest })}
         data-gtm={JSON.stringify(dataGtm)}
-      />
+      >
+        {children}
+      </Component>
     );
   };
 

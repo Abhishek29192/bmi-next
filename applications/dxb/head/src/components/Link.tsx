@@ -5,7 +5,6 @@ import Clickable from "@bmi/clickable";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simple-page";
-import { pushToDataLayer } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
