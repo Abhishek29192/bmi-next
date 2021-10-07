@@ -134,29 +134,51 @@ export const guaranteeSolutionGuaranteeValidate = (
     isValid: true
   };
 };
-export const isGuaranteeApplicationEnable = (
+export const guaranteeApplicationValidate = (
   project: GetProjectQuery["project"]
 ) => {
   if (!checkProjectDetail(project)) {
-    return false;
+    return {
+      isValid: false,
+      validationError: "guaranteeApplyAlert.message.projectDetails"
+    };
   }
 
   if (!checkBuildingOwner(project)) {
-    return false;
+    return {
+      isValid: false,
+      validationError: "guaranteeApplyAlert.message.buildingOwner"
+    };
   }
-
   const { company, guarantees } = project;
 
-  if (guarantees.nodes.length === 0) return true;
+  if (guarantees.nodes.length === 0) {
+    return {
+      isValid: true,
+      validationError: null
+    };
+  }
 
   const guarantee = guarantees.nodes[0];
   const { guaranteeType } = guarantee;
 
+  if (!guaranteeType) {
+    return {
+      isValid: false,
+      validationError: "guaranteeApplyAlert.message.guaranteeType"
+    };
+  }
   if (!checkCompanyTier(guaranteeType.tiersAvailable, company?.tier)) {
-    return false;
+    return {
+      isValid: false,
+      validationError: "guaranteeApplyAlert.message.tier"
+    };
   }
 
-  return true;
+  return {
+    isValid: true,
+    validationError: null
+  };
 };
 
 const checkEvidence = (
