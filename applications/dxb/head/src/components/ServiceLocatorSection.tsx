@@ -31,7 +31,11 @@ import CloseIcon from "@material-ui/icons/Close";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { camelCase, intersectionWith } from "lodash";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
+import withGTM from "../utils/google-tag-manager";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import {
@@ -128,6 +132,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const shouldListCertification = sectionType === EntryTypeEnum.ROOFER_TYPE;
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
+  const theme = useTheme();
+  const windowLocation = useLocation();
+  const matches = useMediaQuery(theme.breakpoints.up("lg"));
+
   const nameSearchLabelKey =
     sectionType === EntryTypeEnum.MERCHANT_TYPE
       ? "merchantNameSearchLabel"
@@ -136,9 +144,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
 
-  const params = new URLSearchParams(
-    typeof window !== `undefined` ? window.location.search : ""
-  );
+  const params = new URLSearchParams(windowLocation.search);
+  const gtmActionLinkCard = windowLocation.href?.toString();
   const userQueryString = useMemo(
     () => params.get(QUERY_CHIP_FILTER_KEY),
     [params]
@@ -213,8 +220,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
     // there were no matching queries in querystring
     // hence remove all querystring from user and make the url '/find-a-roofer/' again
-    if (typeof window !== `undefined` && matchingRooferTypes.length === 0) {
-      history.replaceState(null, null, window.location.pathname);
+    if (matchingRooferTypes.length === 0) {
+      history.replaceState(null, null, windowLocation.pathname);
     }
   }, [services]);
 
@@ -228,20 +235,18 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       }
     }
 
-    if (typeof window !== `undefined`) {
-      const filteredChips: string[] = Object.keys(activeFilters).filter(
-        (key) => activeFilters[key]
-      );
-      if (filteredChips.length > 0) {
-        var queryParams = new URLSearchParams(window.location.search);
-        queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
-        history.replaceState(null, null, "?" + queryParams.toString());
-      }
-      if (filteredChips.length === 0 && isUserAction) {
-        // Remove the query if there are no selected chips
-        // otherwise url will look like `/?chip=`
-        history.replaceState(null, null, window.location.pathname);
-      }
+    const filteredChips: string[] = Object.keys(activeFilters).filter(
+      (key) => activeFilters[key]
+    );
+    if (filteredChips.length > 0) {
+      var queryParams = new URLSearchParams(windowLocation.search);
+      queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
+      history.replaceState(null, null, "?" + queryParams.toString());
+    }
+    if (filteredChips.length === 0 && isUserAction) {
+      // Remove the query if there are no selected chips
+      // otherwise url will look like `/?chip=`
+      history.replaceState(null, null, windowLocation.pathname);
     }
   }, [activeFilters]);
 
@@ -406,6 +411,26 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
+    const getServiceDataGTM = (action: string, linkOrButtonText?: string) => {
+      const serviceType =
+        service.type && service.type.length === 1
+          ? service.type[0]
+          : service.entryType;
+      const label = `${service.name} - ${service.address}${
+        service.certification ? ` - ${service.certification}` : ""
+      } - ${serviceType}`;
+      if (matches || sectionType !== EntryTypeEnum.ROOFER_TYPE) {
+        return {
+          id: "cta-click1",
+          label: `${label}${linkOrButtonText ? ` - ${linkOrButtonText}` : ""}`,
+          action
+        };
+      } else {
+        return { id: "selector-cards6", label, action };
+      }
+    };
+    const globalAddress = getMicroCopy("global.address");
+
     const address: DetailProps = {
       type: "address",
       display: shouldShowIcons ? "icon" : "contentOnly",
@@ -413,13 +438,21 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       label: getMicroCopy("global.address"),
       action: isAddressClickable
         ? getClickableActionFromUrl(
-            null,
+            undefined,
             `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
               service.address
             )}/`,
             countryCode,
-            null,
-            getMicroCopy("global.address")
+            undefined,
+            globalAddress,
+            undefined,
+            undefined,
+            getServiceDataGTM(
+              `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+                service.address
+              )}/`,
+              globalAddress
+            )
           )
         : undefined
     };
@@ -434,72 +467,89 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           }
         : undefined;
 
+    const getDirectionsLabel = getMicroCopy("findARoofer.getDirectionsLabel");
     const directions: DetailProps | undefined = {
       type: "cta",
-      text: getMicroCopy("findARoofer.getDirectionsLabel"),
+      text: getDirectionsLabel,
       action: getClickableActionFromUrl(
-        null,
+        undefined,
         `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
           service.address
         )}/`,
         countryCode,
-        null,
-        getMicroCopy("findARoofer.getDirectionsLabel")
+        undefined,
+        getDirectionsLabel,
+        undefined,
+        undefined,
+        getServiceDataGTM(
+          `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+            service.address
+          )}/`,
+          getDirectionsLabel
+        )
       ),
-      label: getMicroCopy("findARoofer.getDirectionsLabel")
+      label: getDirectionsLabel
     };
 
+    const globalTelephone = getMicroCopy("global.telephone");
     const phone: DetailProps | undefined = service.phone
       ? {
           type: "phone",
           display: shouldShowIcons ? "icon" : "label",
           text: service.phone,
           action: getClickableActionFromUrl(
-            null,
+            undefined,
             `tel:${service.phone}`,
             countryCode,
-            null,
-            getMicroCopy("global.telephone")
+            undefined,
+            globalTelephone,
+            undefined,
+            undefined,
+            getServiceDataGTM(`tel:${service.phone}`, globalTelephone)
           ),
-          label: getMicroCopy("global.telephone")
+          label: globalTelephone
         }
       : undefined;
-
+    const gloablEmail = getMicroCopy("global.email");
     const email: DetailProps | undefined = service.email
       ? {
           type: "email",
           display: shouldShowIcons ? "icon" : "label",
           text: service.email,
           action: getClickableActionFromUrl(
-            null,
+            undefined,
             `mailto:${service.email}`,
             countryCode,
-            null,
-            getMicroCopy("global.email")
+            undefined,
+            gloablEmail,
+            undefined,
+            undefined,
+            getServiceDataGTM(`mailto:${service.email}`, gloablEmail)
           ),
-          label: getMicroCopy("global.email")
+          label: gloablEmail
         }
       : undefined;
-
+    const globalWebsite = getMicroCopy("global.website");
+    const websiteLabel = getMicroCopy("findARoofer.websiteLabel");
     const website: DetailProps | undefined = service.website
       ? {
           type: "website",
           display: shouldShowIcons ? "icon" : "label",
-          text: shouldShowWebsiteLinkAsLabel
-            ? service.website
-            : getMicroCopy("findARoofer.websiteLabel"),
+          text: shouldShowWebsiteLinkAsLabel ? service.website : websiteLabel,
           action: getClickableActionFromUrl(
-            null,
+            undefined,
             service.website,
             countryCode,
-            null,
-            shouldShowWebsiteLinkAsLabel
-              ? getMicroCopy("global.website")
-              : getMicroCopy("findARoofer.websiteLabel")
+            undefined,
+            shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel,
+            undefined,
+            undefined,
+            getServiceDataGTM(
+              service.website,
+              shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel
+            )
           ),
-          label: shouldShowWebsiteLinkAsLabel
-            ? getMicroCopy("global.website")
-            : getMicroCopy("findARoofer.websiteLabel")
+          label: shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel
         }
       : undefined;
 
@@ -597,6 +647,32 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   };
 
   const microcopyPrefix = getMicroCopyPrefix(sectionType);
+  const GTMIntegratedLinkCard = withGTM<LinkCardProps>(IntegratedLinkCard);
+
+  const getResultDataGtm = (service: Service) => {
+    const gtmResult = matches
+      ? {
+          id: "cta-click1",
+          label: `${service.name} - ${service.address}${
+            service.certification ? ` - ${service.certification}` : ""
+          }${
+            service.type && service.type.length === 1
+              ? ` - ${service.type[0]}`
+              : ` - ${service.entryType}`
+          } - selected`,
+          action: gtmActionLinkCard
+        }
+      : {
+          id: "selector-cards6",
+          label: `${service.name} - ${service.address}${
+            service.type && service.type.length === 1
+              ? ` - ${service.type[0]}`
+              : ` - ${service.entryType}`
+          }`,
+          action: gtmActionLinkCard
+        };
+    return gtmResult;
+  };
 
   return (
     <Section
@@ -716,12 +792,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             <div className={styles["list"]}>
               {filteredRoofers.length ? (
                 filteredRoofers.map((service) => (
-                  <IntegratedLinkCard
+                  <GTMIntegratedLinkCard
                     key={service.id}
                     onClick={() => handleListClick(service)}
                     onCloseClick={clearRooferAndResetMap}
                     isOpen={selectedRoofer && selectedRoofer.id === service.id}
                     title={service.name}
+                    gtm={getResultDataGtm(service)}
                     subtitle={
                       <>
                         {service.address}
@@ -744,7 +821,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     <CompanyDetails details={getCompanyDetails(service, true)}>
                       <Typography>{service.summary}</Typography>
                     </CompanyDetails>
-                  </IntegratedLinkCard>
+                  </GTMIntegratedLinkCard>
                 ))
               ) : (
                 <div className={styles["no-results"]}>

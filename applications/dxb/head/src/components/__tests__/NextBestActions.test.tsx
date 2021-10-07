@@ -3,7 +3,7 @@ import React from "react";
 import NextBestActions from "../NextBestActions";
 import { TagData } from "../Tag";
 import { Data as PageInfoData } from "../PageInfo";
-import { Data as LinkData } from "../Link";
+import { Data as LinkData, DataTypeEnum } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { SiteContextProvider } from "../Site";
 
@@ -42,7 +42,7 @@ const cta: LinkData = {
   isLabelHidden: null,
   url: "https://www.external.co.uk",
   linkedPage: null,
-  type: "External",
+  type: DataTypeEnum.External,
   parameters: null,
   dialogContent: null,
   hubSpotCTAID: null

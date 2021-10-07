@@ -767,9 +767,7 @@ HTMLCollection [
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-6 MuiButton-contained buttonStyles-contained-8 MuiButton-containedPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1 \\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label-9"
@@ -1699,7 +1697,7 @@ HTMLCollection [
                                   <a
                                     aria-disabled="false"
                                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-6 MuiButton-contained buttonStyles-contained-8 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\",\\"label\\":\\"findARoofer.getDirectionsLabel\\"}"
+                                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
@@ -1742,7 +1740,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"global.telephone\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -1778,7 +1776,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"global.email\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -1814,10 +1812,8 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"www.test.com\\",\\"label\\":\\"findARoofer.websiteLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
-                                      rel="noopener noreferrer"
-                                      target="_blank"
                                     >
                                       <span>
                                         findARoofer.websiteLabel
@@ -1933,7 +1929,7 @@ HTMLCollection [
                                   <a
                                     aria-disabled="false"
                                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-6 MuiButton-contained buttonStyles-contained-8 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\",\\"label\\":\\"findARoofer.getDirectionsLabel\\"}"
+                                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
@@ -1976,7 +1972,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"tel:phone 1\\",\\"label\\":\\"global.telephone\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -2012,7 +2008,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"mailto:test@test.com\\",\\"label\\":\\"global.email\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -2048,10 +2044,8 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"www.test.com\\",\\"label\\":\\"findARoofer.websiteLabel\\"}"
+                                      data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
-                                      rel="noopener noreferrer"
-                                      target="_blank"
                                     >
                                       <span>
                                         findARoofer.websiteLabel
@@ -2277,9 +2271,7 @@ HTMLCollection [
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-6 MuiButton-outlined buttonStyles-opaqueOutlined-13 link MuiButton-outlinedPrimary"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"link-to-page\\",\\"label\\":\\"string\\"}"
               href="link-to-page"
-              rel="noopener noreferrer"
               tabindex="0"
-              target="_blank"
             >
               <span
                 class="MuiButton-label buttonStyles-label-9"

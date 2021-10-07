@@ -1,6 +1,7 @@
 import React from "react";
 import { camelCase } from "lodash";
-import { render, fireEvent, act } from "@testing-library/react";
+import { fireEvent, act } from "@testing-library/react";
+import { LocationProvider } from "@reach/router";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../ServiceLocatorSection";
@@ -11,6 +12,7 @@ import {
   EntryTypeEnum
 } from "../Service";
 import createService from "../../__tests__/ServiceHelper";
+import { renderWithRouter } from "../../test/renderWithRouter";
 
 let callMarkerOnClick;
 
@@ -51,7 +53,11 @@ describe("ServiceLocatorSection component", () => {
       services: null
     };
 
-    const { container } = render(<ServiceLocatorSection data={data} />);
+    const { container } = renderWithRouter(
+      <LocationProvider>
+        <ServiceLocatorSection data={data} />
+      </LocationProvider>
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -69,7 +75,11 @@ describe("ServiceLocatorSection component", () => {
         services: [createService()]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <LocationProvider>
+          <ServiceLocatorSection data={data} />
+        </LocationProvider>
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -86,7 +96,9 @@ describe("ServiceLocatorSection component", () => {
         services: [createService({ type: [] })]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -103,7 +115,9 @@ describe("ServiceLocatorSection component", () => {
         services: [createService({ type: [rooferTypes[0]] })]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -120,7 +134,9 @@ describe("ServiceLocatorSection component", () => {
         services: [createService({ type: [rooferTypes[0], rooferTypes[0]] })]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
   });
@@ -142,7 +158,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -170,7 +188,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -203,7 +223,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -238,7 +260,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -267,7 +291,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -296,7 +322,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -326,7 +354,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -357,7 +387,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -385,7 +417,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -425,7 +459,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
 
-      const { container } = render(<ServiceLocatorSection data={data} />);
+      const { container } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
       expect(container.firstChild).toMatchSnapshot();
     });
   });
@@ -446,7 +482,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const nameInput = wrapper.container.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, {
@@ -481,7 +517,7 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const nameInput = wrapper.container.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, { target: { value: "r" } });
@@ -518,7 +554,7 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
 
     const geolocationButton = wrapper.getByRole("button", {
       name: `MC: findARoofer.geolocationButton`
@@ -550,7 +586,7 @@ describe("ServiceLocatorSection component", () => {
       services: [roofer1, roofer2]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
 
     act(() => {
       callMarkerOnClick(roofer2);
@@ -572,7 +608,7 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const rooferButton = wrapper.getByText("roofer 1");
     rooferButton.click();
     expect(wrapper.container.firstChild).toMatchSnapshot();
@@ -591,7 +627,7 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const rooferButton = wrapper.getByText("roofer 1");
     rooferButton.click();
     rooferButton.click();
@@ -630,7 +666,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
       name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
     });
@@ -666,7 +702,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
       name: `MC: findABranch.filters.${camelCase(branchTypes[0])}`
     });
@@ -702,7 +738,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
       name: `MC: findAMerchant.filters.${camelCase(merchantTypes[0])}`
     });
@@ -734,7 +770,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
       name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
     });
@@ -782,7 +818,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton1 = wrapper.getByRole("button", {
       name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
     });
@@ -808,11 +844,6 @@ describe("ServiceLocatorSection component", () => {
 
   it("filters using pre selected chips", () => {
     // Might affect other tests in this file
-    Object.defineProperty(global.window, "location", {
-      value: {
-        search: "?chip=Pitched+roof"
-      }
-    });
 
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
@@ -837,7 +868,9 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />, {
+      route: "/something/?chip=Pitched+roof"
+    });
     expect(wrapper.queryByText("roofer 1")).toBeTruthy();
     expect(wrapper.queryByText("roofer 2")).toBeFalsy();
   });
@@ -868,7 +901,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
@@ -902,7 +935,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
@@ -930,7 +963,7 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = render(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const input = wrapper.getByLabelText("MC: findARoofer.companyFieldLabel");
 
     expect(wrapper.getAllByText("roofer 1")).toHaveLength(1);
@@ -943,5 +976,32 @@ describe("ServiceLocatorSection component", () => {
 
     expect(wrapper.getAllByText("roofer 1")).toHaveLength(2);
     expect(wrapper.getAllByText("roofer 2")).toHaveLength(1);
+  });
+
+  it("close button", () => {
+    const roofer1 = createService({ name: "roofer 1" });
+    const roofer2 = createService({ name: "roofer 2" });
+
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: EntryTypeEnum.ROOFER_TYPE,
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [roofer1, roofer2]
+    };
+
+    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+
+    act(() => {
+      callMarkerOnClick("MC: global.close");
+    });
+    const closeButton = wrapper.getByLabelText("MC: global.close");
+    closeButton.click();
+
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 });

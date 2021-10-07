@@ -86,6 +86,15 @@ Object {
 }
 `;
 
+exports[`Link component getClickableActionFromUrl function override gtm correctly 1`] = `
+Object {
+  "data-gtm": "{\\"id\\":\\"foo1\\",\\"label\\":\\"foo\\",\\"action\\":\\"foo.com\\"}",
+  "href": "foo.com",
+  "model": "htmlLink",
+  "onClick": [Function],
+}
+`;
+
 exports[`Link component getClickableActionFromUrl function returns a Link router to page path 1`] = `
 Object {
   "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/some-page\\"}",

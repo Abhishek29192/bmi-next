@@ -6,7 +6,7 @@ import {
   LocationProvider
 } from "@reach/router";
 import LeadBlockSection from "../leadBlockSection";
-import { Data as LinkData } from "../../../components/Link";
+import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
 import "@testing-library/jest-dom";
 import { Category, Classification } from "../../systemDetails/types";
 
@@ -57,7 +57,7 @@ const linkData: LinkData = {
   isLabelHidden: null,
   url: "https://www.external.co.uk",
   linkedPage: null,
-  type: "External",
+  type: DataTypeEnum.External,
   parameters: null,
   dialogContent: null,
   hubSpotCTAID: null

@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import SimplePage, { Data } from "../templates/simple-page";
+import { DataTypeEnum } from "../components/Link";
 
 describe("ExploreBarSection component", () => {
   const data: { contentfulSimplePage: Data; contentfulSite: any } = {
@@ -16,7 +17,7 @@ describe("ExploreBarSection component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "External",
+        type: DataTypeEnum.External,
         parameters: null,
         dialogContent: null,
         hubSpotCTAID: null

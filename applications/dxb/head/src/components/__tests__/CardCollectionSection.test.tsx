@@ -1,7 +1,7 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import CardCollectionSection, { Data } from "../CardCollectionSection";
-import { Data as LinkData } from "../Link";
+import { Data as LinkData, DataTypeEnum } from "../Link";
 import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalcualtor";
 import { Data as PromoData } from "../Promo";
@@ -370,7 +370,7 @@ describe("CardCollectionSection component", () => {
         isLabelHidden: null,
         url: "https://www.external.co.uk",
         linkedPage: null,
-        type: "External",
+        type: DataTypeEnum.External,
         parameters: null,
         dialogContent: promo,
         hubSpotCTAID: null
@@ -632,7 +632,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "Visualiser",
+          type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -673,7 +673,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "Visualiser",
+          type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -709,7 +709,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "External",
+          type: DataTypeEnum.External,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -740,7 +740,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "Visualiser",
+          type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -796,7 +796,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "Visualiser",
+          type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -833,7 +833,7 @@ describe("CardCollectionSection component", () => {
             isLabelHidden: null,
             url: null,
             parameters: null,
-            type: "Visualiser",
+            type: DataTypeEnum.Visualiser,
             dialogContent: null,
             linkedPage: null,
             hubSpotCTAID: null
@@ -864,7 +864,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "Visualiser",
+          type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -906,7 +906,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "Visualiser",
+          type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -949,7 +949,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "Visualiser",
+          type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -996,7 +996,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: { a: "b" },
-          type: "Visualiser",
+          type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -1046,7 +1046,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "Calculator",
+          type: DataTypeEnum.Calculator,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -1089,7 +1089,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: null,
-          type: "Calculator",
+          type: DataTypeEnum.Calculator,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null
@@ -1137,7 +1137,7 @@ describe("CardCollectionSection component", () => {
           isLabelHidden: null,
           url: null,
           parameters: { a: "b" },
-          type: "Calculator",
+          type: DataTypeEnum.Calculator,
           dialogContent: null,
           linkedPage: null,
           hubSpotCTAID: null

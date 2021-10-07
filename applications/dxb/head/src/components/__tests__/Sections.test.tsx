@@ -5,6 +5,8 @@ import Sections, { Data } from "../Sections";
 import { SiteContextProvider } from "../Site";
 import { EntryTypeEnum, rooferTypes } from "../Service";
 import createService from "../../__tests__/ServiceHelper";
+import { DataTypeEnum } from "../Link";
+import { renderWithRouter } from "../../test/renderWithRouter";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -267,7 +269,7 @@ describe("Sections component", () => {
           isLabelHidden: false,
           url: "link-to-page",
           linkedPage: null,
-          type: "Internal",
+          type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null
@@ -449,7 +451,7 @@ describe("Sections component", () => {
             isLabelHidden: false,
             url: "link-to-page",
             linkedPage: null,
-            type: "Internal",
+            type: DataTypeEnum.Internal,
             parameters: null,
             dialogContent: null,
             hubSpotCTAID: null
@@ -596,7 +598,7 @@ describe("Sections component", () => {
           icon: null,
           isLabelHidden: null,
           url: null,
-          type: "Internal",
+          type: DataTypeEnum.Internal,
           linkedPage: {
             path: "thank-you/"
           },
@@ -617,7 +619,7 @@ describe("Sections component", () => {
       {}
     ];
 
-    const { container } = render(
+    const { container } = renderWithRouter(
       <MockSiteContext>
         <Sections data={data} />
       </MockSiteContext>

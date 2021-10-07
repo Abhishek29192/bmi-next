@@ -4100,9 +4100,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-205 MuiButton-text buttonStyles-text-206 buttonStyles-textDarkBg-210 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Story\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-208"
@@ -4122,9 +4120,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-205 MuiButton-text buttonStyles-text-206 buttonStyles-textDarkBg-210 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Brands\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-208"
@@ -4163,9 +4159,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-205 MuiButton-text buttonStyles-text-206 buttonStyles-textDarkBg-210 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Sustainability\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-208"
@@ -4238,9 +4232,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-205 MuiButton-text buttonStyles-text-206 buttonStyles-textDarkBg-210 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Training\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-208"
@@ -4260,9 +4252,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-205 MuiButton-text buttonStyles-text-206 buttonStyles-textDarkBg-210 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Mediabank\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-208"
@@ -10002,9 +9992,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-281 MuiButton-text buttonStyles-text-282 buttonStyles-textDarkBg-286 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Story\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-284"
@@ -10024,9 +10012,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-281 MuiButton-text buttonStyles-text-282 buttonStyles-textDarkBg-286 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Brands\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-284"
@@ -10065,9 +10051,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-281 MuiButton-text buttonStyles-text-282 buttonStyles-textDarkBg-286 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Sustainability\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-284"
@@ -10140,9 +10124,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-281 MuiButton-text buttonStyles-text-282 buttonStyles-textDarkBg-286 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Training\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-284"
@@ -10162,9 +10144,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-281 MuiButton-text buttonStyles-text-282 buttonStyles-textDarkBg-286 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Mediabank\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-284"
@@ -16034,9 +16014,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-text buttonStyles-text-54 buttonStyles-textDarkBg-58 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Story\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-56"
@@ -16056,9 +16034,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-text buttonStyles-text-54 buttonStyles-textDarkBg-58 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Brands\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-56"
@@ -16097,9 +16073,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-text buttonStyles-text-54 buttonStyles-textDarkBg-58 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Sustainability\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-56"
@@ -16172,9 +16146,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-text buttonStyles-text-54 buttonStyles-textDarkBg-58 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Training\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-56"
@@ -16194,9 +16166,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-text buttonStyles-text-54 buttonStyles-textDarkBg-58 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Mediabank\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-56"
@@ -22066,9 +22036,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-129 MuiButton-text buttonStyles-text-130 buttonStyles-textDarkBg-134 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Story\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-132"
@@ -22088,9 +22056,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-129 MuiButton-text buttonStyles-text-130 buttonStyles-textDarkBg-134 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Brands\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-132"
@@ -22129,9 +22095,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-129 MuiButton-text buttonStyles-text-130 buttonStyles-textDarkBg-134 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Sustainability\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-132"
@@ -22204,9 +22168,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-129 MuiButton-text buttonStyles-text-130 buttonStyles-textDarkBg-134 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Training\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-132"
@@ -22226,9 +22188,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-129 MuiButton-text buttonStyles-text-130 buttonStyles-textDarkBg-134 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Mediabank\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-132"
@@ -28129,9 +28089,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-357 MuiButton-text buttonStyles-text-358 buttonStyles-textDarkBg-362 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Story\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-360"
@@ -28151,9 +28109,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-357 MuiButton-text buttonStyles-text-358 buttonStyles-textDarkBg-362 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our Brands\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-360"
@@ -28192,9 +28148,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-357 MuiButton-text buttonStyles-text-358 buttonStyles-textDarkBg-362 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Sustainability\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-360"
@@ -28267,9 +28221,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-357 MuiButton-text buttonStyles-text-358 buttonStyles-textDarkBg-362 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Training\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-360"
@@ -28289,9 +28241,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-357 MuiButton-text buttonStyles-text-358 buttonStyles-textDarkBg-362 link MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Mediabank\\",\\"action\\":\\"#\\"}"
                       href="#"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label-360"

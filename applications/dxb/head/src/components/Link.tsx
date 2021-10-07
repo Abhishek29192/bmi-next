@@ -20,6 +20,15 @@ const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
   return actionUrls.some((actionUrl) => url.startsWith(actionUrl));
 };
+export enum DataTypeEnum {
+  External = "External",
+  Internal = "Internal",
+  Asset = "Asset",
+  Visualiser = "Visualiser",
+  Calculator = "Calculator",
+  Dialog = "Dialog",
+  HubSpotCta = "HubSpot CTA"
+}
 
 const isExternalUrl = (url: string): boolean => {
   try {
@@ -38,10 +47,19 @@ export const getClickableActionFromUrl = (
   assetUrl?: string,
   label?: string,
   type?: Data["type"],
-  onClick?: (...args: any) => void
+  onClick?: (...args: any) => void,
+  gtmData?: {
+    id: string;
+    label: string;
+    action: string;
+  }
 ): ClickableAction | undefined => {
-  if (type === "Visualiser") {
-    const dataGtm = { id: "cta-visualiser1", action: "visualiser", label };
+  if (type === DataTypeEnum.Visualiser) {
+    const dataGtm = gtmData || {
+      id: "cta-visualiser1",
+      action: "visualiser",
+      label
+    };
 
     return {
       model: "default",
@@ -54,8 +72,12 @@ export const getClickableActionFromUrl = (
     };
   }
 
-  if (type === "Calculator") {
-    const dataGtm = { id: "cta-calculator1", action: "calculator", label };
+  if (type === DataTypeEnum.Calculator) {
+    const dataGtm = gtmData || {
+      id: "cta-calculator1",
+      action: "calculator",
+      label
+    };
 
     return {
       model: "default",
@@ -68,9 +90,8 @@ export const getClickableActionFromUrl = (
     };
   }
 
-  if (type === "Dialog") {
-    const dataGtm = { id: "cta-click1", action: type, label };
-
+  if (type === DataTypeEnum.Dialog) {
+    const dataGtm = gtmData || { id: "cta-click1", action: type, label };
     return {
       model: "default",
       onClick: (...args) => {
@@ -83,8 +104,11 @@ export const getClickableActionFromUrl = (
   }
 
   if (assetUrl) {
-    const dataGtm = { id: "cta-click1", action: assetUrl, label };
-
+    const dataGtm = gtmData || {
+      id: "cta-click1",
+      action: assetUrl,
+      label
+    };
     return {
       model: "download",
       href: assetUrl,
@@ -103,7 +127,7 @@ export const getClickableActionFromUrl = (
       /\/+/gi,
       "/"
     );
-    const dataGtm = { id: "cta-click1", action: to, label };
+    const dataGtm = gtmData || { id: "cta-click1", action: to, label };
 
     return {
       model: "routerLink",
@@ -121,7 +145,7 @@ export const getClickableActionFromUrl = (
       target: "_blank",
       rel: "noopener noreferrer"
     };
-    const dataGtm = { id: "cta-click1", action: url, label };
+    const dataGtm = gtmData || { id: "cta-click1", action: url, label };
 
     return {
       model: "htmlLink",
@@ -193,15 +217,7 @@ export type Data = {
   icon: IconName | null;
   isLabelHidden: boolean | null;
   url: string | null;
-  type:
-    | "External"
-    | "Internal"
-    | "Asset"
-    | "Visualiser"
-    | "Calculator"
-    | "Dialog"
-    | "HubSpot CTA"
-    | null;
+  type: DataTypeEnum | null;
   parameters: { [key: string]: any } | null;
   dialogContent: SectionData | null;
   linkedPage: {

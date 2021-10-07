@@ -1004,9 +1004,7 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -2082,9 +2080,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -3165,9 +3161,7 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -4408,9 +4402,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -5618,9 +5610,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -6901,9 +6891,7 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -7920,9 +7908,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -8934,9 +8920,7 @@ exports[`ProductListerPage template ProductListerPage without initialProducts wi
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
@@ -9996,9 +9980,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
-                    rel="noopener noreferrer"
                     tabindex="0"
-                    target="_blank"
                   >
                     <span
                       class="MuiButton-label buttonStyles-label"
