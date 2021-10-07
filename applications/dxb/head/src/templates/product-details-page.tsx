@@ -115,8 +115,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       {}
     );
 
-  const isSampleOrderAllowed =
+  let isSampleOrderAllowed =
     selfProduct.isSampleOrderAllowed ?? product.isSampleOrderAllowed;
+
+  if (process.env.GATSBY_ENABLE_SAMPLE_ORDERING !== "true") {
+    isSampleOrderAllowed = false;
+  }
 
   return (
     <Page
