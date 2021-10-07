@@ -283,7 +283,7 @@ const SystemConfiguratorBlockResultSection = ({
       const query = {
         query: {
           terms: {
-            code: recommendedSystems
+            "code.keyword": recommendedSystems
           }
         }
       };
