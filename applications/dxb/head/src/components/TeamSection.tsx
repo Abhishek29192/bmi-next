@@ -57,7 +57,7 @@ const TeamSection = ({ data, className }: Props) => {
               />
             )}
           >
-            {data.items?.map((category, index) => (
+            {data.items.map((category, index) => (
               <Tabs.TabPanel
                 className={styles["tab-panel"]}
                 key={`category-tab-${index}`}
