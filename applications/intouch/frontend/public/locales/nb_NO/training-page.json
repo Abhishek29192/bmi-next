@@ -6,5 +6,19 @@
   "enrolled": "Påmeldt",
   "completed": "Fullført",
   "waiting": "Venter",
-  "viewTraining": "Se trening"
+  "viewTraining": "Se trening",
+  "Description": "Beskrivelse",
+  "search": {
+    "inputLabel": "Søk etter et kurs"
+  },
+  "filter": {
+    "labels": {
+      "ALL": "Alle"
+    }
+  },
+  "type": {
+    "classroom": "Klasserom",
+    "elearning": "Nettkurs",
+    "webinar": "Webinar"
+  }
 }
