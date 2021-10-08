@@ -45,6 +45,18 @@ resource "google_cloud_run_service" "db-migrations" {
           name  = "GCP_SECRET_PROJECT"
           value = "734962646925"
         }
+        env {
+          name  = "PG_SSL"
+          value = "true"
+        }
+        env {
+          name  = "PG_REJECT_UNAUTHORIZED"
+          value = "true"
+        }
+        env {
+          name  = "PG_SSL_HOST"
+          value = "automated-style-303709:intouch-db"
+        }
       }
     }
   }

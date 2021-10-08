@@ -52,7 +52,8 @@ export const guaranteeSolutionGuaranteeValidate = (
   project: GetProjectQuery["project"]
 ): SolutionGuaranteeValidateResult => {
   const guarantee = project?.guarantees?.nodes?.[0];
-  if (!guarantee) {
+
+  if (!guarantee?.guaranteeType) {
     return {
       isValid: false,
       validationError: SolutionGuaranteeValidationError.NoGuarantee

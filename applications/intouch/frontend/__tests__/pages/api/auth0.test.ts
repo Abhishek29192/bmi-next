@@ -39,80 +39,7 @@ jest.mock("../../../lib/apolloClient", () => ({
     })
 }));
 
-describe("Market", () => {
-  let req = {
-    logger: jest.fn()
-  };
-  let res = {};
-
-  beforeEach(() => {
-    jest.resetModules();
-  });
-
-  it("should return the en market if localhost", () => {
-    jest.mock("../../../lib/config", () => ({
-      baseUrlDomain: "localhost",
-      isProd: false,
-      isSingleMarket: true
-    }));
-    const { getMarketFromReq } = require("../../../pages/api/auth/[...auth0]");
-
-    const market = getMarketFromReq(
-      { ...req, headers: { host: "localhost:3000" } },
-      res
-    );
-
-    expect(market).toEqual("en");
-  });
-
-  it("should return es market when es the subdmin", () => {
-    jest.mock("../../../lib/config", () => ({
-      baseUrlDomain: "local.intouch",
-      isProd: false,
-      isSingleMarket: false
-    }));
-    const { getMarketFromReq } = require("../../../pages/api/auth/[...auth0]");
-    const market = getMarketFromReq(
-      { ...req, headers: { host: "es.local.intouch:3000" } },
-      res
-    );
-
-    expect(market).toEqual("es");
-  });
-
-  it("should return en market when en the subdmin", () => {
-    jest.mock("../../../lib/config", () => ({
-      baseUrlDomain: "local.intouch",
-      isProd: false,
-      isSingleMarket: false
-    }));
-    const { getMarketFromReq } = require("../../../pages/api/auth/[...auth0]");
-    const market = getMarketFromReq(
-      { ...req, headers: { host: "en.local.intouch:3000" } },
-      res
-    );
-
-    expect(market).toEqual("en");
-  });
-
-  it("should return en when the online dev domain", () => {
-    jest.mock("../../../lib/config", () => ({
-      baseUrlDomain: "intouch.dddev.io",
-      isProd: true,
-      isSingleMarket: false
-    }));
-    const { getMarketFromReq } = require("../../../pages/api/auth/[...auth0]");
-
-    const market = getMarketFromReq(
-      { ...req, headers: { host: "intouch.dddev.io" } },
-      res
-    );
-
-    expect(market).toEqual("en");
-  });
-});
-
-describe("Auth0 Handler", () => {
+describe("Login Handler", () => {
   let req;
   let res;
   let auth0;
@@ -136,73 +63,64 @@ describe("Auth0 Handler", () => {
     jest.resetModules();
   });
 
-  it("should redirect to login with the market when localhost", async () => {
-    jest.mock("../../../lib/config", () => ({
-      baseUrlDomain: "localhost",
-      isProd: false,
-      isSingleMarket: true
-    }));
-    const { loginHandler } = require("../../../pages/api/auth/[...auth0]");
+  it("should return the right login options when in dev", async () => {
+    const { getLoginOptions } = require("../../../pages/api/auth/[...auth0]");
 
-    req.headers.host = "localhost:3000";
-    await loginHandler(req, res, auth0, logger);
+    req.headers.host = "dev-no.local.intouch:3000";
 
-    expect(auth0.handleLogin.mock.calls[0][2]).toEqual({
-      authorizationParams: { market: "en" },
-      returnTo: "/return-to"
-    });
+    const options = await getLoginOptions(req);
+
+    expect(options).toMatchInlineSnapshot(`
+      Object {
+        "authorizationParams": Object {
+          "market": "no",
+        },
+        "loginState": Object {
+          "currentHost": "dev-no.local.intouch:3000",
+          "returnTo": "/api/redirector?current=http%3A%2F%2Fdev-no.local.intouch%3A3000",
+        },
+      }
+    `);
   });
 
-  it("should redirect to login with the market when es.local.intouch", async () => {
-    jest.mock("../../../lib/config", () => ({
-      baseUrlDomain: "local.intouch",
-      isProd: false,
-      isSingleMarket: false
-    }));
-    const { loginHandler } = require("../../../pages/api/auth/[...auth0]");
+  it("should return the right login options when in uat", async () => {
+    const { getLoginOptions } = require("../../../pages/api/auth/[...auth0]");
 
-    req.headers.host = "es.local.intouch:3000";
-    await loginHandler(req, res, auth0, logger);
+    req.headers.host = "uat-no.local.intouch:3000";
 
-    expect(auth0.handleLogin.mock.calls[0][2]).toEqual({
-      authorizationParams: { market: "es" },
-      returnTo: "/return-to"
-    });
+    const options = await getLoginOptions(req);
+
+    expect(options).toMatchInlineSnapshot(`
+      Object {
+        "authorizationParams": Object {
+          "market": "no",
+        },
+        "loginState": Object {
+          "currentHost": "uat-no.local.intouch:3000",
+          "returnTo": "/api/redirector?current=http%3A%2F%2Fuat-no.local.intouch%3A3000",
+        },
+      }
+    `);
   });
 
-  it("should redirect to login with the market when online", async () => {
-    jest.mock("../../../lib/config", () => ({
-      baseUrlDomain: "intouch.dddev.io",
-      isProd: true,
-      isSingleMarket: false
-    }));
-    const { loginHandler } = require("../../../pages/api/auth/[...auth0]");
+  it("should return the right login options when in prod", async () => {
+    const { getLoginOptions } = require("../../../pages/api/auth/[...auth0]");
 
-    req.headers.host = "intouch.dddev.io";
-    await loginHandler(req, res, auth0, logger);
+    req.headers.host = "no.intouch.bmiground.com";
 
-    expect(auth0.handleLogin.mock.calls[0][2]).toEqual({
-      authorizationParams: { market: "en" },
-      returnTo: "/return-to"
-    });
-  });
+    const options = await getLoginOptions(req);
 
-  it("should return to home if param not present", async () => {
-    jest.mock("../../../lib/config", () => ({
-      baseUrlDomain: "local.intouch",
-      isProd: false,
-      isSingleMarket: false
-    }));
-    const { loginHandler } = require("../../../pages/api/auth/[...auth0]");
-
-    req.headers.host = "es.local.intouch:3000";
-    delete req.query.returnTo;
-    await loginHandler(req, res, auth0, logger);
-
-    expect(auth0.handleLogin.mock.calls[0][2]).toEqual({
-      authorizationParams: { market: "es" },
-      returnTo: "/"
-    });
+    expect(options).toMatchInlineSnapshot(`
+      Object {
+        "authorizationParams": Object {
+          "market": "no",
+        },
+        "loginState": Object {
+          "currentHost": "no.intouch.bmiground.com",
+          "returnTo": "/api/redirector?current=http%3A%2F%2Fno.intouch.bmiground.com",
+        },
+      }
+    `);
   });
 });
 

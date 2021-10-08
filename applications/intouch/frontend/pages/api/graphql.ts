@@ -3,6 +3,7 @@ import { v4 } from "uuid";
 import { NextApiRequest, NextApiResponse } from "next";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import { getAuth0Instance } from "../../lib/auth0";
+import { getMarketAndEnvFromReq } from "../../lib/utils";
 import { withLoggerApi } from "../../lib/middleware/withLogger";
 
 interface Request extends NextApiRequest {
@@ -58,7 +59,7 @@ export const handler = async function (
   if ([`http://${host}`, `https://${host}`].includes(FRONTEND_BASE_URL)) {
     market = user?.["https://intouch/intouch_market_code"];
   } else {
-    market = req.headers.host?.split(".")[0];
+    market = getMarketAndEnvFromReq(req as any).market;
   }
 
   /**

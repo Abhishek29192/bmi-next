@@ -91,19 +91,31 @@ describe("Middleware withPage", () => {
   });
 
   it("should redirect if wrong market", async () => {
-    mockQuery.mockResolvedValueOnce({
-      data: {
-        accountByEmail: generateAccount({
-          hasCompany: true,
-          market: {
-            domain: "en"
-          },
-          company: {
-            status: "NEW"
+    mockQuery
+      .mockResolvedValueOnce({
+        data: {
+          accountByEmail: generateAccount({
+            hasCompany: true,
+            market: {
+              domain: "en"
+            },
+            company: {
+              status: "NEW"
+            }
+          })
+        }
+      })
+      .mockResolvedValueOnce({
+        data: {
+          markets: {
+            nodes: [
+              generateMarketContext({
+                domain: "en"
+              })
+            ]
           }
-        })
-      }
-    });
+        }
+      });
 
     let result = await innerGetServerSideProps(
       getServerSideProps,
@@ -117,22 +129,34 @@ describe("Middleware withPage", () => {
   });
 
   it("should redirect if need to complete the user profile", async () => {
-    mockQuery.mockResolvedValueOnce({
-      data: {
-        accountByEmail: generateAccount({
-          account: {
-            firstName: "Name",
-            lastName: null
-          },
-          market: {
-            domain: "es"
-          },
-          company: {
-            status: "NEW"
+    mockQuery
+      .mockResolvedValueOnce({
+        data: {
+          accountByEmail: generateAccount({
+            account: {
+              firstName: "Name",
+              lastName: null
+            },
+            market: {
+              domain: "es"
+            },
+            company: {
+              status: "NEW"
+            }
+          })
+        }
+      })
+      .mockResolvedValueOnce({
+        data: {
+          markets: {
+            nodes: [
+              generateMarketContext({
+                domain: "en"
+              })
+            ]
           }
-        })
-      }
-    });
+        }
+      });
 
     let result = await innerGetServerSideProps(
       getServerSideProps,
@@ -201,24 +225,36 @@ describe("Middleware withPage", () => {
   });
 
   it("should redirect if need to complete the company registration", async () => {
-    mockQuery.mockResolvedValueOnce({
-      data: {
-        accountByEmail: generateAccount({
-          hasCompany: true,
-          account: {
-            firstName: "Name",
-            lastName: "Last name"
-          },
-          market: {
-            domain: "es"
-          },
-          company: {
-            status: "NEW",
-            name: null
+    mockQuery
+      .mockResolvedValueOnce({
+        data: {
+          accountByEmail: generateAccount({
+            hasCompany: true,
+            account: {
+              firstName: "Name",
+              lastName: "Last name"
+            },
+            market: {
+              domain: "es"
+            },
+            company: {
+              status: "NEW",
+              name: null
+            }
+          })
+        }
+      })
+      .mockResolvedValueOnce({
+        data: {
+          markets: {
+            nodes: [
+              generateMarketContext({
+                domain: "en"
+              })
+            ]
           }
-        })
-      }
-    });
+        }
+      });
 
     let result = await innerGetServerSideProps(
       getServerSideProps,

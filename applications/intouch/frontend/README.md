@@ -8,32 +8,24 @@ To know more about BMI InTouch, see the related [Confluence documents](https://b
 
 - First, follow the monoropo instructions (root directory README). You should have installed all the necessary dependencies.
 
-- open your `/etc/hosts` and add the following line: `127.0.0.1 local.intouch`
+- set `AUTH0_COOKIE_DOMAIN=local.intouch` and you add these domain in yout /etc/hosts:
+
+```
+127.0.0.1       local.intouch
+127.0.0.1       en.local.intouch
+127.0.0.1       dev-en.local.intouch
+127.0.0.1       no.local.intouch
+127.0.0.1       dev-no.local.intouch
+// Any other market
+127.0.0.1       {market}.local.intouch
+127.0.0.1       {env}-{market}.local.intouch
+```
 
 - run `yarn workspace @bmi/intouch-frontend dev` from the monorepo root directory
 
-- visit [http://local.intouch:3000/](http://local.intouch:3000/)
+- visit [http://no.local.intouch:3000/](http://no.local.intouch:3000/)
 
-- visit [http://local.intouch:3000/api/graphql](http://local.intouch:3000/api/graphql) to work directly on the apollo federated server without need to use the auth0 token
-
-The `AUTH0_COOKIE_DOMAIN` define when using multi market or single market.
-
-If you set `AUTH0_COOKIE_DOMAIN=localhost` the login cookie is set on the localhost domain and you will be able to run the app as single market opening `http://localhost:3000`
-
-If you set `AUTH0_COOKIE_DOMAIN=local.intouch` and you add these domain in yout /etc/hosts:
-
-```
-127.0.0.1       en.local.intouch
-127.0.0.1       it.local.intouch
-127.0.0.1       de.local.intouch
-127.0.0.1       us.local.intouch
-127.0.0.1       es.local.intouch
-127.0.0.1       no.local.intouch
-```
-
-you will be able to run the app in multimarket in all the above domains.
-
-When you run with multimarket and you register a user with the `en` subdomain and you try to access to another subdomain you will be redirected to the `en` subdomain.
+- visit [http://no.local.intouch:3000/api/graphql](http://no.local.intouch:3000/api/graphql) to work directly on the apollo federated server without need to use the auth0 token
 
 ## Workspaces
 

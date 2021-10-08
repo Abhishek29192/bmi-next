@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Select, { MenuItem } from "@bmi/select";
 import { gql } from "@apollo/client";
+import { useTranslation } from "next-i18next";
 import { useGetGuaranteeTemplatesLazyQuery } from "../../../graphql/generated/hooks";
 import { GetGuaranteeTemplatesQuery } from "../../../graphql/generated/operations";
 import { useWizardContext } from "../WizardContext";
 
 const SelectGuaranteesTemplate = () => {
   const { data, setData } = useWizardContext();
+  const { t } = useTranslation("project-page");
 
   const {
     guaranteeType: { technology, coverage },
@@ -54,7 +56,7 @@ const SelectGuaranteesTemplate = () => {
       {guaranteeTemplates.length > 0 && (
         <Select
           name="template"
-          label="Language"
+          label={t("guarantee_tab.apply_guarantee.wizard.step2.inputLabel")}
           isRequired
           style={{ margin: "10px" }}
           onChange={onChangeHandler}

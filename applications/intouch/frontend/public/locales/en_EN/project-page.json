@@ -237,7 +237,8 @@
         },
         "step2": {
           "title": "Register for a guarantee",
-          "subTitle": "Select the preferrred language for the guarantee documentation"
+          "subTitle": "Select the preferrred language for the guarantee documentation",
+          "inputLabel": "Select language"
         },
         "step3": {
           "product_title": "Product Guarantee",

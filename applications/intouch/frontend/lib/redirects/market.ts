@@ -1,57 +1,41 @@
 import { Request } from "express";
 import { Account } from "@bmi/intouch-api-types";
-import { redirectMapInverse } from "../config/redirects";
-import { ROLES } from "../../lib/constants";
-
-const DEFAULT_REDIRECT_DOMAIN = "en";
-
-export const getReturnToUrl = (
-  protocol: string,
-  domain: string,
-  port?: string
-) => {
-  let returnToUrl = `${protocol}://${redirectMapInverse[`${domain}`]}`;
-  if (port) {
-    returnToUrl = `${returnToUrl}:${port}`;
-  }
-  return returnToUrl;
-};
+import { getMarketAndEnvFromReq } from "../../lib/utils";
 
 export const marketRedirect = (req: Request, account: Account) => {
-  const { AUTH0_COOKIE_DOMAIN } = process.env;
+  const protocol = req?.headers["x-forwarded-proto"] || "http";
+  const { market, currentHost } = getMarketAndEnvFromReq(req);
+  const defaultMarket = "no";
 
-  // for multi-market & redirects set the domain to local.intouch (see README)
-  if (AUTH0_COOKIE_DOMAIN === "localhost") {
-    return null;
-  }
-  const [host, port] = req.headers.host.split(":");
-  const [code] = host.replace(AUTH0_COOKIE_DOMAIN, "").split(".");
-  const protocol = (req.headers["x-forwarded-proto"] || "http") as string;
-
-  // Super Admins do not have a market
-  if (account.role === ROLES.SUPER_ADMIN) {
-    return code
-      ? // They shouldn't need to be re-directed
-        null
-      : // unless there is no sub-domain in the URL.
-        {
-          redirect: {
-            permanent: false,
-            // In that case we re-direct them to a default sub-domain
-            destination: getReturnToUrl(protocol, DEFAULT_REDIRECT_DOMAIN, port)
-          }
-        };
-  }
-
-  const {
-    market: { domain }
-  } = account;
-
-  if (domain && domain !== code) {
+  // If the market is local or intouch means that the url is something like:
+  // local.intouch:3000 or intouch.bmigroup.com and the market is not in the url
+  // in this case we use a default market, in this case the no market
+  if (["intouch", "local"].includes(market)) {
     return {
       redirect: {
         permanent: false,
-        destination: getReturnToUrl(protocol, domain, port)
+        destination: `${protocol}://${currentHost.replace(
+          market,
+          `${defaultMarket}.${market}`
+        )}`
+      }
+    };
+  }
+
+  // If the user is a super admin he doesn't have any market so he need to be
+  // able to navigate any market
+  if (account.role === "SUPER_ADMIN") {
+    return null;
+  }
+
+  if (market !== account.market.domain) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: `${protocol}://${currentHost.replace(
+          market,
+          account.market.domain
+        )}`
       }
     };
   }

@@ -26,12 +26,12 @@
           "name": "Prosjektnavn",
           "technology": "Prosjekttype",
           "roofArea": "Total tak måling (m2)",
-          "description": "Prosjektbeskrivelse (optional)",
+          "description": "Prosjektbeskrivelse (valgfritt)",
           "startDate": "Startdato",
           "endDate": "Sluttdato",
           "siteAddress": {
             "firstLine": "Adresse linje 1",
-            "secondLine": "Adresse linje 2 (optional)",
+            "secondLine": "Adresse linje 2 (valgfritt)",
             "town": "By",
             "postcode": "Postnummer/ Sted",
             "region": "Område",
@@ -51,7 +51,7 @@
           }
         },
         "actions": {
-          "submit": "Lagre og lukk"
+          "submit": "Lagre & lukk"
         }
       }
     }
@@ -111,7 +111,7 @@
           }
         },
         "actions": {
-          "submit": "Lagre og lukk"
+          "submit": "Lagre & lukk"
         }
       }
     }
@@ -236,7 +236,8 @@
         },
         "step2": {
           "title": "Søk om garanti",
-          "subTitle": "Velg foretrukket språk for garantidokumentasjonen"
+          "subTitle": "Velg foretrukket språk for garantidokumentasjonen",
+          "inputLabel": "Bekreft språk"
         },
         "step3": {
           "product_title": "Produktgaranti",
@@ -249,7 +250,7 @@
           "subTitle": "Last opp en kopi av kvitteringen for produktet / produktene du vil garantere"
         },
         "step5": {
-          "title": "Review",
+          "title": "Anmeldelse",
           "subTitle": "Se gjennom informasjonen du har gitt før du sender søknaden."
         },
         "stepDefault": {
