@@ -253,7 +253,7 @@ const UploadedFiles = ({
   //Default guarantee types
   for (const guarantee of guarantees.nodes) {
     const evidenceCategories =
-      guarantee.guaranteeType?.evidenceCategoriesCollection?.items;
+      guarantee.guaranteeType?.evidenceCategoriesCollection?.items || [];
     for (const evidenceCategory of evidenceCategories.filter(Boolean)) {
       map.set(evidenceCategory.name, []);
     }
