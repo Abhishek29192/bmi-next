@@ -9,7 +9,6 @@ import {
   GetGlobalDataQuery,
   GetMarketsByDomainQuery
 } from "../../graphql/generated/operations";
-import { isSingleMarket } from "../../lib/config";
 import { queryMarketsByDomain } from "../../lib/market";
 import { getAuth0Instance } from "../auth0";
 import { initializeApollo } from "../apolloClient";
@@ -17,6 +16,7 @@ import { marketRedirect } from "../redirects/market";
 import { redirectCompanyRegistration } from "../redirects/companyRegistration";
 import { userRegistration } from "../redirects/userRegistration";
 import { withLogger } from "../middleware/withLogger";
+import { getMarketAndEnvFromReq } from "../utils";
 
 type PageContext = {
   req: NextApiRequest;
@@ -83,7 +83,6 @@ export const innerGetServerSideProps = async (
   let market = null;
   let account = null;
   let globalPageData = null;
-  const defaultMarket = "no";
 
   try {
     const {
@@ -108,10 +107,20 @@ export const innerGetServerSideProps = async (
       };
     }
 
+    const marketEnv = getMarketAndEnvFromReq(req);
+
+    const {
+      data: {
+        markets: { nodes: markets = [market] }
+      }
+    } = await apolloClient.query({
+      query: queryMarketsByDomain,
+      variables: { domain: marketEnv.market }
+    });
+
     // Redirect based on market, this will overwrite the above redirect
     // we will redirect the user to the company registration after landed
     // on the right market
-
     let redirect = marketRedirect(req, account);
     if (redirect) return redirect;
 
@@ -122,19 +131,6 @@ export const innerGetServerSideProps = async (
     // Redirect to company registration if new company
     redirect = redirectCompanyRegistration(ctx.resolvedUrl, account);
     if (redirect) return redirect;
-
-    const domain = isSingleMarket
-      ? defaultMarket
-      : req.headers.host?.split(".")?.[0];
-
-    const {
-      data: {
-        markets: { nodes: markets = [defaultMarket] }
-      }
-    } = await apolloClient.query({
-      query: queryMarketsByDomain,
-      variables: { domain }
-    });
 
     market = markets[0];
 

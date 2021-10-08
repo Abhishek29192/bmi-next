@@ -18,6 +18,10 @@ resource "google_cloud_run_service" "default" {
           container_port = 3000
         }
         env {
+          name  = "APP_ENV"
+          value = "dev"
+        }
+        env {
           name  = "AUTH0_NAMESPACE"
           value = "https://intouch"
         }

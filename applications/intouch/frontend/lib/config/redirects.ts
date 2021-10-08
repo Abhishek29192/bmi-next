@@ -1,24 +1,16 @@
-import { baseUrlDomain, isProd, isSingleMarket } from ".";
+import { baseUrlDomain } from ".";
 
 const getDomainLocaleMapping = (domainCode) => ({
   [`${domainCode}.${baseUrlDomain}`]: domainCode
 });
 
-const redirectMapMultiMarket = {
+export const redirectMap = {
   [baseUrlDomain]: "en",
   ...getDomainLocaleMapping("en"),
   ...getDomainLocaleMapping("no"),
-
-  // these subdomains have not been set up yet
-  ...(!isProd ? getDomainLocaleMapping("it") : {}),
-  ...(!isProd ? getDomainLocaleMapping("de") : {}),
-  ...(!isProd ? getDomainLocaleMapping("es") : {}),
-  ...(!isProd ? getDomainLocaleMapping("us") : {})
+  ...getDomainLocaleMapping("dev-en"),
+  ...getDomainLocaleMapping("dev-no")
 };
-
-export const redirectMap = isSingleMarket
-  ? { localhost: "en" }
-  : redirectMapMultiMarket;
 
 export const redirectMapInverse = Object.keys(redirectMap)
   // best to redirect to subdomain

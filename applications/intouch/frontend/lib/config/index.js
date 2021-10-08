@@ -8,6 +8,5 @@ if (!AUTH0_COOKIE_DOMAIN) {
 
 module.exports = {
   baseUrlDomain: AUTH0_COOKIE_DOMAIN,
-  isProd: NODE_ENV === "production",
-  isSingleMarket: AUTH0_COOKIE_DOMAIN === "localhost"
+  isProd: NODE_ENV === "production"
 };
