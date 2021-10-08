@@ -113,7 +113,7 @@ const SolutionGuaranteeCard = ({
                 }
                 disabled={!canGuaranteeBeSubmitted}
               >
-                {t("Submit Solution")}
+                {t("project-page:guarantee_tab.submit_solution")}
               </Button>
             </AccessControl>
           </div>

@@ -10,6 +10,7 @@
   "Edit": "Edit",
   "Search": "Search",
   "No Options": "No Options",
+  "Show me": "Show me",
   "results available": "results available",
   "Company Description": "Company Description",
   "About Us": "About Us",
@@ -41,7 +42,8 @@
   },
   "Products": "Products",
   "fallback": {
-    "notAdded": "Not added"
+    "notAdded": "Not added",
+    "noResults": "No results found"
   },
   "Download": "Download",
   "SavePdf": "Save to PDF",

@@ -190,7 +190,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       </Grid>
       <Grid item xs={12}>
         <Tabs initialValue="one">
-          <Tabs.TabPanel heading="Team" index="one">
+          <Tabs.TabPanel heading={t("tabs.team")} index="one">
             <TabCard>
               <TeamTab
                 projectId={projectId}
@@ -199,7 +199,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
               />
             </TabCard>
           </Tabs.TabPanel>
-          <Tabs.TabPanel heading="Guarantee" index="two">
+          <Tabs.TabPanel heading={t("tabs.guarantee")} index="two">
             <TabCard>
               <GuaranteeTab
                 project={project}
@@ -207,12 +207,12 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
               />
             </TabCard>
           </Tabs.TabPanel>
-          <Tabs.TabPanel heading="Uploads" index="three">
+          <Tabs.TabPanel heading={t("tabs.uploads")} index="three">
             <TabCard>
               <UploadedFiles project={project} />
             </TabCard>
           </Tabs.TabPanel>
-          <Tabs.TabPanel heading="Notes" index="four">
+          <Tabs.TabPanel heading={t("tabs.notes")} index="four">
             <TabCard>
               <NoteTab
                 accountId={account.id}
