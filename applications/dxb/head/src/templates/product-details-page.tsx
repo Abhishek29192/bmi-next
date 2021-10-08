@@ -26,6 +26,7 @@ import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { Product } from "../components/types/pim";
 import { getBimIframeUrl } from "../components/BimIframe";
+import SampleOrderSection from "../components/SampleOrderSection";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -80,7 +81,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   if (!selfProduct) {
     throw new Error("Could not find product");
   }
-
   // TODO: NO BMI BRAND LOGO??
   const brandCode = (
     (product.categories || []).find(({ categoryType }) => {
@@ -114,6 +114,13 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       (carry, { code, path }) => ({ ...carry, [code]: path }),
       {}
     );
+
+  const getSampleOrderAllowed = () => {
+    if (process.env.GATSBY_ENABLE_SAMPLE_ORDERING === "true") {
+      return selfProduct.isSampleOrderAllowed ?? product.isSampleOrderAllowed;
+    }
+    return false;
+  };
 
   return (
     <Page
@@ -154,6 +161,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 )
               }}
             >
+              {getSampleOrderAllowed() && <SampleOrderSection />}
               {resources?.pdpShareWidget && (
                 <ShareWidgetSection
                   data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
@@ -259,6 +267,7 @@ export const pageQuery = graphql`
       name
       approvalStatus
       description
+      isSampleOrderAllowed
       images {
         allowedToDownload
         assetType
