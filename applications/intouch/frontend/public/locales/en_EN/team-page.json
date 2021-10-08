@@ -29,6 +29,7 @@
   },
   "user_card": {
     "add_admin": "Assign as Company Admin",
+    "remove": "Remove from company",
     "remove_admin": "Remove as Company Admin",
     "confirm": "Confirm",
     "cancel": "Cancel",

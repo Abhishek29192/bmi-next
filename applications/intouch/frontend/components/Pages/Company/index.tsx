@@ -82,7 +82,7 @@ export const CompanyPage = ({
 
           {company.certifications.length > 0 && (
             <CertificationsCard
-              title={t("BMI Certifications")}
+              title={t("certificationsTitle")}
               certifications={company.certifications}
             />
           )}

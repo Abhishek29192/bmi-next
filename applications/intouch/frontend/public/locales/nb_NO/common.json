@@ -11,6 +11,9 @@
   "Search": "Søk",
   "No Options": "Ingen valg",
   "Show me": "Vis meg",
+  "Account": "Min konto",
+  "Profile": "Profil",
+  "Logout": "Logg ut",
   "results available": "resultater tilgjengelig",
   "Company Description": "Om oss",
   "About Us": "Om oss",
@@ -56,7 +59,7 @@
   "certificationLabels": {
     "type": "Type",
     "certification": "Sertifiseringer",
-    "expiry": "Utløpt"
+    "expiry": "Utløper"
   },
   "notifications": {
     "today": "I dag",

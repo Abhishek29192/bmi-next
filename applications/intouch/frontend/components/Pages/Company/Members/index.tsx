@@ -85,7 +85,7 @@ const getValidCertDate = () => {
 };
 
 const CompanyMembers = ({ data }: PageProps) => {
-  const { t } = useTranslation("team-page");
+  const { t } = useTranslation(["common", "team-page"]);
 
   const { account } = useAccountContext();
   const router = useRouter();
@@ -216,9 +216,9 @@ const CompanyMembers = ({ data }: PageProps) => {
       <div className={styles.companyPage}>
         <SidePanel
           filters={null}
-          searchLabel={t("sidePanel.search.label")}
+          searchLabel={t("team-page:sidePanel.search.label")}
           onSearchFilterChange={onSearch}
-          noResultLabel={t("sidePanel.search.noResult")}
+          noResultLabel={t("team-page:sidePanel.search.noResult")}
           renderFooter={() => (
             <AccessControl dataModel="company" action="inviteUser">
               <Button
@@ -227,7 +227,7 @@ const CompanyMembers = ({ data }: PageProps) => {
                 data-testid="footer-btn"
                 className={styles.sidePanelFooterButton}
               >
-                {t("sidePanel.inviteLabel")}
+                {t("team-page:sidePanel.inviteLabel")}
               </Button>
             </AccessControl>
           )}
@@ -244,7 +244,7 @@ const CompanyMembers = ({ data }: PageProps) => {
                 variant="subtitle1"
                 color="textSecondary"
               >
-                {member.formattedRole}
+                {t(`common:roles.${member.role}`)}
               </Typography>
               {isPowerfulUser && (
                 <Typography variant="subtitle1" color="textPrimary">
@@ -268,16 +268,18 @@ const CompanyMembers = ({ data }: PageProps) => {
         <ThreeColumnGrid>
           <div className={styles.detail}>
             <TableContainer
-              title={t("table.title")}
+              title={t("team-page:table.title")}
               testid="certification-table"
             >
               {currentMember?.certificationsByDoceboUserId?.nodes.length && (
                 <Table>
                   <Table.Head>
                     <Table.Row>
-                      <Table.Cell>{t("table.type")}</Table.Cell>
-                      <Table.Cell>{t("table.certification")}</Table.Cell>
-                      <Table.Cell>{t("table.validity")}</Table.Cell>
+                      <Table.Cell>{t("team-page:table.type")}</Table.Cell>
+                      <Table.Cell>
+                        {t("team-page:table.certification")}
+                      </Table.Cell>
+                      <Table.Cell>{t("team-page:table.validity")}</Table.Cell>
                     </Table.Row>
                   </Table.Head>
                   <Table.Body>

@@ -77,7 +77,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
           <span
             class="MuiButton-label"
           >
-            filter.labels.ALL
+            filter.labels.all
           </span>
           <span
             class="MuiTouchRipple-root"
@@ -319,7 +319,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
           <span
             class="MuiButton-label"
           >
-            filter.labels.ALL
+            filter.labels.all
           </span>
           <span
             class="MuiTouchRipple-root"

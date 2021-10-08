@@ -38,7 +38,7 @@ export const TrainingSidePanel = ({
 
   const trainingFilters = [
     {
-      label: t("training-page:filter.labels.ALL"),
+      label: t("training-page:filter.labels.all"),
       attr: DEFAULT_FILTER_CRITERIA,
       isActive: false
     },

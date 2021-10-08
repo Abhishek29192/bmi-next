@@ -28,7 +28,7 @@ export const UserCard = ({
   details,
   onAccountUpdate
 }: UserCardProps) => {
-  const { t } = useTranslation("team-page");
+  const { t } = useTranslation(["common", "team-page"]);
   const [dialogState, setDialogState] = useState<DialogProps>({
     open: false,
     onConfirm: null,
@@ -82,7 +82,9 @@ export const UserCard = ({
         <Typography variant="h5" className={styles.userName}>
           {`${account.firstName} ${account.lastName}`}
         </Typography>
-        <Typography className={styles.role}>{account.formattedRole}</Typography>
+        <Typography className={styles.role}>
+          {t(`common:roles.${account.role}`)}
+        </Typography>
         <Typography variant="body1" className={styles.companyName}>
           {companyName}
         </Typography>
@@ -94,8 +96,8 @@ export const UserCard = ({
               variant="text"
             >
               {account.role === "INSTALLER"
-                ? t("user_card.add_admin")
-                : t("user_card.remove_admin")}
+                ? t("team-page:user_card.add_admin")
+                : t("team-page:user_card.remove_admin")}
             </Button>
           </AccessControl>
         )}
@@ -111,7 +113,7 @@ export const UserCard = ({
                 data-testid="remove-member"
                 onClick={onRemoveUserFromCompany}
               >
-                {t("Remove from company")}
+                {t("team-page:user_card.remove")}
               </Button>
             </div>
           </AccessControl>
