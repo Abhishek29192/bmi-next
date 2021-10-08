@@ -182,6 +182,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
               ... on ContentfulProductListerPage {
                 categoryCodes
+                allowFilterBy
               }
             }
           }
@@ -236,6 +237,7 @@ exports.createPages = async ({ graphql, actions }) => {
             pageId: page.id,
             siteId: site.id,
             categoryCodes: page.categoryCodes,
+            allowFilterBy: page.allowFilterBy,
             pimClassificationCatalogueNamespace,
             variantCodeToPathMap
           }

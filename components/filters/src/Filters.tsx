@@ -53,7 +53,12 @@ const Filters = ({
             }
           );
 
-          const summaryLabel = getMicroCopy(copy, filter.label);
+          const summaryLabel = getMicroCopy(
+            copy,
+            filter.label || filter.name,
+            {},
+            !filter.label
+          );
 
           return (
             <Accordion.Item key={filter.name}>

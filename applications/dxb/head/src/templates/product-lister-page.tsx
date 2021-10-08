@@ -47,9 +47,14 @@ import Breadcrumbs, {
 } from "../components/Breadcrumbs";
 import {
   queryElasticSearch,
-  compileElasticSearchQuery,
-  disableFiltersFromAggregations
+  disableFiltersFromAggregations,
+  compileElasticSearchQuery
 } from "../utils/elasticSearch";
+import {
+  compileESQueryPLP,
+  disableFiltersFromAggregationsPLP
+} from "../utils/elasticSearchPLP";
+
 import { devLog } from "../utils/devLog";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { Product } from "../components/types/pim";
@@ -62,6 +67,7 @@ const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
 type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulProductListerPage";
+    allowFilterBy: string[] | null;
     content: RichTextData | null;
     features: string[] | null;
     featuresLink: LinkData | null;
@@ -85,6 +91,7 @@ export type PageContextType = {
   siteId: string;
   countryCode: string;
   categoryCodes: string[];
+  allowFilterBy: string[];
   pimClassificationCatalogueNamespace: string;
   variantCodeToPathMap: Record<string, string>;
 };
@@ -95,6 +102,7 @@ type Props = {
     contentfulProductListerPage: Data;
     contentfulSite: SiteData;
     productFilters: ReadonlyArray<Filter>;
+    plpFilters: ReadonlyArray<Filter>;
     initialProducts?: any[];
   };
 };
@@ -105,6 +113,7 @@ const BlueCheckIcon = (
 
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
+    allowFilterBy,
     brandLogo,
     title,
     subtitle,
@@ -152,22 +161,39 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     };
   }, [location]);
 
-  // NOTE: map colour filter values to specific colour swatch representation
+  //TODO: remove filter.name === "colour" condition when feature flag 'GATSBY_USE_LEGACY_FILTERS' is removed
+  // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
   const resolveFilters = (filters: readonly Filter[]) => {
-    return filters.map((filter) => {
-      if (filter.name === "colour") {
-        return enhanceColourFilterWithSwatches(filter);
-      }
+    return (filters || [])
+      .map((filter) => {
+        if (filter.name === "colour") {
+          return enhanceColourFilterWithSwatches(filter);
+        }
 
-      return filter;
-    });
+        return filter;
+      })
+      .filter((filter) => filter.options.length > 0);
   };
+
+  const resolvedNewPLPFilters = useMemo(
+    () => resolveFilters(data.plpFilters),
+    [data.plpFilters]
+  );
 
   const resolvedFilters = useMemo(
     () => resolveFilters(data.productFilters),
     [data.productFilters]
   );
-  const [filters, setFilters] = useState(resolvedFilters);
+
+  //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
+  // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
+  const getResolvedFilters = () => {
+    return process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+      ? resolvedFilters
+      : resolvedNewPLPFilters;
+  };
+
+  const [filters, setFilters] = useState(getResolvedFilters());
 
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
@@ -191,9 +217,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       PAGE_SIZE
     );
 
+    // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
+    // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
     if (result && result.aggregations) {
       setFilters(
-        disableFiltersFromAggregations(newFilters, result.aggregations)
+        process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+          ? disableFiltersFromAggregations(filters, result.aggregations)
+          : disableFiltersFromAggregationsPLP(filters, result.aggregations)
       );
 
       return;
@@ -242,12 +272,18 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     setIsLoading(true);
 
-    const query = compileElasticSearchQuery(
-      filters,
-      categoryCodes,
-      page,
-      pageSize
-    );
+    //TODO: remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch of code
+    // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
+    let query =
+      process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+        ? compileElasticSearchQuery(filters, categoryCodes, page, pageSize)
+        : compileESQueryPLP({
+            filters, //these are updated filters with user's selection from UI!
+            allowFilterBy,
+            categoryCodes,
+            page,
+            pageSize
+          });
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
@@ -263,10 +299,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     }
 
     if (results && results.aggregations) {
-      const newFilters = disableFiltersFromAggregations(
-        filters,
-        results.aggregations
-      );
+      // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
+      // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
+      const newFilters =
+        process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+          ? disableFiltersFromAggregations(filters, results.aggregations)
+          : disableFiltersFromAggregationsPLP(filters, results.aggregations);
 
       setFilters(newFilters);
     }
@@ -294,8 +332,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       fetchProducts(updatedFilters, pageContext.categoryCodes, 0, PAGE_SIZE);
     } else {
       // Default search (no filters)
-      setFilters(resolvedFilters);
-      fetchProducts(resolvedFilters, pageContext.categoryCodes, 0, PAGE_SIZE);
+      setFilters(getResolvedFilters());
+      fetchProducts(
+        getResolvedFilters(),
+        pageContext.categoryCodes,
+        0,
+        PAGE_SIZE
+      );
     }
   }, [location.search]);
 
@@ -411,7 +454,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               <Section.Title hasUnderline>{categoryName}</Section.Title>
             )}
             <Grid container spacing={3}>
-              {filters.length ? (
+              {filters && filters.length ? (
                 <Grid item xs={12} md={12} lg={3}>
                   <FiltersSidebar
                     filters={filters}
@@ -521,6 +564,7 @@ export const pageQuery = graphql`
     $siteId: String!
     $categoryCodes: [String!]
     $pimClassificationCatalogueNamespace: String!
+    $allowFilterBy: [String!]
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
       ...PageInfoFragment
@@ -537,6 +581,7 @@ export const pageQuery = graphql`
       cta {
         ...LinkFragment
       }
+      allowFilterBy
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
@@ -544,6 +589,18 @@ export const pageQuery = graphql`
     productFilters(
       pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
       categoryCodes: $categoryCodes
+    ) {
+      label
+      name
+      options {
+        label
+        value
+      }
+    }
+    plpFilters(
+      pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
+      categoryCodes: $categoryCodes
+      allowFilterBy: $allowFilterBy
     ) {
       label
       name

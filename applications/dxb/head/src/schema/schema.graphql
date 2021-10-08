@@ -450,6 +450,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "The PIM categories this page is attached to."
   categoryCodes: [String!]
+
+  "Allow Filter By"
+  allowFilterBy: [String!]
 }
 
 """

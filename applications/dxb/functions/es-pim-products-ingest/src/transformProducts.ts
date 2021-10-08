@@ -87,21 +87,33 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     "categoryType"
   );
 
+  const groupsByParentCategoryCodes: IndexedItemGroup<Category> = groupBy(
+    product.categories,
+    "parentCategoryCode"
+  );
+
+  const allGroupsOfCategories = {
+    ...categoryGroups,
+    ...groupsByParentCategoryCodes
+  };
+
   const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
-    categoryGroups
-  ).reduce((categoryAsProps, catName) => {
-    // eslint-disable-next-line security/detect-object-injection
-    const nameAndCodeValues = categoryGroups[catName].map((cat) => {
+    allGroupsOfCategories
+  )
+    .filter((key) => key.length > 0)
+    .reduce((categoryAsProps, catName) => {
+      // eslint-disable-next-line security/detect-object-injection
+      const nameAndCodeValues = allGroupsOfCategories[catName].map((cat) => {
+        return {
+          code: cat.code,
+          name: cat.name
+        };
+      });
       return {
-        code: cat.code,
-        name: cat.name
+        ...categoryAsProps,
+        [catName]: nameAndCodeValues
       };
-    });
-    return {
-      ...categoryAsProps,
-      [catName]: nameAndCodeValues
-    };
-  }, {});
+    }, {});
 
   //category codes ONLY
   // not sure if we need to index array of category codes of special category type 'Category'

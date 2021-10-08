@@ -3,6 +3,12 @@
 exports[`transformProduct original transform tests should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided 1`] = `
 Array [
   Object {
+    "BMI_Brands": Array [
+      Object {
+        "code": "BMI-brand-code",
+        "name": "name",
+      },
+    ],
     "Category": Array [
       Object {
         "code": "parent-category-code",
@@ -640,6 +646,20 @@ Array [
       },
     ],
     "name": "name",
+    "parent-category-code": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
     "plpCategories": Array [
       Object {
         "code": "code",
@@ -690,6 +710,12 @@ Array [
 exports[`transformProduct original transform tests should handle appearanceAttributes classifications with no features 1`] = `
 Array [
   Object {
+    "BMI_Brands": Array [
+      Object {
+        "code": "BMI-brand-code",
+        "name": "name",
+      },
+    ],
     "Category": Array [
       Object {
         "code": "parent-category-code",
@@ -992,6 +1018,20 @@ Array [
     "materialsValue": undefined,
     "measurementValue": undefined,
     "name": "name",
+    "parent-category-code": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
     "plpCategories": Array [
       Object {
         "code": "code",
@@ -1042,6 +1082,12 @@ Array [
 exports[`transformProduct original transform tests should handle generalInformation classifications with no features 1`] = `
 Array [
   Object {
+    "BMI_Brands": Array [
+      Object {
+        "code": "BMI-brand-code",
+        "name": "name",
+      },
+    ],
     "Category": Array [
       Object {
         "code": "parent-category-code",
@@ -1344,6 +1390,20 @@ Array [
     "materialsValue": undefined,
     "measurementValue": undefined,
     "name": "name",
+    "parent-category-code": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
     "plpCategories": Array [
       Object {
         "code": "code",
@@ -1871,6 +1931,12 @@ Array [
 exports[`transformProduct original transform tests should handle no classifications 1`] = `
 Array [
   Object {
+    "BMI_Brands": Array [
+      Object {
+        "code": "BMI-brand-code",
+        "name": "name",
+      },
+    ],
     "Category": Array [
       Object {
         "code": "parent-category-code",
@@ -2155,6 +2221,20 @@ Array [
     "materialsValue": undefined,
     "measurementValue": undefined,
     "name": "name",
+    "parent-category-code": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
     "plpCategories": Array [
       Object {
         "code": "code",
@@ -2205,6 +2285,12 @@ Array [
 exports[`transformProduct original transform tests should handle no images 1`] = `
 Array [
   Object {
+    "BMI_Brands": Array [
+      Object {
+        "code": "BMI-brand-code",
+        "name": "name",
+      },
+    ],
     "Category": Array [
       Object {
         "code": "parent-category-code",
@@ -2795,6 +2881,20 @@ Array [
       },
     ],
     "name": "name",
+    "parent-category-code": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
     "plpCategories": Array [
       Object {
         "code": "code",
@@ -2845,6 +2945,12 @@ Array [
 exports[`transformProduct original transform tests should transform full product with single variant to a single ES product 1`] = `
 Array [
   Object {
+    "BMI_Brands": Array [
+      Object {
+        "code": "BMI-brand-code",
+        "name": "name",
+      },
+    ],
     "Category": Array [
       Object {
         "code": "parent-category-code",
@@ -3482,6 +3588,20 @@ Array [
       },
     ],
     "name": "name",
+    "parent-category-code": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
     "plpCategories": Array [
       Object {
         "code": "code",

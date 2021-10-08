@@ -6,12 +6,13 @@ export const MicroCopyContext = createContext<Record<string, string>>({});
 export const getMicroCopy = (
   values: Record<string, string> = {},
   path: string,
-  placeholders: Record<string, string> = {}
+  placeholders: Record<string, string> = {},
+  prefixMC: boolean = false
 ): string =>
   Object.entries(placeholders).reduce((carry, [key, value]) => {
     const toReplace = `{{${key}}}`;
     return carry.replace(new RegExp(escapeStringRegexp(toReplace), "g"), value);
-  }, values[path] || path);
+  }, values[path] || (prefixMC ? `MC:${path}` : path));
 
 type Props = {
   path: string;
