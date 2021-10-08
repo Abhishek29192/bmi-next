@@ -10,6 +10,7 @@
   "Edit": "Rediger",
   "Search": "Søk",
   "No Options": "Ingen valg",
+  "Show me": "Vis meg",
   "results available": "resultater tilgjengelig",
   "Company Description": "Om oss",
   "About Us": "Om oss",
@@ -41,7 +42,8 @@
   },
   "Products": "Produkter",
   "fallback": {
-    "notAdded": "Ikke lagt til"
+    "notAdded": "Ikke lagt til",
+    "noResults": "Null resultater"
   },
   "Download": "Last ned",
   "SavePdf": "Lagre som PDF",

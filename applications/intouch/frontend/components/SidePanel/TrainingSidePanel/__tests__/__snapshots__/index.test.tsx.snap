@@ -66,7 +66,8 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
         class="filterButtons"
       >
         <span>
-          Show Me:
+          Show me
+          :
         </span>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-6 MuiButton-disableElevation"
@@ -307,7 +308,8 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
         class="filterButtons"
       >
         <span>
-          Show Me:
+          Show me
+          :
         </span>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-14 makeStyles-root-15 MuiButton-disableElevation"
@@ -370,7 +372,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
     <h5
       class="MuiTypography-root noResult Typography MuiTypography-h5"
     >
-      No result found
+      fallback.noResults
     </h5>
   </div>
 </div>

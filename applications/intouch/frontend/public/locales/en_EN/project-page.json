@@ -161,6 +161,12 @@
     "body1": "You have not select any project yet!",
     "body2": "Select the &quot;project&quot; from sidebar to get started."
   },
+  "tabs": {
+    "team": "Team",
+    "guarantee": "Guarantee",
+    "uploads": "Uploads",
+    "notes": "Notes"
+  },
   "teamTab": {
     "header": "Add team member",
     "table": {
@@ -192,7 +198,7 @@
         "browse": "Browse"
       },
       "instruction": "You can add files",
-      "confirm_label": "Add Evidences",
+      "confirm_label": "Upload files",
       "cancel_label": "Cancel",
       "file_validation_message": "You cannot upload  files larger than",
       "evidence_category": "Evidence Category"
@@ -202,6 +208,7 @@
   "guarantee_tab": {
     "header": "Apply for a guarantee",
     "nocontent_message": "No guarantee has been added yet",
+    "submit_solution": "Request Solution Guarantee",
     "apply_guarantee": {
       "title": "Register for a guarantee",
       "confirm_label": "Register",

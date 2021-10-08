@@ -86,10 +86,10 @@
     "address": "Bygningseier adresse",
     "edit": {
       "title": "Bygningseiers detaljer",
-      "description": "You can add the building owner details later on, before applying for a guarantee.",
+      "description": "Du kan legge til detaljer om bygningseieren senere, før du søker om garanti.",
       "sections": {
         "contactDetails": {
-          "title": "Bygning kontaktinformasjon"
+          "title": "Kontaktopplysninger"
         },
         "buildingOwnerAddress": {
           "title": "Adresse"
@@ -100,7 +100,7 @@
           "buildingOwnerCompany": "Firmanavn (valgfri)",
           "buildingOwnerFirstname": "Fornavn",
           "buildingOwnerLastname": "Etternavn",
-          "buildingOwnerMail": "Email address",
+          "buildingOwnerMail": "Email",
           "buildingOwnerAddress": {
             "firstLine": "Adresse linje 1",
             "secondLine": "Adresse linje 2 (valgfri)",
@@ -160,6 +160,12 @@
     "body1": "Du har ikke opprettet noen prosjekter ennå!",
     "body2": "Velg \"Opprett prosjekt\" -knappen nedenfor for å komme i gang."
   },
+  "tabs": {
+    "team": "Team",
+    "guarantee": "Garanti",
+    "uploads": "Opplastinger",
+    "notes": "Merknader"
+  },
   "teamTab": {
     "header": "Legg til teammedlem",
     "table": {
@@ -191,7 +197,7 @@
         "browse": "Bla gjennom"
       },
       "instruction": "Du kan legge til filer",
-      "confirm_label": "Add Evidences",
+      "confirm_label": "Last opp filer",
       "cancel_label": "Avbryt",
       "file_validation_message": "Du kan ikke laste opp filer som er større enn",
       "evidence_category": "Bevis kategori"
@@ -201,6 +207,7 @@
   "guarantee_tab": {
     "header": "Søk om garanti",
     "nocontent_message": "Ingen garanti er lagt til ennå",
+    "submit_solution": "Be om Løsnings Garanti",
     "apply_guarantee": {
       "title": "Søk om garanti",
       "confirm_label": "Registrer",
@@ -243,7 +250,9 @@
           "product_title": "Produktgaranti",
           "product_subTitle": "Velg BMI -produktet for garantidokumentasjonen",
           "system_title": "System Garanti",
-          "system_subTitle": "Velg BMI -systemet for garantidokumentasjonen"
+          "system_subTitle": "Velg BMI -systemet for garantidokumentasjonen",
+          "solution_title": "Løsnings Garanti",
+          "solution_subTitle": "Velg BMI -systemet for garantidokumentasjonen"
         },
         "step4": {
           "title": "Kvittering detaljer",
