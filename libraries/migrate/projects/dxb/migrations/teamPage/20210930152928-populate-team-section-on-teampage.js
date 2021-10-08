@@ -1,6 +1,31 @@
 module.exports.description = "Add teamSection as prep for move to simple page";
 
 module.exports.up = (migration) => {
+  //create team section (needs to be done here to get around migration run order)
+  const teamSection = migration
+    .createContentType("teamSection")
+    .name("Team Section")
+    .displayField("title")
+    .description("");
+
+  teamSection.createField("title").name("Title").type("Symbol").required(true);
+
+  teamSection
+    .createField("items")
+    .name("Items")
+    .type("Array")
+    .required(true)
+    .validations([{ size: { min: 1 } }])
+    .items({
+      type: "Link",
+      validations: [{ linkContentType: ["teamCategory"] }],
+      linkType: "Entry"
+    });
+
+  teamSection.changeFieldControl("title", "builtin", "singleLine");
+  teamSection.changeFieldControl("items", "builtin", "entryLinksEditor");
+
+  //populate team section on team page
   const teamPage = migration.editContentType("teamPage");
 
   teamPage
@@ -40,4 +65,6 @@ module.exports.up = (migration) => {
 module.exports.down = (migration) => {
   const teamPage = migration.editContentType("teamPage");
   teamPage.deleteField("teamSections");
+
+  migration.deleteContentType("teamSection");
 };

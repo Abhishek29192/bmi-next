@@ -94,4 +94,24 @@ module.exports.up = (migration, { makeRequest }) => {
       return newTeamPage;
     }
   });
+
+  //remove teamPage from site (has to happen here AFTER the migration above)
+  const site = migration.editContentType("site");
+
+  site.editField("pages", {
+    items: {
+      type: "Link",
+      validations: [
+        {
+          linkContentType: [
+            "contactUsPage",
+            "homePage",
+            "page",
+            "productListerPage"
+          ]
+        }
+      ],
+      linkType: "Entry"
+    }
+  });
 };

@@ -299,54 +299,6 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
-"""
-Represents a team page, implementing ContentfulPage.
-"""
-type ContentfulTeamPage implements ContentfulPage & Node {
-  id: ID!
-
-  "Contentful content entry ID."
-  contentful_id: String!
-
-  "The name of this page, representative of the type."
-  title: String
-
-  "The url for this page, devoid of any prefix."
-  slug: String!
-
-  "The full path for this page, devoid of any prefix."
-  path: String!
-
-  "The breadcrumb items for this page, devoid of any prefix."
-  breadcrumbs: JSON
-
-  "The brand logo for this page."
-  brandLogo: String
-
-  "This field will always return null."
-  subtitle: String
-
-  "The main image of this page. Can be used when referencing this page."
-  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
-
-  "The featured Video"
-  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
-
-  "The input banner for this page."
-  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
-
-  "Tags for the page"
-  tags: [ContentfulTag] @link(from: "tags___NODE")
-
-  "The team categories for this page."
-  teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
-
-  "The parent page of this page."
-  parentPage: LinkedPage @link(from: "parentPage___NODE")
-
-  "SEO content"
-  seo: ContentfulSeoContent @link(from: "seo___NODE")
-}
 
 type ContentfulHomePage implements Node {
   id: ID!
@@ -510,7 +462,6 @@ union ContentfulPromoOrPage =
     ContentfulPromo
   | ContentfulContactUsPage
   | ContentfulSimplePage
-  | ContentfulTeamPage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
@@ -521,7 +472,6 @@ union ContentfulRichTextReference =
   | ContentfulHomePage
   | ContentfulContactUsPage
   | ContentfulSimplePage
-  | ContentfulTeamPage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
@@ -1127,7 +1077,6 @@ type contentfulSiteHeadScriptsTextNode implements Node {
 union LinkedPage =
     ContentfulContactUsPage
   | ContentfulSimplePage
-  | ContentfulTeamPage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
   | ContentfulHomePage
@@ -1203,6 +1152,20 @@ type ContentfulLinkColumnsSection implements Node {
 
   "The columns for this page."
   columns: [ContentfulNavigation] @link(from: "columns___NODE")
+}
+
+"""
+Represents a collection of team categories
+"""
+type ContentfulTeamSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The items for this section."
+  items: [ContentfulTeamCategory] @link(from: "items___NODE")
+
+  "The background colour"
+  backgroundColor: String
 }
 
 """
