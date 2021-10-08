@@ -14,7 +14,7 @@
   },
   "invitation": {
     "dialog": {
-      "title": "Inviter medlemmer",
+      "title": "Invitere teammedlemmer",
       "emails": {
         "label": "Mottakers epostadresse",
         "helperText": "Legg til flere medlemmer ved å skille hver e -postadresse med et komma"
