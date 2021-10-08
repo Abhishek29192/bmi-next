@@ -3,5 +3,9 @@
   "compilerOptions": {
     "noEmit": true,
     "outDir": "dist"
+  },
+  "paths": {
+    "crypto": ["./node_modules/crypto-js"],
+    "imurmurhash": ["./node_modules/imurmurhash"]
   }
 }

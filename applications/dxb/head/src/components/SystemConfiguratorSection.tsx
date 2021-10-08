@@ -23,6 +23,7 @@ import { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { queryElasticSearch } from "../utils/elasticSearch";
+import { generateSystemPath } from "../schema/resolvers/utils/encryption";
 import { System } from "./types/pim";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
@@ -290,7 +291,12 @@ const SystemConfiguratorBlockResultSection = ({
       try {
         const repsonse = await queryElasticSearch(query, ES_INDEX_NAME);
         if (repsonse.hits?.total.value > 0) {
-          const pimObject = repsonse.hits?.hits.map(({ _source }) => _source);
+          const pimObject = repsonse.hits?.hits.map(({ _source }) => {
+            return {
+              ..._source,
+              path: generateSystemPath(_source)
+            };
+          });
           setRecommendedSystemPimObjects(pimObject.slice(0, maxDisplay));
         } else {
           navigate("/404");
