@@ -1,7 +1,8 @@
 import React from "react";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
-import { GuaranteeEventType } from "@bmi/intouch-api-types";
+import { GuaranteeEventType, Technology } from "@bmi/intouch-api-types";
+import Icon, { FlatRoof, PitchedRoof } from "@bmi/icon";
 import { useTranslation } from "next-i18next";
 import {
   GuaranteeStatus,
@@ -16,6 +17,7 @@ import styles from "./styles.module.scss";
 
 export type ProjectsHeaderProps = {
   title: string;
+  technology: Technology;
   projectCode: string;
   projectStatus: string;
   buildingAddress: AddressProps["address"];
@@ -32,6 +34,7 @@ export type ProjectsHeaderProps = {
 
 export const ProjectsHeader = ({
   title,
+  technology,
   projectCode,
   projectStatus,
   buildingAddress,
@@ -47,13 +50,28 @@ export const ProjectsHeader = ({
 }: ProjectsHeaderProps) => {
   const { t } = useTranslation("project-page");
 
+  const technologyIcon: {
+    [K in Exclude<Technology, "OTHER">]: React.FC<
+      React.SVGProps<SVGSVGElement>
+    >;
+  } = {
+    FLAT: FlatRoof,
+    PITCHED: PitchedRoof
+  };
+
   const StatusIconElement = guaranteeStatusIcons[guaranteeStatus];
 
   return (
     <SimpleCard>
-      <Typography variant="h4" hasUnderline>
-        {title}
-      </Typography>
+      <div style={{ display: "flex" }}>
+        <Typography variant="h3" hasUnderline>
+          {title}
+        </Typography>
+        <Icon
+          source={technologyIcon[technology as Technology]}
+          className={styles.technologyIcon}
+        />
+      </div>
       <div className={styles.body}>
         <InfoPair title={t("projectDetails.code")}>{projectCode}</InfoPair>
         <InfoPair title={t("projectDetails.status")}>{projectStatus}</InfoPair>
