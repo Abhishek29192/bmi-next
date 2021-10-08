@@ -15,16 +15,16 @@
           "title": "Produktdetaljer"
         },
         "dates": {
-          "title": "Project dates"
+          "title": "Datoer for prosjektet"
         },
         "siteAddress": {
-          "title": "Site address"
+          "title": "Bygningsadresse"
         }
       },
       "form": {
         "fields": {
-          "name": "Project name",
-          "technology": "Project type",
+          "name": "Prosjektnavn",
+          "technology": "Prosjekttype",
           "roofArea": "Total tak måling (m2)",
           "description": "Prosjektbeskrivelse (optional)",
           "startDate": "Startdato",
@@ -46,12 +46,12 @@
         },
         "hints": {
           "technology": {
-            "PITCHED": "A roof covered with ceramic or tin tiles. Usually it is sloping",
-            "FLAT": "A roof covered with bituminous or concrete materials. It is usually horizontal and flat."
+            "PITCHED": "Et tak dekket med keramiske eller tinnfliser. Vanligvis er det skrånende.",
+            "FLAT": "Et tak dekket med bituminøse eller betongmaterialer. Det er vanligvis horisontalt og flatt."
           }
         },
         "actions": {
-          "submit": "Save & Close"
+          "submit": "Lagre og lukk"
         }
       }
     }
@@ -70,8 +70,11 @@
       "ASSIGN_SOLUTION": "Tildel til meg",
       "REASSIGN_SOLUTION": "Tildel til meg",
       "UNASSIGN_SOLUTION": "Fjern tildeling",
-      "NOT_ASSIGNABLE": "Not Assignable",
-      "edit": "Edit"
+      "NOT_ASSIGNABLE": "Ikke delbar",
+      "edit": "Redigere"
+    },
+    "hints": {
+      "projectEditGuaranteeStatus": "Prosjektdetaljer kan ikke redigeres på grunn av garantistatus."
     }
   },
   "buildingOwnerDetails": {
@@ -80,7 +83,38 @@
     "name": "Navn",
     "email": "Email",
     "company": "Bedrift",
-    "address": "Bygningseier adresse"
+    "address": "Bygningseier adresse",
+    "edit": {
+      "title": "Bygningseiers detaljer",
+      "description": "You can add the building owner details later on, before applying for a guarantee.",
+      "sections": {
+        "contactDetails": {
+          "title": "Bygning kontaktinformasjon"
+        },
+        "buildingOwnerAddress": {
+          "title": "Adresse"
+        }
+      },
+      "form": {
+        "fields": {
+          "buildingOwnerCompany": "Firmanavn (valgfri)",
+          "buildingOwnerFirstname": "Fornavn",
+          "buildingOwnerLastname": "Etternavn",
+          "buildingOwnerMail": "Email address",
+          "buildingOwnerAddress": {
+            "firstLine": "Adresse linje 1",
+            "secondLine": "Adresse linje 2 (valgfri)",
+            "town": "By",
+            "postcode": "Postnummer/ Sted",
+            "region": "Område (valgfri)",
+            "country": "Land"
+          }
+        },
+        "actions": {
+          "submit": "Lagre og lukk"
+        }
+      }
+    }
   },
   "guarantee": {
     "notRequested": "Ikke forespurt",
@@ -88,7 +122,7 @@
       "NOT_APPLICABLE": "N/A",
       "STARTED": "Startet",
       "READY": "Ferdig",
-      "SUBMITTED": "Submitted",
+      "SUBMITTED": "Sendt inn",
       "REVIEW": "Sendt inn",
       "REJECTED": "Returnert",
       "APPROVED": "Godkjent"
@@ -110,10 +144,10 @@
       "IN_PROGRESS": "I prosess",
       "COMPLETED": "Fullført",
       "FLAT": "Flatt tak",
-      "PITCHED": "Pitched",
-      "UNASSIGNED": "UnAssigned",
-      "ASSIGNED": "Assigned",
-      "MY_QUEUE": "My Queue"
+      "PITCHED": "Skråtak",
+      "UNASSIGNED": "Ikke tilordnet",
+      "ASSIGNED": "Tildelt",
+      "MY_QUEUE": "Min kø"
     }
   },
   "noProjects": {
@@ -243,7 +277,7 @@
   },
   "responsible_installer": {
     "title": "Ansvarlig installatør",
-    "contact_detail": "Responsible Installer contact details",
+    "contact_detail": "Ansvarlig medlem kontaktinformasjon",
     "email": "Responsible Installer email",
     "address": "Responsible Installer address"
   },
@@ -258,19 +292,19 @@
       "archive": "Arkiv prosjekt",
       "unarchive": "Av-arkiv prosjekt",
       "requestInformation": "Be om mer informasjon",
-      "approveGuarantee": "Approve guarantee"
+      "approveGuarantee": "Godkjenn garanti"
     }
   },
   "noteTab": {
-    "header": "Add Note",
+    "header": "Legge til notat",
     "table": {
-      "author": "Author",
-      "note": "Note",
-      "date": "Date"
+      "author": "Forfatter",
+      "note": "Merk",
+      "date": "Dato"
     },
     "addNoteDialog": {
-      "title": "Add a note",
-      "detailHeading": "Please fill in the details below to share information on this project",
+      "title": "Legge til notat",
+      "detailHeading": "Vennligst fyll ut detaljene nedenfor for å dele informasjon om dette prosjektet",
       "cancel": "Avbryt",
       "send": "Send"
     }

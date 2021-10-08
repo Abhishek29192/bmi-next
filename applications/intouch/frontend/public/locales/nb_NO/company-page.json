@@ -14,11 +14,11 @@
     "taxNumber": "Bedriftens VAT-nummer",
     "phone": "Telefon"
   },
-  "noCompanies": "This market has no companies yet",
+  "noCompanies": "Markedet har ingen selskaper ennå",
   "search": {
     "inputLabel": "Search for a company",
-    "profileComplete": "Profile complete",
-    "profileIncomplete": "Profile incomplete"
+    "profileComplete": "Profilen er fullført",
+    "profileIncomplete": "Profilen er ufullstendig"
   },
   "supportTitle": "Kontakt BMI RoofPro -teamet",
   "incompleteProfile": {
@@ -106,7 +106,8 @@
         "ownerEmail": "E-mail adresse (valgfri)"
       },
       "actions": {
-        "submit": "Lagre og lukk"
+        "submit": "Lagre og lukk",
+        "cancel": "Avbryt"
       }
     }
   }

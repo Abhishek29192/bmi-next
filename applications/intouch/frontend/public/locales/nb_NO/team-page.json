@@ -1,46 +1,46 @@
 {
   "sidePanel": {
     "search": {
-      "label": "Search for a user",
-      "noResult": "Member not found"
+      "label": "Søk etter en bruker",
+      "noResult": "Person ikke funnet"
     },
-    "inviteLabel": "+ Invite team members"
+    "inviteLabel": "+ Invitere teammedlemmer"
   },
   "table": {
-    "title": "Certification(s)",
+    "title": "Sertifisering",
     "type": "Type",
     "certification": "Sertifisering",
-    "validity": "Validity"
+    "validity": "Gyldighet"
   },
   "invitation": {
     "dialog": {
-      "title": "Invite members",
+      "title": "Inviter medlemmer",
       "emails": {
-        "label": "Recipient’s email address",
-        "helperText": "Add multiple members by separating each email address with a comma"
+        "label": "Mottakers epostadresse",
+        "helperText": "Legg til flere medlemmer ved å skille hver e -postadresse med et komma"
       },
       "personalNote": {
-        "label": "Your message (optional)"
+        "label": "Meldingen din (valgfritt)"
       },
       "cancel": "Avbryt",
-      "send": "Send email",
-      "success": "The invitation has been sent"
+      "send": "Send e-post",
+      "success": "Invitasjonen er sendt"
     }
   },
   "user_card": {
-    "add_admin": "Assign as Company Admin",
-    "remove_admin": "Remove as Company Admin",
-    "confirm": "Confirm",
+    "add_admin": "Tilordne som bedriftsadministrator",
+    "remove_admin": "Fjern som bedriftsadministrator",
+    "confirm": "Bekrefte",
     "cancel": "Avbryt",
     "role_dialog": {
-      "title": "Change role",
-      "text": "Do you want to change the role?"
+      "title": "Endre rolle",
+      "text": "Vil du endre rollen?"
     },
     "remove_user_dialog": {
       "title": "Fjern fra selskap",
-      "text": "Do you want to remove this company member?"
+      "text": "Vil du fjerne dette medlemmet?"
     }
   },
-  "memberRemoved": "Member succesfully removed",
+  "memberRemoved": "Medlemmet ble fjernet",
   "genericError": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator."
 }
