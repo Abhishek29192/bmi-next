@@ -108,6 +108,7 @@ export const ProjectsHeader = ({
                 guaranteeEventHandler &&
                   guaranteeEventHandler(guaranteeEventType);
               }}
+              data-testid="guarantee-event-button"
             >
               {t(`projectDetails.cta.${guaranteeEventType}`)}
             </Button>
