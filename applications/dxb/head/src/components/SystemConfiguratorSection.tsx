@@ -23,6 +23,7 @@ import { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { queryElasticSearch } from "../utils/elasticSearch";
+import { generateSystemPath } from "../schema/resolvers/utils/systems";
 import { System } from "./types/pim";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
@@ -290,7 +291,12 @@ const SystemConfiguratorBlockResultSection = ({
       try {
         const repsonse = await queryElasticSearch(query, ES_INDEX_NAME);
         if (repsonse.hits?.total.value > 0) {
-          const pimObject = repsonse.hits?.hits.map(({ _source }) => _source);
+          const pimObject = repsonse.hits?.hits.map(({ _source }) => {
+            return {
+              ..._source,
+              path: generateSystemPath(_source)
+            };
+          });
           setRecommendedSystemPimObjects(pimObject.slice(0, maxDisplay));
         } else {
           navigate("/404");
@@ -324,13 +330,13 @@ const SystemConfiguratorBlockResultSection = ({
           </div>
         )}
         {recommendedSystems.length > 0 &&
-          recommendedSystemPimObjects.length > 0 &&
-          recommendedSystemPimObjects.map((system, id) => {
-            const linkToSDP = `${system.path}?selected_system=${system.code}&prev_page=/${countryCode}/system-configurator-page&referer=sys_details`;
-            return (
-              <Grid container spacing={3} key={`${system.code}-${id}`}>
-                {
+          recommendedSystemPimObjects.length > 0 && (
+            <Grid container spacing={3}>
+              {recommendedSystemPimObjects.map((system, id) => {
+                const linkToSDP = `${system.path}?selected_system=${system.code}&prev_page=/${countryCode}/system-configurator-page&referer=sys_details`;
+                return (
                   <SystemCard
+                    key={`${system.code}-${id}`}
                     system={system}
                     countryCode={countryCode}
                     gtm={{
@@ -342,10 +348,10 @@ const SystemConfiguratorBlockResultSection = ({
                     path={linkToSDP}
                     isHighlighted={id === 0}
                   />
-                }
-              </Grid>
-            );
-          })}
+                );
+              })}
+            </Grid>
+          )}
       </Section>
     </div>
   );

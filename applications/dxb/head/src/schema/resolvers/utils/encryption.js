@@ -1,6 +1,6 @@
 "use strict";
 
-const crypto = require("crypto");
+const { MD5, enc } = require("crypto-js");
 const MurmurHash3 = require("imurmurhash");
 
 exports.generateIdFromString = (string, useDate = true) => {
@@ -12,4 +12,4 @@ exports.generateIdFromString = (string, useDate = true) => {
 };
 
 exports.generateDigestFromData = (data) =>
-  crypto.createHash("md5").update(JSON.stringify(data)).digest("hex");
+  MD5(JSON.stringify(data)).toString(enc.Hex);

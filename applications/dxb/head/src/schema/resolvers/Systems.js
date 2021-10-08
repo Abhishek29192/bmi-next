@@ -1,14 +1,11 @@
 "use strict";
 
-const { generateIdFromString } = require("./utils/encryption");
+const { generateSystemPath } = require("./utils/systems");
 
 module.exports = {
   path: {
     async resolve(source) {
-      const id = generateIdFromString(source.code, false);
-      return `s/${source.name
-        .replace(new RegExp(/([\s_])/gi), "-")
-        .toLowerCase()}/${id}`;
+      return generateSystemPath(source);
     }
   }
 };
