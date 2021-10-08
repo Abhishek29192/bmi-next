@@ -9,6 +9,7 @@ type MarketEnvProps = {
   currentHost: string;
   environment: string;
   market: string;
+  paths: string[];
 };
 
 export const getMarketAndEnvFromReq = ({
@@ -17,9 +18,10 @@ export const getMarketAndEnvFromReq = ({
   let market = null;
   let environment = null;
 
-  const { host } = headers;
+  let { host } = headers;
 
-  const [subdomain] = host.split(".");
+  const paths = host.split(".");
+  const subdomain = paths[0];
 
   if (subdomain.indexOf("-") !== -1) {
     const parts = subdomain.split("-");
@@ -32,6 +34,7 @@ export const getMarketAndEnvFromReq = ({
   return {
     currentHost: host,
     environment,
-    market
+    market,
+    paths
   };
 };

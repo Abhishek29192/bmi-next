@@ -22,8 +22,6 @@ const multiMarketDomains =
         { domain: `no.${baseUrlDomain}`, defaultLocale: "nb_NO" }
       ];
 
-console.log("multiMarketDomains: ", multiMarketDomains);
-
 module.exports = {
   i18n: {
     localeDetection: false,

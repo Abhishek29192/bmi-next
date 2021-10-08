@@ -60,6 +60,25 @@ export const afterCallback = async (
   return session;
 };
 
+export const getLoginOptions = (req) => {
+  const protocol = req.headers["x-forwarded-proto"] || "http";
+  let { market, currentHost } = getMarketAndEnvFromReq(req);
+  const targetUrl = encodeURIComponent(`${protocol}://${currentHost}`);
+
+  return {
+    authorizationParams: {
+      market
+    },
+    loginState: {
+      currentHost,
+      // The returnTo options doesn't allow to use an absolute url, in order to
+      // be able to redirect the user to the right url we have an anpoint that
+      // is in charge to just redirect the user
+      returnTo: `/api/redirector?current=${targetUrl}`
+    }
+  };
+};
+
 export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
   // Add a request id to track the request
   if (!req.headers["x-request-id"]) {
@@ -69,34 +88,24 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
   const auth0 = await getAuth0Instance(req, res);
 
   const logger = req.logger("Auth0");
-  const protocol = req.headers["x-forwarded-proto"] || "http";
 
   const { handleAuth, handleCallback, handleProfile, handleLogout } = auth0;
 
   return handleAuth({
     async login(req, res) {
       try {
-        let { market, currentHost } = getMarketAndEnvFromReq(req);
-        const targetUrl = encodeURIComponent(`${protocol}://${currentHost}`);
-
-        const getLoginState = (req, loginOptions) => {
-          return {
-            currentHost,
-            returnTo: `/api/redirector?current=${targetUrl}`
-          };
-        };
+        const { authorizationParams, loginState } = getLoginOptions(req);
 
         await auth0.handleLogin(req, res, {
-          authorizationParams: {
-            market
-          },
-          getLoginState
+          authorizationParams,
+          getLoginState: (req, loginOptions) => loginState
         });
       } catch (error) {
         logger.error(`handle login:`, error);
         return res.status(error.status || 500).end(error.message);
       }
     },
+
     async callback(req, res) {
       try {
         await handleCallback(req, res, { afterCallback });
@@ -125,6 +134,7 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
     },
     async logout(req, res) {
       try {
+        const protocol = req.headers["x-forwarded-proto"] || "http";
         const { currentHost } = getMarketAndEnvFromReq(req);
         const targetUrl = `${protocol}://${currentHost}`;
 

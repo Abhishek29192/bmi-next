@@ -1,4 +1,4 @@
-import { baseUrlDomain, isProd } from ".";
+import { baseUrlDomain } from ".";
 
 const getDomainLocaleMapping = (domainCode) => ({
   [`${domainCode}.${baseUrlDomain}`]: domainCode
