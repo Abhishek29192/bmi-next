@@ -77,8 +77,10 @@ const SimplePage = ({ data, pageContext }: Props) => {
     breadcrumbs,
     seo,
     featuredVideo,
-    cta
+    cta,
+    ...rest
   } = data.contentfulSimplePage;
+
   const heroProps: HeroItem = {
     title,
     children: subtitle,
@@ -200,6 +202,9 @@ export const pageQuery = graphql`
       }
       linkColumns {
         ...LinkColumnsSectionFragment
+      }
+      sampleBasketSection {
+        ...SampleBasketSectionFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
