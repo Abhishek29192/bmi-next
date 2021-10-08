@@ -36,7 +36,7 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
             <h5
               class="MuiTypography-root Typography MuiTypography-h5"
             >
-              classroom
+              type.classroom
             </h5>
           </div>
           <div
@@ -134,7 +134,7 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
             <h5
               class="MuiTypography-root Typography MuiTypography-h5"
             >
-              classroom
+              type.classroom
             </h5>
           </div>
           <div
