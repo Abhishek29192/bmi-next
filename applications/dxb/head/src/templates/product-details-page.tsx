@@ -115,12 +115,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       {}
     );
 
-  let isSampleOrderAllowed =
-    selfProduct.isSampleOrderAllowed ?? product.isSampleOrderAllowed;
-
-  if (process.env.GATSBY_ENABLE_SAMPLE_ORDERING !== "true") {
-    isSampleOrderAllowed = false;
-  }
+  const getSampleOrderAllowed = () => {
+    if (process.env.GATSBY_ENABLE_SAMPLE_ORDERING === "true") {
+      return selfProduct.isSampleOrderAllowed ?? product.isSampleOrderAllowed;
+    }
+    return false;
+  };
 
   return (
     <Page
@@ -161,7 +161,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 )
               }}
             >
-              {isSampleOrderAllowed && <SampleOrderSection />}
+              {getSampleOrderAllowed() && <SampleOrderSection />}
               {resources?.pdpShareWidget && (
                 <ShareWidgetSection
                   data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
