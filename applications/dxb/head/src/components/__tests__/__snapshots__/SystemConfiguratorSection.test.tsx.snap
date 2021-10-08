@@ -3327,6 +3327,194 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               </p>
             </div>
           </div>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"s/abcd-name/1139631978?selected_system=abcd&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/abcd-name/1139631978?selected_system=abcd&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    abcd name
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-84"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"s/efgh-name/635154487?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/efgh-name/635154487?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    efgh name
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-84"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"ijkl\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"s/ijkl-name/2172393344?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/ijkl-name/2172393344?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    ijkl name
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-84"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"mnop\\",\\"label\\":\\"Result Title\\",\\"action\\":\\"s/mnop-name/2284218567?selected_system=mnop&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/mnop-name/2284218567?selected_system=mnop&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    mnop name
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-84"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -3633,10 +3821,6 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                 />
               </a>
             </div>
-          </div>
-          <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-          >
             <div
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
