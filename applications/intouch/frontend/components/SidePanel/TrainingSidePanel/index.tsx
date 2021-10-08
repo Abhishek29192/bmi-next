@@ -29,17 +29,16 @@ export const TrainingSidePanel = ({
   onCourseSelected,
   onFilterChange
 }: TrainingSidePanelProps) => {
-  const { t } = useTranslation("common");
-
+  const { t } = useTranslation(["common", "training-page"]);
   const courseTech: { [K in Technology]: string } = {
-    FLAT: t("certifications.flat"),
-    PITCHED: t("certifications.pitched"),
-    OTHER: t("certifications.other")
+    FLAT: t("common:certifications.flat"),
+    PITCHED: t("common:certifications.pitched"),
+    OTHER: t("common:certifications.other")
   };
 
   const trainingFilters = [
     {
-      label: DEFAULT_FILTER_CRITERIA.toLowerCase(),
+      label: t("training-page:filter.labels.ALL"),
       attr: DEFAULT_FILTER_CRITERIA,
       isActive: false
     },
@@ -74,7 +73,7 @@ export const TrainingSidePanel = ({
 
   return (
     <SidePanel
-      searchLabel="Search for training"
+      searchLabel={t("training-page:search.inputLabel")}
       filters={trainingFilters}
       filterClick={trainingFilterClickHandler}
       onSearchFilterChange={(filter: string) => {
@@ -100,7 +99,7 @@ export const TrainingSidePanel = ({
               }}
             >
               <Typography style={{ textTransform: "capitalize" }}>
-                {trainingType}
+                {t(`training-page:type.${trainingType}`)}
               </Typography>
               <Typography style={{ display: "flex", padding: "2px" }}>
                 <SvgIcon

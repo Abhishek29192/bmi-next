@@ -20,7 +20,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
             for="filter"
             id="filter-label"
           >
-            Search for training
+            search.inputLabel
           </label>
           <div
             class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -55,7 +55,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
                 class="PrivateNotchedOutline-legendLabelled-3"
               >
                 <span>
-                  Search for training
+                  search.inputLabel
                 </span>
               </legend>
             </fieldset>
@@ -76,7 +76,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
           <span
             class="MuiButton-label"
           >
-            all
+            filter.labels.ALL
           </span>
           <span
             class="MuiTouchRipple-root"
@@ -147,7 +147,9 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
               <p
                 class="MuiTypography-root Typography MuiTypography-body1"
                 style="text-transform: capitalize;"
-              />
+              >
+                type.undefined
+              </p>
               <p
                 class="MuiTypography-root Typography MuiTypography-body1"
                 style="display: flex; padding: 2px;"
@@ -198,7 +200,9 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
               <p
                 class="MuiTypography-root Typography MuiTypography-body1"
                 style="text-transform: capitalize;"
-              />
+              >
+                type.undefined
+              </p>
               <p
                 class="MuiTypography-root Typography MuiTypography-body1"
                 style="display: flex; padding: 2px;"
@@ -257,7 +261,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
             for="filter"
             id="filter-label"
           >
-            Search for training
+            search.inputLabel
           </label>
           <div
             class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -292,7 +296,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
                 class="PrivateNotchedOutline-legendLabelled-12"
               >
                 <span>
-                  Search for training
+                  search.inputLabel
                 </span>
               </legend>
             </fieldset>
@@ -313,7 +317,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
           <span
             class="MuiButton-label"
           >
-            all
+            filter.labels.ALL
           </span>
           <span
             class="MuiTouchRipple-root"

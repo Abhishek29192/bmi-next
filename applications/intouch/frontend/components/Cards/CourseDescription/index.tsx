@@ -25,7 +25,7 @@ export const CourseDescription = ({
   lmsUrl,
   children
 }: CourseDescriptionProps) => {
-  const { t } = useTranslation("team-page");
+  const { t } = useTranslation("training-page");
 
   return (
     <SimpleCard>
@@ -42,7 +42,9 @@ export const CourseDescription = ({
           <div className={styles.metadata}>
             <div className={styles.type}>
               <Icon source={School} />
-              <Typography variant="h5">{type}</Typography>
+              <Typography variant="h5">
+                {t(`training-page:type.${type}`)}
+              </Typography>
             </div>
             <div className={styles.status}>{status}</div>
           </div>

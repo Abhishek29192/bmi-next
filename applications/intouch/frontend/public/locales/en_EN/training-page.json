@@ -6,5 +6,19 @@
   "enrolled": "Enrolled",
   "completed": "Completed",
   "waiting": "Waiting",
-  "viewTraining": "View training"
+  "viewTraining": "View training",
+  "Description": "Description",
+  "search": {
+    "inputLabel": "Search for a training"
+  },
+  "filter": {
+    "labels": {
+      "ALL": "All"
+    }
+  },
+  "type": {
+    "classroom": "Classroom",
+    "elearning": "E-Learning",
+    "webinar": "Webinar"
+  }
 }

@@ -35,7 +35,7 @@ exports[`CourseDescription component renders correctly 1`] = `
             <h5
               class="MuiTypography-root Typography MuiTypography-h5"
             >
-              Pitched roof
+              type.Pitched roof
             </h5>
           </div>
           <div
