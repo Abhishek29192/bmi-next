@@ -1,6 +1,6 @@
 "use strict";
 
-const { generateSystemPath } = require("./utils/encryption");
+const { generateSystemPath } = require("./utils/systems");
 
 module.exports = {
   path: {

@@ -17,9 +17,7 @@
     "baseUrl": ".",
     "rootDirs": ["src"],
     "paths": {
-      "@bmi/*": ["./node_modules/@bmi/*/src"],
-      "crypto": ["./node_modules/crypto-js"],
-      "imurmurhash": ["./node_modules/imurmurhash"]
+      "@bmi/*": ["./node_modules/@bmi/*/src"]
     },
     "typeRoots": ["./node_modules/@types", "./@types"]
   },

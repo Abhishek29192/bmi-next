@@ -91,7 +91,7 @@
     "@types/file-saver": "^2.0.1",
     "axios": "^0.21.0",
     "babel-preset-gatsby": "^0.12.2",
-    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
     "dotenv": "^8.2.0",
     "file-saver": "^2.0.5",
     "filesize": "^6.1.0",
