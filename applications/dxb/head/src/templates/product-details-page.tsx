@@ -89,7 +89,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     basketReducer,
     initialBasketState,
     () => {
-      return localStorage.getItem("basketItems")
+      return typeof window !== "undefined" &&
+        localStorage.getItem("basketItems")
         ? { products: JSON.parse(localStorage.getItem("basketItems")) }
         : { products: [] };
     }

@@ -32,7 +32,9 @@ const SampleOrderSection = ({
   };
 
   useEffect(() => {
-    localStorage.setItem("basketItems", JSON.stringify(basketState.products));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("basketItems", JSON.stringify(basketState.products));
+    }
   }, [basketState]);
   const { getMicroCopy } = useSiteContext();
 
