@@ -152,6 +152,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       <Grid item xs={12} md={8}>
         <ProjectsHeader
           title={project.name}
+          technology={project.technology}
           projectCode={`${project.id}`}
           projectStatus={getProjectStatus(project.startDate, project.endDate)}
           buildingAddress={project.siteAddress}

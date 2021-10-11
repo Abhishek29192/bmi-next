@@ -66,6 +66,7 @@ export const Team = ({ title }: LayoutProps) => (
         <Grid item xs={12} md={8}>
           <ProjectsHeader
             title="Old Brompton Library"
+            technology="FLAT"
             projectCode="PROFLO-d1847"
             projectStatus="In progress"
             roofArea={100}
