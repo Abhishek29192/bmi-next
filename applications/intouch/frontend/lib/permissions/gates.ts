@@ -136,6 +136,12 @@ const gates = {
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
       INSTALLER: false
+    },
+    addProject: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
     }
   },
   page: {
