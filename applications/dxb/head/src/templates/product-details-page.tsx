@@ -4,6 +4,7 @@ import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
+import Button from "@bmi/button";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import ProductOverview, {
@@ -68,6 +69,15 @@ const getDescription = (product: Product, variantCode?: string): string => {
   if (variantProduct) return variantProduct.longDescription;
   return product.description;
 };
+
+const getVariant = (product: Product, variantCode: string) => {
+  const variantProduct = product.variantOptions.find(
+    ({ code }) => code === variantCode
+  );
+  return variantProduct;
+};
+
+const addSampleToBasket = (variant) => {};
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
