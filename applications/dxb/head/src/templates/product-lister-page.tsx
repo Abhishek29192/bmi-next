@@ -165,14 +165,15 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
   const resolveFilters = (filters: readonly Filter[]) => {
     return (filters || [])
+      .filter((filter) => filter.options.length > 0)
       .map((filter) => {
-        if (filter.name === "colour") {
+        const filterName = filter.name.trim().toLowerCase();
+        if (filterName === "colour" || filterName.endsWith("colourfamily")) {
           return enhanceColourFilterWithSwatches(filter);
         }
 
         return filter;
-      })
-      .filter((filter) => filter.options.length > 0);
+      });
   };
 
   const resolvedNewPLPFilters = useMemo(
