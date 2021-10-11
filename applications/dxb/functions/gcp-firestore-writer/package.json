@@ -8,8 +8,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "yarn build && functions-framework --source=dist --target=handleMessage",
-    "deploy": "yarn build && gcloud functions deploy firestore-writer --trigger-topic=dxb-pim-transitional --runtime=nodejs14 --max-instances=5 --region=europe-west3 --entry-point=handleMessage --env-vars-file=env.yaml"
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=handleMessage"
   },
   "dependencies": {
     "@firebase/app-types": "^0.6.1",
@@ -17,5 +16,9 @@
     "dotenv": "^8.2.0",
     "firebase-admin": "^9.2.0",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "js-yaml": "^4.0.0"
   }
 }

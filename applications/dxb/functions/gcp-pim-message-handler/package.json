@@ -5,14 +5,17 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=handleRequest --port=9056",
-    "deploy": "yarn build && gcloud functions deploy pim-message-handler --trigger-http --runtime=nodejs14 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=handleRequest --env-vars-file=env.yaml",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=handleRequest --port=9056"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^1.7.1",
     "@google-cloud/pubsub": "^2.5.0",
     "@google-cloud/secret-manager": "^3.7.1",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "js-yaml": "^4.0.0"
   }
 }
