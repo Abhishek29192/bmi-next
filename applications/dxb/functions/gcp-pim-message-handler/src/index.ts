@@ -119,10 +119,24 @@ const fetchData = async (path = "/", accessToken) => {
   return body;
 };
 
+function getItemsFromMessageGenerator(
+  itemType: string
+): (
+  endpoint: string,
+  messageId: string,
+  messageData: any
+) => AsyncGenerator<{ items: any }, void, unknown> {
+  if (itemType === "PRODUCTS") {
+    return getProductsFromMessage;
+  } else {
+    return getSystemsFromMessage;
+  }
+}
+
 async function* getProductsFromMessage(
   endpoint: string,
   messageId: string,
-  messageData
+  messageData: any
 ) {
   // TODO: type could stay outside of this function
   const { token, type, itemType } = messageData;
@@ -165,6 +179,52 @@ async function* getProductsFromMessage(
   }
 }
 
+async function* getSystemsFromMessage(
+  endpoint: string,
+  messageId: string,
+  messageData: any
+) {
+  // TODO: type could stay outside of this function
+  const { token, type, itemType } = messageData;
+
+  // TODO: IS this somehow being kept in scope?!??!??!??!
+  let totalPageCount = 1;
+  let currentPage = 0;
+
+  // TODO: don't need to get a new token every time
+  const { access_token } = await getAuthToken();
+
+  while (currentPage < totalPageCount) {
+    const messageResponse = await fetchData(
+      `${endpoint}?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+      access_token
+    );
+
+    // eslint-disable-next-line no-console
+    console.log(
+      "Message page:",
+      JSON.stringify({
+        currentPage: messageResponse.currentPage,
+        systemsCount: (messageResponse.systems || []).length,
+        // products: messageResponse.products,
+        totalPageCount: messageResponse.totalPageCount,
+        totalSystemCount: messageResponse.totalSystemsCount
+      })
+    );
+    // eslint-disable-next-line no-console
+    console.log(
+      `[${type}][${itemType}]: [${(messageResponse.systems || [])
+        .map(({ code }) => code)
+        .join(", ")}]`
+    );
+
+    yield { items: messageResponse.systems };
+
+    ++currentPage;
+    totalPageCount = messageResponse.totalPageCount;
+  }
+}
+
 export const handleRequest: HttpFunction = async (req, res) => {
   if (req.body) {
     // eslint-disable-next-line no-console
@@ -191,7 +251,7 @@ export const handleRequest: HttpFunction = async (req, res) => {
         throw new Error(`[PIM] Undercognised message type [${type}]`);
       }
 
-      const messagePages = getProductsFromMessage(
+      const messagePages = getItemsFromMessageGenerator(itemType)(
         endpoint,
         message.messageId,
         messageData

@@ -59,7 +59,8 @@ describe("handleMessage", () => {
   it("should error if itemType is unrecognised", async () => {
     const req = mockRequest("GET", {}, "/", {
       message: createEvent({
-        itemType: "TEST"
+        itemType: "TEST",
+        type: "UPDATED"
       })
     });
     const res = mockResponse();
@@ -68,6 +69,9 @@ describe("handleMessage", () => {
     expect(window.console.error).toHaveBeenCalledWith(
       new Error("[PIM] Unrecognised itemType [TEST]")
     );
+
+    expect(fetchMock).toBeCalledTimes(0);
+    expect(pubsubTopicPublisher).toBeCalledTimes(0);
   });
 
   it("should error if message type is unrecognised", async () => {
@@ -83,9 +87,44 @@ describe("handleMessage", () => {
     expect(window.console.error).toHaveBeenCalledWith(
       new Error("[PIM] Undercognised message type [TEST]")
     );
+
+    expect(fetchMock).toBeCalledTimes(0);
+    expect(pubsubTopicPublisher).toBeCalledTimes(0);
   });
 
-  it("should publish message to the GCP PubSub", async () => {
+  it("should publish products message to the GCP PubSub", async () => {
+    const req = mockRequest("GET", {}, "/", {
+      message: createEvent({
+        itemType: "PRODUCTS",
+        type: "UPDATED"
+      })
+    });
+    const res = mockResponse();
+
+    mockResponses(
+      fetchMock,
+      {
+        method: "POST",
+        url: "glob:*/authorizationserver/oauth/token",
+        body: JSON.stringify({
+          access_token: "test"
+        })
+      },
+      {
+        method: "GET",
+        url: "glob:*/export/products*",
+        body: JSON.stringify({
+          products: [{ name: "Test Product 1" }, { name: "Test Product 2" }]
+        })
+      }
+    );
+
+    await handleRequest(req, res);
+    expect(accessSecretVersion).toHaveBeenCalledTimes(1);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(1);
+  });
+
+  it("should publish systems message to the GCP PubSub", async () => {
     const req = mockRequest("GET", {}, "/", {
       message: createEvent({
         itemType: "SYSTEMS",
@@ -107,7 +146,7 @@ describe("handleMessage", () => {
         method: "GET",
         url: "glob:*/export/systems*",
         body: JSON.stringify({
-          products: [{ name: "Test Product 1" }, { name: "Test Product 2" }]
+          systems: [{ name: "Test Product 1" }, { name: "Test Product 2" }]
         })
       }
     );
