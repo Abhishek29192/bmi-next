@@ -36,7 +36,7 @@ import IframeSection, { Data as IframeSectionData } from "./IframeSection";
 import SystemConfiguratorSection, {
   Data as SystemConfiguratorSectionData
 } from "./SystemConfiguratorSection";
-import SampleBasetSection from "./SampleBasketSection";
+import SampleBasketSection from "./SampleBasketSection";
 
 export type SectionData =
   | ExploreBarSectionData
@@ -73,7 +73,7 @@ export const sectionsMap = {
   ContentfulIframe: IframeSection,
   ContentfulSystemConfiguratorBlock: SystemConfiguratorSection,
   ContentfulTeamSection: TeamSection,
-  ContentfulSampleBasketSection: SampleBasetSection
+  ContentfulSampleBasketSection: SampleBasketSection
 };
 
 type DisplayProps = {

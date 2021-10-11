@@ -17,8 +17,7 @@ module.exports.up = (migration) => {
     .createField("description")
     .name("Description")
     .type("RichText")
-    .localized(true)
-    .validations([{ nodes: {} }]);
+    .localized(true);
 };
 
 module.exports.down = (migration) =>

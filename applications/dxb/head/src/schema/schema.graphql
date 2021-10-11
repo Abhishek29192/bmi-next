@@ -586,7 +586,7 @@ type ContentfulSampleBasketSection implements Node {
   title: String
 
   "The paragraph text of section."
-  description: String
+  description: ContentfulRichText
 }
 
 """

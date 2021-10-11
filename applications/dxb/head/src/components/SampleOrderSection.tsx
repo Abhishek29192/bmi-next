@@ -11,18 +11,26 @@ import { VariantOption } from "./types/pim";
 
 const SampleOrderSection = ({
   onlyDisplayCompleteOrder = false,
-  variant
+  variant,
+  productName
 }: {
   variant?: VariantOption;
   onlyDisplayCompleteOrder?: Boolean;
+  productName?: string;
 }) => {
   const { basketState, basketDispatch } = useContext(BasketContext);
   //actions
   const addToBasket = (variant: VariantOption) => {
-    basketDispatch({ type: ACTION_TYPES.BASKET_ADD, payload: variant });
+    basketDispatch({
+      type: ACTION_TYPES.BASKET_ADD,
+      payload: { ...variant, name: productName ?? "" }
+    });
   };
   const removeFromBasket = (variant: VariantOption) => {
-    basketDispatch({ type: ACTION_TYPES.BASKET_REMOVE, payload: variant });
+    basketDispatch({
+      type: ACTION_TYPES.BASKET_REMOVE,
+      payload: { ...variant, name: productName ?? "" }
+    });
   };
   const hasSampleInTheBasket = (): boolean => {
     return (
@@ -31,11 +39,6 @@ const SampleOrderSection = ({
     );
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("basketItems", JSON.stringify(basketState.products));
-    }
-  }, [basketState]);
   const { getMicroCopy } = useSiteContext();
 
   return (

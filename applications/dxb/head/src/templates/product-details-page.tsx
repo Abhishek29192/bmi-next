@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
@@ -27,11 +27,7 @@ import { renderImage } from "../components/Image";
 import { Product } from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
 import { getBimIframeUrl } from "../components/BimIframe";
-import {
-  BasketContextProvider,
-  basketReducer,
-  initialBasketState
-} from "../contexts/SampleBasketContext";
+import BasketContext from "../contexts/SampleBasketContext";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -84,23 +80,6 @@ const getVariant = (product: Product, variantCode: string) => {
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
 
-  //for context setup for sample shopping basket
-  const [basketState, basketDispatch] = useReducer(
-    basketReducer,
-    initialBasketState,
-    () => {
-      return typeof window !== "undefined" &&
-        localStorage.getItem("basketItems")
-        ? { products: JSON.parse(localStorage.getItem("basketItems")) }
-        : { products: [] };
-    }
-  );
-
-  const basketContextValues = {
-    basketState,
-    basketDispatch
-  };
-
   // Which variant (including base) are we looking at
   // TODO: Merge data here!
   const selfProduct = product.variantOptions.find(
@@ -152,16 +131,18 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   };
 
   return (
-    <BasketContextProvider value={basketContextValues}>
-      <Page
-        brand={brandCode}
-        title={product.name}
-        pageData={pageData}
-        siteData={contentfulSite}
-        variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-        ogImageUrl={selfProduct?.images?.[0].url}
-      >
-        {({ siteContext: { getMicroCopy } }) => (
+    <Page
+      brand={brandCode}
+      title={product.name}
+      pageData={pageData}
+      siteData={contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+      ogImageUrl={selfProduct?.images?.[0].url}
+    >
+      {({ siteContext: { getMicroCopy } }) => {
+        const { basketState } = useContext(BasketContext);
+
+        return (
           <>
             {breadcrumbs && (
               <Section backgroundColor="pearl" isSlim>
@@ -194,6 +175,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
               >
                 {(getSampleOrderAllowed() && (
                   <SampleOrderSection
+                    productName={product.name}
                     variant={getVariant(product, pageContext.variantCode)}
                   />
                 )) ||
@@ -286,9 +268,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
               </Section>
             )}
           </>
-        )}
-      </Page>
-    </BasketContextProvider>
+        );
+      }}
+    </Page>
   );
 };
 
