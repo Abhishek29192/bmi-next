@@ -22,14 +22,11 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
     <Accordion>
       {systemLayers &&
         systemLayers
-          .filter((layer) => layer?.relatedProducts?.[0])
           .sort((a, b) => a.layerNumber - b.layerNumber)
           .map((layer, index) => {
-            const [mandatoryProduct] = layer.relatedProducts;
-            const productLinkAction = createLinkAction(
-              mandatoryProduct,
-              countryCode
-            );
+            const relatedProduct = layer.relatedProducts?.[0];
+            const productLinkAction =
+              relatedProduct && createLinkAction(relatedProduct, countryCode);
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
                 <Accordion.Summary>
@@ -40,11 +37,13 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
 
                 <Accordion.Details>
                   <Grid container spacing={3}>
-                    <Grid item xs={12} md={12} lg={12}>
-                      <AnchorLink action={productLinkAction}>
-                        {mandatoryProduct.name}
-                      </AnchorLink>
-                    </Grid>
+                    {relatedProduct && (
+                      <Grid item xs={12} md={12} lg={12}>
+                        <AnchorLink action={productLinkAction}>
+                          {relatedProduct.name}
+                        </AnchorLink>
+                      </Grid>
+                    )}
 
                     <Grid item xs={12} md={12} lg={12}>
                       <Typography variant="default">
