@@ -251,8 +251,10 @@ export const IndexFeatures = (
         );
         const nameAndCodeValues = feature.featureValues.map((featVal) => {
           return {
-            code: `${featVal.value}${feature.featureUnit?.symbol || ""}`,
-            name: `${featVal.value} ${feature.featureUnit?.symbol || ""}`
+            code: `${featVal.code || featVal.value}${
+              feature.featureUnit?.symbol || ""
+            }`.trim(),
+            name: `${featVal.value} ${feature.featureUnit?.symbol || ""}`.trim()
           };
         });
         return {
