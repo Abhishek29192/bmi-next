@@ -61,19 +61,24 @@ export const afterCallback = async (
 };
 
 export const getLoginOptions = (req) => {
+  const { returnTo } = req.query;
+  const { market, currentHost } = getMarketAndEnvFromReq(req);
   const protocol = req.headers["x-forwarded-proto"] || "http";
-  let { market, currentHost } = getMarketAndEnvFromReq(req);
-  const targetUrl = encodeURIComponent(`${protocol}://${currentHost}`);
 
+  const targetUrl = encodeURIComponent(
+    `${protocol}://${currentHost}${returnTo}`
+  );
+
+  // The returnTo is based on the baseUrl set when we init the auth0 library,
+  // returning to / means that we return to the base url without the market
+  // we have created an endpoint that is able to redirect the user to any absolute
+  // url, in this wai we can redirect the user to the right market
   return {
     authorizationParams: {
       market
     },
     loginState: {
       currentHost,
-      // The returnTo options doesn't allow to use an absolute url, in order to
-      // be able to redirect the user to the right url we have an anpoint that
-      // is in charge to just redirect the user
       returnTo: `/api/redirector?current=${targetUrl}`
     }
   };

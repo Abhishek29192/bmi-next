@@ -258,6 +258,8 @@ export const updateAccount = async (
 export const invite = async (_query, args, context, resolveInfo, auth0) => {
   const logger = context.logger("service:account");
 
+  const { FRONTEND_URL } = process.env;
+
   const user: Account = context.user;
   const { pgClient, pgRootPool } = context;
 
@@ -269,6 +271,8 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
   }: InviteInput = args.input;
 
   const result = [];
+
+  const protocol = FRONTEND_URL.includes("local") ? "http" : "https";
 
   if (!user.can("invite")) {
     throw new Error("you must be an admin to invite other users");
@@ -357,7 +361,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         // Creating a passsword reset ticket
         const ticket = await auth0.createResetPasswordTicket({
           user_id: auth0User?.user_id,
-          result_url: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
+          result_url: `${protocol}://${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
         });
         await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetee,
@@ -370,7 +374,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetees[0].first_name,
           company: user.company.name,
-          registerlink: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
+          registerlink: `${protocol}://${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
           email: invetee
         });
         logger.info("Invitation email sent");
