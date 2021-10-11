@@ -77,7 +77,7 @@ describe("Login Handler", () => {
         },
         "loginState": Object {
           "currentHost": "dev-no.local.intouch:3000",
-          "returnTo": "/api/redirector?current=http%3A%2F%2Fdev-no.local.intouch%3A3000",
+          "returnTo": "/api/redirector?current=http%3A%2F%2Fdev-no.local.intouch%3A3000%2Freturn-to",
         },
       }
     `);
@@ -97,7 +97,7 @@ describe("Login Handler", () => {
         },
         "loginState": Object {
           "currentHost": "uat-no.local.intouch:3000",
-          "returnTo": "/api/redirector?current=http%3A%2F%2Fuat-no.local.intouch%3A3000",
+          "returnTo": "/api/redirector?current=http%3A%2F%2Fuat-no.local.intouch%3A3000%2Freturn-to",
         },
       }
     `);
@@ -117,7 +117,7 @@ describe("Login Handler", () => {
         },
         "loginState": Object {
           "currentHost": "no.intouch.bmiground.com",
-          "returnTo": "/api/redirector?current=http%3A%2F%2Fno.intouch.bmiground.com",
+          "returnTo": "/api/redirector?current=http%3A%2F%2Fno.intouch.bmiground.com%2Freturn-to",
         },
       }
     `);

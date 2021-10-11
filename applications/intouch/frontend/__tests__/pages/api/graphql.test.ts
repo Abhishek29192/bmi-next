@@ -1,4 +1,4 @@
-import { handler } from "../../pages/api/graphql";
+import { handler } from "../../../pages/api/graphql";
 
 jest.mock("uuid", () => ({
   v4: () => "uuid"
@@ -7,7 +7,7 @@ jest.mock("http-proxy-middleware", () => ({
   createProxyMiddleware: (req, res, next) => jest.fn()
 }));
 const mockGetSession = jest.fn();
-jest.mock("../../lib/auth0", () => ({
+jest.mock("../../../lib/auth0", () => ({
   getAuth0Instance: () => ({
     getSession: mockGetSession
   })

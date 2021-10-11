@@ -35,7 +35,7 @@ class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Error getting access_token:", error);
+      this.logger.error("Error getting access_token:", error.message);
     }
   };
 
@@ -55,7 +55,7 @@ class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Get user by email:", error);
+      this.logger.error("Get user by email:", error.message);
     }
   };
 
@@ -78,7 +78,7 @@ class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Create user:", error);
+      this.logger.error("Create user:", error.message);
     }
   };
 
@@ -94,7 +94,7 @@ class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Delete user:", error);
+      this.logger.error("Delete user:", error.message);
     }
   };
 
@@ -111,7 +111,7 @@ class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Update user:", error);
+      this.logger.error("Update user:", error.message);
     }
   };
 
@@ -132,7 +132,7 @@ class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Create reset password ticket:", error);
+      this.logger.error("Create reset password ticket:", error.message);
     }
   };
 
@@ -152,7 +152,7 @@ class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Change password:", error);
+      this.logger.error("Change password:", error.message);
     }
   };
 }

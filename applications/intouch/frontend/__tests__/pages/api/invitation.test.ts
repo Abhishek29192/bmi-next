@@ -1,7 +1,7 @@
-import { handler } from "../../pages/api/invitation";
+import { handler } from "../../../pages/api/invitation";
 
 const mockQuery = jest.fn();
-jest.mock("../../lib/apolloClient", () => ({
+jest.mock("../../../lib/apolloClient", () => ({
   initializeApollo: () =>
     Promise.resolve({
       query: mockQuery
@@ -9,7 +9,7 @@ jest.mock("../../lib/apolloClient", () => ({
 }));
 
 const mockGetSession = jest.fn();
-jest.mock("../../lib/auth0", () => ({
+jest.mock("../../../lib/auth0", () => ({
   getAuth0Instance: () => ({
     getSession: mockGetSession
   })
@@ -17,8 +17,8 @@ jest.mock("../../lib/auth0", () => ({
 
 const mockCompleteAccountInvitation = jest.fn();
 const mockCreateDoceboUser = jest.fn();
-jest.mock("../../lib/account", () => {
-  const mockedModule = jest.requireActual("../../lib/account");
+jest.mock("../../../lib/account", () => {
+  const mockedModule = jest.requireActual("../../../lib/account");
 
   return {
     __esModule: true,
