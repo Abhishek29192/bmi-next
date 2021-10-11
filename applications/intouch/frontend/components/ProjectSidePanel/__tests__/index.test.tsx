@@ -1,9 +1,15 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import { ProjectSidePanel } from "..";
+import {
+  render,
+  renderWithUserProvider,
+  screen
+} from "../../../lib/tests/utils";
 import I18nProvider from "../../../lib/tests/fixtures/i18n";
 import AccountContextWrapper from "../../../lib/tests/fixtures/account";
+import ApolloProvider from "../../../lib/tests/fixtures/apollo";
 import { GetProjectsQuery } from "../../../graphql/generated/operations";
+import { generateAccount } from "../../../lib/tests/factories/account";
 
 describe("ProjectSidePanel component", () => {
   it("renders correctly", () => {
@@ -88,5 +94,32 @@ describe("ProjectSidePanel component", () => {
       </I18nProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("should show project side panel footer if user company admin", () => {
+    renderWithUserProvider(
+      <ApolloProvider>
+        <AccountContextWrapper
+          account={generateAccount({ role: "COMPANY_ADMIN", hasCompany: true })}
+        >
+          <ProjectSidePanel projects={[]} />
+        </AccountContextWrapper>
+      </ApolloProvider>
+    );
+    expect(screen.getByTestId("project-side-panel-footer-button")).toBeTruthy();
+  });
+  it("should not show project side panel footer if the user installer", () => {
+    renderWithUserProvider(
+      <ApolloProvider>
+        <AccountContextWrapper
+          account={generateAccount({ role: "INSTALLER", hasCompany: true })}
+        >
+          <ProjectSidePanel projects={[]} />
+        </AccountContextWrapper>
+      </ApolloProvider>
+    );
+    expect(
+      screen.queryByTestId("project-side-panel-footer-button")
+    ).toBeFalsy();
   });
 });
