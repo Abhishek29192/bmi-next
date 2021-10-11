@@ -1,7 +1,7 @@
 import Button from "@bmi/button";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
 import Section from "@bmi/section";
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";

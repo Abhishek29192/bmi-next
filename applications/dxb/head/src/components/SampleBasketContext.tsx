@@ -1,5 +1,5 @@
 import React from "react";
-import { VariantOption } from "./types/ProductBaseTypes";
+import { VariantOption } from "./types/pim";
 //action type
 export enum ACTION_TYPES {
   BASKET_ADD,
