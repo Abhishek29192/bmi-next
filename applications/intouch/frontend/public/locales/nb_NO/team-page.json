@@ -29,6 +29,7 @@
   },
   "user_card": {
     "add_admin": "Tilordne som bedriftsadministrator",
+    "remove": "Fjern fra selskap",
     "remove_admin": "Fjern som bedriftsadministrator",
     "confirm": "Bekrefte",
     "cancel": "Avbryt",

@@ -196,7 +196,7 @@ export const Header = ({
             <a>{t("Profile")}</a>
           </Link>
           <Link href="/api/auth/logout">
-            <a>{t("Logout ")}</a>
+            <a>{t("Logout")}</a>
           </Link>
         </div>
       </div>

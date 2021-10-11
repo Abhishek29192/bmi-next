@@ -13,7 +13,7 @@
   },
   "filter": {
     "labels": {
-      "ALL": "Alle"
+      "all": "Alle"
     }
   },
   "type": {

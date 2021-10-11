@@ -76,13 +76,13 @@ describe("Company Members Page", () => {
       const elements = wrapper.getAllByTestId("list-item");
       let listItem = elements[0];
       expect(listItem).toHaveTextContent("Alex Green");
-      expect(listItem).toHaveTextContent("Company Admin");
+      expect(listItem).toHaveTextContent("roles.COMPANY_ADMIN");
       within(listItem).getByTestId("icon-FLAT");
       within(listItem).getByTestId("icon-PITCHED");
 
       listItem = elements[3];
       expect(listItem).toHaveTextContent("Aron Musk");
-      expect(listItem).toHaveTextContent("Installer");
+      expect(listItem).toHaveTextContent("roles.INSTALLER");
       within(listItem).getByTestId("icon-FLAT");
     });
 
@@ -150,7 +150,7 @@ describe("Company Members Page", () => {
     it("should have a default user", () => {
       const userCard = screen.getByTestId("user-card");
       expect(userCard).toHaveTextContent("Alex Green");
-      expect(userCard).toHaveTextContent("Company Admin");
+      expect(userCard).toHaveTextContent("roles.COMPANY_ADMIN");
     });
 
     it("should show certifications", () => {
@@ -164,7 +164,7 @@ describe("Company Members Page", () => {
 
       const userCard = screen.getByTestId("user-card");
       expect(userCard).toHaveTextContent("Aron Musk");
-      expect(userCard).toHaveTextContent("Installer");
+      expect(userCard).toHaveTextContent("roles.INSTALLER");
 
       const table = screen.getByTestId("certification-table");
       expect(table).toHaveTextContent("Certification name 2");
