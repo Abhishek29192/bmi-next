@@ -88,7 +88,7 @@ describe("CLONE tests", () => {
       });
     });
 
-    describe("When feature value code is NOT populatedm", () => {
+    describe("When feature value code is NOT populated", () => {
       describe("When single classification and single feature is passed with PIM classification namespace", () => {
         it("should return indexed object without namespace and code value", () => {
           const classifications: Array<Classification> = [
