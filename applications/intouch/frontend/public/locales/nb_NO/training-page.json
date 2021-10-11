@@ -20,5 +20,10 @@
     "classroom": "Klasserom",
     "elearning": "Nettkurs",
     "webinar": "Webinar"
+  },
+  "technology": {
+    "PITCHED": "Skråtak",
+    "FLAT": "Flatt tak",
+    "OTHER": "Annet"
   }
 }

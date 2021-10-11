@@ -20,5 +20,10 @@
     "classroom": "Classroom",
     "elearning": "E-Learning",
     "webinar": "Webinar"
+  },
+  "technology": {
+    "PITCHED": "Pitched",
+    "FLAT": "Flat",
+    "OTHER": "Other"
   }
 }
