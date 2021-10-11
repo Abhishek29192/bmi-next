@@ -156,11 +156,8 @@ const OverviewCard = ({
             {subtitle}
           </Typography>
         )}
-        {moreOptionsAvailable && (
-          <Typography variant={subtitleVariant} className={styles["text"]}>
-            {moreOptionsAvailable}
-          </Typography>
-        )}
+<<<<<<< HEAD
+        {}
         <div
           className={classnames(
             styles["children"],
@@ -168,6 +165,9 @@ const OverviewCard = ({
             hasChildrenWithoutMargin && styles["children--without-margin"]
           )}
         >
+=======
+        <div className={classnames(styles["children"], styles["text"], hasChildrenWithoutMargin && styles["children--without-margin"])}>
+>>>>>>> feat(dxb): sample basket section
           {children}
         </div>
         {footer && <div className={styles["footer"]}>{footer}</div>}
