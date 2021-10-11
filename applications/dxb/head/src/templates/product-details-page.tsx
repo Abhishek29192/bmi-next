@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useReducer } from "react";
 import { graphql } from "gatsby";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
-import Button from "@bmi/button";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import ProductOverview, {
@@ -28,13 +27,11 @@ import { renderImage } from "../components/Image";
 import { Product } from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
 import { getBimIframeUrl } from "../components/BimIframe";
-import BasketContext, {
-  ACTION_TYPES,
+import {
   BasketContextProvider,
   basketReducer,
   initialBasketState
 } from "../components/SampleBasketContext";
-import SampleSection from "../components/SampleSectionTest";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -194,13 +191,14 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   )
                 }}
               >
-                {getSampleOrderAllowed() && <SampleOrderSection />}
-                <SampleSection
-                  variant={getVariant(product, pageContext.variantCode)}
-                />
-
-                {pageContext.variantCode}
-
+                {(getSampleOrderAllowed() && (
+                  <SampleOrderSection
+                    variant={getVariant(product, pageContext.variantCode)}
+                  />
+                )) ||
+                  (basketState.products.length && (
+                    <SampleOrderSection onlyDisplayCompleteOrder={true} />
+                  ))}
                 {resources?.pdpShareWidget && (
                   <ShareWidgetSection
                     data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
