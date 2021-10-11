@@ -1889,7 +1889,7 @@ export type GetGuaranteeTemplatesQuery = { readonly __typename?: "Query" } & {
         SchemaTypes.Maybe<
           { readonly __typename?: "GuaranteeTemplate" } & Pick<
             SchemaTypes.GuaranteeTemplate,
-            "displayName" | "languageCode" | "coverage"
+            "displayName" | "languageCode" | "languageDescriptor" | "coverage"
           > & {
               readonly sys: { readonly __typename?: "Sys" } & Pick<
                 SchemaTypes.Sys,

@@ -34,7 +34,7 @@ const Review = () => {
         <InfoPair
           title={t("guarantee_tab.apply_guarantee.review.preferred_language")}
         >
-          {data.guaranteeTemplate.displayName}
+          {data.guaranteeTemplate.languageDescriptor}
         </InfoPair>
         {data.product && (
           <InfoPair
