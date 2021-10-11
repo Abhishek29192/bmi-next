@@ -273,10 +273,17 @@
         }
       }
     },
-    "dialog": {
-      "title": "Garantien din er behandlet",
-      "description": "BMI -garantien vil være tilgjengelig for nedlasting på prosjekter siden etter at den er godkjent.",
-      "confirm_label": "Lukk"
+    "applyGuarantee": {
+      "defaultDialog": {
+        "title": "Garantien din er behandlet",
+        "description": "BMI -garantien vil være tilgjengelig for nedlasting på prosjekter siden etter at den er godkjent.",
+        "confirm_label": "Lukk"
+      },
+      "solutionDialog": {
+        "title": "Garantisøknad startet",
+        "description": "Fullfør søknaden din ved å sende inn bevis på opplastingsfanen.",
+        "confirm_label": "Lukk"
+      }
     }
   },
   "building_owner": {
