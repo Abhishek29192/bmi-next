@@ -109,13 +109,13 @@ Array [
     ],
     "appearanceAttributes.colourfamily": Array [
       Object {
-        "code": "redsymbol",
+        "code": "codesymbol",
         "name": "red symbol",
       },
     ],
     "appearanceAttributes.texturefamily": Array [
       Object {
-        "code": "glossysymbol",
+        "code": "codesymbol",
         "name": "glossy symbol",
       },
     ],
@@ -422,7 +422,7 @@ Array [
     ],
     "classification-feature-code": Array [
       Object {
-        "code": "valuesymbol",
+        "code": "codesymbol",
         "name": "value symbol",
       },
     ],
@@ -594,7 +594,7 @@ Array [
     ],
     "generalInformation.materials": Array [
       Object {
-        "code": "concretesymbol",
+        "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
@@ -629,19 +629,19 @@ Array [
     "measurementValue": undefined,
     "measurements.height": Array [
       Object {
-        "code": "30mm",
+        "code": "codemm",
         "name": "30 mm",
       },
     ],
     "measurements.length": Array [
       Object {
-        "code": "10mm",
+        "code": "codemm",
         "name": "10 mm",
       },
     ],
     "measurements.width": Array [
       Object {
-        "code": "20mm",
+        "code": "codemm",
         "name": "20 mm",
       },
     ],
@@ -1457,13 +1457,13 @@ Array [
     "allCategories": Array [],
     "appearanceAttributes.colourfamily": Array [
       Object {
-        "code": "redsymbol",
+        "code": "codesymbol",
         "name": "red symbol",
       },
     ],
     "appearanceAttributes.texturefamily": Array [
       Object {
-        "code": "glossysymbol",
+        "code": "codesymbol",
         "name": "glossy symbol",
       },
     ],
@@ -1690,7 +1690,7 @@ Array [
     "category.codes": Array [],
     "classification-feature-code": Array [
       Object {
-        "code": "valuesymbol",
+        "code": "codesymbol",
         "name": "value symbol",
       },
     ],
@@ -1862,7 +1862,7 @@ Array [
     ],
     "generalInformation.materials": Array [
       Object {
-        "code": "concretesymbol",
+        "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
@@ -1897,19 +1897,19 @@ Array [
     "measurementValue": undefined,
     "measurements.height": Array [
       Object {
-        "code": "30mm",
+        "code": "codemm",
         "name": "30 mm",
       },
     ],
     "measurements.length": Array [
       Object {
-        "code": "10mm",
+        "code": "codemm",
         "name": "10 mm",
       },
     ],
     "measurements.width": Array [
       Object {
-        "code": "20mm",
+        "code": "codemm",
         "name": "20 mm",
       },
     ],
@@ -2391,13 +2391,13 @@ Array [
     ],
     "appearanceAttributes.colourfamily": Array [
       Object {
-        "code": "redsymbol",
+        "code": "codesymbol",
         "name": "red symbol",
       },
     ],
     "appearanceAttributes.texturefamily": Array [
       Object {
-        "code": "glossysymbol",
+        "code": "codesymbol",
         "name": "glossy symbol",
       },
     ],
@@ -2680,7 +2680,7 @@ Array [
     ],
     "classification-feature-code": Array [
       Object {
-        "code": "valuesymbol",
+        "code": "codesymbol",
         "name": "value symbol",
       },
     ],
@@ -2852,7 +2852,7 @@ Array [
     ],
     "generalInformation.materials": Array [
       Object {
-        "code": "concretesymbol",
+        "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
@@ -2864,19 +2864,19 @@ Array [
     "measurementValue": undefined,
     "measurements.height": Array [
       Object {
-        "code": "30mm",
+        "code": "codemm",
         "name": "30 mm",
       },
     ],
     "measurements.length": Array [
       Object {
-        "code": "10mm",
+        "code": "codemm",
         "name": "10 mm",
       },
     ],
     "measurements.width": Array [
       Object {
-        "code": "20mm",
+        "code": "codemm",
         "name": "20 mm",
       },
     ],
@@ -3051,13 +3051,13 @@ Array [
     ],
     "appearanceAttributes.colourfamily": Array [
       Object {
-        "code": "redsymbol",
+        "code": "codesymbol",
         "name": "red symbol",
       },
     ],
     "appearanceAttributes.texturefamily": Array [
       Object {
-        "code": "glossysymbol",
+        "code": "codesymbol",
         "name": "glossy symbol",
       },
     ],
@@ -3364,7 +3364,7 @@ Array [
     ],
     "classification-feature-code": Array [
       Object {
-        "code": "valuesymbol",
+        "code": "codesymbol",
         "name": "value symbol",
       },
     ],
@@ -3536,7 +3536,7 @@ Array [
     ],
     "generalInformation.materials": Array [
       Object {
-        "code": "concretesymbol",
+        "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
@@ -3571,19 +3571,19 @@ Array [
     "measurementValue": undefined,
     "measurements.height": Array [
       Object {
-        "code": "30mm",
+        "code": "codemm",
         "name": "30 mm",
       },
     ],
     "measurements.length": Array [
       Object {
-        "code": "10mm",
+        "code": "codemm",
         "name": "10 mm",
       },
     ],
     "measurements.width": Array [
       Object {
-        "code": "20mm",
+        "code": "codemm",
         "name": "20 mm",
       },
     ],

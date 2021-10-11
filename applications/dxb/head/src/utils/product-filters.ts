@@ -1,5 +1,10 @@
 /* eslint-disable security/detect-object-injection */
-import { Category, Classification, Feature } from "../components/types/pim";
+import {
+  Category,
+  Classification,
+  Feature,
+  FeatureValue
+} from "../components/types/pim";
 
 type ProductFilterOption = {
   label: string;
@@ -183,10 +188,10 @@ export const generateFeatureFilters = (
     const previousValues: ProductFilterOptionExtended[] =
       prevValue[feature.featureCode]?.options || [];
 
-    const createOptionValueWithUnit = (item) =>
-      `${item.code}${feature?.featureUnit?.symbol || ""}`;
+    const createOptionValueWithUnit = (item: FeatureValue) =>
+      `${item.code || item.value}${feature?.featureUnit?.symbol || ""}`.trim();
 
-    const tryConvertToNumber = (value) =>
+    const tryConvertToNumber = (value: String) =>
       parseInt(`${value}`.replace(/[^0-9]+/gi, ""));
 
     const uniqueValues = feature.featureValues
@@ -199,7 +204,7 @@ export const generateFeatureFilters = (
       .map((item) => {
         const optionLabel = `${item.value} ${
           feature?.featureUnit?.symbol || ""
-        }`;
+        }`.trim();
         const optionValue = createOptionValueWithUnit(item);
         const optionSortValue = tryConvertToNumber(item.value);
         return {

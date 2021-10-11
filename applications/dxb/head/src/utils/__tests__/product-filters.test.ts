@@ -114,6 +114,11 @@ describe("product-filters tests", () => {
   });
 
   describe("generateCategoryFilters tests", () => {
+    describe("When categories and allowed filters are not pased", () => {
+      it("should return empty productFilters", () => {
+        expect(generateCategoryFilters()).toEqual([]);
+      });
+    });
     describe("When categories are empty array", () => {
       it("should return empty productFilters", () => {
         expect(generateCategoryFilters([], ["Category"])).toEqual([]);
@@ -159,6 +164,67 @@ describe("product-filters tests", () => {
                 { label: "category-1", value: "category-1" },
                 { label: "category-2", value: "category-2" }
               ]
+            }
+          ]);
+        });
+        it("should return filters in alphabetical order", () => {
+          expect(
+            generateCategoryFilters(
+              [
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-a",
+                  name: "category-a"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-z",
+                  name: "category-z"
+                })
+              ],
+              ["Category"]
+            )
+          ).toEqual([
+            {
+              name: "plpFilter.Category",
+              label: "",
+              options: [
+                {
+                  label: "category-a",
+                  value: "category-a"
+                },
+                {
+                  label: "category-z",
+                  value: "category-z"
+                }
+              ]
+            }
+          ]);
+        });
+      });
+      describe("and allow filters match catgoryType with Pipe", () => {
+        it("should return valid filters", () => {
+          expect(
+            generateCategoryFilters(
+              [
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-1",
+                  name: "category-1"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "category-2",
+                  name: "category-2"
+                })
+              ],
+              ["Category | category-2"]
+            )
+          ).toEqual([
+            {
+              name: "plpFilter.Category",
+              label: "",
+              options: [{ label: "category-2", value: "category-2" }]
             }
           ]);
         });
@@ -239,6 +305,11 @@ describe("product-filters tests", () => {
   });
 
   describe("generateClassificationFeatureFilters tests", () => {
+    describe("When allowFilters is not passed", () => {
+      it("should return empty productFilters", () => {
+        expect(generateFeatureFilters("")).toEqual([]);
+      });
+    });
     describe("When allowFilters is emtpy array", () => {
       it("should return empty productFilters", () => {
         expect(
@@ -356,6 +427,94 @@ describe("product-filters tests", () => {
                 ["roofAttributes.minimumpitch"]
               );
               expect(result).toEqual([]);
+            });
+          });
+          describe("And feature code but has no feature unit", () => {
+            it("returns matching filters", () => {
+              const result: ProductFilter[] = generateFeatureFilters(
+                "",
+                [
+                  createClassification({
+                    features: [
+                      createFeature({
+                        code: "roofAttributes.minimumpitch",
+                        name: "minimumpitch",
+                        featureValues: [{ code: "8", value: "8" }],
+                        featureUnit: undefined
+                      }),
+                      createFeature({
+                        code: "roofAttributes.minimumpitch",
+                        name: "minimumpitch",
+                        featureValues: [{ code: "9", value: "9" }],
+                        featureUnit: undefined
+                      })
+                    ]
+                  })
+                ],
+                ["roofAttributes.minimumpitch"]
+              );
+              expect(result).toEqual([
+                {
+                  name: "roofAttributes.minimumpitch",
+                  label: "minimumpitch",
+                  options: [
+                    {
+                      label: "8",
+                      value: "8",
+                      sortValue: 8
+                    },
+                    {
+                      label: "9",
+                      value: "9",
+                      sortValue: 9
+                    }
+                  ]
+                }
+              ]);
+            });
+          });
+          describe("And feature has no code and no feature unit", () => {
+            it("returns matching filters", () => {
+              const result: ProductFilter[] = generateFeatureFilters(
+                "",
+                [
+                  createClassification({
+                    features: [
+                      createFeature({
+                        code: "roofAttributes.minimumpitch",
+                        name: "minimumpitch",
+                        featureValues: [{ code: undefined, value: "8" }],
+                        featureUnit: undefined
+                      }),
+                      createFeature({
+                        code: "roofAttributes.minimumpitch",
+                        name: "minimumpitch",
+                        featureValues: [{ code: undefined, value: "9" }],
+                        featureUnit: undefined
+                      })
+                    ]
+                  })
+                ],
+                ["roofAttributes.minimumpitch"]
+              );
+              expect(result).toEqual([
+                {
+                  name: "roofAttributes.minimumpitch",
+                  label: "minimumpitch",
+                  options: [
+                    {
+                      label: "8",
+                      value: "8",
+                      sortValue: 8
+                    },
+                    {
+                      label: "9",
+                      value: "9",
+                      sortValue: 9
+                    }
+                  ]
+                }
+              ]);
             });
           });
         });

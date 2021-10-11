@@ -88,147 +88,309 @@ describe("CLONE tests", () => {
       });
     });
 
-    describe("When single classification and single feature is passed with PIM classification namespace", () => {
-      it("should return indexed object without namespace", () => {
-        const classifications: Array<Classification> = [
-          createClassification({
-            features: [
-              createFeature({ code: "pim-namespace/1.0/feature-code-1" })
+    describe("When feature value code is NOT populated", () => {
+      describe("When single classification and single feature is passed with PIM classification namespace", () => {
+        it("should return indexed object without namespace and code value", () => {
+          const classifications: Array<Classification> = [
+            createClassification({
+              features: [
+                createFeature({
+                  code: "pim-namespace/1.0/feature-code-1",
+                  featureValues: [createFeatureValue({ code: undefined })]
+                })
+              ]
+            })
+          ];
+          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            "pim-namespace/1.0",
+            classifications
+          );
+          expect(result).toEqual({
+            "feature-code-1": [
+              {
+                code: "valuesymbol",
+                name: "value symbol"
+              }
             ]
-          })
-        ];
-        const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
-          "pim-namespace/1.0",
-          classifications
-        );
-        expect(result).toEqual({
-          "feature-code-1": [
-            {
-              code: "valuesymbol",
-              name: "value symbol"
-            }
-          ]
+          });
+        });
+      });
+
+      describe("When single classification and single feature is passed", () => {
+        it("should return indexed object with feature value", () => {
+          const classifications: Array<Classification> = [
+            createClassification({
+              features: [
+                createFeature({
+                  featureValues: [createFeatureValue({ code: undefined })]
+                })
+              ]
+            })
+          ];
+          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            "",
+            classifications
+          );
+          expect(result).toEqual({
+            "classification-feature-code": [
+              {
+                code: "valuesymbol",
+                name: "value symbol"
+              }
+            ]
+          });
+        });
+      });
+
+      describe("When single classification, single feature with multiple feature values are passed", () => {
+        it("should return indexed object with feature value", () => {
+          const classifications: Array<Classification> = [
+            createClassification({
+              features: [
+                createFeature({
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "value-1" }),
+                    createFeatureValue({ code: undefined, value: "value-2" }),
+                    createFeatureValue({ code: undefined, value: "value-3" })
+                  ]
+                })
+              ]
+            })
+          ];
+          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            "",
+            classifications
+          );
+          expect(result).toEqual({
+            "classification-feature-code": [
+              {
+                code: "value-1symbol",
+                name: "value-1 symbol"
+              },
+              {
+                code: "value-2symbol",
+                name: "value-2 symbol"
+              },
+              {
+                code: "value-3symbol",
+                name: "value-3 symbol"
+              }
+            ]
+          });
+        });
+      });
+
+      describe("When multiple classification with multiple features and multiple feature values are passed", () => {
+        it("should return multiple features indexed object with feature values", () => {
+          const classifications: Array<Classification> = [
+            createClassification({
+              features: [
+                createFeature({
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "value-1" }),
+                    createFeatureValue({ code: undefined, value: "value-2" }),
+                    createFeatureValue({ code: undefined, value: "value-3" })
+                  ]
+                })
+              ]
+            }),
+            createClassification({
+              code: "classification-2",
+              features: [
+                createFeature({
+                  code: "classification-feature-code-2",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "value-4" }),
+                    createFeatureValue({ code: undefined, value: "value-5" }),
+                    createFeatureValue({ code: undefined, value: "value-6" })
+                  ]
+                })
+              ]
+            })
+          ];
+          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            "",
+            classifications
+          );
+          expect(result).toEqual({
+            "classification-feature-code": [
+              {
+                code: "value-1symbol",
+                name: "value-1 symbol"
+              },
+              {
+                code: "value-2symbol",
+                name: "value-2 symbol"
+              },
+              {
+                code: "value-3symbol",
+                name: "value-3 symbol"
+              }
+            ],
+            "classification-feature-code-2": [
+              {
+                code: "value-4symbol",
+                name: "value-4 symbol"
+              },
+              {
+                code: "value-5symbol",
+                name: "value-5 symbol"
+              },
+              {
+                code: "value-6symbol",
+                name: "value-6 symbol"
+              }
+            ]
+          });
         });
       });
     });
 
-    describe("When single classification and single feature is passed", () => {
-      it("should return indexed object with feature code", () => {
-        const classifications: Array<Classification> = [createClassification()];
-        const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
-          "",
-          classifications
-        );
-        expect(result).toEqual({
-          "classification-feature-code": [
-            {
-              code: "valuesymbol",
-              name: "value symbol"
-            }
-          ]
+    describe("When feature value code is populated", () => {
+      describe("When single classification and single feature is passed with PIM classification namespace", () => {
+        it("should return indexed object without namespace", () => {
+          const classifications: Array<Classification> = [
+            createClassification({
+              features: [
+                createFeature({ code: "pim-namespace/1.0/feature-code-1" })
+              ]
+            })
+          ];
+          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            "pim-namespace/1.0",
+            classifications
+          );
+          expect(result).toEqual({
+            "feature-code-1": [
+              {
+                code: "codesymbol",
+                name: "value symbol"
+              }
+            ]
+          });
         });
       });
-    });
 
-    describe("When single classification, single feature with multiple feature values are passed", () => {
-      it("should return indexed object with feature code", () => {
-        const classifications: Array<Classification> = [
-          createClassification({
-            features: [
-              createFeature({
-                featureValues: [
-                  createFeatureValue({ code: "value-code1", value: "value-1" }),
-                  createFeatureValue({ code: "value-code2", value: "value-2" }),
-                  createFeatureValue({ code: "value-code3", value: "value-3" })
-                ]
-              })
+      describe("When single classification and single feature is passed", () => {
+        it("should return indexed object with feature code", () => {
+          const classifications: Array<Classification> = [
+            createClassification()
+          ];
+          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            "",
+            classifications
+          );
+          expect(result).toEqual({
+            "classification-feature-code": [
+              {
+                code: "codesymbol",
+                name: "value symbol"
+              }
             ]
-          })
-        ];
-        const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
-          "",
-          classifications
-        );
-        expect(result).toEqual({
-          "classification-feature-code": [
-            {
-              code: "value-1symbol",
-              name: "value-1 symbol"
-            },
-            {
-              code: "value-2symbol",
-              name: "value-2 symbol"
-            },
-            {
-              code: "value-3symbol",
-              name: "value-3 symbol"
-            }
-          ]
+          });
         });
       });
-    });
 
-    describe("When multiple classification with multiple features and multiple feature values are passed", () => {
-      it("should return multiple features indexed object with feature values", () => {
-        const classifications: Array<Classification> = [
-          createClassification({
-            features: [
-              createFeature({
-                featureValues: [
-                  createFeatureValue({ code: "value-code1", value: "value-1" }),
-                  createFeatureValue({ code: "value-code2", value: "value-2" }),
-                  createFeatureValue({ code: "value-code3", value: "value-3" })
-                ]
-              })
+      describe("When single classification, single feature with multiple feature values are passed", () => {
+        it("should return indexed object with feature code", () => {
+          const classifications: Array<Classification> = [
+            createClassification({
+              features: [
+                createFeature({
+                  featureValues: [
+                    createFeatureValue({ code: "code1", value: "value-1" }),
+                    createFeatureValue({ code: "code2", value: "value-2" }),
+                    createFeatureValue({ code: "code3", value: "value-3" })
+                  ]
+                })
+              ]
+            })
+          ];
+          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            "",
+            classifications
+          );
+          expect(result).toEqual({
+            "classification-feature-code": [
+              {
+                code: "code1symbol",
+                name: "value-1 symbol"
+              },
+              {
+                code: "code2symbol",
+                name: "value-2 symbol"
+              },
+              {
+                code: "code3symbol",
+                name: "value-3 symbol"
+              }
             ]
-          }),
-          createClassification({
-            code: "classification-2",
-            features: [
-              createFeature({
-                code: "classification-feature-code-2",
-                featureValues: [
-                  createFeatureValue({ code: "value-code4", value: "value-4" }),
-                  createFeatureValue({ code: "value-code5", value: "value-5" }),
-                  createFeatureValue({ code: "value-code6", value: "value-6" })
-                ]
-              })
+          });
+        });
+      });
+
+      describe("When multiple classification with multiple features and multiple feature values are passed", () => {
+        it("should return multiple features indexed object with feature codes", () => {
+          const classifications: Array<Classification> = [
+            createClassification({
+              features: [
+                createFeature({
+                  featureValues: [
+                    createFeatureValue({ code: "code1", value: "value-1" }),
+                    createFeatureValue({ code: "code2", value: "value-2" }),
+                    createFeatureValue({ code: "code3", value: "value-3" })
+                  ]
+                })
+              ]
+            }),
+            createClassification({
+              code: "classification-2",
+              features: [
+                createFeature({
+                  code: "classification-feature-code-2",
+                  featureValues: [
+                    createFeatureValue({ code: "code4", value: "value-4" }),
+                    createFeatureValue({ code: "code5", value: "value-5" }),
+                    createFeatureValue({ code: "code6", value: "value-6" })
+                  ]
+                })
+              ]
+            })
+          ];
+          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            "",
+            classifications
+          );
+          expect(result).toEqual({
+            "classification-feature-code": [
+              {
+                code: "code1symbol",
+                name: "value-1 symbol"
+              },
+              {
+                code: "code2symbol",
+                name: "value-2 symbol"
+              },
+              {
+                code: "code3symbol",
+                name: "value-3 symbol"
+              }
+            ],
+            "classification-feature-code-2": [
+              {
+                code: "code4symbol",
+                name: "value-4 symbol"
+              },
+              {
+                code: "code5symbol",
+                name: "value-5 symbol"
+              },
+              {
+                code: "code6symbol",
+                name: "value-6 symbol"
+              }
             ]
-          })
-        ];
-        const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
-          "",
-          classifications
-        );
-        expect(result).toEqual({
-          "classification-feature-code": [
-            {
-              code: "value-1symbol",
-              name: "value-1 symbol"
-            },
-            {
-              code: "value-2symbol",
-              name: "value-2 symbol"
-            },
-            {
-              code: "value-3symbol",
-              name: "value-3 symbol"
-            }
-          ],
-          "classification-feature-code-2": [
-            {
-              code: "value-4symbol",
-              name: "value-4 symbol"
-            },
-            {
-              code: "value-5symbol",
-              name: "value-5 symbol"
-            },
-            {
-              code: "value-6symbol",
-              name: "value-6 symbol"
-            }
-          ]
+          });
         });
       });
     });

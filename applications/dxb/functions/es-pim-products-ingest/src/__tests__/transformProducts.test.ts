@@ -184,66 +184,141 @@ describe("transformProduct", () => {
       ]);
     });
 
-    it("should transform single feature values from a variant classification", () => {
-      const product = createPimProduct({
-        variantOptions: [
-          createVariantOption({
-            classifications: [
-              createMeasurementsClassification({
-                features: [
-                  createFeature({
-                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.width`,
-                    featureValues: [createFeatureValue({ value: "100" })]
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      });
-      const transformedProduct = transformProduct(product);
-      const featureNameAsProp = getDynamicPropValue(
-        transformedProduct[0],
-        "measurements.width"
-      );
+    describe("when feature values do not have 'code'", () => {
+      it("uses value to generate transformed code for single feature value from a variant classification", () => {
+        const product = createPimProduct({
+          variantOptions: [
+            createVariantOption({
+              classifications: [
+                createMeasurementsClassification({
+                  features: [
+                    createFeature({
+                      code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.width`,
+                      featureValues: [
+                        createFeatureValue({ code: undefined, value: "100" })
+                      ]
+                    })
+                  ]
+                })
+              ]
+            })
+          ]
+        });
+        const transformedProduct = transformProduct(product);
+        const featureNameAsProp = getDynamicPropValue(
+          transformedProduct[0],
+          "measurements.width"
+        );
 
-      expect(featureNameAsProp).toEqual([
-        { code: "100symbol", name: "100 symbol" }
-      ]);
+        expect(featureNameAsProp).toEqual([
+          { code: "100symbol", name: "100 symbol" }
+        ]);
+      });
+
+      it("uses value to generate transformed code for multiple feature values from a variant classification", () => {
+        const product = createPimProduct({
+          variantOptions: [
+            createVariantOption({
+              classifications: [
+                createMeasurementsClassification({
+                  features: [
+                    createFeature({
+                      code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
+                      featureValues: [
+                        createFeatureValue({ code: undefined, value: "100" }),
+                        createFeatureValue({ code: undefined, value: "200" })
+                      ]
+                    })
+                  ]
+                })
+              ]
+            })
+          ]
+        });
+        const transformedProduct = transformProduct(product);
+        const featureNameAsProp = getDynamicPropValue(
+          transformedProduct[0],
+          "measurements.height"
+        );
+
+        expect(featureNameAsProp).toEqual([
+          { code: "100symbol", name: "100 symbol" },
+          { code: "200symbol", name: "200 symbol" }
+        ]);
+      });
     });
 
-    it("should transform multiple feature values from a variant classification", () => {
-      const product = createPimProduct({
-        variantOptions: [
-          createVariantOption({
-            classifications: [
-              createMeasurementsClassification({
-                features: [
-                  createFeature({
-                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
-                    featureValues: [
-                      createFeatureValue({ value: "100" }),
-                      createFeatureValue({ value: "200" })
-                    ]
-                  })
-                ]
-              })
-            ]
-          })
-        ]
+    describe("when feature values has 'code'", () => {
+      it("uses feature code to generate transformed code for single feature value from a variant classification", () => {
+        const product = createPimProduct({
+          variantOptions: [
+            createVariantOption({
+              classifications: [
+                createMeasurementsClassification({
+                  features: [
+                    createFeature({
+                      code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.colorFamily`,
+                      featureValues: [
+                        createFeatureValue({
+                          code: "COLOUR_GREEN",
+                          value: "green"
+                        })
+                      ],
+                      featureUnit: undefined
+                    })
+                  ]
+                })
+              ]
+            })
+          ]
+        });
+        const transformedProduct = transformProduct(product);
+        const featureNameAsProp = getDynamicPropValue(
+          transformedProduct[0],
+          "appearanceAttributes.colorFamily"
+        );
+
+        expect(featureNameAsProp).toEqual([
+          { code: "COLOUR_GREEN", name: "green" }
+        ]);
       });
-      const transformedProduct = transformProduct(product);
-      const featureNameAsProp = getDynamicPropValue(
-        transformedProduct[0],
-        "measurements.height"
-      );
 
-      expect(featureNameAsProp).toEqual([
-        { code: "100symbol", name: "100 symbol" },
-        { code: "200symbol", name: "200 symbol" }
-      ]);
+      it("uses feature code to generate transformed code for multiple feature values from a variant classification", () => {
+        const product = createPimProduct({
+          variantOptions: [
+            createVariantOption({
+              classifications: [
+                createMeasurementsClassification({
+                  features: [
+                    createFeature({
+                      code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.colorFamily`,
+                      featureValues: [
+                        createFeatureValue({
+                          code: "COLOUR_GREEN",
+                          value: "green"
+                        }),
+                        createFeatureValue({ code: "COLOUR_RED", value: "red" })
+                      ],
+                      featureUnit: undefined
+                    })
+                  ]
+                })
+              ]
+            })
+          ]
+        });
+        const transformedProduct = transformProduct(product);
+        const featureNameAsProp = getDynamicPropValue(
+          transformedProduct[0],
+          "appearanceAttributes.colorFamily"
+        );
+
+        expect(featureNameAsProp).toEqual([
+          { code: "COLOUR_GREEN", name: "green" },
+          { code: "COLOUR_RED", name: "red" }
+        ]);
+      });
     });
-
     it("should transform nothing into measurementValue if not width, length or height", () => {
       const product = createPimProduct({
         variantOptions: [
@@ -429,7 +504,9 @@ describe("transformProduct", () => {
                 features: [
                   createFeature({
                     code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.colourfamily`,
-                    featureValues: [createFeatureValue({ value: "green" })]
+                    featureValues: [
+                      createFeatureValue({ code: "GREEN", value: "green" })
+                    ]
                   }),
                   createFeature({
                     code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.texturefamily`,
