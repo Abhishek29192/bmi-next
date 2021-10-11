@@ -1,13 +1,14 @@
 import React from "react";
-
-import { ShoppingCart } from "@material-ui/icons";
 import { graphql } from "gatsby";
-import Section from "@bmi/section";
+
 import Button from "@bmi/button";
-import styles from "./styles/SampleBasketSection.module.scss";
+import Section from "@bmi/section";
+import { ShoppingCart } from "@material-ui/icons";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
+
+import styles from "./styles/SampleBasketSection.module.scss";
 
 export type Data = {
   __typename: "SampleBasketSection";
