@@ -498,8 +498,7 @@
     </script>
 
     <script>
-      let locale = "en";
-      let messages = {
+      const messages = {
         en: {
           intouch_title: "InTouch - Login/Registration",
           signup_welcome: "Welcome",
@@ -535,46 +534,51 @@
           privacy_policy: "Privacy Policy",
           terms_missing: "Please accept terms & condition"
         },
-        it: {
-          intouch_title: "In Touch - Login/Registrazione",
-          signup_welcome: "Benvenuto",
-          intouch_role: "Seleziona il tuo tipo di registrazione",
-          installer: "Installatore",
-          company: "Azienda",
-          first_name: "Nome",
-          last_name: "Cognome",
-          enter_email: "Inserisci E-Mail",
-          enter_password: "Inserisci password",
-          sign_up: "Registrati",
-          already_registered: "Già registrato",
-          login_welcome: "Benvenuto",
-          log_in: "Login",
-          forgot_password: "Hai dimenticato la password?",
-          not_registered: "Non sei registrato?",
-          new_password: "Richiedi nuova password",
+        no: {
+          intouch_title: "InTouch - Logg inn/Registrering",
+          signup_welcome: "Velkommen",
+          intouch_role: "Velg din registreringstype",
+          installer: "Individuelt medlem",
+          company: "Bedrift",
+          first_name: "Fornavn",
+          last_name: "Etternavn",
+          enter_email: "Skriv inn e -post",
+          enter_password: "Passord",
+          sign_up: "Registrere",
+          already_registered: "Allerede registrert",
+          login_welcome: "Velkommen",
+          log_in: "Logg inn",
+          forgot_password: "Glemt passord?",
+          not_registered: "Ikke registrert?",
+          new_password: "Nytt passord",
           new_password_text:
-            "Inserisci il tuo indirizzo email e ti invieremo un link per la reimpostazione della password",
-          reset_password: "Reset password",
-          back_to_login: "Torna all'accesso",
-          reset_password_success: "Controlla la tua mail",
-          email_missing: "Inserisci la mail",
+            "Skriv inn e -postadressen din, så sender vi deg en lenke for tilbakestilling av passord",
+          reset_password: "Tilbakestille passord",
+          back_to_login: "Tilbake til innlogging",
+          reset_password_success: "Sjekk innboksen din",
+          email_missing: "Sett inn e -posten din",
           generic_error:
-            "Please check your credential, if the problem persists contact use",
-          name_surname_missing: "Nome e Cognome mancanti",
-          email_password_missing: "Email e password mancanti",
+            "Kontroller legitimasjonen din, kontakt oss hvis problemet vedvarer",
+          name_surname_missing: "For- og etternavn mangler",
+          email_password_missing: "E -post og passord mangler",
           registration_tooltip:
-            "Seleziona Account azienda solo se sei sicuro che la tua azienda non sia già registrata in InTouch. Gli account individuali avranno accesso alla formazione e possono diventare membri di aziende registrate.",
-          i_agree_to: "I agree to BMI's",
-          terms_and_conditions: "Terms & Conditions",
-          and: "and",
-          privacy_policy: "Privacy Policy",
-          terms_missing: "Please accept terms & condition"
+            'Velg kun firmakonto hvis du er sikker på at firmaet ditt ikke allerede er registrert InTouch. Individuelle kontoer får tilgang til opplæring og kan "bli" medlemmer av registrerte selskaper.',
+          i_agree_to: "Jeg er enig i BMI",
+          terms_and_conditions: "Betingelser og vilkår",
+          and: "og",
+          privacy_policy: "Personvernerklæring",
+          terms_missing: "Godta vilkår og betingelser"
         }
       };
 
       // finally, pass them to AlpineI18n:
       document.addEventListener("alpine-i18n:ready", function () {
-        window.AlpineI18n.create(locale, messages);
+        const hash = location.hash.substr(1);
+        const config = JSON.parse(
+          decodeURIComponent(escape(window.atob(hash || "@@config@@")))
+        );
+
+        window.AlpineI18n.create(config.extraParams.market, messages);
       });
 
       window.addEventListener("load", function () {
