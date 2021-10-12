@@ -20,10 +20,8 @@ exports[`LeadBlockSection tests When classifications are provided should render 
             <div
               class="LeadBlockContentSection"
             >
-              <img
+              <svg
                 class="brandLogo"
-                src="dummy"
-                style="object-fit: cover; object-position: center;"
               />
             </div>
             <div
@@ -105,10 +103,8 @@ exports[`LeadBlockSection tests When classifications are provided should render 
             <div
               class="LeadBlockContentSection"
             >
-              <img
+              <svg
                 class="brandLogo"
-                src="dummy"
-                style="object-fit: cover; object-position: center;"
               />
             </div>
             <div
@@ -181,10 +177,8 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
             <div
               class="LeadBlockContentSection"
             >
-              <img
+              <svg
                 class="brandLogo"
-                src="dummy"
-                style="object-fit: cover; object-position: center;"
               />
             </div>
             <div
@@ -422,10 +416,8 @@ exports[`LeadBlockSection tests should render with categories 1`] = `
             <div
               class="LeadBlockContentSection"
             >
-              <img
+              <svg
                 class="brandLogo"
-                src="dummy"
-                style="object-fit: cover; object-position: center;"
               />
             </div>
             <div

@@ -9,6 +9,7 @@ import LeadBlockSection from "../leadBlockSection";
 import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
 import "@testing-library/jest-dom";
 import { Category, Classification } from "../../../components/types/pim";
+import { iconMap } from "../../../components/Icon";
 
 const leadBlockSectionName = "lead Block section";
 const leadBlockCategories: Category[] = [
@@ -73,6 +74,7 @@ describe("LeadBlockSection tests", () => {
           categories={[]}
           classifications={[]}
           cta={linkData}
+          brandLogo={iconMap.Icopal}
         />
       </LocationProvider>
     );
@@ -92,6 +94,7 @@ describe("LeadBlockSection tests", () => {
           categories={leadBlockCategories}
           classifications={[]}
           cta={linkData}
+          brandLogo={iconMap.Icopal}
         />
       </LocationProvider>
     );
@@ -103,7 +106,6 @@ describe("LeadBlockSection tests", () => {
     expect(setionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
     expect(brandLogo).toBeTruthy();
-    expect(brandLogo).toHaveAttribute("src", leadBlockCategories[0].image.url);
   });
 
   it("should render with uniqueSellingPropositions", () => {
@@ -115,6 +117,7 @@ describe("LeadBlockSection tests", () => {
           classifications={[]}
           cta={linkData}
           uniqueSellingPropositions={leadBlockClassifications[0].features[0]}
+          brandLogo={iconMap.Icopal}
         />
       </LocationProvider>
     );
@@ -140,6 +143,7 @@ describe("LeadBlockSection tests", () => {
           categories={[]}
           classifications={[]}
           cta={linkData}
+          brandLogo={iconMap.Icopal}
         />
       </LocationProvider>
     );
@@ -162,6 +166,7 @@ describe("LeadBlockSection tests", () => {
             categories={leadBlockCategories}
             classifications={leadBlockClassifications}
             cta={linkData}
+            brandLogo={iconMap.Icopal}
           />
         </LocationProvider>
       );
@@ -181,6 +186,7 @@ describe("LeadBlockSection tests", () => {
             categories={leadBlockCategories}
             classifications={leadBlockClassificationsNoFeatures}
             cta={linkData}
+            brandLogo={iconMap.Icopal}
           />
         </LocationProvider>
       );
@@ -219,6 +225,7 @@ describe("LeadBlockSection tests", () => {
             ]}
             classifications={[]}
             cta={linkData}
+            brandLogo={iconMap.Icopal}
           />
         </LocationProvider>
       );

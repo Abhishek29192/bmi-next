@@ -1,6 +1,8 @@
 @import "@bmi/styles";
 
 .LeadBlockSection {
+  padding-top: 0px;
+
   .ctaContainer {
     display: flex;
     align-items: flex-start;
@@ -21,20 +23,24 @@
 
   .quotationBtn {
     margin-left: 0;
+
     @media (min-width: $breakpoint-lg) {
       margin-left: 20px;
     }
   }
 
   .brandLogo {
-    max-width: 85px;
+    fill: $color-white;
+    max-height: 50px;
+    width: auto;
   }
 
   .iconList {
-    > [class*="IconList"] {
+    >[class*="IconList"] {
       &:first-child {
         margin-top: 0;
       }
+
       &:last-child {
         margin-bottom: 0;
       }
