@@ -31,6 +31,7 @@ type Props = {
   classifications: readonly Classification[];
   cta?: LinkData;
   uniqueSellingPropositions?: Feature;
+  brandLogo?: SVGImport;
 };
 
 const getBrandLogo = (categories: readonly Category[]): null | ImageData => {
@@ -76,7 +77,8 @@ const LeadBlockSection = ({
   categories,
   classifications,
   cta,
-  uniqueSellingPropositions
+  uniqueSellingPropositions,
+  brandLogo: BrandLogo
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const [selectedSystemId, setSelectedSystemId] = useState("");
@@ -109,7 +111,7 @@ const LeadBlockSection = ({
         <LeadBlock.Content>
           {brandLogo && (
             <LeadBlock.Content.Section>
-              <Image data={brandLogo} className={styles["brandLogo"]} />
+              <BrandLogo className={styles["brandLogo"]} />
             </LeadBlock.Content.Section>
           )}
 

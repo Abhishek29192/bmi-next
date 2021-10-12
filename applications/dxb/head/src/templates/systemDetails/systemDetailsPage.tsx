@@ -24,6 +24,7 @@ import {
   SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
+import { iconMap } from "../../components/Icon";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
 import { DocumentData } from "./types";
@@ -247,6 +248,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         classifications={classifications}
         cta={resources?.sdpLeadBlockCta}
         uniqueSellingPropositions={uniqueSellingPropositions}
+        brandLogo={iconMap[brandName]}
       />
       <Section
         backgroundColor="pearl"
