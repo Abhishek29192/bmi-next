@@ -31,7 +31,7 @@ import {
   BasketContextProvider,
   basketReducer,
   initialBasketState
-} from "../components/SampleBasketContext";
+} from "../contexts/SampleBasketContext";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -197,7 +197,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     variant={getVariant(product, pageContext.variantCode)}
                   />
                 )) ||
-                  (basketState.products.length && (
+                  (basketState.products.length > 0 && (
                     <SampleOrderSection onlyDisplayCompleteOrder={true} />
                   ))}
                 {resources?.pdpShareWidget && (

@@ -10,13 +10,21 @@
     justify-items: start;
     justify-content: space-between;
     flex-direction: row;
-    flex-wrap: wrap;
-    @media (max-width: $breakpoint-lg) {
+    flex: 1;
+    flex-flow: row wrap;
+    & button {
+      white-space: nowrap;
+    }
+    & button:nth-child(2) {
+      margin-left: 16px;
+    }
+    @media (max-width: 1300px) {
       flex-direction: column;
       & > button {
         margin-top: 18px;
       }
       & button:last-child {
+        margin-left: 0;
         margin-bottom: 24px;
       }
     }

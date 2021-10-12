@@ -3,10 +3,10 @@ import { Add, Remove, ShoppingCart } from "@material-ui/icons";
 import Section from "@bmi/section";
 import React, { useEffect } from "react";
 import { useContext } from "react";
+import BasketContext, { ACTION_TYPES } from "../contexts/SampleBasketContext";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
 
-import BasketContext, { ACTION_TYPES } from "./SampleBasketContext";
 import { VariantOption } from "./types/pim";
 
 const SampleOrderSection = ({
@@ -67,7 +67,7 @@ const SampleOrderSection = ({
             </Button>
           )
         ) : undefined}
-        {basketState.products.length && (
+        {basketState.products.length > 0 && (
           <Button endIcon={<ShoppingCart />} variant="outlined">
             {getMicroCopy("pdp.overview.completeSampleOrder")}
           </Button>
