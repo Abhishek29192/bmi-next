@@ -1,10 +1,12 @@
 {
   "contentTypes": {
-    "FOLDER": "Folder",
-    "IMAGE": "Image",
+    "FOLDER": "Mappe",
+    "IMAGE": "Bilde",
     "VIDEO": "Video",
-    "EXTERNAL_LINK": "External Link",
+    "EXTERNAL_LINK": "Ekstern lenke",
     "PDF": "PDF",
     "FALLBACK": "Media"
-  }
+  },
+  "countIndicator": "Viser {{amount}} av {{total}} varer",
+  "noItems": "Ingenting her"
 }
