@@ -146,16 +146,8 @@ const Homepage = ({
       {canSeePartnerBrandsCarousel && partnerBrands.length > 0 ? (
         <>
           <Section backgroundColor="white" isSlim>
-            <Section.Title>BMI Partner Brands</Section.Title>
-            <Typography>
-              BMI is pleased to offer RoofPro members special discounts and
-              promotions available from our Partner Brands, including DJI, FLIR,
-              Expensify, Enterprise and SIXT. These organizations provide
-              members with access to complementary products and services on
-              preferential terms, including drones, thermal imaging cameras,
-              expenses management solutions, vehicle rental and mobility
-              solutions.
-            </Typography>
+            <Section.Title>{t("partnerBrands.title")}</Section.Title>
+            <Typography>{t("partnerBrands.description")}</Typography>
           </Section>
           <Section backgroundColor="alabaster" isSlim>
             <Carousel
