@@ -12,8 +12,7 @@ steps:
         "--region",
         "europe-west2",
         "--platform",
-        "managed",
-        "--allow-unauthenticated"
+        "managed"
       ]
 
   # promote to latest

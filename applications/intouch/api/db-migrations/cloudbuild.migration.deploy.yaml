@@ -12,7 +12,6 @@ steps:
         "europe-west2",
         "--platform",
         "managed",
-        "--allow-unauthenticated",
         "--add-cloudsql-instances=automated-style-303709:europe-west2:intouch-db",
         "--set-env-vars=PG_SSL=true",
         "--set-env-vars=PG_REJECT_UNAUTHORIZED=false",
