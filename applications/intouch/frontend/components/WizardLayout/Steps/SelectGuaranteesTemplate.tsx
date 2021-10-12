@@ -63,8 +63,8 @@ const SelectGuaranteesTemplate = () => {
           value={selectedTemplate || ""}
         >
           {guaranteeTemplates.map((template) => (
-            <MenuItem value={template.sys.id} key={template.displayName}>
-              {template.displayName}
+            <MenuItem value={template.sys.id} key={template.sys.id}>
+              {template.languageDescriptor}
             </MenuItem>
           ))}
         </Select>
@@ -94,6 +94,7 @@ export const GET_GUARANTEE_TEMPLATES = gql`
         }
         displayName
         languageCode
+        languageDescriptor
         coverage
       }
     }

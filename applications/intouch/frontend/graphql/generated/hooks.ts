@@ -1931,6 +1931,7 @@ export const GetGuaranteeTemplatesDocument = gql`
         }
         displayName
         languageCode
+        languageDescriptor
         coverage
       }
     }
