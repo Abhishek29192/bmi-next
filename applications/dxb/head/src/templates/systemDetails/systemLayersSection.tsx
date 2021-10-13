@@ -22,11 +22,13 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
     <Accordion>
       {systemLayers &&
         systemLayers
+          .filter((layer) => layer.approvalStatus === "approved")
           .sort((a, b) => a.layerNumber - b.layerNumber)
           .map((layer, index) => {
             const relatedProduct = layer.relatedProducts?.[0];
             const productLinkAction =
               relatedProduct && createLinkAction(relatedProduct, countryCode);
+
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
                 <Accordion.Summary>
