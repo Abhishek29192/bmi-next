@@ -274,10 +274,17 @@
         }
       }
     },
-    "dialog": {
-      "title": "Your guarantee has been processed",
-      "description": "A certificate for your guarantee will be available to view on the Projects page.",
-      "confirm_label": "Close"
+    "applyGuarantee": {
+      "defaultDialog": {
+        "title": "Your guarantee has been processed",
+        "description": "A certificate for your guarantee will be available to view on the Projects page.",
+        "confirm_label": "Close"
+      },
+      "solutionDialog": {
+        "title": "Guarantee application started",
+        "description": "Complete your application by submitting evidence on the uploads tab.",
+        "confirm_label": "Close"
+      }
     }
   },
   "building_owner": {

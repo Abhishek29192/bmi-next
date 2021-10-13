@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useTranslation } from "next-i18next";
 import Dialog from "@material-ui/core/Dialog";
+import Modal from "@bmi/dialog";
 import { gql } from "@apollo/client";
 import {
   GuaranteeCoverage,
@@ -22,27 +24,31 @@ type ApplyGuaranteeDialogProps = {
   isOpen: boolean;
   project: GetProjectQuery["project"];
   onCloseClick: () => void;
-  onCompletedClick?: () => void;
 };
 export const ApplyGuaranteeDialog = ({
   isOpen,
   project,
-  onCloseClick,
-  onCompletedClick
+  onCloseClick
 }: ApplyGuaranteeDialogProps) => {
   const [createGuaranteMutation] = useCreateGuaranteeMutation({
     onCompleted: ({ createGuarantee }) => {
-      if (createGuarantee.guarantee.status === "APPROVED") {
+      const { guarantee } = createGuarantee;
+      if (guarantee.status === "APPROVED") {
         createGuaranteePdfMutation({
           variables: {
-            id: createGuarantee.guarantee.id
+            id: guarantee.id
           }
         });
       }
 
-      onCompletedClick && onCompletedClick();
+      onCloseClick();
+      setGuaranteeCoverage(guarantee.coverage);
+      setModalOpen(true);
     }
   });
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [guaranteeCoverage, setGuaranteeCoverage] =
+    useState<GuaranteeCoverage>();
 
   const [createGuaranteePdfMutation] = useCreateGuaranteePdfMutation();
 
@@ -98,7 +104,38 @@ export const ApplyGuaranteeDialog = ({
           onSubmit={onSubmitHandler}
         />
       </Dialog>
+      <GuaranteeMessage
+        isModalOpen={isModalOpen}
+        coverage={guaranteeCoverage}
+        onCloseClick={() => setModalOpen(false)}
+      />
     </div>
+  );
+};
+
+type GuaranteeMessageProps = {
+  isModalOpen: boolean;
+  coverage: GuaranteeCoverage;
+  onCloseClick: () => void;
+};
+const GuaranteeMessage = ({
+  isModalOpen,
+  coverage,
+  onCloseClick
+}: GuaranteeMessageProps) => {
+  const { t } = useTranslation("project-page");
+  const dialog = `guarantee_tab.applyGuarantee.${
+    coverage !== "SOLUTION" ? "defaultDialog" : "solutionDialog"
+  }`;
+  return (
+    <Modal open={isModalOpen} onCloseClick={onCloseClick}>
+      <Modal.Title hasUnderline>{t(`${dialog}.title`)}</Modal.Title>
+      <Modal.Content>{t(`${dialog}.description`)}</Modal.Content>
+      <Modal.Actions
+        confirmLabel={t(`${dialog}.confirm_label`)}
+        onConfirmClick={onCloseClick}
+      />
+    </Modal>
   );
 };
 
