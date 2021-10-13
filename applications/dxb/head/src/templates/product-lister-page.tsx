@@ -52,7 +52,8 @@ import {
 } from "../utils/elasticSearch";
 import {
   compileESQueryPLP,
-  disableFiltersFromAggregationsPLP
+  disableFiltersFromAggregationsPLP,
+  xferFilterValue
 } from "../utils/elasticSearchPLP";
 
 import { devLog } from "../utils/devLog";
@@ -60,6 +61,7 @@ import FiltersSidebar from "../components/FiltersSidebar";
 import { Product } from "../components/types/pim";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
+import { ProductFilter } from "../utils/product-filters";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -209,7 +211,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     fetchProducts(filters, pageContext.categoryCodes, page - 1, PAGE_SIZE);
   };
 
-  const onFiltersChange = async (newFilters) => {
+  const onFiltersChange = async (newFilters: ProductFilter[]) => {
     // NOTE: If filters change, we reset pagination to first page
     const result = await fetchProducts(
       newFilters,
@@ -224,7 +226,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       setFilters(
         process.env.GATSBY_USE_LEGACY_FILTERS === "true"
           ? disableFiltersFromAggregations(filters, result.aggregations)
-          : disableFiltersFromAggregationsPLP(filters, result.aggregations)
+          : xferFilterValue(
+              newFilters,
+              disableFiltersFromAggregationsPLP(filters, result.aggregations)
+            )
       );
 
       return;
@@ -234,7 +239,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   };
 
   const handleFiltersChange = (filterName, filterValue, checked) => {
-    const newFilters = updateFilterValue(
+    const newFilters: ProductFilter[] = updateFilterValue(
       filters,
       filterName,
       filterValue,

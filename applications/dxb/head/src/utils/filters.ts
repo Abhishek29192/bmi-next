@@ -24,7 +24,7 @@ export type filterOption = ProductFilter & {
 
 export type URLProductFilter = {
   name: string;
-  value: string;
+  value: string[];
 };
 
 export const isPIMDocument = (
