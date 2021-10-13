@@ -573,19 +573,23 @@
 
       // finally, pass them to AlpineI18n:
       document.addEventListener("alpine-i18n:ready", function () {
-        const hash = location.hash.substr(1);
         const config = JSON.parse(
-          decodeURIComponent(escape(window.atob(hash || "@@config@@")))
+          decodeURIComponent(escape(window.atob("@@config@@")))
         );
 
-        window.AlpineI18n.create(config.extraParams.market, messages);
+        let locale = location.hash.substr(1) || config.extraParams.market;
+        // If we land to intouch.* without the market we set en as defualt;
+        if (locale === "intouch") {
+          locale = "no";
+        }
+        window.AlpineI18n.create(locale, messages);
       });
 
       window.addEventListener("load", function () {
-        var hash = location.hash.substr(1);
         var config = JSON.parse(
-          decodeURIComponent(escape(window.atob(hash || "@@config@@")))
+          decodeURIComponent(escape(window.atob("@@config@@")))
         );
+
         var leeway = config.internalOptions.leeway;
         if (leeway) {
           var convertedLeeway = parseInt(leeway);
@@ -701,7 +705,10 @@
                 intouch_role: radios.value,
                 first_name,
                 last_name,
-                market: config.extraParams.market
+                market:
+                  config.extraParams.market === "intouch"
+                    ? "no"
+                    : config.extraParams.market
               }
             },
             function (err) {

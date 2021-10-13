@@ -361,12 +361,12 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         // Creating a passsword reset ticket
         const ticket = await auth0.createResetPasswordTicket({
           user_id: auth0User?.user_id,
-          result_url: `${protocol}://${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
+          result_url: `${protocol}://${user.market.domain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
         });
         await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetee,
           company: user.company.name,
-          registerlink: ticket.ticket,
+          registerlink: `${ticket.ticket}${user.market.domain}`,
           email: invetee
         });
         logger.info("Reset password email sent");
@@ -374,7 +374,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetees[0].first_name,
           company: user.company.name,
-          registerlink: `${protocol}://${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
+          registerlink: `${protocol}://${user.market.domain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
           email: invetee
         });
         logger.info("Invitation email sent");
