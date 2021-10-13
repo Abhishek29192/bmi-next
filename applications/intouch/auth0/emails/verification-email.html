@@ -1,3 +1,20 @@
+{% assign language = user.user_metadata.market %} {% assign welcome = "Welcome
+to" %} {% assign signinMessage = "Thank you for signing up. Please verify your
+email address by clicking the following link:" %} {% assign confirmMessage =
+"Confirm my account" %} {% assign thanks = "Thanks!" %} {% assign contactMessage
+= "If you are having any issues with your account, please contact your local BMI
+administrator. Thanks!" %} {% assign warningMessage = "You’re receiving this
+email because you have an account in BMI Group. If you are not sure why you’re
+receiving this, please contact us through our Support Center." %} {% if language
+== "no" %} {% assign welcome = "Velkommen til" %} {% assign signinMessage =
+"Takk for at du meldte deg på. Bekreft e -postadressen din ved å klikke på
+lenken nedenfor:" %} {% assign confirmMessage = "Bekreft kontoen min" %} {%
+assign thanks = "Takk!" %} {% assign contactMessage = "Hvis du har problemer med
+kontoen din, kan du kontakte din lokale BMI administrator" %} {% assign
+warningMessage = "Du mottar denne e -posten fordi du har en konto i BMI Group.
+Hvis du ikke er sikker på hvorfor du mottar dette, kan du kontakte oss via vårt
+kundestøttesenter." %} {% endif %}
+
 <html>
   <head>
     <style type="text/css">
@@ -142,49 +159,20 @@
             "
           >
             <div class="main">
-              <p
-                style="
-                  text-align: center;
-                  -webkit-text-size-adjust: 100%;
-                  -ms-text-size-adjust: 100%;
-                  margin-bottom: 30px;
-                "
-              >
-                <img
-                  src="https://cdn.auth0.com/styleguide/2.0.9/lib/logos/img/badge.png"
-                  width="50"
-                  alt="Your logo goes here"
-                  style="
-                    -ms-interpolation-mode: bicubic;
-                    border: 0;
-                    height: auto;
-                    line-height: 100%;
-                    outline: none;
-                    text-decoration: none;
-                  "
-                />
-              </p>
+              <h1>{{ welcome }} {{ application.name}}!</h1>
 
-              <h1>Welcome to {{ application.name}}!</h1>
+              <p>{{ signinMessage }}</p>
 
               <p>
-                Thank you for signing up. Please verify your email address by
-                clicking the following link:
+                <a href="{{ url }}{{user.user_metadata.market}}">
+                  {{ confirmMessage }}
+                </a>
               </p>
 
-              <p>
-                <a href="{{ url }}{{user.user_metadata.market}}"
-                  >Confirm my account</a
-                >
-              </p>
-
-              <p>
-                If you are having any issues with your account, please don’t
-                hesitate to contact us by replying to this mail.
-              </p>
+              <p>{{ contactMessage }}</p>
 
               <br />
-              Thanks!
+              {{ thanks }}
               <br />
 
               <strong>{{ application.name }}</strong>
@@ -205,8 +193,7 @@
                   -ms-text-size-adjust: 100%;
                 "
               >
-                If you did not make this request, please contact us by replying
-                to this mail.
+                {{ warningMessage }}
               </p>
             </div>
           </td>
