@@ -17,14 +17,15 @@ $tablet-width: 1024px;
   @media (max-width: 1024px) {
     display: none;
   }
+}
 
-  // @media (max-width: $tablet-width) {
-  //   width: 100%;
-  //   height: 64px;
-  //   display: none;
-  //   justify-content: space-between;
-  //   align-items: center;
-  // }
+.sidePanelWrapper {
+  display: flex;
+  height: 100%;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+  }
 }
 
 .appContainer {

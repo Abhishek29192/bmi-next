@@ -24,6 +24,7 @@ import {
 } from "../../lib/error";
 import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import { Layout } from "../../components/Layout";
+import layoutStyles from "../../components/Layout/styles.module.scss";
 import { CompaniesSidePanel } from "../../components/Pages/Company/SidePanel";
 import { CompanyPage, NoCompanies } from "../../components/Pages/Company";
 
@@ -95,7 +96,7 @@ const CompaniesPage = ({
       title={t(isSuperOrMarketAdmin ? "titleAdmin" : "titleMember")}
       pageData={globalPageData}
     >
-      <div style={{ display: "flex", height: "100%" }}>
+      <div className={layoutStyles.sidePanelWrapper}>
         {isSuperOrMarketAdmin(account) ? (
           // TODO: Currently the whole layout is not very responsive on small screen sizes
           <>
