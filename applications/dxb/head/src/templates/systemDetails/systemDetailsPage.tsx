@@ -365,6 +365,7 @@ export const systemsQuery = graphql`
         type
         name
         shortDescription
+        approvalStatus
         products {
           name
           variantOptions {
