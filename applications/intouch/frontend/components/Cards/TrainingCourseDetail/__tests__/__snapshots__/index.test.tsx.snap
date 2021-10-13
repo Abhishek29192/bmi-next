@@ -23,25 +23,27 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
           <div
             class="type"
           >
+            type.classroom
+          </div>
+          <div
+            class="tech"
+          >
             <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+              class="technologyIcon"
+            />
+            <h6
+              class="MuiTypography-root Typography MuiTypography-h6"
             >
-              <path
-                d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-              />
-            </svg>
-            <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
-            >
-              type.classroom
-            </h5>
+              technology.OTHER
+            </h6>
           </div>
           <div
             class="status"
-          />
+          >
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1"
+            />
+          </div>
         </div>
         <div
           class="cta"
@@ -121,25 +123,27 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
           <div
             class="type"
           >
+            type.classroom
+          </div>
+          <div
+            class="tech"
+          >
             <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+              class="technologyIcon"
+            />
+            <h6
+              class="MuiTypography-root Typography MuiTypography-h6"
             >
-              <path
-                d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-              />
-            </svg>
-            <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
-            >
-              type.classroom
-            </h5>
+              technology.OTHER
+            </h6>
           </div>
           <div
             class="status"
-          />
+          >
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1"
+            />
+          </div>
         </div>
         <div
           class="cta"

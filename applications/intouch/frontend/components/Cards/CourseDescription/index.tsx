@@ -1,7 +1,7 @@
 import React from "react";
+import { Technology } from "@bmi/intouch-api-types";
 import Typography from "@bmi/typography";
-import Icon from "@bmi/icon";
-import { School } from "@material-ui/icons";
+import Icon, { FlatRoof, PitchedRoof, OtherTraining } from "@bmi/icon";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
@@ -13,8 +13,17 @@ export type CourseDescriptionProps = {
   type: string;
   status?: string;
   image?: string;
+  technology?: Technology;
   lmsUrl?: string;
   children?: React.ReactNode | React.ReactNode[];
+};
+
+const technologyIcon: {
+  [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;
+} = {
+  FLAT: FlatRoof,
+  PITCHED: PitchedRoof,
+  OTHER: OtherTraining
 };
 
 export const CourseDescription = ({
@@ -22,10 +31,17 @@ export const CourseDescription = ({
   type,
   status,
   image,
+  technology,
   lmsUrl,
   children
 }: CourseDescriptionProps) => {
   const { t } = useTranslation("training-page");
+
+  const tech: { [K in Technology]: string } = {
+    FLAT: t("technology.FLAT"),
+    PITCHED: t("technology.PITCHED"),
+    OTHER: t("technology.OTHER")
+  };
 
   return (
     <SimpleCard>
@@ -40,13 +56,20 @@ export const CourseDescription = ({
         )}
         <div>
           <div className={styles.metadata}>
-            <div className={styles.type}>
-              <Icon source={School} />
-              <Typography variant="h5">
-                {t(`training-page:type.${type}`)}
-              </Typography>
+            <div className={styles.type}>{t(`training-page:type.${type}`)}</div>
+            {technology && (
+              <div className={styles.tech}>
+                <Icon
+                  source={technologyIcon[technology]}
+                  className={styles.technologyIcon}
+                />
+
+                <Typography variant="h6">{tech[technology]}</Typography>
+              </div>
+            )}
+            <div className={styles.status}>
+              <Typography variant="body1">{status}</Typography>
             </div>
-            <div className={styles.status}>{status}</div>
           </div>
           <div className={styles.cta}>
             <Button

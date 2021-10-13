@@ -10,6 +10,7 @@ describe("CourseDescription component", () => {
         <CourseDescription
           title="Basic competency programme (BCP)"
           type="Pitched roof"
+          technology="PITCHED"
         >
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem

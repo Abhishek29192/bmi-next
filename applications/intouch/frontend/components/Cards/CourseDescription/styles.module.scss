@@ -26,17 +26,23 @@
   padding: 1rem 0;
   margin-bottom: 1rem;
 }
-
-.type {
+.tech {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
+}
 
-  svg {
-    margin-right: 0.5rem;
-  }
+.type {
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .status {
-  color: $color-charcoal;
+  color: $color-slate;
+}
+
+.technologyIcon {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
 }
