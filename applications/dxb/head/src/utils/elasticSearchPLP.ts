@@ -1,9 +1,23 @@
 import { Filter } from "@bmi/filters";
+import { ProductFilter } from "./product-filters";
 
 export type Aggregations = Record<
   string,
   { buckets: { key: string; doc_count: number }[] }
 >;
+
+export const xferFilterValue = (
+  source: ProductFilter[],
+  target: Filter[]
+): Filter[] => {
+  return target.map((tFilter) => {
+    return {
+      ...tFilter,
+      value:
+        source.find((sFilter) => sFilter.name === tFilter.name)?.value || []
+    };
+  });
+};
 
 export const disableFiltersFromAggregationsPLP = (
   filters: Filter[],
@@ -77,19 +91,12 @@ const generateUserSelectedFilterTerms = (updatedFilters: Filter[]) => {
   return (updatedFilters || [])
     .filter((filter) => (filter.value || []).length > 0)
     .reduce((acc, currFilter) => {
-      const termQuery = (name, value) => ({
-        term: {
+      const termsQuery = (name, value) => ({
+        terms: {
           [`${name.replace("plpFilter.", "")}.code.keyword`]: value
         }
       });
-      const query =
-        currFilter.value.length === 1
-          ? termQuery(currFilter.name, currFilter.value[0])
-          : {
-              bool: {
-                should: currFilter.value.map(termQuery)
-              }
-            };
+      const query = termsQuery(currFilter.name, currFilter.value);
       return [...acc, query];
     }, []);
 };
