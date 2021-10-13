@@ -37,7 +37,7 @@ const Toolkit = ({
   const { t } = useTranslation("common");
 
   return (
-    <Layout title={t("Media Tools")} pageData={globalPageData}>
+    <Layout title={t("Tools")} pageData={globalPageData}>
       <MediaPage
         rootFolders={rootFolders}
         mediaPath={mediaPath}

@@ -6,5 +6,7 @@
     "EXTERNAL_LINK": "External Link",
     "PDF": "PDF",
     "FALLBACK": "Media"
-  }
+  },
+  "countIndicator": "Showing {{amount}} of {{total}} items",
+  "noItems": "Nothing here"
 }

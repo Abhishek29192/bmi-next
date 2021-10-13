@@ -1,6 +1,7 @@
 import React from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@bmi/typography";
+import { useTranslation } from "react-i18next";
 import { MediaFolder, MediaItem } from "../../lib/media/types";
 import { MediaTile } from "../MediaTile";
 import styles from "./styles.module.scss";
@@ -12,23 +13,23 @@ export type MediaGridProps = {
   onMediaItemClick: (mediaItem: MediaItem) => any;
 };
 
-// TODO: NoContent as per design
-const EmptyFolder = () => <p>Nothing here</p>;
-
 export const MediaGrid = ({
   isLoading,
   items,
   totalNumItems,
   onMediaItemClick
 }: MediaGridProps) => {
+  const { t } = useTranslation("toolkit");
+
   if (items.length === 0) {
-    return <EmptyFolder />;
+    return <p>{t("noItems")}</p>;
   }
+
   return (
     <div className={styles.mediaGrid}>
       <div className={styles.meta}>
         <Typography variant="subtitle2" display="block">
-          Showing {items.length} of {totalNumItems} items
+          {t("countIndicator", { amount: items.length, total: totalNumItems })}
         </Typography>
       </div>
       <div>
