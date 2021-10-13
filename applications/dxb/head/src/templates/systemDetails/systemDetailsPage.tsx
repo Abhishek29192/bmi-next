@@ -379,6 +379,18 @@ export const systemsQuery = graphql`
             path
           }
         }
+        relatedProducts {
+          name
+          variantOptions {
+            path
+          }
+        }
+        relatedOptionalProducts {
+          name
+          variantOptions {
+            path
+          }
+        }
       }
     }
 
