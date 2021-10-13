@@ -16,6 +16,7 @@ import { withPage } from "../lib/middleware/withPage";
 import { getServerPageTraining } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
+import { sortCourses } from "../lib/utils/course";
 
 type PageProps = {
   trainingData: {
@@ -58,18 +59,36 @@ const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
     setActiveCourse(activeCourse);
   };
 
-  //Translate course status
-  courseCatalogues?.nodes?.forEach(({ course }) => {
-    course.courseEnrollments?.nodes.forEach(
-      (enrollment) => (enrollment.status = t(enrollment.status))
-    );
-  });
+  const enrolledCourses = sortCourses(
+    courseCatalogues?.nodes.filter(
+      (c) => c.course.courseEnrollments?.nodes[0]?.status === "enrolled"
+    )
+  );
+  const completedCourses = sortCourses(
+    courseCatalogues?.nodes.filter(
+      (c) => c.course.courseEnrollments?.nodes[0]?.status === "completed"
+    )
+  );
+  const orderedCourses = sortCourses(
+    courseCatalogues?.nodes.filter(
+      (c) =>
+        !["enrolled", "completed"].includes(
+          c.course.courseEnrollments?.nodes[0]?.status
+        )
+    )
+  );
+
+  const courseCatalog = [
+    ...enrolledCourses,
+    ...orderedCourses,
+    ...completedCourses
+  ];
 
   return (
     <Layout title={t("Training")} pageData={globalPageData}>
       <div style={{ display: "flex" }}>
         <TrainingSidePanel
-          courseCatalog={courseCatalogues}
+          courseCatalog={courseCatalog}
           onCourseSelected={sidePanelHandler}
           onFilterChange={() => setActiveCourse(null)}
         />
