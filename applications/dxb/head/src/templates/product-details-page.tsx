@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { graphql } from "gatsby";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
@@ -25,8 +25,13 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { Product } from "../components/types/pim";
-import { getBimIframeUrl } from "../components/BimIframe";
 import SampleOrderSection from "../components/SampleOrderSection";
+import { getBimIframeUrl } from "../components/BimIframe";
+import {
+  BasketContextProvider,
+  basketReducer,
+  initialBasketState
+} from "../contexts/SampleBasketContext";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -69,8 +74,32 @@ const getDescription = (product: Product, variantCode?: string): string => {
   return product.description;
 };
 
+const getVariant = (product: Product, variantCode: string) => {
+  const variantProduct = product.variantOptions.find(
+    ({ code }) => code === variantCode
+  );
+  return variantProduct;
+};
+
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
+
+  //for context setup for sample shopping basket
+  const [basketState, basketDispatch] = useReducer(
+    basketReducer,
+    initialBasketState,
+    () => {
+      return typeof window !== "undefined" &&
+        localStorage.getItem("basketItems")
+        ? { products: JSON.parse(localStorage.getItem("basketItems")) }
+        : { products: [] };
+    }
+  );
+
+  const basketContextValues = {
+    basketState,
+    basketDispatch
+  };
 
   // Which variant (including base) are we looking at
   // TODO: Merge data here!
@@ -123,133 +152,143 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   };
 
   return (
-    <Page
-      brand={brandCode}
-      title={product.name}
-      pageData={pageData}
-      siteData={contentfulSite}
-      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={selfProduct?.images?.[0].url}
-    >
-      {({ siteContext: { getMicroCopy } }) => (
-        <>
-          {breadcrumbs && (
-            <Section backgroundColor="pearl" isSlim>
-              <Breadcrumbs data={breadcrumbs} />
+    <BasketContextProvider value={basketContextValues}>
+      <Page
+        brand={brandCode}
+        title={product.name}
+        pageData={pageData}
+        siteData={contentfulSite}
+        variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+        ogImageUrl={selfProduct?.images?.[0].url}
+      >
+        {({ siteContext: { getMicroCopy } }) => (
+          <>
+            {breadcrumbs && (
+              <Section backgroundColor="pearl" isSlim>
+                <Breadcrumbs data={breadcrumbs} />
+              </Section>
+            )}
+
+            <Container>
+              <ProductOverview
+                data={{
+                  name: product.name,
+                  brandName: brandCode || "",
+                  nobb: selfProduct.externalProductCode || null,
+                  images: transformImages(
+                    mapGalleryImages([
+                      ...(selfProduct.images || []),
+                      ...(product.images || [])
+                    ])
+                  ),
+                  attributes: getProductAttributes(
+                    productClassifications,
+                    selfProduct,
+                    pageContext.countryCode,
+                    {
+                      size: getMicroCopy("pdp.overview.size")
+                    },
+                    variantCodeToPathMap
+                  )
+                }}
+              >
+                {(getSampleOrderAllowed() && (
+                  <SampleOrderSection
+                    variant={getVariant(product, pageContext.variantCode)}
+                  />
+                )) ||
+                  (basketState.products.length > 0 && (
+                    <SampleOrderSection onlyDisplayCompleteOrder={true} />
+                  ))}
+                {resources?.pdpShareWidget && (
+                  <ShareWidgetSection
+                    data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
+                    hasNoPadding={true}
+                  />
+                )}
+              </ProductOverview>
+            </Container>
+            <Section backgroundColor="white">
+              <ProductLeadBlock
+                description={getDescription(product, pageContext.variantCode)}
+                keyFeatures={product.productBenefits}
+                sidebarItems={resources?.pdpSidebarItems}
+                guaranteesAndWarranties={product.assets?.filter(
+                  (asset) =>
+                    asset.assetType === "GUARANTIES" ||
+                    asset.assetType === "WARRANTIES"
+                )}
+                awardsAndCertificates={product.assets?.filter(
+                  (asset) =>
+                    asset.assetType === "AWARDS" ||
+                    asset.assetType === "CERTIFICATES"
+                )}
+                documents={product.documents}
+                validClassifications={validClassifications}
+                classificationNamespace={
+                  pageContext.pimClassificationCatalogueNamespace
+                }
+                bimIframeUrl={bimIframeUrl}
+              />
             </Section>
-          )}
-          <Container>
-            <ProductOverview
-              data={{
-                name: product.name,
-                brandName: brandCode || "",
-                nobb: selfProduct.externalProductCode || null,
-                images: transformImages(
-                  mapGalleryImages([
-                    ...(selfProduct.images || []),
-                    ...(product.images || [])
-                  ])
-                ),
-                attributes: getProductAttributes(
-                  productClassifications,
-                  selfProduct,
-                  pageContext.countryCode,
-                  {
-                    size: getMicroCopy("pdp.overview.size")
-                  },
-                  variantCodeToPathMap
-                )
-              }}
-            >
-              {getSampleOrderAllowed() && <SampleOrderSection />}
-              {resources?.pdpShareWidget && (
-                <ShareWidgetSection
-                  data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
-                  hasNoPadding={true}
-                />
-              )}
-            </ProductOverview>
-          </Container>
-          <Section backgroundColor="white">
-            <ProductLeadBlock
-              description={getDescription(product, pageContext.variantCode)}
-              keyFeatures={product.productBenefits}
-              sidebarItems={resources?.pdpSidebarItems}
-              guaranteesAndWarranties={product.assets?.filter(
-                (asset) =>
-                  asset.assetType === "GUARANTIES" ||
-                  asset.assetType === "WARRANTIES"
-              )}
-              awardsAndCertificates={product.assets?.filter(
-                (asset) =>
-                  asset.assetType === "AWARDS" ||
-                  asset.assetType === "CERTIFICATES"
-              )}
-              documents={product.documents}
-              validClassifications={validClassifications}
+            <RelatedProducts
+              countryCode={pageContext.countryCode}
               classificationNamespace={
                 pageContext.pimClassificationCatalogueNamespace
               }
-              bimIframeUrl={bimIframeUrl}
+              products={relatedProducts.nodes}
             />
-          </Section>
-          <RelatedProducts
-            countryCode={pageContext.countryCode}
-            classificationNamespace={
-              pageContext.pimClassificationCatalogueNamespace
-            }
-            products={relatedProducts.nodes}
-          />
-          {resources?.pdpCardsTitle && resources.pdpCards && (
-            <Section backgroundColor="alabaster">
-              <Section.Title>{resources.pdpCardsTitle}</Section.Title>
-              <Grid container spacing={3}>
-                {resources.pdpCards.map(
-                  (
-                    { title, featuredVideo, featuredMedia, ...data },
-                    index,
-                    cards
-                  ) => {
-                    const cta = getCTA(data, countryCode);
-                    return (
-                      <Grid
-                        item
-                        key={`card-${index}`}
-                        xs={12}
-                        sm={6}
-                        md={4}
-                        lg={(12 / Math.max(cards.length, 3)) as GridSize}
-                      >
-                        <CTACard
-                          title={title}
-                          media={
-                            featuredVideo
-                              ? renderVideo(featuredVideo)
-                              : renderImage(featuredMedia)
-                          }
-                          clickableArea={featuredVideo ? "heading" : "full"}
-                          action={cta?.action}
-                        />
-                      </Grid>
-                    );
-                  }
-                )}
-              </Grid>
-            </Section>
-          )}
-          {resources?.pdpExploreBar && (
-            <Section backgroundColor="alabaster">
-              <ExploreBar data={resources.pdpExploreBar} />
-            </Section>
-          )}
-          {breadcrumbs && (
-            <Section backgroundColor="pearl" isSlim>
-              <Breadcrumbs data={breadcrumbs} />
-            </Section>
-          )}
-        </>
-      )}
-    </Page>
+            {resources?.pdpCardsTitle && resources.pdpCards && (
+              <Section backgroundColor="alabaster">
+                <Section.Title>{resources.pdpCardsTitle}</Section.Title>
+                <Grid container spacing={3}>
+                  {resources.pdpCards.map(
+                    (
+                      { title, featuredVideo, featuredMedia, ...data },
+                      index,
+                      cards
+                    ) => {
+                      const cta = getCTA(data, countryCode);
+                      return (
+                        <Grid
+                          item
+                          key={`card-${index}`}
+                          xs={12}
+                          sm={6}
+                          md={4}
+                          lg={(12 / Math.max(cards.length, 3)) as GridSize}
+                        >
+                          <CTACard
+                            title={title}
+                            media={
+                              featuredVideo
+                                ? renderVideo(featuredVideo)
+                                : renderImage(featuredMedia)
+                            }
+                            clickableArea={featuredVideo ? "heading" : "full"}
+                            action={cta?.action}
+                          />
+                        </Grid>
+                      );
+                    }
+                  )}
+                </Grid>
+              </Section>
+            )}
+            {resources?.pdpExploreBar && (
+              <Section backgroundColor="alabaster">
+                <ExploreBar data={resources.pdpExploreBar} />
+              </Section>
+            )}
+            {breadcrumbs && (
+              <Section backgroundColor="pearl" isSlim>
+                <Breadcrumbs data={breadcrumbs} />
+              </Section>
+            )}
+          </>
+        )}
+      </Page>
+    </BasketContextProvider>
   );
 };
 
