@@ -2,17 +2,8 @@
 
 exports[`ProductGuarantee Component renders correctly 1`] = `
 <div
-  class="main"
+  class="body"
 >
-  <div
-    class="body"
-  >
-    <h1
-      class="MuiTypography-root Typography MuiTypography-h6"
-    >
-      guarantee.type.PRODUCT
-    </h1>
-  </div>
   <div
     class="productCard"
   >
@@ -25,9 +16,11 @@ exports[`ProductGuarantee Component renders correctly 1`] = `
         Product
       </h2>
     </div>
-    <div>
+    <div
+      class="productCard__description"
+    >
       <h6
-        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+        class="MuiTypography-root Typography MuiTypography-subtitle2"
       >
         description
       </h6>
@@ -95,17 +88,8 @@ exports[`ProductGuarantee Component renders correctly 1`] = `
 
 exports[`ProductGuarantee Component renders multiple guarantee 1`] = `
 <div
-  class="main"
+  class="body"
 >
-  <div
-    class="body"
-  >
-    <h1
-      class="MuiTypography-root Typography MuiTypography-h6"
-    >
-      guarantee.type.PRODUCT
-    </h1>
-  </div>
   <div
     class="productCard"
   >
@@ -118,9 +102,11 @@ exports[`ProductGuarantee Component renders multiple guarantee 1`] = `
         Product
       </h2>
     </div>
-    <div>
+    <div
+      class="productCard__description"
+    >
       <h6
-        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+        class="MuiTypography-root Typography MuiTypography-subtitle2"
       >
         description
       </h6>
@@ -195,9 +181,11 @@ exports[`ProductGuarantee Component renders multiple guarantee 1`] = `
         Product
       </h2>
     </div>
-    <div>
+    <div
+      class="productCard__description"
+    >
       <h6
-        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+        class="MuiTypography-root Typography MuiTypography-subtitle2"
       >
         description
       </h6>

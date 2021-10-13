@@ -1,21 +1,16 @@
 @import "@bmi/styles";
 
-.main {
-  display: block;
-}
-.body {
-  margin: 10px 0px;
-}
-
 .productCard {
   margin-bottom: 1rem;
-  padding: 0.6rem;
-  border: 1px solid $color-storm;
+  padding: 0.6rem 0;
   &__title {
-    margin: 5px;
+    margin-bottom: 5px;
+  }
+  &__description {
+    margin-bottom: 15px;
   }
   &__footer {
-    margin: 10px 0px;
+    margin-top: 30px;
   }
   &__logo {
     width: 32px;

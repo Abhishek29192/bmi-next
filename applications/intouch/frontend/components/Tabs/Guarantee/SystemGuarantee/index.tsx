@@ -38,45 +38,39 @@ const SystemGuaranteeCard = ({ guarantee }: SystemGuaranteeCardProps) => {
     ) || [];
 
   return (
-    <div className={styles.main}>
-      <div className={styles.body}>
-        <div className={styles.body__title}>
-          <Typography component="h2" variant="h6">
-            {system.name}
-          </Typography>
+    <div className={styles.body}>
+      <div className={styles.body__title}>
+        <Typography component="h2" variant="h6">
+          {system.name}
+        </Typography>
+      </div>
+      <div>
+        <Typography variant="subtitle2">{system.description}</Typography>
+      </div>
+      {signedFileStorageUrl && (
+        <div className={styles.body__footer}>
+          <Button
+            variant="outlined"
+            action={{
+              model: "htmlLink",
+              href: signedFileStorageUrl,
+              target: "_blank",
+              rel: "noopener noreferrer"
+            }}
+            startIcon={<Icon className={styles.body__logo} source={FilePDF} />}
+          >
+            {t("common:SavePdf")}
+          </Button>
         </div>
-        <div>
-          <Typography variant="subtitle2" color="textSecondary">
-            {system.description}
-          </Typography>
-        </div>
-        {signedFileStorageUrl && (
-          <div className={styles.body__footer}>
-            <Button
-              variant="outlined"
-              action={{
-                model: "htmlLink",
-                href: signedFileStorageUrl,
-                target: "_blank",
-                rel: "noopener noreferrer"
-              }}
-              startIcon={
-                <Icon className={styles.body__logo} source={FilePDF} />
-              }
-            >
-              {t("common:SavePdf")}
-            </Button>
-          </div>
-        )}
-        <div>
-          <Table>
-            <Table.Body>
-              {products.map((product) => (
-                <ProductRow key={product.id} product={product} />
-              ))}
-            </Table.Body>
-          </Table>
-        </div>
+      )}
+      <div>
+        <Table>
+          <Table.Body>
+            {products.map((product) => (
+              <ProductRow key={product.id} product={product} />
+            ))}
+          </Table.Body>
+        </Table>
       </div>
     </div>
   );

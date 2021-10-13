@@ -30,6 +30,16 @@ export const GuaranteeTab = ({
   const guaranteeApplicationValidateResult =
     guaranteeApplicationValidate(project);
 
+  const ApplyGuaranteeDialogToggle = () =>
+    isApplyGuarantee ? (
+      <Button
+        onClick={() => setDialogOpen(true)}
+        disabled={!guaranteeApplicationValidateResult.isValid}
+      >
+        {t("guarantee_tab.header")}
+      </Button>
+    ) : null;
+
   return (
     <div className={styles.main}>
       {isApplyGuarantee && (
@@ -44,14 +54,6 @@ export const GuaranteeTab = ({
               </AlertBanner>
             </div>
           )}
-          <div className={styles.header}>
-            <Button
-              onClick={() => setDialogOpen(true)}
-              disabled={!guaranteeApplicationValidateResult.isValid}
-            >
-              {t("guarantee_tab.header")}
-            </Button>
-          </div>
         </div>
       )}
 
@@ -60,6 +62,7 @@ export const GuaranteeTab = ({
           guarantees={guarantees.nodes}
           onReviewClick={() => setReviewOpen(true)}
           canGuaranteeBeSubmitted={checkProjectGuaranteeReview(project)}
+          applyGuaranteeToggle={() => <ApplyGuaranteeDialogToggle />}
         />
       </div>
       <ApplyGuaranteeDialog

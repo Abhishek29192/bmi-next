@@ -1,20 +1,27 @@
 @import "@bmi/styles";
 
-.main {
-  padding: 10px 0px;
-}
 .body {
-  margin-top: 1rem;
   margin-bottom: 1rem;
-  padding: 0.6rem;
-  border: 1px solid $color-storm;
+  padding: 0.6rem 0;
   &__title {
-    margin: 5px;
+    margin-bottom: 10px;
+  }
+  &__description {
+    margin-bottom: 10px;
   }
   &__footer {
     display: flex;
     justify-content: space-between;
-    margin: 10px 0px;
+    margin-bottom: 15px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      .footer__buttonContainer {
+        margin-bottom: 15px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
   &__logo {
     width: 32px;

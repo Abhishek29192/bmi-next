@@ -13,9 +13,11 @@ exports[`ProductGuaranteeCard Component renders correctly 1`] = `
       product_name
     </h2>
   </div>
-  <div>
+  <div
+    class="productCard__description"
+  >
     <h6
-      class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+      class="MuiTypography-root Typography MuiTypography-subtitle2"
     />
   </div>
   <div>
