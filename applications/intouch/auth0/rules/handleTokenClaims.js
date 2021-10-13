@@ -1,14 +1,13 @@
 async function handleTokenClaims(user, context, callback) {
+  const { app_metadata = {}, user_metadata = {} } = user;
   const { namespace, appUrl, logoutUrl } = configuration;
 
   if (!user.email_verified) {
     context.redirect = {
-      url: `${logoutUrl}?client_id=${context.clientID}&returnTo=${appUrl}/email-verification`
+      url: `${logoutUrl}?client_id=${context.clientID}&returnTo=https://${user_metadata.market}.${appUrl}/email-verification`
     };
     return callback(null, user, context);
   }
-
-  const { app_metadata = {}, user_metadata = {} } = user;
 
   // I need this data to complete the registration
   context.idToken = {
