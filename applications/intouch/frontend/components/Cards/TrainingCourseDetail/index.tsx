@@ -1,7 +1,8 @@
 import React from "react";
-import { Course, Technology } from "@bmi/intouch-api-types";
+import { Course } from "@bmi/intouch-api-types";
 import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
+import { getTechnology } from "../../../lib/utils/course";
 import { CourseDescription } from "../CourseDescription";
 
 type TrainingCourseDetailProps = { course: Course; lmsUrl: string };
@@ -17,10 +18,6 @@ const getCourseUrl = (course, lmsUrl) => {
 
   return lmsUrl;
 };
-
-const technologies: Technology[] = ["FLAT", "PITCHED", "OTHER"];
-const getTechnology = (technology: string): Technology | undefined =>
-  technologies.find((tech) => tech === technology.toUpperCase());
 
 export const TrainingCourseDetail = ({
   course,
@@ -42,7 +39,7 @@ export const TrainingCourseDetail = ({
       type={trainingType}
       status={status}
       image={image}
-      technology={getTechnology(technology.toUpperCase())}
+      technology={getTechnology(technology)}
       lmsUrl={!url ? getCourseUrl(course, lmsUrl) : `${lmsUrl}?path=${url}`}
     >
       <Typography variant="h5">{t("Description")}</Typography>

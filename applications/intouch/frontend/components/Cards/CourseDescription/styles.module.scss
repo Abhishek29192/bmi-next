@@ -23,12 +23,15 @@
 .metadata {
   border-top: 1px solid $color-pearl;
   border-bottom: 1px solid $color-pearl;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   margin-bottom: 1rem;
 }
 .tech {
   display: flex;
-  align-items: center;
+  padding: 1px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
