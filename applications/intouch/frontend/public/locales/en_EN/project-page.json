@@ -272,6 +272,12 @@
           "next": "Next",
           "submit": " Submit application"
         }
+      },
+      "alert": {
+        "selectGuarantee": {
+          "title": "There is no guarantee type available for their technology",
+          "message": "Guarantees are not available for this type of roof.  Please contact your local BMI Administrator for more information."
+        }
       }
     },
     "applyGuarantee": {
