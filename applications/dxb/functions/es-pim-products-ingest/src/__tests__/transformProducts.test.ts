@@ -495,6 +495,37 @@ describe("transformProduct", () => {
       );
     });
 
+    it("should index product and variant scoringWeightAttributeInt separately", () => {
+      const product = createPimProduct({
+        classifications: [
+          createScoringWeightAttributesClassification({
+            features: [
+              createFeature({
+                featureValues: [createFeatureValue({ value: "3.0" })]
+              })
+            ]
+          })
+        ],
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createScoringWeightAttributesClassification({
+                features: [
+                  createFeature({
+                    featureValues: [createFeatureValue({ value: "2.0" })]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const transformedProduct = transformProduct(product);
+      expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(3);
+      expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(2);
+      expect(transformedProduct[0]["scoringWeightInt"]).toEqual(3);
+    });
+
     it("should override product appearanceAttributes classification with variant", () => {
       const product = createPimProduct({
         variantOptions: [

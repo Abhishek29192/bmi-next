@@ -172,12 +172,17 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
 
     const allfeatureCodes: string[] = Object.keys(indexedFeatures);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const scoringWeightClassification = classifications.find(
-      ({ code }) => code === "scoringWeightAttributes"
-    );
+    // combined classifications does not override 'vairant' 'scoringWeightAttributes'
+    // hence this is 'product' `scoringWeightAttributes` classification
+
     const scoringWeight =
-      scoringWeightClassification?.features?.[0]?.featureValues?.[0]?.value;
+      classifications.find(({ code }) => code === "scoringWeightAttributes")
+        ?.features?.[0]?.featureValues?.[0]?.value || "0";
+
+    const variantScoringWeight =
+      (variant.classifications || []).find(
+        ({ code }) => code === "scoringWeightAttributes"
+      )?.features?.[0]?.featureValues?.[0]?.value || "0";
 
     const baseAttributes = pick(
       { ...product, ...variant },
@@ -282,8 +287,12 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         ...productLineCategories
       ],
       classifications,
+      //TODO: remove this when productScoringWeightInt and variantScoringWeightInt
+      //are working and are verified
+      //this is product scoringweightattribute value!
       // Special because we want to use it for sorting, atm this seems easier
       scoringWeight,
+      //this is product scoringweightattribute value!
       // Parsing to a number so it'll be mapped as integer (long).
       // @todo: Eventually to be swapped out with scoringWeight when changes have been propagated.
       scoringWeightInt:
@@ -296,7 +305,17 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       texturefamilyValue,
       materialsCode,
       materialsValue,
-      measurementValue
+      measurementValue,
+      //this is product scoringweightattribute value!
+      productScoringWeightInt:
+        scoringWeight && Number.isFinite(Number.parseInt(scoringWeight))
+          ? Number.parseInt(scoringWeight)
+          : 0,
+      variantScoringWeightInt:
+        variantScoringWeight &&
+        Number.isFinite(Number.parseInt(variantScoringWeight))
+          ? Number.parseInt(variantScoringWeight)
+          : 0
     };
   });
 };
