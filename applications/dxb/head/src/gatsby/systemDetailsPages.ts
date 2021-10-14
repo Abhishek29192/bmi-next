@@ -20,6 +20,7 @@ interface QueryData {
     nodes: {
       id: string;
       path: string;
+      approvalStatus: string;
       systemReferences: SystemReference[];
     }[];
   };
@@ -40,6 +41,7 @@ export const createSystemPages = async ({
         nodes {
           id
           path
+          approvalStatus
           systemReferences {
             referenceType
             target {
@@ -62,20 +64,31 @@ export const createSystemPages = async ({
   } = result;
 
   await Promise.all(
-    allPimSystems.map(async ({ id: systemPageId, path, systemReferences }) => {
-      const relatedSystemCodes = (systemReferences || [])
-        .filter((systemRefObj) => systemRefObj.referenceType === "CROSSELLING")
-        .map(({ target: { code } }) => code);
+    allPimSystems.map(
+      async ({ id: systemPageId, path, approvalStatus, systemReferences }) => {
+        if (approvalStatus === "approved") {
+          const relatedSystemCodes = (systemReferences || [])
+            .filter(
+              (systemRefObj) => systemRefObj.referenceType === "CROSSELLING"
+            )
+            .map(({ target: { code } }) => code);
 
-      await createPage<PageContext>({
-        path: getPathWithCountryCode(countryCode, path),
-        component,
-        context: {
-          systemPageId,
-          siteId,
-          relatedSystemCodes
+          await createPage<PageContext>({
+            path: getPathWithCountryCode(countryCode, path),
+            component,
+            context: {
+              systemPageId,
+              siteId,
+              relatedSystemCodes
+            }
+          });
+        } else {
+          // eslint-disable-next-line no-console
+          console.warn(
+            `cannot create system page for ${systemPageId} - ${path} as its approvalStatus is ${approvalStatus}`
+          );
         }
-      });
-    })
+      }
+    )
   );
 };

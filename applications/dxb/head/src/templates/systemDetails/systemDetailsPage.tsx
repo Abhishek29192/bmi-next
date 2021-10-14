@@ -303,7 +303,7 @@ export const systemsQuery = graphql`
         pimCode
       }
     }
-    systems(id: { eq: $systemPageId }) {
+    systems(id: { eq: $systemPageId }, approvalStatus: { eq: "approved" }) {
       name
       shortDescription
       longDescription
@@ -394,7 +394,12 @@ export const systemsQuery = graphql`
       }
     }
 
-    relatedSystems: allSystems(filter: { code: { in: $relatedSystemCodes } }) {
+    relatedSystems: allSystems(
+      filter: {
+        approvalStatus: { eq: "approved" }
+        code: { in: $relatedSystemCodes }
+      }
+    ) {
       nodes {
         ...RelatedSystemsFragment
       }

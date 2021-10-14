@@ -194,6 +194,7 @@ export const query = graphql`
     shortDescription
     longDescription
     systemBenefits
+    approvalStatus
     systemReferences {
       preselected
       referenceType
