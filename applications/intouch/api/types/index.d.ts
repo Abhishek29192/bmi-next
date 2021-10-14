@@ -9655,6 +9655,16 @@ export type ImageTransformOptions = {
   format?: Maybe<ImageFormat>;
 };
 
+export type ImportAccountsCompaniesFromCsvInput = {
+  files: Array<Scalars["Upload"]>;
+  market?: Maybe<Scalars["String"]>;
+};
+
+export type ImportAccountsCompaniesFromCsvResult = {
+  __typename?: "ImportAccountsCompaniesFromCSVResult";
+  result?: Maybe<Scalars["String"]>;
+};
+
 export type ImportError = {
   __typename?: "ImportError";
   ref?: Maybe<Scalars["String"]>;
@@ -11474,6 +11484,7 @@ export type Mutation = {
   /** Deletes a single `SystemMember` using a unique key. */
   deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<DeleteSystemMemberPayload>;
   evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
+  importAccountsCompaniesFromCVS?: Maybe<ImportAccountsCompaniesFromCsvResult>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   markAllNotificationsAsRead?: Maybe<MarkAllNotificationsAsReadPayload>;
@@ -12121,6 +12132,11 @@ export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdA
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationEvidenceItemsAddArgs = {
   input: EvidenceItemsAddInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationImportAccountsCompaniesFromCvsArgs = {
+  input: ImportAccountsCompaniesFromCsvInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */

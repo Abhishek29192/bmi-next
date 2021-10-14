@@ -1,3 +1,6 @@
+import { Buffer } from "buffer";
+import { Readable, Duplex } from "stream";
+import FormData from "form-data";
 import { Logger } from "winston";
 import axios from "axios";
 
@@ -149,6 +152,33 @@ class Auth0 {
           connection: "Username-Password-Authentication"
         }
       });
+
+      return data;
+    } catch (error) {
+      this.logger.error("Change password:", error.message);
+    }
+  };
+
+  importUserFromJson = async (users) => {
+    try {
+      const formData = new FormData();
+      formData.append("connection_id", "con_0Z9pDsN759ae5Z8U");
+      const buffer = Buffer.from(JSON.stringify(users));
+      formData.append("users", buffer, {
+        filename: "users.json",
+        contentType: "application/json"
+      });
+
+      const { data } = await axios.post(
+        `https://${process.env.AUTH0_API_DOMAIN}/api/v2/jobs/users-imports`,
+        formData,
+        {
+          headers: {
+            authorization: `Bearer ${this.accessToken}`,
+            ...formData.getHeaders()
+          }
+        }
+      );
 
       return data;
     } catch (error) {

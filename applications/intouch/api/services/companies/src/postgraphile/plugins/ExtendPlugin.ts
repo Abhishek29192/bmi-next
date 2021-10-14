@@ -10,6 +10,7 @@ import {
   completeInvitation,
   resetPasswordImportedUsers
 } from "../../services/account";
+import { importAccountsCompaniesFromCVS } from "../../services/importer";
 import { publish, TOPICS } from "../../services/events";
 import {
   getGuaranteeTypeCollection,
@@ -187,6 +188,21 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         resetPassword: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
           return resetPassword(_query, args, context, resolveInfo, auth0);
+        },
+        importAccountsCompaniesFromCVS: async (
+          _query,
+          args,
+          context,
+          resolveInfo
+        ) => {
+          const auth0 = await Auth0.init(context.logger);
+          return importAccountsCompaniesFromCVS(
+            _query,
+            args,
+            context,
+            resolveInfo,
+            auth0
+          );
         }
       }
     }

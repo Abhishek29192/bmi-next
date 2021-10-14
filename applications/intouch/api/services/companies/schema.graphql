@@ -8133,6 +8133,12 @@ type Mutation {
     """
     input: BulkImportInput!
   ): ImportOutput
+  importAccountsCompaniesFromCVS(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: ImportAccountsCompaniesFromCSVInput!
+  ): ImportAccountsCompaniesFromCSVResult
 }
 
 """
@@ -28927,6 +28933,15 @@ type ImportError {
 input BulkImportInput {
   files: [Upload!]!
   dryRun: Boolean
+}
+
+type ImportAccountsCompaniesFromCSVResult {
+  result: String
+}
+
+input ImportAccountsCompaniesFromCSVInput {
+  files: [Upload!]!
+  market: String
 }
 
 """
