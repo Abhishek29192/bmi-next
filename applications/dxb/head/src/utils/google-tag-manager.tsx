@@ -2,36 +2,98 @@ import { ClickableAction } from "@bmi/clickable";
 import { ButtonBaseActions } from "@material-ui/core";
 import React, { createContext, useContext } from "react";
 
+type GTM = {
+  id: string;
+  event?: string;
+  label?: string;
+  action?: string;
+};
+
 type Props = {
   action?: (ClickableAction | Omit<ButtonBaseActions, "focusVisible">) & {
     "data-gtm"?: string;
   };
   children?: React.ReactNode;
-  gtm?: {
-    id: string;
-    event?: string;
-    label?: string;
-    action?: string;
-  };
+  gtm?: GTM;
 };
 
-type Map = Partial<Record<keyof Props["gtm"], string>>;
+type Map = Partial<Record<keyof GTM, string>>;
 
 declare let window: Window & {
-  dataLayer: { push: (data: Props["gtm"]) => {} };
+  dataLayer: { push: (data: GTM) => {} };
 };
 
 type Context = {
   idMap: Record<string, string>;
 };
 
+/**
+ * Allows for GTM IDs to be mapped to a different ID when the event is
+ * triggered.
+ */
 export const GTMContext = createContext<Context>({ idMap: {} });
 
-export function pushToDataLayer(dataGtm: Props["gtm"]) {
-  window.dataLayer &&
-    window.dataLayer.push({ ...dataGtm, event: dataGtm.event ?? "gtm.click" });
+/**
+ * This pushes data to the GTM dataLayer. This should only be used outside of
+ * {@link withGTM} when a user doesn't interact with a Component. In most cases,
+ * {@link withGTM} should be used.
+ *
+ * There are some caveats to doing this:
+ * 1. For GTM to send data to Google Analytics, we need to provide an `event`
+ *     1. To re-create a "click" event, use `gtm.click`
+ * 1. Data pushed to the dataLayer is _never_ removed, only ever overwritten
+ *
+ * @param {GTM} dataGtm the data to push to the dataLayer
+ */
+export function pushToDataLayer(dataGtm: GTM) {
+  window.dataLayer && window.dataLayer.push(dataGtm);
 }
 
+/**
+ * Adds a `data-gtm` attribute and adds the {@link pushToDataLayer} call to the
+ * onClick event for the provided Component. The `data-gtm` is used to filter
+ * out irrelevant clicks (as GTM captures _all_ clicks).
+ *
+ * Using gtm
+ * @example
+ * const MyGtmComponent = withGTM(MyComponent);
+ * <MyGtmComponent gtm={
+ *   event: "my-event",
+ *   id: "my-id",
+ *   label: "my-label",
+ *   action: "my-action"
+ * } />
+ *
+ * Using propsToGtmMap
+ * @example
+ * const propsToGtmMap = {
+ *   id: "id",
+ *   label: "aria-label",
+ *   action: "href"
+ * }
+ * const MyGtmComponent = withGTM(MyComponent, propsToGtmMap);
+ * <MyGtmComponent
+ *   id={"my-id"}
+ *   aria-label={"my-label"}
+ *   href={"my-action"}
+ * />
+ *
+ * Using action
+ * @example
+ * const MyGtmComponent = withGTM(MyComponent);
+ * <MyGtmComponent action={
+ *  "data-gtm": JSON.stringify({
+ *    event: "my-event",
+ *    id: "my-id",
+ *    label: "my-label",
+ *    action: "my-action"
+ *  })
+ * } />
+ *
+ * @param Component the Component to manipulate
+ * @param propsToGtmMap the properties to use for adding data to GTM
+ * @returns the original Component with the additional behaviour properties
+ */
 export default function withGTM<P>(
   Component: React.ComponentType<any>,
   propsToGtmMap: Map = {}
@@ -40,19 +102,49 @@ export default function withGTM<P>(
     const { idMap } = useContext(GTMContext);
     const { "data-gtm": gtmDatasetJson, ...actionRest } = action || {};
     const gtmDataset = gtmDatasetJson && JSON.parse(gtmDatasetJson);
-    const id = gtm.id || props[propsToGtmMap.id] || gtmDataset?.id;
+    const id =
+      gtm?.id ||
+      (propsToGtmMap.id === "children" && String(children)) ||
+      (props[propsToGtmMap.id] && String(props[propsToGtmMap.id])) ||
+      gtmDataset?.id;
+    const gtmId = idMap[id] || id;
+    const gtmLabel =
+      gtm?.label ||
+      (propsToGtmMap.label === "children" && String(children)) ||
+      (props[propsToGtmMap.label] && String(props[propsToGtmMap.label])) ||
+      gtmDataset?.label;
+    const gtmAction =
+      gtm?.action ||
+      (propsToGtmMap.action === "children" && String(children)) ||
+      (props[propsToGtmMap.action] && String(props[propsToGtmMap.action])) ||
+      gtmDataset?.action;
+
+    if (!gtmId && !gtmLabel && !gtmAction) {
+      throw new Error("No GTM data provided.");
+    }
+
     const dataGtm = {
-      id: idMap[id] || id,
-      label:
-        gtm.label || String(props[propsToGtmMap.label]) || gtmDataset?.label,
-      action: gtm.action || props[propsToGtmMap.action] || gtmDataset?.action
+      id: gtmId,
+      label: gtmLabel,
+      action: gtmAction
+    };
+
+    const handleClick = (...args: any[]) => {
+      if (!process.env.GATSBY_PREVIEW) {
+        pushToDataLayer(dataGtm);
+      }
+      // @ts-ignore TS does not realise P could include `onClick`
+      props.onClick && props.onClick(...args);
     };
 
     return (
       <Component
         {...props}
         {...(action && { action: actionRest })}
-        data-gtm={JSON.stringify(dataGtm)}
+        {...(!process.env.GATSBY_PREVIEW && {
+          "data-gtm": JSON.stringify(dataGtm)
+        })}
+        onClick={handleClick}
       >
         {children}
       </Component>

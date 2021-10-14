@@ -36,7 +36,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
             >
               <button
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"visualiser\\"}"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":null,\\"action\\":\\"visualiser\\"}"
                 tabindex="0"
                 type="button"
               >

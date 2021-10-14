@@ -182,16 +182,6 @@ const SystemConfiguratorBlock = ({
     answers.find(({ id }) => id === nextId) ||
     (answers.length === 1 && answers[0]);
 
-  useEffect(() => {
-    if (selectedAnswer) {
-      pushToDataLayer({
-        id: `system-configurator01-selected`,
-        label: title,
-        action: selectedAnswer.title
-      });
-    }
-  }, [selectedAnswer]);
-
   if (!questionData) {
     return null;
   }
@@ -260,6 +250,7 @@ const SystemConfiguratorBlockNoResultsSection = ({
   useEffect(() => {
     pushToDataLayer({
       id: "system-configurator01-results",
+      event: "gtm.click",
       label: "No system found",
       action: "No system found"
     });
@@ -296,9 +287,9 @@ const SystemConfiguratorBlockResultSection = ({
         }
       };
       try {
-        const repsonse = await queryElasticSearch(query, ES_INDEX_NAME);
-        if (repsonse.hits?.total.value > 0) {
-          const pimObject = repsonse.hits?.hits.map(({ _source }) => {
+        const response = await queryElasticSearch(query, ES_INDEX_NAME);
+        if (response.hits?.total.value > 0) {
+          const pimObject = response.hits?.hits.map(({ _source }) => {
             return {
               ..._source,
               path: generateSystemPath(_source)
@@ -347,10 +338,9 @@ const SystemConfiguratorBlockResultSection = ({
                     system={system}
                     countryCode={countryCode}
                     gtm={{
-                      event: `${title}-results`,
-                      id: system.code,
+                      id: "system-configurator01-results",
                       action: linkToSDP,
-                      label: title
+                      label: system.name
                     }}
                     path={linkToSDP}
                     isHighlighted={id === 0}
