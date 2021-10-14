@@ -11,13 +11,7 @@ services:
       POSTGRES_DB: companies-db
     volumes:
       - ./companies/src/data/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
-      - ./companies/src/data/procedure.sql:/var/lib/postgresql/procedure.sql
-      - ./companies/src/data/company.sql:/var/lib/postgresql/company.data.sql
-      - ./companies/src/data/company.sql:/var/lib/postgresql/company.contraints.sql
-      - ./companies/src/data/company.sql:/var/lib/postgresql/company.sql
-      - ./companies/src/data/roles.sql:/var/lib/postgresql/roles.sql
-      - ./companies/src/data/rls.sql:/var/lib/postgresql/rls.sql
-      - ./companies/src/data/views.sql:/var/lib/postgresql/views.sql
+      - ./companies/src/data:/var/lib/postgresql
       - intouch_company_db:/var/lib/postgresql/data
   training-db:
     image: postgres
@@ -30,10 +24,7 @@ services:
       POSTGRES_DB: training-db
     volumes:
       - ./training/src/data/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
-      - ./training/src/data/procedure.sql:/var/lib/postgresql/procedure.sql
-      - ./training/src/data/training.sql:/var/lib/postgresql/training.sql
-      - ./training/src/data/training.sql:/var/lib/postgresql/training.data.sql
-      - ./training/src/data/training.sql:/var/lib/postgresql/training.contraints.sql
+      - ./training/src/data:/var/lib/postgresql
       - intouch_training_db:/var/lib/postgresql/data
 
 volumes:
