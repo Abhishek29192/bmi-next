@@ -19,7 +19,7 @@ resource "google_cloud_run_service" "default" {
         }
         env {
           name  = "APP_ENV"
-          value = "dev"
+          value = "prod"
         }
         env {
           name  = "AUTH0_NAMESPACE"
