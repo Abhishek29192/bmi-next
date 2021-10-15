@@ -127,9 +127,10 @@ async function cleanupOldEnvironments(tag, envs, space) {
     (env) => !parseSemVer(env.sys.id).pre && env.sys.id !== tag
   );
 
-  // want to keep at least 1 major versions (newest and previous)
+  // want to keep at least 2 major versions (newest and previous)
+  const envsExceptNewest = sortedEnvVersions.slice(1);
   if (sortedEnvVersions.length > 1) {
-    for (const env of sortedEnvVersions.slice(1)) {
+    for (const env of envsExceptNewest) {
       // 1. not the current tagged env
       const isntTaggedEnv = env.sys.id !== tag;
       // 2. isn't aliased
