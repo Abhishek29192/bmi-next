@@ -86,23 +86,6 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     systemBenefits,
     systemLayers
   } = systems;
-  const location = useLocation();
-
-  useEffect(() => {
-    const queryParamsFromUrl = new URLSearchParams(location.search);
-    const selectedSystem = queryParamsFromUrl.get(
-      SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
-    );
-    const prevPage = queryParamsFromUrl.get(SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE);
-    prevPage &&
-      selectedSystem &&
-      pushToDataLayer({
-        id: "system-configurator01-results",
-        label: name,
-        action: location.href?.toString()
-      });
-  }, [location, name]);
-
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Asset[] = useMemo(() => {
     return (assets || []).filter(

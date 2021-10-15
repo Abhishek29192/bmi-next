@@ -36,7 +36,6 @@ Object {
     "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}",
     "href": "https://www.external.co.uk",
     "model": "htmlLink",
-    "onClick": [Function],
     "rel": "noopener noreferrer",
     "target": "_blank",
   },
@@ -50,7 +49,6 @@ Object {
     "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}",
     "href": "https://www.external.co.uk",
     "model": "htmlLink",
-    "onClick": [Function],
     "rel": "noopener noreferrer",
     "target": "_blank",
   },
@@ -64,7 +62,6 @@ Object {
     "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/contact-us\\",\\"label\\":\\"Go to Page\\"}",
     "linkComponent": [MockFunction],
     "model": "routerLink",
-    "onClick": [Function],
     "to": "/no/contact-us",
   },
   "label": "Go to Page",
@@ -82,7 +79,6 @@ Object {
   "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost\\"}",
   "href": "http://localhost",
   "model": "htmlLink",
-  "onClick": [Function],
 }
 `;
 
@@ -91,7 +87,6 @@ Object {
   "data-gtm": "{\\"id\\":\\"foo1\\",\\"label\\":\\"foo\\",\\"action\\":\\"foo.com\\"}",
   "href": "foo.com",
   "model": "htmlLink",
-  "onClick": [Function],
 }
 `;
 
@@ -100,7 +95,6 @@ Object {
   "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/some-page\\"}",
   "linkComponent": [MockFunction],
   "model": "routerLink",
-  "onClick": [Function],
   "to": "/en/some-page",
 }
 `;
@@ -110,7 +104,6 @@ Object {
   "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://example.com\\"}",
   "href": "http://example.com",
   "model": "htmlLink",
-  "onClick": [Function],
   "rel": "noopener noreferrer",
   "target": "_blank",
 }
@@ -121,7 +114,6 @@ Object {
   "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"assetUrl\\",\\"label\\":\\"ImALabel\\"}",
   "href": "assetUrl",
   "model": "download",
-  "onClick": [Function],
 }
 `;
 
@@ -130,7 +122,6 @@ Object {
   "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/some-page\\",\\"label\\":\\"ImALabel\\"}",
   "linkComponent": [MockFunction],
   "model": "routerLink",
-  "onClick": [Function],
   "to": "/en/some-page",
 }
 `;
