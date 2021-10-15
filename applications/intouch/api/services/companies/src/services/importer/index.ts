@@ -1,5 +1,7 @@
 import * as csv from "fast-csv";
+import { QueryResult } from "pg";
 import pgFormat from "pg-format";
+import bcrypt from "bcrypt";
 
 // function to clean input data.
 function cleanInput(record) {
@@ -36,6 +38,7 @@ export const importAccountsCompaniesFromCVS = async (
   auth0
 ) => {
   const { pgRootPool, user } = context;
+  const logger = context.logger("import:account");
   const { input } = args;
 
   if (!user.can("import:account:markets")) {
@@ -62,7 +65,7 @@ export const importAccountsCompaniesFromCVS = async (
     const [market, type] = filename.split("-");
 
     if (marketDomain && market !== marketDomain) {
-      throw new Error("One file has a different market");
+      throw new Error("market_mismatch");
     }
 
     marketDomain = market;
@@ -81,7 +84,7 @@ export const importAccountsCompaniesFromCVS = async (
   }
 
   if (!marketDomain) {
-    throw new Error("Missing market");
+    throw new Error("market_missing");
   }
 
   const { rows } = await pgRootPool.query(
@@ -92,7 +95,7 @@ export const importAccountsCompaniesFromCVS = async (
   const marketId = rows[0].id;
 
   accountsQuery = pgFormat(
-    "INSERT INTO account(market_id, status, role, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, migration_id) VALUES %L",
+    "INSERT INTO account(market_id, status, role, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, migration_id) VALUES %L RETURNING *",
     accounts.map((account) => [
       parseInt(marketId),
       account.status,
@@ -109,7 +112,7 @@ export const importAccountsCompaniesFromCVS = async (
   );
 
   companiesQuery = pgFormat(
-    "INSERT INTO company(market_id, migration_id, name, tier, status, tax_number, about_us, logo, phone, public_email, registered_address_migration_id, trading_address_migration_id, website, linked_in) VALUES %L",
+    "INSERT INTO company(market_id, migration_id, name, tier, status, tax_number, about_us, logo, phone, public_email, registered_address_migration_id, trading_address_migration_id, website, linked_in) VALUES %L RETURNING *",
     companies.map((company) => [
       parseInt(marketId),
       company.migration_id,
@@ -194,43 +197,60 @@ export const importAccountsCompaniesFromCVS = async (
 
   const client = await pgRootPool.connect();
 
+  let insertedAccountsResult: QueryResult;
+  let insertedCompaniesResult: QueryResult;
+
   try {
     await client.query("BEGIN");
 
-    await client.query(accountsQuery, []);
-    await client.query(companiesQuery, []);
+    insertedAccountsResult = await client.query(accountsQuery, []);
+    insertedCompaniesResult = await client.query(companiesQuery, []);
+
     await client.query(membersQuery, []);
     await client.query(ownersQuery, []);
     await client.query(addressQuery, []);
     await client.query(addressCompaniesQuery, []);
 
-    const result = await auth0.importUserFromJson(
-      accounts.map((account) => ({
-        email: account.email,
-        email_verified: true,
-        user_metadata: {
-          intouch_role: "COMPANY_ADMIN",
-          first_name: account.first_name,
-          last_name: account.last_name,
-          market: marketDomain
-        },
-        app_metadata: {
-          terms_to_accept: true
-        },
-        password_hash:
-          "$2b$10$ebYjd4xVOjHcN7yBFL69RuFfyt2Sp2ugr.Iw7SzLRZERYsgkr2Qra"
-      }))
-    );
-
-    // eslint-disable-next-line
-    console.log("result", result);
-
     await client.query("COMMIT");
   } catch (error) {
     // eslint-disable-next-line
-    console.log("error", error);
+    logger.error("Error importing user and companies in db", error.message);
     await client.query("ROLLBACK");
+    throw new Error("import_db_error");
   } finally {
     client.release();
   }
+
+  const accountsToImport = [];
+  for (const account of accounts) {
+    const saltRounds = 10;
+    const accountToImport: any = account;
+
+    const salt = await bcrypt.genSalt(saltRounds);
+    const hash = await bcrypt.hash(accountToImport.password, salt);
+
+    accountsToImport.push({
+      email: accountToImport.email,
+      email_verified: true,
+      user_metadata: {
+        intouch_role: "COMPANY_ADMIN",
+        first_name: accountToImport.first_name,
+        last_name: accountToImport.last_name,
+        market: marketDomain
+      },
+      app_metadata: {
+        terms_to_accept: true
+      },
+      password_hash: hash
+    });
+  }
+
+  const auth0Job = await auth0.importUserFromJson(accountsToImport);
+
+  return {
+    message: "success",
+    accounts: insertedAccountsResult.rows,
+    companies: insertedCompaniesResult.rows,
+    auth0Job
+  };
 };

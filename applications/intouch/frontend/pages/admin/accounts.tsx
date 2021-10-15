@@ -1,5 +1,4 @@
 import React from "react";
-import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -12,7 +11,7 @@ const ImportAccountPage = ({ globalPageData }: any) => {
   const { t } = useTranslation();
 
   return (
-    <Layout pageData={globalPageData} title={t("Product Import")}>
+    <Layout pageData={globalPageData} title={t("Account Import")}>
       <ImportAccount />
     </Layout>
   );
@@ -27,7 +26,7 @@ export const getServerSideProps = withPage(
     return {
       props: {
         ...(await serverSideTranslations(locale, [
-          "admin-account",
+          "admin-account-import",
           "common",
           "sidebar",
           "footer"

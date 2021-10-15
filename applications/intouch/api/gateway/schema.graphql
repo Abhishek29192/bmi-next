@@ -2375,6 +2375,15 @@ enum AssetOrder {
   sys_publishedVersion_DESC
 }
 
+type Auth0ImportResult {
+  type: String
+  status: String
+  connection_id: String
+  connection: String
+  created_at: String
+  id: String
+}
+
 """
 A signed eight-byte integer. The upper big integer values are greater than the
 max value for a JavaScript number. Therefore all big integers will be output as
@@ -15610,7 +15619,9 @@ input ImportAccountsCompaniesFromCSVInput {
 }
 
 type ImportAccountsCompaniesFromCSVResult {
-  result: String
+  auth0Job: Auth0ImportResult
+  accounts: [Account]
+  companies: [Company]
 }
 
 type ImportError {

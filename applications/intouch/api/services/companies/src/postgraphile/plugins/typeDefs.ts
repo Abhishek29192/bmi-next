@@ -254,13 +254,23 @@ export default gql`
     result: String
   }
 
+  type Auth0ImportResult {
+    type: String
+    status: String
+    connection_id: String
+    connection: String
+    created_at: String
+    id: String
+  }
+
   input ImportAccountsCompaniesFromCSVInput {
     files: [Upload!]!
-    market: String
   }
 
   type ImportAccountsCompaniesFromCSVResult {
-    result: String
+    auth0Job: Auth0ImportResult
+    accounts: [Account]
+    companies: [Company]
   }
 
   extend type Mutation {

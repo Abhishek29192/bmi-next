@@ -651,7 +651,15 @@ export const ImportAccountsCompaniesFromCvsDocument = gql`
     $input: ImportAccountsCompaniesFromCSVInput!
   ) {
     importAccountsCompaniesFromCVS(input: $input) {
-      result
+      auth0Job {
+        id
+      }
+      accounts {
+        email
+      }
+      companies {
+        name
+      }
     }
   }
 `;
