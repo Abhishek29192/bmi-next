@@ -16,18 +16,10 @@ describe("ThemeProvider component", () => {
 });
 
 describe("getTheme", () => {
-  it("should return theme typography h1 values without long text", () => {
-    expect(getTheme(false).typography.h1).toEqual({
+  it("should return theme typography h1 values", () => {
+    expect(getTheme().typography.h1).toEqual({
       fontFamily: "Effra Heavy",
-      fontSize: "3rem",
-      fontWeight: 300,
-      lineHeight: 1.2
-    });
-  });
-  it("should return theme typography h1 values with long text", () => {
-    expect(getTheme(true).typography.h1).toEqual({
-      fontFamily: "Effra Heavy",
-      fontSize: "clamp(2rem, 1.62rem + 1vw, 3rem)",
+      fontSize: "2.125rem",
       fontWeight: 300,
       lineHeight: 1.2
     });
@@ -42,9 +34,9 @@ describe("getTheme", () => {
           }
         }
       });
-    expect(getTheme(true, expandTheme).typography.h1).toEqual({
+    expect(getTheme(expandTheme).typography.h1).toEqual({
       fontFamily: "Effra Heavy",
-      fontSize: "clamp(2rem, 1.62rem + 1vw, 3rem)",
+      fontSize: "2.125rem",
       fontWeight: 300,
       lineHeight: 2
     });

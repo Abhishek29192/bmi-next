@@ -218,7 +218,7 @@ const Page = ({
             useRecaptchaNet={reCaptchaNet}
             language={countryCode}
           >
-            <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
+            <BmiThemeProvider>
               <Header
                 navigationData={menuNavigation}
                 utilitiesData={menuUtilities}
@@ -261,7 +261,7 @@ const Page = ({
                 {inputBanner ? <InputBanner data={inputBanner} /> : null}
               </ErrorBoundary>
             </BrandProvider>
-            <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
+            <BmiThemeProvider>
               <Footer
                 mainNavigation={footerMainNavigation}
                 secondaryNavigation={footerSecondaryNavigation}
