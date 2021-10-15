@@ -185,7 +185,8 @@
       },
       "confirm_label": "Legg til teammedlemmer",
       "cancel_label": "Avbryt"
-    }
+    },
+    "noContent": "Ingen teammedlemmer har blitt lagt til i dette prosjektet"
   },
   "upload_tab": {
     "header": "Last opp fil",
@@ -330,7 +331,8 @@
       "detailHeading": "Vennligst fyll ut detaljene nedenfor for å dele informasjon om dette prosjektet",
       "cancel": "Avbryt",
       "send": "Send"
-    }
+    },
+    "noContent": "Ingen merknader er lagt til i dette prosjektet"
   },
   "guaranteeApplyAlert": {
     "title": "Du kan ikke søke om garanti ennå",

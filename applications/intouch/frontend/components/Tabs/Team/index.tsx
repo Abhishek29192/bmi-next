@@ -11,6 +11,7 @@ import {
   GetProjectDocument,
   useUpdateProjectMemberMutation
 } from "../../../graphql/generated/hooks";
+import { NoContent } from "../../NoContent";
 import { AddTeamMemberDialog } from "./AddTeamMemberDialog";
 import { TeamMemberItem } from "./TeamMemberItem";
 import styles from "./styles.module.scss";
@@ -124,37 +125,43 @@ export const TeamTab = ({
         </Button>
       </div>
       <div className={styles.body}>
-        <Table>
-          <Table.Head>
-            <Table.Row>
-              <Table.Cell>{t("teamTab.table.responsibleInstaller")}</Table.Cell>
-              <Table.Cell>{t("teamTab.table.teamMember")}</Table.Cell>
-              <Table.Cell>{t("teamTab.table.role")}</Table.Cell>
-              <Table.Cell>{t("teamTab.table.certification")}</Table.Cell>
-              <Table.Cell>{t("teamTab.table.remove")}</Table.Cell>
-            </Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {projectMembers.map(
-              (team, index) =>
-                team.account && (
-                  <TeamMemberItem
-                    key={`${team.id}-${index}`}
-                    member={team}
-                    onDeleteClick={() => {
-                      onDeleteClickHandler(team.id);
-                    }}
-                    canNominateProjectResponsible={
-                      canNominateProjectResponsible
-                    }
-                    onResponsibleInstallerChange={() =>
-                      onResponsibleInstallerChangeHandler(team)
-                    }
-                  />
-                )
-            )}
-          </Table.Body>
-        </Table>
+        {!projectMembers.length ? (
+          <NoContent message={t("teamTab.noContent")} />
+        ) : (
+          <Table>
+            <Table.Head>
+              <Table.Row>
+                <Table.Cell>
+                  {t("teamTab.table.responsibleInstaller")}
+                </Table.Cell>
+                <Table.Cell>{t("teamTab.table.teamMember")}</Table.Cell>
+                <Table.Cell>{t("teamTab.table.role")}</Table.Cell>
+                <Table.Cell>{t("teamTab.table.certification")}</Table.Cell>
+                <Table.Cell>{t("teamTab.table.remove")}</Table.Cell>
+              </Table.Row>
+            </Table.Head>
+            <Table.Body>
+              {projectMembers.map(
+                (team, index) =>
+                  team.account && (
+                    <TeamMemberItem
+                      key={`${team.id}-${index}`}
+                      member={team}
+                      onDeleteClick={() => {
+                        onDeleteClickHandler(team.id);
+                      }}
+                      canNominateProjectResponsible={
+                        canNominateProjectResponsible
+                      }
+                      onResponsibleInstallerChange={() =>
+                        onResponsibleInstallerChangeHandler(team)
+                      }
+                    />
+                  )
+              )}
+            </Table.Body>
+          </Table>
+        )}
       </div>
       <AddTeamMemberDialog
         isOpen={isTeamMemberDialogOpen}
