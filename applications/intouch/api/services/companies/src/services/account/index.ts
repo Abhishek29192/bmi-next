@@ -140,10 +140,15 @@ export const updateAccount = async (
       });
     }
 
-    if (role) {
+    // If an installer or a company admin try to change the role to installer or company_admin
+    if (
+      (role === "COMPANY_ADMIN" || role === "INSTALLER") &&
+      (!user.can("grant:market_admin") || !user.can("grant:super_admin")) // if grant:super_admin or grant:market_admin we have high privilege
+    ) {
+      // get all the user in the current company
       const { rows: users } = await pgClient.query(
         "select account.* from account join company_member on account.id = company_member.account_id where company_member.company_id = $1",
-        [user.company.id]
+        [user?.company?.id]
       );
 
       const accountToEdit = users.find(({ id }) => id === args.input.id);
@@ -163,18 +168,6 @@ export const updateAccount = async (
         if (!user.can("grant:company_admin") && role === "COMPANY_ADMIN") {
           logger.error(
             `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
-          );
-          throw new Error("unauthorized");
-        }
-        if (!user.can("grant:market_admin") && role === "MARKET_ADMIN") {
-          logger.error(
-            `User with id: ${user.id} is trying to grant market admin to user ${args.input.id}`
-          );
-          throw new Error("unauthorized");
-        }
-        if (!user.can("grant:super_admin") && role === "SUPER_ADMIN") {
-          logger.error(
-            `User with id: ${user.id} is trying to grant super admin to user ${args.input.id}`
           );
           throw new Error("unauthorized");
         }
@@ -200,6 +193,14 @@ export const updateAccount = async (
 
         return result;
       }
+    }
+
+    if (role === "MARKET_ADMIN" && !user.can("grant:market_admin")) {
+      throw new Error("unauthorized");
+    }
+
+    if (role === "SUPER_ADMIN" && !user.can("grant:super_admin")) {
+      throw new Error("unauthorized");
     }
 
     if (!photoUpload && shouldRemovePhoto) {

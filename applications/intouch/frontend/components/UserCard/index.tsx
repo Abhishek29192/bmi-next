@@ -72,7 +72,7 @@ export const UserCard = ({
 
   const isPowerfulUser = isSuperOrMarketAdmin(account);
 
-  return (
+  return account ? (
     <div data-testid={testid} className={styles.main}>
       <div className={styles.content}>
         <Avatar
@@ -106,23 +106,24 @@ export const UserCard = ({
           {/* TODO: Fix CompanyDetails child requirement in DXB */}
           <CompanyDetails details={details}>&nbsp;</CompanyDetails>
         </div>
-        {account.role === "INSTALLER" && (
-          <AccessControl dataModel="company" action="removeUser">
-            <div className={styles.buttonHolder}>
-              <Button
-                data-testid="remove-member"
-                onClick={onRemoveUserFromCompany}
-              >
-                {t("team-page:user_card.remove")}
-              </Button>
-            </div>
-          </AccessControl>
-        )}
+        {account.role === "INSTALLER" &&
+          account?.companyMembers?.nodes?.length > 0 && (
+            <AccessControl dataModel="company" action="removeUser">
+              <div className={styles.buttonHolder}>
+                <Button
+                  data-testid="remove-member"
+                  onClick={onRemoveUserFromCompany}
+                >
+                  {t("team-page:user_card.remove")}
+                </Button>
+              </div>
+            </AccessControl>
+          )}
       </div>
       <ConfirmDialog
         dialogState={dialogState}
         onCancel={() => setDialogState((prev) => ({ ...prev, open: false }))}
       />
     </div>
-  );
+  ) : null;
 };
