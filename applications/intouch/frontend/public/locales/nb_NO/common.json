@@ -46,7 +46,7 @@
   "Products": "Produkter",
   "fallback": {
     "notAdded": "Ikke lagt til",
-    "noResults": "Null resultater"
+    "noResults": "Ingen resultater funnet"
   },
   "Download": "Last ned",
   "SavePdf": "Lagre som PDF",
@@ -59,7 +59,7 @@
   "certificationLabels": {
     "type": "Type",
     "certification": "Sertifiseringer",
-    "expiry": "Utløper"
+    "expiry": "Utløpt"
   },
   "notifications": {
     "today": "I dag",

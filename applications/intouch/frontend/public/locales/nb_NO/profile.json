@@ -46,7 +46,7 @@
     "dialog": {
       "title": "Opprett passord",
       "success": "Vi har sendt deg en e -post med en lenke for å tilbakestille passordet ditt. Følg instruksjonene i e -posten.",
-      "error": "Vi har sendt deg en e -post med en lenke for å tilbakestille passordet ditt. Følg instruksjonene i e -posten."
+      "error": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator"
     }
   }
 }

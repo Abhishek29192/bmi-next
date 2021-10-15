@@ -94,7 +94,7 @@
           "fileSizeMessage": "Maks filstørrelse 3 mb."
         },
         "taxNumber": "Bedriftens VAT-nummer",
-        "businessType": "Selskapstype",
+        "businessType": "Selskapsform",
         "operationTypes": "Operasjonstyper",
         "tier": "Nivå",
         "aboutUs": "Om oss (valgfri)",
