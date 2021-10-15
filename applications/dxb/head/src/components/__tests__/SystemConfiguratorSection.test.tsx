@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, within } from "@testing-library/react";
 import { ErrorBoundary } from "react-error-boundary";
 import mockConsole from "jest-mock-console";
 import axios from "axios";
@@ -677,7 +677,7 @@ describe("SystemConfiguratorSection component", () => {
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
         type: "Result",
-        recommendedSystems: ["abcd", "efgh", "ijkl"]
+        recommendedSystems: ["abcd", "ijkl", "efgh"]
       }
     });
     mockQueryES.mockResolvedValueOnce({
@@ -697,13 +697,7 @@ describe("SystemConfiguratorSection component", () => {
       }
     });
 
-    const {
-      container,
-      findByLabelText,
-      findByRole,
-      findByText,
-      findAllByText
-    } = render(
+    const { container, findByLabelText, findByRole, findByText } = render(
       <SiteContextProvider value={getSiteContext()}>
         <LocationProvider>
           <SystemConfiguratorSection data={initialData} />
@@ -720,13 +714,19 @@ describe("SystemConfiguratorSection component", () => {
     await findByText(pimSystem._source.shortDescription);
     await findByText("ijkl name");
 
-    console.log(findAllByText("Result Title"));
     expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
-    expect(
-      container.querySelectorAll(".SystemConfigurator-result .OverviewCard")
-        .length
-    ).toBe(2);
+
+    const renderedSystems = Array.from(
+      container.querySelectorAll<HTMLElement>(
+        ".SystemConfigurator-result .OverviewCard"
+      )
+    );
+
+    expect(renderedSystems.length).toBe(2);
+    //verify the order matches 'recommendedSystems' in which they are rendred within results section
+    expect(within(renderedSystems[0]).getByText("ijkl name")).not.toBeNull();
+    expect(within(renderedSystems[1]).getByText("efgh name")).not.toBeNull();
   });
 
   it("renders only max of 4 recommendedSystems", async () => {
@@ -736,7 +736,7 @@ describe("SystemConfiguratorSection component", () => {
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
         type: "Result",
-        recommendedSystems: ["abcd", "efgh", "ijkl", "mnop", "qrst"]
+        recommendedSystems: ["ijkl", "efgh", "abcd", "mnop", "qrst"]
       }
     });
     mockQueryES.mockResolvedValueOnce({
@@ -795,10 +795,19 @@ describe("SystemConfiguratorSection component", () => {
 
     expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
-    expect(
-      container.querySelectorAll(".SystemConfigurator-result .OverviewCard")
-        .length
-    ).toBe(4);
+
+    const renderedSystems = Array.from(
+      container.querySelectorAll<HTMLElement>(
+        ".SystemConfigurator-result .OverviewCard"
+      )
+    );
+
+    expect(renderedSystems.length).toBe(4);
+    //verify the order matches 'recommendedSystems' in which they are rendred within results section
+    expect(within(renderedSystems[0]).getByText("ijkl name")).not.toBeNull();
+    expect(within(renderedSystems[1]).getByText("efgh name")).not.toBeNull();
+    expect(within(renderedSystems[2]).getByText("abcd name")).not.toBeNull();
+    expect(within(renderedSystems[3]).getByText("mnop name")).not.toBeNull();
   });
 
   it("redirect to 404 page if no matches to pimSystem code", async () => {
