@@ -254,6 +254,25 @@ export default gql`
     result: String
   }
 
+  type Auth0ImportResult {
+    type: String
+    status: String
+    connection_id: String
+    connection: String
+    created_at: String
+    id: String
+  }
+
+  input ImportAccountsCompaniesFromCSVInput {
+    files: [Upload!]!
+  }
+
+  type ImportAccountsCompaniesFromCSVResult {
+    auth0Job: Auth0ImportResult
+    accounts: [Account]
+    companies: [Company]
+  }
+
   extend type Mutation {
     resetPassword: String
     publishMessage(input: PublishInput!): Publish
@@ -264,5 +283,8 @@ export default gql`
     ): resetPasswordImportedUsersResult
     completeInvitation(companyId: Int!): Account
     bulkImport(input: BulkImportInput!): ImportOutput
+    importAccountsCompaniesFromCVS(
+      input: ImportAccountsCompaniesFromCSVInput!
+    ): ImportAccountsCompaniesFromCSVResult
   }
 `;

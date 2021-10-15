@@ -346,6 +346,46 @@ export type CompanyRegisteredDetailsFragmentFragment = {
     };
   };
 
+export type ImportAccountsCompaniesFromCvsMutationVariables =
+  SchemaTypes.Exact<{
+    input: SchemaTypes.ImportAccountsCompaniesFromCsvInput;
+  }>;
+
+export type ImportAccountsCompaniesFromCvsMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly importAccountsCompaniesFromCVS?: SchemaTypes.Maybe<
+    { readonly __typename?: "ImportAccountsCompaniesFromCSVResult" } & {
+      readonly auth0Job?: SchemaTypes.Maybe<
+        { readonly __typename?: "Auth0ImportResult" } & Pick<
+          SchemaTypes.Auth0ImportResult,
+          "id"
+        >
+      >;
+      readonly accounts?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "Account" } & Pick<
+              SchemaTypes.Account,
+              "email"
+            >
+          >
+        >
+      >;
+      readonly companies?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "Company" } & Pick<
+              SchemaTypes.Company,
+              "name"
+            >
+          >
+        >
+      >;
+    }
+  >;
+};
+
 export type BulkImportMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.BulkImportInput;
 }>;

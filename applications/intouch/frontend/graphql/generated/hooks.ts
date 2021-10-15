@@ -646,6 +646,67 @@ export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
 >;
+export const ImportAccountsCompaniesFromCvsDocument = gql`
+  mutation importAccountsCompaniesFromCVS(
+    $input: ImportAccountsCompaniesFromCSVInput!
+  ) {
+    importAccountsCompaniesFromCVS(input: $input) {
+      auth0Job {
+        id
+      }
+      accounts {
+        email
+      }
+      companies {
+        name
+      }
+    }
+  }
+`;
+export type ImportAccountsCompaniesFromCvsMutationFn = Apollo.MutationFunction<
+  OperationTypes.ImportAccountsCompaniesFromCvsMutation,
+  OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
+>;
+
+/**
+ * __useImportAccountsCompaniesFromCvsMutation__
+ *
+ * To run a mutation, you first call `useImportAccountsCompaniesFromCvsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useImportAccountsCompaniesFromCvsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [importAccountsCompaniesFromCvsMutation, { data, loading, error }] = useImportAccountsCompaniesFromCvsMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useImportAccountsCompaniesFromCvsMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.ImportAccountsCompaniesFromCvsMutation,
+    OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.ImportAccountsCompaniesFromCvsMutation,
+    OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
+  >(ImportAccountsCompaniesFromCvsDocument, options);
+}
+export type ImportAccountsCompaniesFromCvsMutationHookResult = ReturnType<
+  typeof useImportAccountsCompaniesFromCvsMutation
+>;
+export type ImportAccountsCompaniesFromCvsMutationResult =
+  Apollo.MutationResult<OperationTypes.ImportAccountsCompaniesFromCvsMutation>;
+export type ImportAccountsCompaniesFromCvsMutationOptions =
+  Apollo.BaseMutationOptions<
+    OperationTypes.ImportAccountsCompaniesFromCvsMutation,
+    OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
+  >;
 export const BulkImportDocument = gql`
   mutation bulkImport($input: BulkImportInput!) {
     bulkImport(input: $input) {

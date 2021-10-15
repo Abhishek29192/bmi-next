@@ -12,16 +12,18 @@ import { ProductsAndSystemsQuery } from "../../graphql/generated/operations";
 type ProductsAndSystemsPageProps = GlobalPageProps & {
   ssrProducts: ProductsAndSystemsQuery["products"];
   ssrSystems: ProductsAndSystemsQuery["systems"];
+  globalPageData: any;
 };
 
 const ProductsAndSystems = ({
   ssrProducts,
-  ssrSystems
+  ssrSystems,
+  globalPageData
 }: ProductsAndSystemsPageProps) => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("Product Import")}>
+    <Layout pageData={globalPageData} title={t("Product Import")}>
       <ProductImport products={ssrProducts} systems={ssrSystems} />
     </Layout>
   );

@@ -1296,6 +1296,16 @@ export type AssetOrder =
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
 
+export type Auth0ImportResult = {
+  __typename?: "Auth0ImportResult";
+  type?: Maybe<Scalars["String"]>;
+  status?: Maybe<Scalars["String"]>;
+  connection_id?: Maybe<Scalars["String"]>;
+  connection?: Maybe<Scalars["String"]>;
+  created_at?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars["String"]>;
+};
+
 /** A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’ */
 export type BooleanFilter = {
   /** Is null (if `true` is specified) or is not null (if `false` is specified). */
@@ -9655,6 +9665,18 @@ export type ImageTransformOptions = {
   format?: Maybe<ImageFormat>;
 };
 
+export type ImportAccountsCompaniesFromCsvInput = {
+  files: Array<Scalars["Upload"]>;
+  market?: Maybe<Scalars["String"]>;
+};
+
+export type ImportAccountsCompaniesFromCsvResult = {
+  __typename?: "ImportAccountsCompaniesFromCSVResult";
+  auth0Job?: Maybe<Auth0ImportResult>;
+  accounts?: Maybe<Array<Maybe<Account>>>;
+  companies?: Maybe<Array<Maybe<Company>>>;
+};
+
 export type ImportError = {
   __typename?: "ImportError";
   ref?: Maybe<Scalars["String"]>;
@@ -11474,6 +11496,7 @@ export type Mutation = {
   /** Deletes a single `SystemMember` using a unique key. */
   deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<DeleteSystemMemberPayload>;
   evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
+  importAccountsCompaniesFromCVS?: Maybe<ImportAccountsCompaniesFromCsvResult>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   markAllNotificationsAsRead?: Maybe<MarkAllNotificationsAsReadPayload>;
@@ -12121,6 +12144,11 @@ export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdA
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationEvidenceItemsAddArgs = {
   input: EvidenceItemsAddInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationImportAccountsCompaniesFromCvsArgs = {
+  input: ImportAccountsCompaniesFromCsvInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */

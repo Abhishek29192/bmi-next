@@ -2375,6 +2375,15 @@ enum AssetOrder {
   sys_publishedVersion_DESC
 }
 
+type Auth0ImportResult {
+  type: String
+  status: String
+  connection_id: String
+  connection: String
+  created_at: String
+  id: String
+}
+
 """
 A signed eight-byte integer. The upper big integer values are greater than the
 max value for a JavaScript number. Therefore all big integers will be output as
@@ -15604,6 +15613,17 @@ input ImageTransformOptions {
   format: ImageFormat
 }
 
+input ImportAccountsCompaniesFromCSVInput {
+  files: [Upload!]!
+  market: String
+}
+
+type ImportAccountsCompaniesFromCSVResult {
+  auth0Job: Auth0ImportResult
+  accounts: [Account]
+  companies: [Company]
+}
+
 type ImportError {
   ref: String
   message: String
@@ -18968,6 +18988,12 @@ type Mutation {
     """
     input: EvidenceItemsAddInput!
   ): EvidenceItemsAddPayload
+  importAccountsCompaniesFromCVS(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: ImportAccountsCompaniesFromCSVInput!
+  ): ImportAccountsCompaniesFromCSVResult
   invite(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
