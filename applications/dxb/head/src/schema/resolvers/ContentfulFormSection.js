@@ -3,7 +3,7 @@
 const {
   generateIdFromString,
   generateDigestFromData
-} = require("./utils/encryption");
+} = require("../../utils/encryption");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -112,7 +112,7 @@ module.exports = {
           .map((input) =>
             getNodeData(source.id, {
               // TODO: I only support basic hubspot form layout (one field per row)
-              id: generateIdFromString(source.id + input.fields[0].name),
+              id: generateIdFromString(source.id + input.fields[0].name, true),
               name: input.fields[0].name,
               label: input.fields[0].label,
               type: mapFields(input.fields[0].fieldType, input.fields[0].name),

@@ -250,7 +250,7 @@ exports[`Page component renders correctly 1`] = `
           <a
             aria-label="MC: global.logoLabel"
             class="logo-link"
-            href="/uk/"
+            href="/uk"
           >
             <svg
               class="logo"
