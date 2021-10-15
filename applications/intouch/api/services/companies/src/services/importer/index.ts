@@ -35,8 +35,12 @@ export const importAccountsCompaniesFromCVS = async (
   resolveInfo,
   auth0
 ) => {
-  const { pgRootPool } = context;
+  const { pgRootPool, user } = context;
   const { input } = args;
+
+  if (!user.can("import:account:markets")) {
+    throw new Error("unauthorized");
+  }
 
   const files = await input.files;
 

@@ -1,8 +1,9 @@
 import { Buffer } from "buffer";
-import { Readable, Duplex } from "stream";
 import FormData from "form-data";
 import { Logger } from "winston";
 import axios from "axios";
+
+const { AUTH0_API_DOMAIN, AUTH0_CONNECTION_ID } = process.env;
 
 class Auth0 {
   logger: Logger;
@@ -26,13 +27,13 @@ class Auth0 {
     try {
       const { data } = await axios({
         method: "POST",
-        url: `https://${process.env.AUTH0_API_DOMAIN}/oauth/token`,
+        url: `https://${AUTH0_API_DOMAIN}/oauth/token`,
         headers: { "content-type": "application/json" },
         data: {
           grant_type: "client_credentials",
           client_id: process.env.AUTH0_API_CLIENT_ID,
           client_secret: process.env.AUTH0_API_CLIENT_SECRET,
-          audience: `https://${process.env.AUTH0_API_DOMAIN}/api/v2/`
+          audience: `https://${AUTH0_API_DOMAIN}/api/v2/`
         }
       });
 
@@ -46,9 +47,7 @@ class Auth0 {
     try {
       const { data } = await axios({
         method: "GET",
-        url: `https://${
-          process.env.AUTH0_API_DOMAIN
-        }/api/v2/users-by-email?include_fields=true&fields=user_id,user_metadata,email_verified&email=${encodeURIComponent(
+        url: `https://${AUTH0_API_DOMAIN}/api/v2/users-by-email?include_fields=true&fields=user_id,user_metadata,email_verified&email=${encodeURIComponent(
           emailAddress
         )}`,
         headers: {
@@ -72,7 +71,7 @@ class Auth0 {
     try {
       const { data } = await axios({
         method: "POST",
-        url: `https://${process.env.AUTH0_API_DOMAIN}/api/v2/users`,
+        url: `https://${AUTH0_API_DOMAIN}/api/v2/users`,
         headers: {
           authorization: `Bearer ${this.accessToken}`
         },
@@ -89,7 +88,7 @@ class Auth0 {
     try {
       const { data } = await axios({
         method: "DELETE",
-        url: `https://${process.env.AUTH0_API_DOMAIN}/api/v2/users/${id}`,
+        url: `https://${AUTH0_API_DOMAIN}/api/v2/users/${id}`,
         headers: {
           authorization: `Bearer ${this.accessToken}`
         }
@@ -105,7 +104,7 @@ class Auth0 {
     try {
       const { data } = await axios({
         method: "PATCH",
-        url: `https://${process.env.AUTH0_API_DOMAIN}/api/v2/users/${id}`,
+        url: `https://${AUTH0_API_DOMAIN}/api/v2/users/${id}`,
         headers: {
           authorization: `Bearer ${this.accessToken}`
         },
@@ -122,7 +121,7 @@ class Auth0 {
     try {
       const { data } = await axios({
         method: "POST",
-        url: `https://${process.env.AUTH0_API_DOMAIN}/api/v2/tickets/password-change`,
+        url: `https://${AUTH0_API_DOMAIN}/api/v2/tickets/password-change`,
         headers: {
           authorization: `Bearer ${this.accessToken}`
         },
@@ -143,7 +142,7 @@ class Auth0 {
     try {
       const { data } = await axios({
         method: "POST",
-        url: `https://${process.env.AUTH0_API_DOMAIN}/dbconnections/change_password`,
+        url: `https://${AUTH0_API_DOMAIN}/dbconnections/change_password`,
         headers: {
           authorization: `Bearer ${this.accessToken}`
         },
@@ -162,7 +161,7 @@ class Auth0 {
   importUserFromJson = async (users) => {
     try {
       const formData = new FormData();
-      formData.append("connection_id", "con_0Z9pDsN759ae5Z8U");
+      formData.append("connection_id", AUTH0_CONNECTION_ID);
       const buffer = Buffer.from(JSON.stringify(users));
       formData.append("users", buffer, {
         filename: "users.json",
@@ -170,7 +169,7 @@ class Auth0 {
       });
 
       const { data } = await axios.post(
-        `https://${process.env.AUTH0_API_DOMAIN}/api/v2/jobs/users-imports`,
+        `https://${AUTH0_API_DOMAIN}/api/v2/jobs/users-imports`,
         formData,
         {
           headers: {

@@ -102,7 +102,7 @@ export const innerGetServerSideProps = async (
       return {
         redirect: {
           permanent: false,
-          destination: "/api-error?message=user_not_found"
+          destination: "/api/auth/logout"
         }
       };
     }
