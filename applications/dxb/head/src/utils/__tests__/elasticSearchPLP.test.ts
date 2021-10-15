@@ -45,6 +45,45 @@ describe("disableFiltersFromAggregationsPLP function", () => {
 
     expect(updatedFilters).toEqual(result);
   });
+  describe("when filter name has 'plpFilter.' prefixed", () => {
+    it("should remove prefix and disable based on aggregations", () => {
+      const filters: Filter[] = [
+        {
+          name: "plpFilter.colour",
+          label: "Colour",
+          options: [
+            { label: "1", value: "colour1" },
+            { label: "2", value: "colour2" }
+          ]
+        }
+      ];
+      const aggregations: Aggregations = {
+        colour: {
+          buckets: [
+            { key: "colour1", doc_count: 1 },
+            { key: "bar", doc_count: 1 }
+          ]
+        }
+      };
+
+      const updatedFilters = disableFiltersFromAggregationsPLP(
+        filters,
+        aggregations
+      );
+      const result = [
+        {
+          name: "plpFilter.colour",
+          label: "Colour",
+          options: [
+            { label: "1", value: "colour1", isDisabled: false },
+            { label: "2", value: "colour2", isDisabled: true }
+          ]
+        }
+      ];
+
+      expect(updatedFilters).toEqual(result);
+    });
+  });
 });
 
 describe("compileESQueryPLP function", () => {

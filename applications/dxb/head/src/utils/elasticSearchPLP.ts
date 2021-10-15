@@ -27,7 +27,8 @@ export const disableFiltersFromAggregationsPLP = (
     return {
       ...filter,
       options: filter.options.map((option) => {
-        const buckets = aggregations[filter.name]?.buckets;
+        const buckets =
+          aggregations[filter.name.replace("plpFilter.", "")]?.buckets;
 
         const aggregate = (buckets || []).find(
           ({ key }) => key === option.value
