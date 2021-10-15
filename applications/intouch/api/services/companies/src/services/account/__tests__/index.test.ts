@@ -102,7 +102,10 @@ describe("Account", () => {
   describe("Update", () => {
     describe("Role", () => {
       it("should resolve if a company admin promote a installer", async () => {
-        contextMock.user.can = () => true;
+        (contextMock.user.can as jest.Mock)
+          .mockReturnValueOnce(false)
+          .mockReturnValueOnce(true);
+
         contextMock.user.company = {
           id: 1
         };
@@ -164,7 +167,10 @@ describe("Account", () => {
       });
 
       it("should resolve if a company admin downgrade an installer", async () => {
-        contextMock.user.can = () => true;
+        (contextMock.user.can as jest.Mock)
+          .mockReturnValueOnce(false)
+          .mockReturnValueOnce(true);
+
         contextMock.user.company = {
           id: 1
         };

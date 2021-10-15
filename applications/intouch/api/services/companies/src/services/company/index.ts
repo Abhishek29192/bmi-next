@@ -142,7 +142,7 @@ export const deleteCompanyMember = async (
     );
 
     logger.info(
-      `Removing user with id: ${userToRemove.id} from the projects that is a member of`
+      `Removing user with id: ${userToRemove.id} from the company's projects`
     );
 
     const result = await resolve(source, args, context, resolveInfo);

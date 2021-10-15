@@ -95,9 +95,9 @@ const CompanyMembers = ({ data }: PageProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [messages, setMessages] = useState<MessageProp[]>([]);
   const [members, setMembers] = useState(data.accounts.nodes);
-  const [currentMember, setCurrentMember] = useState<Account>(
-    data?.accounts?.nodes?.[0] as Account
-  );
+  const [currentMember, setCurrentMember] = useState<
+    TeamMembersQuery["accounts"]["nodes"][0]
+  >(data?.accounts?.nodes?.[0]);
 
   const [deleteMember] = useDeleteCompanyMemberMutation({
     onError: (error) => {
@@ -110,6 +110,8 @@ const CompanyMembers = ({ data }: PageProps) => {
       closeWithDelay();
     },
     onCompleted: () => {
+      setCurrentMember(null);
+
       const expiryDate = getValidCertDate();
 
       fetchCompanyMembers({
@@ -138,22 +140,31 @@ const CompanyMembers = ({ data }: PageProps) => {
   const [fetchCompanyMembers] = useTeamMembersLazyQuery({
     fetchPolicy: "network-only",
     onCompleted: (data) => {
-      const newCurrent = data?.accounts?.nodes.find(
-        ({ id }) => id === currentMember.id
-      ) as Account;
+      if (currentMember) {
+        const newCurrent = data?.accounts?.nodes.find(
+          ({ id }) => id === currentMember.id
+        );
+        setCurrentMember(newCurrent);
+      } else {
+        setCurrentMember(data?.accounts?.nodes[0]);
+      }
 
       setMembers(sortByFirstName(data?.accounts?.nodes));
-
-      setCurrentMember(newCurrent);
     }
   });
 
-  const onRemoveUser = async () =>
+  const onRemoveUser = async () => {
+    const selectedUser = members.find(
+      (member) => member.id === currentMember.id
+    );
+
+    // Deleting the current user
     deleteMember({
       variables: {
-        id: currentMember.id
+        id: selectedUser?.companyMembers?.nodes?.[0]?.id
       }
     });
+  };
 
   const [updateAccount] = useUpdateRoleAccountMutation({
     onError: (error) => {
@@ -318,8 +329,8 @@ const CompanyMembers = ({ data }: PageProps) => {
             testid="user-card"
             onAccountUpdate={onAccountUpdate}
             onRemoveUser={onRemoveUser}
-            account={currentMember}
-            companyName={findAccountCompany(currentMember)?.name}
+            account={currentMember as Account}
+            companyName={findAccountCompany(currentMember as Account)?.name}
             details={[
               {
                 type: "phone",
