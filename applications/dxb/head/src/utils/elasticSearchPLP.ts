@@ -69,7 +69,13 @@ export const compileESQueryPLP = ({
     size: pageSize,
     from: page * pageSize,
     // NOTE: scoringWeightInt is a number (long) in the index, no ".keyword" field
-    sort: ["_score", { scoringWeightInt: "desc" }, { "name.keyword": "asc" }],
+    sort: [
+      "_score",
+      { prodcutScoringWeightInt: "desc" },
+      { variantScoringWeightInt: "desc" },
+      { scoringWeightInt: "desc" },
+      { "name.keyword": "asc" }
+    ],
     aggs: {
       ...generateAllowFiltersAggs(allowFilterBy)
     },
@@ -83,6 +89,12 @@ export const compileESQueryPLP = ({
           },
           ...userSelectedFilterTerms
         ].filter(Boolean)
+      }
+    },
+    collapse: {
+      field: "baseProduct.code.keyword",
+      inner_hits: {
+        name: "all_variants"
       }
     }
   };

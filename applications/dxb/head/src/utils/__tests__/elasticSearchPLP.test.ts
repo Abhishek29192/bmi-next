@@ -101,6 +101,8 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
+          { prodcutScoringWeightInt: "desc" },
+          { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
@@ -108,6 +110,12 @@ describe("compileESQueryPLP function", () => {
         query: {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
+          }
+        },
+        collapse: {
+          field: "baseProduct.code.keyword",
+          inner_hits: {
+            name: "all_variants"
           }
         }
       });
@@ -128,6 +136,8 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
+          { prodcutScoringWeightInt: "desc" },
+          { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
@@ -135,6 +145,12 @@ describe("compileESQueryPLP function", () => {
         query: {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
+          }
+        },
+        collapse: {
+          field: "baseProduct.code.keyword",
+          inner_hits: {
+            name: "all_variants"
           }
         }
       });
@@ -162,6 +178,8 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
+            { prodcutScoringWeightInt: "desc" },
+            { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
           ],
@@ -169,6 +187,12 @@ describe("compileESQueryPLP function", () => {
           query: {
             bool: {
               must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
+            }
+          },
+          collapse: {
+            field: "baseProduct.code.keyword",
+            inner_hits: {
+              name: "all_variants"
             }
           }
         });
@@ -201,6 +225,8 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
+            { prodcutScoringWeightInt: "desc" },
+            { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
           ],
@@ -211,6 +237,12 @@ describe("compileESQueryPLP function", () => {
                 { terms: { "allCategories.code.keyword": ["Category"] } },
                 { terms: { "filter-1.code.keyword": ["option-1"] } }
               ]
+            }
+          },
+          collapse: {
+            field: "baseProduct.code.keyword",
+            inner_hits: {
+              name: "all_variants"
             }
           }
         });
@@ -243,6 +275,8 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
+            { prodcutScoringWeightInt: "desc" },
+            { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
           ],
@@ -254,6 +288,12 @@ describe("compileESQueryPLP function", () => {
                 { terms: { "filter-1.code.keyword": ["option-1"] } },
                 { terms: { "filter-2.code.keyword": ["fl2-option-1"] } }
               ]
+            }
+          },
+          collapse: {
+            field: "baseProduct.code.keyword",
+            inner_hits: {
+              name: "all_variants"
             }
           }
         });
@@ -275,6 +315,8 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
+          { prodcutScoringWeightInt: "desc" },
+          { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
@@ -282,6 +324,12 @@ describe("compileESQueryPLP function", () => {
         query: {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
+          }
+        },
+        collapse: {
+          field: "baseProduct.code.keyword",
+          inner_hits: {
+            name: "all_variants"
           }
         }
       });
@@ -302,6 +350,8 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
+          { prodcutScoringWeightInt: "desc" },
+          { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
@@ -309,6 +359,12 @@ describe("compileESQueryPLP function", () => {
         query: {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
+          }
+        },
+        collapse: {
+          field: "baseProduct.code.keyword",
+          inner_hits: {
+            name: "all_variants"
           }
         }
       });
@@ -329,6 +385,8 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
+          { prodcutScoringWeightInt: "desc" },
+          { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
@@ -352,6 +410,12 @@ describe("compileESQueryPLP function", () => {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
           }
+        },
+        collapse: {
+          field: "baseProduct.code.keyword",
+          inner_hits: {
+            name: "all_variants"
+          }
         }
       });
     });
@@ -368,6 +432,8 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
+          { prodcutScoringWeightInt: "desc" },
+          { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
@@ -391,6 +457,12 @@ describe("compileESQueryPLP function", () => {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
           }
+        },
+        collapse: {
+          field: "baseProduct.code.keyword",
+          inner_hits: {
+            name: "all_variants"
+          }
         }
       });
     });
@@ -410,6 +482,8 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
+            { prodcutScoringWeightInt: "desc" },
+            { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
           ],
@@ -425,6 +499,12 @@ describe("compileESQueryPLP function", () => {
           query: {
             bool: {
               must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
+            }
+          },
+          collapse: {
+            field: "baseProduct.code.keyword",
+            inner_hits: {
+              name: "all_variants"
             }
           }
         });
@@ -449,6 +529,8 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
+            { prodcutScoringWeightInt: "desc" },
+            { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
           ],
@@ -478,6 +560,12 @@ describe("compileESQueryPLP function", () => {
           query: {
             bool: {
               must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
+            }
+          },
+          collapse: {
+            field: "baseProduct.code.keyword",
+            inner_hits: {
+              name: "all_variants"
             }
           }
         });
