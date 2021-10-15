@@ -1,10 +1,12 @@
 import merge from "lodash/merge";
+import { gql } from "@apollo/client";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextLogger } from "@bmi/logger";
-import { getServerPageGetGlobalData } from "../../graphql/generated/page";
+import { getServerPageGetGlobalDataPublic } from "../../graphql/generated/page";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
 import { initializeApollo } from "../apolloClient";
+import { getSecret } from "../utils/secrets";
 
 type PageContext = {
   req: NextApiRequest;
@@ -19,16 +21,19 @@ export type GlobalPageProps = {
 
 export const innerGetServerSideProps = async (getServerSideProps, ctx) => {
   const { req, res } = ctx;
-
   const apolloClient = initializeApollo(null, { req, res });
+  const GATEWAY_API_KEY = await getSecret(
+    process.env.GCP_SECRET_PROJECT,
+    "GATEWAY_API_KEY"
+  );
 
   const {
     props: { data: globalPageData }
-  } = await getServerPageGetGlobalData(
+  } = await getServerPageGetGlobalDataPublic(
     {
       context: {
         headers: {
-          "x-api-key": "my-super-api-key"
+          "x-api-key": GATEWAY_API_KEY
         }
       }
     },
@@ -52,6 +57,30 @@ export const innerGetServerSideProps = async (getServerSideProps, ctx) => {
     }
   );
 };
+
+export const GET_PAGE_DATA = gql`
+  query GetGlobalDataPublic {
+    # Only one Market Content is expected to be available for user
+    marketContentCollection(limit: 1) {
+      items {
+        footerLinksCollection {
+          items {
+            title
+            relativePath
+          }
+        }
+        # Top bar - Contact us link
+        contactUsPage {
+          title
+          relativePath
+        }
+        # Top bar - global external link
+        externalLinkUrl
+        externalLinkLabel
+      }
+    }
+  }
+`;
 
 export const withPublicPage =
   (getServerSideProps) => async (context: PageContext) => {

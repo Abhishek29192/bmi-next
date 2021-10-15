@@ -73,9 +73,11 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
       headers: {
         ...headers,
         authorization: accessToken || "",
+        // Logging purpose
         ...(headers?.["x-request-id"] && {
           "x-request-id": headers?.["x-request-id"]
         }),
+        // Logging purpose
         ...(headers?.["x-authenticated-user-id"] && {
           "x-authenticated-user-id": headers?.["x-authenticated-user-id"]
         })

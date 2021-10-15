@@ -3100,6 +3100,76 @@ export type AccountInfoByEmailQueryResult = Apollo.QueryResult<
   OperationTypes.AccountInfoByEmailQuery,
   OperationTypes.AccountInfoByEmailQueryVariables
 >;
+export const GetGlobalDataPublicDocument = gql`
+  query GetGlobalDataPublic {
+    marketContentCollection(limit: 1) {
+      items {
+        footerLinksCollection {
+          items {
+            title
+            relativePath
+          }
+        }
+        contactUsPage {
+          title
+          relativePath
+        }
+        externalLinkUrl
+        externalLinkLabel
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetGlobalDataPublicQuery__
+ *
+ * To run a query within a React component, call `useGetGlobalDataPublicQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGlobalDataPublicQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGlobalDataPublicQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetGlobalDataPublicQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >(GetGlobalDataPublicDocument, options);
+}
+export function useGetGlobalDataPublicLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >(GetGlobalDataPublicDocument, options);
+}
+export type GetGlobalDataPublicQueryHookResult = ReturnType<
+  typeof useGetGlobalDataPublicQuery
+>;
+export type GetGlobalDataPublicLazyQueryHookResult = ReturnType<
+  typeof useGetGlobalDataPublicLazyQuery
+>;
+export type GetGlobalDataPublicQueryResult = Apollo.QueryResult<
+  OperationTypes.GetGlobalDataPublicQuery,
+  OperationTypes.GetGlobalDataPublicQueryVariables
+>;
 export const GetContentArticleContentDocument = gql`
   query getContentArticleContent($relativePath: String!) {
     contentArticleCollection(where: { relativePath: $relativePath }, limit: 1) {
@@ -3476,6 +3546,66 @@ export type GetPartnerBrandsLazyQueryHookResult = ReturnType<
 export type GetPartnerBrandsQueryResult = Apollo.QueryResult<
   OperationTypes.GetPartnerBrandsQuery,
   OperationTypes.GetPartnerBrandsQueryVariables
+>;
+export const PrivacyPageDocument = gql`
+  query PrivacyPage {
+    contentArticleCollection(where: { relativePath_in: ["/privacy"] }) {
+      items {
+        title
+        body {
+          json
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __usePrivacyPageQuery__
+ *
+ * To run a query within a React component, call `usePrivacyPageQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePrivacyPageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePrivacyPageQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function usePrivacyPageQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.PrivacyPageQuery,
+    OperationTypes.PrivacyPageQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.PrivacyPageQuery,
+    OperationTypes.PrivacyPageQueryVariables
+  >(PrivacyPageDocument, options);
+}
+export function usePrivacyPageLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.PrivacyPageQuery,
+    OperationTypes.PrivacyPageQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.PrivacyPageQuery,
+    OperationTypes.PrivacyPageQueryVariables
+  >(PrivacyPageDocument, options);
+}
+export type PrivacyPageQueryHookResult = ReturnType<typeof usePrivacyPageQuery>;
+export type PrivacyPageLazyQueryHookResult = ReturnType<
+  typeof usePrivacyPageLazyQuery
+>;
+export type PrivacyPageQueryResult = Apollo.QueryResult<
+  OperationTypes.PrivacyPageQuery,
+  OperationTypes.PrivacyPageQueryVariables
 >;
 export const GetUserProfileDocument = gql`
   query getUserProfile($accountId: Int!) {

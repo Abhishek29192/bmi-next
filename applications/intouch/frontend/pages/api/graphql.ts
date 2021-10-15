@@ -22,7 +22,9 @@ export const handler = async function (
   res: NextApiResponse,
   next: any
 ) {
+  const { headers } = req;
   const { GRAPHQL_URL } = process.env;
+  const isLocalGateway = GRAPHQL_URL?.indexOf("local") !== -1;
   const logger = req.logger("graphql");
 
   let user;
@@ -36,8 +38,10 @@ export const handler = async function (
       req.headers.authorization = `Bearer ${session.accessToken}`;
       user = session.user;
     } catch (error) {
-      // eslint-disable-next-line no-console
-      logger.error(error);
+      // Log only if not using api key otherwise we will get tons of useless errors
+      if (!headers["x-api-key"]) {
+        logger.error(error);
+      }
     }
   } else {
     const userInfo = req.headers.authorization?.split(".")[1];
@@ -45,7 +49,9 @@ export const handler = async function (
     try {
       user = JSON.parse(Buffer.from(userInfo, "base64").toString());
     } catch (error) {
-      logger.error(error);
+      if (!headers["x-api-key"]) {
+        logger.error(error);
+      }
     }
   }
 
@@ -62,22 +68,33 @@ export const handler = async function (
     market = getMarketAndEnvFromReq(req as any).market;
   }
 
+  let target = `${GRAPHQL_URL}/${
+    headers["x-api-key"] ? "graphql_api" : "graphql"
+  }`;
+
   /**
    * If we are working locally we are not able to use the gcp api-gateway
    * so we need to replicate it sending the paylod base64.
    * The api gateway will always re-write this header so if we try to send this header
    * to the api gateay it will be overwritten
+   * We also need to simulate the api key somehow
    */
 
   if (process.env.NODE_ENV === "development") {
-    const authHeader = req.headers.authorization;
+    const authHeader = headers.authorization;
 
     if (authHeader) {
       const jwtPayloads = authHeader.split(".");
 
       if (jwtPayloads.length > 1) {
-        req.headers["x-apigateway-api-userinfo"] = jwtPayloads[1];
+        headers["x-apigateway-api-userinfo"] = jwtPayloads[1];
       }
+    }
+
+    // If the graphql endpoint is pointing locally we need to
+    // send the request to the normal graphql endpoint
+    if (isLocalGateway && headers["x-api-key"]) {
+      target = `${GRAPHQL_URL}/graphql`;
     }
   }
 
@@ -86,7 +103,7 @@ export const handler = async function (
   if (!req.headers["x-request-id"]) req.headers["x-request-id"] = v4();
 
   createProxyMiddleware({
-    target: GRAPHQL_URL,
+    target,
     changeOrigin: true,
     proxyTimeout: process.env.NODE_ENV === "development" ? 10000 : 3000,
     secure: false,
