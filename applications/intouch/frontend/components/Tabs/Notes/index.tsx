@@ -4,6 +4,7 @@ import Table from "@bmi/table";
 import Button from "@bmi/button";
 import AccessControl from "../../../lib/permissions/AccessControl";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
+import { NoContent } from "../../NoContent";
 import styles from "./styles.module.scss";
 import { AddNoteDialog } from "./AddNoteDialog";
 
@@ -47,8 +48,10 @@ export const NoteTab = ({ accountId, projectId, notes }: NoteTabProps) => {
           />
         </div>
       </AccessControl>
-      {notes.length > 0 && (
-        <div className={styles.body}>
+      <div className={styles.body}>
+        {!notes.length ? (
+          <NoContent message={t("noteTab.noContent")} />
+        ) : (
           <Table>
             <Table.Head>
               <Table.Row>
@@ -70,8 +73,8 @@ export const NoteTab = ({ accountId, projectId, notes }: NoteTabProps) => {
               ))}
             </Table.Body>
           </Table>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

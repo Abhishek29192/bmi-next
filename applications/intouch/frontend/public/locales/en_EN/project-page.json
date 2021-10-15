@@ -186,7 +186,8 @@
       },
       "confirm_label": "Add Members",
       "cancel_label": "Cancel"
-    }
+    },
+    "noContent": "No team members have been added to this project"
   },
   "upload_tab": {
     "header": "Upload file",
@@ -331,7 +332,8 @@
       "detailHeading": "Please fill in the details below to share information on this project",
       "cancel": "Cancel",
       "send": "Send"
-    }
+    },
+    "noContent": "No notes have been to this project"
   },
   "guaranteeApplyAlert": {
     "title": "You cannot apply for a guarantee yet",
