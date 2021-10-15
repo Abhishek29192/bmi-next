@@ -271,6 +271,12 @@
           "next": "Neste",
           "submit": "Send inn"
         }
+      },
+      "alert": {
+        "selectGuarantee": {
+          "title": "Nei Det er ingen garantitype tilgjengelig for deres teknologi",
+          "message": "Ingen garantier er tilgjengelige for denne typen tak. Ta kontakt med din lokale BMI -administrator for mer informasjon."
+        }
       }
     },
     "applyGuarantee": {
@@ -324,6 +330,15 @@
       "detailHeading": "Vennligst fyll ut detaljene nedenfor for å dele informasjon om dette prosjektet",
       "cancel": "Avbryt",
       "send": "Send"
+    }
+  },
+  "guaranteeApplyAlert": {
+    "title": "Du kan ikke søke om garanti ennå",
+    "message": {
+      "buildingOwner": "Byggherreier detaljer er ikke fullført",
+      "projectDetails": "Prosjektdetaljer er ikke fullført",
+      "tier": "Du er ikke i et nivå som støtter garantier",
+      "guaranteeType": "Garantitype er ikke definert"
     }
   }
 }
