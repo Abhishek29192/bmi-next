@@ -586,6 +586,9 @@
       });
 
       window.addEventListener("load", function () {
+        // Fix to avoid label overlap
+        document.getElementsByClassName("login-screen")[0].focus();
+
         var config = JSON.parse(
           decodeURIComponent(escape(window.atob("@@config@@")))
         );
