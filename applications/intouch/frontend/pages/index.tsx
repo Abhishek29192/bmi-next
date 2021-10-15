@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
-import { Tier } from "@bmi/intouch-api-types";
+import { Account } from "@bmi/intouch-api-types";
 import Button from "@bmi/button";
 import Hero from "@bmi/hero";
 import Section from "@bmi/section";
@@ -19,19 +19,20 @@ import { RichText } from "../components/RichText";
 import { Link } from "../components/Link";
 import logger from "../lib/logger";
 import { findAccountCompany, findAccountTier } from "../lib/account";
-import { useAccountContext } from "../context/AccountContext";
+import { NewProjectDialog } from "../components/Pages/Project/CreateProject/Dialog";
+import AccessControl from "../lib/permissions/AccessControl";
 import styles from "../styles/Homepage.module.scss";
 
 type HomePageProps = GlobalPageProps & {
-  marketContentCollection: GetPartnerBrandsQuery["marketContentCollection"];
-  carouselCollection: GetPartnerBrandsQuery["carouselCollection"];
-  tierBenefitCollection: GetPartnerBrandsQuery["tierBenefitCollection"];
+  marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];
+  carouselItems: GetPartnerBrandsQuery["carouselCollection"]["items"][0]["listCollection"]["items"];
+  tierBenefit: GetPartnerBrandsQuery["tierBenefitCollection"]["items"][0];
 };
 
 const mapPartnerBrands = (
-  marketContentCollection: GetPartnerBrandsQuery["marketContentCollection"]
+  marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0]
 ) => {
-  return marketContentCollection.items[0]?.partnerBrandsCollection.items.map(
+  return marketContent?.partnerBrandsCollection?.items?.map(
     ({ name, shortDescription, image, logo }) => ({
       name,
       shortDescription,
@@ -41,182 +42,107 @@ const mapPartnerBrands = (
   );
 };
 
-// TODO: DRY up
-const DOCEBO_SSO_URL = "/api/docebo-sso";
-const HeroCarouselItemCTA = ({
-  cta,
-  merchandisingUrl
-}: {
-  cta: string;
-  merchandisingUrl: string;
-}) => {
-  const { t } = useTranslation("home-page");
-
-  const handledCTAs = {
-    MERCHANDISE: merchandisingUrl,
-    TRAINING: DOCEBO_SSO_URL,
-    // TODO: Trigger new project form
-    PROJECT: "/projects"
-  };
-
-  if (Object.keys(handledCTAs).includes(cta)) {
-    return (
-      <Link href={handledCTAs[cta]} isExternal={cta !== "PROJECT"}>
-        <Button
-          hasDarkBackground
-          variant="outlined"
-          style={{ marginTop: "2em" }}
-        >
-          {t(`hero.cta.${cta}`)}
-        </Button>
-      </Link>
-    );
-  }
-
-  // NOTE: "INFO" does not have a CTA.
-  return null;
+const getPageTitle = (account: Account) => {
+  // Show user's full name or company name if they're a company member.
+  return (
+    findAccountCompany(account)?.name ||
+    [account?.firstName, account?.lastName].filter(Boolean).join(" ")
+  );
 };
 
 const mapHeroCarouselItems = (
-  carouselCollection: GetPartnerBrandsQuery["carouselCollection"],
-  accountTier: Tier,
-  merchandisingUrl: string
+  carouselItems: GetPartnerBrandsQuery["carouselCollection"]["items"][0]["listCollection"]["items"],
+  getCta: (ctaName: string) => JSX.Element
 ) => {
-  return carouselCollection.items[0].listCollection.items
-    .filter(({ audienceTiers }) => audienceTiers.includes(accountTier))
-    .map((carouselItem) => {
-      return {
-        title: carouselItem.header,
-        children: carouselItem.body,
-        imageSource: carouselItem.image?.url,
-        cta: (
-          <HeroCarouselItemCTA
-            cta={carouselItem.cta}
-            merchandisingUrl={merchandisingUrl}
-          />
-        )
-      };
-    });
+  return carouselItems.map(({ header, body, image, cta }) => {
+    return {
+      title: header,
+      children: body,
+      imageSource: image?.url,
+      cta: (
+        <AccessControl dataModel="home" action={`CTA_${cta}`}>
+          {getCta(cta)}
+        </AccessControl>
+      )
+    };
+  });
 };
 
+// TODO: DRY up
+const DOCEBO_SSO_URL = "/api/docebo-sso";
+
 const Homepage = ({
-  marketContentCollection,
-  carouselCollection,
-  tierBenefitCollection,
+  marketContent,
+  carouselItems,
+  tierBenefit,
   globalPageData,
-  market
+  market,
+  account
 }: HomePageProps) => {
-  const { t } = useTranslation("home-page");
-  const { account } = useAccountContext();
+  const [newProjectDialog, setNewProjectDialog] = useState(false);
 
   logger({
     severity: "INFO",
     message: "Home page loaded"
   });
 
-  const partnerBrands = mapPartnerBrands(marketContentCollection);
-
-  // Show user's full name or company name if they're a company member.
-  const company = findAccountCompany(account);
-  const pageTitle =
-    company?.name ||
-    [account?.firstName, account?.lastName].filter(Boolean).join(" ");
+  const pageTitle = getPageTitle(account);
   // Note: Can see if a member of a company AND in T2, T3, T4
+  const company = findAccountCompany(account);
   const canSeePartnerBrandsCarousel = company && company.tier !== "T1";
 
+  const getCta = (ctaName: string) => {
+    if (ctaName === "PROJECT") {
+      return (
+        <ProjectCTA
+          onClick={() => {
+            setNewProjectDialog(true);
+          }}
+        />
+      );
+    }
+    if (ctaName === "TRAINING") {
+      return <OtherCTA ctaName={ctaName} url={DOCEBO_SSO_URL} />;
+    }
+    if (ctaName === "MERCHANDISE") {
+      return <OtherCTA ctaName={ctaName} url={market.merchandisingUrl} />;
+    }
+    return null;
+  };
+
   const heroItems = useMemo(
-    () =>
-      mapHeroCarouselItems(
-        carouselCollection,
-        findAccountTier(account),
-        market.merchandisingUrl
-      ),
-    [carouselCollection, account]
+    () => mapHeroCarouselItems(carouselItems, getCta),
+    [carouselItems]
   );
 
   return (
     <Layout title={pageTitle} pageData={globalPageData}>
       {/* TODO: Hero doesn't have a way to disable the controls? */}
-      <Hero
-        level={0}
-        hasSpaceBottom
-        autoPlayInterval={heroItems.length > 1 ? 5000 : 0}
-        heroes={heroItems}
-      />
-      {canSeePartnerBrandsCarousel && partnerBrands.length > 0 ? (
-        <>
-          <Section backgroundColor="white" isSlim>
-            <Section.Title>{t("partnerBrands.title")}</Section.Title>
-            <Typography>{t("partnerBrands.description")}</Typography>
-          </Section>
-          <Section backgroundColor="alabaster" isSlim>
-            <Carousel
-              slidesPerPage={{
-                xs: 1,
-                md: 2,
-                lg: 3
-              }}
-              scroll="finite"
-              hasGutter
-            >
-              {partnerBrands.map((partnerBrand) => (
-                <Carousel.Slide key={partnerBrand.name}>
-                  <OverviewCard
-                    title={partnerBrand.name}
-                    media={
-                      <img
-                        src={partnerBrand.image.url}
-                        alt={partnerBrand.image.title}
-                      />
-                    }
-                    brandImageSource={partnerBrand.logo.url}
-                    href="/partner-brands"
-                    footer={
-                      <Button component={"span"} variant="outlined">
-                        {t("partnerBrands.ctaLabel")}
-                      </Button>
-                    }
-                  >
-                    {partnerBrand.shortDescription}
-                  </OverviewCard>
-                </Carousel.Slide>
-              ))}
-              <Carousel.Controls type="arrows" />
-            </Carousel>
-          </Section>
-        </>
-      ) : null}
 
-      <div className={styles.feedholder}>
-        <SimpleCard>
-          <Typography variant="h4" hasUnderline>
-            {marketContentCollection.items[0].newsItemHeading}
-          </Typography>
-          <iframe
-            src={marketContentCollection.items[0].newsItemUrl}
-            height="400px"
-            width="100%"
-            frameBorder="0"
-            className={styles.embed}
-          />
-          <Button
-            variant="outlined"
-            href={marketContentCollection.items[0].newsItemCta}
-          >
-            {t("linkedin.ctaLabel")}
-          </Button>
-        </SimpleCard>
-        <SimpleCard>
-          <Typography variant="h4" hasUnderline>
-            {tierBenefitCollection.items[0].name}
-          </Typography>
-          <div className={styles.tierBenefits}>
-            <RichText
-              content={tierBenefitCollection.items[0].description.json}
-            />
-          </div>
-        </SimpleCard>
-      </div>
+      {heroItems?.length && (
+        <Hero
+          level={0}
+          hasSpaceBottom
+          autoPlayInterval={heroItems.length > 1 ? 5000 : 0}
+          heroes={heroItems}
+        />
+      )}
+      {canSeePartnerBrandsCarousel && (
+        <PartnerBrand marketContent={marketContent} />
+      )}
+      <FeedHolder marketContent={marketContent} tierBenefit={tierBenefit} />
+      {company?.id && (
+        <NewProjectDialog
+          companyId={company.id}
+          isOpen={newProjectDialog}
+          onCloseClick={() => {
+            setNewProjectDialog(false);
+          }}
+          onCompleted={() => {
+            setNewProjectDialog(false);
+          }}
+        />
+      )}
     </Layout>
   );
 };
@@ -280,6 +206,7 @@ export const GET_PARTNER_BRANDS = gql`
 
 export const getServerSideProps = withPage(
   async ({ apolloClient, locale, account }) => {
+    const tier = findAccountTier(account);
     const {
       props: {
         data: {
@@ -289,25 +216,158 @@ export const getServerSideProps = withPage(
         }
       }
     } = await getServerPageGetPartnerBrands(
-      { variables: { role: account.role, tier: findAccountTier(account) } },
+      { variables: { role: account.role, tier } },
       apolloClient
     );
+    const marketContent = marketContentCollection.items.find(Boolean);
+    const carousel = carouselCollection.items.find(Boolean);
+    const carouselItems = carousel
+      ? carousel.listCollection.items.filter(({ audienceTiers }) =>
+          audienceTiers.includes(tier)
+        )
+      : [];
+
+    const tierBenefit = tierBenefitCollection.items.find(Boolean);
 
     return {
       props: {
-        marketContentCollection,
-        carouselCollection,
-        tierBenefitCollection,
+        marketContent,
+        carouselItems,
+        tierBenefit,
         ...(await serverSideTranslations(locale, [
           "common",
           "home-page",
           "sidebar",
           "footer",
-          "company-page"
+          "company-page",
+          "project-page"
         ]))
       }
     };
   }
 );
+
+//TODO: Separate components to different file
+
+const ProjectCTA = ({ onClick }: { onClick: () => void }) => {
+  const { t } = useTranslation("home-page");
+  return (
+    <Button
+      hasDarkBackground
+      variant="outlined"
+      style={{ marginTop: "2em" }}
+      onClick={onClick}
+    >
+      {t(`hero.cta.PROJECT`)}
+    </Button>
+  );
+};
+const OtherCTA = ({ ctaName, url }: { ctaName: string; url: string }) => {
+  const { t } = useTranslation("home-page");
+
+  return (
+    <Link href={url} isExternal={true}>
+      <Button hasDarkBackground variant="outlined" style={{ marginTop: "2em" }}>
+        {t(`hero.cta.${ctaName}`)}
+      </Button>
+    </Link>
+  );
+};
+const PartnerBrand = ({
+  marketContent
+}: {
+  marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];
+}) => {
+  const { t } = useTranslation("home-page");
+  const partnerBrands = mapPartnerBrands(marketContent);
+
+  if (!partnerBrands.length) {
+    return null;
+  }
+
+  return (
+    <>
+      <Section backgroundColor="white" isSlim>
+        <Section.Title>{t("partnerBrands.title")}</Section.Title>
+        <Typography>{t("partnerBrands.description")}</Typography>
+      </Section>
+      <Section backgroundColor="alabaster" isSlim>
+        <Carousel
+          slidesPerPage={{
+            xs: 1,
+            md: 2,
+            lg: 3
+          }}
+          scroll="finite"
+          hasGutter
+        >
+          {partnerBrands.map((partnerBrand) => (
+            <Carousel.Slide key={partnerBrand.name}>
+              <OverviewCard
+                title={partnerBrand.name}
+                media={
+                  <img
+                    src={partnerBrand.image.url}
+                    alt={partnerBrand.image.title}
+                  />
+                }
+                brandImageSource={partnerBrand.logo.url}
+                href="/partner-brands"
+                footer={
+                  <Button component={"span"} variant="outlined">
+                    {t("partnerBrands.ctaLabel")}
+                  </Button>
+                }
+              >
+                {partnerBrand.shortDescription}
+              </OverviewCard>
+            </Carousel.Slide>
+          ))}
+          <Carousel.Controls type="arrows" />
+        </Carousel>
+      </Section>
+    </>
+  );
+};
+const FeedHolder = ({
+  marketContent,
+  tierBenefit
+}: {
+  marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];
+  tierBenefit: GetPartnerBrandsQuery["tierBenefitCollection"]["items"][0];
+}) => {
+  const { t } = useTranslation("home-page");
+  return (
+    <div className={styles.feedholder}>
+      {marketContent && (
+        <SimpleCard>
+          <Typography variant="h4" hasUnderline>
+            {marketContent.newsItemHeading}
+          </Typography>
+          <iframe
+            src={marketContent.newsItemUrl}
+            height="400px"
+            width="100%"
+            frameBorder="0"
+            className={styles.embed}
+          />
+          <Button variant="outlined" href={marketContent.newsItemCta}>
+            {t("linkedin.ctaLabel")}
+          </Button>
+        </SimpleCard>
+      )}
+      {tierBenefit && (
+        <SimpleCard>
+          <Typography variant="h4" hasUnderline>
+            {tierBenefit.name}
+          </Typography>
+          <div className={styles.tierBenefits}>
+            <RichText content={tierBenefit.description.json} />
+          </div>
+        </SimpleCard>
+      )}
+    </div>
+  );
+};
 
 export default withPageAuthRequired(Homepage);

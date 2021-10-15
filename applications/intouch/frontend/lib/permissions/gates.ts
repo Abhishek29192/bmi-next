@@ -174,6 +174,26 @@ const gates = {
     // Inventory (Available to Market Admins)
     inventory: isSuperOrMarketAdmin,
     productsAdmin: isSuperOrMarketAdmin
+  },
+  home: {
+    CTA_PROJECT: {
+      SUPER_ADMIN: false,
+      MARKET_ADMIN: false,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
+    },
+    CTA_MERCHANDISE: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: true
+    },
+    CTA_TRAINING: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: true
+    }
   }
 };
 
