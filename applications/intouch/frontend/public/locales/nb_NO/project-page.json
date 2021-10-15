@@ -74,7 +74,7 @@
       "edit": "Redigere"
     },
     "hints": {
-      "projectEditGuaranteeStatus": "Prosjektdetaljer kan ikke redigeres på grunn av garantistatus."
+      "projectEditGuaranteeStatus": "Prosjektdetaljer kan ikke redigeres på grunn av statusen på garantien"
     }
   },
   "buildingOwnerDetails": {
@@ -141,7 +141,7 @@
     "labels": {
       "ALL": "Alle",
       "NOT_STARTED": "Ikke påbegynt",
-      "IN_PROGRESS": "I prosess",
+      "IN_PROGRESS": "Pågår",
       "COMPLETED": "Fullført",
       "FLAT": "Flatt tak",
       "PITCHED": "Skråtak",
@@ -169,7 +169,7 @@
   "teamTab": {
     "header": "Legg til teammedlem",
     "table": {
-      "responsibleInstaller": "Ansvarlig installatør",
+      "responsibleInstaller": "Ansvarlig medlem",
       "teamMember": "Team-medlem",
       "role": "Rolle",
       "certification": "Sertifisering",
@@ -228,8 +228,8 @@
           "description": "Når garantien er godkjent, vil bygningseieren motta garantidokumentasjonen automatisk til den oppgitte e-postadressen."
         },
         "responsible_installer": {
-          "title": "Ansvarlig installatør",
-          "description": "Velg en installatør fra prosjektgruppen som fungerer som ansvarlig installatør. De bør ha et sertifikat i samme teknologi som prosjektet du vil garantere."
+          "title": "Ansvarlig medlem",
+          "description": "Velg et medlem fra prosjektgruppen som fungerer som ansvarlig medlem. Denne personen bør ha en BMI -sertifisering i enten skråtak eller flatt takteknologi, som matcher prosjektets teknologi."
         },
         "required": {
           "title": "Fullfør søknaden din ved å oppgi følgende:",
@@ -299,15 +299,15 @@
     "address": "Bygningseier adresse"
   },
   "responsible_installer": {
-    "title": "Ansvarlig installatør",
+    "title": "Ansvarlig medlem",
     "contact_detail": "Ansvarlig medlem kontaktinformasjon",
-    "email": "Responsible Installer email",
-    "address": "Responsible Installer address"
+    "email": "Ansvarlig medlem e-post",
+    "address": "Ansvarlig medlem adresse"
   },
   "productDetails": {
     "name": "Produkt navn",
     "family": "Familie",
-    "brand": "Merke"
+    "brand": "Merkevare"
   },
   "projectActions": {
     "heading": "Prosjekthandlinger",
