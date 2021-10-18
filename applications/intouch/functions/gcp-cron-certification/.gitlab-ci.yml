@@ -1,9 +1,9 @@
 build_gcp-intouch-cron-certification:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-      changes:
-        - applications/intouch/functions/gcp-cron-certification/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/function-db-ssl-auth-requests')"
+      # changes:
+      #   - applications/intouch/functions/gcp-cron-certification/**/*
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn
@@ -16,9 +16,9 @@ build_gcp-intouch-cron-certification:
 package_gcp-intouch-cron-certification:
   stage: package
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/intouch/functions/gcp-cron-certification/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/function-db-ssl-auth-requests'"
+      # changes:
+      #   - applications/intouch/functions/gcp-cron-certification/**/*
   needs: [build_gcp-intouch-cron-certification]
   dependencies:
     - build_gcp-intouch-cron-certification
@@ -39,9 +39,9 @@ deploy_gcp-intouch-cron-certification:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/intouch/functions/gcp-cron-certification/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/function-db-ssl-auth-requests'"
+      # changes:
+      #   - applications/intouch/functions/gcp-cron-certification/**/*
       allow_failure: true
   needs: [package_gcp-intouch-cron-certification]
   dependencies:
@@ -62,4 +62,4 @@ deploy_gcp-intouch-cron-certification:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-certification.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud builds submit . --config=applications/intouch/functions/gcp-cron-certification/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_INTOUCH_DOCEBO_API_CLIENT_ID=$INTOUCH_DOCEBO_API_CLIENT_ID,_INTOUCH_DOCEBO_API_CLIENT_SECRET=$INTOUCH_DOCEBO_API_CLIENT_SECRET,_INTOUCH_DOCEBO_API_USERNAME=$INTOUCH_DOCEBO_API_USERNAME,_INTOUCH_DOCEBO_API_PASSWORD=$INTOUCH_DOCEBO_API_PASSWORD
+    - gcloud builds submit . --config=applications/intouch/functions/gcp-cron-certification/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_INTOUCH_DOCEBO_API_CLIENT_ID=$INTOUCH_DOCEBO_API_CLIENT_ID,_INTOUCH_DOCEBO_API_CLIENT_SECRET=$INTOUCH_DOCEBO_API_CLIENT_SECRET,_INTOUCH_DOCEBO_API_USERNAME=$INTOUCH_DOCEBO_API_USERNAME,_INTOUCH_DOCEBO_API_PASSWORD=$INTOUCH_DOCEBO_API_PASSWORD,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT

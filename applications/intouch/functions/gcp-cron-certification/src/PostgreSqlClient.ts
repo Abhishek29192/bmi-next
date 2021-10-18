@@ -1,7 +1,47 @@
-import { Pool } from "pg";
+import { Pool, PoolConfig } from "pg";
+import { getSecret } from "./utils/secrets";
 
 const executeQuery = async (query) => {
-  const pool = new Pool();
+  const { PGUSER, PGDATABASE, PGPORT, GCP_SECRET_PROJECT, PG_SSL_HOST } =
+    process.env;
+
+  const PG_SSL_CLIENT_KEY = await getSecret(
+    GCP_SECRET_PROJECT,
+    "PG_SSL_CLIENT_KEY"
+  );
+  const PG_SSL_CLIENT_CERT = await getSecret(
+    GCP_SECRET_PROJECT,
+    "PG_SSL_CLIENT_CERT"
+  );
+  const PG_SSL_SERVER_CA = await getSecret(
+    GCP_SECRET_PROJECT,
+    "PG_SSL_SERVER_CA"
+  );
+  const TRAINING_DB_PASSWORD = await getSecret(
+    GCP_SECRET_PROJECT,
+    "TRAINING_DB_PASSWORD"
+  );
+  const TRAINING_DB_HOST = await getSecret(
+    GCP_SECRET_PROJECT,
+    "TRAINING_DB_HOST"
+  );
+
+  const dbConfig: PoolConfig = {
+    host: TRAINING_DB_HOST,
+    port: parseInt(PGPORT),
+    user: PGUSER,
+    database: PGDATABASE,
+    password: TRAINING_DB_PASSWORD,
+    ssl: {
+      rejectUnauthorized: true,
+      ca: PG_SSL_SERVER_CA,
+      key: PG_SSL_CLIENT_KEY,
+      cert: PG_SSL_CLIENT_CERT,
+      host: PG_SSL_HOST
+    }
+  };
+
+  const pool = new Pool(dbConfig);
   const { rows } = await pool.query(query);
   pool.end();
 
