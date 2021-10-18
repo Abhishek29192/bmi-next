@@ -66,7 +66,7 @@ const ContentArticlePage = ({
 // Only these paths will be served without requiring user authentication.
 // These should match `ContentArticle.relativePath` in contentful, without the leading `/`.
 // Note that these have to include all paths across markets. This is a workaround.
-// They just happen to have been made the same at the time of writing this.
+// They just happen to have been made the same across markets at the time of writing this.
 const PUBLIC_PAGE_PATHS = ["privacy", "terms"];
 
 export const getServerSideProps = async (context) => {
