@@ -22,12 +22,14 @@ export const handler = async function (
   res: NextApiResponse,
   next: any
 ) {
+  let user;
+  let market;
+
   const { headers } = req;
-  const { GRAPHQL_URL } = process.env;
+  const { GRAPHQL_URL, NODE_ENV } = process.env;
   const isLocalGateway = GRAPHQL_URL?.indexOf("local") !== -1;
   const logger = req.logger("graphql");
-
-  let user;
+  const isDev = NODE_ENV === "development";
 
   // In this case I'm doing client side request so I need to check the session
   if (!req.headers.authorization) {
@@ -57,8 +59,6 @@ export const handler = async function (
 
   // The redirect middleware run before everything so it should never happen to
   // arrive at this point without a subdomain
-  let market;
-
   const { host } = req.headers;
   const { FRONTEND_BASE_URL } = process.env;
 
@@ -80,7 +80,7 @@ export const handler = async function (
    * We also need to simulate the api key somehow
    */
 
-  if (process.env.NODE_ENV === "development") {
+  if (isDev) {
     const authHeader = headers.authorization;
 
     if (authHeader) {
@@ -104,8 +104,13 @@ export const handler = async function (
 
   createProxyMiddleware({
     target,
+    headers: {
+      ...(!isDev && {
+        Connection: "keep-alive"
+      })
+    },
     changeOrigin: true,
-    proxyTimeout: process.env.NODE_ENV === "development" ? 10000 : 3000,
+    proxyTimeout: isDev ? 10000 : 3000,
     secure: false,
     pathRewrite: {
       "^/api/graphql": ""
