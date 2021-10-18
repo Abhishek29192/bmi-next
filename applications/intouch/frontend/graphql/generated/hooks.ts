@@ -3100,6 +3100,76 @@ export type AccountInfoByEmailQueryResult = Apollo.QueryResult<
   OperationTypes.AccountInfoByEmailQuery,
   OperationTypes.AccountInfoByEmailQueryVariables
 >;
+export const GetGlobalDataPublicDocument = gql`
+  query GetGlobalDataPublic {
+    marketContentCollection(limit: 1) {
+      items {
+        footerLinksCollection {
+          items {
+            title
+            relativePath
+          }
+        }
+        contactUsPage {
+          title
+          relativePath
+        }
+        externalLinkUrl
+        externalLinkLabel
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetGlobalDataPublicQuery__
+ *
+ * To run a query within a React component, call `useGetGlobalDataPublicQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGlobalDataPublicQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGlobalDataPublicQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetGlobalDataPublicQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >(GetGlobalDataPublicDocument, options);
+}
+export function useGetGlobalDataPublicLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >(GetGlobalDataPublicDocument, options);
+}
+export type GetGlobalDataPublicQueryHookResult = ReturnType<
+  typeof useGetGlobalDataPublicQuery
+>;
+export type GetGlobalDataPublicLazyQueryHookResult = ReturnType<
+  typeof useGetGlobalDataPublicLazyQuery
+>;
+export type GetGlobalDataPublicQueryResult = Apollo.QueryResult<
+  OperationTypes.GetGlobalDataPublicQuery,
+  OperationTypes.GetGlobalDataPublicQueryVariables
+>;
 export const GetContentArticleContentDocument = gql`
   query getContentArticleContent($relativePath: String!) {
     contentArticleCollection(where: { relativePath: $relativePath }, limit: 1) {

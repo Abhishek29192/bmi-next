@@ -2544,6 +2544,46 @@ export type AccountInfoByEmailQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type GetGlobalDataPublicQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetGlobalDataPublicQuery = { readonly __typename?: "Query" } & {
+  readonly marketContentCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketContentCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "MarketContent" } & Pick<
+            SchemaTypes.MarketContent,
+            "externalLinkUrl" | "externalLinkLabel"
+          > & {
+              readonly footerLinksCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "MarketContentFooterLinksCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "ContentArticle" } & Pick<
+                        SchemaTypes.ContentArticle,
+                        "title" | "relativePath"
+                      >
+                    >
+                  >;
+                }
+              >;
+              readonly contactUsPage?: SchemaTypes.Maybe<
+                { readonly __typename?: "ContentArticle" } & Pick<
+                  SchemaTypes.ContentArticle,
+                  "title" | "relativePath"
+                >
+              >;
+            }
+        >
+      >;
+    }
+  >;
+};
+
 export type GetContentArticleContentQueryVariables = SchemaTypes.Exact<{
   relativePath: SchemaTypes.Scalars["String"];
 }>;

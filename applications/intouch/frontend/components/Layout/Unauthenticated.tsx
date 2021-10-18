@@ -40,11 +40,7 @@ export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
         <div className={styles.appContainerPublic}>
           <div className={styles.appMainPublic}>
             <div className={styles.logoContainerPublic}>
-              <Icon
-                source={BMI}
-                className={styles.logoContainerPublic}
-                style={{ width: 72, display: "block" }}
-              />
+              <Icon source={BMI} className={styles.logo} />
             </div>
             <div className={styles.appContentPublic}>{children}</div>
             <Footer links={footerLinks} />

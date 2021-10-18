@@ -1,14 +1,7 @@
 import { initAuth0 } from "@auth0/nextjs-auth0";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { getSecret } from "../utils/secrets";
 
 let auth0;
-
-const getSecret = async (client, project, key) => {
-  const values = await client.accessSecretVersion({
-    name: `projects/${project}/secrets/${key}/versions/latest`
-  });
-  return values[0].payload.data.toString();
-};
 
 export const getAuth0Instance = async (req, res) => {
   // Only server side
@@ -23,18 +16,11 @@ export const getAuth0Instance = async (req, res) => {
     } = process.env;
 
     if (!auth0) {
-      const client = new SecretManagerServiceClient();
-
       const AUTH0_CLIENT_SECRET = await getSecret(
-        client,
         GCP_SECRET_PROJECT,
         "AUTH0_CLIENT_SECRET"
       );
-      const AUTH0_SECRET = await getSecret(
-        client,
-        GCP_SECRET_PROJECT,
-        "AUTH0_SECRET"
-      );
+      const AUTH0_SECRET = await getSecret(GCP_SECRET_PROJECT, "AUTH0_SECRET");
 
       // dynamically redirecting to the request host using `req.headers.host`
       // is currently problematic with the Load Balancer (or the WAF) directing requests to the frontend

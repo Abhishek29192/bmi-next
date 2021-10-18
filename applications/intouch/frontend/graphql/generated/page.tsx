@@ -661,6 +661,50 @@ export const ssrAccountInfoByEmail = {
 
   usePage: useAccountInfoByEmail
 };
+export async function getServerPageGetGlobalDataPublic(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetGlobalDataPublicQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetGlobalDataPublicQuery>({
+      ...options,
+      query: Operations.GetGlobalDataPublicDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetGlobalDataPublic = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetGlobalDataPublicDocument, options);
+};
+export type PageGetGlobalDataPublicComp = React.FC<{
+  data?: OperationTypes.GetGlobalDataPublicQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetGlobalDataPublic = {
+  getServerPage: getServerPageGetGlobalDataPublic,
+
+  usePage: useGetGlobalDataPublic
+};
 export async function getServerPageGetContentArticleContent(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetContentArticleContentQueryVariables>,
