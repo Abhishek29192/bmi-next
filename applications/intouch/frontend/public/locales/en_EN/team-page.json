@@ -10,7 +10,8 @@
     "title": "Certification(s)",
     "type": "Type",
     "certification": "Certification",
-    "validity": "Validity"
+    "validity": "Validity",
+    "noResults": "User has no certifications"
   },
   "invitation": {
     "dialog": {

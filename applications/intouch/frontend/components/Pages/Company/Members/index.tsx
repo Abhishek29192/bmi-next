@@ -288,6 +288,7 @@ const CompanyMembers = ({ data }: PageProps) => {
             <TableContainer
               title={t("team-page:table.title")}
               testid="certification-table"
+              noResultsText={t("team-page:table.noResults")}
             >
               {currentMember?.certificationsByDoceboUserId?.nodes.length && (
                 <Table>
