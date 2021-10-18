@@ -24,10 +24,8 @@ const ProductGuaranteeCard = ({
           {name}
         </Typography>
       </div>
-      <div>
-        <Typography variant="subtitle2" color="textSecondary">
-          {description}
-        </Typography>
+      <div className={styles.productCard__description}>
+        <Typography variant="subtitle2">{description}</Typography>
       </div>
       <div>
         <Table>
