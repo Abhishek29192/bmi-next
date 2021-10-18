@@ -43,13 +43,12 @@ const getMediaToolGalleryProps = (
     return { ...baseProps, type: "vimeo" };
   }
   const contentType = getMediaContentType(mediaTool);
-  if (contentType.includes("pdf")) {
-    return {
-      ...baseProps,
-      type: "pdf"
-    };
-  }
-  return { ...baseProps, type: "image" };
+  return {
+    ...baseProps,
+    url: mediaTool?.thumbnail?.url || "",
+    fileUrl: mediaTool?.media?.url || "",
+    type: contentType.includes("pdf") ? "pdf" : "image"
+  };
 };
 
 export const MediaPage = ({
