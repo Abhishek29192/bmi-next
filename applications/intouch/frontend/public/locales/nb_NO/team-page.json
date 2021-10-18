@@ -10,7 +10,8 @@
     "title": "Sertifisering",
     "type": "Type",
     "certification": "Sertifisering",
-    "validity": "Gyldighet"
+    "validity": "Gyldighet",
+    "noResults": "Brukeren har ingen BMI sertifisering"
   },
   "invitation": {
     "dialog": {
