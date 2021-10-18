@@ -32,6 +32,10 @@ export interface IndexedItemGroup<T> {
   [key: string]: T[];
 }
 
+export const removePLPFilterPrefix = (filterName: string) => {
+  return (filterName || "").replace("plpFilter.", "");
+};
+
 export const groupDistinctBy = <T extends IndexedItem>(
   array: readonly T[],
   key: keyof T,

@@ -15,6 +15,7 @@ import {
 import {
   generateCategoryFilters,
   generateFeatureFilters,
+  removePLPFilterPrefix,
   ProductFilter
 } from "./product-filters";
 
@@ -37,11 +38,10 @@ export const convertToURLFilters = (
   filters: readonly ProductFilter[]
 ): URLProductFilter[] => {
   return filters.reduce((carry, { name, value }) => {
-    if (value instanceof Array) {
-      return value.length ? [...carry, { name, value }] : carry;
+    if ((value instanceof Array && value.length) || value) {
+      carry.push({ name: removePLPFilterPrefix(name), value });
     }
-
-    return value ? [...carry, { name, value }] : carry;
+    return carry;
   }, []);
 };
 
@@ -458,9 +458,10 @@ export const getPlpFilters = ({
   //order them in the `allowFilterBy` specified order
   // category filter names are now  prefixed with 'plpFilter' for Microcopy!
   return uniqueAllowFilterKeys
-    .map((item) =>
+    .map((uniqueFilter) =>
       allFilters.find(
-        (filter) => filter.name === item || filter.name === `plpFilter.${item}`
+        ({ name }) =>
+          name === uniqueFilter || removePLPFilterPrefix(name) === uniqueFilter
       )
     )
     .filter(Boolean);

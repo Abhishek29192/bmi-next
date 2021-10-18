@@ -1,5 +1,5 @@
 import { Filter } from "@bmi/filters";
-import { ProductFilter } from "./product-filters";
+import { removePLPFilterPrefix, ProductFilter } from "./product-filters";
 
 export type Aggregations = Record<
   string,
@@ -28,7 +28,7 @@ export const disableFiltersFromAggregationsPLP = (
       ...filter,
       options: filter.options.map((option) => {
         const buckets =
-          aggregations[filter.name.replace("plpFilter.", "")]?.buckets;
+          aggregations[removePLPFilterPrefix(filter.name)]?.buckets;
 
         const aggregate = (buckets || []).find(
           ({ key }) => key === option.value
@@ -94,7 +94,7 @@ const generateUserSelectedFilterTerms = (updatedFilters: Filter[]) => {
     .reduce((acc, currFilter) => {
       const termsQuery = (name, value) => ({
         terms: {
-          [`${name.replace("plpFilter.", "")}.code.keyword`]: value
+          [`${removePLPFilterPrefix(name)}.code.keyword`]: value
         }
       });
       const query = termsQuery(currFilter.name, currFilter.value);
