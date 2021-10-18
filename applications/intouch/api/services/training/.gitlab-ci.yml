@@ -22,8 +22,8 @@ build_intouch_api_training_dev:
 deploy_intouch_api_training_dev:
   stage: deploy
   needs:
-    - job: migrate_training_db
-      optional: true
+    #- job: migrate_training_db
+    #  optional: true
     - build_intouch_api_training_dev
     # TODO: add a test step
   image: google/cloud-sdk
