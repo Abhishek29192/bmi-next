@@ -30,7 +30,6 @@ export const innerGetServerSideProps = async (getServerSideProps, ctx) => {
     "x-api-key": GATEWAY_API_KEY
   };
 
-  // NOTE: I'm not sure of this API, but I'd like to be able to pass extra headers to client
   const apolloClient = initializeApollo(null, { req, res, headers });
 
   const {

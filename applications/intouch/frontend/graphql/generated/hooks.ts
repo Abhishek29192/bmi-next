@@ -3547,66 +3547,6 @@ export type GetPartnerBrandsQueryResult = Apollo.QueryResult<
   OperationTypes.GetPartnerBrandsQuery,
   OperationTypes.GetPartnerBrandsQueryVariables
 >;
-export const PrivacyPageDocument = gql`
-  query PrivacyPage {
-    contentArticleCollection(where: { relativePath_in: ["/privacy"] }) {
-      items {
-        title
-        body {
-          json
-        }
-      }
-    }
-  }
-`;
-
-/**
- * __usePrivacyPageQuery__
- *
- * To run a query within a React component, call `usePrivacyPageQuery` and pass it any options that fit your needs.
- * When your component renders, `usePrivacyPageQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = usePrivacyPageQuery({
- *   variables: {
- *   },
- * });
- */
-export function usePrivacyPageQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.PrivacyPageQuery,
-    OperationTypes.PrivacyPageQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.PrivacyPageQuery,
-    OperationTypes.PrivacyPageQueryVariables
-  >(PrivacyPageDocument, options);
-}
-export function usePrivacyPageLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.PrivacyPageQuery,
-    OperationTypes.PrivacyPageQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.PrivacyPageQuery,
-    OperationTypes.PrivacyPageQueryVariables
-  >(PrivacyPageDocument, options);
-}
-export type PrivacyPageQueryHookResult = ReturnType<typeof usePrivacyPageQuery>;
-export type PrivacyPageLazyQueryHookResult = ReturnType<
-  typeof usePrivacyPageLazyQuery
->;
-export type PrivacyPageQueryResult = Apollo.QueryResult<
-  OperationTypes.PrivacyPageQuery,
-  OperationTypes.PrivacyPageQueryVariables
->;
 export const GetUserProfileDocument = gql`
   query getUserProfile($accountId: Int!) {
     account(id: $accountId) {

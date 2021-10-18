@@ -3091,32 +3091,6 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
-export type PrivacyPageQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
-}>;
-
-export type PrivacyPageQuery = { readonly __typename?: "Query" } & {
-  readonly contentArticleCollection?: SchemaTypes.Maybe<
-    { readonly __typename?: "ContentArticleCollection" } & {
-      readonly items: ReadonlyArray<
-        SchemaTypes.Maybe<
-          { readonly __typename?: "ContentArticle" } & Pick<
-            SchemaTypes.ContentArticle,
-            "title"
-          > & {
-              readonly body?: SchemaTypes.Maybe<
-                { readonly __typename?: "ContentArticleBody" } & Pick<
-                  SchemaTypes.ContentArticleBody,
-                  "json"
-                >
-              >;
-            }
-        >
-      >;
-    }
-  >;
-};
-
 export type AccountPageDetailsFragmentFragment = {
   readonly __typename?: "Account";
 } & Pick<

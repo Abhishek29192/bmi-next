@@ -73,8 +73,19 @@ $tablet-width: 1024px;
 }
 
 .logo {
+  display: block;
+  width: 72px;
+
   @media (max-width: $breakpoint-md) {
-    width: 40px !important;
+    width: 50px;
+  }
+}
+
+.logoContainerPublic {
+  margin-top: 28px;
+
+  @media (max-width: $breakpoint-md) {
+    margin-top: 12px;
   }
 }
 
@@ -97,20 +108,19 @@ $tablet-width: 1024px;
 .appMainPublic {
   background-color: $color-pearl;
   flex: 1;
+
+  margin: 0 21px;
+
+  @media (max-width: $breakpoint-md) {
+    margin: 0px 16px;
+  }
 }
 
 .appContentPublic {
-  max-width: 90%;
-  margin: 0 auto;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-}
-
-.logoContainerPublic {
-  margin: 28px 21px 0 21px;
+  margin-top: 28px;
+  max-width: $breakpoint-xl;
 
   @media (max-width: $breakpoint-md) {
-    margin: 12px 16px;
+    margin-top: 12px;
   }
 }

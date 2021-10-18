@@ -921,49 +921,6 @@ export const ssrGetPartnerBrands = {
 
   usePage: useGetPartnerBrands
 };
-export async function getServerPagePrivacy(
-  options: Omit<
-    Apollo.QueryOptions<OperationTypes.PrivacyPageQueryVariables>,
-    "query"
-  >,
-  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
-) {
-  const data = await apolloClient.query<OperationTypes.PrivacyPageQuery>({
-    ...options,
-    query: Operations.PrivacyPageDocument
-  });
-
-  const apolloState = apolloClient.cache.extract();
-
-  return {
-    props: {
-      apolloState: apolloState,
-      data: data?.data,
-      error: data?.error ?? data?.errors ?? null
-    }
-  };
-}
-export const usePrivacy = (
-  optionsFunc?: (
-    router: NextRouter
-  ) => QueryHookOptions<
-    OperationTypes.PrivacyPageQuery,
-    OperationTypes.PrivacyPageQueryVariables
-  >
-) => {
-  const router = useRouter();
-  const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.PrivacyPageDocument, options);
-};
-export type PagePrivacyComp = React.FC<{
-  data?: OperationTypes.PrivacyPageQuery;
-  error?: Apollo.ApolloError;
-}>;
-export const ssrPrivacy = {
-  getServerPage: getServerPagePrivacy,
-
-  usePage: usePrivacy
-};
 export async function getServerPageGetUserProfile(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetUserProfileQueryVariables>,
