@@ -21,24 +21,21 @@ export type GlobalPageProps = {
 
 export const innerGetServerSideProps = async (getServerSideProps, ctx) => {
   const { req, res } = ctx;
-  const apolloClient = initializeApollo(null, { req, res });
+
   const GATEWAY_API_KEY = await getSecret(
     process.env.GCP_SECRET_PROJECT,
     "GATEWAY_API_KEY"
   );
+  const headers = {
+    "x-api-key": GATEWAY_API_KEY
+  };
+
+  // NOTE: I'm not sure of this API, but I'd like to be able to pass extra headers to client
+  const apolloClient = initializeApollo(null, { req, res, headers });
 
   const {
     props: { data: globalPageData }
-  } = await getServerPageGetGlobalDataPublic(
-    {
-      context: {
-        headers: {
-          "x-api-key": GATEWAY_API_KEY
-        }
-      }
-    },
-    apolloClient
-  );
+  } = await getServerPageGetGlobalDataPublic({}, apolloClient);
 
   return merge(
     await getServerSideProps({

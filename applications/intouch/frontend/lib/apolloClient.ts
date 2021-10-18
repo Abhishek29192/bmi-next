@@ -80,7 +80,8 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
         // Logging purpose
         ...(headers?.["x-authenticated-user-id"] && {
           "x-authenticated-user-id": headers?.["x-authenticated-user-id"]
-        })
+        }),
+        ...(ctx.headers || {})
       }
     };
   });

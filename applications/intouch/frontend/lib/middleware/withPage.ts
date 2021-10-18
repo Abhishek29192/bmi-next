@@ -1,7 +1,7 @@
 import merge from "lodash/merge";
 import { gql } from "@apollo/client";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { NextApiRequest, NextApiResponse } from "next";
+import { GetServerSidePropsContext } from "next";
 import { Session } from "@auth0/nextjs-auth0";
 import { Account } from "@bmi/intouch-api-types";
 import { getServerPageGetGlobalData } from "../../graphql/generated/page";
@@ -18,9 +18,7 @@ import { userRegistration } from "../redirects/userRegistration";
 import { withLogger } from "../middleware/withLogger";
 import { getMarketAndEnvFromReq } from "../utils";
 
-type PageContext = {
-  req: NextApiRequest;
-  res: NextApiResponse;
+type PageContext = GetServerSidePropsContext & {
   auth0: any;
   apolloClient: ApolloClient<NormalizedCacheObject>;
   session: Session;
