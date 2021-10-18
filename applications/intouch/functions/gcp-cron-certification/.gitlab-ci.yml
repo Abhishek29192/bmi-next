@@ -1,7 +1,7 @@
 build_gcp-intouch-cron-certification:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/onboarding' )"
       changes:
         - applications/intouch/functions/gcp-cron-certification/**/*
   needs: [install]
@@ -16,7 +16,7 @@ build_gcp-intouch-cron-certification:
 package_gcp-intouch-cron-certification:
   stage: package
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/functions/gcp-cron-certification/**/*
   needs: [build_gcp-intouch-cron-certification]
@@ -39,7 +39,7 @@ deploy_gcp-intouch-cron-certification:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/functions/gcp-cron-certification/**/*
       allow_failure: true

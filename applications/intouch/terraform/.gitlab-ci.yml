@@ -6,7 +6,7 @@ plan_terraform:
   stage: terraform_plan
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/terraform/*
         - applications/intouch/terraform/**/*
@@ -34,7 +34,7 @@ apply_terraform:
   stage: terraform_execute
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/terraform/*
         - applications/intouch/terraform/**/*

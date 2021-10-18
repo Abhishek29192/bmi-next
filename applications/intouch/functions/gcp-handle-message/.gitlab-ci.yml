@@ -1,7 +1,7 @@
 build_gcp-intouch-handle-message:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/onboarding' )"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
   needs: [install]
@@ -16,7 +16,7 @@ build_gcp-intouch-handle-message:
 package_gcp-intouch-handle-message:
   stage: package
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
   needs: [build_gcp-intouch-handle-message]
@@ -37,7 +37,7 @@ deploy_gcp-intouch-handle-message:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
       allow_failure: true

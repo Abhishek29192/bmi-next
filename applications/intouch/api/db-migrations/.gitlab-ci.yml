@@ -5,7 +5,7 @@ build_intouch_migration_db_service:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/onboarding' )"
       changes:
         - applications/intouch/api/db-migrations/**/*
         - applications/intouch/api/services/companies/src/data/**/*
@@ -24,7 +24,7 @@ deploy_intouch_migration_db_service:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/api/db-migrations/**/*
         - applications/intouch/api/services/companies/src/data/**/*
@@ -43,7 +43,7 @@ migrate_company_db:
   variables:
     MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/api/services/companies/src/data/*
   before_script:
@@ -60,7 +60,7 @@ migrate_training_db:
   variables:
     MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/api/services/training/src/data/*
   before_script:
