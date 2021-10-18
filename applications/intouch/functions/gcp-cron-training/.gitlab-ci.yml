@@ -1,9 +1,9 @@
 build_gcp-intouch-cron-training:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/function-db-ssl-auth-requests')"
-      # changes:
-      #   - applications/intouch/functions/gcp-cron-training/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/functions/gcp-cron-training/**/*
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn
@@ -16,9 +16,9 @@ build_gcp-intouch-cron-training:
 package_gcp-intouch-cron-training:
   stage: package
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/function-db-ssl-auth-requests'"
-      # changes:
-      #   - applications/intouch/functions/gcp-cron-training/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/functions/gcp-cron-training/**/*
   needs: [build_gcp-intouch-cron-training]
   dependencies:
     - build_gcp-intouch-cron-training
@@ -39,9 +39,9 @@ deploy_gcp-intouch-cron-training:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/function-db-ssl-auth-requests'"
-      # changes:
-      #   - applications/intouch/functions/gcp-cron-training/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/functions/gcp-cron-training/**/*
       allow_failure: true
   needs: [package_gcp-intouch-cron-training]
   dependencies:

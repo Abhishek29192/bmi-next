@@ -17,21 +17,21 @@ const executeQuery = async (query) => {
     GCP_SECRET_PROJECT,
     "PG_SSL_SERVER_CA"
   );
-  const TRAINING_DB_PASSWORD = await getSecret(
+  const COMPANIES_DB_PASSWORD = await getSecret(
     GCP_SECRET_PROJECT,
-    "TRAINING_DB_PASSWORD"
+    "COMPANIES_DB_PASSWORD"
   );
-  const TRAINING_DB_HOST = await getSecret(
+  const COMPANIES_DB_HOST = await getSecret(
     GCP_SECRET_PROJECT,
-    "TRAINING_DB_HOST"
+    "COMPANIES_DB_HOST"
   );
 
   const dbConfig: PoolConfig = {
-    host: TRAINING_DB_HOST,
+    host: COMPANIES_DB_HOST,
     port: parseInt(PGPORT),
     user: PGUSER,
     database: PGDATABASE,
-    password: TRAINING_DB_PASSWORD,
+    password: COMPANIES_DB_PASSWORD,
     ssl: {
       rejectUnauthorized: true,
       ca: PG_SSL_SERVER_CA,

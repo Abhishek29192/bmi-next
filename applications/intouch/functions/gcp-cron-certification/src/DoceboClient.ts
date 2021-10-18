@@ -1,25 +1,45 @@
 import axios from "axios";
-
-const { USER_CERTIFICATION_REPORT_ID, DOCEBO_API_URL } = process.env;
+import { getSecret } from "./utils/secrets";
 
 export default class DoceboClient {
   private async getTokenByUserInfo() {
+    const { DOCEBO_API_URL, GCP_SECRET_PROJECT } = process.env;
+
+    const DOCEBO_API_CLIENT_ID = await getSecret(
+      GCP_SECRET_PROJECT,
+      "DOCEBO_API_CLIENT_ID"
+    );
+    const DOCEBO_API_CLIENT_SECRET = await getSecret(
+      GCP_SECRET_PROJECT,
+      "DOCEBO_API_CLIENT_SECRET"
+    );
+    const DOCEBO_API_USERNAME = await getSecret(
+      GCP_SECRET_PROJECT,
+      "DOCEBO_API_USERNAME"
+    );
+    const DOCEBO_API_PASSWORD = await getSecret(
+      GCP_SECRET_PROJECT,
+      "DOCEBO_API_PASSWORD"
+    );
+
     const { data } = await axios({
       method: "POST",
       url: `${DOCEBO_API_URL}/oauth2/token`,
       headers: { "content-type": "application/json" },
       data: {
         grant_type: "password",
-        client_id: process.env.DOCEBO_API_CLIENT_ID,
-        client_secret: process.env.DOCEBO_API_CLIENT_SECRET,
-        username: process.env.DOCEBO_API_USERNAME,
-        password: process.env.DOCEBO_API_PASSWORD
+        client_id: DOCEBO_API_CLIENT_ID,
+        client_secret: DOCEBO_API_CLIENT_SECRET,
+        username: DOCEBO_API_USERNAME,
+        password: DOCEBO_API_PASSWORD
       }
     });
     return data;
   }
 
   async getCertificationsReport() {
+    const { USER_CERTIFICATION_REPORT_ID, DOCEBO_API_URL } = process.env;
+
     const { access_token } = await this.getTokenByUserInfo();
     const {
       data: {
