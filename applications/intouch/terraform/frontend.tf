@@ -47,7 +47,7 @@ resource "google_cloud_run_service" "default" {
         }
         env {
           name  = "GRAPHQL_URL"
-          value = "https://intouchapip-9dmxs7t9.nw.gateway.dev/graphql"
+          value = "https://intouchapip-9dmxs7t9.nw.gateway.dev"
         }
         env {
           name  = "GCP_SECRET_PROJECT"
