@@ -54,8 +54,8 @@ build_intouch_api_companies_dev:
 deploy_intouch_api_companies_dev:
   stage: deploy
   needs:
-    - job: migrate_company_db
-      optional: true
+    #- job: migrate_company_db
+    #  optional: true
     - build_intouch_api_companies_dev
     - test_intouch_companies
   image: google/cloud-sdk
