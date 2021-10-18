@@ -2,9 +2,10 @@ import React from "react";
 import Grid from "@bmi/grid";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
-import AnchorLink from "@bmi/anchor-link";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import { Product, SystemLayer } from "../../components/types/pim";
 import { useSiteContext } from "../../components/Site";
+import withGTM from "../../utils/google-tag-manager";
 
 type Props = {
   systemLayers: SystemLayer[];
@@ -29,6 +30,10 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
             const productLinkAction =
               relatedProduct && createLinkAction(relatedProduct, countryCode);
 
+            const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
+              label: "children"
+            });
+
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
                 <Accordion.Summary>
@@ -41,9 +46,16 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                   <Grid container spacing={3}>
                     {relatedProduct && (
                       <Grid item xs={12} md={12} lg={12}>
-                        <AnchorLink action={productLinkAction}>
+                        <GTMAnchorLink
+                          gtm={{
+                            id: "cta-click1",
+                            label: relatedProduct.name,
+                            action: productLinkAction?.href
+                          }}
+                          action={productLinkAction}
+                        >
                           {relatedProduct.name}
-                        </AnchorLink>
+                        </GTMAnchorLink>
                       </Grid>
                     )}
 
@@ -74,9 +86,16 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                           lg={12}
                           key={`related-optional-product-${id}`}
                         >
-                          <AnchorLink action={productLinkAction}>
+                          <GTMAnchorLink
+                            gtm={{
+                              id: "cta-click1",
+                              label: product.name,
+                              action: productLinkAction?.href
+                            }}
+                            action={productLinkAction}
+                          >
                             {product.name}
-                          </AnchorLink>
+                          </GTMAnchorLink>
                         </Grid>
                       );
                     })}
