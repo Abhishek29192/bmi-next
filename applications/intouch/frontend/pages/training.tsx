@@ -15,6 +15,7 @@ import {
 import { withPage } from "../lib/middleware/withPage";
 import { getServerPageTraining } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
+import layoutStyles from "../components/Layout/styles.module.scss";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 import { sortCourses } from "../lib/utils/course";
 
@@ -86,7 +87,7 @@ const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
 
   return (
     <Layout title={t("Training")} pageData={globalPageData}>
-      <div style={{ display: "flex" }}>
+      <div className={layoutStyles.sidePanelWrapper}>
         <TrainingSidePanel
           courseCatalog={courseCatalog}
           onCourseSelected={sidePanelHandler}

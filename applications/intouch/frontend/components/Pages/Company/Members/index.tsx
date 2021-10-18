@@ -12,6 +12,7 @@ import {
 import Table from "@bmi/table";
 import { SvgIcon } from "@material-ui/core";
 import { Technology, Role, Account } from "@bmi/intouch-api-types";
+import classnames from "classnames";
 import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
 import { SidePanel } from "../../../SidePanel";
 import { FilterResult } from "../../../FilterResult";
@@ -31,6 +32,7 @@ import {
   findAccountCompany,
   isSuperOrMarketAdmin
 } from "../../../../lib/account";
+import layoutStyles from "../../../Layout/styles.module.scss";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 import Alert from "./Alert";
@@ -224,7 +226,12 @@ const CompanyMembers = ({ data }: PageProps) => {
   return (
     <>
       <Alert messages={messages} onClose={() => setMessages([])} />
-      <div className={styles.companyPage}>
+      <div
+        className={classnames(
+          layoutStyles.sidePanelWrapper,
+          styles.companyPage
+        )}
+      >
         <SidePanel
           filters={null}
           searchLabel={t("team-page:sidePanel.search.label")}
