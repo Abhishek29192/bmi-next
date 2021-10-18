@@ -3,7 +3,7 @@ test_head:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
-        - libraries/netlify-plugin-filter-tag-event/**/*
+        - applications/dxb/libraries/netlify-plugin-filter-tag-event/**/*
         - jest/**/*
         - package.json
         - "**/package.json"
