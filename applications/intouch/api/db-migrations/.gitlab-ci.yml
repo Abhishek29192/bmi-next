@@ -5,7 +5,7 @@ build_intouch_migration_db_service:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/onboarding' )"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/api/db-migrations/**/*
         - applications/intouch/api/services/companies/src/data/**/*
@@ -16,7 +16,7 @@ build_intouch_migration_db_service:
     - gcloud builds submit . --config=applications/intouch/api/db-migrations/cloudbuild.migration.build.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
 
 deploy_intouch_migration_db_service:
-  stage: build
+  stage: migration
   needs:
     - build_intouch_migration_db_service
   image: google/cloud-sdk
