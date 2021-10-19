@@ -1,5 +1,5 @@
 import path from "path";
-import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../utils/path";
 import { CreatePagesOptions } from "./types";
 
 interface PageContext {

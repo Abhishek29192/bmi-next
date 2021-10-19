@@ -2,13 +2,13 @@
 
 const { find, flatten } = require("lodash");
 const {
+  generateIdFromString,
+  generateDigestFromData
+} = require("../../utils/encryption");
+const {
   getFormatFromFileName,
   isPimLinkDocument
 } = require("./utils/documents");
-const {
-  generateIdFromString,
-  generateDigestFromData
-} = require("./utils/encryption");
 
 const { resolvePath, getUrlFromPath } = require("./utils/path");
 
@@ -102,7 +102,7 @@ module.exports = {
 
       return source.assets
         .map((asset) => {
-          const id = generateIdFromString(source.name + asset.name);
+          const id = generateIdFromString(source.name + asset.name, true);
           const { url, fileSize, realFileName, mime } = asset;
           const assetType = find(assetTypes, { pimCode: asset.assetType });
 

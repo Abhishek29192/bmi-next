@@ -11,7 +11,7 @@ import {
   VariantOptionWithProduct
 } from "../components/types/pim";
 import { GalleryImageType } from "../templates/systemDetails/types";
-import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "./path";
 
 export const getProductUrl = (countryCode, path) =>
   getPathWithCountryCode(countryCode, path);

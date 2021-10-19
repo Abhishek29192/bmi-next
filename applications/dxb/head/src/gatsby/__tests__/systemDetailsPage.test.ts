@@ -1,6 +1,6 @@
 import mockConsole from "jest-mock-console";
 import { createSystemPages } from "../systemDetailsPages";
-import { getPathWithCountryCode } from "../../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../../utils/path";
 
 const siteId = "foo";
 const countryCode = "en";

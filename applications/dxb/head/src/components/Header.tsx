@@ -7,7 +7,7 @@ import HidePrint from "@bmi/hide-print";
 import { Tab, TabProps } from "@material-ui/core";
 import withGTM from "../utils/google-tag-manager";
 import Image from "../components/Image";
-import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../utils/path";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,

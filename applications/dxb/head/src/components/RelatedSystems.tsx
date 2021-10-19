@@ -9,7 +9,7 @@ import { uniqBy } from "lodash";
 import { BackgroundColor } from "@bmi/section/src/Section";
 import withGTM from "../utils/google-tag-manager";
 import { System } from "../components/types/pim";
-import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../utils/path";
 import { findMasterImageUrl } from "../utils/product-details-transforms";
 import { iconMap } from "./Icon";
 import styles from "./styles/RelatedSystems.module.scss";
