@@ -2551,6 +2551,48 @@ describe("filters tests", () => {
       expect(result).toEqual([{ name: "colour", value: ["red"] }]);
     });
 
+    it("converts filters with multple values correctly", () => {
+      const result = convertToURLFilters(input(["red", "grey"]));
+      expect(result).toEqual([{ name: "colour", value: ["red", "grey"] }]);
+    });
+
+    it("converts multiple filters with multple values correctly", () => {
+      const input = [
+        {
+          label: "Colour",
+          name: "colour",
+          options: [
+            { label: "Grey", value: "grey", isDisabled: false },
+            { label: "Red", value: "red", isDisabled: false }
+          ],
+          value: ["red", "grey"]
+        },
+        {
+          label: "Material",
+          name: "material",
+          options: [
+            { label: "Slate", value: "slate", isDisabled: false },
+            { label: "Clay", value: "clay", isDisabled: false }
+          ],
+          value: ["clay"]
+        },
+        {
+          label: "Material2",
+          name: "material2",
+          options: [
+            { label: "Slate", value: "slate", isDisabled: false },
+            { label: "Clay", value: "clay", isDisabled: false }
+          ],
+          value: []
+        }
+      ];
+      const result = convertToURLFilters(input);
+      expect(result).toEqual([
+        { name: "colour", value: ["red", "grey"] },
+        { name: "material", value: ["clay"] }
+      ]);
+    });
+
     it("clears filters correctly", () => {
       const result = convertToURLFilters(input(undefined));
       expect(result).toEqual([]);
