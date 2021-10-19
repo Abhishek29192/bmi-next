@@ -24,6 +24,7 @@ import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { queryElasticSearch } from "../utils/elasticSearch";
 import { generateSystemPath } from "../schema/resolvers/utils/systems";
+import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
 import { System } from "./types/pim";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
@@ -352,7 +353,7 @@ const SystemConfiguratorBlockResultSection = ({
                     countryCode={countryCode}
                     gtm={{
                       id: "system-configurator01-results",
-                      action: linkToSDP,
+                      action: getPathWithCountryCode(countryCode, linkToSDP),
                       label: system.name
                     }}
                     path={linkToSDP}
