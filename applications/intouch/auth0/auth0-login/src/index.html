@@ -532,7 +532,8 @@
           terms_and_conditions: "Terms & Conditions",
           and: "and",
           privacy_policy: "Privacy Policy",
-          terms_missing: "Please accept terms & condition"
+          PasswordStrengthError:
+            "Please use a password with at least 8 characters in length and contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9), special characters (e.g. !@#$%^&*)"
         },
         no: {
           intouch_title: "InTouch - Logg inn/Registrering",
@@ -567,7 +568,9 @@
           terms_and_conditions: "Betingelser og vilkår",
           and: "og",
           privacy_policy: "Personvernerklæring",
-          terms_missing: "Godta vilkår og betingelser"
+          terms_missing: "Godta vilkår og betingelser",
+          PasswordStrengthError:
+            "Bruk et passord med minst 8 tegn og innehold minst 3 av følgende 4 typer tegn: små bokstaver (az), store bokstaver (AZ), tall (dvs. 0-9), spesialtegn ( f.eks.@#$%^&*)"
         }
       };
 
@@ -663,7 +666,7 @@
             },
             function (err) {
               button.disabled = false;
-              if (err) displayError(err, "login-form");
+              if (err) displayError(err.name, "login-form");
             }
           );
         }
@@ -716,7 +719,11 @@
             },
             function (err) {
               button.disabled = false;
-              if (err) displayError(err, "form-signup");
+              if (err)
+                displayError(
+                  { description: AlpineI18n.t(err.name) },
+                  "form-signup"
+                );
             }
           );
         }
