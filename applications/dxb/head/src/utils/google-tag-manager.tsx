@@ -90,6 +90,26 @@ export function pushToDataLayer(dataGtm: GTM) {
  *  })
  * } />
  *
+ * If using spreads, MUST pass it down to the child components
+ * @example
+ * const MyComponent = (
+ *  {
+ *    something,
+ *    something-else,
+ *    ...rest
+ *  }: Props) => {
+ *  return (
+ *    <Card
+ *      className={classnames(
+ *        styles["LinkCard"],
+ *        isOpen && styles[`LinkCard--selected`]
+ *      )}
+ *      onClick={!isOpen ? onClick : undefined}
+ *      ref={forwardedRef}
+ *      {...rest}
+ *    >
+ * etc
+ *
  * @param Component the Component to manipulate
  * @param propsToGtmMap the properties to use for adding data to GTM
  * @returns the original Component with the additional behaviour properties

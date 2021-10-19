@@ -354,7 +354,7 @@ const SystemConfiguratorBlockResultSection = ({
           recommendedSystemPimObjects.length > 0 && (
             <Grid container spacing={3}>
               {recommendedSystemPimObjects.map((system, id) => {
-                const linkToSDP = `${system.path}?selected_system=${system.code}&prev_page=/${countryCode}/system-configurator-page&referer=sys_details`;
+                const linkToSDP = `${system.path}/?selected_system=${system.code}&prev_page=/${countryCode}/system-configurator-page&referer=sys_details`;
                 return (
                   <SystemCard
                     key={`${system.code}-${id}`}

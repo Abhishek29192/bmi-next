@@ -145,7 +145,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
 
   const params = new URLSearchParams(windowLocation.search);
-  const gtmActionLinkCard = windowLocation.href?.toString();
   const userQueryString = useMemo(
     () => params.get(QUERY_CHIP_FILTER_KEY),
     [params]
@@ -421,7 +420,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       } - ${serviceType}`;
       if (matches || sectionType !== EntryTypeEnum.ROOFER_TYPE) {
         return {
-          id: "cta-click1",
+          id: "selector-cards6",
           label: `${label}${linkOrButtonText ? ` - ${linkOrButtonText}` : ""}`,
           action
         };
@@ -652,7 +651,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const getResultDataGtm = (service: Service) => {
     const gtmResult = matches
       ? {
-          id: "cta-click1",
+          id: "selector-cards6",
           label: `${service.name} - ${service.address}${
             service.certification ? ` - ${service.certification}` : ""
           }${
@@ -660,7 +659,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               ? ` - ${service.type[0]}`
               : ` - ${service.entryType}`
           } - selected`,
-          action: gtmActionLinkCard
+          action: "Expanded company details"
         }
       : {
           id: "selector-cards6",
@@ -668,8 +667,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             service.type && service.type.length === 1
               ? ` - ${service.type[0]}`
               : ` - ${service.entryType}`
-          }`,
-          action: gtmActionLinkCard
+          } - selected`,
+          action: "Expanded company details"
         };
     return gtmResult;
   };

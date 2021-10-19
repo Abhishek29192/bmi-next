@@ -1643,6 +1643,7 @@ HTMLCollection [
                 >
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   >
                     <div
                       class="item"
@@ -1875,6 +1876,7 @@ HTMLCollection [
                   </div>
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   >
                     <div
                       class="item"
