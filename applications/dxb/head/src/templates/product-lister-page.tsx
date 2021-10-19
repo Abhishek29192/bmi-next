@@ -61,7 +61,8 @@ import FiltersSidebar from "../components/FiltersSidebar";
 import { Product } from "../components/types/pim";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { ProductFilter } from "../utils/product-filters";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ProductFilter, removePLPFilterPrefix } from "../utils/product-filters";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -325,7 +326,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       // Filter search
       const updatedFilters = filters.map((filter) => {
         const currentQueryFilterValue = queryParams.filters.find(
-          ({ name }) => name === filter.name
+          ({ name }) => name === removePLPFilterPrefix(filter.name)
         )?.value;
 
         return {
