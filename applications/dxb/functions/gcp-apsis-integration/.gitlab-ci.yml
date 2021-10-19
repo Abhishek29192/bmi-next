@@ -7,7 +7,8 @@ test_gcp-apsis-integration:
 build_gcp-apsis-integration:
   extends: .build_function
   variables:
-    PROJECT_NAME: gcp-apsis-integration
+    WORKSPACE: "@bmi/gcp-apsis-integration"
+    ROOT_DIR: "applications/dxb/functions/gcp-apsis-integration"
 
 package_gcp-apsis-integration:
   extends: .package_function
@@ -16,7 +17,8 @@ package_gcp-apsis-integration:
   dependencies:
     - build_gcp-apsis-integration
   variables:
-    PROJECT_NAME: gcp-apsis-integration
+    FUNCTION_NAME: "gcp-apsis-integration"
+    ROOT_DIR: "applications/dxb/functions/gcp-apsis-integration"
 
 deploy_gcp-apsis-integration:
   extends: .deploy_function
@@ -25,4 +27,5 @@ deploy_gcp-apsis-integration:
   dependencies:
     - package_gcp-apsis-integration
   variables:
-    PROJECT_NAME: gcp-apsis-integration
+    FUNCTION_NAME: "gcp-apsis-integration"
+    ROOT_DIR: "applications/dxb/functions/gcp-apsis-integration"

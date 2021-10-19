@@ -1,6 +1,6 @@
 build_intouch_api_training_dev:
   stage: build
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   needs: []
@@ -26,7 +26,7 @@ deploy_intouch_api_training_dev:
     #  optional: true
     - build_intouch_api_training_dev
     # TODO: add a test step
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}

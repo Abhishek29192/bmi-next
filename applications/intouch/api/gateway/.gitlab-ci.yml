@@ -1,7 +1,7 @@
 build_intouch_api_gateway_dev:
   stage: build
   needs: []
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}
@@ -20,7 +20,7 @@ build_intouch_api_gateway_dev:
 
 deploy_intouch_api_gateway_dev:
   stage: deploy_gateway
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}

@@ -1,6 +1,6 @@
 build_intouch_migration_db_service:
   stage: build
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}
@@ -19,7 +19,7 @@ deploy_intouch_migration_db_service:
   stage: migration
   needs:
     - build_intouch_migration_db_service
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}

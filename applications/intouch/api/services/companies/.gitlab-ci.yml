@@ -11,7 +11,8 @@ test_intouch_companies:
         - package.json
         - "**/package.json"
   needs:
-    - install
+    - job: install
+      optional: true
   variables:
     PG_HOST: postgres
     PG_USER: postgres
@@ -34,7 +35,7 @@ test_intouch_companies:
 build_intouch_api_companies_dev:
   stage: build
   needs: []
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}
@@ -58,7 +59,7 @@ deploy_intouch_api_companies_dev:
     #  optional: true
     - build_intouch_api_companies_dev
     - test_intouch_companies
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}

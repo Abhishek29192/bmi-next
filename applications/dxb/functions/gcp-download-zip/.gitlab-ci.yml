@@ -7,7 +7,8 @@ test_gcp-download-zip:
 build_gcp-download-zip:
   extends: .build_function
   variables:
-    PROJECT_NAME: gcp-download-zip
+    WORKSPACE: "@bmi/gcp-download-zip"
+    ROOT_DIR: "applications/dxb/functions/gcp-download-zip"
 
 package_gcp-download-zip:
   extends: .package_function
@@ -16,7 +17,8 @@ package_gcp-download-zip:
   dependencies:
     - build_gcp-download-zip
   variables:
-    PROJECT_NAME: gcp-download-zip
+    FUNCTION_NAME: "gcp-download-zip"
+    ROOT_DIR: "applications/dxb/functions/gcp-download-zip"
 
 deploy_gcp-download-zip:
   extends: .deploy_function
@@ -25,4 +27,5 @@ deploy_gcp-download-zip:
   dependencies:
     - package_gcp-download-zip
   variables:
-    PROJECT_NAME: gcp-download-zip
+    FUNCTION_NAME: "gcp-download-zip"
+    ROOT_DIR: "applications/dxb/functions/gcp-download-zip"

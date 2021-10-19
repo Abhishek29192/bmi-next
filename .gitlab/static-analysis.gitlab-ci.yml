@@ -44,7 +44,8 @@ eslint:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs:
-    - install
+    - job: install
+      optional: true
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:

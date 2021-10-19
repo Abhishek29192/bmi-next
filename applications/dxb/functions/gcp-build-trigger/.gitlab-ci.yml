@@ -1,7 +1,8 @@
 build_gcp-build-trigger:
   extends: .build_function
   variables:
-    PROJECT_NAME: gcp-build-trigger
+    WORKSPACE: "@bmi/gcp-build-trigger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
 
 package_gcp-build-trigger:
   extends: .package_function
@@ -10,7 +11,8 @@ package_gcp-build-trigger:
   dependencies:
     - build_gcp-build-trigger
   variables:
-    PROJECT_NAME: gcp-build-trigger
+    FUNCTION_NAME: "gcp-build-trigger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
 
 deploy_gcp-build-trigger:
   extends: .deploy_function
@@ -19,4 +21,5 @@ deploy_gcp-build-trigger:
   dependencies:
     - package_gcp-build-trigger
   variables:
-    PROJECT_NAME: gcp-build-trigger
+    FUNCTION_NAME: "gcp-build-trigger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"

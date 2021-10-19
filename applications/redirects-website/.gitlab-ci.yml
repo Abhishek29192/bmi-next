@@ -7,7 +7,8 @@ build_redirects_website:
         - package.json
         - "**/package.json"
   needs:
-    - install
+    - job: install
+      optional: true
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
   before_script:
