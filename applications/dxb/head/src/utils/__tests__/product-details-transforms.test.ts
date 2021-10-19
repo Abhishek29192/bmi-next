@@ -45,14 +45,14 @@ describe("product-details-transforms tests", () => {
     describe("When measurement is NOT provided", () => {
       describe("And withUnit is false", () => {
         it("returns null", () => {
-          const result = getSizeLabel(null, false);
-          expect(result).toEqual(undefined);
+          const result = getSizeLabel({}, false);
+          expect(result).toEqual("");
         });
       });
       describe("And withUnit is true", () => {
         it("returns null", () => {
-          const result = getSizeLabel(null, true);
-          expect(result).toEqual(undefined);
+          const result = getSizeLabel({}, true);
+          expect(result).toEqual("");
         });
       });
     });
@@ -77,7 +77,7 @@ describe("product-details-transforms tests", () => {
               },
               false
             );
-            expect(result).toEqual("30x10x20");
+            expect(result).toEqual("10x20x30");
           });
         });
         describe("And all measurement units are NOT same", () => {
@@ -99,7 +99,7 @@ describe("product-details-transforms tests", () => {
               },
               false
             );
-            expect(result).toEqual("30mm x 10in x 20cm");
+            expect(result).toEqual("10in x 20cm x 30mm");
           });
         });
       });
@@ -120,7 +120,7 @@ describe("product-details-transforms tests", () => {
                 value: { value: { value: "30" }, unit: "mm" }
               }
             });
-            expect(result).toEqual("30x10x20mm");
+            expect(result).toEqual("10x20x30mm");
           });
         });
         describe("And All units are NOT same", () => {
@@ -139,7 +139,7 @@ describe("product-details-transforms tests", () => {
                 value: { value: { value: "30" }, unit: "mm" }
               }
             });
-            expect(result).toEqual("30mm x 10in x 20cm");
+            expect(result).toEqual("10in x 20cm x 30mm");
           });
         });
       });
@@ -801,7 +801,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  variants: [{ label: "30x10x20mm", isSelected: true }]
+                  variants: [{ label: "10x20x30mm", isSelected: true }]
                 }
               ];
               expect(result).toEqual(expectedResult);
@@ -841,7 +841,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  variants: [{ label: "30x10x20mm", isSelected: false }]
+                  variants: [{ label: "10x20x30mm", isSelected: false }]
                 }
               ];
               expect(result).toEqual(expectedResult);
@@ -1397,7 +1397,7 @@ describe("product-details-transforms tests", () => {
             measurements: measurementValue
           };
           const result = mapClassificationValues(inputValue);
-          expect(result).toEqual("30x10x20mm");
+          expect(result).toEqual("10x20x30mm");
         });
       });
       describe("And colour Classification is provided", () => {

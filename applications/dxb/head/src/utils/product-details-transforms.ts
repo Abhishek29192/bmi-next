@@ -55,13 +55,9 @@ export const getSizeLabel = (
   measurement: TransformedMeasurementValue,
   withUnit = true
 ) => {
-  const { length, width, height } = measurement || {};
-  const components = [width, length, height].filter(Boolean);
-  // this should never occur as filter will always return empty array
-  // but not removing this line as I dont want to have regression!
-  /* istanbul ignore next */
-  if (!components.length) {
-    return;
+  const components = Object.values(measurement || {}).filter(Boolean);
+  if (components.length === 0) {
+    return "";
   }
 
   const sameUnit = components.every(
