@@ -188,9 +188,10 @@ export const getSizeLabel = (
   measurement: TransformedMeasurementValue,
   withUnit = true
 ) => {
-  const { length, width, height } = measurement || {};
-  const components = [width, length, height].filter(Boolean);
-
+  const components = Object.values(measurement || {}).filter(Boolean);
+  if (components.length === 0) {
+    return "";
+  }
   const sameUnit = components.every(
     (value, i, arr) => value.value.unit === arr[0].value.unit
   );
