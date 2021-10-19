@@ -134,7 +134,8 @@ const SystemListing = ({
               path={system.path}
               gtm={{
                 id: "cta-click1",
-                label: getMicroCopy("sdp.system.readMore"),
+                label:
+                  system.name + " - " + getMicroCopy("sdp.system.readMore"),
                 action: getSystemUrl(countryCode, system.path)
               }}
             />

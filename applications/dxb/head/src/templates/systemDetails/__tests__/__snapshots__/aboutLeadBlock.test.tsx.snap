@@ -42,6 +42,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
+          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Spec Test\\",\\"action\\":\\"test\\"}"
           href="test"
           rel="noopener noreferrer"
           tabindex="0"
@@ -246,6 +247,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
+          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Spec Test\\",\\"action\\":\\"test\\"}"
           href="test"
           rel="noopener noreferrer"
           tabindex="0"
@@ -829,6 +831,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Spec Test\\",\\"action\\":\\"test\\"}"
           href="test"
           rel="noopener noreferrer"
           tabindex="0"
@@ -1035,6 +1038,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Spec Test\\",\\"action\\":\\"test\\"}"
           href="test"
           rel="noopener noreferrer"
           tabindex="0"
