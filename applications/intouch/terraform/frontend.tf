@@ -7,15 +7,22 @@ resource "google_cloud_run_service" "default" {
   template {
     metadata {
       annotations = {
-        "autoscaling.knative.dev/minScale" = "1"
-        "autoscaling.knative.dev/maxScale" = "10"
+        "autoscaling.knative.dev/minScale" = "2"
+        "autoscaling.knative.dev/maxScale" = "20"
       }
     }
     spec {
+      container_concurrency = 20
       containers {
         image = "eu.gcr.io/automated-style-303709/intouch-frontend:latest"
         ports {
           container_port = 3000
+        }
+        resources {
+          limits = {
+            cpu = "2000m"
+            memory = "1024Mi"
+          }
         }
         env {
           name  = "APP_ENV"
