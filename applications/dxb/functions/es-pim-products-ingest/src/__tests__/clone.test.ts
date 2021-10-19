@@ -3,7 +3,8 @@ import {
   ESIndexObject,
   groupBy,
   IndexedItemGroup,
-  IndexFeatures
+  IndexFeatures,
+  getSizeLabel
 } from "../CLONE";
 import { Classification } from "../pim";
 import createClassification, {
@@ -22,6 +23,148 @@ type ImageItem = {
 };
 
 describe("CLONE tests", () => {
+  describe("getSizeLabel tests", () => {
+    describe("when empty object is provided", () => {
+      it("should return empty string", () => {
+        expect(getSizeLabel({})).toEqual("");
+      });
+    });
+    describe("when withUnit is true tests", () => {
+      describe("when object with single measurement attribute is provided", () => {
+        it("should return single measurement with its unit", () => {
+          expect(
+            getSizeLabel({
+              height: {
+                name: "height",
+                value: {
+                  value: { value: "5" },
+                  unit: "mm"
+                }
+              }
+            })
+          ).toEqual("5mm");
+        });
+      });
+      describe("when object with multiple measurement attributes with single unit are provided", () => {
+        it("should return multiple measurements with same unit", () => {
+          expect(
+            getSizeLabel({
+              height: {
+                name: "height",
+                value: {
+                  value: { value: "5" },
+                  unit: "mm"
+                }
+              },
+              width: {
+                name: "width",
+                value: {
+                  value: { value: "5" },
+                  unit: "mm"
+                }
+              }
+            })
+          ).toEqual("5x5mm");
+        });
+      });
+
+      describe("when object with multiple measurement attributes with multiple unit are provided", () => {
+        it("should return multiple measurements with differnt unit", () => {
+          expect(
+            getSizeLabel({
+              height: {
+                name: "height",
+                value: {
+                  value: { value: "5" },
+                  unit: "mm"
+                }
+              },
+              width: {
+                name: "width",
+                value: {
+                  value: { value: "5" },
+                  unit: "cm"
+                }
+              }
+            })
+          ).toEqual("5mm x 5cm");
+        });
+      });
+    });
+
+    describe("when withUnit is false tests", () => {
+      describe("when object with single measurement attribute is provided", () => {
+        it("should return single measurement without its unit", () => {
+          expect(
+            getSizeLabel(
+              {
+                height: {
+                  name: "height",
+                  value: {
+                    value: { value: "5" },
+                    unit: "mm"
+                  }
+                }
+              },
+              false
+            )
+          ).toEqual("5");
+        });
+      });
+      describe("when object with multiple measurement attributes with single unit are provided", () => {
+        it("should return multiple measurements without unit", () => {
+          expect(
+            getSizeLabel(
+              {
+                height: {
+                  name: "height",
+                  value: {
+                    value: { value: "5" },
+                    unit: "mm"
+                  }
+                },
+                width: {
+                  name: "width",
+                  value: {
+                    value: { value: "5" },
+                    unit: "mm"
+                  }
+                }
+              },
+              false
+            )
+          ).toEqual("5x5");
+        });
+      });
+
+      describe("when object with multiple measurement attributes with multiple unit are provided", () => {
+        it("should return multiple measurements with multiple unit", () => {
+          expect(
+            getSizeLabel(
+              {
+                height: {
+                  name: "height",
+                  value: {
+                    value: { value: "5" },
+                    unit: "mm"
+                  }
+                },
+                width: {
+                  name: "width",
+                  value: {
+                    value: { value: "5" },
+                    unit: "cm"
+                  }
+                }
+              },
+              false
+            )
+          ).toEqual("5mm x 5cm");
+        });
+      });
+    });
+  });
+
   describe("groupBy tests", () => {
     it("should return empty object when empty array is provided", () => {
       expect(groupBy([], "")).toEqual({});

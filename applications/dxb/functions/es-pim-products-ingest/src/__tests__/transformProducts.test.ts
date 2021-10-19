@@ -434,7 +434,7 @@ describe("transformProduct", () => {
       });
       const transformedProduct = transformProduct(product);
 
-      expect(transformedProduct[0].measurementValue).toEqual("100x1x10symbol");
+      expect(transformedProduct[0].measurementValue).toEqual("10x100x1symbol");
     });
   });
 
