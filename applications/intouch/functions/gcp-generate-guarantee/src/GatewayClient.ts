@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from "axios";
+import { getGCPToken } from "./util/google-auth";
 
 const { GATEWAY_API_URL } = process.env;
 
@@ -10,7 +11,7 @@ export interface ICourseSyncConfiguration {
 export default class GatewayClient {
   private client: AxiosInstance;
 
-  private constructor() {
+  private constructor(bearer: string) {
     const userinfo = Buffer.from(
       JSON.stringify({
         source: "pdf-generator-function"
@@ -21,13 +22,16 @@ export default class GatewayClient {
       baseURL: GATEWAY_API_URL,
       headers: {
         contentType: "application/json",
-        "x-apigateway-api-userinfo": userinfo
+        "x-apigateway-api-userinfo": userinfo,
+        authorization: bearer
       }
     });
   }
 
   public static async create(): Promise<GatewayClient> {
-    return new GatewayClient();
+    const bearer = await getGCPToken(GATEWAY_API_URL);
+
+    return new GatewayClient(bearer);
   }
 
   async updateGuaranteeFileStorage(id: number, fileStorageId: string) {

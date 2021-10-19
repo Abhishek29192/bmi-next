@@ -62,4 +62,4 @@ deploy_gcp-intouch-cron-certification:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-certification.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud builds submit . --config=applications/intouch/functions/gcp-cron-certification/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_INTOUCH_DOCEBO_API_CLIENT_ID=$INTOUCH_DOCEBO_API_CLIENT_ID,_INTOUCH_DOCEBO_API_CLIENT_SECRET=$INTOUCH_DOCEBO_API_CLIENT_SECRET,_INTOUCH_DOCEBO_API_USERNAME=$INTOUCH_DOCEBO_API_USERNAME,_INTOUCH_DOCEBO_API_PASSWORD=$INTOUCH_DOCEBO_API_PASSWORD
+    - gcloud builds submit . --config=applications/intouch/functions/gcp-cron-certification/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,_USER_CERTIFICATION_REPORT_ID=$USER_CERTIFICATION_REPORT_ID
