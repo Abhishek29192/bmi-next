@@ -39,6 +39,19 @@
         display: none !important;
       }
     </style>
+    <script>
+      if (typeof window.queueMicrotask !== "function") {
+        window.queueMicrotask = function (callback) {
+          Promise.resolve()
+            .then(callback)
+            .catch((e) =>
+              setTimeout(() => {
+                throw e;
+              })
+            );
+        };
+      }
+    </script>
     <script type="module">
       import AlpineI18n from "https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/module.esm.js";
 
