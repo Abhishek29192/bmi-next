@@ -15615,7 +15615,6 @@ input ImageTransformOptions {
 
 input ImportAccountsCompaniesFromCSVInput {
   files: [Upload!]!
-  market: String
 }
 
 type ImportAccountsCompaniesFromCSVResult {

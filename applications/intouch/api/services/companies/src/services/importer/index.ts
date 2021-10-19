@@ -112,10 +112,11 @@ export const importAccountsCompaniesFromCVS = async (
   );
 
   companiesQuery = pgFormat(
-    "INSERT INTO company(market_id, migration_id, name, tier, status, tax_number, about_us, logo, phone, public_email, registered_address_migration_id, trading_address_migration_id, website, linked_in) VALUES %L RETURNING *",
+    "INSERT INTO company(market_id, migration_id, business_type, name, tier, status, tax_number, about_us, logo, phone, public_email, registered_address_migration_id, trading_address_migration_id, website, linked_in) VALUES %L RETURNING *",
     companies.map((company) => [
       parseInt(marketId),
       company.migration_id,
+      company.business_type,
       company.name,
       company.tier,
       company.status,

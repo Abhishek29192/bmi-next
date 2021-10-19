@@ -9667,7 +9667,6 @@ export type ImageTransformOptions = {
 
 export type ImportAccountsCompaniesFromCsvInput = {
   files: Array<Scalars["Upload"]>;
-  market?: Maybe<Scalars["String"]>;
 };
 
 export type ImportAccountsCompaniesFromCsvResult = {
