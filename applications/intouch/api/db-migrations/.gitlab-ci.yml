@@ -5,7 +5,7 @@ build_intouch_migration_db_service:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/api/db-migrations/**/*
         - applications/intouch/api/services/companies/src/data/**/*
@@ -24,7 +24,7 @@ deploy_intouch_migration_db_service:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/api/db-migrations/**/*
         - applications/intouch/api/services/companies/src/data/**/*
@@ -33,37 +33,36 @@ deploy_intouch_migration_db_service:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gcloud builds submit . --config=applications/intouch/api/db-migrations/cloudbuild.migration.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
+# migrate_company_db:
+#   stage: migration
+#   needs:
+#     - install
+#     - job: deploy_intouch_migration_db_service
+#       optional: true
+#   variables:
+#     MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
+#   rules:
+#     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
+#       changes:
+#         - applications/intouch/api/services/companies/src/data/*
+#   before_script:
+#     - yarn config set cache-folder ${PWD}/.yarn_cache
+#   script:
+#     - yarn workspace @bmi/intouch-api-migration-scripts migrate:companies
 
-migrate_company_db:
-  stage: migration
-  needs:
-    - install
-    - job: deploy_intouch_migration_db_service
-      optional: true
-  variables:
-    MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/intouch/api/services/companies/src/data/*
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/intouch-api-migration-scripts migrate:companies
-
-migrate_training_db:
-  stage: migration
-  needs:
-    - install
-    - job: deploy_intouch_migration_db_service
-      optional: true
-  variables:
-    MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/intouch/api/services/training/src/data/*
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/intouch-api-migration-scripts migrate:training
+# migrate_training_db:
+#   stage: migration
+#   needs:
+#     - install
+#     - job: deploy_intouch_migration_db_service
+#       optional: true
+#   variables:
+#     MIGRATION_SERVICE_URL: https://tf-db-migrations-rfwslk3zjq-nw.a.run.app
+#   rules:
+#     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
+#       changes:
+#         - applications/intouch/api/services/training/src/data/*
+#   before_script:
+#     - yarn config set cache-folder ${PWD}/.yarn_cache
+#   script:
+#     - yarn workspace @bmi/intouch-api-migration-scripts migrate:training

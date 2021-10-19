@@ -6,7 +6,7 @@ build_intouch_api_training_dev:
   needs: []
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/api/services/training/**/*
         - libraries/**/*
@@ -22,8 +22,8 @@ build_intouch_api_training_dev:
 deploy_intouch_api_training_dev:
   stage: deploy
   needs:
-    - job: migrate_training_db
-      optional: true
+    #- job: migrate_training_db
+    #  optional: true
     - build_intouch_api_training_dev
     # TODO: add a test step
   image: google/cloud-sdk
@@ -31,7 +31,7 @@ deploy_intouch_api_training_dev:
     - docker:dind
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/api/services/training/**/*
   script:
