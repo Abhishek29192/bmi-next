@@ -329,6 +329,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -813,6 +814,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                 >
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   >
                     <div
                       class="item"
@@ -997,6 +999,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                   </div>
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   >
                     <div
                       class="item"
@@ -1791,6 +1794,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -1992,6 +1996,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Flat roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -2193,6 +2198,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 3 - address 1 - Pitched roof - Bitumen roofs - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -2394,6 +2400,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 4 - address 1 - Pitched roof - Tile roofs - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -2595,6 +2602,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 5 - address 1 - Pitched roof - Roof coaters - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -3072,6 +3080,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -3253,6 +3262,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -3714,6 +3724,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                 >
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   >
                     <div
                       class="item"
@@ -4093,6 +4104,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 9 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -4429,6 +4441,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 9 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -4912,6 +4925,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -5544,6 +5558,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -5700,6 +5715,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -5997,6 +6013,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -6153,6 +6170,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -6450,6 +6468,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -6604,6 +6623,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -6899,6 +6919,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -7053,6 +7074,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -7348,6 +7370,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -7502,6 +7525,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -8016,6 +8040,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -8220,6 +8245,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -8700,6 +8726,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -8884,6 +8911,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -9386,6 +9414,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -9590,6 +9619,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -10070,6 +10100,7 @@ exports[`ServiceLocatorSection component renders multiple services with no field
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -10148,6 +10179,7 @@ exports[`ServiceLocatorSection component renders multiple services with no field
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -10502,6 +10534,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -10706,6 +10739,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
               </div>
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -11186,6 +11220,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -11646,6 +11681,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -12126,6 +12162,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -12606,6 +12643,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -13088,6 +13126,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                 >
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   >
                     <div
                       class="item"
@@ -13554,6 +13593,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                 >
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   >
                     <div
                       class="item"
@@ -13738,6 +13778,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                   </div>
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"some other name - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   >
                     <div
                       class="item"
@@ -14229,6 +14270,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -14900,6 +14942,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"
@@ -15582,6 +15625,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                 >
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   >
                     <div
                       class="item"
@@ -16044,6 +16088,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             >
               <div
                 class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
               >
                 <div
                   class="item"

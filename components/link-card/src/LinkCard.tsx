@@ -24,7 +24,8 @@ const LinkCard = (
     children,
     onClick,
     onCloseClick,
-    onExpandCompleted
+    onExpandCompleted,
+    ...rest
   }: Props,
   forwardedRef:
     | ((instance: HTMLElement | null) => void)
@@ -39,6 +40,7 @@ const LinkCard = (
       )}
       onClick={!isOpen ? onClick : undefined}
       ref={forwardedRef}
+      {...rest}
     >
       <div
         className={styles["item"]}
