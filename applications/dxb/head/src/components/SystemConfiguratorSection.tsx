@@ -82,6 +82,7 @@ type SystemConfiguratorBlockProps = {
   ) => Promise<NextStepData>;
   storedAnswers?: string[];
   stateSoFar?: string[];
+  isReload: boolean;
 };
 
 const ACCORDION_TRANSITION = 500;
@@ -101,7 +102,8 @@ const SystemConfiguratorBlock = ({
   index,
   getData,
   storedAnswers,
-  stateSoFar = []
+  stateSoFar = [],
+  isReload
 }: SystemConfiguratorBlockProps) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [myStoredAnswerId, ...remainingStoredAnswers] = storedAnswers;
@@ -178,9 +180,19 @@ const SystemConfiguratorBlock = ({
     setState((state) => ({ ...state, openIndex: index }));
   };
 
+  const hasSingleAnswer = answers.length === 1 && answers[0];
   const selectedAnswer =
-    answers.find(({ id }) => id === nextId) ||
-    (answers.length === 1 && answers[0]);
+    answers.find(({ id }) => id === nextId) || hasSingleAnswer;
+
+  useEffect(() => {
+    if (hasSingleAnswer && !isReload) {
+      pushToDataLayer({
+        id: `system-configurator01-selected`,
+        label: title,
+        action: selectedAnswer.title
+      });
+    }
+  }, [hasSingleAnswer, isReload]);
 
   if (!questionData) {
     return null;
@@ -235,6 +247,7 @@ const SystemConfiguratorBlock = ({
           getData={getData}
           storedAnswers={remainingStoredAnswers}
           stateSoFar={allStateSoFar}
+          isReload={isReload}
         />
       ) : null}
     </>
@@ -492,6 +505,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
                 handleAnswerChange(answerId, index, cancelToken, recaptchaToken)
               }
               storedAnswers={storedAnswers.selectedAnswers}
+              isReload={(referer || "").length > 0}
             />
           </SystemConfigurtorContext.Provider>
         ) : null}

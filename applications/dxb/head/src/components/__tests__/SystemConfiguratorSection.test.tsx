@@ -15,6 +15,7 @@ import SystemConfiguratorSection, {
   NextStepData
 } from "../SystemConfiguratorSection";
 import * as elasticSearch from "../../utils/elasticSearch";
+import * as GTM from "../../utils/google-tag-manager";
 
 jest.mock("react-google-recaptcha-v3", () => {
   return {
@@ -510,6 +511,8 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders skipping a block with only one answer", async () => {
+    const mockPushToDataLayer = jest.spyOn(GTM, "pushToDataLayer");
+
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         __typename: "ContentfulSystemConfiguratorBlock",
@@ -544,6 +547,7 @@ describe("SystemConfiguratorSection component", () => {
 
     expect(container).toMatchSnapshot();
     expect(mockedAxios.get).toBeCalledTimes(2);
+    expect(mockPushToDataLayer).toHaveBeenCalledTimes(1);
   });
 
   it("throws error", async () => {
@@ -594,6 +598,7 @@ describe("SystemConfiguratorSection component", () => {
 
   describe("When returning from valid referer", () => {
     it("removes query string from path", async () => {
+      const mockPushToDataLayer = jest.spyOn(GTM, "pushToDataLayer");
       mockedAxios.get.mockResolvedValue({
         data: {
           __typename: "ContentfulSystemConfiguratorBlock",
@@ -628,6 +633,7 @@ describe("SystemConfiguratorSection component", () => {
         "/jest-test-page"
       );
       expect(container).toMatchSnapshot();
+      expect(mockPushToDataLayer).toHaveBeenCalledTimes(0);
     });
 
     it("highlights last selected system", async () => {
