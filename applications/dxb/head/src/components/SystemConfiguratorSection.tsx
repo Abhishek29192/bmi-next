@@ -190,7 +190,8 @@ const SystemConfiguratorBlock = ({
       pushToDataLayer({
         id: `system-configurator01-selected`,
         label: title,
-        action: selectedAnswer.title
+        action: selectedAnswer.title,
+        event: "gtm.click"
       });
     }
   }, [hasSingleAnswer, isReload]);

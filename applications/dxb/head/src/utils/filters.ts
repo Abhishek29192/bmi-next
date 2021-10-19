@@ -38,10 +38,15 @@ export const convertToURLFilters = (
   filters: readonly ProductFilter[]
 ): URLProductFilter[] => {
   return filters.reduce((carry, { name, value }) => {
-    if ((value instanceof Array && value.length) || value) {
-      carry.push({ name: removePLPFilterPrefix(name), value });
+    if (value instanceof Array) {
+      return value.length
+        ? [...carry, { name: removePLPFilterPrefix(name), value }]
+        : carry;
     }
-    return carry;
+
+    return value
+      ? [...carry, { name: removePLPFilterPrefix(name), value }]
+      : carry;
   }, []);
 };
 
