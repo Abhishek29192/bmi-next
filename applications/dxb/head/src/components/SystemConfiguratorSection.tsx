@@ -309,7 +309,15 @@ const SystemConfiguratorBlockResultSection = ({
               path: generateSystemPath(_source)
             };
           });
-          setRecommendedSystemPimObjects(pimObject.slice(0, maxDisplay));
+          setRecommendedSystemPimObjects(
+            pimObject
+              .slice(0, maxDisplay)
+              .sort(
+                (systemA, systemB) =>
+                  recommendedSystems.indexOf(systemA.code) -
+                  recommendedSystems.indexOf(systemB.code)
+              )
+          );
         } else {
           navigate("/404");
         }
