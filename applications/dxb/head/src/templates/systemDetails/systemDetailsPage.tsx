@@ -234,7 +234,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         brandLogo={iconMap[brandName]}
       />
       <Section
-        backgroundColor="pearl"
+        backgroundColor="alabaster"
         className={styles["imageGallery-systemLayers-section"]}
       >
         <Grid container spacing={3}>
