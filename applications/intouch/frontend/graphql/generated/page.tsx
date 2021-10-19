@@ -94,6 +94,48 @@ export const ssrGetProject = {
 
   usePage: useGetProject
 };
+export async function getServerPageGetCompaniesReport(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetCompaniesReportQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetCompaniesReportQuery>(
+    { ...options, query: Operations.GetCompaniesReportDocument }
+  );
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetCompaniesReport = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetCompaniesReportQuery,
+    OperationTypes.GetCompaniesReportQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetCompaniesReportDocument, options);
+};
+export type PageGetCompaniesReportComp = React.FC<{
+  data?: OperationTypes.GetCompaniesReportQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetCompaniesReport = {
+  getServerPage: getServerPageGetCompaniesReport,
+
+  usePage: useGetCompaniesReport
+};
 export async function getServerPageGetProductsReport(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetProductsReportQueryVariables>,

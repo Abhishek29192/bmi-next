@@ -1580,6 +1580,81 @@ export type ProjectDetailsProductFragmentFragment = {
   "id" | "name" | "brand" | "family" | "description"
 >;
 
+export type GetCompaniesReportQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetCompaniesReportQuery = { readonly __typename?: "Query" } & {
+  readonly companies?: SchemaTypes.Maybe<
+    { readonly __typename?: "CompaniesConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Company" } & Pick<
+          SchemaTypes.Company,
+          | "referenceNumber"
+          | "name"
+          | "tier"
+          | "logo"
+          | "aboutUs"
+          | "businessType"
+          | "isProfileComplete"
+          | "phone"
+          | "publicEmail"
+          | "website"
+          | "facebook"
+          | "linkedIn"
+          | "ownerFullname"
+          | "ownerEmail"
+          | "status"
+          | "taxNumber"
+          | "updatedAt"
+        > & {
+            readonly registeredAddress?: SchemaTypes.Maybe<
+              { readonly __typename?: "Address" } & Pick<
+                SchemaTypes.Address,
+                | "id"
+                | "firstLine"
+                | "secondLine"
+                | "town"
+                | "region"
+                | "country"
+                | "postcode"
+              >
+            >;
+            readonly tradingAddress?: SchemaTypes.Maybe<
+              { readonly __typename?: "Address" } & Pick<
+                SchemaTypes.Address,
+                | "id"
+                | "firstLine"
+                | "secondLine"
+                | "town"
+                | "region"
+                | "country"
+                | "postcode"
+              > & {
+                  readonly coordinates?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Point" } & Pick<
+                      SchemaTypes.Point,
+                      "x" | "y"
+                    >
+                  >;
+                }
+            >;
+            readonly companyOperationsByCompany: {
+              readonly __typename?: "CompanyOperationsConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyOperation" } & Pick<
+                  SchemaTypes.CompanyOperation,
+                  "id" | "operation"
+                >
+              >;
+            };
+          }
+      >;
+    }
+  >;
+};
+
 export type GetProductsReportQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;

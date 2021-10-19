@@ -1293,6 +1293,98 @@ export type GetProjectQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectQuery,
   OperationTypes.GetProjectQueryVariables
 >;
+export const GetCompaniesReportDocument = gql`
+  query GetCompaniesReport {
+    companies {
+      nodes {
+        referenceNumber
+        name
+        tier
+        registeredAddress {
+          ...AddressLinesFragment
+        }
+        tradingAddress {
+          ...AddressLinesFragment
+          coordinates {
+            x
+            y
+          }
+        }
+        logo
+        aboutUs
+        businessType
+        companyOperationsByCompany {
+          nodes {
+            id
+            operation
+          }
+        }
+        isProfileComplete
+        phone
+        publicEmail
+        website
+        facebook
+        linkedIn
+        ownerFullname
+        ownerEmail
+        status
+        taxNumber
+        updatedAt
+      }
+    }
+  }
+  ${AddressLinesFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetCompaniesReportQuery__
+ *
+ * To run a query within a React component, call `useGetCompaniesReportQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCompaniesReportQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetCompaniesReportQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetCompaniesReportQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetCompaniesReportQuery,
+    OperationTypes.GetCompaniesReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetCompaniesReportQuery,
+    OperationTypes.GetCompaniesReportQueryVariables
+  >(GetCompaniesReportDocument, options);
+}
+export function useGetCompaniesReportLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetCompaniesReportQuery,
+    OperationTypes.GetCompaniesReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetCompaniesReportQuery,
+    OperationTypes.GetCompaniesReportQueryVariables
+  >(GetCompaniesReportDocument, options);
+}
+export type GetCompaniesReportQueryHookResult = ReturnType<
+  typeof useGetCompaniesReportQuery
+>;
+export type GetCompaniesReportLazyQueryHookResult = ReturnType<
+  typeof useGetCompaniesReportLazyQuery
+>;
+export type GetCompaniesReportQueryResult = Apollo.QueryResult<
+  OperationTypes.GetCompaniesReportQuery,
+  OperationTypes.GetCompaniesReportQueryVariables
+>;
 export const GetProductsReportDocument = gql`
   query GetProductsReport {
     products {
