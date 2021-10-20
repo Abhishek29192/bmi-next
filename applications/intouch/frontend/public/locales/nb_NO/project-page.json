@@ -342,5 +342,9 @@
       "tier": "Du er ikke i et nivå som støtter garantier",
       "guaranteeType": "Garantitype er ikke definert"
     }
+  },
+  "report": {
+    "project": "Last ned prosjektrapport",
+    "guarantee": "Last ned garantirapport"
   }
 }

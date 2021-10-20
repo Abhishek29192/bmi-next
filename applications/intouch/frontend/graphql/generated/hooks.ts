@@ -1385,6 +1385,92 @@ export type GetCompaniesReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompaniesReportQuery,
   OperationTypes.GetCompaniesReportQueryVariables
 >;
+export const GetGuaranteesReportDocument = gql`
+  query GetGuaranteesReport {
+    guarantees {
+      nodes {
+        id
+        bmiReferenceId
+        project {
+          name
+          technology
+          roofArea
+          company {
+            name
+          }
+        }
+        requestorAccountId
+        coverage
+        status
+        languageCode
+        guaranteeReferenceCode
+        guaranteeType {
+          name
+          maximumValidityYears
+        }
+        startDate
+        expiryDate
+        signedFileStorageUrl
+        systemBySystemBmiRef {
+          name
+        }
+        productByProductBmiRef {
+          name
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetGuaranteesReportQuery__
+ *
+ * To run a query within a React component, call `useGetGuaranteesReportQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGuaranteesReportQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGuaranteesReportQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetGuaranteesReportQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetGuaranteesReportQuery,
+    OperationTypes.GetGuaranteesReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetGuaranteesReportQuery,
+    OperationTypes.GetGuaranteesReportQueryVariables
+  >(GetGuaranteesReportDocument, options);
+}
+export function useGetGuaranteesReportLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetGuaranteesReportQuery,
+    OperationTypes.GetGuaranteesReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetGuaranteesReportQuery,
+    OperationTypes.GetGuaranteesReportQueryVariables
+  >(GetGuaranteesReportDocument, options);
+}
+export type GetGuaranteesReportQueryHookResult = ReturnType<
+  typeof useGetGuaranteesReportQuery
+>;
+export type GetGuaranteesReportLazyQueryHookResult = ReturnType<
+  typeof useGetGuaranteesReportLazyQuery
+>;
+export type GetGuaranteesReportQueryResult = Apollo.QueryResult<
+  OperationTypes.GetGuaranteesReportQuery,
+  OperationTypes.GetGuaranteesReportQueryVariables
+>;
 export const GetProductsReportDocument = gql`
   query GetProductsReport {
     products {
@@ -1452,6 +1538,104 @@ export type GetProductsReportLazyQueryHookResult = ReturnType<
 export type GetProductsReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetProductsReportQuery,
   OperationTypes.GetProductsReportQueryVariables
+>;
+export const GetProjectsReportDocument = gql`
+  query GetProjectsReport {
+    projects {
+      nodes {
+        id
+        name
+        siteAddress {
+          ...AddressLinesFragment
+        }
+        company {
+          name
+          status
+        }
+        technology
+        roofArea
+        guarantees(first: 1) {
+          nodes {
+            id
+            coverage
+            languageCode
+            guaranteeReferenceCode
+            guaranteeTypes {
+              items {
+                name
+              }
+            }
+          }
+        }
+        buildingOwnerFirstname
+        buildingOwnerLastname
+        startDate
+        endDate
+        hidden
+        projectMembers {
+          nodes {
+            id
+            account {
+              email
+            }
+          }
+        }
+        createdAt
+        updatedAt
+      }
+    }
+  }
+  ${AddressLinesFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetProjectsReportQuery__
+ *
+ * To run a query within a React component, call `useGetProjectsReportQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProjectsReportQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProjectsReportQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetProjectsReportQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetProjectsReportQuery,
+    OperationTypes.GetProjectsReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetProjectsReportQuery,
+    OperationTypes.GetProjectsReportQueryVariables
+  >(GetProjectsReportDocument, options);
+}
+export function useGetProjectsReportLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetProjectsReportQuery,
+    OperationTypes.GetProjectsReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetProjectsReportQuery,
+    OperationTypes.GetProjectsReportQueryVariables
+  >(GetProjectsReportDocument, options);
+}
+export type GetProjectsReportQueryHookResult = ReturnType<
+  typeof useGetProjectsReportQuery
+>;
+export type GetProjectsReportLazyQueryHookResult = ReturnType<
+  typeof useGetProjectsReportLazyQuery
+>;
+export type GetProjectsReportQueryResult = Apollo.QueryResult<
+  OperationTypes.GetProjectsReportQuery,
+  OperationTypes.GetProjectsReportQueryVariables
 >;
 export const GetSystemsReportDocument = gql`
   query GetSystemsReport {

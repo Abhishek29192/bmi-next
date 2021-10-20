@@ -343,5 +343,9 @@
       "tier": "You are not in a Tier that supports Guarantees",
       "guaranteeType": "Guarantee Type is not defined"
     }
+  },
+  "report": {
+    "project": "Download projects report",
+    "guarantee": "Download guarantee report"
   }
 }
