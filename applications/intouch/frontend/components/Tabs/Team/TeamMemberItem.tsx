@@ -14,6 +14,7 @@ type TeamMemberItemProps = {
   member: ProjectMember;
   onDeleteClick?: () => void;
   canNominateProjectResponsible?: boolean;
+  isSomeResponsibleInstaller?: boolean;
   onResponsibleInstallerChange?: () => void;
 };
 
@@ -21,6 +22,7 @@ export const TeamMemberItem = ({
   member,
   onDeleteClick,
   canNominateProjectResponsible,
+  isSomeResponsibleInstaller,
   onResponsibleInstallerChange
 }: TeamMemberItemProps) => {
   const { account, isResponsibleInstaller } = member;
@@ -32,13 +34,15 @@ export const TeamMemberItem = ({
         [styles["responsible--selected"]]: isResponsibleInstaller
       })}
     >
-      <Table.Cell>
-        <ResponsibleInstaller
-          canNominateProjectResponsible={canNominateProjectResponsible}
-          isResponsibleInstaller={isResponsibleInstaller}
-          onResponsibleInstallerChange={onResponsibleInstallerChange}
-        />
-      </Table.Cell>
+      {(isSomeResponsibleInstaller || canNominateProjectResponsible) && (
+        <Table.Cell>
+          <ResponsibleInstaller
+            canNominateProjectResponsible={canNominateProjectResponsible}
+            isResponsibleInstaller={isResponsibleInstaller}
+            onResponsibleInstallerChange={onResponsibleInstallerChange}
+          />
+        </Table.Cell>
+      )}
       <Table.Cell>
         {account.firstName} {account.lastName}
       </Table.Cell>
