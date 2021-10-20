@@ -312,12 +312,12 @@ const SystemConfiguratorBlockResultSection = ({
           });
           setRecommendedSystemPimObjects(
             pimObject
-              .slice(0, maxDisplay)
               .sort(
                 (systemA, systemB) =>
                   recommendedSystems.indexOf(systemA.code) -
                   recommendedSystems.indexOf(systemB.code)
               )
+              .slice(0, maxDisplay)
           );
         } else {
           navigate("/404");
