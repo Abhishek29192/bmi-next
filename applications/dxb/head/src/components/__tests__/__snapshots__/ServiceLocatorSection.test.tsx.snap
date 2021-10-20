@@ -86,10 +86,10 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-813 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-829 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-815 PrivateNotchedOutline-legendNotched-816"
+                    class="PrivateNotchedOutline-legendLabelled-831 PrivateNotchedOutline-legendNotched-832"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -130,16 +130,16 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-817 MuiButton-text buttonStyles-text-818 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-833 MuiButton-text buttonStyles-text-834 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-820"
+              class="MuiButton-label buttonStyles-label-836"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-821 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-837 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -306,7 +306,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-837 PrivateTabIndicator-colorPrimary-838 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-853 PrivateTabIndicator-colorPrimary-854 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -322,7 +322,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-841 TabPanelBox"
+            class="MuiBox-root MuiBox-root-857 TabPanelBox"
           >
             <div
               class="list"
@@ -382,12 +382,12 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-817 MuiButton-contained buttonStyles-contained-819 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-833 MuiButton-contained buttonStyles-contained-835 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-820"
+                                  class="MuiButton-label buttonStyles-label-836"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -546,7 +546,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-842 TabPanelBox"
+            class="MuiBox-root MuiBox-root-858 TabPanelBox"
           >
             <div
               class="map"
@@ -655,10 +655,10 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-521 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-533 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-523 PrivateNotchedOutline-legendNotched-524"
+                        class="PrivateNotchedOutline-legendLabelled-535 PrivateNotchedOutline-legendNotched-536"
                       >
                         <span>
                           MC: findARoofer.companyFieldLabel
@@ -699,16 +699,16 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-525 MuiButton-text buttonStyles-text-526 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-537 MuiButton-text buttonStyles-text-538 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-528"
+                  class="MuiButton-label buttonStyles-label-540"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-529 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-541 MuiButton-iconSizeMedium"
                   >
                     <svg
                       aria-hidden="true"
@@ -791,7 +791,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-545 PrivateTabIndicator-colorPrimary-546 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-557 PrivateTabIndicator-colorPrimary-558 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -807,7 +807,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-549 TabPanelBox"
+                class="MuiBox-root MuiBox-root-561 TabPanelBox"
               >
                 <div
                   class="list"
@@ -867,12 +867,12 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                   class="row, row--cta"
                                 >
                                   <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-525 MuiButton-contained buttonStyles-contained-527 cta-button MuiButton-containedPrimary"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-537 MuiButton-contained buttonStyles-contained-539 cta-button MuiButton-containedPrimary"
                                     tabindex="0"
                                     type="button"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-528"
+                                      class="MuiButton-label buttonStyles-label-540"
                                     >
                                       MC: findARoofer.getDirectionsLabel
                                     </span>
@@ -1052,12 +1052,12 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                   class="row, row--cta"
                                 >
                                   <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-525 MuiButton-contained buttonStyles-contained-527 cta-button MuiButton-containedPrimary"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-537 MuiButton-contained buttonStyles-contained-539 cta-button MuiButton-containedPrimary"
                                     tabindex="0"
                                     type="button"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-528"
+                                      class="MuiButton-label buttonStyles-label-540"
                                     >
                                       MC: findARoofer.getDirectionsLabel
                                     </span>
@@ -1194,7 +1194,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-550 TabPanelBox"
+                class="MuiBox-root MuiBox-root-562 TabPanelBox"
               >
                 <div
                   class="map"
@@ -1228,7 +1228,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                           >
                             <button
                               aria-label="MC: global.close"
-                              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-536 iconButtonStyles-medium-542 iconButtonStyles-text-538 product-details-card__close-button"
+                              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-548 iconButtonStyles-medium-554 iconButtonStyles-text-550 product-details-card__close-button"
                               tabindex="0"
                               type="button"
                             >
@@ -1324,12 +1324,12 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                   class="row, row--cta"
                                 >
                                   <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-525 MuiButton-contained buttonStyles-contained-527 cta-button MuiButton-containedPrimary"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-537 MuiButton-contained buttonStyles-contained-539 cta-button MuiButton-containedPrimary"
                                     tabindex="0"
                                     type="button"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-528"
+                                      class="MuiButton-label buttonStyles-label-540"
                                     >
                                       MC: findARoofer.getDirectionsLabel
                                     </span>
@@ -1551,10 +1551,10 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-723 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-739 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-725 PrivateNotchedOutline-legendNotched-726"
+                    class="PrivateNotchedOutline-legendLabelled-741 PrivateNotchedOutline-legendNotched-742"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -1595,16 +1595,16 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-text buttonStyles-text-728 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-743 MuiButton-text buttonStyles-text-744 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-730"
+              class="MuiButton-label buttonStyles-label-746"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-731 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-747 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -1771,7 +1771,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-747 PrivateTabIndicator-colorPrimary-748 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-763 PrivateTabIndicator-colorPrimary-764 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -1787,7 +1787,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-751 TabPanelBox"
+            class="MuiBox-root MuiBox-root-767 TabPanelBox"
           >
             <div
               class="list"
@@ -1847,12 +1847,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-743 MuiButton-contained buttonStyles-contained-745 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-730"
+                                  class="MuiButton-label buttonStyles-label-746"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -2049,12 +2049,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-743 MuiButton-contained buttonStyles-contained-745 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-730"
+                                  class="MuiButton-label buttonStyles-label-746"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -2251,12 +2251,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-743 MuiButton-contained buttonStyles-contained-745 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-730"
+                                  class="MuiButton-label buttonStyles-label-746"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -2453,12 +2453,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-743 MuiButton-contained buttonStyles-contained-745 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-730"
+                                  class="MuiButton-label buttonStyles-label-746"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -2655,12 +2655,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-727 MuiButton-contained buttonStyles-contained-729 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-743 MuiButton-contained buttonStyles-contained-745 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-730"
+                                  class="MuiButton-label buttonStyles-label-746"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -2814,7 +2814,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-752 TabPanelBox"
+            class="MuiBox-root MuiBox-root-768 TabPanelBox"
           >
             <div
               class="map"
@@ -2921,10 +2921,10 @@ exports[`ServiceLocatorSection component close button 1`] = `
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-873 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-889 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-875 PrivateNotchedOutline-legendNotched-876"
+                    class="PrivateNotchedOutline-legendLabelled-891 PrivateNotchedOutline-legendNotched-892"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -2965,16 +2965,16 @@ exports[`ServiceLocatorSection component close button 1`] = `
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-877 MuiButton-text buttonStyles-text-878 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-893 MuiButton-text buttonStyles-text-894 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-880"
+              class="MuiButton-label buttonStyles-label-896"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-881 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-897 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -3057,7 +3057,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-897 PrivateTabIndicator-colorPrimary-898 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-913 PrivateTabIndicator-colorPrimary-914 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -3073,7 +3073,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-901 TabPanelBox"
+            class="MuiBox-root MuiBox-root-917 TabPanelBox"
           >
             <div
               class="list"
@@ -3133,12 +3133,12 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-877 MuiButton-contained buttonStyles-contained-879 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-893 MuiButton-contained buttonStyles-contained-895 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-880"
+                                  class="MuiButton-label buttonStyles-label-896"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -3315,12 +3315,12 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-877 MuiButton-contained buttonStyles-contained-879 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-893 MuiButton-contained buttonStyles-contained-895 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-880"
+                                  class="MuiButton-label buttonStyles-label-896"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -3454,7 +3454,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-902 TabPanelBox"
+            class="MuiBox-root MuiBox-root-918 TabPanelBox"
           >
             <div
               class="map"
@@ -3565,10 +3565,10 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-461 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-473 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-463 PrivateNotchedOutline-legendNotched-464"
+                        class="PrivateNotchedOutline-legendLabelled-475 PrivateNotchedOutline-legendNotched-476"
                       >
                         <span>
                           MC: findARoofer.companyFieldLabel
@@ -3609,16 +3609,16 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-465 MuiButton-text buttonStyles-text-466 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-477 MuiButton-text buttonStyles-text-478 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-468"
+                  class="MuiButton-label buttonStyles-label-480"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-469 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-481 MuiButton-iconSizeMedium"
                   >
                     <svg
                       aria-hidden="true"
@@ -3701,7 +3701,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-485 PrivateTabIndicator-colorPrimary-486 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-497 PrivateTabIndicator-colorPrimary-498 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -3717,7 +3717,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-489 TabPanelBox"
+                class="MuiBox-root MuiBox-root-501 TabPanelBox"
               >
                 <div
                   class="list"
@@ -3777,12 +3777,12 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                                   class="row, row--cta"
                                 >
                                   <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-465 MuiButton-contained buttonStyles-contained-467 cta-button MuiButton-containedPrimary"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-477 MuiButton-contained buttonStyles-contained-479 cta-button MuiButton-containedPrimary"
                                     tabindex="0"
                                     type="button"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-468"
+                                      class="MuiButton-label buttonStyles-label-480"
                                     >
                                       MC: findARoofer.getDirectionsLabel
                                     </span>
@@ -3919,7 +3919,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-490 TabPanelBox"
+                class="MuiBox-root MuiBox-root-502 TabPanelBox"
               >
                 <div
                   class="map"
@@ -4081,7 +4081,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-641 PrivateTabIndicator-colorPrimary-642 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-653 PrivateTabIndicator-colorPrimary-654 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -4097,7 +4097,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-645 TabPanelBox"
+            class="MuiBox-root MuiBox-root-657 TabPanelBox"
           >
             <div
               class="list"
@@ -4213,12 +4213,12 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-646 MuiButton-contained buttonStyles-contained-648 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-658 MuiButton-contained buttonStyles-contained-660 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-649"
+                                  class="MuiButton-label buttonStyles-label-661"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -4268,7 +4268,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-666 TabPanelBox"
+            class="MuiBox-root MuiBox-root-678 TabPanelBox"
           >
             <div
               class="map"
@@ -4309,7 +4309,142 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
       >
         <div
           class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
-        />
+        >
+          <div
+            aria-expanded="false"
+            class="MuiAutocomplete-root company-autocomplete MuiAutocomplete-hasClearIcon"
+            role="combobox"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
+                data-shrink="true"
+                for="company-autocomplete"
+                id="company-autocomplete-label"
+              >
+                MC: findARoofer.merchantNameSearchLabel
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+              >
+                <svg
+                  class="start-adornment-icon"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-invalid="false"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                  id="company-autocomplete"
+                  name="autocomplete-field"
+                  spellcheck="false"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="MuiAutocomplete-endAdornment"
+                >
+                  <button
+                    aria-label="Clear"
+                    class="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator"
+                    tabindex="-1"
+                    title="Clear"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-679 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-681 PrivateNotchedOutline-legendNotched-682"
+                  >
+                    <span>
+                      MC: findARoofer.merchantNameSearchLabel
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <p
+            class="MuiTypography-root and-or-label Typography MuiTypography-body1"
+          >
+            <span>
+              MC: findARoofer.andOr
+            </span>
+          </p>
+          <div
+            style="text-align: center;"
+          >
+            <div
+              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style="width: 40px; height: 40px;"
+            >
+              <svg
+                class="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
+              >
+                <circle
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx="44"
+                  cy="44"
+                  fill="none"
+                  r="20.2"
+                  stroke-width="3.6"
+                />
+              </svg>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-683 MuiButton-text buttonStyles-text-684 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-686"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-687 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
+                  />
+                </svg>
+              </span>
+              MC: findARoofer.geolocationButton
+            </span>
+          </button>
+        </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
         >
@@ -4418,7 +4553,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-667 PrivateTabIndicator-colorPrimary-668 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-703 PrivateTabIndicator-colorPrimary-704 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -4434,7 +4569,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-671 TabPanelBox"
+            class="MuiBox-root MuiBox-root-707 TabPanelBox"
           >
             <div
               class="list"
@@ -4548,12 +4683,12 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-672 MuiButton-contained buttonStyles-contained-674 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-683 MuiButton-contained buttonStyles-contained-685 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-675"
+                                  class="MuiButton-label buttonStyles-label-686"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -4603,7 +4738,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-692 TabPanelBox"
+            class="MuiBox-root MuiBox-root-708 TabPanelBox"
           >
             <div
               class="map"
@@ -4710,10 +4845,10 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-611 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-623 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-613 PrivateNotchedOutline-legendNotched-614"
+                    class="PrivateNotchedOutline-legendLabelled-625 PrivateNotchedOutline-legendNotched-626"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -4754,16 +4889,16 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-615 MuiButton-text buttonStyles-text-616 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-627 MuiButton-text buttonStyles-text-628 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-618"
+              class="MuiButton-label buttonStyles-label-630"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-619 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-631 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -4902,7 +5037,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-635 PrivateTabIndicator-colorPrimary-636 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-647 PrivateTabIndicator-colorPrimary-648 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -4918,7 +5053,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-639 TabPanelBox"
+            class="MuiBox-root MuiBox-root-651 TabPanelBox"
           >
             <div
               class="list"
@@ -4978,12 +5113,12 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-615 MuiButton-contained buttonStyles-contained-617 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-627 MuiButton-contained buttonStyles-contained-629 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-618"
+                                  class="MuiButton-label buttonStyles-label-630"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -5137,7 +5272,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-640 TabPanelBox"
+            class="MuiBox-root MuiBox-root-652 TabPanelBox"
           >
             <div
               class="map"
@@ -5990,7 +6125,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-263 PrivateTabIndicator-colorPrimary-264 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-267 PrivateTabIndicator-colorPrimary-268 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -6006,7 +6141,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-267 TabPanelBox"
+            class="MuiBox-root MuiBox-root-271 TabPanelBox"
           >
             <div
               class="list"
@@ -6122,12 +6257,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-268 MuiButton-contained buttonStyles-contained-270 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-272 MuiButton-contained buttonStyles-contained-274 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-271"
+                                  class="MuiButton-label buttonStyles-label-275"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -6279,12 +6414,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-268 MuiButton-contained buttonStyles-contained-270 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-272 MuiButton-contained buttonStyles-contained-274 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-271"
+                                  class="MuiButton-label buttonStyles-label-275"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -6337,7 +6472,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-288 TabPanelBox"
+            class="MuiBox-root MuiBox-root-292 TabPanelBox"
           >
             <div
               class="map"
@@ -6378,7 +6513,142 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
       >
         <div
           class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
-        />
+        >
+          <div
+            aria-expanded="false"
+            class="MuiAutocomplete-root company-autocomplete MuiAutocomplete-hasClearIcon"
+            role="combobox"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
+                data-shrink="true"
+                for="company-autocomplete"
+                id="company-autocomplete-label"
+              >
+                MC: findARoofer.merchantNameSearchLabel
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+              >
+                <svg
+                  class="start-adornment-icon"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-invalid="false"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                  id="company-autocomplete"
+                  name="autocomplete-field"
+                  spellcheck="false"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="MuiAutocomplete-endAdornment"
+                >
+                  <button
+                    aria-label="Clear"
+                    class="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator"
+                    tabindex="-1"
+                    title="Clear"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-237 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-239 PrivateNotchedOutline-legendNotched-240"
+                  >
+                    <span>
+                      MC: findARoofer.merchantNameSearchLabel
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <p
+            class="MuiTypography-root and-or-label Typography MuiTypography-body1"
+          >
+            <span>
+              MC: findARoofer.andOr
+            </span>
+          </p>
+          <div
+            style="text-align: center;"
+          >
+            <div
+              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style="width: 40px; height: 40px;"
+            >
+              <svg
+                class="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
+              >
+                <circle
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx="44"
+                  cy="44"
+                  fill="none"
+                  r="20.2"
+                  stroke-width="3.6"
+                />
+              </svg>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-241 MuiButton-text buttonStyles-text-242 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-244"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-245 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
+                  />
+                </svg>
+              </span>
+              MC: findARoofer.geolocationButton
+            </span>
+          </button>
+        </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
         />
@@ -6445,7 +6715,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-237 PrivateTabIndicator-colorPrimary-238 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-261 PrivateTabIndicator-colorPrimary-262 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -6461,7 +6731,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-241 TabPanelBox"
+            class="MuiBox-root MuiBox-root-265 TabPanelBox"
           >
             <div
               class="list"
@@ -6575,12 +6845,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-242 MuiButton-contained buttonStyles-contained-244 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-241 MuiButton-contained buttonStyles-contained-243 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-245"
+                                  class="MuiButton-label buttonStyles-label-244"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -6730,12 +7000,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-242 MuiButton-contained buttonStyles-contained-244 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-241 MuiButton-contained buttonStyles-contained-243 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-245"
+                                  class="MuiButton-label buttonStyles-label-244"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -6788,7 +7058,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-262 TabPanelBox"
+            class="MuiBox-root MuiBox-root-266 TabPanelBox"
           >
             <div
               class="map"
@@ -6829,7 +7099,142 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
       >
         <div
           class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
-        />
+        >
+          <div
+            aria-expanded="false"
+            class="MuiAutocomplete-root company-autocomplete MuiAutocomplete-hasClearIcon"
+            role="combobox"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
+                data-shrink="true"
+                for="company-autocomplete"
+                id="company-autocomplete-label"
+              >
+                MC: findARoofer.merchantNameSearchLabel
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+              >
+                <svg
+                  class="start-adornment-icon"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-invalid="false"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                  id="company-autocomplete"
+                  name="autocomplete-field"
+                  spellcheck="false"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="MuiAutocomplete-endAdornment"
+                >
+                  <button
+                    aria-label="Clear"
+                    class="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator"
+                    tabindex="-1"
+                    title="Clear"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-293 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-295 PrivateNotchedOutline-legendNotched-296"
+                  >
+                    <span>
+                      MC: findARoofer.merchantNameSearchLabel
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <p
+            class="MuiTypography-root and-or-label Typography MuiTypography-body1"
+          >
+            <span>
+              MC: findARoofer.andOr
+            </span>
+          </p>
+          <div
+            style="text-align: center;"
+          >
+            <div
+              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style="width: 40px; height: 40px;"
+            >
+              <svg
+                class="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
+              >
+                <circle
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx="44"
+                  cy="44"
+                  fill="none"
+                  r="20.2"
+                  stroke-width="3.6"
+                />
+              </svg>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-297 MuiButton-text buttonStyles-text-298 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-300"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-301 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
+                  />
+                </svg>
+              </span>
+              MC: findARoofer.geolocationButton
+            </span>
+          </button>
+        </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
         />
@@ -6896,7 +7301,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-289 PrivateTabIndicator-colorPrimary-290 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-317 PrivateTabIndicator-colorPrimary-318 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -6912,7 +7317,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-293 TabPanelBox"
+            class="MuiBox-root MuiBox-root-321 TabPanelBox"
           >
             <div
               class="list"
@@ -7026,12 +7431,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-294 MuiButton-contained buttonStyles-contained-296 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-297 MuiButton-contained buttonStyles-contained-299 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-297"
+                                  class="MuiButton-label buttonStyles-label-300"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -7181,12 +7586,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-294 MuiButton-contained buttonStyles-contained-296 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-297 MuiButton-contained buttonStyles-contained-299 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-297"
+                                  class="MuiButton-label buttonStyles-label-300"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -7239,7 +7644,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-314 TabPanelBox"
+            class="MuiBox-root MuiBox-root-322 TabPanelBox"
           >
             <div
               class="map"
@@ -7280,7 +7685,142 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
       >
         <div
           class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
-        />
+        >
+          <div
+            aria-expanded="false"
+            class="MuiAutocomplete-root company-autocomplete MuiAutocomplete-hasClearIcon"
+            role="combobox"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
+                data-shrink="true"
+                for="company-autocomplete"
+                id="company-autocomplete-label"
+              >
+                MC: findARoofer.merchantNameSearchLabel
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+              >
+                <svg
+                  class="start-adornment-icon"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-invalid="false"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                  id="company-autocomplete"
+                  name="autocomplete-field"
+                  spellcheck="false"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="MuiAutocomplete-endAdornment"
+                >
+                  <button
+                    aria-label="Clear"
+                    class="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator"
+                    tabindex="-1"
+                    title="Clear"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-323 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-325 PrivateNotchedOutline-legendNotched-326"
+                  >
+                    <span>
+                      MC: findARoofer.merchantNameSearchLabel
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <p
+            class="MuiTypography-root and-or-label Typography MuiTypography-body1"
+          >
+            <span>
+              MC: findARoofer.andOr
+            </span>
+          </p>
+          <div
+            style="text-align: center;"
+          >
+            <div
+              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style="width: 40px; height: 40px;"
+            >
+              <svg
+                class="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
+              >
+                <circle
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx="44"
+                  cy="44"
+                  fill="none"
+                  r="20.2"
+                  stroke-width="3.6"
+                />
+              </svg>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-327 MuiButton-text buttonStyles-text-328 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-330"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-331 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
+                  />
+                </svg>
+              </span>
+              MC: findARoofer.geolocationButton
+            </span>
+          </button>
+        </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
         />
@@ -7347,7 +7887,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-315 PrivateTabIndicator-colorPrimary-316 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-347 PrivateTabIndicator-colorPrimary-348 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -7363,7 +7903,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-319 TabPanelBox"
+            class="MuiBox-root MuiBox-root-351 TabPanelBox"
           >
             <div
               class="list"
@@ -7477,12 +8017,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-320 MuiButton-contained buttonStyles-contained-322 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-327 MuiButton-contained buttonStyles-contained-329 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-323"
+                                  class="MuiButton-label buttonStyles-label-330"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -7632,12 +8172,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-320 MuiButton-contained buttonStyles-contained-322 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-327 MuiButton-contained buttonStyles-contained-329 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-323"
+                                  class="MuiButton-label buttonStyles-label-330"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -7690,7 +8230,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-340 TabPanelBox"
+            class="MuiBox-root MuiBox-root-352 TabPanelBox"
           >
             <div
               class="map"
@@ -7797,10 +8337,10 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-401 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-413 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-403 PrivateNotchedOutline-legendNotched-404"
+                    class="PrivateNotchedOutline-legendLabelled-415 PrivateNotchedOutline-legendNotched-416"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -7841,16 +8381,16 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-405 MuiButton-text buttonStyles-text-406 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-417 MuiButton-text buttonStyles-text-418 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-408"
+              class="MuiButton-label buttonStyles-label-420"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-409 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-421 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -8017,7 +8557,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-425 PrivateTabIndicator-colorPrimary-426 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-437 PrivateTabIndicator-colorPrimary-438 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -8033,7 +8573,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-429 TabPanelBox"
+            class="MuiBox-root MuiBox-root-441 TabPanelBox"
           >
             <div
               class="list"
@@ -8093,12 +8633,12 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-405 MuiButton-contained buttonStyles-contained-407 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-417 MuiButton-contained buttonStyles-contained-419 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-408"
+                                  class="MuiButton-label buttonStyles-label-420"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -8298,12 +8838,12 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-405 MuiButton-contained buttonStyles-contained-407 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-417 MuiButton-contained buttonStyles-contained-419 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-408"
+                                  class="MuiButton-label buttonStyles-label-420"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -8460,7 +9000,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-430 TabPanelBox"
+            class="MuiBox-root MuiBox-root-442 TabPanelBox"
           >
             <div
               class="map"
@@ -9213,10 +9753,10 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-371 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-383 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-373 PrivateNotchedOutline-legendNotched-374"
+                    class="PrivateNotchedOutline-legendLabelled-385 PrivateNotchedOutline-legendNotched-386"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -9257,16 +9797,16 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-375 MuiButton-text buttonStyles-text-376 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-387 MuiButton-text buttonStyles-text-388 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-378"
+              class="MuiButton-label buttonStyles-label-390"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-379 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-391 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -9391,7 +9931,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-395 PrivateTabIndicator-colorPrimary-396 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-407 PrivateTabIndicator-colorPrimary-408 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -9407,7 +9947,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-399 TabPanelBox"
+            class="MuiBox-root MuiBox-root-411 TabPanelBox"
           >
             <div
               class="list"
@@ -9467,12 +10007,12 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-375 MuiButton-contained buttonStyles-contained-377 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-387 MuiButton-contained buttonStyles-contained-389 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-378"
+                                  class="MuiButton-label buttonStyles-label-390"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -9672,12 +10212,12 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-375 MuiButton-contained buttonStyles-contained-377 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-387 MuiButton-contained buttonStyles-contained-389 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-378"
+                                  class="MuiButton-label buttonStyles-label-390"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -9834,7 +10374,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-400 TabPanelBox"
+            class="MuiBox-root MuiBox-root-412 TabPanelBox"
           >
             <div
               class="map"
@@ -9941,10 +10481,10 @@ exports[`ServiceLocatorSection component renders multiple services with no field
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-341 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-353 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-343 PrivateNotchedOutline-legendNotched-344"
+                    class="PrivateNotchedOutline-legendLabelled-355 PrivateNotchedOutline-legendNotched-356"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -9985,16 +10525,16 @@ exports[`ServiceLocatorSection component renders multiple services with no field
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-345 MuiButton-text buttonStyles-text-346 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-357 MuiButton-text buttonStyles-text-358 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-348"
+              class="MuiButton-label buttonStyles-label-360"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-349 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-361 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -10077,7 +10617,7 @@ exports[`ServiceLocatorSection component renders multiple services with no field
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-365 PrivateTabIndicator-colorPrimary-366 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-377 PrivateTabIndicator-colorPrimary-378 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -10093,7 +10633,7 @@ exports[`ServiceLocatorSection component renders multiple services with no field
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-369 TabPanelBox"
+            class="MuiBox-root MuiBox-root-381 TabPanelBox"
           >
             <div
               class="list"
@@ -10268,7 +10808,7 @@ exports[`ServiceLocatorSection component renders multiple services with no field
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-370 TabPanelBox"
+            class="MuiBox-root MuiBox-root-382 TabPanelBox"
           >
             <div
               class="map"
@@ -12967,10 +13507,10 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-431 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-443 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-433 PrivateNotchedOutline-legendNotched-434"
+                        class="PrivateNotchedOutline-legendLabelled-445 PrivateNotchedOutline-legendNotched-446"
                       >
                         <span>
                           MC: findARoofer.companyFieldLabel
@@ -13011,16 +13551,16 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-435 MuiButton-text buttonStyles-text-436 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-447 MuiButton-text buttonStyles-text-448 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-438"
+                  class="MuiButton-label buttonStyles-label-450"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-439 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-451 MuiButton-iconSizeMedium"
                   >
                     <svg
                       aria-hidden="true"
@@ -13103,7 +13643,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-455 PrivateTabIndicator-colorPrimary-456 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-467 PrivateTabIndicator-colorPrimary-468 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -13119,7 +13659,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-459 TabPanelBox"
+                class="MuiBox-root MuiBox-root-471 TabPanelBox"
               >
                 <div
                   class="list"
@@ -13179,12 +13719,12 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                                   class="row, row--cta"
                                 >
                                   <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-435 MuiButton-contained buttonStyles-contained-437 cta-button MuiButton-containedPrimary"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-447 MuiButton-contained buttonStyles-contained-449 cta-button MuiButton-containedPrimary"
                                     tabindex="0"
                                     type="button"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-438"
+                                      class="MuiButton-label buttonStyles-label-450"
                                     >
                                       MC: findARoofer.getDirectionsLabel
                                     </span>
@@ -13321,7 +13861,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-460 TabPanelBox"
+                class="MuiBox-root MuiBox-root-472 TabPanelBox"
               >
                 <div
                   class="map"
@@ -13434,10 +13974,10 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-431 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-443 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-433 PrivateNotchedOutline-legendNotched-434"
+                        class="PrivateNotchedOutline-legendLabelled-445 PrivateNotchedOutline-legendNotched-446"
                       >
                         <span>
                           MC: findARoofer.companyFieldLabel
@@ -13478,16 +14018,16 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-435 MuiButton-text buttonStyles-text-436 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-447 MuiButton-text buttonStyles-text-448 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-438"
+                  class="MuiButton-label buttonStyles-label-450"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-439 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-451 MuiButton-iconSizeMedium"
                   >
                     <svg
                       aria-hidden="true"
@@ -13570,7 +14110,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-455 PrivateTabIndicator-colorPrimary-456 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-467 PrivateTabIndicator-colorPrimary-468 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -13586,7 +14126,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-459 TabPanelBox"
+                class="MuiBox-root MuiBox-root-471 TabPanelBox"
               >
                 <div
                   class="list"
@@ -13646,12 +14186,12 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                   class="row, row--cta"
                                 >
                                   <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-435 MuiButton-contained buttonStyles-contained-437 cta-button MuiButton-containedPrimary"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-447 MuiButton-contained buttonStyles-contained-449 cta-button MuiButton-containedPrimary"
                                     tabindex="0"
                                     type="button"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-438"
+                                      class="MuiButton-label buttonStyles-label-450"
                                     >
                                       MC: findARoofer.getDirectionsLabel
                                     </span>
@@ -13831,12 +14371,12 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                   class="row, row--cta"
                                 >
                                   <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-435 MuiButton-contained buttonStyles-contained-437 cta-button MuiButton-containedPrimary"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-447 MuiButton-contained buttonStyles-contained-449 cta-button MuiButton-containedPrimary"
                                     tabindex="0"
                                     type="button"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-438"
+                                      class="MuiButton-label buttonStyles-label-450"
                                     >
                                       MC: findARoofer.getDirectionsLabel
                                     </span>
@@ -13973,7 +14513,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-460 TabPanelBox"
+                class="MuiBox-root MuiBox-root-472 TabPanelBox"
               >
                 <div
                   class="map"
@@ -14111,10 +14651,10 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-581 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-593 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-583 PrivateNotchedOutline-legendNotched-584"
+                    class="PrivateNotchedOutline-legendLabelled-595 PrivateNotchedOutline-legendNotched-596"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -14155,16 +14695,16 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-585 MuiButton-text buttonStyles-text-586 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-597 MuiButton-text buttonStyles-text-598 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-588"
+              class="MuiButton-label buttonStyles-label-600"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-589 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-601 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -14247,7 +14787,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-605 PrivateTabIndicator-colorPrimary-606 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-617 PrivateTabIndicator-colorPrimary-618 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -14263,7 +14803,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-609 TabPanelBox"
+            class="MuiBox-root MuiBox-root-621 TabPanelBox"
           >
             <div
               class="list"
@@ -14323,12 +14863,12 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-585 MuiButton-contained buttonStyles-contained-587 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-597 MuiButton-contained buttonStyles-contained-599 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-588"
+                                  class="MuiButton-label buttonStyles-label-600"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -14462,7 +15002,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-610 TabPanelBox"
+            class="MuiBox-root MuiBox-root-622 TabPanelBox"
           >
             <div
               class="map"
@@ -14496,7 +15036,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                       >
                         <button
                           aria-label="MC: global.close"
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-596 iconButtonStyles-medium-602 iconButtonStyles-text-598 product-details-card__close-button"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-608 iconButtonStyles-medium-614 iconButtonStyles-text-610 product-details-card__close-button"
                           tabindex="0"
                           type="button"
                         >
@@ -14561,12 +15101,12 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-585 MuiButton-contained buttonStyles-contained-587 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-597 MuiButton-contained buttonStyles-contained-599 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-588"
+                                  class="MuiButton-label buttonStyles-label-600"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -14783,10 +15323,10 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-551 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-563 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-553 PrivateNotchedOutline-legendNotched-554"
+                    class="PrivateNotchedOutline-legendLabelled-565 PrivateNotchedOutline-legendNotched-566"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -14827,16 +15367,16 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-555 MuiButton-text buttonStyles-text-556 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-567 MuiButton-text buttonStyles-text-568 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-558"
+              class="MuiButton-label buttonStyles-label-570"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-559 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-571 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -14919,7 +15459,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-575 PrivateTabIndicator-colorPrimary-576 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-587 PrivateTabIndicator-colorPrimary-588 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -14935,7 +15475,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-579 TabPanelBox"
+            class="MuiBox-root MuiBox-root-591 TabPanelBox"
           >
             <div
               class="list"
@@ -14995,12 +15535,12 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-555 MuiButton-contained buttonStyles-contained-557 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-567 MuiButton-contained buttonStyles-contained-569 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-558"
+                                  class="MuiButton-label buttonStyles-label-570"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -15134,7 +15674,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-580 TabPanelBox"
+            class="MuiBox-root MuiBox-root-592 TabPanelBox"
           >
             <div
               class="map"
@@ -15168,7 +15708,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                       >
                         <button
                           aria-label="MC: global.close"
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-566 iconButtonStyles-medium-572 iconButtonStyles-text-568 product-details-card__close-button"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-578 iconButtonStyles-medium-584 iconButtonStyles-text-580 product-details-card__close-button"
                           tabindex="0"
                           type="button"
                         >
@@ -15233,12 +15773,12 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-555 MuiButton-contained buttonStyles-contained-557 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-567 MuiButton-contained buttonStyles-contained-569 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-558"
+                                  class="MuiButton-label buttonStyles-label-570"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -15457,10 +15997,10 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-491 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-503 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-493 PrivateNotchedOutline-legendNotched-494"
+                        class="PrivateNotchedOutline-legendLabelled-505 PrivateNotchedOutline-legendNotched-506"
                       >
                         <span>
                           MC: findARoofer.companyFieldLabel
@@ -15501,16 +16041,16 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-495 MuiButton-text buttonStyles-text-496 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-507 MuiButton-text buttonStyles-text-508 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-498"
+                  class="MuiButton-label buttonStyles-label-510"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-499 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-511 MuiButton-iconSizeMedium"
                   >
                     <div
                       class="MuiCircularProgress-root MuiCircularProgress-indeterminate"
@@ -15602,7 +16142,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-515 PrivateTabIndicator-colorPrimary-516 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-527 PrivateTabIndicator-colorPrimary-528 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -15618,7 +16158,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-519 TabPanelBox"
+                class="MuiBox-root MuiBox-root-531 TabPanelBox"
               >
                 <div
                   class="list"
@@ -15678,12 +16218,12 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                                   class="row, row--cta"
                                 >
                                   <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-495 MuiButton-contained buttonStyles-contained-497 cta-button MuiButton-containedPrimary"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-507 MuiButton-contained buttonStyles-contained-509 cta-button MuiButton-containedPrimary"
                                     tabindex="0"
                                     type="button"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-498"
+                                      class="MuiButton-label buttonStyles-label-510"
                                     >
                                       MC: findARoofer.getDirectionsLabel
                                     </span>
@@ -15820,7 +16360,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-520 TabPanelBox"
+                class="MuiBox-root MuiBox-root-532 TabPanelBox"
               >
                 <div
                   class="map"
@@ -15929,10 +16469,10 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-783 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-799 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-785 PrivateNotchedOutline-legendNotched-786"
+                    class="PrivateNotchedOutline-legendLabelled-801 PrivateNotchedOutline-legendNotched-802"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -15973,16 +16513,16 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-787 MuiButton-text buttonStyles-text-788 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-803 MuiButton-text buttonStyles-text-804 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-790"
+              class="MuiButton-label buttonStyles-label-806"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-791 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-807 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -16065,7 +16605,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-807 PrivateTabIndicator-colorPrimary-808 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-823 PrivateTabIndicator-colorPrimary-824 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -16081,7 +16621,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-811 TabPanelBox"
+            class="MuiBox-root MuiBox-root-827 TabPanelBox"
           >
             <div
               class="list"
@@ -16141,12 +16681,12 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                               class="row, row--cta"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-787 MuiButton-contained buttonStyles-contained-789 cta-button MuiButton-containedPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-803 MuiButton-contained buttonStyles-contained-805 cta-button MuiButton-containedPrimary"
                                 tabindex="0"
                                 type="button"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-790"
+                                  class="MuiButton-label buttonStyles-label-806"
                                 >
                                   MC: findARoofer.getDirectionsLabel
                                 </span>
@@ -16303,7 +16843,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-812 TabPanelBox"
+            class="MuiBox-root MuiBox-root-828 TabPanelBox"
           >
             <div
               class="map"
