@@ -126,9 +126,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     zoom: initialMapZoom
   } = data;
 
-  const shouldEnableSearch =
-    sectionType !== EntryTypeEnum.BRANCH_TYPE &&
-    sectionType !== EntryTypeEnum.MERCHANT_TYPE;
+  const shouldEnableSearch = sectionType !== EntryTypeEnum.BRANCH_TYPE;
   const shouldListCertification = sectionType === EntryTypeEnum.ROOFER_TYPE;
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
