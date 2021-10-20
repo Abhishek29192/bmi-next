@@ -346,5 +346,18 @@
   "report": {
     "project": "Last ned prosjektrapport",
     "guarantee": "Last ned garantirapport"
+  },
+  "guaranteeSubmitAlert": {
+    "title": "Du kan ikke søke om garanti ennå",
+    "message": {
+      "guaranteeType": "Garantitype er ikke definert",
+      "notApplicable": "Garanti gjelder ikke",
+      "minumumEvidence": "Utilstrekkelig bevis lastet opp",
+      "responsibleInstaller": "Ingen ansvarlig installatør nominert med den nødvendige sertifiseringen'",
+      "certification": "Den nominerte ansvarlige installatøren har for øyeblikket ingen sertifisering i samme teknologi som prosjektet",
+      "tier": "Du er ikke i et nivå som støtter garantier",
+      "buildingOwner": "Byggeeier detaljer ufullstendige",
+      "projectDetails": "Prosjektdetaljer ufullstendige"
+    }
   }
 }
