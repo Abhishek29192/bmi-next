@@ -27,7 +27,6 @@ const createResolver = (field) => ({
         filter: {
           variantOptions: {
             elemMatch: {
-              // eslint-disable-next-line security/detect-object-injection
               code: { in: variantCodes }
             }
           },

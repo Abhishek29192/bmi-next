@@ -21,6 +21,11 @@ const ContentfulImage = require("./ContentfulImage");
 const Query = require("./Query");
 const Systems = require("./Systems");
 
+/**
+ * These resolvers need to be exported at the level of the parent type. For
+ * example, to have a resolver for System.SystemLayer.Field, it has to be
+ * exported for SystemLayer.
+ */
 module.exports = {
   ContentfulDocumentLibraryPage: {
     ...ContentfulDocumentLibraryPage,
@@ -41,5 +46,9 @@ module.exports = {
   ContentfulLink,
   ContentfulImage,
   Query,
-  Systems
+  Systems: { path: Systems.path },
+  SystemLayer: {
+    relatedProducts: Systems.relatedProducts,
+    relatedOptionalProducts: Systems.relatedOptionalProducts
+  }
 };
