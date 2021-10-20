@@ -101,7 +101,7 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
-          { prodcutScoringWeightInt: "desc" },
+          { productScoringWeightInt: "desc" },
           { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
@@ -136,7 +136,7 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
-          { prodcutScoringWeightInt: "desc" },
+          { productScoringWeightInt: "desc" },
           { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
@@ -178,7 +178,7 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
-            { prodcutScoringWeightInt: "desc" },
+            { productScoringWeightInt: "desc" },
             { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
@@ -225,7 +225,7 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
-            { prodcutScoringWeightInt: "desc" },
+            { productScoringWeightInt: "desc" },
             { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
@@ -275,7 +275,7 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
-            { prodcutScoringWeightInt: "desc" },
+            { productScoringWeightInt: "desc" },
             { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
@@ -315,7 +315,7 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
-          { prodcutScoringWeightInt: "desc" },
+          { productScoringWeightInt: "desc" },
           { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
@@ -350,7 +350,7 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
-          { prodcutScoringWeightInt: "desc" },
+          { productScoringWeightInt: "desc" },
           { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
@@ -385,7 +385,7 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
-          { prodcutScoringWeightInt: "desc" },
+          { productScoringWeightInt: "desc" },
           { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
@@ -432,7 +432,7 @@ describe("compileESQueryPLP function", () => {
         from: 0,
         sort: [
           "_score",
-          { prodcutScoringWeightInt: "desc" },
+          { productScoringWeightInt: "desc" },
           { variantScoringWeightInt: "desc" },
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
@@ -482,7 +482,7 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
-            { prodcutScoringWeightInt: "desc" },
+            { productScoringWeightInt: "desc" },
             { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
@@ -529,7 +529,7 @@ describe("compileESQueryPLP function", () => {
           from: 0,
           sort: [
             "_score",
-            { prodcutScoringWeightInt: "desc" },
+            { productScoringWeightInt: "desc" },
             { variantScoringWeightInt: "desc" },
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }

@@ -61,6 +61,13 @@
     color: $color-slate;
   }
 
+  .more-options-available {
+    padding-top: 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: $color-slate;
+  }
+
   .body {
     display: flex;
     flex-direction: column;
@@ -113,6 +120,7 @@
       transition: opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    .more-options-available,
     .title,
     .text {
       transition: color 280ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -125,6 +133,7 @@
         opacity: 1;
       }
 
+      .more-options-available,
       .title {
         color: $color-theme-focus;
       }

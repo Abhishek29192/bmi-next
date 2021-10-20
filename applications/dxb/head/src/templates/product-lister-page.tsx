@@ -61,7 +61,6 @@ import FiltersSidebar from "../components/FiltersSidebar";
 import { Product } from "../components/types/pim";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ProductFilter, removePLPFilterPrefix } from "../utils/product-filters";
 
 const PAGE_SIZE = 24;
@@ -302,7 +301,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
-      setProducts(hits.hits.map((hit) => hit._source));
+      setProducts(
+        hits.hits.map((hit) => ({
+          ...hit._source,
+          all_variants: hit.inner_hits.all_variants.hits.hits
+        }))
+      );
     }
 
     if (results && results.aggregations) {
@@ -500,6 +504,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           pageContext.pimClassificationCatalogueNamespace
                         )
                       );
+                      const moreOptionsAvailable =
+                        variant.all_variants && variant.all_variants.length > 1
+                          ? getMicroCopy("plp.product.moreOptionsAvailable")
+                          : null;
 
                       return (
                         <Grid
@@ -538,6 +546,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 {getMicroCopy("plp.product.viewDetails")}
                               </AnchorLink>
                             }
+                            moreOptionsAvailable={moreOptionsAvailable}
                           >
                             {variant.shortDescription}
                           </GTMOverviewCard>

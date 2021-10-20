@@ -71,7 +71,7 @@ export const compileESQueryPLP = ({
     // NOTE: scoringWeightInt is a number (long) in the index, no ".keyword" field
     sort: [
       "_score",
-      { prodcutScoringWeightInt: "desc" },
+      { productScoringWeightInt: "desc" },
       { variantScoringWeightInt: "desc" },
       { scoringWeightInt: "desc" },
       { "name.keyword": "asc" }
