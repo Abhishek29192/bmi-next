@@ -169,11 +169,15 @@ const CompanyMembers = ({ data }: PageProps) => {
   };
 
   const [updateAccount] = useUpdateRoleAccountMutation({
-    onError: (error) => {
+    onError: ({ message: graphqlError }) => {
+      const message =
+        graphqlError === "last_company_admin"
+          ? "lastCompanyAdminError"
+          : "genericError";
       setMessages([
         {
           severity: "error",
-          message: "genericError"
+          message
         }
       ]);
     },
