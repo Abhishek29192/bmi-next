@@ -440,9 +440,9 @@ export const getPlpFilters = ({
 
   const productClassifications = products.flatMap((product) =>
     [
-      ...product.classifications,
+      ...(product.classifications || []),
       ...(product.variantOptions || []).flatMap(
-        (variant) => variant.classifications
+        (variant) => variant.classifications || []
       )
     ].filter(Boolean)
   );
