@@ -12,7 +12,7 @@ import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
 import getJpgImage from "../utils/images";
-import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../utils/path";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import BrandProvider from "./BrandProvider";
 import {
