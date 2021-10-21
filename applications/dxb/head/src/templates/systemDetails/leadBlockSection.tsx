@@ -175,7 +175,11 @@ const LeadBlockSection = ({
         </LeadBlock.Content>
         {uniqueSellingPropositions &&
           !isEmpty(uniqueSellingPropositions.featureValues) && (
-            <LeadBlock.Card theme="pearl" data-testid="system-attributes-card">
+            <LeadBlock.Card
+              className={styles["card"]}
+              theme="pearl"
+              data-testid="system-attributes-card"
+            >
               <LeadBlock.Card.Section>
                 <div className={styles["iconList"]}>
                   <IconList>

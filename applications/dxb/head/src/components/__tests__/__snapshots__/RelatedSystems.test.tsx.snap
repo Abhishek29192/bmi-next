@@ -11,7 +11,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
       >
         MC: sdp.recommendedSystemsTitle
       </h2>
@@ -89,7 +89,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
       >
         MC: sdp.recommendedSystemsTitle
       </h2>
@@ -213,7 +213,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
       >
         MC: sdp.recommendedSystemsTitle
       </h2>
@@ -337,7 +337,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
       >
         MC: sdp.recommendedSystemsTitle
       </h2>
@@ -461,7 +461,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
       >
         MC: sdp.recommendedSystemsTitle
       </h2>
@@ -537,7 +537,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
       >
         MC: sdp.recommendedSystemsTitle
       </h2>
@@ -613,7 +613,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
       >
         MC: sdp.recommendedSystemsTitle
       </h2>

@@ -177,7 +177,7 @@ const RelatedSystems = ({
   }
   return (
     <Section backgroundColor={sectionBackgroundColor || "alabaster"}>
-      <Section.Title>
+      <Section.Title className={styles["section_title"]}>
         {sectionTitle || getMicroCopy("sdp.recommendedSystemsTitle")}
       </Section.Title>
       <div className={styles["RelatedProducts"]}>
