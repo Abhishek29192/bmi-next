@@ -63,6 +63,6 @@ Base64 encoded from the `message.data` property of a raw message.
   "type": "UPDATED",
   "baseSite": "norwayBmi",
   "endPointUrl": "/exports/systems",
-  "itemType": "SYSTEM"
+  "itemType": "SYSTEMS"
 }
 ```

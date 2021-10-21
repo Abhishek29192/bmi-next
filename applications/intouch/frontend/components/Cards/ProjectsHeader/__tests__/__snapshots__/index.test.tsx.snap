@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectsHeader component render correctly 1`] = `
+<div
+  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    class="MuiCardContent-root"
+  >
+    <div
+      style="display: flex;"
+    >
+      <h3
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h3"
+      >
+        Old Brompton Library
+      </h3>
+      <svg
+        class="technologyIcon"
+      />
+    </div>
+    <div
+      class="body"
+    >
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          projectDetails.code
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          PROFLO-d1847
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          projectDetails.status
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          In progress
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          projectDetails.roofArea
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          100
+          m
+          <sup>
+            2
+          </sup>
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          projectDetails.buildingAddress
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div
+            data-testid="address"
+          >
+            <div
+              data-testid="addressLine-firstLine"
+            >
+              8 Old Brompton Road
+            </div>
+            <div
+              data-testid="addressLine-secondLine"
+            >
+              South Kensington
+            </div>
+            <div
+              data-testid="addressLine-postcode"
+            >
+              SW7 3SS
+            </div>
+            <div
+              data-testid="addressLine-town"
+            >
+              London
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          projectDetails.description
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          Lorem ipsum dolor sit amet
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          projectDetails.startDate
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          24 February 2021
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          projectDetails.endDate
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          30 March 2022
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          projectDetails.guaranteeType
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          Not requested
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          projectDetails.guaranteeStatus
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div
+            style="display: flex;"
+          >
+            guarantee.status.NOT_APPLICABLE
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

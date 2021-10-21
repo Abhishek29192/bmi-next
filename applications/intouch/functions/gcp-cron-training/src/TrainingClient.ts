@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from "axios";
+import { getGCPToken } from "./utils/google-auth";
 
 const { TRAINING_API_URL } = process.env;
 
@@ -10,17 +11,20 @@ export interface ICourseSyncConfiguration {
 export default class TrainingClient {
   private client: AxiosInstance;
 
-  private constructor() {
+  private constructor(bearer: string) {
     this.client = axios.create({
       baseURL: TRAINING_API_URL,
       headers: {
-        contentType: "application/json"
+        contentType: "application/json",
+        authorization: bearer
       }
     });
   }
 
   public static async create(): Promise<TrainingClient> {
-    return new TrainingClient();
+    const bearer = await getGCPToken(TRAINING_API_URL);
+
+    return new TrainingClient(bearer);
   }
 
   async getLastUpdatedDate(): Promise<ICourseSyncConfiguration> {

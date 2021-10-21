@@ -1,28 +1,32 @@
 {
   "name": "@bmi/gcp-intouch-generate-guarantee",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "BMI-DXB",
   "main": "dist/index.js",
   "private": true,
   "scripts": {
     "build": "tsc -b .",
-    "dev": "tsc && concurrently \"tsc -w\" \"nodemon src/index.ts\"",
-    "manual-test": "ts-node test.ts",
-    "start": "node dist/index.js"
+    "dev": "tsc && functions-framework --source=dist --target=sendGuaranteePdf --port=3001",
+    "manual-test": "js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json  ts-node test.ts",
+    "start": "node dist/index.js",
+    "deploy": "yarn build && gcloud functions deploy gcp-generate-guarantee --runtime=nodejs14 --entry-point=sendGuaranteePdf --source=.  --region=europe-west2 --trigger-topic=guarantee-pdf"
   },
   "dependencies": {
-    "@bmi/intouch-api-types": "0.0.0",
-    "@bmi/react-pdf-maker": "0.0.0",
+    "@bmi-digital/react-pdf-maker": "0.0.0",
     "@sendgrid/mail": "^7.4.2",
     "pdf-lib": "^1.16.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-is": "^16.13.1"
+    "react-is": "^16.13.1",
+    "@google-cloud/secret-manager": "^3.7.1",
+    "@google-cloud/storage": "^5.7.0",
+    "google-auth-library": "^7.5.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.20",
     "concurrently": "^6.0.0",
     "dotenv": "^8.2.0",
-    "nodemon": "latest"
+    "nodemon": "latest",
+    "@google-cloud/functions-framework": "^1.7.1"
   }
 }

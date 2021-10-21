@@ -2,6 +2,12 @@
 
 .RadioButton {
   display: inline-block;
+  color: $color-theme-inter;
+
+  &--disabled {
+    opacity: 0.38;
+    color: $color-black;
+  }
 
   .input {
     position: absolute;
@@ -18,16 +24,16 @@
   }
 
   .input:focus + .label {
-    border: 1px solid $color-theme-inter;
+    border: 1px solid currentColor;
   }
 
   .input:checked + .label {
-    border: 2px solid $color-theme-inter;
+    border: 2px solid currentColor;
   }
 
   .text {
     padding: 12px 48px;
-    color: $color-theme-inter;
+    color: currentColor;
     font-size: 18px;
     line-height: 24px;
   }

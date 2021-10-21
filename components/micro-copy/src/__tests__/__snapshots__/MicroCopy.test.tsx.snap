@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MicroCopy component does not replace placeholders unless passed 1`] = `
+exports[`MicroCopy tests MicroCopy component does not replace placeholders unless passed 1`] = `
 <div>
   Only firstKey should be replaced:
    
@@ -11,7 +11,7 @@ exports[`MicroCopy component does not replace placeholders unless passed 1`] = `
 </div>
 `;
 
-exports[`MicroCopy component renders correctly without replacement 1`] = `
+exports[`MicroCopy tests MicroCopy component renders correctly without replacement 1`] = `
 <div>
   Without placeholders (but they are passed):
    
@@ -26,7 +26,7 @@ exports[`MicroCopy component renders correctly without replacement 1`] = `
 </div>
 `;
 
-exports[`MicroCopy component replaces all occurrences 1`] = `
+exports[`MicroCopy tests MicroCopy component replaces all occurrences 1`] = `
 <div>
   
           Lorem firstKey replaced;

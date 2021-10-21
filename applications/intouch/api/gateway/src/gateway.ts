@@ -43,6 +43,14 @@ const createGateway = async () => {
               request.http.headers.set("x-request-id", context["x-request-id"]);
             }
 
+            // Send the user id in order to track the request
+            if (context["x-authenticated-user-id"]) {
+              request.http.headers.set(
+                "x-authenticated-user-id",
+                context["x-authenticated-user-id"]
+              );
+            }
+
             // Send the market throught the request
             if (context.market) {
               request.http.headers.set(

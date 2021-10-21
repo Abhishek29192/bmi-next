@@ -30,59 +30,63 @@ export default async (req, res, next) => {
   const dbPool = getDbPool();
 
   if (user) {
-    req.user = {
-      email: user[`${process.env.AUTH0_NAMESPACE}/email`],
-      iss: user.iss,
-      iat: user.iat,
-      exp: user.exp,
-      scope: user.exp,
-      sub: user.sub,
-      aud: user.aud
-    };
+    if (["pdf-generator-function"].includes(user?.source)) {
+      // if we want to limit access per function/service
+      req.trustedConnection = true;
+      req.user = {
+        source: user?.source,
+        role: "SUPER_ADMIN"
+      };
+    } else {
+      req.user = {
+        email: user[`${process.env.AUTH0_NAMESPACE}/email`],
+        ...user
+      };
 
-    const {
-      rows: [account]
-    } = await dbPool.query("SELECT * FROM account WHERE email = $1", [
-      req.user.email
-    ]);
-
-    if (account) {
       const {
-        rows: [market]
-      } = await dbPool.query(
-        "SELECT id, domain, send_mailbox FROM market where domain = $1",
-        [req.headers["x-request-market-domain"]]
+        rows: [account]
+      } = await dbPool.query("SELECT * FROM account WHERE email = $1", [
+        req.user.email
+      ]);
+
+      if (account) {
+        const {
+          rows: [market]
+        } = await dbPool.query(
+          "SELECT id, domain, send_mailbox FROM market where domain = $1",
+          [req.headers["x-request-market-domain"]]
+        );
+
+        req.user = {
+          ...req.user,
+          id: account.id,
+          role: account.role,
+          firstName: account.first_name,
+          lastName: account.last_name,
+          status: account.status,
+          doceboUserId: account.docebo_user_id,
+          doceboUsername: account.docebo_username,
+          migrationId: account.migration_id,
+          marketId: market?.id,
+          market: camelcaseKeys({
+            id: market?.id,
+            domain: market?.domain,
+            send_mailbox: market?.send_mailbox
+          })
+        };
+      }
+
+      const { rows: companies } = await dbPool.query(
+        "SELECT company.* FROM company JOIN company_member ON company_member.company_id = company.id WHERE company_member.account_id = $1",
+        [req.user.id]
       );
 
-      req.user = {
-        ...req.user,
-        id: account.id,
-        role: account.role,
-        firstName: account.first_name,
-        lastName: account.last_name,
-        status: account.status,
-        doceboUserId: account.docebo_user_id,
-        doceboUsername: account.docebo_username,
-        migrationId: account.migration_id,
-        marketId: market?.id,
-        market: camelcaseKeys({
-          id: market?.id,
-          domain: market?.domain,
-          send_mailbox: market?.send_mailbox
-        })
-      };
-    }
-
-    const { rows: companies } = await dbPool.query(
-      "SELECT company.* FROM company JOIN company_member ON company_member.company_id = company.id WHERE company_member.account_id = $1",
-      [req.user.id]
-    );
-
-    if (companies.length) {
-      req.user = {
-        ...req.user,
-        company: camelcaseKeys(companies[0])
-      };
+      if (companies.length) {
+        req.user = {
+          ...req.user,
+          company: camelcaseKeys(companies[0])
+        };
+      }
     }
 
     req.user.can = can(req);

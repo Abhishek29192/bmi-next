@@ -1,4 +1,4 @@
-import fetch from "cross-fetch";
+import axios from "axios";
 import { NextFunction } from "express";
 import { getGCPToken } from "../utils";
 
@@ -9,7 +9,8 @@ export default (req, res, next: NextFunction) => {
     const bearer = await getGCPToken(GATEWAY_URL);
 
     try {
-      const fetchResult = await fetch(GATEWAY_URL, {
+      const { data } = await axios({
+        url: `${GATEWAY_URL}`,
         method: "POST",
         headers: {
           Authorization: `Bearer ${bearer}`,
@@ -19,9 +20,11 @@ export default (req, res, next: NextFunction) => {
           ] as string,
           "x-apigateway-api-userinfo": req.headers["x-apigateway-api-userinfo"]
         },
-        body: JSON.stringify({ query, variables })
+        data: { query, variables },
+        timeout: 3000
       });
-      return fetchResult.json();
+
+      return data;
     } catch (error) {
       logger.error("Error fetching gateway: ", error);
       throw new Error(error);

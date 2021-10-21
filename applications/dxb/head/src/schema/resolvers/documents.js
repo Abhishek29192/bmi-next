@@ -3,13 +3,13 @@
 
 const { flatMap, includes, find } = require("lodash");
 const {
+  generateIdFromString,
+  generateDigestFromData
+} = require("../../utils/encryption");
+const {
   getFormatFromFileName,
   isPimLinkDocument
 } = require("./utils/documents");
-const {
-  generateIdFromString,
-  generateDigestFromData
-} = require("./utils/encryption");
 
 const resolveDocumentsFromProducts = async (
   assetTypes,
@@ -64,7 +64,7 @@ const resolveDocumentsFromProducts = async (
     (product.assets || [])
       .filter((asset) => includes(pimAssetTypes, asset.assetType))
       .map((asset) => {
-        const id = generateIdFromString(product.name + asset.name);
+        const id = generateIdFromString(product.name + asset.name, true);
         const { url, fileSize, realFileName, mime, name } = asset;
         const assetType = find(assetTypes, { pimCode: asset.assetType });
 

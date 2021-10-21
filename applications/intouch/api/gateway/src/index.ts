@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import dotenv from "dotenv";
 import { WinstonLogger } from "@bmi-digital/logger";
 import { graphqlUploadExpress } from "graphql-upload";
@@ -22,6 +23,21 @@ const { PORT = 4000 } = process.env;
       gateway,
       context: ({ req }) => {
         const { headers } = req;
+
+        let userInfo;
+
+        try {
+          userInfo = JSON.parse(
+            Buffer.from(
+              headers["x-apigateway-api-userinfo"] as string,
+              "base64"
+            ).toString("ascii")
+          );
+        } catch (error) {
+          // eslint-disable-next-line
+          console.log(error.message);
+        }
+
         /**
          * https://cloud.google.com/api-gateway/docs/authenticate-service-account
          *
@@ -33,9 +49,10 @@ const { PORT = 4000 } = process.env;
          * the different services
          * */
         return {
-          market: headers["x-request-market-domain"],
+          "x-apigateway-api-userinfo": headers["x-apigateway-api-userinfo"],
+          "x-authenticated-user-id": userInfo?.sub,
           "x-request-id": headers["x-request-id"],
-          "x-apigateway-api-userinfo": headers["x-apigateway-api-userinfo"]
+          market: headers["x-request-market-domain"]
         };
       },
       ...config.apolloServer

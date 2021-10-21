@@ -5,7 +5,9 @@ import axios from "axios";
 import { flatten } from "lodash";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { downloadAs } from "../utils/client-download";
+import { useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
+import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
   generateFileNamebyTitle,
@@ -67,7 +69,7 @@ export const handleDownloadClick = async (
         return {
           href:
             __typename === "ContentfulDocument"
-              ? `https:${asset.file.url}`
+              ? getDownloadLink(asset.file.url)
               : url,
           name:
             __typename === "ContentfulDocument"
@@ -107,6 +109,8 @@ const DocumentResultsFooter = ({
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <div className={styles["DocumentResultsFooter"]}>
@@ -116,7 +120,7 @@ const DocumentResultsFooter = ({
         count={count}
         className={styles["pagination"]}
       />
-      {onDownloadClick && (
+      {onDownloadClick && !isMobile && (
         <>
           <DownloadList.Clear
             label={getMicroCopy("downloadList.clear")}

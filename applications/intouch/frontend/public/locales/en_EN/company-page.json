@@ -21,6 +21,7 @@
     "profileIncomplete": "Profile incomplete"
   },
   "supportTitle": "Roofpro Support",
+  "certificationsTitle": "BMI Certifications",
   "incompleteProfile": {
     "fields": {
       "phone": "Phone",
@@ -106,7 +107,8 @@
         "ownerEmail": "E-mail address (optional)"
       },
       "actions": {
-        "submit": "Save & Close"
+        "submit": "Save & Close",
+        "cancel": "Cancel"
       }
     }
   }

@@ -1,20 +1,69 @@
 {
-  "Home": "Norway - Home",
-  "Projects": "Norway - Projects",
-  "Training": "Norway - Training",
-  "Team": "Norway - Team",
-  "Company": "Norway - Company",
-  "Toolkit": "Norway - Toolkit",
-  "Edit": "Norway - Edit",
-  "Company Description": "Norway - Company Description",
-  "About Us": "Norway - About Us",
-  "Registered Details": "Norway - Registered Details",
-  "Registered Name": "Norway - Registered Name",
-  "Registered Address": "Norway - Registered Address",
-  "Main office address": "Norway - Main office address",
-  "CONTRACTOR": "Norway - Contractor",
-  "ARCHITECT": "Norway - Architect",
-  "MERCHANT": "Norway - Merchant",
-  "CORP_DEVELOPER": "Norway - Developer",
-  "COMPANY_ADMIN": "Norway - Company administrator"
+  "Home": "Hjem",
+  "Projects": "Prosjekter",
+  "Training": "Kurs",
+  "Team": "Team",
+  "Companies": "Bedrifter",
+  "Company": "Bedrift",
+  "Tools": "Verktøy",
+  "Inventory": "Inventar",
+  "Edit": "Rediger",
+  "Search": "Søk",
+  "No Options": "Ingen valg",
+  "Show me": "Vis meg",
+  "Account": "Min konto",
+  "Profile": "Profil",
+  "Logout": "Logg ut",
+  "results available": "resultater tilgjengelig",
+  "Company Description": "Om oss",
+  "About Us": "Om oss",
+  "Registered Details": "Registrerte detaljer",
+  "Registered Name": "Registrert navn",
+  "Registered Address": "Registrert adresse",
+  "Main office address": "Adresse til hovedkontoret",
+  "CONTRACTOR": "Entreprenør",
+  "ARCHITECT": "Arkitekt",
+  "MERCHANT": "Kjøpmann",
+  "CORP_DEVELOPER": "Utvikler",
+  "roles": {
+    "INSTALLER": "Medlem",
+    "COMPANY_ADMIN": "Bedriftsadministrator",
+    "MARKET_ADMIN": "Markedsadministrator",
+    "SUPER_ADMIN": "Super Admin"
+  },
+  "tier": {
+    "T1": "Medlem",
+    "T2": "Partner",
+    "T3": "Expert",
+    "T4": "Elite"
+  },
+  "error_messages": {
+    "required": "Obligatorisk",
+    "url_format": "Ugyldig URL",
+    "email_format": "Ugyldig epostadresse",
+    "phone_number_format": "Ugyldig telefonnummer"
+  },
+  "Products": "Produkter",
+  "fallback": {
+    "notAdded": "Ikke lagt til",
+    "noResults": "Ingen resultater funnet"
+  },
+  "Download": "Last ned",
+  "SavePdf": "Lagre som PDF",
+  "visitWebsite": "Besøk nettsiden",
+  "certifications": {
+    "pitched": "Skråtak",
+    "flat": "Flatt tak",
+    "other": "Annet"
+  },
+  "certificationLabels": {
+    "type": "Type",
+    "certification": "Sertifiseringer",
+    "expiry": "Utløpt"
+  },
+  "notifications": {
+    "today": "I dag",
+    "earlier": "Tidligere",
+    "older": "Eldre enn 2 måneder"
+  }
 }

@@ -72,15 +72,50 @@
       "UNASSIGN_SOLUTION": "Unassign to me",
       "NOT_ASSIGNABLE": "Not Assignable",
       "edit": "Edit"
-    }
+    },
+    "hints": {
+      "projectEditGuaranteeStatus": "Project details cannot be edited due to guarantee status."
+    },
+    "loading": "Loading project details"
   },
   "buildingOwnerDetails": {
     "title": "Building Owner Details",
     "noContent": "Building Owner details have not been added to this project",
     "name": "Name",
     "email": "Email",
-    "Company": "Company",
-    "address": "Building Owner address"
+    "company": "Company",
+    "address": "Building Owner address",
+    "edit": {
+      "title": "Building owner details",
+      "description": "You can add the building owner details later on, before applying for a guarantee.",
+      "sections": {
+        "contactDetails": {
+          "title": "Contact Details"
+        },
+        "buildingOwnerAddress": {
+          "title": "Address"
+        }
+      },
+      "form": {
+        "fields": {
+          "buildingOwnerCompany": "Company name (optional)",
+          "buildingOwnerFirstname": "First name",
+          "buildingOwnerLastname": "Last name",
+          "buildingOwnerMail": "Email address",
+          "buildingOwnerAddress": {
+            "firstLine": "Address Line 1",
+            "secondLine": "Address Line 2 (optional)",
+            "town": "Town / City",
+            "postcode": "Post Code / ZIP",
+            "region": "Region (optional)",
+            "country": "Country"
+          }
+        },
+        "actions": {
+          "submit": "Save & close"
+        }
+      }
+    }
   },
   "guarantee": {
     "notRequested": "Not requested",
@@ -126,6 +161,12 @@
     "body1": "You have not select any project yet!",
     "body2": "Select the &quot;project&quot; from sidebar to get started."
   },
+  "tabs": {
+    "team": "Team",
+    "guarantee": "Guarantee",
+    "uploads": "Uploads",
+    "notes": "Notes"
+  },
   "teamTab": {
     "header": "Add team member",
     "table": {
@@ -145,7 +186,8 @@
       },
       "confirm_label": "Add Members",
       "cancel_label": "Cancel"
-    }
+    },
+    "noContent": "No team members have been added to this project"
   },
   "upload_tab": {
     "header": "Upload file",
@@ -157,15 +199,17 @@
         "browse": "Browse"
       },
       "instruction": "You can add files",
-      "confirm_label": "Add Evidences",
+      "confirm_label": "Upload files",
       "cancel_label": "Cancel",
       "file_validation_message": "You cannot upload  files larger than",
       "evidence_category": "Evidence Category"
-    }
+    },
+    "noContent": "No uploads yet"
   },
   "guarantee_tab": {
     "header": "Apply for a guarantee",
     "nocontent_message": "No guarantee has been added yet",
+    "submit_solution": "Request Solution Guarantee",
     "apply_guarantee": {
       "title": "Register for a guarantee",
       "confirm_label": "Register",
@@ -201,13 +245,16 @@
         },
         "step2": {
           "title": "Register for a guarantee",
-          "subTitle": "Select the preferrred language for the guarantee documentation"
+          "subTitle": "Select the preferrred language for the guarantee documentation",
+          "inputLabel": "Select language"
         },
         "step3": {
           "product_title": "Product Guarantee",
           "product_subTitle": "Select the Product for the guarantee documentation",
           "system_title": "System Guarantee",
-          "system_subTitle": "Select the System for the guarantee documentation"
+          "system_subTitle": "Select the System for the guarantee documentation",
+          "solution_title": "Solution Guarantee",
+          "solution_subTitle": "Select the System for the guarantee documentation"
         },
         "step4": {
           "title": "Receipt details",
@@ -226,12 +273,25 @@
           "next": "Next",
           "submit": " Submit application"
         }
+      },
+      "alert": {
+        "selectGuarantee": {
+          "title": "There is no guarantee type available for their technology",
+          "message": "Guarantees are not available for this type of roof.  Please contact your local BMI Administrator for more information."
+        }
       }
     },
-    "dialog": {
-      "title": "Your guarantee has been processed",
-      "description": "A certificate for your guarantee will be available to view on the Projects page.",
-      "confirm_label": "Close"
+    "applyGuarantee": {
+      "defaultDialog": {
+        "title": "Your guarantee has been processed",
+        "description": "A certificate for your guarantee will be available to view on the Projects page.",
+        "confirm_label": "Close"
+      },
+      "solutionDialog": {
+        "title": "Guarantee application started",
+        "description": "Complete your application by submitting evidence on the uploads tab.",
+        "confirm_label": "Close"
+      }
     }
   },
   "building_owner": {
@@ -272,6 +332,16 @@
       "detailHeading": "Please fill in the details below to share information on this project",
       "cancel": "Cancel",
       "send": "Send"
+    },
+    "noContent": "No notes have been to this project"
+  },
+  "guaranteeApplyAlert": {
+    "title": "You cannot apply for a guarantee yet",
+    "message": {
+      "buildingOwner": "Builder Owner details are not completed",
+      "projectDetails": "Project details are not completed",
+      "tier": "You are not in a Tier that supports Guarantees",
+      "guaranteeType": "Guarantee Type is not defined"
     }
   }
 }

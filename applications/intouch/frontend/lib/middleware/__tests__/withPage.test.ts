@@ -10,7 +10,12 @@ jest.mock("../../../lib/config", () => ({
 
 jest.mock("../../auth0", () => ({
   getAuth0Instance: () => ({
-    withPageAuthRequired: () => jest.fn()
+    withPageAuthRequired: () => jest.fn(),
+    getSession: () => ({
+      user: {
+        sub: "123"
+      }
+    })
   })
 }));
 
@@ -43,7 +48,10 @@ describe("Middleware withPage", () => {
       resolvedUrl: "/",
       res: {},
       req: {
-        logger: null,
+        logger: () => ({
+          info: jest.fn(),
+          error: jest.fn()
+        }),
         headers: {
           host: "es.local.intouch",
           "x-forwarded-proto": "http"
@@ -61,20 +69,53 @@ describe("Middleware withPage", () => {
     expect(ctx.req.logger).not.toBeNull();
   });
 
-  it("should redirect if wrong market", async () => {
+  it("should redirect if no account found", async () => {
     mockQuery.mockResolvedValueOnce({
       data: {
-        accountByEmail: generateAccount({
-          hasCompany: true,
-          market: {
-            domain: "en"
-          },
-          company: {
-            status: "NEW"
-          }
-        })
+        accountByEmail: null
       }
     });
+
+    let result = await innerGetServerSideProps(
+      getServerSideProps,
+      auth0Mock,
+      ctx
+    );
+
+    expect(result).toEqual({
+      redirect: {
+        permanent: false,
+        destination: "/api/auth/logout"
+      }
+    });
+  });
+
+  it("should redirect if wrong market", async () => {
+    mockQuery
+      .mockResolvedValueOnce({
+        data: {
+          accountByEmail: generateAccount({
+            hasCompany: true,
+            market: {
+              domain: "en"
+            },
+            company: {
+              status: "NEW"
+            }
+          })
+        }
+      })
+      .mockResolvedValueOnce({
+        data: {
+          markets: {
+            nodes: [
+              generateMarketContext({
+                domain: "en"
+              })
+            ]
+          }
+        }
+      });
 
     let result = await innerGetServerSideProps(
       getServerSideProps,
@@ -88,22 +129,34 @@ describe("Middleware withPage", () => {
   });
 
   it("should redirect if need to complete the user profile", async () => {
-    mockQuery.mockResolvedValueOnce({
-      data: {
-        accountByEmail: generateAccount({
-          account: {
-            firstName: "Name",
-            lastName: null
-          },
-          market: {
-            domain: "es"
-          },
-          company: {
-            status: "NEW"
+    mockQuery
+      .mockResolvedValueOnce({
+        data: {
+          accountByEmail: generateAccount({
+            account: {
+              firstName: "Name",
+              lastName: null
+            },
+            market: {
+              domain: "es"
+            },
+            company: {
+              status: "NEW"
+            }
+          })
+        }
+      })
+      .mockResolvedValueOnce({
+        data: {
+          markets: {
+            nodes: [
+              generateMarketContext({
+                domain: "en"
+              })
+            ]
           }
-        })
-      }
-    });
+        }
+      });
 
     let result = await innerGetServerSideProps(
       getServerSideProps,
@@ -172,24 +225,36 @@ describe("Middleware withPage", () => {
   });
 
   it("should redirect if need to complete the company registration", async () => {
-    mockQuery.mockResolvedValueOnce({
-      data: {
-        accountByEmail: generateAccount({
-          hasCompany: true,
-          account: {
-            firstName: "Name",
-            lastName: "Last name"
-          },
-          market: {
-            domain: "es"
-          },
-          company: {
-            status: "NEW",
-            name: null
+    mockQuery
+      .mockResolvedValueOnce({
+        data: {
+          accountByEmail: generateAccount({
+            hasCompany: true,
+            account: {
+              firstName: "Name",
+              lastName: "Last name"
+            },
+            market: {
+              domain: "es"
+            },
+            company: {
+              status: "NEW",
+              name: null
+            }
+          })
+        }
+      })
+      .mockResolvedValueOnce({
+        data: {
+          markets: {
+            nodes: [
+              generateMarketContext({
+                domain: "en"
+              })
+            ]
           }
-        })
-      }
-    });
+        }
+      });
 
     let result = await innerGetServerSideProps(
       getServerSideProps,

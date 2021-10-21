@@ -3,8 +3,10 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
 import { SiteContextProvider } from "../Site";
-import { serviceTypes } from "../Service";
+import { EntryTypeEnum, rooferTypes } from "../Service";
 import createService from "../../__tests__/ServiceHelper";
+import { DataTypeEnum } from "../Link";
+import { renderWithRouter } from "../../test/renderWithRouter";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -267,7 +269,7 @@ describe("Sections component", () => {
           isLabelHidden: false,
           url: "link-to-page",
           linkedPage: null,
-          type: "Internal",
+          type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null
@@ -388,7 +390,7 @@ describe("Sections component", () => {
       },
       {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "Service Locator",
         label: "Find A Roofer",
         body: null,
@@ -399,7 +401,7 @@ describe("Sections component", () => {
       },
       {
         __typename: "ContentfulServiceLocatorSection",
-        type: "Roofer",
+        type: EntryTypeEnum.ROOFER_TYPE,
         title: "Service Locator - with services",
         label: "Find A Roofer",
         body: null,
@@ -407,12 +409,12 @@ describe("Sections component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [serviceTypes[0], serviceTypes[1]]
+            type: [rooferTypes[0], rooferTypes[1]]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [serviceTypes[0], serviceTypes[1]]
+            type: [rooferTypes[0], rooferTypes[1]]
           })
         ],
         position: 0,
@@ -449,7 +451,7 @@ describe("Sections component", () => {
             isLabelHidden: false,
             url: "link-to-page",
             linkedPage: null,
-            type: "Internal",
+            type: DataTypeEnum.Internal,
             parameters: null,
             dialogContent: null,
             hubSpotCTAID: null
@@ -596,7 +598,7 @@ describe("Sections component", () => {
           icon: null,
           isLabelHidden: null,
           url: null,
-          type: "Internal",
+          type: DataTypeEnum.Internal,
           linkedPage: {
             path: "thank-you/"
           },
@@ -617,7 +619,7 @@ describe("Sections component", () => {
       {}
     ];
 
-    const { container } = render(
+    const { container } = renderWithRouter(
       <MockSiteContext>
         <Sections data={data} />
       </MockSiteContext>

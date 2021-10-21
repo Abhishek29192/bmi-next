@@ -3,6 +3,8 @@ import {
   Project,
   RequestStatus
 } from "@bmi/intouch-api-types";
+import dayjs from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import { DeepPartial } from "./types";
 import {
@@ -10,6 +12,8 @@ import {
   guaranteePrerequsitesMet,
   guaranteeSolutionGuaranteeValidate
 } from "./guarantee";
+
+dayjs.extend(isBetween);
 
 export enum ProjectStatus {
   NOT_STARTED = "Not started",
@@ -41,10 +45,14 @@ export const getProjectStatus = (startDate, endDate) => {
   return ProjectStatus.NOT_STARTED;
 };
 
+export const findProjectGuarantee = (project: DeepPartial<Project>) => {
+  return project?.guarantees?.nodes?.[0];
+};
+
 export const getProjectGuaranteeStatus = (
   project: DeepPartial<Project>
 ): GuaranteeStatus => {
-  const guarantee = project?.guarantees?.nodes?.[0];
+  const guarantee = findProjectGuarantee(project);
 
   // Guarantee associated with the Project - Not Applicable
   if (!guarantee) {
@@ -96,6 +104,18 @@ export const isProjectApprovable = (
   );
 };
 
+export const isProjectEditable = (project) => {
+  const guarantee = findProjectGuarantee(project);
+
+  // If there is no guarantee, all fields can be edited
+  if (!guarantee) {
+    return true;
+  }
+
+  // If there is a guarantee, some fields can be edited, if it's in certain statuses
+  return !["APPROVED", "SUBMITTED", "REVIEW"].includes(guarantee.status);
+};
+
 export const checkProjectGuaranteeReview = (
   project: GetProjectQuery["project"]
 ): boolean => {
@@ -119,4 +139,41 @@ export const getGuaranteeStatus = (
   const guarantee = project.guarantees.nodes?.[0];
 
   return guarantee?.status;
+};
+
+export const getProjectDaysRemaining = (startDate, endDate) => {
+  const now = Date.now();
+  startDate = new Date(startDate).getTime();
+  endDate = new Date(endDate).getTime();
+
+  // Start date in the future
+  if (dayjs(startDate).isAfter(now)) {
+    return dayjs(endDate).diff(startDate, "day");
+  }
+  // End date in the past
+  if (dayjs(endDate).isBefore(now)) {
+    return 0;
+  }
+  // now between start and end date
+  if (dayjs(now).isBetween(startDate, endDate)) {
+    return dayjs(endDate).diff(now, "day");
+  }
+
+  return 0;
+};
+
+export const getProjectCertifiedInstallers = (
+  project: GetProjectQuery["project"]
+) => {
+  if (project.projectMembers.nodes.length === 0) {
+    return 0;
+  }
+
+  const certificatedInstallers = project.projectMembers.nodes.filter((member) =>
+    member.account?.certificationsByDoceboUserId?.nodes?.some(
+      (certificate) => certificate.technology === project.technology
+    )
+  );
+
+  return certificatedInstallers.length;
 };

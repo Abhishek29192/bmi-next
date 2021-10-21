@@ -76,17 +76,13 @@ const searchTerms = {
   materials: "materialsCode.keyword",
   texturefamily: "texturefamilyCode.keyword",
   category: "categories.code.keyword",
-  // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
-  productFamily: "allCategories.code.keyword",
-  productLine: "allCategories.code.keyword",
-  brand: "allCategories.code.keyword",
-  plpBaseCategory: "allCategories.code.keyword"
+  allCategories: "allCategories.code.keyword"
 };
 
 export const compileElasticSearchQuery = (
   filters: Filter[],
   // TODO: Handle this being optional differently
-  categoryCode: string,
+  categoryCodes: string[],
   page: number,
   pageSize: number,
   searchQuery?: string
@@ -203,10 +199,10 @@ export const compileElasticSearchQuery = (
                 }
               }
             : null,
-          categoryCode
+          categoryCodes
             ? {
-                term: {
-                  [searchTerms.plpBaseCategory]: categoryCode
+                terms: {
+                  [searchTerms.allCategories]: categoryCodes
                 }
               }
             : null,

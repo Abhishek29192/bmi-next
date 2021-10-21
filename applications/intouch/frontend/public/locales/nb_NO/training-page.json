@@ -1,9 +1,29 @@
 {
-  "Training": "Norway - Training",
-  "See training": "Norway - See training",
-  "My courses": "Norway - My courses",
-  "in_progress": "Norway - In progress",
-  "enrolled": "Norway - Enrolled",
-  "completed": "Norway - Completed",
-  "waiting": "Norway - Waiting"
+  "Training": "Kurs",
+  "See training": "Se trening",
+  "My courses": "Mine kurs",
+  "in_progress": "I prosess",
+  "enrolled": "Påmeldt",
+  "completed": "Fullført",
+  "waiting": "Venter",
+  "viewTraining": "Se trening",
+  "Description": "Beskrivelse",
+  "search": {
+    "inputLabel": "Søk etter et kurs"
+  },
+  "filter": {
+    "labels": {
+      "all": "Alle"
+    }
+  },
+  "type": {
+    "classroom": "Klasserom",
+    "elearning": "Nettkurs",
+    "webinar": "Webinar"
+  },
+  "technology": {
+    "PITCHED": "Skråtak",
+    "FLAT": "Flatt tak",
+    "OTHER": "Annet"
+  }
 }

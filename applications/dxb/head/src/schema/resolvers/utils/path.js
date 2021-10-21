@@ -1,15 +1,5 @@
 "use strict";
 
-let useCountryCode = true;
-if (process.env.GATSBY_DONT_USE_COUNTRY_CODE === "true") {
-  useCountryCode = false;
-}
-
-const getPathWithCountryCode = (countryCode, path, ignoreCC) => {
-  if (!ignoreCC) ignoreCC = !useCountryCode;
-  return ignoreCC ? `/${path}` : `/${countryCode}/${path}`;
-};
-
 const getUrlFromPath = (path) => {
   const queryParams = path
     .filter(({ queryParams }) => queryParams)
@@ -170,6 +160,5 @@ const resolvePath = async (source, args, context) => {
 
 module.exports = {
   resolvePath,
-  getUrlFromPath,
-  getPathWithCountryCode
+  getUrlFromPath
 };

@@ -3,7 +3,7 @@ import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
 import Table from "@bmi/table";
 import { getValidFeatures } from "../utils/product-details-transforms";
-import { Classification } from "./types/ProductBaseTypes";
+import { Classification } from "./types/pim";
 import ProductFeaturesTable from "./ProductFeaturesTable";
 import styles from "./styles/ProductTechnicalSpec.module.scss";
 

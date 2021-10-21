@@ -27,7 +27,7 @@ export const SidePanel = ({
   noResultLabel,
   renderFooter
 }: SidePanelProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const handleButtonClick = (filter) => {
     filterClick && filterClick(filter);
   };
@@ -54,7 +54,7 @@ export const SidePanel = ({
 
           {filterButtons.length > 0 && (
             <div className={styles.filterButtons}>
-              <span>Show Me:</span>
+              <span>{t("Show me")}:</span>
 
               {filterButtons}
             </div>
@@ -64,7 +64,7 @@ export const SidePanel = ({
           <div className={styles.results}>{children}</div>
         ) : (
           <Typography className={styles.noResult} variant="h5">
-            {noResultLabel || t("No result found")}
+            {noResultLabel || t("fallback.noResults")}
           </Typography>
         )}
         {renderFooter && (

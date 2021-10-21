@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { useTranslation } from "next-i18next";
 import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
@@ -9,13 +9,17 @@ import IconButton from "@material-ui/core/IconButton";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Drawer from "@material-ui/core/Drawer";
 import Avatar from "@material-ui/core/Avatar";
-import { gql, useMutation } from "@apollo/client";
+import { gql } from "@apollo/client";
 import { findAccountTier, isSuperOrMarketAdmin } from "../../lib/account";
 import { Link } from "../Link";
 import UserMenu from "../UserMenu";
 import { Sidebar } from "../Sidebar";
 import { NotificationsPanel } from "../NotificationsPanel";
 import { useAccountContext } from "../../context/AccountContext";
+import log from "../../lib/logger";
+import { mergeByKey } from "../../lib/utils/object";
+import { GetGlobalDataQuery } from "../../graphql/generated/operations";
+import { useMarkAllNotificationsAsReadMutation } from "../../graphql/generated/hooks";
 import styles from "./styles.module.scss";
 
 type HeaderLink = {
@@ -28,16 +32,19 @@ export type HeaderProps = {
   title: string;
   contactUsLink?: HeaderLink;
   globalExternalLink?: HeaderLink;
-  notifications?: any;
+  notifications?: GetGlobalDataQuery["notifications"]["nodes"];
 };
 
 export const Header = ({
   title,
   contactUsLink,
   globalExternalLink,
-  notifications
+  notifications: initialNotifications
 }: HeaderProps) => {
   const { t } = useTranslation("common");
+  const { account } = useAccountContext();
+  // NOTE: workaround to client not being aware of cache to re-render from.
+  const [notifications, setNotifications] = useState(initialNotifications);
 
   const [state, setState] = React.useState({
     notifications: false,
@@ -45,7 +52,45 @@ export const Header = ({
     mobilenav: false
   });
 
-  const toggleDrawer = (anchor, open) => (event) => {
+  const hasUnreadNotifications = useMemo(
+    () => notifications.some(({ read }) => !read),
+    [notifications]
+  );
+  const notificationsIconClasses = {
+    root: [
+      styles.notificationsIcon,
+      hasUnreadNotifications && styles["notificationsIcon--unread"]
+    ]
+      .filter(Boolean)
+      .join(" ")
+  };
+
+  const [updateNotifications] = useMarkAllNotificationsAsReadMutation({
+    onError: (error) => {
+      log({
+        severity: "ERROR",
+        message: `There was an error marking notifications as read: ${error.toString()}`
+      });
+    },
+    onCompleted: ({
+      markAllNotificationsAsRead: { notifications: updatedNotifications }
+    }) => {
+      log({
+        severity: "INFO",
+        message: `${updatedNotifications.length} Notifications for account [${account.id}] set as read.`
+      });
+
+      setNotifications(
+        mergeByKey<GetGlobalDataQuery["notifications"]["nodes"][0]>(
+          notifications,
+          updatedNotifications,
+          "id"
+        )
+      );
+    }
+  });
+
+  const toggleDrawer = (anchor: string, open?: boolean) => (event) => {
     if (
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
@@ -53,14 +98,22 @@ export const Header = ({
       return;
     }
 
-    if (anchor == "notifications" && open == false) {
-      // trigger notifications read mutation
+    // If open is not passed, toggle state.
+    if (typeof open === "undefined") {
+      open = !state[anchor];
+    }
+
+    if (anchor === "notifications" && open === false) {
+      // No need to await it as such, not handled at this time.
+      updateNotifications({
+        variables: {
+          accountId: account.id
+        }
+      });
     }
 
     setState({ ...state, [anchor]: open });
   };
-
-  const { account } = useAccountContext();
 
   const subHeading = useMemo(() => {
     return isSuperOrMarketAdmin(account)
@@ -78,7 +131,7 @@ export const Header = ({
   });
 
   const TabletNavButton = () => {
-    if (state["tabletnav"] == true) {
+    if (state["tabletnav"] === true) {
       return (
         <div className={styles.tabletNavButton}>
           <ButtonBase
@@ -104,7 +157,7 @@ export const Header = ({
   };
 
   const MobileNavButton = () => {
-    if (state["mobilenav"] == true) {
+    if (state["mobilenav"] === true) {
       return (
         <div className={styles.mobileNavButton}>
           <ButtonBase
@@ -143,16 +196,12 @@ export const Header = ({
             <a>{t("Profile")}</a>
           </Link>
           <Link href="/api/auth/logout">
-            <a>{t("Logout ")}</a>
+            <a>{t("Logout")}</a>
           </Link>
         </div>
       </div>
     );
   };
-
-  const accountTierName = useMemo(() => {
-    return t(`tier.${findAccountTier(account)}`);
-  }, [account]);
 
   return (
     <div className={styles.headerContainer}>
@@ -189,7 +238,8 @@ export const Header = ({
           </Link>
           <div className={styles.midHeaderNav}>
             <IconButton
-              onClick={toggleDrawer("notifications", true)}
+              classes={notificationsIconClasses}
+              onClick={toggleDrawer("notifications")}
               id="notifications-panel-toggle"
             >
               <Icon source={Notifications} color="primary" fontSize="large" />
@@ -213,7 +263,10 @@ export const Header = ({
           </div>
 
           <div className={styles.lowerHeaderNav}>
-            <IconButton onClick={toggleDrawer("notifications", true)}>
+            <IconButton
+              classes={notificationsIconClasses}
+              onClick={toggleDrawer("notifications")}
+            >
               <Icon source={Notifications} color="primary" />
             </IconButton>
             <UserMenu />
@@ -221,7 +274,13 @@ export const Header = ({
         </div>
       </div>
 
-      <Drawer anchor="right" open={state["notifications"]}>
+      <Drawer
+        className={styles.notificationsContainer}
+        anchor="right"
+        open={state["notifications"]}
+        onClose={toggleDrawer("notifications", false)}
+        BackdropProps={{ style: { opacity: 0 } }}
+      >
         <div className={styles.notifications}>
           <div className={styles.notificationsHeader}>
             <Typography variant="h5">{t("Notifications")}</Typography>
@@ -237,6 +296,7 @@ export const Header = ({
         anchor="left"
         open={state["tabletnav"]}
         className={styles.tabletSidebarContainer}
+        onClose={toggleDrawer("tabletnav", false)}
       >
         <div className={styles.tabletSidebar}>
           <div className={styles.tabletNav}>
@@ -252,6 +312,7 @@ export const Header = ({
         anchor="top"
         open={state["mobilenav"]}
         className={styles.mobileSidebarContainer}
+        onClose={toggleDrawer("mobilenav", false)}
       >
         <div className={styles.mobileSidebar}>
           <div className={styles.mobileNav}>
@@ -265,3 +326,15 @@ export const Header = ({
     </div>
   );
 };
+
+export const markAllNotificationsAsRead = gql`
+  mutation markAllNotificationsAsRead($accountId: Int!) {
+    markAllNotificationsAsRead(input: { accountToUpdateId: $accountId }) {
+      notifications {
+        # Only fetching IDs and read status for Apollo to update client cache
+        id
+        read
+      }
+    }
+  }
+`;

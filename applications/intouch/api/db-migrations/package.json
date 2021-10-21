@@ -1,0 +1,21 @@
+{
+  "name": "@bmi/intouch-api-migration-scripts",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "description": "BMI InTouch Migration scripts",
+  "license": "BMI-DXB",
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "migrate:companies": "node trigger.js companies",
+    "migrate:training": "node trigger.js training"
+  },
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.7.1",
+    "dotenv": "^8.2.0",
+    "google-auth-library": "^7.5.0",
+    "pg": "^8.5.1",
+    "express": "^4.17.1"
+  }
+}

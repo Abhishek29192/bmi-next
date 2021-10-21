@@ -3,7 +3,7 @@ import camelcaseKeys from "camelcase-keys";
 import { FileUpload } from "graphql-upload";
 import { AccountPatch, InviteInput, Role } from "@bmi/intouch-api-types";
 import { UpdateAccountInput, Market } from "@bmi/intouch-api-types";
-import { sendEmailWithTemplate } from "../../services/mailer";
+import { sendMessageWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
 import { Account, PostGraphileContext } from "../../types";
 
@@ -84,7 +84,7 @@ export const createAccount = async (
       }
     };
 
-    await sendEmailWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+    await sendMessageWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
       email: result.data.$email,
       firstname: result.data.$first_name,
       marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`
@@ -116,9 +116,10 @@ export const updateAccount = async (
   source,
   args: { input: UpdateAccountInput },
   context: PostGraphileContext,
-  resolveInfo
+  resolveInfo,
+  auth0
 ) => {
-  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
+  const { GCP_PRIVATE_BUCKET_NAME, AUTH0_NAMESPACE } = process.env;
 
   const { pgClient, user, logger: Logger, storageClient } = context;
   const { photoUpload, role, shouldRemovePhoto }: AccountPatch =
@@ -129,10 +130,25 @@ export const updateAccount = async (
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    if (role) {
+    const termsToAccept = user[`${AUTH0_NAMESPACE}/terms_to_accept`];
+
+    if (termsToAccept && args.input.patch.termsCondition) {
+      await auth0.updateUser(user.sub, {
+        app_metadata: {
+          terms_to_accept: false
+        }
+      });
+    }
+
+    // If an installer or a company admin try to change the role to installer or company_admin
+    if (
+      (role === "COMPANY_ADMIN" || role === "INSTALLER") &&
+      (!user.can("grant:market_admin") || !user.can("grant:super_admin")) // if grant:super_admin or grant:market_admin we have high privilege
+    ) {
+      // get all the user in the current company
       const { rows: users } = await pgClient.query(
         "select account.* from account join company_member on account.id = company_member.account_id where company_member.company_id = $1",
-        [user.company.id]
+        [user?.company?.id]
       );
 
       const accountToEdit = users.find(({ id }) => id === args.input.id);
@@ -155,18 +171,6 @@ export const updateAccount = async (
           );
           throw new Error("unauthorized");
         }
-        if (!user.can("grant:market_admin") && role === "MARKET_ADMIN") {
-          logger.error(
-            `User with id: ${user.id} is trying to grant market admin to user ${args.input.id}`
-          );
-          throw new Error("unauthorized");
-        }
-        if (!user.can("grant:super_admin") && role === "SUPER_ADMIN") {
-          logger.error(
-            `User with id: ${user.id} is trying to grant super admin to user ${args.input.id}`
-          );
-          throw new Error("unauthorized");
-        }
 
         const result = await resolve(source, args, context, resolveInfo);
 
@@ -181,7 +185,7 @@ export const updateAccount = async (
           level
         });
 
-        await sendEmailWithTemplate(context, "ROLE_ASSIGNED", {
+        await sendMessageWithTemplate(context, "ROLE_ASSIGNED", {
           email: result.data.$email,
           firstname: result.data.$first_name,
           role: role?.toLowerCase().replace("_", " ")
@@ -189,6 +193,14 @@ export const updateAccount = async (
 
         return result;
       }
+    }
+
+    if (role === "MARKET_ADMIN" && !user.can("grant:market_admin")) {
+      throw new Error("unauthorized");
+    }
+
+    if (role === "SUPER_ADMIN" && !user.can("grant:super_admin")) {
+      throw new Error("unauthorized");
     }
 
     if (!photoUpload && shouldRemovePhoto) {
@@ -247,6 +259,8 @@ export const updateAccount = async (
 export const invite = async (_query, args, context, resolveInfo, auth0) => {
   const logger = context.logger("service:account");
 
+  const { FRONTEND_URL } = process.env;
+
   const user: Account = context.user;
   const { pgClient, pgRootPool } = context;
 
@@ -258,6 +272,8 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
   }: InviteInput = args.input;
 
   const result = [];
+
+  const protocol = FRONTEND_URL.includes("local") ? "http" : "https";
 
   if (!user.can("invite")) {
     throw new Error("you must be an admin to invite other users");
@@ -346,20 +362,20 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         // Creating a passsword reset ticket
         const ticket = await auth0.createResetPasswordTicket({
           user_id: auth0User?.user_id,
-          result_url: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
+          result_url: `${protocol}://${user.market.domain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
         });
-        await sendEmailWithTemplate(updatedContext, "NEWUSER_INVITED", {
+        await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetee,
           company: user.company.name,
-          registerlink: ticket.ticket,
+          registerlink: `${ticket.ticket}${user.market.domain}`,
           email: invetee
         });
         logger.info("Reset password email sent");
       } else {
-        await sendEmailWithTemplate(updatedContext, "NEWUSER_INVITED", {
+        await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetees[0].first_name,
           company: user.company.name,
-          registerlink: `https://${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
+          registerlink: `${protocol}://${user.market.domain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
           email: invetee
         });
         logger.info("Invitation email sent");
@@ -454,7 +470,7 @@ export const completeInvitation = async (
         }
       };
 
-      await sendEmailWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+      await sendMessageWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
         email: user.email,
         firstname: user.firstName,
         marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`

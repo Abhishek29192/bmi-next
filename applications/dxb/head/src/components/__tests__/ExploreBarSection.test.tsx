@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import ExploreBarSection, { Data } from "../ExploreBarSection";
+import { DataTypeEnum } from "../Link";
 
 describe("ExploreBarSection component", () => {
   it("renders correctly", () => {
@@ -16,7 +17,7 @@ describe("ExploreBarSection component", () => {
           isLabelHidden: false,
           url: "link-to-page",
           linkedPage: null,
-          type: "Internal",
+          type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null
@@ -29,7 +30,7 @@ describe("ExploreBarSection component", () => {
           isLabelHidden: false,
           url: "link-to-page-2",
           linkedPage: null,
-          type: "Internal",
+          type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null

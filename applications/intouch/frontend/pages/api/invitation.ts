@@ -29,13 +29,18 @@ export const handler = async (req, res) => {
   } else {
     logger.info("Completing the invitation");
 
-    const { completeInvitation: account } =
-      await accountSrv.completeAccountInvitation(req);
+    try {
+      const { completeInvitation: account } =
+        await accountSrv.completeAccountInvitation(req);
 
-    await accountSrv.createDoceboUser(account);
+      await accountSrv.createDoceboUser(account);
 
-    res.writeHead(302, { Location: "/api/silent-login" });
-    res.end();
+      res.writeHead(302, { Location: "/api/silent-login" });
+      res.end();
+    } catch (error) {
+      res.writeHead(302, { Location: `/api-error?message=${error.message}` });
+      res.end();
+    }
   }
 };
 

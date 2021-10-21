@@ -1,32 +1,35 @@
+import { graphql } from "gatsby";
 import React, {
+  ChangeEvent,
+  createContext,
   useCallback,
   useContext,
-  useState,
   useEffect,
-  createContext,
-  ChangeEvent,
-  useLayoutEffect
+  useLayoutEffect,
+  useState
 } from "react";
-import { graphql } from "gatsby";
-import { Box } from "@material-ui/core";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";
 import Section from "@bmi/section";
-import RadioPane from "@bmi/radio-pane";
+import RadioPane, { RadioPaneProps } from "@bmi/radio-pane";
 import Grid from "@bmi/grid";
-import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
-import { Link as GatsbyLink } from "gatsby";
-import { useLocation } from "@reach/router";
-import Scrim from "../components/Scrim";
+import { useLocation, navigate } from "@reach/router";
+import { SystemCard } from "../components/RelatedSystems";
 import ProgressIndicator from "../components/ProgressIndicator";
+import Scrim from "../components/Scrim";
+import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
-import withGTM from "../utils/google-tag-manager";
+import { queryElasticSearch } from "../utils/elasticSearch";
+import { generateSystemPath } from "../utils/systems";
+import { getPathWithCountryCode } from "../utils/path";
+import { System } from "./types/pim";
 import RichText, { RichTextData } from "./RichText";
-import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SystemConfiguratorSection.module.scss";
+import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 
 export type Data = {
   __typename: "ContentfulSystemConfiguratorBlock";
@@ -43,11 +46,9 @@ export type NextStepData = Partial<EntryData> | TitleWithContentData;
 
 type StoredStateType = {
   selectedAnswers: Array<string>;
-  selectedSystem: string;
 };
 const initialStorageState: StoredStateType = {
-  selectedAnswers: [],
-  selectedSystem: ""
+  selectedAnswers: []
 };
 
 type EntryData = {
@@ -56,7 +57,6 @@ type EntryData = {
   title: string;
   type: "Question" | "Answer" | "Result";
   description: RichTextData | null;
-  selectedSystem?: string;
 } & QuestionData &
   ResultData;
 
@@ -83,6 +83,7 @@ type SystemConfiguratorBlockProps = {
   ) => Promise<NextStepData>;
   storedAnswers?: string[];
   stateSoFar?: string[];
+  isReload: boolean;
 };
 
 const ACCORDION_TRANSITION = 500;
@@ -93,12 +94,17 @@ const saveStateToLocalStorage = (stateToStore: string) => {
   storage.local.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
 };
 
+const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_SYSTEMS;
+
+const GTMRadioPane = withGTM<RadioPaneProps>(RadioPane);
+
 const SystemConfiguratorBlock = ({
   id,
   index,
   getData,
   storedAnswers,
-  stateSoFar = []
+  stateSoFar = [],
+  isReload
 }: SystemConfiguratorBlockProps) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [myStoredAnswerId, ...remainingStoredAnswers] = storedAnswers;
@@ -162,11 +168,7 @@ const SystemConfiguratorBlock = ({
     ACCORDION_TRANSITION
   );
 
-  if (!questionData) {
-    return null;
-  }
-
-  const { type, title, ...rest } = questionData;
+  const { type, title, ...rest } = questionData || {};
 
   const { answers = [], description } = rest;
 
@@ -179,9 +181,24 @@ const SystemConfiguratorBlock = ({
     setState((state) => ({ ...state, openIndex: index }));
   };
 
+  const hasSingleAnswer = answers.length === 1 && answers[0];
   const selectedAnswer =
-    answers.find(({ id }) => id === nextId) ||
-    (answers.length === 1 && answers[0]);
+    answers.find(({ id }) => id === nextId) || hasSingleAnswer;
+
+  useEffect(() => {
+    if (hasSingleAnswer && !isReload) {
+      pushToDataLayer({
+        id: `system-configurator01-selected`,
+        label: title,
+        action: selectedAnswer.title,
+        event: "gtm.click"
+      });
+    }
+  }, [hasSingleAnswer, isReload]);
+
+  if (!questionData) {
+    return null;
+  }
 
   return (
     <>
@@ -194,7 +211,7 @@ const SystemConfiguratorBlock = ({
         handleOnChange={handleOnChange}
         options={answers.map(({ id, title: answerTitle, description }) => {
           return (
-            <RadioPane
+            <GTMRadioPane
               key={id}
               title={answerTitle}
               name={title}
@@ -208,9 +225,14 @@ const SystemConfiguratorBlock = ({
                 saveStateToLocalStorage(stateToSave);
               }}
               defaultChecked={id === selectedAnswer?.id}
+              gtm={{
+                id: "system-configurator01-selected",
+                label: title,
+                action: answerTitle
+              }}
             >
               {description && <RichText document={description} />}
-            </RadioPane>
+            </GTMRadioPane>
           );
         })}
         TransitionProps={{
@@ -227,6 +249,7 @@ const SystemConfiguratorBlock = ({
           getData={getData}
           storedAnswers={remainingStoredAnswers}
           stateSoFar={allStateSoFar}
+          isReload={isReload}
         />
       ) : null}
     </>
@@ -239,6 +262,15 @@ const SystemConfiguratorBlockNoResultsSection = ({
 }: Partial<TitleWithContentData>) => {
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
 
+  useEffect(() => {
+    pushToDataLayer({
+      id: "system-configurator01-results",
+      event: "gtm.click",
+      label: "No system found",
+      action: "No system found"
+    });
+  }, []);
+
   return (
     <div ref={ref}>
       <Section backgroundColor="alabaster">
@@ -249,63 +281,97 @@ const SystemConfiguratorBlockNoResultsSection = ({
   );
 };
 
-const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard, {
-  label: "title"
-});
-
 const SystemConfiguratorBlockResultSection = ({
   title,
   description,
-  recommendedSystems,
-  selectedSystem: _selectedSystem
+  recommendedSystems
 }: Partial<EntryData>) => {
+  const maxDisplay = 4;
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
-  // put this line at line 258 when implementing card highlight
-  // isHighlighted={selectedSystem === system}
+  const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
+    useState<Partial<System>[]>([]);
+
+  useEffect(() => {
+    const fetchESData = async () => {
+      const query = {
+        query: {
+          terms: {
+            "code.keyword": recommendedSystems
+          }
+        }
+      };
+      try {
+        const response = await queryElasticSearch(query, ES_INDEX_NAME);
+        if (response.hits?.total.value > 0) {
+          const pimObject = response.hits?.hits.map(({ _source }) => {
+            return {
+              ..._source,
+              path: generateSystemPath(_source)
+            };
+          });
+          setRecommendedSystemPimObjects(
+            pimObject
+              .sort(
+                (systemA, systemB) =>
+                  recommendedSystems.indexOf(systemA.code) -
+                  recommendedSystems.indexOf(systemB.code)
+              )
+              .slice(0, maxDisplay)
+          );
+        } else {
+          navigate("/404");
+        }
+      } catch (error) {
+        if (process.env.NODE_ENV === "development") {
+          // eslint-disable-next-line no-console
+          console.error(error);
+        }
+        navigate("/404");
+      }
+    };
+
+    if (recommendedSystems.length > 0) {
+      fetchESData();
+    } else {
+      setRecommendedSystemPimObjects([]);
+    }
+  }, [recommendedSystems]);
+
   return (
     <div ref={ref}>
       <Section
-        backgroundColor="white"
+        backgroundColor="pearl"
         className={styles["SystemConfigurator-result"]}
       >
         <Section.Title className={styles["title"]}>{title}</Section.Title>
-        {description && <RichText document={description} />}
-        {recommendedSystems && (
-          <Grid container spacing={3}>
-            {recommendedSystems.map((system) => (
-              <Grid item key={system} xs={12} md={6} lg={4} xl={3}>
-                <GTMOverviewCard
-                  title={`System-${system}`}
-                  titleVariant="h5"
-                  subtitleVariant="h6"
-                  imageSize="contain"
-                  gtm={{
-                    event: `${title}-results`,
-                    id: system,
-                    action: `/${countryCode}/system-details-page?selected_system=${system}`
-                  }}
-                  action={{
-                    model: "routerLink",
-                    linkComponent: GatsbyLink,
-                    to: `/${countryCode}/system-details-page?selected_system=${system}`
-                  }}
-                  onClick={() => {
-                    const storedState = storage.local.getItem(
-                      SYSTEM_CONFIG_STORAGE_KEY
-                    );
-                    const stateObject = JSON.parse(storedState || "");
-                    const newState = { ...stateObject, selectedSystem: system };
-                    saveStateToLocalStorage(JSON.stringify(newState));
-                  }}
-                  isHighlighted={false}
-                >
-                  {undefined}
-                </GTMOverviewCard>
-              </Grid>
-            ))}
-          </Grid>
+        {description && (
+          <div className={styles["description"]}>
+            <RichText document={description} />
+          </div>
         )}
+        {recommendedSystems.length > 0 &&
+          recommendedSystemPimObjects.length > 0 && (
+            <Grid container spacing={3}>
+              {recommendedSystemPimObjects.map((system, id) => {
+                const linkToSDP = `${system.path}/?selected_system=${system.code}&prev_page=/${countryCode}/system-configurator-page&referer=sys_details`;
+                return (
+                  <SystemCard
+                    key={`${system.code}-${id}`}
+                    system={system}
+                    countryCode={countryCode}
+                    gtm={{
+                      id: "system-configurator01-results",
+                      action: getPathWithCountryCode(countryCode, linkToSDP),
+                      label: system.name
+                    }}
+                    path={linkToSDP}
+                    isHighlighted={id === 0}
+                  />
+                );
+              })}
+            </Grid>
+          )}
       </Section>
     </div>
   );
@@ -319,7 +385,6 @@ type SystemConfiguratorSectionState = {
   error: Error | null;
 };
 
-const SYSTEM_CONFIG_QUERY_KEY = "referer";
 const SYSTEM_CONFIG_STORAGE_KEY = "SystemConfiguratorBlock";
 const VALID_REFERER = "sys_details";
 
@@ -328,13 +393,12 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
   const [storedAnswers, setStoredAnswers] =
     useState<StoredStateType>(undefined);
   const location = useLocation();
-
   // useLayoutEffect for getting value from local storage
   // as Local storage in ssr value appears after first rendering
   // see useStickyState hook
   useLayoutEffect(() => {
     const urlReferer = new URLSearchParams(location.search).get(
-      SYSTEM_CONFIG_QUERY_KEY
+      SYSTEM_CONFIG_QUERY_KEY_REFERER
     );
     const storedValues = storage.local.getItem(SYSTEM_CONFIG_STORAGE_KEY);
     setReferer(urlReferer);
@@ -451,15 +515,13 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
                 handleAnswerChange(answerId, index, cancelToken, recaptchaToken)
               }
               storedAnswers={storedAnswers.selectedAnswers}
+              isReload={(referer || "").length > 0}
             />
           </SystemConfigurtorContext.Provider>
         ) : null}
       </Section>
       {state.result && (
-        <SystemConfiguratorBlockResultSection
-          {...state.result}
-          selectedSystem={storedAnswers.selectedSystem}
-        />
+        <SystemConfiguratorBlockResultSection {...state.result} />
       )}
       {noResult && <SystemConfiguratorBlockNoResultsSection {...noResult} />}
     </>

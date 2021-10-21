@@ -31,7 +31,7 @@ export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
     <BmiThemeProvider>
       <div>
         <Head>
-          <title>BMI InTouch</title>
+          <title>BMI InTouch - {title}</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -40,11 +40,7 @@ export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
         <div className={styles.appContainerPublic}>
           <div className={styles.appMainPublic}>
             <div className={styles.logoContainerPublic}>
-              <Icon
-                source={BMI}
-                className={styles.logoContainerPublic}
-                style={{ width: 72, display: "block" }}
-              />
+              <Icon source={BMI} className={styles.logo} />
             </div>
             <div className={styles.appContentPublic}>{children}</div>
             <Footer links={footerLinks} />

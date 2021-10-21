@@ -4,16 +4,22 @@ import LeadBlock from "@bmi/lead-block";
 import Typography from "@bmi/typography";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import Button from "@bmi/button";
+import Button, { ButtonProps } from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import CheckIcon from "@material-ui/icons/Check";
 import { isEmpty } from "lodash";
 import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
 import Image, { Data as ImageData } from "../../components/Image";
+import withGTM from "../../utils/google-tag-manager";
 import { useSiteContext } from "../../components/Site";
+import { Category, Classification, Feature } from "../../components/types/pim";
+import {
+  SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
+  SYSTEM_CONFIG_QUERY_KEY_REFERER,
+  SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
+} from "../../constants/queryConstants";
 import styles from "./styles/leadBlockSection.module.scss";
-import { Category, Classification, Feature } from "./types";
 
 const BlueCheckIcon = (
   <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
@@ -21,15 +27,14 @@ const BlueCheckIcon = (
 
 type Props = {
   name: string;
-  categories: Category[];
-  classifications: Classification[];
+  categories: readonly Category[];
+  classifications: readonly Classification[];
   cta?: LinkData;
   uniqueSellingPropositions?: Feature;
+  brandLogo?: SVGImport;
 };
 
-const SYSTEM_CONFIG_QUERY_KEY = "selected_system";
-
-const getBrandLogo = (categories: Category[]): null | ImageData => {
+const getBrandLogo = (categories: readonly Category[]): null | ImageData => {
   const brandCategory = categories.find((c) => c.categoryType === "Brand");
   if (!brandCategory) return null;
 
@@ -48,9 +53,9 @@ const getBrandLogo = (categories: Category[]): null | ImageData => {
 };
 
 const getPromotionalContent = (
-  classifications: Classification[]
+  classifications?: readonly Classification[]
 ): string | null => {
-  const systemAttributes = classifications.find(
+  const systemAttributes = classifications?.find(
     (c) => c.code === "systemAttributes"
   );
   if (!systemAttributes) return null;
@@ -72,29 +77,41 @@ const LeadBlockSection = ({
   categories,
   classifications,
   cta,
-  uniqueSellingPropositions
+  uniqueSellingPropositions,
+  brandLogo: BrandLogo
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const [selectedSystemId, setSelectedSystemId] = useState("");
+  const [prevPagePath, setPrevPagePath] = useState("");
+  const [referer, setReferer] = useState("");
   const brandLogo = getBrandLogo(categories);
   const promotionalContent = getPromotionalContent(classifications);
   const location = useLocation();
 
+  const GTMButton = withGTM<ButtonProps>(Button);
+
   useEffect(() => {
-    const systemId = new URLSearchParams(location.search).get(
-      SYSTEM_CONFIG_QUERY_KEY
-    );
+    const params = new URLSearchParams(location.search);
+    const systemId = params.get(SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM);
+    const prevPagePath = params.get(SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE);
+    const referer = params.get(SYSTEM_CONFIG_QUERY_KEY_REFERER);
 
     setSelectedSystemId(systemId);
+    setPrevPagePath(prevPagePath);
+    setReferer(referer);
   }, []);
 
+  const backToYourSelectionText = getMicroCopy(
+    "sdp.leadBlock.backToYourSelection"
+  );
+  const backToYourSelectionBtnHref = `${prevPagePath}?referer=${referer}`;
   return (
     <Section backgroundColor="white" className={styles["LeadBlockSection"]}>
       <LeadBlock>
         <LeadBlock.Content>
           {brandLogo && (
             <LeadBlock.Content.Section>
-              <Image data={brandLogo} className={styles["brandLogo"]} />
+              <BrandLogo className={styles["brandLogo"]} />
             </LeadBlock.Content.Section>
           )}
 
@@ -110,30 +127,45 @@ const LeadBlockSection = ({
             </LeadBlock.Content.Section>
           )}
           <LeadBlock.Content.Section className={styles["ctaContainer"]}>
-            {selectedSystemId && (
-              <Button
+            {selectedSystemId && prevPagePath && (
+              <GTMButton
                 variant="text"
+                size="large"
+                className={styles["backToYourSelectionBtn"]}
                 action={{
                   model: "htmlLink",
-                  href: `system-configurator-page?referer=sys_details`,
+                  href: backToYourSelectionBtnHref,
                   rel: "noopener noreferrer"
+                }}
+                gtm={{
+                  id: "cta-click1",
+                  label: backToYourSelectionText,
+                  action: backToYourSelectionBtnHref
                 }}
                 startIcon={<ArrowBackIcon />}
               >
-                {getMicroCopy("sdp.leadBlock.backToYourSelection")}
-              </Button>
+                {backToYourSelectionText}
+              </GTMButton>
             )}
             {Boolean(cta) && (
               <Link
                 data={cta}
                 component={({ children, ...rest }) => (
-                  <Button
+                  <GTMButton
                     {...rest}
                     className={styles["quotationBtn"]}
                     endIcon={<ArrowForwardIcon />}
+                    gtm={{
+                      id: "cta-click1",
+                      label: cta.label,
+                      action:
+                        cta.type === "Dialog"
+                          ? "Form-modal" + cta.dialogContent.__typename
+                          : cta.url
+                    }}
                   >
                     {children}
-                  </Button>
+                  </GTMButton>
                 )}
               >
                 {cta.label}

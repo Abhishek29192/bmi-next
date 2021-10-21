@@ -7,12 +7,14 @@ export const mockMediaFolderQueryResult: GetMediaFoldersQuery = {
         mediaLibraryRootCollection: {
           items: [
             {
+              __typename: "MediaFolder",
               sys: {
                 id: "4nG2CwGJ5HYFjzmTudiKuX"
               },
               name: "Technical Information"
             },
             {
+              __typename: "MediaFolder",
               sys: {
                 id: "1o5Pj4P3rmpzKhjRQC5gkJ"
               },
@@ -27,6 +29,7 @@ export const mockMediaFolderQueryResult: GetMediaFoldersQuery = {
     total: 7,
     items: [
       {
+        __typename: "MediaFolder",
         sys: {
           id: "2RdhIZRj7BuTDbC2eO2vQp"
         },
@@ -52,6 +55,7 @@ export const mockMediaFolderQueryResult: GetMediaFoldersQuery = {
         }
       },
       {
+        __typename: "MediaFolder",
         sys: {
           id: "1PEb5EJ4v7YNXFc8zoZ8ed"
         },
@@ -84,6 +88,7 @@ export const mockMediaFolderQueryResult: GetMediaFoldersQuery = {
         }
       },
       {
+        __typename: "MediaFolder",
         sys: {
           id: "4nG2CwGJ5HYFjzmTudiKuX"
         },
@@ -102,6 +107,7 @@ export const mockMediaFolderQueryResult: GetMediaFoldersQuery = {
         }
       },
       {
+        __typename: "MediaFolder",
         sys: {
           id: "7uwBeeAddtivDzEH6aEDef"
         },
@@ -134,6 +140,7 @@ export const mockMediaFolderQueryResult: GetMediaFoldersQuery = {
         }
       },
       {
+        __typename: "MediaFolder",
         sys: {
           id: "4cMlAdSxDHY2S8mrU2jNzL"
         },
@@ -187,6 +194,7 @@ export const mockMediaFolderQueryResult: GetMediaFoldersQuery = {
         }
       },
       {
+        __typename: "MediaFolder",
         sys: {
           id: "1o5Pj4P3rmpzKhjRQC5gkJ"
         },
@@ -247,6 +255,7 @@ export const mockMediaFolderQueryResult: GetMediaFoldersQuery = {
         }
       },
       {
+        __typename: "MediaFolder",
         sys: {
           id: "fMiK6cMWNNqQEvsGTttTb"
         },

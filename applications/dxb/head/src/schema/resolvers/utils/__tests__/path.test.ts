@@ -1,4 +1,3 @@
-import React from "react";
 import { getUrlFromPath, resolvePath } from "../path";
 
 describe("Path resolver util", () => {

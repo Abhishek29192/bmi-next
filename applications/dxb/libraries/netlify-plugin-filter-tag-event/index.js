@@ -2,7 +2,11 @@
 
 const productionBranch = "production";
 const preProductionBranch = "pre-production";
-const hooksToAllow = ["Contentful integration", "Clean cache"];
+const hooksToAllow = [
+  "Contentful integration",
+  "Clean cache",
+  "Firestore hook"
+];
 const branchesToCheck = [productionBranch, preProductionBranch];
 
 // NOTE: https://github.com/semver/semver/issues/232#issuecomment-405596809

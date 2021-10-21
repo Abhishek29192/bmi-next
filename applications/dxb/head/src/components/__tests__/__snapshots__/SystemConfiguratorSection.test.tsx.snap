@@ -88,6 +88,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -127,6 +128,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -167,6 +169,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -213,7 +216,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
   </div>
   <div>
     <div
-      class="SystemConfigurator-result Section Section--white"
+      class="SystemConfigurator-result Section Section--pearl"
     >
       <div
         class="Container"
@@ -227,72 +230,72 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
             Result Title
           </h2>
           <div
-            class="RichText"
+            class="description"
           >
-            <h3
-              class="MuiTypography-root title Typography MuiTypography-h3"
+            <div
+              class="RichText"
             >
-              Rich Text heading 3
-            </h3>
-            <p
-              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-            >
-              Rich Text paragraph text
-            </p>
+              <h3
+                class="MuiTypography-root title Typography MuiTypography-h3"
+              >
+                Rich Text heading 3
+              </h3>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              >
+                Rich Text paragraph text
+              </p>
+            </div>
           </div>
           <div
             class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
-                href="/no/system-details-page?selected_system=abcd"
+                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="body"
-                >
-                  <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                  >
-                    System-abcd
-                  </h5>
-                  <div
-                    class="children text"
-                  />
-                </div>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="header-picture header-picture--contain"
+                  style="background-image: url(testhttp);"
                 />
-              </a>
-            </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
-            >
-              <a
-                aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
-                href="/no/system-details-page?selected_system=efgh"
-                role="button"
-                tabindex="0"
-              >
                 <div
                   class="body"
                 >
                   <h5
                     class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
-                    System-efgh
+                    efgh name
                   </h5>
                   <div
                     class="children text"
-                  />
+                  >
+                    efgh description
+                  </div>
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-44"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
                 <span
                   class="MuiTouchRipple-root"
@@ -395,6 +398,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -434,6 +438,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -474,6 +479,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -520,7 +526,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
   </div>
   <div>
     <div
-      class="SystemConfigurator-result Section Section--white"
+      class="SystemConfigurator-result Section Section--pearl"
     >
       <div
         class="Container"
@@ -534,77 +540,331 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
             Result Title
           </h2>
           <div
-            class="RichText"
+            class="description"
           >
-            <h3
-              class="MuiTypography-root title Typography MuiTypography-h3"
+            <div
+              class="RichText"
             >
-              Rich Text heading 3
-            </h3>
-            <p
-              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-            >
-              Rich Text paragraph text
-            </p>
+              <h3
+                class="MuiTypography-root title Typography MuiTypography-h3"
+              >
+                Rich Text heading 3
+              </h3>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              >
+                Rich Text paragraph text
+              </p>
+            </div>
           </div>
           <div
             class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
-                href="/no/system-details-page?selected_system=abcd"
+                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
+                <div
+                  class="header-picture header-picture--contain"
+                  style="background-image: url(testhttp);"
+                />
                 <div
                   class="body"
                 >
                   <h5
                     class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
-                    System-abcd
+                    efgh name
                   </h5>
                   <div
                     class="children text"
-                  />
+                  >
+                    efgh description
+                  </div>
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-24"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
                 <span
                   class="MuiTouchRipple-root"
                 />
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component redirect to 404 page if no matches to pimSystem code 1`] = `
+<div>
+  <div
+    class="SystemConfigurator Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
             >
-              <a
-                aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
-                href="/no/system-details-page?selected_system=efgh"
-                role="button"
-                tabindex="0"
+              <div
+                class="MuiAccordionSummary-content"
               >
-                <div
-                  class="body"
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
                 >
-                  <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  Question One: 
+                  <span
+                    class="selected-title"
                   >
-                    System-efgh
-                  </h5>
-                  <div
-                    class="children text"
-                  />
-                </div>
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </a>
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="SystemConfigurator-result Section Section--pearl"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+          >
+            Result Title
+          </h2>
+          <div
+            class="description"
+          >
+            <div
+              class="RichText"
+            >
+              <h3
+                class="MuiTypography-root title Typography MuiTypography-h3"
+              >
+                Rich Text heading 3
+              </h3>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              >
+                Rich Text paragraph text
+              </p>
             </div>
           </div>
         </div>
@@ -697,6 +957,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -736,6 +997,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -775,6 +1037,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -910,6 +1173,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -950,6 +1214,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -989,6 +1254,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -1157,6 +1423,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -1196,6 +1463,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -1236,6 +1504,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -1282,7 +1551,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
   </div>
   <div>
     <div
-      class="SystemConfigurator-result Section Section--white"
+      class="SystemConfigurator-result Section Section--pearl"
     >
       <div
         class="Container"
@@ -1296,72 +1565,72 @@ exports[`SystemConfiguratorSection component renders a result section when answe
             Result Title
           </h2>
           <div
-            class="RichText"
+            class="description"
           >
-            <h3
-              class="MuiTypography-root title Typography MuiTypography-h3"
+            <div
+              class="RichText"
             >
-              Rich Text heading 3
-            </h3>
-            <p
-              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-            >
-              Rich Text paragraph text
-            </p>
+              <h3
+                class="MuiTypography-root title Typography MuiTypography-h3"
+              >
+                Rich Text heading 3
+              </h3>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              >
+                Rich Text paragraph text
+              </p>
+            </div>
           </div>
           <div
             class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
-                href="/no/system-details-page?selected_system=abcd"
+                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="body"
-                >
-                  <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                  >
-                    System-abcd
-                  </h5>
-                  <div
-                    class="children text"
-                  />
-                </div>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="header-picture header-picture--contain"
+                  style="background-image: url(testhttp);"
                 />
-              </a>
-            </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
-            >
-              <a
-                aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
-                href="/no/system-details-page?selected_system=efgh"
-                role="button"
-                tabindex="0"
-              >
                 <div
                   class="body"
                 >
                   <h5
                     class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
-                    System-efgh
+                    efgh name
                   </h5>
                   <div
                     class="children text"
-                  />
+                  >
+                    efgh description
+                  </div>
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-4"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
                 <span
                   class="MuiTouchRipple-root"
@@ -1464,6 +1733,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -1503,6 +1773,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -1543,6 +1814,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -1651,6 +1923,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title A\\"}"
                           name="Next Question Title"
                           type="radio"
                           value="Next Answer Title A"
@@ -1690,6 +1963,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title B\\"}"
                           name="Next Question Title"
                           type="radio"
                           value="Next Answer Title B"
@@ -1845,6 +2119,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -1884,6 +2159,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -1924,6 +2200,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -2032,6 +2309,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title A\\"}"
                           name="Next Question Title"
                           type="radio"
                           value="Next Answer Title A"
@@ -2071,6 +2349,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title B\\"}"
                           name="Next Question Title"
                           type="radio"
                           value="Next Answer Title B"
@@ -2206,6 +2485,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -2246,6 +2526,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -2285,6 +2566,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -2442,6 +2724,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -2482,6 +2765,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -2521,6 +2805,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -2678,6 +2963,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -2718,6 +3004,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -2757,6 +3044,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -2824,6 +3112,804 @@ exports[`SystemConfiguratorSection component renders no result section with the 
               class="embedded-asset"
               src="https:// path to image.jpg"
             />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders only max of 4 recommendedSystems 1`] = `
+<div>
+  <div
+    class="SystemConfigurator Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="SystemConfigurator-result Section Section--pearl"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+          >
+            Result Title
+          </h2>
+          <div
+            class="description"
+          >
+            <div
+              class="RichText"
+            >
+              <h3
+                class="MuiTypography-root title Typography MuiTypography-h3"
+              >
+                Rich Text heading 3
+              </h3>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              >
+                Rich Text paragraph text
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/s/ijkl-name-2172393344/?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/ijkl-name-2172393344/?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    ijkl name
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-84"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    efgh name
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-84"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/s/abcd-name-1139631978/?selected_system=abcd&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/abcd-name-1139631978/?selected_system=abcd&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    abcd name
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-84"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/s/mnop-name-2284218567/?selected_system=mnop&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/mnop-name-2284218567/?selected_system=mnop&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    mnop name
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-84"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SystemConfiguratorSection component renders only the recommendedSystems that match the pimSystem list from contentful 1`] = `
+<div>
+  <div
+    class="SystemConfigurator Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+        <div
+          class="ConfiguratorPanel"
+        >
+          <div
+            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+          >
+            <div
+              aria-disabled="false"
+              aria-expanded="false"
+              class="MuiButtonBase-root MuiAccordionSummary-root summary"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiAccordionSummary-content"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                >
+                  Question One: 
+                  <span
+                    class="selected-title"
+                  >
+                    Answer 1c title
+                  </span>
+                </h3>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-hidden="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiCollapse-container"
+              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
+            >
+              <div
+                class="MuiCollapse-wrapper"
+              >
+                <div
+                  class="MuiCollapse-wrapperInner"
+                >
+                  <div
+                    role="region"
+                  >
+                    <div
+                      class="MuiAccordionDetails-root details"
+                    >
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1a title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1a title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1b title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1b title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                      <label
+                        class="RadioPane"
+                      >
+                        <input
+                          checked=""
+                          class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
+                          name="Question One"
+                          type="radio"
+                          value="Answer 1c title"
+                        />
+                        <div
+                          aria-disabled="false"
+                          class="MuiButtonBase-root pane"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="header"
+                          >
+                            <h6
+                              class="MuiTypography-root title Typography MuiTypography-h6"
+                            >
+                              Answer 1c title
+                            </h6>
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root checkedIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              />
+                            </svg>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="SystemConfigurator-result Section Section--pearl"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+          >
+            Result Title
+          </h2>
+          <div
+            class="description"
+          >
+            <div
+              class="RichText"
+            >
+              <h3
+                class="MuiTypography-root title Typography MuiTypography-h3"
+              >
+                Rich Text heading 3
+              </h3>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              >
+                Rich Text paragraph text
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/s/ijkl-name-2172393344/?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/ijkl-name-2172393344/?selected_system=ijkl&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    ijkl name
+                  </h5>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-64"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details\\"}"
+                href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/no/system-configurator-page&referer=sys_details"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="header-picture header-picture--contain"
+                  style="background-image: url(testhttp);"
+                />
+                <div
+                  class="body"
+                >
+                  <h5
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                  >
+                    efgh name
+                  </h5>
+                  <div
+                    class="children text"
+                  >
+                    efgh description
+                  </div>
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-64"
+                      >
+                        MC: sdp.system.readMore
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -2920,6 +4006,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -2959,6 +4046,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -2999,6 +4087,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -3113,6 +4202,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Skipped Title\\",\\"action\\":\\"Skipped Answer Title\\"}"
                           name="Skipped Title"
                           type="radio"
                           value="Skipped Answer Title"
@@ -3221,6 +4311,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title A\\"}"
                           name="Next Question Title"
                           type="radio"
                           value="Next Answer Title A"
@@ -3260,6 +4351,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title B\\"}"
                           name="Next Question Title"
                           type="radio"
                           value="Next Answer Title B"
@@ -3395,6 +4487,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1a title"
@@ -3434,6 +4527,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1b title"
@@ -3474,6 +4568,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         <input
                           checked=""
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
                           value="Answer 1c title"
@@ -3582,6 +4677,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title A\\"}"
                           name="Next Question Title"
                           type="radio"
                           value="Next Answer Title A"
@@ -3621,6 +4717,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                       >
                         <input
                           class="input"
+                          data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title B\\"}"
                           name="Next Question Title"
                           type="radio"
                           value="Next Answer Title B"
@@ -3697,313 +4794,6 @@ exports[`SystemConfiguratorSection component renders with description rich text 
           >
             Rich Text paragraph text
           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`SystemConfiguratorSection component stores selected system when a result system card clicked 1`] = `
-<div>
-  <div
-    class="SystemConfigurator Section Section--white"
-  >
-    <div
-      class="Container"
-    >
-      <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
-      >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          System Configurator Section Title
-        </h2>
-        <div
-          class="ConfiguratorPanel"
-        >
-          <div
-            class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
-          >
-            <div
-              aria-disabled="false"
-              aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root summary"
-              role="button"
-              tabindex="0"
-            >
-              <div
-                class="MuiAccordionSummary-content"
-              >
-                <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
-                >
-                  Question One: 
-                  <span
-                    class="selected-title"
-                  >
-                    Answer 1c title
-                  </span>
-                </h3>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-hidden="true"
-                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-              >
-                <span
-                  class="MuiIconButton-label"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-            </div>
-            <div
-              class="MuiCollapse-container"
-              style="min-height: 0px; height: 0px; transition-duration: 500ms;"
-            >
-              <div
-                class="MuiCollapse-wrapper"
-              >
-                <div
-                  class="MuiCollapse-wrapperInner"
-                >
-                  <div
-                    role="region"
-                  >
-                    <div
-                      class="MuiAccordionDetails-root details"
-                    >
-                      <label
-                        class="RadioPane"
-                      >
-                        <input
-                          class="input"
-                          name="Question One"
-                          type="radio"
-                          value="Answer 1a title"
-                        />
-                        <div
-                          aria-disabled="false"
-                          class="MuiButtonBase-root pane"
-                          role="button"
-                          tabindex="-1"
-                        >
-                          <div
-                            class="header"
-                          >
-                            <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
-                            >
-                              Answer 1a title
-                            </h6>
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                              />
-                            </svg>
-                          </div>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </div>
-                      </label>
-                      <label
-                        class="RadioPane"
-                      >
-                        <input
-                          class="input"
-                          name="Question One"
-                          type="radio"
-                          value="Answer 1b title"
-                        />
-                        <div
-                          aria-disabled="false"
-                          class="MuiButtonBase-root pane"
-                          role="button"
-                          tabindex="-1"
-                        >
-                          <div
-                            class="header"
-                          >
-                            <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
-                            >
-                              Answer 1b title
-                            </h6>
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                              />
-                            </svg>
-                          </div>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </div>
-                      </label>
-                      <label
-                        class="RadioPane"
-                      >
-                        <input
-                          checked=""
-                          class="input"
-                          name="Question One"
-                          type="radio"
-                          value="Answer 1c title"
-                        />
-                        <div
-                          aria-disabled="false"
-                          class="MuiButtonBase-root pane"
-                          role="button"
-                          tabindex="-1"
-                        >
-                          <div
-                            class="header"
-                          >
-                            <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
-                            >
-                              Answer 1c title
-                            </h6>
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                              />
-                            </svg>
-                          </div>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div
-      class="SystemConfigurator-result Section Section--white"
-    >
-      <div
-        class="Container"
-      >
-        <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
-        >
-          <h2
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
-          >
-            Result Title
-          </h2>
-          <div
-            class="RichText"
-          >
-            <h3
-              class="MuiTypography-root title Typography MuiTypography-h3"
-            >
-              Rich Text heading 3
-            </h3>
-            <p
-              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-            >
-              Rich Text paragraph text
-            </p>
-          </div>
-          <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-          >
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
-            >
-              <a
-                aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"abcd\\",\\"label\\":\\"System-abcd\\",\\"action\\":\\"/no/system-details-page?selected_system=abcd\\"}"
-                href="/no/system-details-page?selected_system=abcd"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="body"
-                >
-                  <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                  >
-                    System-abcd
-                  </h5>
-                  <div
-                    class="children text"
-                  />
-                </div>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </a>
-            </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
-            >
-              <a
-                aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"efgh\\",\\"label\\":\\"System-efgh\\",\\"action\\":\\"/no/system-details-page?selected_system=efgh\\"}"
-                href="/no/system-details-page?selected_system=efgh"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="body"
-                >
-                  <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                  >
-                    System-efgh
-                  </h5>
-                  <div
-                    class="children text"
-                  />
-                </div>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>

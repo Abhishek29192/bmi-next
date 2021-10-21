@@ -5,8 +5,7 @@ import Clickable from "@bmi/clickable";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simple-page";
-import { pushToDataLayer } from "../utils/google-tag-manager";
-import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../utils/path";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
@@ -20,6 +19,24 @@ const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
   return actionUrls.some((actionUrl) => url.startsWith(actionUrl));
 };
+export enum DataTypeEnum {
+  External = "External",
+  Internal = "Internal",
+  Asset = "Asset",
+  Visualiser = "Visualiser",
+  Calculator = "Calculator",
+  Dialog = "Dialog",
+  HubSpotCta = "HubSpot CTA"
+}
+
+const isExternalUrl = (url: string): boolean => {
+  try {
+    const linkUrl = new URL(url);
+    return linkUrl.host !== window.location.host;
+  } catch (e) {
+    return false;
+  }
+};
 
 // TODO: This whole function needs refactoring
 export const getClickableActionFromUrl = (
@@ -29,59 +46,64 @@ export const getClickableActionFromUrl = (
   assetUrl?: string,
   label?: string,
   type?: Data["type"],
-  onClick?: (...args: any) => void
+  onClick?: (...args: any) => void,
+  gtmData?: {
+    id: string;
+    label: string;
+    action: string;
+  }
 ): ClickableAction | undefined => {
-  if (type === "Visualiser") {
-    const dataGtm = { id: "cta-visualiser1", action: "visualiser", label };
+  if (type === DataTypeEnum.Visualiser) {
+    const dataGtm = gtmData || {
+      id: "cta-visualiser1",
+      action: "visualiser",
+      label
+    };
 
     return {
       model: "default",
-      onClick: (...args) => {
-        onClick && onClick(...args);
-        pushToDataLayer(dataGtm);
-      },
+      onClick,
       // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
 
-  if (type === "Calculator") {
-    const dataGtm = { id: "cta-calculator1", action: "calculator", label };
+  if (type === DataTypeEnum.Calculator) {
+    const dataGtm = gtmData || {
+      id: "cta-calculator1",
+      action: "calculator",
+      label
+    };
 
     return {
       model: "default",
-      onClick: (...args) => {
-        onClick && onClick(...args);
-        pushToDataLayer(dataGtm);
-      },
+      onClick,
       // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
 
-  if (type === "Dialog") {
-    const dataGtm = { id: "cta-click1", action: type, label };
-
+  if (type === DataTypeEnum.Dialog) {
+    const dataGtm = gtmData || { id: "cta-click1", action: type, label };
     return {
       model: "default",
-      onClick: (...args) => {
-        onClick && onClick(...args);
-        pushToDataLayer(dataGtm);
-      },
+      onClick,
       // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
 
   if (assetUrl) {
-    const dataGtm = { id: "cta-click1", action: assetUrl, label };
-
+    const dataGtm = gtmData || {
+      id: "cta-click1",
+      action: assetUrl,
+      label
+    };
     return {
       model: "download",
       href: assetUrl,
       // @ts-ignore data-gtm is not defined but a general html attribute
-      "data-gtm": JSON.stringify(dataGtm),
-      onClick: () => pushToDataLayer(dataGtm)
+      "data-gtm": JSON.stringify(dataGtm)
     };
   }
 
@@ -94,33 +116,31 @@ export const getClickableActionFromUrl = (
       /\/+/gi,
       "/"
     );
-    const dataGtm = { id: "cta-click1", action: to, label };
+    const dataGtm = gtmData || { id: "cta-click1", action: to, label };
 
     return {
       model: "routerLink",
       to,
       linkComponent: GatsbyLink,
       // @ts-ignore data-gtm is not defined but a general html attribute
-      "data-gtm": JSON.stringify(dataGtm),
-      onClick: () => pushToDataLayer(dataGtm)
+      "data-gtm": JSON.stringify(dataGtm)
     };
   }
 
   if (url) {
-    const externalUrl = {
+    const externalLinkProps = {
       // NOTE: External links should always open in a new tab.
       target: "_blank",
       rel: "noopener noreferrer"
     };
-    const dataGtm = { id: "cta-click1", action: url, label };
+    const dataGtm = gtmData || { id: "cta-click1", action: url, label };
 
     return {
       model: "htmlLink",
       href: url,
-      ...(checkUrlAction(url) ? {} : externalUrl),
+      ...(checkUrlAction(url) || !isExternalUrl(url) ? {} : externalLinkProps),
       // @ts-ignore data-gtm is not defined but a general html attribute
-      "data-gtm": JSON.stringify(dataGtm),
-      onClick: () => pushToDataLayer(dataGtm)
+      "data-gtm": JSON.stringify(dataGtm)
     };
   }
 };
@@ -184,15 +204,7 @@ export type Data = {
   icon: IconName | null;
   isLabelHidden: boolean | null;
   url: string | null;
-  type:
-    | "External"
-    | "Internal"
-    | "Asset"
-    | "Visualiser"
-    | "Calculator"
-    | "Dialog"
-    | "HubSpot CTA"
-    | null;
+  type: DataTypeEnum | null;
   parameters: { [key: string]: any } | null;
   dialogContent: SectionData | null;
   linkedPage: {

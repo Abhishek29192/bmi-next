@@ -231,7 +231,7 @@ exports[`Contact us page renders correctly 1`] = `
           <a
             aria-label="MC: global.logoLabel"
             class="logo-link"
-            href="/no/"
+            href="/no"
           >
             <svg
               class="logo"

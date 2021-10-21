@@ -12,13 +12,15 @@ import { ProjectsInsight } from "../Cards/ProjectsInsight";
 import { TabCard } from "../Cards/TabCard";
 import { TeamTab } from "../Tabs/Team";
 import { GuaranteeTab } from "../Tabs/Guarantee";
-import { UploadsTab } from "../Tabs/Uploads";
+import { UploadsTab, Evidence } from "../Tabs/Uploads";
 import { NoProjectsCard } from "../Cards/NoProjects";
 import { NoteTab } from "../Tabs/Notes";
 import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
 import ProjectEditAction from "../Pages/Project/ProjectEditAction/Button";
+import BuildingOwnerDetailsEditButton from "../Pages/Project/BuildingOwnerDetailsEditAction/Button";
 import {
   GetProjectDocument,
+  useCreateGuaranteePdfMutation,
   useGetProjectQuery,
   useUpdateGuaranteeMutation
 } from "../../graphql/generated/hooks";
@@ -29,7 +31,9 @@ import {
   getGuaranteeEventType,
   isProjectApprovable,
   isSolutionOrSystemGuaranteeExist,
-  getGuaranteeStatus
+  getGuaranteeStatus,
+  getProjectDaysRemaining,
+  getProjectCertifiedInstallers
 } from "../../lib/utils/project";
 import log from "../../lib/logger";
 import { useAccountContext } from "../../context/AccountContext";
@@ -49,6 +53,13 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
         severity: "INFO",
         message: `Guarantee ID [${guarantee.id}] status updated`
       });
+      if (guarantee.status === "APPROVED") {
+        createGuaranteePdfMutation({
+          variables: {
+            id: guarantee.id
+          }
+        });
+      }
     },
     refetchQueries: [
       {
@@ -59,6 +70,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       }
     ]
   });
+  const [createGuaranteePdfMutation] = useCreateGuaranteePdfMutation();
 
   // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
   const getProjectGuaranteeType = useCallback(
@@ -114,11 +126,15 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       severity: "ERROR",
       message: `Error loading project details. ID: ${projectId}. Error: ${error.toString()}`
     });
-    return <div>Error loading project details.</div>;
+    return (
+      <div style={{ minHeight: "100vh" }}>Error loading project details.</div>
+    );
   }
 
-  // TODO: Microcopy
-  if (loading) return <>Loading project details...</>;
+  if (loading)
+    return (
+      <div style={{ minHeight: "100vh" }}>{t("projectDetails.loading")}</div>
+    );
 
   const isGuaranteeAppliable =
     can(account, "project", "submitSolutionGuarantee") &&
@@ -136,6 +152,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       <Grid item xs={12} md={8}>
         <ProjectsHeader
           title={project.name}
+          technology={project.technology}
           projectCode={`${project.id}`}
           projectStatus={getProjectStatus(project.startDate, project.endDate)}
           buildingAddress={project.siteAddress}
@@ -157,19 +174,24 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           email={project.buildingOwnerMail}
           company={project.buildingOwnerCompany}
           address={project.buildingOwnerAddress}
+          renderActions={() => (
+            <BuildingOwnerDetailsEditButton project={project} />
+          )}
         />
       </Grid>
 
       <Grid item xs={12} md={4}>
         <ProjectsInsight
-          daysRemaining="1"
-          totalDays="5"
-          certifiedInstallers="0"
+          daysRemaining={getProjectDaysRemaining(
+            project.startDate,
+            project.endDate
+          )}
+          certifiedInstallers={getProjectCertifiedInstallers(project)}
         />
       </Grid>
       <Grid item xs={12}>
         <Tabs initialValue="one">
-          <Tabs.TabPanel heading="Team" index="one">
+          <Tabs.TabPanel heading={t("tabs.team")} index="one">
             <TabCard>
               <TeamTab
                 projectId={projectId}
@@ -178,7 +200,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
               />
             </TabCard>
           </Tabs.TabPanel>
-          <Tabs.TabPanel heading="Guarantee" index="two">
+          <Tabs.TabPanel heading={t("tabs.guarantee")} index="two">
             <TabCard>
               <GuaranteeTab
                 project={project}
@@ -186,12 +208,12 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
               />
             </TabCard>
           </Tabs.TabPanel>
-          <Tabs.TabPanel heading="Uploads" index="three">
+          <Tabs.TabPanel heading={t("tabs.uploads")} index="three">
             <TabCard>
               <UploadedFiles project={project} />
             </TabCard>
           </Tabs.TabPanel>
-          <Tabs.TabPanel heading="Notes" index="four">
+          <Tabs.TabPanel heading={t("tabs.notes")} index="four">
             <TabCard>
               <NoteTab
                 accountId={account.id}
@@ -224,14 +246,15 @@ const UploadedFiles = ({
 }) => {
   const { t } = useTranslation("project-page");
   const { id, guarantees, evidenceItems } = project;
+  const { account } = useAccountContext();
 
-  const map = new Map<string, string[]>();
+  const map = new Map<string, Evidence[]>();
   //Default category
   map.set(t("MISCELLANEOUS"), []);
   //Default guarantee types
   for (const guarantee of guarantees.nodes) {
     const evidenceCategories =
-      guarantee.guaranteeType?.evidenceCategoriesCollection?.items;
+      guarantee.guaranteeType?.evidenceCategoriesCollection?.items || [];
     for (const evidenceCategory of evidenceCategories.filter(Boolean)) {
       map.set(evidenceCategory.name, []);
     }
@@ -243,9 +266,22 @@ const UploadedFiles = ({
         ? t(evidence.evidenceCategoryType)
         : evidence.customEvidenceCategory?.name ||
           t(evidence.evidenceCategoryType);
+    const canEvidenceDelete =
+      can(account, "project", "deleteEvidence") &&
+      (evidence.evidenceCategoryType === "MISCELLANEOUS" ||
+        (evidence.evidenceCategoryType === "CUSTOM" &&
+          !["REVIEW", "APPROVED"].includes(getGuaranteeStatus(project))));
 
     const existFiles = map.has(categoryLabel) ? map.get(categoryLabel) : [];
-    map.set(categoryLabel, [...existFiles, evidence.name]);
+    map.set(categoryLabel, [
+      ...existFiles,
+      {
+        id: evidence.id,
+        name: evidence.name,
+        url: evidence.signedUrl,
+        canEvidenceDelete
+      }
+    ]);
   }
 
   const guaranteeEvidence = getGuaranteeEvidence(guarantees.nodes);
@@ -291,25 +327,14 @@ export const GET_PROJECT = gql`
     endDate
     description
     siteAddress {
-      id
-      firstLine
-      secondLine
-      town
-      region
-      postcode
-      country
+      ...AddressLinesFragment
     }
     buildingOwnerFirstname
     buildingOwnerLastname
     buildingOwnerCompany
     buildingOwnerMail
     buildingOwnerAddress {
-      id
-      firstLine
-      secondLine
-      town
-      region
-      postcode
+      ...AddressLinesFragment
     }
     guarantees {
       nodes {
@@ -354,6 +379,8 @@ export const GET_PROJECT = gql`
             }
           }
         }
+        fileStorageId
+        signedFileStorageUrl
         status
       }
     }
@@ -361,6 +388,7 @@ export const GET_PROJECT = gql`
       nodes {
         id
         name
+        signedUrl
         guaranteeId
         evidenceCategoryType
         customEvidenceCategoryKey

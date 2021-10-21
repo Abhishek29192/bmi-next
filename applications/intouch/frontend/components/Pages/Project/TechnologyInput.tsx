@@ -6,21 +6,38 @@ import Grid from "@bmi/grid";
 import RadioGroup from "@bmi/radio-group";
 import Typography from "@bmi/typography";
 import Icon, { FlatRoof, PitchedRoof } from "@bmi/icon";
+import { Props as TextFieldProps } from "@bmi/text-field";
 import { getFieldValueLabel } from "./Form";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";
 
-const technologyIcons = {
-  FLAT: FlatRoof,
+const FlatIconWrapper: React.FunctionComponent<React.SVGProps<SVGSVGElement>> =
+  (props) => <FlatRoof viewBox="0 7 48 48" {...props} />;
+
+// TODO: Use this once "OTHER" is removed from it
+const technologyIcons: Record<
+  Exclude<Technology, "OTHER">,
+  React.SFC<React.SVGProps<SVGSVGElement>>
+> = {
+  FLAT: FlatIconWrapper,
   PITCHED: PitchedRoof
 };
 
-type TechnologyInputProps = {
-  defaultValue?: Technology;
+type TechnologyInputProps = Pick<
+  TextFieldProps,
+  | "className"
+  | "name"
+  | "label"
+  | "fullWidth"
+  // | "fieldIsRequiredError" // TODO: I don't get why it doesn't like these
+  // | "defaultValue"
+  | "disabled"
+> & {
+  defaultValue?: any;
 };
 
 // This is to manage the Radio group not updating form state when items are not direct children
-const TechnologyInput = ({ defaultValue }: TechnologyInputProps) => {
+const TechnologyInput = ({ defaultValue, disabled }: TechnologyInputProps) => {
   const { t } = useTranslation("project-page");
   const { updateFormState, values } = useContext(FormContext);
 
@@ -53,6 +70,7 @@ const TechnologyInput = ({ defaultValue }: TechnologyInputProps) => {
               value={value}
               onChange={handleTechnologyChange}
               checked={values["technology"] === value}
+              disabled={disabled}
             >
               <Icon
                 source={technologyIcons[value]}
@@ -60,7 +78,11 @@ const TechnologyInput = ({ defaultValue }: TechnologyInputProps) => {
               />
               {getFieldValueLabel(t, "technology", value)}
             </RadioGroup.Item>
-            <Typography variant="caption" component="div">
+            <Typography
+              variant="caption"
+              component="div"
+              className={styles.technologyCaption}
+            >
               {t(
                 `project-page:addProject.dialog.form.hints.technology.${value}`
               )}

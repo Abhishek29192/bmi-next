@@ -63,7 +63,9 @@ export default class StorageClient implements StorageClientType {
   }
 
   async deleteFile(bucketName: string, fileName: string): Promise<any> {
-    return this.storage.bucket(bucketName).file(fileName).delete();
+    return !this.isExternal(fileName)
+      ? await this.storage.bucket(bucketName).file(fileName).delete()
+      : null;
   }
 
   getPublicFileUrl(fileName: string): string {
@@ -115,5 +117,11 @@ export default class StorageClient implements StorageClientType {
       fileName,
       expiryDate
     );
+  }
+
+  isExternal(filePath: string) {
+    // if we try to delete an externally hosted file
+    // Cloud Storage wouldn't find the file
+    return !filePath || filePath.startsWith("http");
   }
 }

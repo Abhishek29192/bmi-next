@@ -1,0 +1,44 @@
+@import "@bmi/styles";
+
+.SampleOrderSection {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid $color-storm;
+  overflow: hidden;
+  .buttons-container {
+    display: flex;
+    justify-items: start;
+    justify-content: space-between;
+    flex-direction: row;
+    flex: 1;
+    flex-flow: row wrap;
+    & button {
+      white-space: nowrap;
+    }
+    & button:nth-child(2) {
+      margin-left: 16px;
+    }
+    @media (max-width: 1300px) {
+      flex-direction: column;
+      & > button {
+        margin-top: 18px;
+      }
+      & button:last-child {
+        margin-left: 0;
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  .buttons-container-complete-sample-order-only {
+    display: flex;
+    justify-content: flex-end;
+    @media (max-width: $breakpoint-lg) {
+      flex-direction: column;
+      & > button {
+        margin-top: 18px;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

@@ -73,9 +73,12 @@ const fetchData = async (body: object, remainingRetries = 5): Promise<any> => {
   );
 
   if (response.status === 429 && remainingRetries) {
-    return new Promise((resolve) =>
+    return new Promise((resolve, reject) =>
       setTimeout(
-        () => fetchData(body, remainingRetries - 1).then(resolve),
+        () =>
+          fetchData(body, remainingRetries - 1)
+            .then(resolve)
+            .catch(reject),
         1000
       )
     );

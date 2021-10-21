@@ -1,9 +1,13 @@
 @import "@bmi/styles";
 
 .SystemConfigurator {
-  &-result{
-    .title{
+  &-result {
+    .title,
+    .description {
       margin-bottom: 30px;
+    }
+    .OverviewCard > [class*="header-picture"] {
+      margin-top: 30px;
     }
   }
 }

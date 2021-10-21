@@ -1,30 +1,49 @@
 {
   "sidePanel": {
     "search": {
-      "label": "Norway - Search for a user",
-      "noResult": "Norway - Member not found"
+      "label": "Søk etter en bruker",
+      "noResult": "Person ikke funnet"
     },
-    "inviteLabel": "Norway - + Invite team members"
+    "inviteLabel": "+ Invitere teammedlemmer"
   },
   "table": {
-    "title": "Norway - Certification(s)",
-    "type": "Norway - Type",
-    "certification": "Norway - Certification",
-    "validity": "Norway - Validity"
+    "title": "Sertifisering",
+    "type": "Type",
+    "certification": "Sertifisering",
+    "validity": "Gyldighet",
+    "noResults": "Brukeren har ingen BMI sertifisering"
   },
   "invitation": {
     "dialog": {
-      "title": "Norway - Invite members",
+      "title": "Invitere teammedlemmer",
       "emails": {
-        "label": "Norway - Recipient’s email address",
-        "helperText": "Norway - Add multiple members by separating each email address with a comma"
+        "label": "Mottakers epostadresse",
+        "helperText": "Legg til flere medlemmer ved å skille hver e -postadresse med et komma"
       },
       "personalNote": {
-        "label": "Norway - Your message (optional)"
+        "label": "Meldingen din (valgfritt)"
       },
-      "cancel": "Norway - Cancel",
-      "send": "Norway - Send email",
-      "success": "Norway - The invitation has been sent"
+      "cancel": "Avbryt",
+      "send": "Send e-post",
+      "success": "Invitasjonen er sendt"
     }
-  }
+  },
+  "user_card": {
+    "add_admin": "Tilordne som bedriftsadministrator",
+    "remove": "Fjern fra selskap",
+    "remove_admin": "Fjern som bedriftsadministrator",
+    "confirm": "Bekrefte",
+    "cancel": "Avbryt",
+    "role_dialog": {
+      "title": "Endre rolle",
+      "text": "Vil du endre rollen?"
+    },
+    "remove_user_dialog": {
+      "title": "Fjern fra selskap",
+      "text": "Vil du fjerne dette medlemmet?"
+    }
+  },
+  "memberRemoved": "Medlemmet ble fjernet",
+  "genericError": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator.",
+  "lastCompanyAdminError": "Du kan ikke fjerne den siste bedriftsadministratoren fra et selskap med mindre det er deaktivert av BMI"
 }

@@ -23,25 +23,23 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
           <div
             class="type"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-              />
-            </svg>
-            <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
-            >
-              classroom
-            </h5>
+            type.classroom
           </div>
+          <p
+            class="MuiTypography-root tech Typography MuiTypography-body1"
+          >
+            <svg
+              class="technologyIcon"
+            />
+            technology.OTHER
+          </p>
           <div
             class="status"
-          />
+          >
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1"
+            />
+          </div>
         </div>
         <div
           class="cta"
@@ -49,7 +47,7 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
           <a
             aria-disabled="false"
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
-            href="/api/docebo-sso"
+            href="/api/docebo-sso?path=/learn/course/internal/view/classroom/125/slug"
             rel="noopener noreferrer"
             tabindex="0"
             target="_blank"
@@ -71,7 +69,7 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
                   />
                 </svg>
               </span>
-              View training
+              viewTraining
             </span>
             <span
               class="MuiTouchRipple-root"
@@ -121,25 +119,23 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
           <div
             class="type"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-              />
-            </svg>
-            <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
-            >
-              classroom
-            </h5>
+            type.classroom
           </div>
+          <p
+            class="MuiTypography-root tech Typography MuiTypography-body1"
+          >
+            <svg
+              class="technologyIcon"
+            />
+            technology.OTHER
+          </p>
           <div
             class="status"
-          />
+          >
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1"
+            />
+          </div>
         </div>
         <div
           class="cta"
@@ -169,7 +165,7 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
                   />
                 </svg>
               </span>
-              View training
+              viewTraining
             </span>
             <span
               class="MuiTouchRipple-root"

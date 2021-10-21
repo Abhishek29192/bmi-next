@@ -244,55 +244,59 @@ exports[`TabLeadBlock tests should render 1`] = `
               class="MuiContainer-root MuiContainer-maxWidthXl"
             >
               <div
-                class="section"
+                class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="content"
+                  class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
                 >
                   <div
-                    class="SystemDetailsTechnicalSpec"
+                    class="LeadBlockContentSection"
                   >
-                    <div>
-                      <table
-                        class="MuiTable-root Table Table--row-even-color"
-                      >
-                        <thead
-                          class="MuiTableHead-root ColorPair ColorPair--pearl"
+                    <div
+                      class="SystemDetailsTechnicalSpec"
+                    >
+                      <div>
+                        <table
+                          class="MuiTable-root Table Table--row-even-color"
                         >
-                          <tr
-                            class="MuiTableRow-root MuiTableRow-head"
+                          <thead
+                            class="MuiTableHead-root ColorPair ColorPair--pearl"
                           >
-                            <th
-                              class="MuiTableCell-root MuiTableCell-head"
-                              scope="col"
+                            <tr
+                              class="MuiTableRow-root MuiTableRow-head"
                             >
-                              Accoridion Title 1
-                            </th>
-                            <th
-                              class="MuiTableCell-root MuiTableCell-head"
-                              scope="col"
-                            />
-                          </tr>
-                        </thead>
-                        <tbody
-                          class="MuiTableBody-root"
-                        >
-                          <tr
-                            class="MuiTableRow-root"
+                              <th
+                                class="MuiTableCell-root MuiTableCell-head"
+                                scope="col"
+                              >
+                                Accoridion Title 1
+                              </th>
+                              <th
+                                class="MuiTableCell-root MuiTableCell-head"
+                                scope="col"
+                              />
+                            </tr>
+                          </thead>
+                          <tbody
+                            class="MuiTableBody-root"
                           >
-                            <td
-                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                            <tr
+                              class="MuiTableRow-root"
                             >
-                              Promotional Content
-                            </td>
-                            <td
-                              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
-                            >
-                              accordion item value 1 
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                              >
+                                Promotional Content
+                              </td>
+                              <td
+                                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                              >
+                                accordion item value 1 
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -559,7 +563,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                     <a
                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                       href="https://policies.google.com/privacy"
-                      rel="noreferrer"
+                      rel="noreferrer noopener"
                       target="_blank"
                     >
                       <span>
@@ -570,7 +574,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                     <a
                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                       href="https://policies.google.com/terms"
-                      rel="noreferrer"
+                      rel="noreferrer noopener"
                       target="_blank"
                     >
                       <span>

@@ -12,16 +12,18 @@ steps:
         "europe-west2",
         "--platform",
         "managed",
-        "--allow-unauthenticated",
         "--add-cloudsql-instances=automated-style-303709:europe-west2:intouch-db",
         "--set-env-vars=NODE_ENV=production",
         "--set-env-vars=PG_SCHEMA=public",
         "--set-env-vars=PG_USER=postgres",
+        "--set-env-vars=PG_REJECT_UNAUTHORIZED=true",
+        "--set-env-vars=PG_SSL=true",
         "--set-env-vars=PG_DATABASE=companies-db",
         "--set-env-vars=PG_PORT=5432",
+        "--set-env-vars=PG_SSL_HOST=automated-style-303709:intouch-db",
         "--set-env-vars=FRONTEND_URL=intouch.dddev.io",
-        "--set-env-vars=AUTH0_API_CLIENT_ID=M9fxKSvan4Jx0zyLdUhUWm2YO7UqnoyS",
-        "--set-env-vars=AUTH0_API_DOMAIN=intouch-dev.eu.auth0.com",
+        "--set-env-vars=AUTH0_API_CLIENT_ID=ok0xtr7xv1eHJ1HHOJpJrJ3BTdXNtayn",
+        "--set-env-vars=AUTH0_API_DOMAIN=intouch-prod.eu.auth0.com",
         "--set-env-vars=AUTH0_NAMESPACE=https://intouch",
         "--set-env-vars=LOG_LEVEL=info",
         "--set-env-vars=GATEWAY_URL=https://gateway-rfwslk3zjq-nw.a.run.app/graphql",
@@ -30,7 +32,8 @@ steps:
         "--set-env-vars=CONTENTFUL_ENVIRONMENT=development",
         "--set-env-vars=GCP_SECRET_PROJECT=734962646925",
         "--set-env-vars=GCP_PRIVATE_BUCKET_NAME=intouch-file-storage-bucket",
-        "--set-env-vars=GCP_PUBLIC_BUCKET_NAME=intouch-public-assets"
+        "--set-env-vars=GCP_PUBLIC_BUCKET_NAME=intouch-public-assets",
+        "--set-env-vars=AUTH0_CONNECTION_ID=con_0Z9pDsN759ae5Z8U"
       ]
 
   # promote to latest

@@ -28,6 +28,7 @@ export const Address = ({ address }: AddressProps) => {
 
 export const AddressLinesFragment = gql`
   fragment AddressLinesFragment on Address {
+    id
     firstLine
     secondLine
     town

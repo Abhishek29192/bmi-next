@@ -2,10 +2,10 @@ import React from "react";
 import Grid from "@bmi/grid";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
-import AnchorLink from "@bmi/anchor-link";
-import { Product } from "../../components/types/ProductBaseTypes";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import { Product, SystemLayer } from "../../components/types/pim";
 import { useSiteContext } from "../../components/Site";
-import { SystemLayer } from "./types";
+import withGTM from "../../utils/google-tag-manager";
 
 type Props = {
   systemLayers: SystemLayer[];
@@ -23,10 +23,16 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
     <Accordion>
       {systemLayers &&
         systemLayers
-          .filter((layer) => layer?.relatedProducts[0])
+          .filter((layer) => layer.approvalStatus === "approved")
           .sort((a, b) => a.layerNumber - b.layerNumber)
           .map((layer, index) => {
-            const [mandatoryProduct] = layer.relatedProducts;
+            const relatedProduct = layer.relatedProducts?.[0];
+            const productLinkAction =
+              relatedProduct && createLinkAction(relatedProduct, countryCode);
+
+            const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
+              label: "children"
+            });
 
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
@@ -38,13 +44,20 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
 
                 <Accordion.Details>
                   <Grid container spacing={3}>
-                    <Grid item xs={12} md={12} lg={12}>
-                      <AnchorLink
-                        action={createLinkAction(mandatoryProduct, countryCode)}
-                      >
-                        {mandatoryProduct.name}
-                      </AnchorLink>
-                    </Grid>
+                    {relatedProduct && (
+                      <Grid item xs={12} md={12} lg={12}>
+                        <GTMAnchorLink
+                          gtm={{
+                            id: "cta-click1",
+                            label: relatedProduct.name,
+                            action: productLinkAction?.href
+                          }}
+                          action={productLinkAction}
+                        >
+                          {relatedProduct.name}
+                        </GTMAnchorLink>
+                      </Grid>
+                    )}
 
                     <Grid item xs={12} md={12} lg={12}>
                       <Typography variant="default">
@@ -60,21 +73,32 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       </Grid>
                     )}
 
-                    {layer.relatedOptionalProducts?.map((product, id) => (
-                      <Grid
-                        item
-                        xs={12}
-                        md={12}
-                        lg={12}
-                        key={`related-optional-product-${id}`}
-                      >
-                        <AnchorLink
-                          action={createLinkAction(product, countryCode)}
+                    {layer.relatedOptionalProducts?.map((product, id) => {
+                      const productLinkAction = createLinkAction(
+                        product,
+                        countryCode
+                      );
+                      return (
+                        <Grid
+                          item
+                          xs={12}
+                          md={12}
+                          lg={12}
+                          key={`related-optional-product-${id}`}
                         >
-                          {product.name}
-                        </AnchorLink>
-                      </Grid>
-                    ))}
+                          <GTMAnchorLink
+                            gtm={{
+                              id: "cta-click1",
+                              label: product.name,
+                              action: productLinkAction?.href
+                            }}
+                            action={productLinkAction}
+                          >
+                            {product.name}
+                          </GTMAnchorLink>
+                        </Grid>
+                      );
+                    })}
                   </Grid>
                 </Accordion.Details>
               </Accordion.Item>

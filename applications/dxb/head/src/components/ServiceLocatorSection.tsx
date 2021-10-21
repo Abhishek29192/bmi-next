@@ -31,10 +31,21 @@ import CloseIcon from "@material-ui/icons/Close";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { camelCase, intersectionWith } from "lodash";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
+import withGTM from "../utils/google-tag-manager";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
-import { Data as ServiceData, ServiceType, serviceTypes } from "./Service";
+import {
+  Data as ServiceData,
+  serviceTypesByEntity,
+  ServiceTypesPrefixesEnum,
+  EntryTypeEnum,
+  ServiceTypesEnum,
+  ServiceType
+} from "./Service";
 import { useSiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 
@@ -45,7 +56,7 @@ export type Service = ServiceData & {
 };
 export type Data = {
   __typename: "ContentfulServiceLocatorSection";
-  type: "Roofer" | "Branch" | "Merchant";
+  type: EntryTypeEnum;
   title: string;
   label: string;
   body: RichTextData | null;
@@ -60,23 +71,18 @@ export type Data = {
 
 // TODO: Maybe calculate this from `range`?
 const PLACE_LEVEL_ZOOM = 8;
-
 const DEFAULT_MAP_CENTRE = {
   lat: 60.47202399999999,
   lng: 8.468945999999999
 };
-
 const DEFAULT_LEVEL_ZOOM = 5;
-
-// TODO: Cast this properly.
-const initialActiveFilters = serviceTypes.reduce(
-  (carry, key) => ({ ...carry, [key]: false }),
-  {}
-) as Record<ServiceType, boolean>;
 
 const activeFilterReducer = (
   state: Record<ServiceType, boolean>,
-  filter: { name: ServiceType; state?: boolean }
+  filter: {
+    name: ServiceType;
+    state?: boolean;
+  }
 ) => ({
   ...state,
   [filter.name]: filter.state ? filter.state : !state[filter.name]
@@ -120,20 +126,23 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     zoom: initialMapZoom
   } = data;
 
-  const shouldEnableSearch = sectionType !== "Branch";
-  const shouldListCertification = sectionType === "Roofer";
+  const shouldEnableSearch = sectionType !== EntryTypeEnum.BRANCH_TYPE;
+  const shouldListCertification = sectionType === EntryTypeEnum.ROOFER_TYPE;
+  const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
+
+  const theme = useTheme();
+  const windowLocation = useLocation();
+  const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   const nameSearchLabelKey =
-    sectionType === "Merchant"
+    sectionType === EntryTypeEnum.MERCHANT_TYPE
       ? "merchantNameSearchLabel"
       : "companyFieldLabel";
 
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
 
-  const params = new URLSearchParams(
-    typeof window !== `undefined` ? window.location.search : ""
-  );
+  const params = new URLSearchParams(windowLocation.search);
   const userQueryString = useMemo(
     () => params.get(QUERY_CHIP_FILTER_KEY),
     [params]
@@ -148,6 +157,17 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const [zoom, setZoom] = useState<number>(
     initialMapZoom || DEFAULT_LEVEL_ZOOM
   );
+
+  const serviceTypesByEntityItems: ServiceType[] =
+    serviceTypesByEntity(sectionType);
+
+  const initialActiveFilters = (
+    serviceTypesByEntityItems as ServiceType[]
+  ).reduce(
+    (carry, key: ServiceType) => ({ ...carry, [key]: false }),
+    {}
+  ) as Record<ServiceType, boolean>;
+
   const [activeSearchString, setActiveSearchString] = useState<string>("");
   const [activeFilters, updateActiveFilters] = useReducer(
     activeFilterReducer,
@@ -158,9 +178,25 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     if (!services) {
       return;
     }
-    const uniqueRooferTypes: ServiceType[] = Array.from(
-      new Set(services.flatMap((service) => service.type))
-    ).filter((x) => x !== null);
+
+    const allServiceTypesFromServices: ServiceType[] = services.reduce(
+      (acc, service) => {
+        if (service.type) {
+          return [...acc, ...service.type];
+        }
+        if (service.branchType) {
+          return [...acc, ...service.branchType];
+        }
+        if (service.merchantType) {
+          return [...acc, ...service.merchantType];
+        }
+        return acc;
+      },
+      []
+    );
+    const uniqueRooferTypes: ServiceType[] = [
+      ...new Set(allServiceTypesFromServices)
+    ];
 
     setUniqueRoofTypeByData(uniqueRooferTypes);
 
@@ -181,8 +217,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
     // there were no matching queries in querystring
     // hence remove all querystring from user and make the url '/find-a-roofer/' again
-    if (typeof window !== `undefined` && matchingRooferTypes.length === 0) {
-      history.replaceState(null, null, window.location.pathname);
+    if (matchingRooferTypes.length === 0) {
+      history.replaceState(null, null, windowLocation.pathname);
     }
   }, [services]);
 
@@ -196,20 +232,18 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       }
     }
 
-    if (typeof window !== `undefined`) {
-      const filteredChips: string[] = Object.keys(activeFilters).filter(
-        (key) => activeFilters[key]
-      );
-      if (filteredChips.length > 0) {
-        var queryParams = new URLSearchParams(window.location.search);
-        queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
-        history.replaceState(null, null, "?" + queryParams.toString());
-      }
-      if (filteredChips.length === 0 && isUserAction) {
-        // Remove the query if there are no selected chips
-        // otherwise url will look like `/?chip=`
-        history.replaceState(null, null, window.location.pathname);
-      }
+    const filteredChips: string[] = Object.keys(activeFilters).filter(
+      (key) => activeFilters[key]
+    );
+    if (filteredChips.length > 0) {
+      var queryParams = new URLSearchParams(windowLocation.search);
+      queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
+      history.replaceState(null, null, "?" + queryParams.toString());
+    }
+    if (filteredChips.length === 0 && isUserAction) {
+      // Remove the query if there are no selected chips
+      // otherwise url will look like `/?chip=`
+      history.replaceState(null, null, windowLocation.pathname);
     }
   }, [activeFilters]);
 
@@ -234,21 +268,37 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     initialise();
   }, []);
 
-  const typeFilter = (type: Service["type"]): boolean => {
+  const typeFilter = (
+    type: Service["type"] | null,
+    branchType: Service["branchType"] | null,
+    merchantType: Service["merchantType"] | null
+  ): boolean => {
     // user has not selected any chip(s) to filter hence show all services
     // i.e initial load or user has de-selected ALL chips
-    if (
-      Object.keys(activeFilters).every((key) => activeFilters[key] === false)
-    ) {
+    const allChipsUnSelected = Object.keys(activeFilters).every(
+      (key) => activeFilters[key] === false
+    );
+
+    if (allChipsUnSelected) {
       return true;
     }
 
     // user has selcted the filter chip the service must have type and it must match
-    if (Object.keys(activeFilters).some((key) => activeFilters[key] === true)) {
-      return type && type.some((filter) => activeFilters[filter]);
+    const isSomeChipSelected = Object.keys(activeFilters).some(
+      (key) => activeFilters[key] === true
+    );
+
+    if (isSomeChipSelected) {
+      return (
+        (type?.length && type.some((filter) => activeFilters[filter])) ||
+        (branchType?.length &&
+          branchType.some((filter) => activeFilters[filter])) ||
+        (merchantType?.length &&
+          merchantType.some((filter) => activeFilters[filter]))
+      );
     }
-    // service's type is null hence return true
-    return type?.length ? type.some((filter) => activeFilters[filter]) : true;
+    // service's types are null hence return true
+    return true;
   };
 
   const nameFilter = (name: Service["name"]) =>
@@ -261,13 +311,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     () =>
       (services || [])
         .reduce((carry, current) => {
-          const { name, location, type } = current;
+          const { name, location, type, branchType, merchantType } = current;
           const distance = computeDistanceBetween(centre, {
             lat: location.lat,
             lng: location.lon
           });
           if (
-            typeFilter(type) &&
+            typeFilter(type, branchType, merchantType) &&
             nameFilter(name) &&
             distanceFilter(distance)
           ) {
@@ -351,11 +401,32 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     service: Service,
     isAddressHidden?: boolean
   ): DetailProps[] => {
-    const shouldShowIcons = sectionType === "Roofer";
-    const isAddressClickable = sectionType === "Branch";
-    const shouldShowWebsiteLinkAsLabel = sectionType === "Merchant";
+    const shouldShowIcons = sectionType === EntryTypeEnum.ROOFER_TYPE;
+    const isAddressClickable = sectionType === EntryTypeEnum.BRANCH_TYPE;
+    const shouldShowWebsiteLinkAsLabel =
+      sectionType === EntryTypeEnum.MERCHANT_TYPE;
 
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
+
+    const getServiceDataGTM = (action: string, linkOrButtonText?: string) => {
+      const serviceType =
+        service.type && service.type.length === 1
+          ? service.type[0]
+          : service.entryType;
+      const label = `${service.name} - ${service.address}${
+        service.certification ? ` - ${service.certification}` : ""
+      } - ${serviceType}`;
+      if (matches || sectionType !== EntryTypeEnum.ROOFER_TYPE) {
+        return {
+          id: "selector-cards6",
+          label: `${label}${linkOrButtonText ? ` - ${linkOrButtonText}` : ""}`,
+          action
+        };
+      } else {
+        return { id: "selector-cards6", label, action };
+      }
+    };
+    const globalAddress = getMicroCopy("global.address");
 
     const address: DetailProps = {
       type: "address",
@@ -364,13 +435,21 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       label: getMicroCopy("global.address"),
       action: isAddressClickable
         ? getClickableActionFromUrl(
-            null,
+            undefined,
             `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
               service.address
             )}/`,
             countryCode,
-            null,
-            getMicroCopy("global.address")
+            undefined,
+            globalAddress,
+            undefined,
+            undefined,
+            getServiceDataGTM(
+              `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+                service.address
+              )}/`,
+              globalAddress
+            )
           )
         : undefined
     };
@@ -385,72 +464,89 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           }
         : undefined;
 
+    const getDirectionsLabel = getMicroCopy("findARoofer.getDirectionsLabel");
     const directions: DetailProps | undefined = {
       type: "cta",
-      text: getMicroCopy("findARoofer.getDirectionsLabel"),
+      text: getDirectionsLabel,
       action: getClickableActionFromUrl(
-        null,
+        undefined,
         `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
           service.address
         )}/`,
         countryCode,
-        null,
-        getMicroCopy("findARoofer.getDirectionsLabel")
+        undefined,
+        getDirectionsLabel,
+        undefined,
+        undefined,
+        getServiceDataGTM(
+          `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+            service.address
+          )}/`,
+          getDirectionsLabel
+        )
       ),
-      label: getMicroCopy("findARoofer.getDirectionsLabel")
+      label: getDirectionsLabel
     };
 
+    const globalTelephone = getMicroCopy("global.telephone");
     const phone: DetailProps | undefined = service.phone
       ? {
           type: "phone",
           display: shouldShowIcons ? "icon" : "label",
           text: service.phone,
           action: getClickableActionFromUrl(
-            null,
+            undefined,
             `tel:${service.phone}`,
             countryCode,
-            null,
-            getMicroCopy("global.telephone")
+            undefined,
+            globalTelephone,
+            undefined,
+            undefined,
+            getServiceDataGTM(`tel:${service.phone}`, globalTelephone)
           ),
-          label: getMicroCopy("global.telephone")
+          label: globalTelephone
         }
       : undefined;
-
+    const gloablEmail = getMicroCopy("global.email");
     const email: DetailProps | undefined = service.email
       ? {
           type: "email",
           display: shouldShowIcons ? "icon" : "label",
           text: service.email,
           action: getClickableActionFromUrl(
-            null,
+            undefined,
             `mailto:${service.email}`,
             countryCode,
-            null,
-            getMicroCopy("global.email")
+            undefined,
+            gloablEmail,
+            undefined,
+            undefined,
+            getServiceDataGTM(`mailto:${service.email}`, gloablEmail)
           ),
-          label: getMicroCopy("global.email")
+          label: gloablEmail
         }
       : undefined;
-
+    const globalWebsite = getMicroCopy("global.website");
+    const websiteLabel = getMicroCopy("findARoofer.websiteLabel");
     const website: DetailProps | undefined = service.website
       ? {
           type: "website",
           display: shouldShowIcons ? "icon" : "label",
-          text: shouldShowWebsiteLinkAsLabel
-            ? service.website
-            : getMicroCopy("findARoofer.websiteLabel"),
+          text: shouldShowWebsiteLinkAsLabel ? service.website : websiteLabel,
           action: getClickableActionFromUrl(
-            null,
+            undefined,
             service.website,
             countryCode,
-            null,
-            shouldShowWebsiteLinkAsLabel
-              ? getMicroCopy("global.website")
-              : getMicroCopy("findARoofer.websiteLabel")
+            undefined,
+            shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel,
+            undefined,
+            undefined,
+            getServiceDataGTM(
+              service.website,
+              shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel
+            )
           ),
-          label: shouldShowWebsiteLinkAsLabel
-            ? getMicroCopy("global.website")
-            : getMicroCopy("findARoofer.websiteLabel")
+          label: shouldShowWebsiteLinkAsLabel ? globalWebsite : websiteLabel
         }
       : undefined;
 
@@ -462,24 +558,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           label: getMicroCopy("global.fax")
         }
       : undefined;
-
-    const type: DetailProps | undefined = service.type
-      ? {
-          type: "content",
-          label: getMicroCopy("findARoofer.roofTypeLabel"),
-          text: (
-            <b>
-              {service.type
-                .map((type) =>
-                  getMicroCopy(
-                    `findARoofer.filters.${camelCase(type)}`
-                  ).replace(" roof", "")
-                )
-                .join(" | ")}
-            </b>
-          )
-        }
-      : undefined;
+    const type: DetailProps | undefined =
+      service.type || service.branchType || service.merchantType
+        ? {
+            type: "content",
+            label: getMicroCopy("findARoofer.roofTypeLabel"),
+            text: <b>{getMicroCopyForServiceType(service)}</b>
+          }
+        : undefined;
 
     const certification: DetailProps = service.certification
       ? {
@@ -492,7 +578,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     const detailsStart = isAddressHidden ? [] : [address];
 
     switch (sectionType) {
-      case "Roofer":
+      case EntryTypeEnum.ROOFER_TYPE:
         return [
           ...detailsStart,
           distance,
@@ -503,7 +589,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           type,
           certification
         ].filter(Boolean);
-      case "Branch":
+      case EntryTypeEnum.BRANCH_TYPE:
         return [
           ...detailsStart,
           distance,
@@ -512,7 +598,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           fax,
           directions
         ].filter(Boolean);
-      case "Merchant":
+      case EntryTypeEnum.MERCHANT_TYPE:
         return [
           ...detailsStart,
           distance,
@@ -533,13 +619,67 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     elite: RoofProElite
   };
 
+  const getMicroCopyPrefix = (serviceType: EntryTypeEnum) => {
+    return ServiceTypesPrefixesEnum[serviceType];
+  };
+
+  const getMicroCopyForServiceType = (service: Service) => {
+    return Object.keys(ServiceTypesEnum).reduce((acc, nextServiceType) => {
+      if (service[nextServiceType]) {
+        const currentTypeMC = service[nextServiceType]
+          .map((type) => {
+            const serviceType = ServiceTypesEnum[nextServiceType];
+            const prefix = ServiceTypesPrefixesEnum[serviceType];
+            return getMicroCopy(`${prefix}.filters.${camelCase(type)}`).replace(
+              " roof",
+              ""
+            );
+          })
+          .join(" | ");
+
+        return [...acc, currentTypeMC];
+      }
+      return acc;
+    }, []);
+  };
+
+  const microcopyPrefix = getMicroCopyPrefix(sectionType);
+  const GTMIntegratedLinkCard = withGTM<LinkCardProps>(IntegratedLinkCard);
+
+  const getResultDataGtm = (service: Service) => {
+    const gtmResult = matches
+      ? {
+          id: "selector-cards6",
+          label: `${service.name} - ${service.address}${
+            service.certification ? ` - ${service.certification}` : ""
+          }${
+            service.type && service.type.length === 1
+              ? ` - ${service.type[0]}`
+              : ` - ${service.entryType}`
+          } - selected`,
+          action: "Expanded company details"
+        }
+      : {
+          id: "selector-cards6",
+          label: `${service.name} - ${service.address}${
+            service.type && service.type.length === 1
+              ? ` - ${service.type[0]}`
+              : ` - ${service.entryType}`
+          } - selected`,
+          action: "Expanded company details"
+        };
+    return gtmResult;
+  };
+
   return (
     <Section
       backgroundColor="white"
       className={styles["ServiceLocationSection"]}
     >
       <GoogleApi.Provider value={googleApi}>
-        {position > 0 && <Section.Title>{label}</Section.Title>}
+        {(position > 0 || isBranchLocator) && (
+          <Section.Title>{label}</Section.Title>
+        )}
         {body && (
           <div className={styles["body"]}>
             <RichText document={body} />
@@ -610,7 +750,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               <div className={styles["filters"]}>
                 <div className={styles["chips"]}>
                   <Typography variant="h6" className={styles["chips-label"]}>
-                    {getMicroCopy("findARoofer.filtersLabel")}
+                    {getMicroCopy(`${microcopyPrefix}.filtersLabel`)}
                   </Typography>
                   {uniqueRoofTypeByData.map((serviceType, index) => (
                     <Chip
@@ -623,7 +763,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                       isSelected={activeFilters[serviceType]}
                     >
                       {getMicroCopy(
-                        `findARoofer.filters.${camelCase(serviceType)}`
+                        `${microcopyPrefix}.filters.${camelCase(serviceType)}`
                       )}
                     </Chip>
                   ))}
@@ -649,12 +789,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             <div className={styles["list"]}>
               {filteredRoofers.length ? (
                 filteredRoofers.map((service) => (
-                  <IntegratedLinkCard
+                  <GTMIntegratedLinkCard
                     key={service.id}
                     onClick={() => handleListClick(service)}
                     onCloseClick={clearRooferAndResetMap}
                     isOpen={selectedRoofer && selectedRoofer.id === service.id}
                     title={service.name}
+                    gtm={getResultDataGtm(service)}
                     subtitle={
                       <>
                         {service.address}
@@ -677,7 +818,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     <CompanyDetails details={getCompanyDetails(service, true)}>
                       <Typography>{service.summary}</Typography>
                     </CompanyDetails>
-                  </IntegratedLinkCard>
+                  </GTMIntegratedLinkCard>
                 ))
               ) : (
                 <div className={styles["no-results"]}>

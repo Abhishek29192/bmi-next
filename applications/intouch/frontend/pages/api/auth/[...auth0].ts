@@ -1,9 +1,12 @@
+import { v4 } from "uuid";
 import { Session } from "@auth0/nextjs-auth0";
+import { NextLogger } from "@bmi-digital/logger";
+
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
 import { initializeApollo } from "../../../lib/apolloClient";
 import Account from "../../../lib/account";
-import { redirectMap } from "../../../lib/config/redirects";
+import { getMarketAndEnvFromReq } from "../../../lib/utils";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
 interface Request extends NextApiRequest {
@@ -16,6 +19,11 @@ export const afterCallback = async (
   session: Session,
   state
 ) => {
+  req.headers["x-authenticated-user-id"] = session?.user?.sub;
+
+  // Set the logger again with the session attached
+  NextLogger(req, res);
+
   const apolloClient = await initializeApollo(null, { res, req, session });
 
   const accountSrv = new Account(req.logger, apolloClient, session);
@@ -49,45 +57,39 @@ export const afterCallback = async (
     state.returnTo = "/api/silent-login";
     return session;
   }
-
   return session;
 };
 
-export const getMarketFromReq = (req, res) => {
-  let { host } = req.headers;
+export const getLoginOptions = (req) => {
+  const { returnTo } = req.query;
+  const { market, currentHost } = getMarketAndEnvFromReq(req);
+  const protocol = req.headers["x-forwarded-proto"] || "http";
 
-  // local
-  if (host.indexOf(":") !== -1) {
-    host = host.split(":")[0];
+  const targetUrl = encodeURIComponent(
+    `${protocol}://${currentHost}${returnTo}`
+  );
 
-    return redirectMap[`${host}`];
-  }
-
-  return redirectMap[`${host}`];
-};
-
-export const loginHandler = async (req, res, auth0, logger) => {
-  try {
-    logger.info("Login and redirect with this params: ", {
-      authorizationParams: {
-        market: getMarketFromReq(req, res)
-      },
-      returnTo: req.query.returnTo || "/"
-    });
-
-    await auth0.handleLogin(req, res, {
-      authorizationParams: {
-        market: getMarketFromReq(req, res)
-      },
-      returnTo: req.query.returnTo || "/"
-    });
-  } catch (error) {
-    logger.error(`handle login:`, error);
-    return res.status(error.status || 500).end(error.message);
-  }
+  // The returnTo is based on the baseUrl set when we init the auth0 library,
+  // returning to / means that we return to the base url without the market
+  // we have created an endpoint that is able to redirect the user to any absolute
+  // url, in this wai we can redirect the user to the right market
+  return {
+    authorizationParams: {
+      market
+    },
+    loginState: {
+      currentHost,
+      returnTo: `/api/redirector?current=${targetUrl}`
+    }
+  };
 };
 
 export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
+  // Add a request id to track the request
+  if (!req.headers["x-request-id"]) {
+    req.headers["x-request-id"] = v4();
+  }
+
   const auth0 = await getAuth0Instance(req, res);
 
   const logger = req.logger("Auth0");
@@ -96,8 +98,19 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
 
   return handleAuth({
     async login(req, res) {
-      return loginHandler(req, res, auth0, logger);
+      try {
+        const { authorizationParams, loginState } = getLoginOptions(req);
+
+        await auth0.handleLogin(req, res, {
+          authorizationParams,
+          getLoginState: (req, loginOptions) => loginState
+        });
+      } catch (error) {
+        logger.error(`handle login:`, error);
+        return res.status(error.status || 500).end(error.message);
+      }
     },
+
     async callback(req, res) {
       try {
         await handleCallback(req, res, { afterCallback });
@@ -109,7 +122,8 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
           return res.end();
         }
 
-        return res.status(error.status || 500).end(error.message);
+        res.writeHead(302, { Location: "/api-error?message=auth_error" });
+        return res.end();
       }
     },
     async profile(req, res) {
@@ -125,7 +139,13 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
     },
     async logout(req, res) {
       try {
-        await handleLogout(req, res);
+        const protocol = req.headers["x-forwarded-proto"] || "http";
+        const { currentHost } = getMarketAndEnvFromReq(req);
+        const targetUrl = `${protocol}://${currentHost}`;
+
+        await handleLogout(req, res, {
+          returnTo: targetUrl
+        });
       } catch (error) {
         logger.error(`handle logout: `, error);
         return res.status(error.status || 500).end(error.message);

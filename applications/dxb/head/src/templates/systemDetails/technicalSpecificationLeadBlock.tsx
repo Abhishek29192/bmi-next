@@ -4,7 +4,7 @@ import Table from "@bmi/table";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
 import ProductFeaturesTable from "../../components/ProductFeaturesTable";
-import { Classification } from "./types";
+import { Classification } from "../../components/types/pim";
 import styles from "./styles/technicalSpecificationLeadBlock.module.scss";
 
 type Props = {
@@ -64,11 +64,13 @@ const TechnicalSpecificationLeadBlock = ({
   };
 
   return (
-    <LeadBlock.Card.Section>
-      <LeadBlock.Card.Content>
-        {technicalSpecification()}
-      </LeadBlock.Card.Content>
-    </LeadBlock.Card.Section>
+    <LeadBlock>
+      <LeadBlock.Content>
+        <LeadBlock.Content.Section>
+          {technicalSpecification()}
+        </LeadBlock.Content.Section>
+      </LeadBlock.Content>
+    </LeadBlock>
   );
 };
 

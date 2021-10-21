@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "@bmi/react-pdf-maker";
+import { Row, Col } from "@bmi-digital/react-pdf-maker";
 
 export const LessWidth = ({ children }: { children: React.ReactNode }) => (
   <Row marginBottom={9}>

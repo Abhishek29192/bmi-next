@@ -8,14 +8,17 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --signature-type=event --target=handleMessage",
-    "deploy": "gcloud functions deploy pimtodxb-fakelogstash-dev-euwest3 --trigger-topic=dxb-pim-transitional --runtime=nodejs14 --allow-unauthenticated --max-instances=5 --region=europe-west3 --entry-point=handleMessage --env-vars-file=env.yaml",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --signature-type=event --target=handleMessage"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.8.0",
     "@google-cloud/functions-framework": "^1.7.1",
     "@google-cloud/pubsub": "^0.18.0",
     "@google-cloud/secret-manager": "^3.7.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "js-yaml": "^4.0.0"
   }
 }

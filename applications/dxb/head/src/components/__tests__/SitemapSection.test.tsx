@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import SitemapSection from "../SitemapSection";
-import { NavigationData } from "../Link";
+import { DataTypeEnum, NavigationData } from "../Link";
 
 describe("SitemapSection component", () => {
   it("renders correctly", () => {
@@ -23,7 +23,7 @@ describe("SitemapSection component", () => {
               isLabelHidden: null,
               icon: "Phone",
               linkedPage: null,
-              type: "External",
+              type: DataTypeEnum.External,
               parameters: null,
               dialogContent: null,
               hubSpotCTAID: null
@@ -45,7 +45,7 @@ describe("SitemapSection component", () => {
               linkedPage: {
                 path: "landing-page"
               },
-              type: "Internal",
+              type: DataTypeEnum.Internal,
               parameters: null,
               dialogContent: null,
               hubSpotCTAID: null

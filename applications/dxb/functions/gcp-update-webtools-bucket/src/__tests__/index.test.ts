@@ -5,7 +5,8 @@ import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import {
   mockRequest,
-  mockResponse
+  mockResponse,
+  mockResponses
 } from "../../../../../../libraries/fetch-mocks/src/index";
 import responses from "./responses.json";
 
@@ -189,6 +190,55 @@ describe("Generating JSON file from WebTools space", () => {
     expect(res.status).toBeCalledWith(200);
     expect(res.send).toBeCalledWith("ok");
   });
+
+  it("errors after 6 retries when getting 429", async () => {
+    mockResponses(fetchMock, {
+      url: `https://graphql.contentful.com/content/v1/spaces/${process.env.WEBTOOLS_CONTENTFUL_SPACE}/environments/${process.env.WEBTOOLS_CONTENTFUL_ENVIRONMENT}`,
+      method: "POST",
+      body: JSON.stringify({ error: "not working" }),
+      status: 429
+    });
+
+    const req = mockRequest(
+      "GET",
+      { authorization: `Bearer ${SECRET}` },
+      "/",
+      {}
+    );
+
+    const res = mockResponse();
+
+    // Partial type match issue, ignoring for now
+    // @ts-ignore
+    await handleRequest(req, res);
+
+    expect(fetchMock).toHaveFetchedTimes(6);
+    for (let i = 1; i < 7; i++) {
+      expect(fetchMock).toHaveNthFetched(
+        i,
+        `https://graphql.contentful.com/content/v1/spaces/${process.env.WEBTOOLS_CONTENTFUL_SPACE}/environments/${process.env.WEBTOOLS_CONTENTFUL_ENVIRONMENT}`,
+        {
+          method: "POST",
+          body: {
+            query: `
+    {
+      mainTileCollection(limit: 1000) {
+        items {
+          code
+          sys {
+            id
+          }
+        }
+      }
+    }
+    `
+          }
+        }
+      );
+    }
+    expect(res.status).toBeCalledWith(500);
+    expect(res.send).toBeCalledWith("Internal Server Error");
+  }, 20000);
 
   it("throws when getting error other than 429", async () => {
     fetchMock.postOnce(() => true, {

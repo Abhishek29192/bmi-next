@@ -1,4 +1,5 @@
 include:
   - local: "/applications/intouch/functions/gcp-cron-certification/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-generate-guarantee/.gitlab-ci.yml"
+  - local: "/applications/intouch/functions/gcp-cron-training/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml"

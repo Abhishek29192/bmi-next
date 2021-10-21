@@ -17,6 +17,7 @@ import GridStyles from "../../styles/Grid.module.scss";
 import { ProjectSidePanel } from "../../components/ProjectSidePanel";
 import ProjectDetail from "../../components/ProjectDetail";
 import { Layout } from "../../components/Layout";
+import layoutStyles from "../../components/Layout/styles.module.scss";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 
@@ -67,7 +68,7 @@ const Projects = ({
 
   return (
     <Layout title={t("common:Projects")} pageData={globalPageData}>
-      <div style={{ display: "flex", height: "100%" }}>
+      <div className={layoutStyles.sidePanelWrapper}>
         <ProjectSidePanel
           projects={sortedProjects}
           onProjectSelected={handleProjectSelection}

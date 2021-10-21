@@ -18,19 +18,13 @@ import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { Asset, Classification } from "./types/ProductBaseTypes";
+import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import BimIframe from "./BimIframe";
 
 const BlueCheckIcon = (
   <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
 );
-
-type GuaranteesAndAwardsAsset = {
-  url: string;
-  name: string;
-};
-
 type Props = {
   bimIframeUrl?: string;
   description?: string;
@@ -137,7 +131,8 @@ const ProductLeadBlock = ({
                       className={styles["image"]}
                     />
                   ))}
-                  {guaranteesDocuments.length > 0 && <br />}
+                  {guaranteesImages.length > 0 &&
+                    guaranteesDocuments.length > 0 && <br />}
                   {guaranteesDocuments.map((item, i) => (
                     <span
                       className={styles["document"]}
@@ -174,7 +169,7 @@ const ProductLeadBlock = ({
                       className={styles["image"]}
                     />
                   ))}
-                  {awardsDocs.length > 0 && <br />}
+                  {awardsImages.length > 0 && awardsDocs.length > 0 && <br />}
                   {awardsDocs.map((item, i) => (
                     <span className={styles["document"]} key={`award-doc-${i}`}>
                       <Button

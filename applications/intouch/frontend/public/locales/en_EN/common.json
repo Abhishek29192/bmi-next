@@ -5,8 +5,16 @@
   "Team": "Team",
   "Companies": "Companies",
   "Company": "Company",
-  "Toolkit": "Toolkit",
+  "Tools": "Media Tools",
+  "Inventory": "Inventory",
   "Edit": "Edit",
+  "Search": "Search",
+  "No Options": "No Options",
+  "Show me": "Show me",
+  "Account": "Account",
+  "Profile": "Profile",
+  "Logout": "Logout",
+  "results available": "results available",
   "Company Description": "Company Description",
   "About Us": "About Us",
   "Registered Details": "Registered Details",
@@ -37,10 +45,22 @@
   },
   "Products": "Products",
   "fallback": {
-    "notAdded": "Not added"
+    "notAdded": "Not added",
+    "noResults": "No results found"
   },
   "Download": "Download",
   "SavePdf": "Save to PDF",
+  "visitWebsite": "Visit Website",
+  "certifications": {
+    "pitched": "Pitched",
+    "flat": "Flat",
+    "other": "Other"
+  },
+  "certificationLabels": {
+    "type": "Type",
+    "certification": "Certification",
+    "expiry": "Expiry"
+  },
   "notifications": {
     "today": "Today",
     "earlier": "Earlier",

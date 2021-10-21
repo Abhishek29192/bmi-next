@@ -36,4 +36,6 @@ export type ProductVariant = {
   materialsValue?: string;
   measurementValue?: string;
   approvalStatus: ApprovalStatus;
+} & {
+  [extractedFilter: string]: any;
 };

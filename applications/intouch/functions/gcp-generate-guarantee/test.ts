@@ -3,6 +3,7 @@ import { resolve } from "path";
 import { mockGuarantee } from "./mocks/guarantee";
 import GuaranteePdf from "./src/GuaranteePdf";
 import { sendGuaranteePdf } from "./src";
+import StorageClient from "./src/storage-client";
 
 export const pdfCreate = async () => {
   const guaranteePdf = new GuaranteePdf(mockGuarantee);
@@ -11,12 +12,21 @@ export const pdfCreate = async () => {
   if (!existsSync(filePath)) {
     mkdirSync(filePath);
   }
-  const pdfs = await guaranteePdf.create();
+  const file = await guaranteePdf.create();
 
-  pdfs.forEach(async (pdf) => {
-    const file = await pdf;
-    writeFileSync(`${filePath}/${file.name}`, file.data);
-  });
+  writeFileSync(`${filePath}/${file.name}`, file.data);
+};
+
+export const pdfUpload = async () => {
+  const guaranteePdf = new GuaranteePdf(mockGuarantee);
+  const storageClient = new StorageClient();
+  const file = await guaranteePdf.create();
+
+  await storageClient.uploadFile(
+    "intouch-file-storage-bucket",
+    `guaranteePdf/${file.name}`,
+    file.data
+  );
 };
 
 export const sendMail = async () => {
@@ -28,4 +38,5 @@ export const sendMail = async () => {
 
 // uncomment any of these lines to try out the code
 // (async () => await pdfCreate())();
-// (async () => await sendMail())();
+(async () => await sendMail())();
+// (async () => await pdfUpload())();
