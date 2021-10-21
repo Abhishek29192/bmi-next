@@ -423,10 +423,31 @@ Array [
     "classification-feature-code": Array [
       Object {
         "code": "codesymbol",
-        "name": "value symbol",
+        "name": "1.0 symbol",
       },
     ],
     "classifications": Array [
+      Object {
+        "code": "variant-code",
+        "features": Array [
+          Object {
+            "code": "classification-feature-code",
+            "featureUnit": Object {
+              "name": "unit-name",
+              "symbol": "symbol",
+              "unitType": "unit-type",
+            },
+            "featureValues": Array [
+              Object {
+                "code": "code",
+                "value": "value",
+              },
+            ],
+            "name": "name",
+          },
+        ],
+        "name": "name",
+      },
       Object {
         "code": "scoringWeightAttributes",
         "features": Array [
@@ -549,27 +570,6 @@ Array [
               Object {
                 "code": "code",
                 "value": "30",
-              },
-            ],
-            "name": "name",
-          },
-        ],
-        "name": "name",
-      },
-      Object {
-        "code": "variant-code",
-        "features": Array [
-          Object {
-            "code": "classification-feature-code",
-            "featureUnit": Object {
-              "name": "unit-name",
-              "symbol": "symbol",
-              "unitType": "unit-type",
-            },
-            "featureValues": Array [
-              Object {
-                "code": "code",
-                "value": "value",
               },
             ],
             "name": "name",
@@ -935,7 +935,7 @@ Array [
           "classifications": Array [
             Object {
               "code": "appearanceAttributes",
-              "features": undefined,
+              "features": Array [],
               "name": "name",
             },
           ],
@@ -978,7 +978,7 @@ Array [
     "classifications": Array [
       Object {
         "code": "appearanceAttributes",
-        "features": undefined,
+        "features": Array [],
         "name": "name",
       },
     ],
@@ -1307,7 +1307,7 @@ Array [
           "classifications": Array [
             Object {
               "code": "generalInformation",
-              "features": undefined,
+              "features": Array [],
               "name": "name",
             },
           ],
@@ -1350,7 +1350,7 @@ Array [
     "classifications": Array [
       Object {
         "code": "generalInformation",
-        "features": undefined,
+        "features": Array [],
         "name": "name",
       },
     ],
@@ -1691,10 +1691,31 @@ Array [
     "classification-feature-code": Array [
       Object {
         "code": "codesymbol",
-        "name": "value symbol",
+        "name": "1.0 symbol",
       },
     ],
     "classifications": Array [
+      Object {
+        "code": "variant-code",
+        "features": Array [
+          Object {
+            "code": "classification-feature-code",
+            "featureUnit": Object {
+              "name": "unit-name",
+              "symbol": "symbol",
+              "unitType": "unit-type",
+            },
+            "featureValues": Array [
+              Object {
+                "code": "code",
+                "value": "value",
+              },
+            ],
+            "name": "name",
+          },
+        ],
+        "name": "name",
+      },
       Object {
         "code": "scoringWeightAttributes",
         "features": Array [
@@ -1817,27 +1838,6 @@ Array [
               Object {
                 "code": "code",
                 "value": "30",
-              },
-            ],
-            "name": "name",
-          },
-        ],
-        "name": "name",
-      },
-      Object {
-        "code": "variant-code",
-        "features": Array [
-          Object {
-            "code": "classification-feature-code",
-            "featureUnit": Object {
-              "name": "unit-name",
-              "symbol": "symbol",
-              "unitType": "unit-type",
-            },
-            "featureValues": Array [
-              Object {
-                "code": "code",
-                "value": "value",
               },
             ],
             "name": "name",
@@ -2681,10 +2681,31 @@ Array [
     "classification-feature-code": Array [
       Object {
         "code": "codesymbol",
-        "name": "value symbol",
+        "name": "1.0 symbol",
       },
     ],
     "classifications": Array [
+      Object {
+        "code": "variant-code",
+        "features": Array [
+          Object {
+            "code": "classification-feature-code",
+            "featureUnit": Object {
+              "name": "unit-name",
+              "symbol": "symbol",
+              "unitType": "unit-type",
+            },
+            "featureValues": Array [
+              Object {
+                "code": "code",
+                "value": "value",
+              },
+            ],
+            "name": "name",
+          },
+        ],
+        "name": "name",
+      },
       Object {
         "code": "scoringWeightAttributes",
         "features": Array [
@@ -2807,27 +2828,6 @@ Array [
               Object {
                 "code": "code",
                 "value": "30",
-              },
-            ],
-            "name": "name",
-          },
-        ],
-        "name": "name",
-      },
-      Object {
-        "code": "variant-code",
-        "features": Array [
-          Object {
-            "code": "classification-feature-code",
-            "featureUnit": Object {
-              "name": "unit-name",
-              "symbol": "symbol",
-              "unitType": "unit-type",
-            },
-            "featureValues": Array [
-              Object {
-                "code": "code",
-                "value": "value",
               },
             ],
             "name": "name",
@@ -3365,10 +3365,31 @@ Array [
     "classification-feature-code": Array [
       Object {
         "code": "codesymbol",
-        "name": "value symbol",
+        "name": "1.0 symbol",
       },
     ],
     "classifications": Array [
+      Object {
+        "code": "variant-code",
+        "features": Array [
+          Object {
+            "code": "classification-feature-code",
+            "featureUnit": Object {
+              "name": "unit-name",
+              "symbol": "symbol",
+              "unitType": "unit-type",
+            },
+            "featureValues": Array [
+              Object {
+                "code": "code",
+                "value": "value",
+              },
+            ],
+            "name": "name",
+          },
+        ],
+        "name": "name",
+      },
       Object {
         "code": "scoringWeightAttributes",
         "features": Array [
@@ -3491,27 +3512,6 @@ Array [
               Object {
                 "code": "code",
                 "value": "30",
-              },
-            ],
-            "name": "name",
-          },
-        ],
-        "name": "name",
-      },
-      Object {
-        "code": "variant-code",
-        "features": Array [
-          Object {
-            "code": "classification-feature-code",
-            "featureUnit": Object {
-              "name": "unit-name",
-              "symbol": "symbol",
-              "unitType": "unit-type",
-            },
-            "featureValues": Array [
-              Object {
-                "code": "code",
-                "value": "value",
               },
             ],
             "name": "name",

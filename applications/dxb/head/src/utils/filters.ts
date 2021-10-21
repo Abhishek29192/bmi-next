@@ -38,15 +38,10 @@ export const convertToURLFilters = (
   filters: readonly ProductFilter[]
 ): URLProductFilter[] => {
   return filters.reduce((carry, { name, value }) => {
-    if (value instanceof Array) {
-      return value.length
-        ? [...carry, { name: removePLPFilterPrefix(name), value }]
-        : carry;
+    if (value && value.length) {
+      carry.push({ name: removePLPFilterPrefix(name), value });
     }
-
-    return value
-      ? [...carry, { name: removePLPFilterPrefix(name), value }]
-      : carry;
+    return carry;
   }, []);
 };
 
@@ -443,10 +438,12 @@ export const getPlpFilters = ({
     allowedFilters
   );
 
-  const productClassifications = products.flatMap((product) => [
-    ...product.classifications,
-    ...product.variantOptions.flatMap((variant) => variant.classifications)
-  ]);
+  const productClassifications = products.flatMap((product) =>
+    [
+      ...product.classifications,
+      ...product.variantOptions?.flatMap((variant) => variant.classifications)
+    ].filter(Boolean)
+  );
 
   const classificationFeaturesFilters = generateFeatureFilters(
     pimClassificationNamespace,

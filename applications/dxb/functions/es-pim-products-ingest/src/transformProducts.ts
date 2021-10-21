@@ -2,6 +2,7 @@
 import {
   Category,
   Classification,
+  Feature,
   Product as PIMProduct,
   VariantOption as PIMVariant
 } from "./pim";
@@ -37,20 +38,59 @@ const combineVariantClassifications = (
   product: PIMProduct,
   variant: PIMVariant
 ): Classification[] => {
-  const baseClassifications = product.classifications || [];
-  // scoringWeightAttributes is special in that we ignore it in variants
-  // it may or may not appear in base, but variant's is ignored
-  const variantClassifications = (variant.classifications || []).filter(
-    ({ code }) => code !== "scoringWeightAttributes"
+  const mergedClassifications: Map<string, Classification> = new Map();
+
+  const productClassificationMap = new Map(
+    (product.classifications || []).map((classification) => [
+      classification.code,
+      classification
+    ])
   );
 
-  const allClassificationsMap = new Map(
-    [...baseClassifications, ...variantClassifications].map(
-      (classification) => [classification.code, classification]
-    )
+  // process variant classifications except "scoringWeightAttributes"
+  const vairantClassificationsMap = new Map(
+    (variant.classifications || [])
+      .filter(({ code }) => code !== "scoringWeightAttributes")
+      .map((classification) => [classification.code, classification])
   );
 
-  return Array.from(allClassificationsMap.values());
+  // take all COMMON classifications and Variant ONLY classifications
+  // merge their features in such that base features
+  // are overwritten by variant features of same classifications
+  vairantClassificationsMap.forEach((variantClassification, key) => {
+    const mergedFeaturesMap: Map<string, Feature> = new Map(
+      (variantClassification?.features || []).map((feature) => [
+        feature.code,
+        feature
+      ])
+    );
+
+    const productFeaturesMap = new Map(
+      (productClassificationMap.get(key)?.features || []).map((feature) => [
+        feature.code,
+        feature
+      ])
+    );
+
+    //only set the product features which do not exist in variant features!
+    productFeaturesMap.forEach((productFeature, key) => {
+      if (mergedFeaturesMap.get(key) === undefined) {
+        mergedFeaturesMap.set(key, productFeature);
+      }
+    });
+    variantClassification.features = Array.from(mergedFeaturesMap.values());
+    mergedClassifications.set(key, variantClassification);
+  });
+
+  // process remaining classifications that exists ONLY in base/product
+  // add them to collection at the end
+  productClassificationMap.forEach((classification, key) => {
+    if (vairantClassificationsMap.get(key) === undefined) {
+      mergedClassifications.set(key, classification);
+    }
+  });
+
+  return Array.from(mergedClassifications.values());
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
