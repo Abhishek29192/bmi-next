@@ -1,35 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import React, { useReducer } from "react";
+import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
-import {
-  BasketContextProvider,
-  basketReducer,
-  initialBasketState
-} from "../../contexts/SampleBasketContext";
-
-const BasketContextProviderForTest = ({ children }: { children: any }) => {
-  const [basketState, basketDispatch] = useReducer(
-    basketReducer,
-    initialBasketState,
-    () => {
-      return typeof window !== "undefined" &&
-        localStorage.getItem("basketItems")
-        ? { products: JSON.parse(localStorage.getItem("basketItems")) }
-        : { products: [] };
-    }
-  );
-
-  const basketContextValues = {
-    basketState,
-    basketDispatch
-  };
-
-  return (
-    <BasketContextProvider value={basketContextValues}>
-      {children}
-    </BasketContextProvider>
-  );
-};
+import { BasketContextProvider } from "../../contexts/SampleBasketContext";
 
 describe("Functionality of sample basket", () => {
   it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", () => {
@@ -44,7 +16,7 @@ describe("Functionality of sample basket", () => {
       shortDescription: null
     };
     render(<SampleOrderSection variant={variant}></SampleOrderSection>, {
-      wrapper: BasketContextProviderForTest
+      wrapper: BasketContextProvider
     });
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
@@ -68,7 +40,7 @@ describe("Functionality of sample basket", () => {
     const { container } = render(
       <SampleOrderSection onlyDisplayCompleteOrder={true}></SampleOrderSection>,
       {
-        wrapper: BasketContextProviderForTest
+        wrapper: BasketContextProvider
       }
     );
     expect(

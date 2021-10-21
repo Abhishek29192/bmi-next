@@ -154,7 +154,13 @@ const OverviewCard = ({
             {subtitle}
           </Typography>
         )}
-        <div className={classnames(styles["children"], styles["text"], hasChildrenWithoutMargin && styles["children--without-margin"])}>
+        <div
+          className={classnames(
+            styles["children"],
+            styles["text"],
+            hasChildrenWithoutMargin && styles["children--without-margin"]
+          )}
+        >
           {children}
         </div>
         {footer && <div className={styles["footer"]}>{footer}</div>}
