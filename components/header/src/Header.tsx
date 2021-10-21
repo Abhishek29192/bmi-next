@@ -171,6 +171,16 @@ const Header = ({
   );
   const query = params.get(QUERY_KEY);
 
+  // Fallback if language doesn't exist in region.json - e.g. Group site
+  // (which can't exist there as code needs to be unique in that file)
+  if (!language) {
+    language = {
+      code: "EN",
+      icon: "/icons/flags/uk.svg",
+      label: ""
+    };
+  }
+
   return (
     <Paper
       className={classnames(
