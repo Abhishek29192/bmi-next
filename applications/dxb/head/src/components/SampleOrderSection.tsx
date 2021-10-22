@@ -55,16 +55,6 @@ const SampleOrderSection = ({
     return getMicroCopy("pdp.overview.canAddOtherMessage");
   };
 
-  // const sampleMessage = () => {
-  //   if (!isBasketFull && isSampleOrderAllowed) {
-  //     return getMicroCopy("pdp.overview.canAddMoreMessage");
-  //   } else if (!isBasketFull) {
-  //     return getMicroCopy("pdp.overview.canAddOtherMessage");
-  //   } else if (isBasketFull) {
-  //     return getMicroCopy("pdp.overview.sampleLimitReachedMessage");
-  //   }
-  // };
-
   return (
     (isSampleOrderAllowed || basketHasProducts) && (
       <Section
