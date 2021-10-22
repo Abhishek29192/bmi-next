@@ -6,8 +6,7 @@ test_intouch_frontend:
         - applications/intouch/frontend/**/*
         - components/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   variables:
     WORKSPACE: "@bmi/intouch-frontend"
     ROOT_DIR: "applications/intouch/frontend"
@@ -25,8 +24,7 @@ build_intouch_frontend_dev:
         - applications/intouch/frontend/**/*
         - components/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json

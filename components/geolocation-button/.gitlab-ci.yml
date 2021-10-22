@@ -1,0 +1,17 @@
+test_geolocation-button:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/geolocation-button"
+    ROOT_DIR: "components/geolocation-button"
+
+test_mr_coverage_geolocation-button:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/geolocation-button"
+    ROOT_DIR: "components/geolocation-button"
+
+build_geolocation-button:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/geolocation-button"
+    ROOT_DIR: "components/geolocation-button"

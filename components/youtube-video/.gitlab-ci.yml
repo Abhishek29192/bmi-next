@@ -1,0 +1,17 @@
+test_youtube-video:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/youtube-video"
+    ROOT_DIR: "components/youtube-video"
+
+test_mr_coverage_youtube-video:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/youtube-video"
+    ROOT_DIR: "components/youtube-video"
+
+build_youtube-video:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/youtube-video"
+    ROOT_DIR: "components/youtube-video"

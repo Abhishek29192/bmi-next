@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# Required until https://gitlab.com/gitlab-org/gitlab/-/issues/322206 is dealt with
+# Returns "true" if there are any changes in the list of directories provided
+# and "false" if there aren't any.
+#
+# Example: scripts/run_build.sh components/accordion components/alert-banner
 
 base_directories=${*}
 
 if [ ${#base_directories[@]} -eq 0 ] || [ -z "$CI_COMMIT_SHA" ]; then
   echo "One or more of parameters are empty."  >&2
-  echo "true"
+  echo "false"
   exit
 fi
 
@@ -17,7 +20,7 @@ elif [ "$CI_PIPELINE_SOURCE" == "merge_request_event" ]; then
   commit_to_compare=$CI_MERGE_REQUEST_SOURCE_BRANCH_SHA
 else
   echo "Unsupported CI_PIPELINE_SOURCE: [$CI_PIPELINE_SOURCE]"  >&2
-  echo "true"
+  echo "false"
   exit
 fi
 
@@ -30,5 +33,5 @@ if git diff --quiet $CI_COMMIT_SHA $commit_to_compare $base_directories; then
   echo "false"
 else
   echo "Changes are found in the base directory. Continue the build."  >&2
-  echo "false"
+  echo "true"
 fi

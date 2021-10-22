@@ -10,8 +10,7 @@ build_intouch_api_training_dev:
       changes:
         - applications/intouch/api/services/training/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
 
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts

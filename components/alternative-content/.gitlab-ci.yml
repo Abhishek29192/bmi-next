@@ -1,0 +1,11 @@
+test_alternative-content:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/alternative-content"
+    ROOT_DIR: "components/alternative-content"
+
+build_alternative-content:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/alternative-content"
+    ROOT_DIR: "components/alternative-content"

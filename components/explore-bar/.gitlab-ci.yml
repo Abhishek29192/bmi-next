@@ -1,0 +1,11 @@
+test_explore-bar:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/explore-bar"
+    ROOT_DIR: "components/explore-bar"
+
+build_explore-bar:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/explore-bar"
+    ROOT_DIR: "components/explore-bar"

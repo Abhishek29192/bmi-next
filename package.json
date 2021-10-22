@@ -29,7 +29,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && find . -type d -name 'node_modules' -prune -false -o -type f -name 'yarn.lock' | sort | xargs sha1sum > modules-sha && git add modules-sha",
+      "pre-commit": "lint-staged && yarn install --frozen-lockfile && find . -type d -name 'node_modules' -prune -false -o -type f -name 'yarn.lock' | sort | xargs sha1sum > modules-sha && git add modules-sha",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

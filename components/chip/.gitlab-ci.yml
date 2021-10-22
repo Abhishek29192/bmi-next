@@ -1,0 +1,11 @@
+test_chip:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/chip"
+    ROOT_DIR: "components/chip"
+
+build_chip:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/chip"
+    ROOT_DIR: "components/chip"

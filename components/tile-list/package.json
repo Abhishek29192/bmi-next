@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "license": "BMI-DXB",
+  "scripts": {
+    "check:ts": "tsc",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+  },
   "dependencies": {
     "@bmi/button": "0.0.0",
     "@bmi/card": "0.0.0",
