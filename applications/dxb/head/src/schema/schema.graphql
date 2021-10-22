@@ -905,6 +905,9 @@ type ContentfulResources implements Node {
   pdpSidebarItems: [ContentfulTitleWithContent]
     @link(from: "pdpSidebarItems___NODE")
 
+  "Maximum Numbers of samples allowed"
+  maximumSamples: Int
+
   "The title for the product details page cards for these resources."
   pdpCardsTitle: String
 

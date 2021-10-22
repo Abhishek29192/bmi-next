@@ -114,6 +114,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     inputBanner: resources.pdpInputBanner,
     seo: null
   };
+  const { maximumSamples: MAX_SAMPLES } = resources;
 
   const bimIframeUrl = getBimIframeUrl(product.assets);
 
@@ -177,10 +178,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   <SampleOrderSection
                     productName={product.name}
                     variant={getVariant(product, pageContext.variantCode)}
+                    maximumSamples={MAX_SAMPLES}
                   />
                 )) ||
                   (basketState.products.length > 0 && (
                     <SampleOrderSection
+                      maximumSamples={MAX_SAMPLES}
                       productName={product.name}
                       onlyDisplayCompleteOrder={true}
                     />

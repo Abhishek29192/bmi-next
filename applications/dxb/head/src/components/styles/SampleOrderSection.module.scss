@@ -5,6 +5,15 @@
   padding-top: 20px;
   border-top: 1px solid $color-storm;
   overflow: hidden;
+  .maximum-sample-message {
+    display: flex;
+    margin-bottom: 18px;
+    justify-content: flex-end;
+    @media (max-width: 1300px) {
+      justify-content: flex-start;
+      margin-bottom: 0px;
+    }
+  }
   .buttons-container {
     display: flex;
     justify-items: start;
