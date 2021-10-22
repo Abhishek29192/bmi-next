@@ -26,7 +26,7 @@ export const CompaniesSidePanel = ({
   const filteredCompanies = useMemo(() => {
     return companies.filter(({ name }) => {
       const query = searchQuery.toLowerCase().trim();
-      const matchesQuery = name.toLowerCase().includes(query);
+      const matchesQuery = (name || "").toLowerCase().includes(query);
       return matchesQuery;
     });
   }, [companies, searchQuery]);

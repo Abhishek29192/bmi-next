@@ -40,7 +40,7 @@ export const CompanyDetails = ({
         {t("company-page:details.title")}
       </Typography>
 
-      {showBusinessType ? (
+      {showBusinessType && company.businessType ? (
         <Typography className={styles.businessType} variant="h5">
           {t(`company-page:businessType.${company.businessType}`)}
         </Typography>
