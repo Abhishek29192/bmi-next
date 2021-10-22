@@ -25,6 +25,7 @@ import {
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import { resetPassword } from "../../services/account";
+import { getDocumentType } from "../../services/companyDocument";
 import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
@@ -134,6 +135,12 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         }
       },
       CompanyDocument: {
+        name: async (parent, _args, context) => {
+          return (parent.document || "").split(/[\\/]/).pop();
+        },
+        documentType: async (parent, _args, context) => {
+          return getDocumentType(parent.document);
+        },
         signedDocumentUrl: async (parent, _args, context) => {
           return context.storageClient.getPrivateAssetSignedUrl(
             parent.document

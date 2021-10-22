@@ -160,7 +160,16 @@ export default gql`
     signedPhotoUrl: String
   }
 
+  enum CompanyDocumentType {
+    PDF
+    JPG
+    JPEG
+    PNG
+  }
+
   extend type CompanyDocument {
+    name: String
+    documentType: CompanyDocumentType
     signedDocumentUrl: String @requires(columns: ["document"])
   }
 

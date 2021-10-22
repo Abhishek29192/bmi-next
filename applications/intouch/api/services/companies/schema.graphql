@@ -5306,7 +5306,16 @@ type CompanyDocument implements Node {
   Reads a single `Company` that is related to this `CompanyDocument`.
   """
   company: Company
+  name: String
+  documentType: CompanyDocumentType
   signedDocumentUrl: String
+}
+
+enum CompanyDocumentType {
+  PDF
+  JPG
+  JPEG
+  PNG
 }
 
 """

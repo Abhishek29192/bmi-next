@@ -3637,6 +3637,8 @@ type CompanyDocument implements Node {
   Reads a single `Company` that is related to this `CompanyDocument`.
   """
   company: Company
+  name: String
+  documentType: CompanyDocumentType
   signedDocumentUrl: String
 }
 
@@ -3930,6 +3932,13 @@ input CompanyDocumentPatch {
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: CompanyDocumentCompanyIdFkeyInput
+}
+
+enum CompanyDocumentType {
+  PDF
+  JPG
+  JPEG
+  PNG
 }
 
 """

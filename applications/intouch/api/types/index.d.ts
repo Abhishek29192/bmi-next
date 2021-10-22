@@ -2042,6 +2042,8 @@ export type CompanyDocument = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
   company?: Maybe<Company>;
+  name?: Maybe<Scalars["String"]>;
+  documentType?: Maybe<CompanyDocumentType>;
   signedDocumentUrl?: Maybe<Scalars["String"]>;
 };
 
@@ -2202,6 +2204,8 @@ export type CompanyDocumentPatch = {
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
 };
+
+export type CompanyDocumentType = "PDF" | "JPG" | "JPEG" | "PNG";
 
 /** All input for the `companyDocumentsAdd` mutation. */
 export type CompanyDocumentsAddInput = {

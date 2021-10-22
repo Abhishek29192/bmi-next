@@ -5,7 +5,9 @@ const COMPANY_ADMIN_PERMISSIONS = [
   "grant:company_admin",
   "grant:nominate_responsible_installer",
   "delete:evidence",
-  "update:guarantee"
+  "update:guarantee",
+  "add:companyDocument",
+  "delete:companyDocument"
 ];
 const MARKET_ADMIN_PERMISSIONS = [
   ...COMPANY_ADMIN_PERMISSIONS,
