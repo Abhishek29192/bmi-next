@@ -30,8 +30,8 @@ describe("CompanyDocuments Components", () => {
         {
           id: 1,
           document: "document",
-          createdAt: "2020-1-1",
-          updatedAt: "2020-1-1"
+          createdAt: "2020-12-12",
+          updatedAt: "2020-12-12"
         }
       ]
     };

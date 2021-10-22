@@ -128,17 +128,22 @@
       "download": "NEDLASTING"
     },
     "uploadDialog": {
-      "title": "Evidence Upload",
-      "buttonLabel": "Upload Files",
+      "title": "Dokumentopplasting",
+      "buttonLabel": "Last opp filer",
       "microcopy": {
-        "drop": "Drop",
-        "browse": "Browse"
+        "drop": "Miste",
+        "browse": "Bla gjennom"
       },
-      "instruction": "You can add files",
-      "confirmLabel": "Upload files",
-      "cancelLabel": "Cancel",
-      "fileValidationMessage": "You cannot upload  files larger than",
-      "evidence_category": "Evidence Category"
+      "instruction": "Du kan legge til filer",
+      "confirmLabel": "Last opp filer",
+      "cancelLabel": "Avbryt",
+      "fileValidationMessage": "Du kan ikke laste opp filer som er større enn {{fileSize}}"
+    },
+    "confirmDialog": {
+      "title": "Firmadokument",
+      "body": "Slett dokument?",
+      "confirmLabel": "Bekrefte",
+      "cancelLabel": "Avbryt"
     }
   }
 }

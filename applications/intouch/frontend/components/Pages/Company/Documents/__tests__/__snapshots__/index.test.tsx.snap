@@ -61,25 +61,18 @@ exports[`CompanyDocuments Components render correctly if there is document 1`] =
             >
               <tr
                 class="MuiTableRow-root"
-                style="word-break: break-word;"
               >
                 <td
                   class="MuiTableCell-root MuiTableCell-body"
-                >
-                  document
-                </td>
+                />
                 <td
                   class="MuiTableCell-root MuiTableCell-body"
                 >
-                  01/01/2020
+                  12/12/2020
                 </td>
                 <td
                   class="MuiTableCell-root MuiTableCell-body"
-                >
-                  <svg
-                    class="icon"
-                  />
-                </td>
+                />
                 <td
                   class="MuiTableCell-root MuiTableCell-body"
                 />

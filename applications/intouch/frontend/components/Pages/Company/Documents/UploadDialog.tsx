@@ -28,6 +28,7 @@ export const UploadDialog = ({
         <Upload
           id={"add-company-document"}
           name={"add-company-document"}
+          data-testid="add-company-document"
           buttonLabel={t("document.uploadDialog.buttonLabel")}
           accept=".pdf,.jpg,.jpeg,.png"
           instructions={t("document.uploadDialog.instruction")}
@@ -45,9 +46,9 @@ export const UploadDialog = ({
           onFilesChange={(files) => setFiles(files)}
           fileValidation={(file) =>
             file.size > MAX_FILE_SIZE * (1024 * 1024)
-              ? `${t(
-                  "document.uploadDialog.fileValidationMessage"
-                )} ${MAX_FILE_SIZE}MB`
+              ? t("document.uploadDialog.fileValidationMessage", {
+                  fileSize: `${MAX_FILE_SIZE}MB`
+                })
               : null
           }
         />

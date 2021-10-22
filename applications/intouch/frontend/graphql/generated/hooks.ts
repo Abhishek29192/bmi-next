@@ -260,18 +260,26 @@ export const CompanyCertificationsFragmentDoc = gql`
     certifications
   }
 `;
+export const CompanyDocumentFragmentFragmentDoc = gql`
+  fragment CompanyDocumentFragment on CompanyDocument {
+    id
+    document
+    name
+    documentType
+    signedDocumentUrl
+    createdAt
+    updatedAt
+  }
+`;
 export const CompanyDocumentsFragmentFragmentDoc = gql`
   fragment CompanyDocumentsFragment on Company {
     companyDocuments {
       nodes {
-        id
-        document
-        signedDocumentUrl
-        createdAt
-        updatedAt
+        ...CompanyDocumentFragment
       }
     }
   }
+  ${CompanyDocumentFragmentFragmentDoc}
 `;
 export const CompanyPageDetailsFragmentFragmentDoc = gql`
   fragment CompanyPageDetailsFragment on Company {
@@ -510,14 +518,11 @@ export const AddCompanyDocumentsDocument = gql`
   mutation addCompanyDocuments($input: CompanyDocumentsAddInput!) {
     companyDocumentsAdd(input: $input) {
       companyDocuments {
-        id
-        document
-        signedDocumentUrl
-        createdAt
-        updatedAt
+        ...CompanyDocumentFragment
       }
     }
   }
+  ${CompanyDocumentFragmentFragmentDoc}
 `;
 export type AddCompanyDocumentsMutationFn = Apollo.MutationFunction<
   OperationTypes.AddCompanyDocumentsMutation,

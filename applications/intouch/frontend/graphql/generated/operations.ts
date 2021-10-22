@@ -178,6 +178,19 @@ export type CompanyDetailsFragmentFragment = {
     >;
   };
 
+export type CompanyDocumentFragmentFragment = {
+  readonly __typename?: "CompanyDocument";
+} & Pick<
+  SchemaTypes.CompanyDocument,
+  | "id"
+  | "document"
+  | "name"
+  | "documentType"
+  | "signedDocumentUrl"
+  | "createdAt"
+  | "updatedAt"
+>;
+
 export type CompanyDocumentsFragmentFragment = {
   readonly __typename?: "Company";
 } & {
@@ -187,7 +200,13 @@ export type CompanyDocumentsFragmentFragment = {
     readonly nodes: ReadonlyArray<
       { readonly __typename?: "CompanyDocument" } & Pick<
         SchemaTypes.CompanyDocument,
-        "id" | "document" | "signedDocumentUrl" | "createdAt" | "updatedAt"
+        | "id"
+        | "document"
+        | "name"
+        | "documentType"
+        | "signedDocumentUrl"
+        | "createdAt"
+        | "updatedAt"
       >
     >;
   };
@@ -206,7 +225,13 @@ export type AddCompanyDocumentsMutation = {
         ReadonlyArray<
           { readonly __typename?: "CompanyDocument" } & Pick<
             SchemaTypes.CompanyDocument,
-            "id" | "document" | "signedDocumentUrl" | "createdAt" | "updatedAt"
+            | "id"
+            | "document"
+            | "name"
+            | "documentType"
+            | "signedDocumentUrl"
+            | "createdAt"
+            | "updatedAt"
           >
         >
       >;
@@ -334,6 +359,8 @@ export type UpdateCompanyDetailsMutation = {
                   SchemaTypes.CompanyDocument,
                   | "id"
                   | "document"
+                  | "name"
+                  | "documentType"
                   | "signedDocumentUrl"
                   | "createdAt"
                   | "updatedAt"
@@ -3101,7 +3128,13 @@ export type CompanyPageDetailsFragmentFragment = {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "CompanyDocument" } & Pick<
           SchemaTypes.CompanyDocument,
-          "id" | "document" | "signedDocumentUrl" | "createdAt" | "updatedAt"
+          | "id"
+          | "document"
+          | "name"
+          | "documentType"
+          | "signedDocumentUrl"
+          | "createdAt"
+          | "updatedAt"
         >
       >;
     };
@@ -3206,6 +3239,8 @@ export type GetCompaniesByMarketQuery = { readonly __typename?: "Query" } & {
                   SchemaTypes.CompanyDocument,
                   | "id"
                   | "document"
+                  | "name"
+                  | "documentType"
                   | "signedDocumentUrl"
                   | "createdAt"
                   | "updatedAt"
@@ -3327,6 +3362,8 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
               SchemaTypes.CompanyDocument,
               | "id"
               | "document"
+              | "name"
+              | "documentType"
               | "signedDocumentUrl"
               | "createdAt"
               | "updatedAt"

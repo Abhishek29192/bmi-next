@@ -128,7 +128,7 @@
       "download": "DOWNLOAD"
     },
     "uploadDialog": {
-      "title": "Evidence Upload",
+      "title": "Document Upload",
       "buttonLabel": "Upload Files",
       "microcopy": {
         "drop": "Drop",
@@ -137,8 +137,14 @@
       "instruction": "You can add files",
       "confirmLabel": "Upload files",
       "cancelLabel": "Cancel",
-      "fileValidationMessage": "You cannot upload  files larger than",
+      "fileValidationMessage": "You cannot upload  files larger than {{fileSize}}",
       "evidence_category": "Evidence Category"
+    },
+    "confirmDialog": {
+      "title": "Company Document",
+      "body": "Delete document?",
+      "confirmLabel": "Confirm",
+      "cancelLabel": "Cancel"
     }
   }
 }
