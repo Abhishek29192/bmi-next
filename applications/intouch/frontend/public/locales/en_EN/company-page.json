@@ -117,5 +117,28 @@
       }
     }
   },
-  "report": "Download Companies List"
+  "report": "Download Companies List",
+  "document": {
+    "title": "Company Documents",
+    "noContent": "No documents uploaded yet",
+    "addDocument": "Add Document",
+    "headers": {
+      "document": "Document",
+      "date": "Date",
+      "download": "DOWNLOAD"
+    },
+    "uploadDialog": {
+      "title": "Evidence Upload",
+      "buttonLabel": "Upload Files",
+      "microcopy": {
+        "drop": "Drop",
+        "browse": "Browse"
+      },
+      "instruction": "You can add files",
+      "confirmLabel": "Upload files",
+      "cancelLabel": "Cancel",
+      "fileValidationMessage": "You cannot upload  files larger than",
+      "evidence_category": "Evidence Category"
+    }
+  }
 }

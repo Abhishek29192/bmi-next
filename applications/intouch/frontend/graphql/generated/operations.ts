@@ -178,6 +178,61 @@ export type CompanyDetailsFragmentFragment = {
     >;
   };
 
+export type CompanyDocumentsFragmentFragment = {
+  readonly __typename?: "Company";
+} & {
+  readonly companyDocuments: {
+    readonly __typename?: "CompanyDocumentsConnection";
+  } & {
+    readonly nodes: ReadonlyArray<
+      { readonly __typename?: "CompanyDocument" } & Pick<
+        SchemaTypes.CompanyDocument,
+        "id" | "document" | "signedDocumentUrl" | "createdAt" | "updatedAt"
+      >
+    >;
+  };
+};
+
+export type AddCompanyDocumentsMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CompanyDocumentsAddInput;
+}>;
+
+export type AddCompanyDocumentsMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly companyDocumentsAdd?: SchemaTypes.Maybe<
+    { readonly __typename?: "CompanyDocumentsAddPayload" } & {
+      readonly companyDocuments?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          { readonly __typename?: "CompanyDocument" } & Pick<
+            SchemaTypes.CompanyDocument,
+            "id" | "document" | "signedDocumentUrl" | "createdAt" | "updatedAt"
+          >
+        >
+      >;
+    }
+  >;
+};
+
+export type DeleteCompanyDocumentMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.DeleteCompanyDocumentInput;
+}>;
+
+export type DeleteCompanyDocumentMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly deleteCompanyDocument?: SchemaTypes.Maybe<
+    { readonly __typename?: "DeleteCompanyDocumentPayload" } & {
+      readonly companyDocument?: SchemaTypes.Maybe<
+        { readonly __typename?: "CompanyDocument" } & Pick<
+          SchemaTypes.CompanyDocument,
+          "id" | "document" | "createdAt"
+        >
+      >;
+    }
+  >;
+};
+
 export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
 }>;
@@ -269,6 +324,20 @@ export type UpdateCompanyDetailsMutation = {
                     >
                   >;
                 }
+              >;
+            };
+            readonly companyDocuments: {
+              readonly __typename?: "CompanyDocumentsConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyDocument" } & Pick<
+                  SchemaTypes.CompanyDocument,
+                  | "id"
+                  | "document"
+                  | "signedDocumentUrl"
+                  | "createdAt"
+                  | "updatedAt"
+                >
               >;
             };
           }
@@ -3026,6 +3095,16 @@ export type CompanyPageDetailsFragmentFragment = {
         }
       >;
     };
+    readonly companyDocuments: {
+      readonly __typename?: "CompanyDocumentsConnection";
+    } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyDocument" } & Pick<
+          SchemaTypes.CompanyDocument,
+          "id" | "document" | "signedDocumentUrl" | "createdAt" | "updatedAt"
+        >
+      >;
+    };
   };
 
 export type GetCompaniesByMarketQueryVariables = SchemaTypes.Exact<{
@@ -3117,6 +3196,20 @@ export type GetCompaniesByMarketQuery = { readonly __typename?: "Query" } & {
                     >
                   >;
                 }
+              >;
+            };
+            readonly companyDocuments: {
+              readonly __typename?: "CompanyDocumentsConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyDocument" } & Pick<
+                  SchemaTypes.CompanyDocument,
+                  | "id"
+                  | "document"
+                  | "signedDocumentUrl"
+                  | "createdAt"
+                  | "updatedAt"
+                >
               >;
             };
           }
@@ -3224,6 +3317,20 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
                 >
               >;
             }
+          >;
+        };
+        readonly companyDocuments: {
+          readonly __typename?: "CompanyDocumentsConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "CompanyDocument" } & Pick<
+              SchemaTypes.CompanyDocument,
+              | "id"
+              | "document"
+              | "signedDocumentUrl"
+              | "createdAt"
+              | "updatedAt"
+            >
           >;
         };
       }

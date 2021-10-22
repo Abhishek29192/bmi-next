@@ -121,6 +121,7 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
     ...CompanyRegisteredDetailsFragment
     ...CompanyAdminsFragment
     ...CompanyCertifications
+    ...CompanyDocumentsFragment
     status
     isProfileComplete
   }

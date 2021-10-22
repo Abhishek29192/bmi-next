@@ -160,6 +160,10 @@ export default gql`
     signedPhotoUrl: String
   }
 
+  extend type CompanyDocument {
+    signedDocumentUrl: String @requires(columns: ["document"])
+  }
+
   enum GuaranteeEventType {
     SUBMIT_SOLUTION
     ASSIGN_SOLUTION
@@ -235,6 +239,10 @@ export default gql`
   }
 
   extend input EvidenceItemInput {
+    attachmentUpload: Upload
+  }
+
+  extend input CompanyDocumentInput {
     attachmentUpload: Upload
   }
 

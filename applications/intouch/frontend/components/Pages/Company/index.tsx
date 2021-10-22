@@ -17,6 +17,7 @@ import { CompanyRegisteredDetails } from "./RegisteredDetails";
 import { CompanyAdmins } from "./Admins";
 import { IncompleteProfileAlert } from "./IncompleteProfileAlert";
 import styles from "./styles.module.scss";
+import { CompanyDocuments } from "./Documents";
 
 type Props = GlobalPageProps & {
   company: GetCompanyQuery["company"];
@@ -72,6 +73,10 @@ export const CompanyPage = ({
             admins={company.companyMembers.nodes.filter(
               ({ account }) => account.role === ROLES.COMPANY_ADMIN
             )}
+          />
+          <CompanyDocuments
+            companyId={company.id}
+            documents={company.companyDocuments}
           />
         </Grid>
         <Grid item xs={12} lg={5} xl={4}>

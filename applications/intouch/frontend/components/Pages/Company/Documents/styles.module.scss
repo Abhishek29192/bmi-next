@@ -1,0 +1,23 @@
+@import "@bmi/styles";
+
+.main {
+  margin-top: 1.5rem;
+  background-color: $color-white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.body {
+  margin-top: 1.5rem;
+  margin-bottom: -1.5rem;
+  align-items: right;
+}
+.icon {
+  width: 2em;
+  height: 2em;
+  margin-right: 0.5em;
+}

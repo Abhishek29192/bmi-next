@@ -278,3 +278,13 @@ RETURNS SETOF notification
 AS $$
   UPDATE notification SET read = true WHERE account_id = account_to_update_id AND read = false RETURNING *;
 $$ LANGUAGE sql VOLATILE;
+
+-- Function to bulk insert company_documents
+CREATE OR REPLACE FUNCTION company_documents_add(documents company_document[])
+  RETURNS setof company_document
+  AS $$
+ 
+  insert into company_document(company_id,document)
+    select d.company_id,d.document from unnest(documents) as d
+     RETURNING *;
+$$ LANGUAGE sql STRICT VOLATILE;

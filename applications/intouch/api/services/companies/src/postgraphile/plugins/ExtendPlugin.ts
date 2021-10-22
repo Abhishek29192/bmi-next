@@ -133,6 +133,13 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           return formattedRoles[parent?.role || "INSTALLER"];
         }
       },
+      CompanyDocument: {
+        signedDocumentUrl: async (parent, _args, context) => {
+          return context.storageClient.getPrivateAssetSignedUrl(
+            parent.document
+          );
+        }
+      },
       Mutation: {
         invite: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);

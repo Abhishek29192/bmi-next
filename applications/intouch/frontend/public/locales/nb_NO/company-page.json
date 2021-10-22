@@ -117,5 +117,28 @@
       }
     }
   },
-  "report": "Last ned selskapsliste"
+  "report": "Last ned selskapsliste",
+  "document": {
+    "title": "Firmadokumenter",
+    "noContent": "Ingen dokumenter lastet opp ennå",
+    "addDocument": "Legg til dokument",
+    "headers": {
+      "document": "Dokument",
+      "date": "Dato",
+      "download": "NEDLASTING"
+    },
+    "uploadDialog": {
+      "title": "Evidence Upload",
+      "buttonLabel": "Upload Files",
+      "microcopy": {
+        "drop": "Drop",
+        "browse": "Browse"
+      },
+      "instruction": "You can add files",
+      "confirmLabel": "Upload files",
+      "cancelLabel": "Cancel",
+      "fileValidationMessage": "You cannot upload  files larger than",
+      "evidence_category": "Evidence Category"
+    }
+  }
 }

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompanyDocuments Components render correctly if there is document 1`] = `
+<div
+  class="main"
+>
+  <div
+    class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      class="MuiCardContent-root"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4 MuiTypography-colorPrimary"
+        style="font-size: 1.2rem;"
+      >
+        document.title
+      </h4>
+      <div
+        class="header"
+      />
+      <div
+        class="body"
+      >
+        <div>
+          <table
+            class="MuiTable-root Table Table--row-even-color"
+          >
+            <thead
+              class="MuiTableHead-root ColorPair ColorPair--pearl"
+            >
+              <tr
+                class="MuiTableRow-root MuiTableRow-head"
+              >
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                >
+                  document.headers.document
+                </th>
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                >
+                  document.headers.date
+                </th>
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                >
+                  document.headers.download
+                </th>
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                />
+              </tr>
+            </thead>
+            <tbody
+              class="MuiTableBody-root"
+            >
+              <tr
+                class="MuiTableRow-root"
+                style="word-break: break-word;"
+              >
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  document
+                </td>
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  01/01/2020
+                </td>
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  <svg
+                    class="icon"
+                  />
+                </td>
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CompanyDocuments Components render correctly if there is no document 1`] = `
+<div
+  class="main"
+>
+  <div
+    class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      class="MuiCardContent-root"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4 MuiTypography-colorPrimary"
+        style="font-size: 1.2rem;"
+      >
+        document.title
+      </h4>
+      <div
+        class="header"
+      />
+      <div
+        class="main"
+      >
+        document.noContent
+      </div>
+    </div>
+  </div>
+</div>
+`;

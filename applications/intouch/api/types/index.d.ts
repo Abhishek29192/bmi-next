@@ -2042,6 +2042,7 @@ export type CompanyDocument = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
   company?: Maybe<Company>;
+  signedDocumentUrl?: Maybe<Scalars["String"]>;
 };
 
 /** The fields on `companyDocument` to look up the row to connect. */
@@ -2065,6 +2066,7 @@ export type CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
 
 /** Input for the nested mutation of `company` in the `CompanyDocumentInput` mutation. */
@@ -2155,6 +2157,7 @@ export type CompanyDocumentInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -2198,6 +2201,29 @@ export type CompanyDocumentPatch = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+};
+
+/** All input for the `companyDocumentsAdd` mutation. */
+export type CompanyDocumentsAddInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  documents: Array<Maybe<CompanyDocumentInput>>;
+};
+
+/** The output of our `companyDocumentsAdd` mutation. */
+export type CompanyDocumentsAddPayload = {
+  __typename?: "CompanyDocumentsAddPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  companyDocuments?: Maybe<Array<CompanyDocument>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** A connection to a list of `CompanyDocument` values. */
@@ -11308,6 +11334,7 @@ export type MigrationOrder =
 export type Mutation = {
   __typename?: "Mutation";
   bulkImport?: Maybe<ImportOutput>;
+  companyDocumentsAdd?: Maybe<CompanyDocumentsAddPayload>;
   completeInvitation?: Maybe<Account>;
   courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
   courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
@@ -11640,6 +11667,11 @@ export type Mutation = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationBulkImportArgs = {
   input: BulkImportInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCompanyDocumentsAddArgs = {
+  input: CompanyDocumentsAddInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
