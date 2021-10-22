@@ -23,6 +23,7 @@ test_components:
 
 test_mr_coverage_components:
   stage: test
+  image: !reference [.node-full-image, image]
   allow_failure: true
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
