@@ -7,7 +7,8 @@ test_gcp-system-configurator:
 build_gcp-system-configurator:
   extends: .build_function
   variables:
-    PROJECT_NAME: gcp-system-configurator
+    WORKSPACE: "@bmi/gcp-system-configurator"
+    ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"
 
 package_gcp-system-configurator:
   extends: .package_function
@@ -16,7 +17,8 @@ package_gcp-system-configurator:
   dependencies:
     - build_gcp-system-configurator
   variables:
-    PROJECT_NAME: gcp-system-configurator
+    FUNCTION_NAME: "gcp-system-configurator"
+    ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"
 
 # Deploy to QA or Pre-Production or Production Storage
 deploy_gcp-system-configurator:
@@ -26,4 +28,5 @@ deploy_gcp-system-configurator:
   dependencies:
     - package_gcp-system-configurator
   variables:
-    PROJECT_NAME: gcp-system-configurator
+    FUNCTION_NAME: "gcp-system-configurator"
+    ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"

@@ -1,0 +1,93 @@
+##############################################################################
+# Template to build the function
+# Extending job needs to provide ROOT_DIR and WORKSPACE and the project
+# needs to have a build script in its package.json with a tsconfig.build.json
+#
+# For example:
+# variables:
+#   ROOT_DIR: "applications/functions/gcp-upload-file"
+#   WORKSPACE: "@bmi/gcp-upload-file"
+##############################################################################
+.build_function:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
+      changes:
+        - $ROOT_DIR/**/*
+  needs:
+    - job: install
+      optional: true
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace $WORKSPACE build -p tsconfig.build.json
+  artifacts:
+    paths:
+      - $ROOT_DIR/dist
+
+##############################################################################
+# Template to package the function
+# Extending job needs to provide FUNCTION_NAME and ROOT_DIR and depend on a
+# job that extends .build_function
+#
+# For example:
+# variables:
+#   FUNCTION_NAME: "gcp-upload-file"
+#   ROOT_DIR: "applications/functions/gcp-upload-file"
+##############################################################################
+.package_function:
+  stage: package
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - $ROOT_DIR/**/*
+  before_script:
+    - apt-get update
+    - apt-get install -y zip unzip
+    - mkdir -p dist/functions
+  script:
+    - cd $ROOT_DIR
+    - cp $CI_PROJECT_DIR/yarn.lock .
+    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip package.json yarn.lock dist/
+    - cd $CI_PROJECT_DIR
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/dist/functions
+
+##############################################################################
+# Template to deploy the function
+# Extending job needs to provide FUNCTION_NAME and ROOT_DIR and depend on a
+# job that extends .package_function
+#
+# For example:
+# variables:
+#   FUNCTION_NAME: "gcp-upload-file"
+#   ROOT_DIR: "applications/functions/gcp-upload-file"
+##############################################################################
+.deploy_function:
+  image: !reference [.cloud-sdk-image, image]
+  stage: deploy
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - $ROOT_DIR/**/*
+      allow_failure: true
+  before_script:
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_QA
+      fi
+          
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PREPROD
+      fi
+
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PROD
+      fi
+
+      apt-get update
+      apt-get install -y jq
+  script:
+    - ./scripts/deploy_function_package.sh $GCP_FUNCTIONS_CI $FUNCTION_NAME
+  interruptible: false

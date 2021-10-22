@@ -15,7 +15,7 @@ test_intouch_frontend:
 build_intouch_frontend_dev:
   needs: []
   cache: {}
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   stage: build
   services:
     - docker:dind
@@ -39,7 +39,7 @@ deploy_intouch_frontend_dev_to_cloudrun:
   needs:
     - build_intouch_frontend_dev
     # - test_intouch_frontend
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   rules:

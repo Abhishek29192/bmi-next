@@ -34,7 +34,7 @@ package_gcp-intouch-handle-message:
 
 # Deploy to QA
 deploy_gcp-intouch-handle-message:
-  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   stage: deploy
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"

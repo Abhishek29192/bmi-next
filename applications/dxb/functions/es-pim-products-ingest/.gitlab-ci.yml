@@ -7,7 +7,8 @@ test_es-pim-products-ingest:
 build_es-pim-products-ingest:
   extends: .build_function
   variables:
-    PROJECT_NAME: es-pim-products-ingest
+    WORKSPACE: "@bmi/es-pim-products-ingest"
+    ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
 
 package_es-pim-products-ingest:
   extends: .package_function
@@ -16,7 +17,8 @@ package_es-pim-products-ingest:
   dependencies:
     - build_es-pim-products-ingest
   variables:
-    PROJECT_NAME: es-pim-products-ingest
+    FUNCTION_NAME: es-pim-products-ingest
+    ROOT_DIR: applications/dxb/functions/es-pim-products-ingest
 
 deploy_es-pim-products-ingest:
   extends: .deploy_function
@@ -25,4 +27,5 @@ deploy_es-pim-products-ingest:
   dependencies:
     - package_es-pim-products-ingest
   variables:
-    PROJECT_NAME: es-pim-products-ingest
+    FUNCTION_NAME: es-pim-products-ingest
+    ROOT_DIR: applications/dxb/functions/es-pim-products-ingest

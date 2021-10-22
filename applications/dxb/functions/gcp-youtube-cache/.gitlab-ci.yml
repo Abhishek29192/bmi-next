@@ -9,6 +9,9 @@ test_gcp-youtube-cache:
 
 build_gcp-youtube-cache:
   extends: .build_function
+  variables:
+    WORKSPACE: "@bmi/gcp-youtube-cache"
+    ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
 
 package_gcp-youtube-cache:
   extends: .package_function
@@ -16,6 +19,9 @@ package_gcp-youtube-cache:
     - build_gcp-youtube-cache
   dependencies:
     - build_gcp-youtube-cache
+  variables:
+    FUNCTION_NAME: "gcp-youtube-cache"
+    ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
 
 deploy_gcp-youtube-cache:
   extends: .deploy_function
@@ -23,3 +29,6 @@ deploy_gcp-youtube-cache:
     - package_gcp-youtube-cache
   dependencies:
     - package_gcp-youtube-cache
+  variables:
+    FUNCTION_NAME: "gcp-youtube-cache"
+    ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"

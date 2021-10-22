@@ -1,4 +1,18 @@
-image: node:14.17.0
+include:
+  - local: "/.gitlab/images.gitlab-ci.yml"
+  - local: "/.gitlab/dependabot.gitlab-ci.yml"
+  - local: "/.gitlab/functions.gitlab-ci.yml"
+  - local: "/.gitlab/static-analysis.gitlab-ci.yml"
+  - local: "/.gitlab/test.gitlab-ci.yml"
+  - local: "/applications/frc-website/.gitlab-ci.yml"
+  - local: "/applications/dxb/.gitlab-ci.yml"
+  - local: "/applications/intouch/.gitlab-ci.yml"
+  - local: "/applications/redirects-website/.gitlab-ci.yml"
+  - local: "/components/.gitlab-ci.yml"
+  - local: "/functions/.gitlab-ci.yml"
+  - local: "/libraries/.gitlab-ci.yml"
+
+image: !reference [.node-slim-image, image]
 
 stages:
   - install
@@ -22,23 +36,11 @@ workflow:
       when: never
     - when: always
 
-include:
-  - local: "/.gitlab/dependabot.gitlab-ci.yml"
-  - local: "/.gitlab/static-analysis.gitlab-ci.yml"
-  - local: "/.gitlab/test.gitlab-ci.yml"
-  - local: "/applications/frc-website/.gitlab-ci.yml"
-  - local: "/applications/dxb/.gitlab-ci.yml"
-  - local: "/applications/intouch/.gitlab-ci.yml"
-  - local: "/applications/redirects-website/.gitlab-ci.yml"
-  - local: "/components/.gitlab-ci.yml"
-  - local: "/functions/.gitlab-ci.yml"
-  - local: "/libraries/.gitlab-ci.yml"
-
 default:
   cache:
     key:
       files:
-        - yarn.lock
+        - modules-sha
     policy: pull
     untracked: false
     paths:
@@ -60,6 +62,8 @@ install:
   stage: install
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
+      changes:
+        - modules-sha
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -67,7 +71,7 @@ install:
   cache:
     key:
       files:
-        - yarn.lock
+        - modules-sha
     untracked: false
     paths:
       - "**/node_modules"
@@ -95,7 +99,6 @@ license_finder:
     when: always
 
 release:
-  image: node:13
   stage: release
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
