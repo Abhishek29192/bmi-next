@@ -6,6 +6,24 @@
   display: block;
 }
 
+.mediaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.mediaTitle {
+  color: white;
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 10px;
+  }
+}
+
 .modal {
   background-color: transparent;
   box-shadow: none;

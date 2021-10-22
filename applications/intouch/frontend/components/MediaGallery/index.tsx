@@ -7,6 +7,9 @@ import Icon from "@bmi/icon";
 import { BMI } from "@bmi/logo";
 import ChevronRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import ChevronLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
+import Typography from "@bmi/typography";
+import DownloadIcon from "@material-ui/icons/GetApp";
+import { useTranslation } from "next-i18next";
 import { getVimeoEmbedUrl } from "../../lib/media/utils";
 import styles from "./styles.module.scss";
 
@@ -16,7 +19,7 @@ export type GalleryItem = {
   url: string;
   title: string;
   description?: string;
-  // TODO: download / actions
+  fileUrl?: string;
 };
 
 type Props = {
@@ -24,6 +27,15 @@ type Props = {
   onClose: () => any;
   activeItem: GalleryItem;
   items: GalleryItem[];
+};
+
+const downloadAction = (url) => {
+  const link = document.createElement("a");
+  link.href = url;
+  link.setAttribute("target", "_blank");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 };
 
 const VimeoIFrame = ({ url }: { url: string }) => {
@@ -63,6 +75,7 @@ export const MediaGallery = ({ isOpen, onClose, activeItem, items }: Props) => {
   if (!activeItem) {
     return null;
   }
+  const { t } = useTranslation();
   const [currentIndex, setIndex] = useState<number>(
     items.findIndex((i) => i.id === activeItem.id)
   );
@@ -97,13 +110,42 @@ export const MediaGallery = ({ isOpen, onClose, activeItem, items }: Props) => {
         initialPage={currentIndex}
         onPageChange={setIndex}
       >
-        {items.map((galleryItem) => {
+        {items.map(({ id, type, title, fileUrl, url, description }) => {
           return (
-            <Carousel.Slide key={galleryItem.id} className={styles.slide}>
-              {["image", "pdf"].includes(galleryItem.type) ? (
-                <Image src={galleryItem.url} alt={galleryItem.title} />
+            <Carousel.Slide key={id} className={styles.slide}>
+              {["image", "pdf"].includes(type) ? (
+                <div>
+                  <div className={styles.mediaHeader}>
+                    <Typography
+                      variant="subtitle2"
+                      display="block"
+                      className={styles.mediaTitle}
+                    >
+                      {title}
+                    </Typography>
+                    <Button
+                      onClick={() => downloadAction(fileUrl)}
+                      color="primary"
+                      startIcon={<DownloadIcon />}
+                    >
+                      {t("common:Download")}
+                    </Button>
+                  </div>
+                  <Image src={url} alt={description || title} />
+                </div>
               ) : (
-                <VimeoIFrame url={galleryItem.url} />
+                <div>
+                  <div className={styles.mediaHeader}>
+                    <Typography
+                      variant="subtitle2"
+                      display="block"
+                      className={styles.mediaTitle}
+                    >
+                      {title}
+                    </Typography>
+                  </div>
+                  <VimeoIFrame url={url} />
+                </div>
               )}
             </Carousel.Slide>
           );
