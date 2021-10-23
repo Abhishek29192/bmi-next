@@ -15,6 +15,8 @@ import {
   useAddCompanyDocumentsMutation,
   useDeleteCompanyDocumentMutation
 } from "../../../../graphql/generated/hooks";
+import { formatFileSize } from "../../../../lib/media/utils";
+import { formatDate } from "../../../../lib/utils/date";
 import { UploadDialog } from "./UploadDialog";
 import ConfirmDialog from "./ConfirmDialog";
 import styles from "./styles.module.scss";
@@ -22,6 +24,7 @@ import styles from "./styles.module.scss";
 export type CompanyDocumentsProps = {
   companyId: number;
   documents: CompanyDocumentsFragmentFragment["companyDocuments"];
+  onCompanyDocumentsUpdate?: () => void;
 };
 
 const DOCUMENT_ICONS: {
@@ -35,7 +38,8 @@ const DOCUMENT_ICONS: {
 
 export const CompanyDocuments = ({
   companyId,
-  documents
+  documents,
+  onCompanyDocumentsUpdate
 }: CompanyDocumentsProps) => {
   const { t } = useTranslation("company-page");
   const [isUploadDialog, setUploadDialog] = useState(false);
@@ -58,6 +62,7 @@ export const CompanyDocuments = ({
         ...prev,
         ...companyDocumentsAdd.companyDocuments
       ]);
+      onCompanyDocumentsUpdate && onCompanyDocumentsUpdate();
     }
   });
   const [deleteCompanyDocumentMutation] = useDeleteCompanyDocumentMutation({
@@ -69,6 +74,7 @@ export const CompanyDocuments = ({
         id: null,
         isOpen: false
       });
+      onCompanyDocumentsUpdate && onCompanyDocumentsUpdate();
     }
   });
 
@@ -140,9 +146,7 @@ export const CompanyDocuments = ({
                 {companyDocuments.map((doc) => (
                   <Table.Row key={doc.id}>
                     <Table.Cell>{doc.name}</Table.Cell>
-                    <Table.Cell>
-                      {new Date(doc.createdAt).toLocaleDateString()}
-                    </Table.Cell>
+                    <Table.Cell>{formatDate(doc.createdAt)}</Table.Cell>
                     <Table.Cell>
                       {doc.documentType && (
                         <a
@@ -151,10 +155,17 @@ export const CompanyDocuments = ({
                           target="_blank"
                           rel="noreferrer"
                         >
-                          <Icon
-                            source={DOCUMENT_ICONS[doc.documentType]}
-                            className={styles.icon}
-                          />
+                          <div className={styles.row}>
+                            <Icon
+                              source={DOCUMENT_ICONS[doc.documentType]}
+                              className={styles.icon}
+                            />
+                            {
+                              <Typography variant="body1" color={"primary"}>
+                                {formatFileSize(doc.size || undefined)}
+                              </Typography>
+                            }
+                          </div>
                         </a>
                       )}
                     </Table.Cell>
@@ -201,6 +212,7 @@ export const CompanyDocumentFragment = gql`
     document
     name
     documentType
+    size
     signedDocumentUrl
     createdAt
     updatedAt

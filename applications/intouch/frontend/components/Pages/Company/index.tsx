@@ -16,8 +16,8 @@ import { EditCompanyButton } from "./EditCompany/Button";
 import { CompanyRegisteredDetails } from "./RegisteredDetails";
 import { CompanyAdmins } from "./Admins";
 import { IncompleteProfileAlert } from "./IncompleteProfileAlert";
-import styles from "./styles.module.scss";
 import { CompanyDocuments } from "./Documents";
+import styles from "./styles.module.scss";
 
 type Props = GlobalPageProps & {
   company: GetCompanyQuery["company"];
@@ -77,6 +77,9 @@ export const CompanyPage = ({
           <CompanyDocuments
             companyId={company.id}
             documents={company.companyDocuments}
+            onCompanyDocumentsUpdate={() => {
+              onCompanyUpdateSuccess(company);
+            }}
           />
         </Grid>
         <Grid item xs={12} lg={5} xl={4}>

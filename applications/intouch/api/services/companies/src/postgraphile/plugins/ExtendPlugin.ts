@@ -26,6 +26,7 @@ import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import { resetPassword } from "../../services/account";
 import { getDocumentType } from "../../services/companyDocument";
+import { PostGraphileContext } from "../../types";
 import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
@@ -141,7 +142,17 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         documentType: async (parent, _args, context) => {
           return getDocumentType(parent.document);
         },
-        signedDocumentUrl: async (parent, _args, context) => {
+        size: async (parent, _args, context: PostGraphileContext) => {
+          const fileMetaData = await context.storageClient.getFileMetaData(
+            parent.document
+          );
+          return fileMetaData?.size;
+        },
+        signedDocumentUrl: async (
+          parent,
+          _args,
+          context: PostGraphileContext
+        ) => {
           return context.storageClient.getPrivateAssetSignedUrl(
             parent.document
           );

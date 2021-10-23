@@ -170,6 +170,7 @@ export default gql`
   extend type CompanyDocument {
     name: String
     documentType: CompanyDocumentType
+    size: Int
     signedDocumentUrl: String @requires(columns: ["document"])
   }
 

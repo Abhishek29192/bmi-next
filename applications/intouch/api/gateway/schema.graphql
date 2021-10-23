@@ -3639,6 +3639,7 @@ type CompanyDocument implements Node {
   company: Company
   name: String
   documentType: CompanyDocumentType
+  size: Int
   signedDocumentUrl: String
 }
 

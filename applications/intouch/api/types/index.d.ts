@@ -2044,6 +2044,7 @@ export type CompanyDocument = Node & {
   company?: Maybe<Company>;
   name?: Maybe<Scalars["String"]>;
   documentType?: Maybe<CompanyDocumentType>;
+  size?: Maybe<Scalars["Int"]>;
   signedDocumentUrl?: Maybe<Scalars["String"]>;
 };
 

@@ -28,3 +28,9 @@
     color: $color-cyan-500;
   }
 }
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 24px;
+}

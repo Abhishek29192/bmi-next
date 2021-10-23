@@ -4,11 +4,6 @@ import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
 import AccountContextWrapper from "../../../../../lib/tests/fixtures/account";
 import { CompanyDocuments } from "..";
 
-jest.mock("@bmi/use-dimensions", () => ({
-  __esModule: true,
-  default: () => [useRef(), jest.fn()]
-}));
-
 describe("CompanyDocuments Components", () => {
   it("render correctly if there is no document", () => {
     const mockDocuments = {

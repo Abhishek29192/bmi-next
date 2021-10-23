@@ -266,6 +266,7 @@ export const CompanyDocumentFragmentFragmentDoc = gql`
     document
     name
     documentType
+    size
     signedDocumentUrl
     createdAt
     updatedAt
