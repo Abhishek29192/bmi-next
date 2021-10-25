@@ -4036,6 +4036,7 @@ export const GetProjectsDocument = gql`
         }
         company {
           name
+          status
         }
         guarantees(first: 1) {
           nodes {

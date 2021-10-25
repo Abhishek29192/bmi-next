@@ -3,6 +3,7 @@
   "MISCELLANEOUS": "Supporting files",
   "PROOF_OF_PURCHASE": "Proof of purchase",
   "CUSTOM": "Custom Files",
+  "deactivatedCompany": "Company deactivated",
   "search": {
     "inputLabel": "Search for a project"
   },

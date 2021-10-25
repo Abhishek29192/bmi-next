@@ -55,10 +55,10 @@ const Projects = ({
     [projects?.nodes]
   );
 
-  const activeProjectId = useMemo(() => {
+  const activeProject = useMemo(() => {
     const { project } = router.query;
     if (project && project.length) {
-      return parseInt(project[0]);
+      return projects.nodes.find(({ id }) => id === parseInt(project[0]));
     }
   }, [router.query, sortedProjects]);
 
@@ -67,12 +67,19 @@ const Projects = ({
   };
 
   return (
-    <Layout title={t("common:Projects")} pageData={globalPageData}>
+    <Layout
+      title={t("common:Projects")}
+      attentionHeading={
+        activeProject.company.status === "DEACTIVATED" &&
+        t("project-page:deactivatedCompany")
+      }
+      pageData={globalPageData}
+    >
       <div className={layoutStyles.sidePanelWrapper}>
         <ProjectSidePanel
           projects={sortedProjects}
           onProjectSelected={handleProjectSelection}
-          selectedProjectId={activeProjectId}
+          selectedProjectId={activeProject.id}
         />
 
         <Grid
@@ -93,7 +100,7 @@ const Projects = ({
               </NoProjectsCard>
             </Grid>
           ) : (
-            <ProjectDetail projectId={activeProjectId} />
+            <ProjectDetail projectId={activeProject.id} />
           )}
         </Grid>
       </div>
@@ -173,6 +180,7 @@ export const GET_PROJECTS = gql`
         }
         company {
           name
+          status
         }
         guarantees(first: 1) {
           nodes {

@@ -3546,7 +3546,7 @@ export type GetProjectsQuery = { readonly __typename?: "Query" } & {
             readonly company?: SchemaTypes.Maybe<
               { readonly __typename?: "Company" } & Pick<
                 SchemaTypes.Company,
-                "name"
+                "name" | "status"
               >
             >;
             readonly guarantees: {
