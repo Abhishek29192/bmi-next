@@ -1,10 +1,5 @@
 /* eslint-disable security/detect-object-injection */
-import {
-  Category,
-  Classification,
-  Feature,
-  FeatureValue
-} from "../components/types/pim";
+import { Category, Feature, FeatureValue } from "../components/types/pim";
 
 type ProductFilterOption = {
   label: string;
@@ -34,6 +29,18 @@ export interface IndexedItemGroup<T> {
 
 export const removePLPFilterPrefix = (filterName: string) => {
   return (filterName || "").replace("plpFilter.", "");
+};
+
+export const groupBy = <T extends IndexedItem>(
+  array: readonly T[],
+  key: keyof T
+): IndexedItemGroup<T> => {
+  return (array || []).reduce<IndexedItemGroup<T>>((map, item) => {
+    const itemKey = item[key];
+    map[itemKey] = map[itemKey] || [];
+    map[itemKey].push(item);
+    return map;
+  }, {});
 };
 
 export const groupDistinctBy = <T extends IndexedItem>(
@@ -167,81 +174,82 @@ export const generateCategoryFilters = (
 
 export const generateFeatureFilters = (
   pimClassificationNamespace: string,
-  classifications: Classification[] = [],
+  features: Feature[] = [],
   allowedFilters: string[] = []
 ): ProductFilter[] => {
-  if (allowedFilters.length === 0 || classifications.length === 0) return [];
+  if ((allowedFilters || []).length === 0 || (features || []).length === 0)
+    return [];
 
   const uniqueAllowedFilters = Array.from(
     new Set(allowedFilters.map((filter) => filter.split("|")[0].trim()))
   );
 
-  const allFeatures: FeatureExtended[] = classifications
-    .flatMap((classification) => classification?.features || [])
-    .map((feature) => ({
-      ...feature,
-      featureCode: feature.code.replace(`${pimClassificationNamespace}/`, "")
-    }))
-    .filter((feature) =>
-      uniqueAllowedFilters.some((uniqueCode) => {
-        return uniqueCode === feature.featureCode;
-      })
-    );
+  const groupedFeatures = groupBy(features, "code");
 
-  const featureFilterGroup = allFeatures.reduce((prevValue, feature) => {
-    const previousValues: ProductFilterOptionExtended[] =
-      prevValue[feature.featureCode]?.options || [];
-
-    const createOptionValueWithUnit = (item: FeatureValue) =>
-      `${item.code || item.value}${feature?.featureUnit?.symbol || ""}`.trim();
-
-    const tryConvertToNumber = (value: String) =>
-      parseInt(`${value}`.replace(/[^0-9]+/gi, ""));
-
-    const uniqueValues = feature.featureValues
-      .filter(
-        (filValue) =>
-          !previousValues.some(
-            (prevVal) => prevVal.value === createOptionValueWithUnit(filValue)
-          )
+  const featureFilters = Object.keys(groupedFeatures)
+    .filter((featureCode) =>
+      uniqueAllowedFilters.some(
+        (uniqueCode) =>
+          uniqueCode ===
+          (featureCode || "").replace(`${pimClassificationNamespace}/`, "")
       )
-      .map((item) => {
-        const optionLabel = `${item.value} ${
-          feature?.featureUnit?.symbol || ""
-        }`.trim();
-        const optionValue = createOptionValueWithUnit(item);
-        const optionSortValue = tryConvertToNumber(item.value);
+    )
+    .map((featureCode) => {
+      return groupedFeatures[featureCode].reduce((plpFilter, feature) => {
+        const allFeatureValues = [
+          ...(plpFilter["featureValues"] || []),
+          ...(feature.featureValues || [])
+        ].map((featureValue: FeatureValue) => {
+          const createfeatureLabel = (item: FeatureValue) =>
+            `${item.value} ${feature?.featureUnit?.symbol || ""}`.trim();
+
+          const createOptionValueWithUnit = (item: FeatureValue) =>
+            `${item.code || item.value}${
+              feature?.featureUnit?.symbol || ""
+            }`.trim();
+
+          const tryConvertToNumber = (value: String) =>
+            parseInt(`${value}`.replace(/[^0-9]+/gi, ""));
+          const optionSortValue = tryConvertToNumber(featureValue.value);
+          const returningOption = {
+            label: createfeatureLabel(featureValue),
+            value: createOptionValueWithUnit(featureValue),
+            sortValue: isNaN(optionSortValue)
+              ? featureValue.value
+              : optionSortValue
+          };
+          return returningOption;
+        });
+        const groupedFeatureValues = groupBy(allFeatureValues, "value");
+        const resultValues = Object.values(groupedFeatureValues).flatMap(
+          (item) => item[0]
+        );
+
+        const allOptions = Object.values(
+          groupBy([...(plpFilter["options"] || []), ...resultValues], "value")
+        ).flatMap((item) => item[0]);
+
+        if (allOptions.length === 0) return undefined;
         return {
-          label: optionLabel,
-          value: optionValue,
-          // convert values in whole numbers(removing any locale based decimals!)
-          // if it cannot be converted to keep it as string
-          sortValue: isNaN(optionSortValue) ? item.value : optionSortValue
+          ...plpFilter,
+          label: feature.name,
+          name: (feature.code || "").replace(
+            `${pimClassificationNamespace}/`,
+            ""
+          ),
+          options: allOptions.sort((a, b) => {
+            //sort based on string or number value
+            if (
+              typeof a.sortValue === "string" ||
+              typeof b.sortValue === "string"
+            ) {
+              return a.sortValue > b.sortValue ? 1 : -1;
+            }
+            return a.sortValue - b.sortValue;
+          })
         };
-      });
-    const allOptions = [...previousValues, ...uniqueValues];
-    if (allOptions.length === 0) return prevValue;
+      }, {});
+    });
 
-    const returnValue = {
-      ...prevValue,
-      [feature.featureCode]: {
-        name: feature.featureCode,
-        label: feature.name,
-        options: allOptions.sort((a, b) => {
-          //sort based on string or number value
-          if (
-            typeof a.sortValue === "string" ||
-            typeof b.sortValue === "string"
-          ) {
-            return a.sortValue > b.sortValue ? 1 : -1;
-          }
-          return a.sortValue - b.sortValue;
-        })
-      }
-    };
-
-    return returnValue;
-  }, {});
-
-  return Object.values(featureFilterGroup);
+  return (featureFilters as ProductFilter[]).filter(Boolean);
 };
