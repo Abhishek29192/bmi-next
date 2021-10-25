@@ -44,12 +44,20 @@ class CancelToken {
 // @ts-ignore
 mockedAxios.CancelToken = CancelToken;
 
+const { location } = window;
+
 beforeAll(() => {
   mockConsole();
+  delete window.location;
+  window.location = { pathname: "/test-path" } as Location;
 });
 
 beforeEach(() => {
   jest.clearAllMocks();
+});
+
+afterAll(() => {
+  window.location = location;
 });
 
 const richTextRaw = {
