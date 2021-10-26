@@ -8,7 +8,7 @@ import { navigate } from "gatsby";
 import { useMediaQuery, useTheme } from "@material-ui/core";
 import BasketContext, {
   ACTION_TYPES,
-  ISample
+  Sample
 } from "../contexts/SampleBasketContext";
 import styles from "./styles/SampleBasketSectionProducts.module.scss";
 import { renderImage } from "./Image";
@@ -20,7 +20,7 @@ interface IOptions {
   featureUnitRequired?: boolean;
 }
 
-const getFeatures = (product: ISample, options: IOptions) => {
+const getFeatures = (product: Sample, options: IOptions) => {
   const classification = product.classifications?.filter(
     (classification) => classification.code === options.code
   )[0];
@@ -68,7 +68,7 @@ const SampleBasketSectionProducts = () => {
       }
     );
 
-    const removeFromBasket = (payload: ISample) => {
+    const removeFromBasket = (payload: Sample) => {
       basketDispatch({
         type: ACTION_TYPES.BASKET_REMOVE,
         payload

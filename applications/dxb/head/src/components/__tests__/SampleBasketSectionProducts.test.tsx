@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
 import {
   BasketContextProvider,
-  ISample
+  Sample
 } from "../../contexts/SampleBasketContext";
 import { createVariantOption } from "../../__tests__/PimDocumentProductHelper";
 import createImage from "../../__tests__/ImageHelper";
@@ -22,7 +22,7 @@ const getSiteContext = () => ({
   }
 });
 
-const samples: ISample[] = [
+const samples: Sample[] = [
   {
     name: "sample-1",
     ...createVariantOption({

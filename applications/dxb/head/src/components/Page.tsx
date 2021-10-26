@@ -252,7 +252,13 @@ const Page = ({
                     variantCodeToPathMap={variantCodeToPathMap}
                     shareWidgetData={resources?.visualiserShareWidget}
                   >
-                    <Content>{children}</Content>
+                    <Calculator
+                      onError={() =>
+                        navigate(getPathWithCountryCode(countryCode, "422"))
+                      }
+                    >
+                      <Content>{children}</Content>
+                    </Calculator>
                   </VisualiserProvider>
                   {inputBanner ? <InputBanner data={inputBanner} /> : null}
                 </ErrorBoundary>

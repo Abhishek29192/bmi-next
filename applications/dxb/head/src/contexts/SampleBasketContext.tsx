@@ -1,22 +1,23 @@
 import React, { useReducer, useEffect } from "react";
 import { VariantOption } from "../components/types/pim";
+import { local } from "../utils/storage";
 //action type
 export enum ACTION_TYPES {
   BASKET_ADD,
   BASKET_REMOVE
 }
 
-export interface ISample extends VariantOption {
+export interface Sample extends VariantOption {
   name: string;
 }
 
 export interface IBasketAction {
   type: ACTION_TYPES;
-  payload: ISample;
+  payload: Sample;
 }
 
 export interface IBasketState {
-  products: ISample[];
+  products: Sample[];
 }
 
 //initial state
@@ -73,16 +74,15 @@ export const BasketContextProvider = ({
     basketReducer,
     initialBasketState,
     () => {
-      return typeof window !== "undefined" &&
-        localStorage.getItem("basketItems")
-        ? { products: JSON.parse(localStorage.getItem("basketItems")) }
+      return typeof window !== "undefined" && local.getItem("basketItems")
+        ? { products: JSON.parse(local.getItem("basketItems")) }
         : { products: [] };
     }
   );
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("basketItems", JSON.stringify(basketState.products));
+      local.setItem("basketItems", JSON.stringify(basketState.products));
     }
   }, [basketState]);
 
