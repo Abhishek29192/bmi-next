@@ -1,43 +1,35 @@
-const {
-  getLinkContentTypeValidations
-} = require("../../../../utils/fieldValidations");
-
-const diffEntryTypes = ["teamPage"];
+const getFieldValidations = require("../../../../utils/getFieldValidations");
 
 module.exports.description = `Remove team page from linked page field validations`;
 
 module.exports.up = async (migration, { makeRequest }) => {
   const link = migration.editContentType("link");
 
-  const { linkContentType } = await getLinkContentTypeValidations(
+  const { getItemsValidations } = await getFieldValidations(
     makeRequest,
     link.id,
     "linkedPage"
   );
 
-  link.editField("linkedPage").validations([
-    {
-      linkContentType: [
-        ...linkContentType.filter(
-          (entryType) => !diffEntryTypes.includes(entryType)
-        )
-      ]
-    }
-  ]);
+  const validations = getItemsValidations();
+
+  link.editField("linkedPage").validations = [
+    { linkContentType: validations.filter((entry) => entry !== "teamPage") }
+  ];
 };
 
 module.exports.down = async (migration, { makeRequest }) => {
   const link = migration.editContentType("link");
 
-  const { linkContentType } = await getLinkContentTypeValidations(
+  const { getItemsValidations } = await getFieldValidations(
     makeRequest,
     link.id,
     "linkedPage"
   );
 
-  link.editField("linkedPage").validations([
-    {
-      linkContentType: [...linkContentType, ...diffEntryTypes]
-    }
-  ]);
+  const validations = getItemsValidations();
+
+  link.editField("linkedPage").validations = [
+    { linkContentType: [...validations, "teamPage"] }
+  ];
 };

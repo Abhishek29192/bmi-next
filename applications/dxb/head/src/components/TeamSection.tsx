@@ -32,12 +32,11 @@ const GTMTab = withGTM<TabProps>(Tab, {
 });
 
 const TeamSection = ({ data, className }: Props) => {
-  if (!data.backgroundColor) data.backgroundColor = "white";
   return (
     <Section
       className={classnames(
         className,
-        styles[`team-section-${data.backgroundColor.toLowerCase()}`]
+        styles[`team-section-${data.backgroundColor?.toLowerCase() || "white"}`]
       )}
     >
       <Grid container spacing={3} className={styles["grid"]}>

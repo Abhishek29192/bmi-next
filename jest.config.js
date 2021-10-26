@@ -3,14 +3,7 @@
 module.exports = {
   coverageDirectory: "coverage",
   coverageReporters: ["json", "lcov", "text", "text-summary", "cobertura"],
-  coveragePathIgnorePatterns: [
-    "node_modules/",
-    "coverage/",
-    "coverage-ts/",
-    "dxb/migrations",
-    "gatsby-config.js",
-    "gatsby-node.js"
-  ],
+  coveragePathIgnorePatterns: ["node_modules/", "coverage/", "coverage-ts/"],
   collectCoverageFrom: [
     "**/*.{ts,tsx,js}",
     "!**/node_modules/**",
