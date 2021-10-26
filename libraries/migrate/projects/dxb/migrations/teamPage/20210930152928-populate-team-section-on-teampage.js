@@ -11,8 +11,8 @@ module.exports.up = (migration) => {
   teamSection.createField("title").name("Title").type("Symbol").required(true);
 
   teamSection
-    .createField("items")
-    .name("Items")
+    .createField("teamCategories")
+    .name("Team Categories")
     .type("Array")
     .required(true)
     .validations([{ size: { min: 1 } }])
@@ -23,7 +23,11 @@ module.exports.up = (migration) => {
     });
 
   teamSection.changeFieldControl("title", "builtin", "singleLine");
-  teamSection.changeFieldControl("items", "builtin", "entryLinksEditor");
+  teamSection.changeFieldControl(
+    "teamCategories",
+    "builtin",
+    "entryLinksEditor"
+  );
 
   //populate team section on team page
   const teamPage = migration.editContentType("teamPage");
@@ -40,7 +44,7 @@ module.exports.up = (migration) => {
     derivedContentType: "teamSection",
     from: ["title", "teamCategories"],
     toReferenceField: "teamSection",
-    derivedFields: ["title", "items"],
+    derivedFields: ["title", "teamCategories"],
     identityKey: async (fromFields) => {
       const idKey = Object.values(fromFields.title)
         .toString()
@@ -52,11 +56,11 @@ module.exports.up = (migration) => {
     shouldPublish: true,
     deriveEntryForLocale: async (inputFields) => {
       const title = Object.values(inputFields.title).toString();
-      const items = Object.values(inputFields.teamCategories)[0];
+      const teamCategories = Object.values(inputFields.teamCategories)[0];
 
       return {
         title,
-        items
+        teamCategories
       };
     }
   });

@@ -442,7 +442,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulTeamSection",
         title: "Team Section - alabaster",
-        items: [
+        teamCategories: [
           {
             title: "Team Category 1",
             description: {
@@ -464,7 +464,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulTeamSection",
         title: "Team Section - undefined colour (2 categories)",
-        items: [
+        teamCategories: [
           {
             title: "Team Category 1",
             description: {

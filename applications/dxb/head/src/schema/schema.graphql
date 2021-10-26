@@ -299,7 +299,6 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
-
 type ContentfulHomePage implements Node {
   id: ID!
 
@@ -1162,7 +1161,7 @@ type ContentfulTeamSection implements Node {
   title: String
 
   "The items for this section."
-  items: [ContentfulTeamCategory] @link(from: "items___NODE")
+  teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
 
   "The background colour"
   backgroundColor: String

@@ -14,7 +14,7 @@ import styles from "./styles/TeamSection.module.scss";
 export type Data = {
   __typename: "ContentfulTeamSection";
   title: string;
-  items: {
+  teamCategories: {
     title: string;
     description: RichTextData | null;
     team_member: TeamMemberData;
@@ -57,7 +57,7 @@ const TeamSection = ({ data, className }: Props) => {
               />
             )}
           >
-            {data.items.map((category, index) => (
+            {data.teamCategories.map((category, index) => (
               <Tabs.TabPanel
                 className={styles["tab-panel"]}
                 key={`category-tab-${index}`}
@@ -87,7 +87,7 @@ export const query = graphql`
   fragment TeamSectionFragment on ContentfulTeamSection {
     __typename
     title
-    items {
+    teamCategories {
       title
       description {
         ...RichTextFragment
