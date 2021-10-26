@@ -1,6 +1,6 @@
 import {
   CompanyDocument,
-  CompanyDocumentsAddInput,
+  CreateCompanyDocumentsInput,
   CompanyDocumentType,
   DeleteCompanyDocumentInput
 } from "@bmi/intouch-api-types";
@@ -8,19 +8,20 @@ import { FileUpload } from "graphql-upload";
 import { PoolClient } from "pg";
 import { PostGraphileContext } from "../../types";
 
-export const companyDocumentsAdd = async (
+export const createCompanyDocuments = async (
   resolve,
   source,
-  args: { input: CompanyDocumentsAddInput },
-  context,
+  args: { input: CreateCompanyDocumentsInput },
+  context: PostGraphileContext,
   resolveInfo
 ) => {
   const { GCP_PRIVATE_BUCKET_NAME } = process.env;
   const { pgClient, logger: Logger, storageClient, user } = context;
 
   const logger = Logger("service:companyDocuments");
+  const savepoint = "graphql_createCompanyDocuments_mutation";
 
-  await pgClient.query("SAVEPOINT graphql_company_document_create_mutation");
+  await pgClient.query(`SAVEPOINT ${savepoint}`);
 
   try {
     if (!user.can("add:companyDocument")) {
@@ -48,14 +49,10 @@ export const companyDocumentsAdd = async (
   } catch (e) {
     logger.error("Error creating company documents ", e);
 
-    await pgClient.query(
-      "ROLLBACK TO SAVEPOINT graphql_company_document_create_mutation"
-    );
+    await pgClient.query(`ROLLBACK TO SAVEPOINT ${savepoint}`);
     throw e;
   } finally {
-    await pgClient.query(
-      "RELEASE SAVEPOINT graphql_company_document_create_mutation"
-    );
+    await pgClient.query(`RELEASE SAVEPOINT ${savepoint}`);
   }
 };
 
@@ -70,8 +67,9 @@ export const deleteCompanyDocument = async (
   const { pgClient, logger: Logger, storageClient, user } = context;
 
   const logger = Logger("service:companyDocument");
+  const savepoint = "graphql_deleteCompanyDocuments_mutation";
 
-  await pgClient.query("SAVEPOINT graphql_delete_company_document_mutation");
+  await pgClient.query(`SAVEPOINT ${savepoint}`);
 
   try {
     const { id } = args.input;
@@ -95,14 +93,10 @@ export const deleteCompanyDocument = async (
   } catch (e) {
     logger.error("Error deleting document: ", e);
 
-    await pgClient.query(
-      "ROLLBACK TO SAVEPOINT graphql_delete_company_document_mutation"
-    );
+    await pgClient.query(`ROLLBACK TO SAVEPOINT ${savepoint}`);
     throw e;
   } finally {
-    await pgClient.query(
-      "RELEASE SAVEPOINT graphql_delete_company_document_mutation"
-    );
+    await pgClient.query(`RELEASE SAVEPOINT ${savepoint}`);
   }
 };
 

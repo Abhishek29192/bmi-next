@@ -1,10 +1,8 @@
 import { Source } from "graphql";
 import { makeWrapResolversPlugin } from "graphile-utils";
 import {
-  CompanyDocumentsAddInput,
   CreateGuaranteeInput,
   CreateNoteInput,
-  DeleteCompanyDocumentInput,
   DeleteEvidenceItemInput,
   UpdateGuaranteeInput,
   UpdateProjectMemberInput
@@ -21,10 +19,7 @@ import { PostGraphileContext } from "../../types";
 import { updateProjectMember } from "../../services/projectMember";
 import { createNote } from "../../services/note";
 import Auth0 from "../../services/auth0";
-import {
-  companyDocumentsAdd,
-  deleteCompanyDocument
-} from "../../services/companyDocument";
+import * as companyDocumentMutation from "../../services/companyDocument";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -169,42 +164,7 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
           return createNote(resolve, source, args, context, resolveInfo);
         }
       },
-      companyDocumentsAdd: {
-        async resolve(
-          resolve: any,
-          source,
-          args: {
-            input: CompanyDocumentsAddInput;
-          },
-          context,
-          resolveInfo
-        ) {
-          return companyDocumentsAdd(
-            resolve,
-            source,
-            args,
-            context,
-            resolveInfo
-          );
-        }
-      },
-      deleteCompanyDocument: {
-        async resolve(
-          resolve,
-          source: Source | string,
-          args: { input: DeleteCompanyDocumentInput },
-          context: PostGraphileContext,
-          resolveInfo
-        ) {
-          return deleteCompanyDocument(
-            resolve,
-            source,
-            args,
-            context,
-            resolveInfo
-          );
-        }
-      }
+      ...companyDocumentMutation
     }
   };
 });

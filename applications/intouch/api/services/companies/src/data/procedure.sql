@@ -280,7 +280,7 @@ AS $$
 $$ LANGUAGE sql VOLATILE;
 
 -- Function to bulk insert company_documents
-CREATE OR REPLACE FUNCTION company_documents_add(documents company_document[])
+CREATE OR REPLACE FUNCTION create_company_documents(documents company_document[])
   RETURNS setof company_document
   AS $$
  

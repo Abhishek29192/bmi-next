@@ -214,15 +214,15 @@ export type CompanyDocumentsFragmentFragment = {
   };
 };
 
-export type AddCompanyDocumentsMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.CompanyDocumentsAddInput;
+export type CreateCompanyDocumentsMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateCompanyDocumentsInput;
 }>;
 
-export type AddCompanyDocumentsMutation = {
+export type CreateCompanyDocumentsMutation = {
   readonly __typename?: "Mutation";
 } & {
-  readonly companyDocumentsAdd?: SchemaTypes.Maybe<
-    { readonly __typename?: "CompanyDocumentsAddPayload" } & {
+  readonly createCompanyDocuments?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateCompanyDocumentsPayload" } & {
       readonly companyDocuments?: SchemaTypes.Maybe<
         ReadonlyArray<
           { readonly __typename?: "CompanyDocument" } & Pick<

@@ -12,7 +12,7 @@ import { SimpleCard } from "../../../Cards/SimpleCard";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { CompanyDocumentsFragmentFragment } from "../../../../graphql/generated/operations";
 import {
-  useAddCompanyDocumentsMutation,
+  useCreateCompanyDocumentsMutation,
   useDeleteCompanyDocumentMutation
 } from "../../../../graphql/generated/hooks";
 import { formatFileSize } from "../../../../lib/media/utils";
@@ -56,11 +56,11 @@ export const CompanyDocuments = ({
     setCompanyDocuments([...documents.nodes]);
   }, [documents]);
 
-  const [addCompanyDocuments] = useAddCompanyDocumentsMutation({
-    onCompleted: ({ companyDocumentsAdd }) => {
+  const [createCompanyDocuments] = useCreateCompanyDocumentsMutation({
+    onCompleted: ({ createCompanyDocuments }) => {
       setCompanyDocuments((prev) => [
         ...prev,
-        ...companyDocumentsAdd.companyDocuments
+        ...createCompanyDocuments.companyDocuments
       ]);
       onCompanyDocumentsUpdate && onCompanyDocumentsUpdate();
     }
@@ -85,7 +85,7 @@ export const CompanyDocuments = ({
         attachmentUpload,
         document: attachmentUpload.name
       }));
-      await addCompanyDocuments({
+      await createCompanyDocuments({
         variables: {
           input: {
             documents
@@ -230,8 +230,8 @@ export const CompanyDocumentsFragment = gql`
 `;
 
 export const ADD_COMPANY_DOCUMENTS = gql`
-  mutation addCompanyDocuments($input: CompanyDocumentsAddInput!) {
-    companyDocumentsAdd(input: $input) {
+  mutation createCompanyDocuments($input: CreateCompanyDocumentsInput!) {
+    createCompanyDocuments(input: $input) {
       companyDocuments {
         ...CompanyDocumentFragment
       }

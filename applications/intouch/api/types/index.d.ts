@@ -2208,29 +2208,6 @@ export type CompanyDocumentPatch = {
 
 export type CompanyDocumentType = "PDF" | "JPG" | "JPEG" | "PNG";
 
-/** All input for the `companyDocumentsAdd` mutation. */
-export type CompanyDocumentsAddInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  documents: Array<Maybe<CompanyDocumentInput>>;
-};
-
-/** The output of our `companyDocumentsAdd` mutation. */
-export type CompanyDocumentsAddPayload = {
-  __typename?: "CompanyDocumentsAddPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  companyDocuments?: Maybe<Array<CompanyDocument>>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
 /** A connection to a list of `CompanyDocument` values. */
 export type CompanyDocumentsConnection = {
   __typename?: "CompanyDocumentsConnection";
@@ -5029,6 +5006,29 @@ export type CreateCompanyDocumentPayload = {
 /** The output of our create `CompanyDocument` mutation. */
 export type CreateCompanyDocumentPayloadCompanyDocumentEdgeArgs = {
   orderBy?: Maybe<Array<CompanyDocumentsOrderBy>>;
+};
+
+/** All input for the `createCompanyDocuments` mutation. */
+export type CreateCompanyDocumentsInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  documents: Array<Maybe<CompanyDocumentInput>>;
+};
+
+/** The output of our `createCompanyDocuments` mutation. */
+export type CreateCompanyDocumentsPayload = {
+  __typename?: "CreateCompanyDocumentsPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  companyDocuments?: Maybe<Array<CompanyDocument>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** All input for the `createCompany` mutation. */
@@ -11339,7 +11339,6 @@ export type MigrationOrder =
 export type Mutation = {
   __typename?: "Mutation";
   bulkImport?: Maybe<ImportOutput>;
-  companyDocumentsAdd?: Maybe<CompanyDocumentsAddPayload>;
   completeInvitation?: Maybe<Account>;
   courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
   courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
@@ -11355,6 +11354,7 @@ export type Mutation = {
   createCompany?: Maybe<CreateCompanyPayload>;
   /** Creates a single `CompanyDocument`. */
   createCompanyDocument?: Maybe<CreateCompanyDocumentPayload>;
+  createCompanyDocuments?: Maybe<CreateCompanyDocumentsPayload>;
   /** Creates a single `CompanyMember`. */
   createCompanyMember?: Maybe<CreateCompanyMemberPayload>;
   /** Creates a single `CompanyOperation`. */
@@ -11675,11 +11675,6 @@ export type MutationBulkImportArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCompanyDocumentsAddArgs = {
-  input: CompanyDocumentsAddInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCompleteInvitationArgs = {
   companyId: Scalars["Int"];
 };
@@ -11737,6 +11732,11 @@ export type MutationCreateCompanyArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateCompanyDocumentArgs = {
   input: CreateCompanyDocumentInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateCompanyDocumentsArgs = {
+  input: CreateCompanyDocumentsInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */

@@ -1,8 +1,8 @@
 import {
-  CompanyDocumentsAddInput,
+  CreateCompanyDocumentsInput,
   DeleteCompanyDocumentInput
 } from "@bmi/intouch-api-types";
-import { companyDocumentsAdd, deleteCompanyDocument } from "..";
+import { createCompanyDocuments, deleteCompanyDocument } from "..";
 
 const storage = {
   uploadFileByStream: jest.fn(),
@@ -38,7 +38,7 @@ describe("Company Documents", () => {
 
   describe("add document", () => {
     const args: {
-      input: CompanyDocumentsAddInput;
+      input: CreateCompanyDocumentsInput;
     } = {
       input: {
         documents: [
@@ -53,7 +53,7 @@ describe("Company Documents", () => {
       context.user.can = () => false;
 
       await expect(
-        companyDocumentsAdd(resolve, source, args, context, resolveInfo)
+        createCompanyDocuments(resolve, source, args, context, resolveInfo)
       ).rejects.toThrow("unauthorized");
     });
 
@@ -71,7 +71,7 @@ describe("Company Documents", () => {
           ]
         }));
 
-      await companyDocumentsAdd(resolve, source, args, context, resolveInfo);
+      await createCompanyDocuments(resolve, source, args, context, resolveInfo);
       expect(resolve).toBeCalledTimes(1);
       expect(storage.uploadFileByStream).toHaveBeenCalledTimes(1);
     });
