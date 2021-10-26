@@ -25,7 +25,7 @@ import {
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import { resetPassword } from "../../services/account";
-import { getDocumentType } from "../../services/companyDocument";
+import { getDocumentType } from "../../utils/companyDocument";
 import { PostGraphileContext } from "../../types";
 import typeDefs from "./typeDefs";
 

@@ -1,7 +1,6 @@
 import {
   CompanyDocument,
   CreateCompanyDocumentsInput,
-  CompanyDocumentType,
   DeleteCompanyDocumentInput
 } from "@bmi/intouch-api-types";
 import { FileUpload } from "graphql-upload";
@@ -98,23 +97,6 @@ export const deleteCompanyDocument = async (
   } finally {
     await pgClient.query(`RELEASE SAVEPOINT ${savepoint}`);
   }
-};
-
-export const getDocumentType = (documentPath: string): CompanyDocumentType => {
-  const fileExtention: string = (documentPath || "")
-    .split(/[\\/]/)
-    .pop()
-    .split(".")
-    .pop();
-
-  const fileExtentions: { [K in string]: CompanyDocumentType } = {
-    PDF: "PDF",
-    JPG: "JPG",
-    JPEG: "JPEG",
-    PNG: "PNG"
-  };
-
-  return fileExtentions[fileExtention.toUpperCase()];
 };
 
 const getCompanyDocument = async (
