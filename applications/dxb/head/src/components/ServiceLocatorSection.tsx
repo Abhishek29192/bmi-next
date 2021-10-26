@@ -398,6 +398,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   };
 
   const getCompanyDetails = (
+    eventCategoryId: string,
     service: Service,
     isAddressHidden?: boolean
   ): DetailProps[] => {
@@ -418,12 +419,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       } - ${serviceType}`;
       if (matches || sectionType !== EntryTypeEnum.ROOFER_TYPE) {
         return {
-          id: "selector-cards6",
+          id: eventCategoryId,
           label: `${label}${linkOrButtonText ? ` - ${linkOrButtonText}` : ""}`,
           action
         };
       } else {
-        return { id: "selector-cards6", label, action };
+        return { id: eventCategoryId, label, action };
       }
     };
     const globalAddress = getMicroCopy("global.address");
@@ -646,10 +647,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const microcopyPrefix = getMicroCopyPrefix(sectionType);
   const GTMIntegratedLinkCard = withGTM<LinkCardProps>(IntegratedLinkCard);
 
-  const getResultDataGtm = (service: Service) => {
+  const getResultDataGtm = (eventCategoryId: string, service: Service) => {
     const gtmResult = matches
       ? {
-          id: "selector-cards6",
+          id: eventCategoryId,
           label: `${service.name} - ${service.address}${
             service.certification ? ` - ${service.certification}` : ""
           }${
@@ -660,7 +661,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           action: "Expanded company details"
         }
       : {
-          id: "selector-cards6",
+          id: eventCategoryId,
           label: `${service.name} - ${service.address}${
             service.type && service.type.length === 1
               ? ` - ${service.type[0]}`
@@ -795,7 +796,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     onCloseClick={clearRooferAndResetMap}
                     isOpen={selectedRoofer && selectedRoofer.id === service.id}
                     title={service.name}
-                    gtm={getResultDataGtm(service)}
+                    gtm={getResultDataGtm("selector-cards6", service)}
                     subtitle={
                       <>
                         {service.address}
@@ -815,7 +816,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                       </>
                     }
                   >
-                    <CompanyDetails details={getCompanyDetails(service, true)}>
+                    <CompanyDetails
+                      details={getCompanyDetails(
+                        "selector-cards6",
+                        service,
+                        true
+                      )}
+                    >
                       <Typography>{service.summary}</Typography>
                     </CompanyDetails>
                   </GTMIntegratedLinkCard>
@@ -876,7 +883,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     ></CardHeader>
                     <CardContent>
                       <CompanyDetails
-                        details={getCompanyDetails(selectedRoofer)}
+                        details={getCompanyDetails(
+                          "cta-click1",
+                          selectedRoofer
+                        )}
                       >
                         <Typography>{selectedRoofer.summary}</Typography>
                       </CompanyDetails>
