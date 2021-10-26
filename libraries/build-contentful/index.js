@@ -130,22 +130,11 @@ async function cleanupOldEnvironments(tag, envs, space) {
   // want to keep at least 2 major versions (newest and previous)
   const envsExceptNewest = sortedEnvVersions.slice(1);
   if (sortedEnvVersions.length > 1) {
-    for (const env of envsExceptNewest) {
-      // 1. not the current tagged env
-      const isntTaggedEnv = env.sys.id !== tag;
-      // 2. isn't aliased
-      const isntAliased = !(await isEnvAliased(env, space));
-      // 3. isn't prev maj version
-      const isntPrevMaj =
-        prevMajEnvs.length > 0 && prevMajEnvs[0].sys.id !== env.sys.id;
-
-      if (isntTaggedEnv && isntAliased && isntPrevMaj) {
-        console.log(`Deleting contentful environment ${env.sys.id}`);
-        await env.delete();
-      } else {
-        console.log(`NOT Deleting contentful environment ${env.sys.id}.`);
-      }
-    }
+    envsExceptNewest.filter((env) =>
+        env.sys.id !== tag
+        && !(await isEnvAliased(env, space))
+        && prevMajEnvs[0]?.sys.id !== env.sys.id))
+    .forEach((env) => console.log(`Deleting contentful environment ${env.sys.id}`) && await env.delete());
   }
 }
 
