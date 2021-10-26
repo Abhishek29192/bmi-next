@@ -9,7 +9,6 @@ import variables from "./ThemeProvider.module.scss";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
 export const getTheme = (
-  longText: boolean,
   modifyTheme: (theme: ThemeOptions) => ThemeOptions = (t) => t
 ) => {
   const defaultTheme: ThemeOptions = {
@@ -50,24 +49,22 @@ export const getTheme = (
       fontFamily: "Effra Regular",
       h1: {
         fontFamily: "Effra Heavy",
-        fontSize: longText ? "clamp(2rem, 1.62rem + 1vw, 3rem)" : "3rem",
+        fontSize: "2.125rem",
         lineHeight: 1.2
       },
       h2: {
         fontFamily: "Effra Heavy",
-        fontSize: longText ? "clamp(1.17rem, 1.2rem + 1vw, 2.5rem)" : "2.5rem",
+        fontSize: "1.75rem",
         lineHeight: 1.2
       },
       h3: {
         fontFamily: "Effra Bold",
-        fontSize: longText ? "clamp(1.5rem, 0.7rem + 1vw, 2rem)" : "2rem",
+        fontSize: "1.5rem",
         lineHeight: 1.2
       },
       h4: {
         fontFamily: "Effra Bold",
-        fontSize: longText
-          ? "clamp(1.05rem, 0.68rem + 0.5vw, 1.75rem)"
-          : "1.75rem",
+        fontSize: "1.35rem",
         lineHeight: 1.2
       },
       h5: {
@@ -85,7 +82,7 @@ export const getTheme = (
         lineHeight: 1.4
       },
       body2: {
-        fontSize: "1.25rem",
+        fontSize: "1.125rem",
         lineHeight: 1.4
       },
       button: {
@@ -104,16 +101,12 @@ export const getTheme = (
 };
 
 type Props = {
-  longText?: boolean;
   children: React.ReactNode;
   modifyTheme?: (theme: ThemeOptions) => ThemeOptions;
 };
 
-const ThemeProvider = ({ longText = false, modifyTheme, children }: Props) => {
-  const theme = React.useMemo(
-    () => getTheme(longText, modifyTheme),
-    [longText, modifyTheme]
-  );
+const ThemeProvider = ({ modifyTheme, children }: Props) => {
+  const theme = React.useMemo(() => getTheme(modifyTheme), [modifyTheme]);
 
   return (
     <MaterialThemeProvider theme={theme}>
