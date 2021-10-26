@@ -8,6 +8,7 @@ import { Sidebar } from "../Sidebar";
 import { Header } from "../Header";
 import { Footer, Props as FooterProps } from "../Footer";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
+import LogoutPopup from "./LogoutPopup";
 import styles from "./styles.module.scss";
 
 export type LayoutProps = {
@@ -114,6 +115,7 @@ export const Layout = ({
             />
             <div className={styles.appContent}>{children}</div>
             <Footer links={footerLinks} />
+            <LogoutPopup showAfter={1000 * 60 * 15} waitFor={15 * 1000} />
           </div>
         </div>
       </div>

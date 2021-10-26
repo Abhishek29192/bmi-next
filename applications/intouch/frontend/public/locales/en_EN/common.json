@@ -65,5 +65,13 @@
     "today": "Today",
     "earlier": "Earlier",
     "older": "Older than two months"
+  },
+  "session": {
+    "dialog": {
+      "title": "Your session will expire after {{counter}}",
+      "content": "You have been inactive for a while now and this session will expire and you will be automatically logged out.",
+      "logout": "Log out",
+      "continue": "Extend session"
+    }
   }
 }
