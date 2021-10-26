@@ -273,7 +273,7 @@ lighthouseci_scan_head:
 
 .deploy_gatsby_cloud:
   variables:
-    DXB_MARKET_ID: "" # Two letter market ID  -i.e. NO
+    DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
   stage: deploy
   rules:
     - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
@@ -362,6 +362,72 @@ deploy_gatsby_cloud_france:
     DXB_MARKET_ID: "FR"
   rules:
     - if: "$CI_COMMIT_TAG" # Only trigger for tags as France is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+migrate_content_germany:
+  extends: .migrate_content
+  needs:
+    - install
+  variables:
+    DXB_MARKET_ID: "DE"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Germany is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+deploy_gatsby_cloud_germany:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_germany
+  variables:
+    DXB_MARKET_ID: "DE"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Germany is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+migrate_content_austria:
+  extends: .migrate_content
+  needs:
+    - install
+  variables:
+    DXB_MARKET_ID: "AT"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Austria is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+deploy_gatsby_cloud_austria:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_austria
+  variables:
+    DXB_MARKET_ID: "AT"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Austria is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+migrate_content_group:
+  extends: .migrate_content
+  needs:
+    - install
+  variables:
+    DXB_MARKET_ID: "GROUP"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Group is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+deploy_gatsby_cloud_group:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_group
+  variables:
+    DXB_MARKET_ID: "GROUP"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Group is not on QA
       changes:
         - libraries/migrate/projects/dxb/**/*
 ##############################################################
