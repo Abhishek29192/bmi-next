@@ -297,12 +297,21 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     if (results && results.hits) {
       const { hits } = results;
-      const newPageCount = Math.ceil(hits.total.value / PAGE_SIZE);
+      const uniqueBaseProductsCount =
+        results.aggregations.unique_base_products_count.value;
+      const newPageCount = Math.ceil(uniqueBaseProductsCount / PAGE_SIZE);
+      let variants = hits.hits;
+      if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
+        variants = hits.hits.slice(
+          0,
+          uniqueBaseProductsCount - page * PAGE_SIZE
+        );
+      }
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
       setProducts(
-        hits.hits.map((hit) => ({
+        variants.map((hit) => ({
           ...hit._source,
           all_variants: hit.inner_hits.all_variants.hits.hits
         }))

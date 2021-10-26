@@ -77,7 +77,12 @@ export const compileESQueryPLP = ({
       { "name.keyword": "asc" }
     ],
     aggs: {
-      ...generateAllowFiltersAggs(allowFilterBy)
+      ...generateAllowFiltersAggs(allowFilterBy),
+      unique_base_products_count: {
+        cardinality: {
+          field: "baseProduct.code.keyword"
+        }
+      }
     },
     query: {
       bool: {
