@@ -108,17 +108,10 @@ const isItCooked = (tag, space, attempts = 0) => {
     });
 };
 
-async function isEnvAliased(env, space) {
-  const allAliases = await space.getEnvironmentAliases();
-  for (const alias of allAliases.items) {
-    if (alias.environment.sys.id === env.sys.id) {
-      return true;
-    }
-  }
-  return false;
-}
-
 async function cleanupOldEnvironments(tag, envs, space) {
+  const allAliases = await space.getEnvironmentAliases();
+  const aliasedEnvIds = allAliases.items.map((x) => x.environment.sys.id);
+
   const sortedEnvVersions = envs.items
     .filter((env) => isValidSemVer(env.sys.id))
     .sort((b, a) => compareSemVer(a.sys.id, b.sys.id));
@@ -130,11 +123,19 @@ async function cleanupOldEnvironments(tag, envs, space) {
   // want to keep at least 2 major versions (newest and previous)
   const envsExceptNewest = sortedEnvVersions.slice(1);
   if (sortedEnvVersions.length > 1) {
-    envsExceptNewest.filter((env) =>
-        env.sys.id !== tag
-        && !(await isEnvAliased(env, space))
-        && prevMajEnvs[0]?.sys.id !== env.sys.id))
-    .forEach((env) => console.log(`Deleting contentful environment ${env.sys.id}`) && await env.delete());
+    envsExceptNewest
+      .filter(
+        (env) =>
+          env.sys.id !== tag &&
+          !aliasedEnvIds.includes(env.sys.id) &&
+          prevMajEnvs.length > 0 &&
+          prevMajEnvs[0].sys.id !== env.sys.id
+      )
+      .forEach(
+        async (env) =>
+          console.log(`Deleting contentful environment ${env.sys.id}`) &&
+          (await env.delete())
+      );
   }
 }
 
