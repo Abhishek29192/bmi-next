@@ -697,12 +697,14 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productScoringWeightInt": 1,
     "scoringWeight": "1.0",
     "scoringWeightInt": 1,
     "shortDescription": "Short description",
     "summary": "Summary",
     "texturefamilyCode": "code",
     "texturefamilyValue": "glossy",
+    "variantScoringWeightInt": 0,
   },
 ]
 `;
@@ -1069,12 +1071,14 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "scoringWeight": undefined,
+    "productScoringWeightInt": 0,
+    "scoringWeight": "0",
     "scoringWeightInt": 0,
     "shortDescription": "Short description",
     "summary": "Summary",
     "texturefamilyCode": undefined,
     "texturefamilyValue": undefined,
+    "variantScoringWeightInt": 0,
   },
 ]
 `;
@@ -1441,12 +1445,14 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "scoringWeight": undefined,
+    "productScoringWeightInt": 0,
+    "scoringWeight": "0",
     "scoringWeightInt": 0,
     "shortDescription": "Short description",
     "summary": "Summary",
     "texturefamilyCode": undefined,
     "texturefamilyValue": undefined,
+    "variantScoringWeightInt": 0,
   },
 ]
 `;
@@ -1918,12 +1924,14 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productScoringWeightInt": 1,
     "scoringWeight": "1.0",
     "scoringWeightInt": 1,
     "shortDescription": "Short description",
     "summary": "Summary",
     "texturefamilyCode": "code",
     "texturefamilyValue": "glossy",
+    "variantScoringWeightInt": 0,
   },
 ]
 `;
@@ -2272,12 +2280,14 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "scoringWeight": undefined,
+    "productScoringWeightInt": 0,
+    "scoringWeight": "0",
     "scoringWeightInt": 0,
     "shortDescription": "Short description",
     "summary": "Summary",
     "texturefamilyCode": undefined,
     "texturefamilyValue": undefined,
+    "variantScoringWeightInt": 0,
   },
 ]
 `;
@@ -2932,12 +2942,14 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productScoringWeightInt": 1,
     "scoringWeight": "1.0",
     "scoringWeightInt": 1,
     "shortDescription": "Short description",
     "summary": "Summary",
     "texturefamilyCode": "code",
     "texturefamilyValue": "glossy",
+    "variantScoringWeightInt": 0,
   },
 ]
 `;
@@ -3639,12 +3651,14 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productScoringWeightInt": 1,
     "scoringWeight": "1.0",
     "scoringWeightInt": 1,
     "shortDescription": "Short description",
     "summary": "Summary",
     "texturefamilyCode": "code",
     "texturefamilyValue": "glossy",
+    "variantScoringWeightInt": 0,
   },
 ]
 `;
