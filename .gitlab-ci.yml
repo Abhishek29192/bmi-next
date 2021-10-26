@@ -1,4 +1,4 @@
-image: !reference [.node-slim-image, image]
+image: node:14.17.0
 
 stages:
   - install
