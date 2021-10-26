@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
@@ -15,9 +15,15 @@ describe("Functionality of sample basket", () => {
       longDescription: null,
       shortDescription: null
     };
-    render(<SampleOrderSection productName="" variant={variant} />, {
-      wrapper: BasketContextProvider
-    });
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
@@ -37,17 +43,41 @@ describe("Functionality of sample basket", () => {
     ).toBeNull();
   });
   it("display only complete order if there are some items on basket but sample is not allowed", () => {
-    const { container } = render(
-      <SampleOrderSection productName="" onlyDisplayCompleteOrder={true} />,
+    const variant = {
+      code: "somthing",
+      path: null,
+      breadcrumbs: null,
+      approvalStatus: null,
+      images: null,
+      isSampleOrderAllowed: null,
+      longDescription: null,
+      shortDescription: null
+    };
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant}
+      ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
       }
     );
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={false}
+        maximumSamples={3}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    expect(screen.queryAllByText(`MC: pdp.overview.removeSample`).length).toBe(
+      0
+    );
+    expect(screen.queryAllByText(`MC: pdp.overview.addSample`).length).toBe(1);
     expect(
-      container.getElementsByClassName(
-        "buttons-container-complete-sample-order-only"
-      ).length
-    ).toBe(1);
+      screen.queryAllByText(`MC: pdp.overview.completeSampleOrder`)
+    ).not.toBeNull();
   });
 });
 
@@ -65,16 +95,28 @@ describe("disable 'Add to basket' if basket is full", () => {
       shortDescription: null
     };
     const variant2 = { ...variant1, code: "variant2" };
-    render(<SampleOrderSection variant={variant1}></SampleOrderSection>, {
-      wrapper: BasketContextProviderForTest
-    });
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant1}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
     addSampleCta.click();
-    render(<SampleOrderSection variant={variant2}></SampleOrderSection>, {
-      wrapper: BasketContextProviderForTest
-    });
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant2}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
     const addSampleCtaAgain = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
@@ -110,11 +152,12 @@ describe("disable 'Add to basket' if basket is full", () => {
     const variant2 = { ...variant1, code: "variant2" };
     render(
       <SampleOrderSection
+        isSampleOrderAllowed={true}
         variant={variant1}
         maximumSamples={maximumSamples}
       ></SampleOrderSection>,
       {
-        wrapper: BasketContextProviderForTest
+        wrapper: BasketContextProvider
       }
     );
     const addSampleCta = screen.getByRole("button", {
@@ -123,11 +166,12 @@ describe("disable 'Add to basket' if basket is full", () => {
     addSampleCta.click();
     render(
       <SampleOrderSection
+        isSampleOrderAllowed={true}
         variant={variant2}
         maximumSamples={maximumSamples}
       ></SampleOrderSection>,
       {
-        wrapper: BasketContextProviderForTest
+        wrapper: BasketContextProvider
       }
     );
     const addSampleCtaAgain = screen.getByRole("button", {
@@ -159,16 +203,28 @@ describe("disable 'Add to basket' if basket is full", () => {
       shortDescription: null
     };
     const variant2 = { ...variant1, code: "variant2" };
-    render(<SampleOrderSection variant={variant1}></SampleOrderSection>, {
-      wrapper: BasketContextProviderForTest
-    });
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant1}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
     addSampleCta.click();
-    render(<SampleOrderSection variant={variant2}></SampleOrderSection>, {
-      wrapper: BasketContextProviderForTest
-    });
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant2}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
     const addSampleCtaAgain = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
@@ -179,9 +235,9 @@ describe("disable 'Add to basket' if basket is full", () => {
 
     //since sample is not available onlyDisplayCompleteOrder is rendered
     render(
-      <SampleOrderSection onlyDisplayCompleteOrder={true}></SampleOrderSection>,
+      <SampleOrderSection isSampleOrderAllowed={false}></SampleOrderSection>,
       {
-        wrapper: BasketContextProviderForTest
+        wrapper: BasketContextProvider
       }
     );
     //check the localStorage is not full for basketItems

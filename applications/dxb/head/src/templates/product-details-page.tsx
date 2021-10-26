@@ -174,20 +174,14 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   )
                 }}
               >
-                {(getSampleOrderAllowed() && (
+                {
                   <SampleOrderSection
+                    isSampleOrderAllowed={getSampleOrderAllowed()}
                     productName={product.name}
                     variant={getVariant(product, pageContext.variantCode)}
                     maximumSamples={MAX_SAMPLES}
                   />
-                )) ||
-                  (basketState.products.length > 0 && (
-                    <SampleOrderSection
-                      maximumSamples={MAX_SAMPLES}
-                      productName={product.name}
-                      onlyDisplayCompleteOrder={true}
-                    />
-                  ))}
+                }
                 {resources?.pdpShareWidget && (
                   <ShareWidgetSection
                     data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
