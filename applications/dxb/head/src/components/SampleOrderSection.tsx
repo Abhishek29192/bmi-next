@@ -35,40 +35,35 @@ const SampleOrderSection = ({
       payload: { ...variant, name: productName }
     });
   };
-  const hasSampleInTheBasket = (): boolean => {
-    if (variant) {
-      return (
-        basketState.products.filter((product) => product.code === variant.code)
-          .length > 0
-      );
-    }
-  };
+  const hasSampleInTheBasket = variant
+    ? basketState.products.filter((product) => product.code === variant.code)
+        .length > 0
+    : undefined;
 
-  const basketFull = (): boolean => {
-    return basketState.products.length >= maximumSamples;
-  };
+  const isBasketFull = basketState.products.length >= maximumSamples;
+  const basketHasProducts = basketState.products.length > 0;
 
   const { getMicroCopy } = useSiteContext();
 
   const sampleMessage = () => {
-    if (!basketFull() && isSampleOrderAllowed) {
+    if (!isBasketFull && isSampleOrderAllowed) {
       return getMicroCopy("pdp.overview.canAddMoreMessage");
-    } else if (!basketFull()) {
+    } else if (!isBasketFull) {
       return getMicroCopy("pdp.overview.canAddOtherMessage");
-    } else if (basketFull) {
+    } else if (isBasketFull) {
       return getMicroCopy("pdp.overview.sampleLimitReachedMessage");
     }
   };
 
   return (
-    (isSampleOrderAllowed || basketState.products.length > 0) && (
+    (isSampleOrderAllowed || basketHasProducts) && (
       <Section
         backgroundColor="white"
         spacing="none"
         className={styles["SampleOrderSection"]}
         hasNoPadding
       >
-        {basketState.products.length > 0 && (
+        {basketHasProducts && (
           <div className={styles["maximum-sample-message"]}>
             {sampleMessage()}
           </div>
@@ -76,7 +71,7 @@ const SampleOrderSection = ({
 
         <div className={styles["buttons-container"]}>
           {isSampleOrderAllowed ? (
-            !hasSampleInTheBasket() && !basketFull() ? (
+            !hasSampleInTheBasket && !isBasketFull ? (
               <Button
                 className={styles["add-to-basket"]}
                 endIcon={<Add />}
@@ -84,7 +79,7 @@ const SampleOrderSection = ({
               >
                 {getMicroCopy("pdp.overview.addSample")}
               </Button>
-            ) : hasSampleInTheBasket() ? (
+            ) : hasSampleInTheBasket ? (
               <Button
                 className={styles["remove-from-basket"]}
                 endIcon={<Remove />}
@@ -95,7 +90,7 @@ const SampleOrderSection = ({
               </Button>
             ) : undefined
           ) : undefined}
-          {basketState.products.length > 0 && (
+          {basketHasProducts && (
             <Button
               className={styles["complete-order"]}
               endIcon={<ShoppingCart />}
