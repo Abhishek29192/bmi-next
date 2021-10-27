@@ -1,6 +1,7 @@
 import React from "react";
 import * as Gatsby from "gatsby";
 import { fireEvent, render, screen } from "@testing-library/react";
+import { local } from "../../utils/storage";
 import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
 import {
   BasketContextProvider,
@@ -59,12 +60,7 @@ const samples: Sample[] = [
 
 describe("SampleBasketSectionProducts component", () => {
   beforeAll(() => {
-    Object.defineProperty(window, "localStorage", {
-      value: {
-        getItem: jest.fn().mockReturnValue(JSON.stringify(samples)),
-        setItem: jest.fn()
-      }
-    });
+    jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify(samples));
   });
 
   it("renders correctly", () => {
