@@ -76,8 +76,6 @@ const getKeyBenefits = (
   product: Product,
   variantCode?: string
 ): readonly string[] => {
-  if (!variantCode) return product.productBenefits;
-
   const variantProduct = getVariant(product, variantCode);
 
   //found variant and it has `productBenefits` populated!
