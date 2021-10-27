@@ -67,9 +67,12 @@ export default gql`
   type ContentfulEvidenceCategory {
     sys: ContentfulSys!
     name: String
-    description: String
+    description: ContentfulEvidenceCategoryDescription
     minimumUploads: Int
     referenceCode: String
+  }
+  type ContentfulEvidenceCategoryDescription {
+    json: JSON!
   }
 
   type ContentfulGuaranteeTemplate {

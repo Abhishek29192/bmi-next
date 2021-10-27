@@ -6827,13 +6827,17 @@ type ContentfulAsset {
 type ContentfulEvidenceCategory {
   sys: ContentfulSys!
   name: String
-  description: String
+  description: ContentfulEvidenceCategoryDescription
   minimumUploads: Int
   referenceCode: String
 }
 
 type ContentfulEvidenceCategoryCollection {
   items: [ContentfulEvidenceCategory]
+}
+
+type ContentfulEvidenceCategoryDescription {
+  json: JSON!
 }
 
 enum ContentfulGuaranteeCoverageType {
@@ -8639,6 +8643,35 @@ type CreateCompanyDocumentPayload {
     """
     orderBy: [CompanyDocumentsOrderBy!] = [PRIMARY_KEY_ASC]
   ): CompanyDocumentsEdge
+}
+
+"""
+All input for the `createCompanyDocuments` mutation.
+"""
+input CreateCompanyDocumentsInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  documents: [CompanyDocumentInput]!
+}
+
+"""
+The output of our `createCompanyDocuments` mutation.
+"""
+type CreateCompanyDocumentsPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  companyDocuments: [CompanyDocument!]
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
 }
 
 """
@@ -18133,6 +18166,12 @@ type Mutation {
     """
     input: CreateCompanyDocumentInput!
   ): CreateCompanyDocumentPayload
+  createCompanyDocuments(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateCompanyDocumentsInput!
+  ): CreateCompanyDocumentsPayload
 
   """
   Creates a single `CompanyMember`.
