@@ -1,0 +1,11 @@
+test_post-it-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/post-it-card"
+    ROOT_DIR: "components/post-it-card"
+
+build_post-it-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/post-it-card"
+    ROOT_DIR: "components/post-it-card"

@@ -1,0 +1,11 @@
+test_dialog:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/dialog"
+    ROOT_DIR: "components/dialog"
+
+build_dialog:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/dialog"
+    ROOT_DIR: "components/dialog"

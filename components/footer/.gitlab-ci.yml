@@ -1,0 +1,11 @@
+test_footer:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/footer"
+    ROOT_DIR: "components/footer"
+
+build_footer:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/footer"
+    ROOT_DIR: "components/footer"

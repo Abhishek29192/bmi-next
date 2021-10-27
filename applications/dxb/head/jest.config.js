@@ -6,13 +6,14 @@ module.exports = {
   ...sharedConfig,
   rootDir: "../../../",
   roots: ["<rootDir>/applications/dxb/head/src"],
+  collectCoverageFrom: ["<rootDir>/applications/dxb/head/src/**/*.{ts,tsx,js}"],
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
-      statements: "59",
-      branches: "39",
-      functions: "49",
-      lines: "59"
+      statements: "70",
+      branches: "60",
+      functions: "68",
+      lines: "70"
     }
   }
 };

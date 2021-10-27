@@ -1,0 +1,17 @@
+test_download-list:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/download-list"
+    ROOT_DIR: "components/download-list"
+
+test_mr_coverage_download-list:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/download-list"
+    ROOT_DIR: "components/download-list"
+
+build_download-list:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/download-list"
+    ROOT_DIR: "components/download-list"

@@ -7,5 +7,9 @@ module.exports = {
   rootDir: "../../../../",
   roots: [
     "<rootDir>/applications/dxb/libraries/netlify-plugin-filter-tag-event"
+  ],
+  collectCoverageFrom: [
+    "<rootDir>/applications/dxb/libraries/netlify-plugin-filter-tag-event/**/*.{ts,tsx,js}",
+    "!**/*.config.js"
   ]
 };

@@ -15,8 +15,7 @@
       changes:
         - $ROOT_DIR/**/*
         - jest/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   needs:
     - job: install
       optional: true
@@ -49,9 +48,6 @@
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - $ROOT_DIR/**/*
-        - jest/**/*
-        - package.json
-        - "**/package.json"
   needs:
     - job: install
       optional: true

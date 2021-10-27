@@ -5,8 +5,7 @@ test_head:
       changes:
         - libraries/netlify-plugin-filter-tag-event/**/*
         - jest/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   variables:
     WORKSPACE: "@bmi/netlify-plugin-filter-tag-event"
     ROOT_DIR: "libraries/netlify-plugin-filter-tag-event"

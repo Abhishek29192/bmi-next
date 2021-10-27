@@ -1,0 +1,17 @@
+test_section:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/section"
+    ROOT_DIR: "components/section"
+
+test_mr_coverage_section:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/section"
+    ROOT_DIR: "components/section"
+
+build_section:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/section"
+    ROOT_DIR: "components/section"

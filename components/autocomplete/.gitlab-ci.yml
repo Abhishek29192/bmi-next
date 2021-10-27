@@ -1,0 +1,17 @@
+test_autocomplete:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/autocomplete"
+    ROOT_DIR: "components/autocomplete"
+
+test_mr_coverage_autocomplete:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/autocomplete"
+    ROOT_DIR: "components/autocomplete"
+
+build_autocomplete:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/autocomplete"
+    ROOT_DIR: "components/autocomplete"

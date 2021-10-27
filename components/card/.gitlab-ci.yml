@@ -1,0 +1,17 @@
+test_card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/card"
+    ROOT_DIR: "components/card"
+
+test_mr_coverage_card:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/card"
+    ROOT_DIR: "components/card"
+
+build_card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/card"
+    ROOT_DIR: "components/card"
