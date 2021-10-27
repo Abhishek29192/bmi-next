@@ -1580,6 +1580,67 @@ export type ProjectDetailsProductFragmentFragment = {
   "id" | "name" | "brand" | "family" | "description"
 >;
 
+export type GetProductsReportQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetProductsReportQuery = { readonly __typename?: "Query" } & {
+  readonly products?: SchemaTypes.Maybe<
+    { readonly __typename?: "ProductsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Product" } & Pick<
+          SchemaTypes.Product,
+          | "id"
+          | "bmiRef"
+          | "name"
+          | "description"
+          | "technology"
+          | "family"
+          | "brand"
+          | "maximumValidityYears"
+          | "published"
+          | "updatedAt"
+        >
+      >;
+    }
+  >;
+};
+
+export type GetSystemsReportQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetSystemsReportQuery = { readonly __typename?: "Query" } & {
+  readonly systems?: SchemaTypes.Maybe<
+    { readonly __typename?: "SystemsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "System" } & Pick<
+          SchemaTypes.System,
+          | "id"
+          | "bmiRef"
+          | "name"
+          | "description"
+          | "technology"
+          | "maximumValidityYears"
+          | "published"
+          | "updatedAt"
+        > & {
+            readonly systemMembersBySystemBmiRef: {
+              readonly __typename?: "SystemMembersConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "SystemMember" } & Pick<
+                  SchemaTypes.SystemMember,
+                  "productBmiRef"
+                >
+              >;
+            };
+          }
+      >;
+    }
+  >;
+};
+
 export type CreateGuaranteeMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.CreateGuaranteeInput;
 }>;
