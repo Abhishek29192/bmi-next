@@ -8,7 +8,6 @@ export type Data = {
   __typename:
     | "ContentfulSimplePage"
     | "ContentfulContactUsPage"
-    | "ContentfulTeamPage"
     | "ContentfulProductListerPage"
     | "ContentfulDocumentLibraryPage"
     | "ContentfulBrandLandingPage";

@@ -15,7 +15,6 @@ const availableTypenames = [
   "ContentfulHomePage",
   "ContentfulSimplePage",
   "ContentfulContactUsPage",
-  "ContentfulTeamPage",
   "ContentfulProductListerPage",
   "ContentfulDocumentLibraryPage",
   "ContentfulBrandLandingPage"
