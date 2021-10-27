@@ -335,14 +335,14 @@ describe("compileESQueryPLP function", () => {
         aggs: {
           Category: {
             terms: {
-              size: "100",
+              size: "300",
               field: "Category.code.keyword",
               include: undefined
             }
           },
           Brand: {
             terms: {
-              size: "100",
+              size: "300",
               field: "Brand.code.keyword",
               include: undefined
             }
@@ -374,14 +374,14 @@ describe("compileESQueryPLP function", () => {
         aggs: {
           Category: {
             terms: {
-              size: "100",
+              size: "300",
               field: "Category.code.keyword",
               include: ["PRODUCTS_NO"]
             }
           },
           Brand: {
             terms: {
-              size: "100",
+              size: "300",
               field: "Brand.code.keyword",
               include: undefined
             }
@@ -416,7 +416,7 @@ describe("compileESQueryPLP function", () => {
           aggs: {
             "roofAttributes.minimumpitch": {
               terms: {
-                size: "100",
+                size: "300",
                 field: "roofAttributes.minimumpitch.code.keyword",
                 include: undefined
               }
@@ -455,21 +455,21 @@ describe("compileESQueryPLP function", () => {
           aggs: {
             "roofAttributes.minimumpitch": {
               terms: {
-                size: "100",
+                size: "300",
                 field: "roofAttributes.minimumpitch.code.keyword",
                 include: undefined
               }
             },
             "measurements.length": {
               terms: {
-                size: "100",
+                size: "300",
                 field: "measurements.length.code.keyword",
                 include: undefined
               }
             },
             "generalInformation.materials": {
               terms: {
-                size: "100",
+                size: "300",
                 field: "generalInformation.materials.code.keyword",
                 include: undefined
               }

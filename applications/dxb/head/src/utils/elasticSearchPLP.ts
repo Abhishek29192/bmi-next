@@ -106,9 +106,9 @@ const createAggregation = (categoryKey: string, optionKey: string) => {
   return {
     [categoryKey]: {
       terms: {
-        // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
-        // Could request these separately, and figure out a way of retrying and getting more buckets if needed
-        size: "100",
+        // NOTE: returns 300 bucket is hopefully way more than is needed
+        // if you see disabled checkbox items in the UI then check if the bucket size is smaller than the resulting values
+        size: "300",
         field: `${categoryKey}.code.keyword`,
         include: optionKey ? [optionKey] : undefined
       }
