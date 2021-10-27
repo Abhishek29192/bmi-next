@@ -66,12 +66,26 @@ const transformImages = (images) => {
 const getDescription = (product: Product, variantCode?: string): string => {
   if (!variantCode) return product.description;
 
-  const variantProduct = product.variantOptions.find(
-    ({ code }) => code === variantCode
-  );
+  const variantProduct = getVariant(product, variantCode);
 
   if (variantProduct) return variantProduct.longDescription;
   return product.description;
+};
+
+const getKeyBenefits = (
+  product: Product,
+  variantCode?: string
+): readonly string[] => {
+  if (!variantCode) return product.productBenefits;
+
+  const variantProduct = getVariant(product, variantCode);
+
+  //found variant and it has `productBenefits` populated!
+  if (variantProduct && variantProduct.productBenefits?.length) {
+    return variantProduct.productBenefits;
+  }
+
+  return product.productBenefits?.length ? product.productBenefits : null;
 };
 
 const getVariant = (product: Product, variantCode: string) => {
@@ -211,7 +225,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
             <Section backgroundColor="white">
               <ProductLeadBlock
                 description={getDescription(product, pageContext.variantCode)}
-                keyFeatures={product.productBenefits}
+                keyFeatures={getKeyBenefits(product, pageContext.variantCode)}
                 sidebarItems={resources?.pdpSidebarItems}
                 guaranteesAndWarranties={product.assets?.filter(
                   (asset) =>
