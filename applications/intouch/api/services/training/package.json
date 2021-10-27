@@ -14,7 +14,7 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@bmi-digital/logger": "0.0.3",
+    "@bmi-digital/logger": "0.0.8",
     "@google-cloud/secret-manager": "^3.7.1",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",

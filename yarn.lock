@@ -2317,10 +2317,10 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/template/-/template-1.0.0.tgz#bf8828bc3ae8004d97904d78f64e3cc2cd216438"
   integrity sha512-J6WGZqCLdRMHUkyRG6fBSIFJ0rL60/nsQNh5rQvsYZ5u0PsKw6XQcJcA3DWvd9cN3j/IQx5yB1fexhCafwwUUw==
 
-"@bmi-digital/logger@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.3.tgz#f3cfc723a26a167a15f1258266a550f3750aae38"
-  integrity sha512-XKiuTTz6RHwM1a+SOsm6mx0XtpHEAB4I2er+cpNmo3SmXC4p+oEsQoBGOBlh9IIlqPqMr7oY5vASLyJn8nt0uw==
+"@bmi-digital/logger@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.8.tgz#1906f919921f96170583fbc9fac12ef673155c6f"
+  integrity sha512-K4BHSUM7mCFmTwQV7D7zkMqQDh8QvmQNN181DalK5PQjM50H0TaDyIGDpnUtykuU6rtaSZrd3C+39HKiPDMzgA==
   dependencies:
     "@google-cloud/logging" "^9.2.3"
     "@google-cloud/logging-winston" "^4.0.4"
