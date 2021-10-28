@@ -33,7 +33,7 @@ export type Data = {
   welcomeDialogBrands: [string] | null;
   welcomeDialogBody: RichTextData | null;
   countryNavigationIntroduction?: RichTextData | null;
-  maximumSamples: Number | null;
+  maximumSamples: number | null;
 };
 
 export const query = graphql`

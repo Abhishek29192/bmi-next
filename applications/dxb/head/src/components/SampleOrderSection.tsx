@@ -46,14 +46,24 @@ const SampleOrderSection = ({
   const { getMicroCopy } = useSiteContext();
 
   const sampleMessage = () => {
-    if (!isBasketFull && isSampleOrderAllowed) {
-      return getMicroCopy("pdp.overview.canAddMoreMessage");
-    } else if (!isBasketFull) {
-      return getMicroCopy("pdp.overview.canAddOtherMessage");
-    } else if (isBasketFull) {
+    if (isBasketFull) {
       return getMicroCopy("pdp.overview.sampleLimitReachedMessage");
     }
+    if (isSampleOrderAllowed) {
+      return getMicroCopy("pdp.overview.canAddMoreMessage");
+    }
+    return getMicroCopy("pdp.overview.canAddOtherMessage");
   };
+
+  // const sampleMessage = () => {
+  //   if (!isBasketFull && isSampleOrderAllowed) {
+  //     return getMicroCopy("pdp.overview.canAddMoreMessage");
+  //   } else if (!isBasketFull) {
+  //     return getMicroCopy("pdp.overview.canAddOtherMessage");
+  //   } else if (isBasketFull) {
+  //     return getMicroCopy("pdp.overview.sampleLimitReachedMessage");
+  //   }
+  // };
 
   return (
     (isSampleOrderAllowed || basketHasProducts) && (
@@ -64,22 +74,12 @@ const SampleOrderSection = ({
         hasNoPadding
       >
         {basketHasProducts && (
-          <div className={styles["maximum-sample-message"]}>
-            {sampleMessage()}
-          </div>
+          <div className={styles["sample-message"]}>{sampleMessage()}</div>
         )}
 
         <div className={styles["buttons-container"]}>
           {isSampleOrderAllowed ? (
-            !hasSampleInTheBasket && !isBasketFull ? (
-              <Button
-                className={styles["add-to-basket"]}
-                endIcon={<Add />}
-                onClick={() => addToBasket(variant)}
-              >
-                {getMicroCopy("pdp.overview.addSample")}
-              </Button>
-            ) : hasSampleInTheBasket ? (
+            hasSampleInTheBasket ? (
               <Button
                 className={styles["remove-from-basket"]}
                 endIcon={<Remove />}
@@ -87,6 +87,14 @@ const SampleOrderSection = ({
                 variant="text"
               >
                 {getMicroCopy("pdp.overview.removeSample")}
+              </Button>
+            ) : !isBasketFull ? (
+              <Button
+                className={styles["add-to-basket"]}
+                endIcon={<Add />}
+                onClick={() => addToBasket(variant)}
+              >
+                {getMicroCopy("pdp.overview.addSample")}
               </Button>
             ) : undefined
           ) : undefined}
