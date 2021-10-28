@@ -647,10 +647,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const microcopyPrefix = getMicroCopyPrefix(sectionType);
   const GTMIntegratedLinkCard = withGTM<LinkCardProps>(IntegratedLinkCard);
 
-  const getResultDataGtm = (eventCategoryId: string, service: Service) => {
+  const getResultDataGtm = (service: Service) => {
     const gtmResult = matches
       ? {
-          id: eventCategoryId,
+          id: "selector-cards6",
           label: `${service.name} - ${service.address}${
             service.certification ? ` - ${service.certification}` : ""
           }${
@@ -661,7 +661,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           action: "Expanded company details"
         }
       : {
-          id: eventCategoryId,
+          id: "selector-cards6",
           label: `${service.name} - ${service.address}${
             service.type && service.type.length === 1
               ? ` - ${service.type[0]}`
@@ -796,7 +796,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     onCloseClick={clearRooferAndResetMap}
                     isOpen={selectedRoofer && selectedRoofer.id === service.id}
                     title={service.name}
-                    gtm={getResultDataGtm("selector-cards6", service)}
+                    gtm={getResultDataGtm(service)}
                     subtitle={
                       <>
                         {service.address}
