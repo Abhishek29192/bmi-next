@@ -104,7 +104,7 @@ export const compileElasticSearchQuery = (
       "productLine",
       "brand"
     ].includes(filter.name)
-      ? searchTerms[filter.name]
+      ? searchTerms[filter.name] || searchTerms.allCategories
       : searchTerms.category;
 
     const termQuery = (value) => ({
