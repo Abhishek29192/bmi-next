@@ -36,10 +36,11 @@ const getFeatures = (sample: Sample, options: Options) => {
   ].filter((value) => value);
 
   const units =
-    options.featureUnitRequired &&
-    classification?.features[0]?.featureUnit?.symbol;
+    (options.featureUnitRequired &&
+      classification?.features[0]?.featureUnit?.symbol) ||
+    "";
 
-  return `${features.join(options.separator || " | ")} ${units ?? ""}`;
+  return `${features.join(options.separator || " | ")} ${units}`;
 };
 
 const SampleBasketSectionProducts = () => {

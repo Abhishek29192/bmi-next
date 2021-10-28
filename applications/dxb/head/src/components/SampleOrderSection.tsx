@@ -25,13 +25,13 @@ const SampleOrderSection = ({
   const addToBasket = (variant: VariantOption) => {
     basketDispatch({
       type: ACTION_TYPES.BASKET_ADD,
-      payload: { ...variant, name: productName ?? "" }
+      payload: { ...variant, name: productName }
     });
   };
   const removeFromBasket = (variant: VariantOption) => {
     basketDispatch({
       type: ACTION_TYPES.BASKET_REMOVE,
-      payload: { ...variant, name: productName ?? "" }
+      payload: { ...variant, name: productName }
     });
   };
   const hasSampleInTheBasket = (): boolean => {
