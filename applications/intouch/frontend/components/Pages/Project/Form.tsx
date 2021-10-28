@@ -102,7 +102,7 @@ const ProjectForm = ({ project, onSubmit, isSubmitting }: ProjectFormProps) => {
         <Typography variant="h6" className={styles.sectionTitle}>
           {getFieldLabel(t, "technology")}
         </Typography>
-        <TechnologyInput {...getFieldPropsFn(t, "technology")} />
+        <TechnologyInput {...getFieldPropsFn(t, "technology")} isRequired />
       </div>
 
       <TextField
