@@ -11,16 +11,8 @@ import Typography from "@bmi/typography";
 import DownloadIcon from "@material-ui/icons/GetApp";
 import { useTranslation } from "next-i18next";
 import { getVimeoEmbedUrl } from "../../lib/media/utils";
+import { GalleryItem } from "../../lib/media/types";
 import styles from "./styles.module.scss";
-
-export type GalleryItem = {
-  type: "image" | "pdf" | "vimeo";
-  id: string;
-  url: string;
-  title: string;
-  description?: string;
-  fileUrl?: string;
-};
 
 type Props = {
   isOpen: boolean;
@@ -66,7 +58,7 @@ const VimeoIFrame = ({ url }: { url: string }) => {
 
 const Image = ({ src, alt }: { src: string; alt?: string }) => {
   if (!src) {
-    return <Icon source={BMI} color="primary" />;
+    return <Icon source={BMI} color="primary" data-testid="bmi-icon" />;
   }
   return <img src={src} className={styles.image} alt={alt} />;
 };
@@ -124,6 +116,7 @@ export const MediaGallery = ({ isOpen, onClose, activeItem, items }: Props) => {
                       {title}
                     </Typography>
                     <Button
+                      data-testid="download-button"
                       onClick={() => downloadAction(fileUrl)}
                       color="primary"
                       startIcon={<DownloadIcon />}
@@ -158,6 +151,7 @@ export const MediaGallery = ({ isOpen, onClose, activeItem, items }: Props) => {
         onClick={() => {
           goToPrevious();
         }}
+        data-testid="carousel-prev-button"
       >
         <ChevronLeftIcon className={styles.arrow} />
       </Button>
@@ -168,6 +162,7 @@ export const MediaGallery = ({ isOpen, onClose, activeItem, items }: Props) => {
         onClick={() => {
           goToNext();
         }}
+        data-testid="carousel-next-button"
       >
         <ChevronRightIcon className={styles.arrow} />
       </Button>
