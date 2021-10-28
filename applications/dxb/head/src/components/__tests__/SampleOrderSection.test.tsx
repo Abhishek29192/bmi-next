@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
@@ -82,6 +82,10 @@ describe("Functionality of sample basket", () => {
 });
 
 describe("disable 'Add to basket' if basket is full", () => {
+  afterEach(() => {
+    cleanup();
+    localStorage.clear();
+  });
   it("not ordered max samples & sample available, show MC:canAddMoreMessage ", async () => {
     const maximumSamples = 3;
     const variant1 = {
