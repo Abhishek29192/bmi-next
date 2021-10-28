@@ -61,7 +61,6 @@ import FiltersSidebar from "../components/FiltersSidebar";
 import { Product } from "../components/types/pim";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ProductFilter, removePLPFilterPrefix } from "../utils/product-filters";
 
 const PAGE_SIZE = 24;
@@ -298,11 +297,24 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     if (results && results.hits) {
       const { hits } = results;
-      const newPageCount = Math.ceil(hits.total.value / PAGE_SIZE);
+      const uniqueBaseProductsCount =
+        results.aggregations.unique_base_products_count.value;
+      const newPageCount = Math.ceil(uniqueBaseProductsCount / PAGE_SIZE);
+      const variants = (() => {
+        if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
+          return hits.hits.slice(0, uniqueBaseProductsCount - page * PAGE_SIZE);
+        }
+        return hits.hits;
+      })();
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
-      setProducts(hits.hits.map((hit) => hit._source));
+      setProducts(
+        variants.map((hit) => ({
+          ...hit._source,
+          all_variants: hit.inner_hits.all_variants.hits.hits
+        }))
+      );
     }
 
     if (results && results.aggregations) {
@@ -500,6 +512,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           pageContext.pimClassificationCatalogueNamespace
                         )
                       );
+                      const moreOptionsAvailable =
+                        variant.all_variants?.length > 1 &&
+                        getMicroCopy("plp.product.moreOptionsAvailable");
 
                       return (
                         <Grid
@@ -538,6 +553,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 {getMicroCopy("plp.product.viewDetails")}
                               </AnchorLink>
                             }
+                            moreOptionsAvailable={moreOptionsAvailable}
                           >
                             {variant.shortDescription}
                           </GTMOverviewCard>

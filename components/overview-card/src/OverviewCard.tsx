@@ -25,6 +25,7 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   buttonComponent?: React.ComponentType<any>;
   clickableArea?: "full" | "body" | "none";
   isHighlighted?: boolean;
+  moreOptionsAvailable?: string | boolean;
 };
 
 const __DeprecatedImageSource = ({
@@ -90,6 +91,7 @@ const OverviewCard = ({
   clickableArea = "full",
   isHighlighted = false,
   hasChildrenWithoutMargin,
+  moreOptionsAvailable = false,
   ...rest
 }: Props) => {
   const ClickableArea = ({
@@ -149,9 +151,14 @@ const OverviewCard = ({
         >
           <Title>{title}</Title>
         </Typography>
-        {subtitle && (
+        {!moreOptionsAvailable && subtitle && (
           <Typography variant={subtitleVariant} className={styles["text"]}>
             {subtitle}
+          </Typography>
+        )}
+        {moreOptionsAvailable && (
+          <Typography variant={subtitleVariant} className={styles["text"]}>
+            {moreOptionsAvailable}
           </Typography>
         )}
         <div
