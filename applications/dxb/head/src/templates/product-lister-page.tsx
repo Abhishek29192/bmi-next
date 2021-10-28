@@ -300,13 +300,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       const uniqueBaseProductsCount =
         results.aggregations.unique_base_products_count.value;
       const newPageCount = Math.ceil(uniqueBaseProductsCount / PAGE_SIZE);
-      let variants = hits.hits;
-      if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
-        variants = hits.hits.slice(
-          0,
-          uniqueBaseProductsCount - page * PAGE_SIZE
-        );
-      }
+      const variants = (() => {
+        if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
+          return hits.hits.slice(0, uniqueBaseProductsCount - page * PAGE_SIZE);
+        }
+        return hits.hits;
+      })();
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
@@ -514,9 +513,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                         )
                       );
                       const moreOptionsAvailable =
-                        variant.all_variants && variant.all_variants.length > 1
-                          ? getMicroCopy("plp.product.moreOptionsAvailable")
-                          : null;
+                        variant.all_variants?.length > 1 &&
+                        getMicroCopy("plp.product.moreOptionsAvailable");
 
                       return (
                         <Grid

@@ -2099,7 +2099,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
+              class="MuiCollapse-container"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -3188,7 +3188,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
+              class="MuiCollapse-container"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
