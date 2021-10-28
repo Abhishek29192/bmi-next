@@ -632,6 +632,14 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                                           SchemaTypes.ContentfulSys,
                                           "id"
                                         >;
+                                        readonly description?: SchemaTypes.Maybe<
+                                          {
+                                            readonly __typename?: "ContentfulEvidenceCategoryDescription";
+                                          } & Pick<
+                                            SchemaTypes.ContentfulEvidenceCategoryDescription,
+                                            "json"
+                                          >
+                                        >;
                                       }
                                   >
                                 >
@@ -852,6 +860,14 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                                         } & Pick<
                                           SchemaTypes.ContentfulSys,
                                           "id"
+                                        >;
+                                        readonly description?: SchemaTypes.Maybe<
+                                          {
+                                            readonly __typename?: "ContentfulEvidenceCategoryDescription";
+                                          } & Pick<
+                                            SchemaTypes.ContentfulEvidenceCategoryDescription,
+                                            "json"
+                                          >
                                         >;
                                       }
                                   >
@@ -1251,6 +1267,14 @@ export type ProjectDetailsFragmentFragment = {
                                 readonly sys: {
                                   readonly __typename?: "ContentfulSys";
                                 } & Pick<SchemaTypes.ContentfulSys, "id">;
+                                readonly description?: SchemaTypes.Maybe<
+                                  {
+                                    readonly __typename?: "ContentfulEvidenceCategoryDescription";
+                                  } & Pick<
+                                    SchemaTypes.ContentfulEvidenceCategoryDescription,
+                                    "json"
+                                  >
+                                >;
                               }
                           >
                         >
@@ -1453,6 +1477,14 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
                                     readonly sys: {
                                       readonly __typename?: "ContentfulSys";
                                     } & Pick<SchemaTypes.ContentfulSys, "id">;
+                                    readonly description?: SchemaTypes.Maybe<
+                                      {
+                                        readonly __typename?: "ContentfulEvidenceCategoryDescription";
+                                      } & Pick<
+                                        SchemaTypes.ContentfulEvidenceCategoryDescription,
+                                        "json"
+                                      >
+                                    >;
                                   }
                               >
                             >

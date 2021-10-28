@@ -76,7 +76,8 @@
     "hints": {
       "projectEditGuaranteeStatus": "Project details cannot be edited due to guarantee status."
     },
-    "loading": "Loading project details"
+    "loading": "Loading project details",
+    "error": "Error loading project details."
   },
   "buildingOwnerDetails": {
     "title": "Building Owner Details",

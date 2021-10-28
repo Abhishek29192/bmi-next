@@ -75,7 +75,9 @@
     },
     "hints": {
       "projectEditGuaranteeStatus": "Prosjektdetaljer kan ikke redigeres på grunn av statusen på garantien"
-    }
+    },
+    "loading": "Laster inn prosjektdetaljer",
+    "error": "Feil ved innlasting av prosjektdetaljer."
   },
   "buildingOwnerDetails": {
     "title": "Bygning kontaktinformasjon",
