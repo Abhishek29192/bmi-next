@@ -27,7 +27,7 @@ import { renderImage } from "../components/Image";
 import { Product } from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
 import { getBimIframeUrl } from "../components/BimIframe";
-import BasketContext from "../contexts/SampleBasketContext";
+import { useBasketContext } from "../contexts/SampleBasketContext";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -140,7 +140,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       ogImageUrl={selfProduct?.images?.[0].url}
     >
       {({ siteContext: { getMicroCopy } }) => {
-        const { basketState } = useContext(BasketContext);
+        const { basketState } = useBasketContext();
 
         return (
           <>
@@ -180,7 +180,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   />
                 )) ||
                   (basketState.products.length > 0 && (
-                    <SampleOrderSection onlyDisplayCompleteOrder={true} />
+                    <SampleOrderSection
+                      productName={product.name}
+                      onlyDisplayCompleteOrder={true}
+                    />
                   ))}
                 {resources?.pdpShareWidget && (
                   <ShareWidgetSection

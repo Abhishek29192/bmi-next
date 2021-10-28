@@ -15,7 +15,7 @@ describe("Functionality of sample basket", () => {
       longDescription: null,
       shortDescription: null
     };
-    render(<SampleOrderSection variant={variant}></SampleOrderSection>, {
+    render(<SampleOrderSection productName="" variant={variant} />, {
       wrapper: BasketContextProvider
     });
     const addSampleCta = screen.getByRole("button", {
@@ -38,7 +38,7 @@ describe("Functionality of sample basket", () => {
   });
   it("display only complete order if there are some items on basket but sample is not allowed", () => {
     const { container } = render(
-      <SampleOrderSection onlyDisplayCompleteOrder={true}></SampleOrderSection>,
+      <SampleOrderSection productName="" onlyDisplayCompleteOrder={true} />,
       {
         wrapper: BasketContextProvider
       }

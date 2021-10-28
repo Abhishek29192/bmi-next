@@ -124,7 +124,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
             >
-              10x20 classification-feature-feature-unit-symbol
+              10x20 mm
             </p>
           </div>
         </div>
@@ -374,7 +374,7 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
             >
-              10x20 classification-feature-feature-unit-symbol
+              10x20 mm
             </p>
           </div>
         </div>

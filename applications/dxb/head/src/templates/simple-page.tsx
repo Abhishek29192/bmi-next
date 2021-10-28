@@ -79,7 +79,6 @@ const SimplePage = ({ data, pageContext }: Props) => {
     featuredVideo,
     cta
   } = data.contentfulSimplePage;
-
   const heroProps: HeroItem = {
     title,
     children: subtitle,

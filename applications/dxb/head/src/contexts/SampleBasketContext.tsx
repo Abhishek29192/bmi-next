@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useContext } from "react";
 import { VariantOption } from "../components/types/pim";
 import { local } from "../utils/storage";
 //action type
@@ -63,6 +63,7 @@ export const BasketContext = React.createContext<BasketContextProps>({
   basketDispatch: () => {}
 });
 
+export const useBasketContext = () => useContext(BasketContext);
 export const BasketContextConsumer = BasketContext.Consumer;
 export const BasketContextProvider = ({
   children

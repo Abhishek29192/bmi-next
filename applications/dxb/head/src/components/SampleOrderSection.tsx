@@ -1,9 +1,11 @@
 import Button from "@bmi/button";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
 import Section from "@bmi/section";
-import React, { useEffect } from "react";
-import { useContext } from "react";
-import BasketContext, { ACTION_TYPES } from "../contexts/SampleBasketContext";
+import React from "react";
+import {
+  ACTION_TYPES,
+  useBasketContext
+} from "../contexts/SampleBasketContext";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
 
@@ -16,9 +18,9 @@ const SampleOrderSection = ({
 }: {
   variant?: VariantOption;
   onlyDisplayCompleteOrder?: Boolean;
-  productName?: string;
+  productName: string;
 }) => {
-  const { basketState, basketDispatch } = useContext(BasketContext);
+  const { basketState, basketDispatch } = useBasketContext();
   //actions
   const addToBasket = (variant: VariantOption) => {
     basketDispatch({

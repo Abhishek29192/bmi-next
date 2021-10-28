@@ -42,7 +42,10 @@ const samples: Sample[] = [
         createClassification({
           code: "measurements",
           features: [
-            createFeature({ featureValues: [{ value: "10" }] }),
+            createFeature({
+              featureValues: [{ value: "10" }],
+              featureUnit: { symbol: "mm", name: "mm", unitType: "size" }
+            }),
             createFeature({ featureValues: [{ value: "20" }] })
           ]
         })

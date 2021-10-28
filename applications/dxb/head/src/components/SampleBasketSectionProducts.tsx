@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
 import { Remove } from "@material-ui/icons";
@@ -6,48 +6,50 @@ import Icon from "@bmi/icon";
 import Button from "@bmi/button";
 import { navigate } from "gatsby";
 import { useMediaQuery, useTheme } from "@material-ui/core";
-import BasketContext, {
+import { getPathWithCountryCode } from "../utils/path";
+import {
   ACTION_TYPES,
-  Sample
+  Sample,
+  useBasketContext
 } from "../contexts/SampleBasketContext";
 import styles from "./styles/SampleBasketSectionProducts.module.scss";
 import { renderImage } from "./Image";
 import { useSiteContext } from "./Site";
 
-interface IOptions {
+interface Options {
   code: string;
   separator?: string;
   featureUnitRequired?: boolean;
 }
 
-const getFeatures = (product: Sample, options: IOptions) => {
-  const classification = product.classifications?.filter(
+const getFeatures = (sample: Sample, options: Options) => {
+  const classification = sample.classifications?.filter(
     (classification) => classification.code === options.code
   )[0];
 
   const features = [
     ...new Set(
-      classification?.features
-        .map((feature) => feature.featureValues.map(({ value }) => value))
-        .flat()
+      classification?.features.flatMap((feature) =>
+        feature.featureValues.map(({ value }) => value)
+      )
     )
-  ];
+  ].filter((value) => value);
 
-  const units = options.featureUnitRequired
-    ? classification?.features[0]?.featureUnit?.symbol
-    : "";
+  const units =
+    options.featureUnitRequired &&
+    classification?.features[0]?.featureUnit?.symbol;
 
   return `${features.join(options.separator || " | ")} ${units ?? ""}`;
 };
 
 const SampleBasketSectionProducts = () => {
-  const { basketState, basketDispatch } = useContext(BasketContext);
+  const { basketState, basketDispatch } = useBasketContext();
   const { getMicroCopy, countryCode } = useSiteContext();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const list = basketState.products.map((product) => {
+  const sampleCards = basketState.products.map((product) => {
     const image = product.images[0];
 
     const media = renderImage(
@@ -75,8 +77,8 @@ const SampleBasketSectionProducts = () => {
       });
     };
 
-    const handleRemove = (e: Event) => {
-      e.stopPropagation();
+    const handleRemove = (event: Event) => {
+      event.stopPropagation();
       removeFromBasket(product);
     };
 
@@ -86,7 +88,9 @@ const SampleBasketSectionProducts = () => {
         key={product.path}
         media={media}
         hasChildrenWithoutMargin
-        onClick={() => navigate(`/${countryCode}/${product.path}`)}
+        onClick={() =>
+          navigate(getPathWithCountryCode(countryCode, product.path))
+        }
         footer={
           !isMobile && (
             <Button
@@ -131,7 +135,9 @@ const SampleBasketSectionProducts = () => {
     );
   });
 
-  return <div className={styles["SampleBasketSectionProducts"]}>{list}</div>;
+  return (
+    <div className={styles["SampleBasketSectionProducts"]}>{sampleCards}</div>
+  );
 };
 
 export default SampleBasketSectionProducts;
