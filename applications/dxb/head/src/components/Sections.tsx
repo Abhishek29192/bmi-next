@@ -36,6 +36,7 @@ import IframeSection, { Data as IframeSectionData } from "./IframeSection";
 import SystemConfiguratorSection, {
   Data as SystemConfiguratorSectionData
 } from "./SystemConfiguratorSection";
+import SampleBasketSection from "./SampleBasketSection";
 
 export type SectionData =
   | ExploreBarSectionData
@@ -71,7 +72,8 @@ export const sectionsMap = {
   ContentfulVideoSection: VideoSection,
   ContentfulIframe: IframeSection,
   ContentfulSystemConfiguratorBlock: SystemConfiguratorSection,
-  ContentfulTeamSection: TeamSection
+  ContentfulTeamSection: TeamSection,
+  ContentfulSampleBasketSection: SampleBasketSection
 };
 
 type DisplayProps = {
@@ -184,6 +186,7 @@ export const query = graphql`
     ...IframeSectionFragment
     ...SystemConfiguratorBlockFragment
     ...TeamSectionFragment
+    ...SampleBasketSectionFragment
   }
   fragment DialogSectionsFragment on ContentfulSection {
     __typename

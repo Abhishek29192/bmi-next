@@ -1,9 +1,11 @@
 import Button from "@bmi/button";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
 import Section from "@bmi/section";
-import React, { useEffect } from "react";
-import { useContext } from "react";
-import BasketContext, { ACTION_TYPES } from "../contexts/SampleBasketContext";
+import React from "react";
+import {
+  ACTION_TYPES,
+  useBasketContext
+} from "../contexts/SampleBasketContext";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
 
@@ -11,18 +13,26 @@ import { VariantOption } from "./types/pim";
 
 const SampleOrderSection = ({
   onlyDisplayCompleteOrder = false,
-  variant
+  variant,
+  productName
 }: {
   variant?: VariantOption;
   onlyDisplayCompleteOrder?: Boolean;
+  productName: string;
 }) => {
-  const { basketState, basketDispatch } = useContext(BasketContext);
+  const { basketState, basketDispatch } = useBasketContext();
   //actions
   const addToBasket = (variant: VariantOption) => {
-    basketDispatch({ type: ACTION_TYPES.BASKET_ADD, payload: variant });
+    basketDispatch({
+      type: ACTION_TYPES.BASKET_ADD,
+      payload: { ...variant, name: productName }
+    });
   };
   const removeFromBasket = (variant: VariantOption) => {
-    basketDispatch({ type: ACTION_TYPES.BASKET_REMOVE, payload: variant });
+    basketDispatch({
+      type: ACTION_TYPES.BASKET_REMOVE,
+      payload: { ...variant, name: productName }
+    });
   };
   const hasSampleInTheBasket = (): boolean => {
     return (
@@ -31,11 +41,6 @@ const SampleOrderSection = ({
     );
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("basketItems", JSON.stringify(basketState.products));
-    }
-  }, [basketState]);
   const { getMicroCopy } = useSiteContext();
 
   return (

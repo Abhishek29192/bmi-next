@@ -12,6 +12,7 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   subtitle?: React.ReactNode;
   subtitleVariant?: "h5" | "h6"; // TODO: Add h6 (from DS) smallest when needed.
   children: React.ReactNode;
+  hasChildrenWithoutMargin?: boolean;
   /**
    * @deprecated Use `media` instead.
    */
@@ -88,6 +89,7 @@ const OverviewCard = ({
   className,
   clickableArea = "full",
   isHighlighted = false,
+  hasChildrenWithoutMargin,
   ...rest
 }: Props) => {
   const ClickableArea = ({
@@ -152,7 +154,13 @@ const OverviewCard = ({
             {subtitle}
           </Typography>
         )}
-        <div className={classnames(styles["children"], styles["text"])}>
+        <div
+          className={classnames(
+            styles["children"],
+            styles["text"],
+            hasChildrenWithoutMargin && styles["children--without-margin"]
+          )}
+        >
           {children}
         </div>
         {footer && <div className={styles["footer"]}>{footer}</div>}

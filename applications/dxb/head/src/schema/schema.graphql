@@ -225,6 +225,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 
+  sampleBasketSection: ContentfulSampleBasketSection
+    @link(from: "sampleBasketSection___NODE")
+
   "The CTA link for this page."
   cta: ContentfulLink @link(from: "cta___NODE")
 }
@@ -574,6 +577,19 @@ type ContentfulFormSection implements Node {
 }
 
 """
+Represents a sample basket sections.
+"""
+type ContentfulSampleBasketSection implements Node {
+  id: ID!
+
+  "The title of section."
+  title: String
+
+  "The paragraph text of section."
+  description: ContentfulRichText
+}
+
+"""
 Represents a widget for social sharing.
 """
 type ContentfulShareWidgetSection implements Node {
@@ -865,6 +881,7 @@ union ContentfulSection =
   | ContentfulIframe
   | ContentfulSystemConfiguratorBlock
   | ContentfulTeamSection
+  | ContentfulSampleBasketSection
 
 """
 Represents a key value pair for UI strings.

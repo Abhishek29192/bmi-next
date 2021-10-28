@@ -1,35 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import React, { useReducer } from "react";
+import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
-import {
-  BasketContextProvider,
-  basketReducer,
-  initialBasketState
-} from "../../contexts/SampleBasketContext";
-
-const BasketContextProviderForTest = ({ children }: { children: any }) => {
-  const [basketState, basketDispatch] = useReducer(
-    basketReducer,
-    initialBasketState,
-    () => {
-      return typeof window !== "undefined" &&
-        localStorage.getItem("basketItems")
-        ? { products: JSON.parse(localStorage.getItem("basketItems")) }
-        : { products: [] };
-    }
-  );
-
-  const basketContextValues = {
-    basketState,
-    basketDispatch
-  };
-
-  return (
-    <BasketContextProvider value={basketContextValues}>
-      {children}
-    </BasketContextProvider>
-  );
-};
+import { BasketContextProvider } from "../../contexts/SampleBasketContext";
 
 describe("Functionality of sample basket", () => {
   it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", () => {
@@ -43,8 +15,8 @@ describe("Functionality of sample basket", () => {
       longDescription: null,
       shortDescription: null
     };
-    render(<SampleOrderSection variant={variant}></SampleOrderSection>, {
-      wrapper: BasketContextProviderForTest
+    render(<SampleOrderSection productName="" variant={variant} />, {
+      wrapper: BasketContextProvider
     });
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
@@ -66,9 +38,9 @@ describe("Functionality of sample basket", () => {
   });
   it("display only complete order if there are some items on basket but sample is not allowed", () => {
     const { container } = render(
-      <SampleOrderSection onlyDisplayCompleteOrder={true}></SampleOrderSection>,
+      <SampleOrderSection productName="" onlyDisplayCompleteOrder={true} />,
       {
-        wrapper: BasketContextProviderForTest
+        wrapper: BasketContextProvider
       }
     );
     expect(

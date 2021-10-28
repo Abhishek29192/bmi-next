@@ -1,0 +1,124 @@
+@import "@bmi/styles";
+
+.SampleBasketSectionProducts {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  .product-wrapper {
+    flex-grow: 0;
+    height: auto;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .product-image {
+    margin-top: 20px;
+    padding: 0 42px;
+    margin-bottom: -10px;
+  }
+
+  .product-title {
+    font-size: 16px;
+    font-family: "Effra Medium";
+    margin-bottom: 30px;
+    color: $color-cyan-600;
+  }
+  .product-color {
+    font-size: 16px;
+    font-family: "Effra Medium";
+    margin-bottom: 20px;
+    color: $color-slate;
+  }
+  .product-size {
+    font-size: 16px;
+    font-family: "Effra Medium";
+    margin-bottom: 24px;
+    color: $color-slate;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    .product-button {
+      width: 100%;
+    }
+    .product-wrapper {
+      max-width: calc(33% - 1rem);
+      flex-basis: calc(33% - 1rem);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .product-title {
+      font-size: 22.5px;
+    }
+    .product-color {
+      font-size: 20.25px;
+    }
+    .product-wrapper {
+      max-width: calc(25% - 1rem);
+      flex-basis: calc(25% - 1rem);
+    }
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    .product-title {
+      font-size: 22.5px;
+    }
+    .product-color {
+      font-size: 20.25px;
+    }
+    .product-wrapper {
+      max-width: calc(20% - 0.8rem);
+      flex-basis: calc(20% - 0.8rem);
+    }
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: column;
+
+    .product {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-wrapper {
+      max-width: initial;
+      margin-right: 0;
+      align-items: center;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      box-shadow: none;
+
+      border-top: 1px solid $color-storm;
+    }
+    .product-image {
+      margin: 0;
+      padding: 20px 0 20px 20px;
+      height: 100px;
+      width: 100px;
+    }
+
+    .product-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .product-color {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .product-size {
+      margin-bottom: 0;
+    }
+
+    .product-button {
+      width: 48px;
+      border: 1px solid $color-cyan-500;
+      color: $color-cyan-500;
+    }
+  }
+}
