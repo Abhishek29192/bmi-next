@@ -204,7 +204,10 @@
       "file_validation_message": "You cannot upload  files larger than",
       "evidence_category": "Evidence Category"
     },
-    "noContent": "No uploads yet"
+    "noContent": "No uploads yet",
+    "requirementModal": {
+      "title": "What's required?"
+    }
   },
   "guarantee_tab": {
     "header": "Apply for a guarantee",

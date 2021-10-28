@@ -203,7 +203,10 @@
       "file_validation_message": "Du kan ikke laste opp filer som er større enn",
       "evidence_category": "Bevis kategori"
     },
-    "noContent": "Ingen opplasting ennå"
+    "noContent": "Ingen opplasting ennå",
+    "requirementModal": {
+      "title": "Hva kreves?"
+    }
   },
   "guarantee_tab": {
     "header": "Søk om garanti",
