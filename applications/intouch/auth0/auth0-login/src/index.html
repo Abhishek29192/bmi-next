@@ -39,6 +39,19 @@
         display: none !important;
       }
     </style>
+    <script>
+      if (typeof window.queueMicrotask !== "function") {
+        window.queueMicrotask = function (callback) {
+          Promise.resolve()
+            .then(callback)
+            .catch((e) =>
+              setTimeout(() => {
+                throw e;
+              })
+            );
+        };
+      }
+    </script>
     <script type="module">
       import AlpineI18n from "https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/module.esm.js";
 
@@ -344,14 +357,16 @@
             <label for="terms-and-conditions">
               <span x-text="$t('i_agree_to')">I agree to BMI's</span>
               <a
-                href="https://www.bmigroup.com/legal/legal"
+                id="terms-link"
+                href="https://en.intouch.dddev.io/terms"
                 target="_blank"
                 x-text="$t('terms_and_conditions')"
                 >Terms & Conditions</a
               >
               <span x-text="$t('and')">and</span>
               <a
-                href="https://www.bmigroup.com/legal/third-party-privacy-notice"
+                id="privacy-link"
+                href="https://en.intouch.dddev.io/privacy"
                 target="_blank"
                 x-text="$t('privacy_policy')"
                 >Privacy Policy</a
@@ -532,7 +547,10 @@
           terms_and_conditions: "Terms & Conditions",
           and: "and",
           privacy_policy: "Privacy Policy",
-          terms_missing: "Please accept terms & condition"
+          success: "Success",
+          terms_missing: "Please accept terms & condition",
+          PasswordStrengthError:
+            "Please use a password with at least 8 characters in length and contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9), special characters (e.g. !@#$%^&*)"
         },
         no: {
           intouch_title: "InTouch - Logg inn/Registrering",
@@ -567,7 +585,10 @@
           terms_and_conditions: "Betingelser og vilkår",
           and: "og",
           privacy_policy: "Personvernerklæring",
-          terms_missing: "Godta vilkår og betingelser"
+          terms_missing: "Godta vilkår og betingelser",
+          success: "Suksess",
+          PasswordStrengthError:
+            "Bruk et passord med minst 8 tegn og innehold minst 3 av følgende 4 typer tegn: små bokstaver (az), store bokstaver (AZ), tall (dvs. 0-9), spesialtegn ( f.eks.@#$%^&*)"
         }
       };
 
@@ -586,6 +607,8 @@
       });
 
       window.addEventListener("load", function () {
+        Alpine.start();
+
         // Fix to avoid label overlap
         document.getElementsByClassName("login-screen")[0].focus();
 
@@ -618,24 +641,45 @@
 
         var language = config.extraParams.market;
 
+        document.getElementById("terms-link").href =
+          "https://" + language + ".intouch.dddev.io/terms";
+        document.getElementById("privacy-link").href =
+          "https://" + language + ".intouch.dddev.io/privacy";
+
         var webAuth = new auth0.WebAuth(params);
         var databaseConnection = "Username-Password-Authentication";
         var captcha = webAuth.renderCaptcha(
           document.querySelector(".captcha-container")
         );
 
-        function displayError(err, type) {
+        function displayError(error, type) {
           captcha.reload();
           var errorMessage = document.getElementById(type + "-error-message");
-          errorMessage.innerHTML =
-            err.description || AlpineI18n.t("generic_error");
+
+          if (messages[language] && messages[language][error]) {
+            errorMessage.innerHTML = AlpineI18n.t(error);
+          } else {
+            errorMessage.innerHTML = AlpineI18n.t("generic_error");
+          }
+
           errorMessage.style.display = "block";
         }
 
         function displaySuccess(message, type) {
-          var errorMessage = document.getElementById(type + "-success-message");
-          errorMessage.innerHTML = message;
-          errorMessage.style.display = "block";
+          var errorMessage = document.getElementById(type + "-error-message");
+          errorMessage.style.display = "none";
+
+          var successMessage = document.getElementById(
+            type + "-success-message"
+          );
+
+          console.log("message", message, AlpineI18n.t(message));
+
+          if (messages[language] && messages[language][message]) {
+            errorMessage.innerHTML = AlpineI18n.t(message);
+          }
+
+          successMessage.style.display = "block";
         }
 
         function login(e) {
@@ -647,10 +691,7 @@
 
           if (!username || !password) {
             button.disabled = false;
-            displayError(
-              { description: AlpineI18n.t("email_password_missing") },
-              "login-form"
-            );
+            displayError("email_password_missing", "login-form");
             return;
           }
 
@@ -663,7 +704,7 @@
             },
             function (err) {
               button.disabled = false;
-              if (err) displayError(err, "login-form");
+              if (err) displayError(err.code, "login-form");
             }
           );
         }
@@ -675,10 +716,7 @@
           const radios = form.elements["intouch_role"];
 
           if (!document.querySelectorAll("#terms-and-conditions")[0].checked) {
-            displayError(
-              { description: AlpineI18n.t("terms_missing") },
-              "form-signup"
-            );
+            displayError("terms_missing", "form-signup");
             return;
           }
 
@@ -691,10 +729,7 @@
 
           if (!first_name || !last_name) {
             button.disabled = false;
-            displayError(
-              { description: AlpineI18n.t("name_surname_missing") },
-              "form-signup"
-            );
+            displayError("name_surname_missing", "form-signup");
             return;
           }
 
@@ -716,7 +751,7 @@
             },
             function (err) {
               button.disabled = false;
-              if (err) displayError(err, "form-signup");
+              if (err) displayError(err.code, "form-signup");
             }
           );
         }
@@ -730,10 +765,7 @@
           var email = document.getElementById("email").value;
           if (!email) {
             button.disabled = false;
-            displayError(
-              { description: AlpineI18n.t("email_missing") },
-              "reset-password"
-            );
+            displayError("email_missing", "reset-password");
             return;
           }
           webAuth.changePassword(
@@ -745,12 +777,9 @@
               console.log("button", button);
               button.disabled = false;
               if (err) {
-                displayError(error, "reset-password");
+                displayError(error.code, "reset-password");
               } else {
-                displaySuccess(
-                  AlpineI18n.t("reset_password_success"),
-                  "reset-password"
-                );
+                displaySuccess("reset_password_success", "reset-password");
               }
             }
           );
