@@ -108,6 +108,37 @@ const isItCooked = (tag, space, attempts = 0) => {
     });
 };
 
+async function cleanupOldEnvironments(tag, envs, space) {
+  const allAliases = await space.getEnvironmentAliases();
+  const aliasedEnvIds = allAliases.items.map((x) => x.environment.sys.id);
+
+  const sortedEnvVersions = envs.items
+    .filter((env) => isValidSemVer(env.sys.id))
+    .sort((b, a) => compareSemVer(a.sys.id, b.sys.id));
+
+  const prevMajEnvs = sortedEnvVersions.filter(
+    (env) => !parseSemVer(env.sys.id).pre && env.sys.id !== tag
+  );
+
+  // want to keep at least 2 major versions (newest and previous)
+  const envsExceptNewest = sortedEnvVersions.slice(1);
+  if (sortedEnvVersions.length > 1) {
+    envsExceptNewest
+      .filter(
+        (env) =>
+          env.sys.id !== tag &&
+          !aliasedEnvIds.includes(env.sys.id) &&
+          prevMajEnvs.length > 0 &&
+          prevMajEnvs[0].sys.id !== env.sys.id
+      )
+      .forEach(
+        async (env) =>
+          console.log(`Deleting contentful environment ${env.sys.id}`) &&
+          (await env.delete())
+      );
+  }
+}
+
 async function buildContentful(branch, tag) {
   const targetContentfulEnvironment = getTargetContentfulEnvironment(branch);
   // NOTE: do not need to create new contentful environment if target brach is DEV_MAIN_BRANCH (MR merged into DEV_MAIN_BRANCH) or if it is a trigger from contentful netlify app
@@ -301,20 +332,6 @@ If you wish to rebuild contentful environment, consider creating a new tag or ma
   preProdAlias.environment.sys.id = newEnv.sys.id;
   await preProdAlias.update();
 
-  if (branch === PRE_PRODUCTION_BRANCH) {
-    // NOTE: Do not delete old environments automatically
-    // for (const env of envs.items) {
-    //   // NOTE: delete any old pre release environments for pre-production release
-    //   if (env.sys.id !== tag && parseSemVer(env.sys.id).pre) {
-    //     console.log(
-    //       `Deleting old pre-release contentful environment ${env.sys.id}`
-    //     );
-    //     await env.delete();
-    //   }
-    // }
-    return;
-  }
-
   if (branch === PRODUCTION_BRANCH) {
     console.log(
       `Pointing production contentful environment ${CONTENTFUL_PRODUCTION_BRANCH} to ${newEnv.sys.id}`
@@ -324,29 +341,10 @@ If you wish to rebuild contentful environment, consider creating a new tag or ma
     );
     prodAlias.environment.sys.id = newEnv.sys.id;
     await prodAlias.update();
+  }
 
-    // NOTE: Do not delete old environments automatically
-    // for (const env of envs.items) {
-    //   // NOTE: delete any pre release environments for production release
-    //   if (parseSemVer(env.sys.id).pre) {
-    //     console.log(
-    //       `Deleting pre-release contentful environment ${env.sys.id}`
-    //     );
-    //     await env.delete();
-    //   }
-    // }
-
-    // const sortedEnvVersions = envs.items
-    //   .filter(
-    //     (env) => isValidSemVer(env.sys.id) && !parseSemVer(env.sys.id).pre
-    //   )
-    //   .sort((b, a) => compareSemVer(a.sys.id, b.sys.id));
-
-    // NOTE: only keep latest 2 environments, current and last contentful environment
-    // for (const env of sortedEnvVersions.slice(2)) {
-    //   console.log(`Deleting old contentful environment ${env.sys.id}`);
-    //   await env.delete();
-    // }
+  if (branch === PRE_PRODUCTION_BRANCH || branch === PRODUCTION_BRANCH) {
+    await cleanupOldEnvironments(tag, envs, space);
   }
 }
 
