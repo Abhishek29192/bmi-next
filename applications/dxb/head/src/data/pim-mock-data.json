@@ -498,9 +498,7 @@
   "longDescription": "Long Dec System 2 NO",
   "name": "NO System 1",
   "shortDescription": "SDescription 1 NO",
-  "systemBenefits": [
-    "Benefit 3 NO, Benefit 4 NO"
-  ],
+  "systemBenefits": ["Benefit 3 NO, Benefit 4 NO"],
   "systemLayers": [
     {
       "addon": false,
@@ -747,6 +745,25 @@
       ],
       "shortDescription": "SDescription 1 NO",
       "type": "LAYER_ACCESSORIES"
+    },
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Layer_Missing_Type_13",
+      "name": "SName 13",
+      "layerNumber": 13,
+      "longDescription": "I have a missing layer type",
+      "optionalProducts": [
+        {
+          "code": "300191_Rubber_sheat"
+        }
+      ],
+      "products": [
+        {
+          "code": "400120_Monarplan_Outside_corner_anthracite"
+        }
+      ],
+      "shortDescription": "SDescription 1 NO"
     }
   ],
   "systemReferences": [

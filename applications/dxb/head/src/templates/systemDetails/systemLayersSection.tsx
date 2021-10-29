@@ -34,11 +34,13 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
               label: "children"
             });
 
+            const layerLabel = layer.type ? ` ${layer.type}:` : "";
+
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
                 <Accordion.Summary>
                   <Typography variant="default">
-                    {`${layer.layerNumber}. ${layer.type}: ${layer.name || ""}`}
+                    {`${layer.layerNumber}.${layerLabel} ${layer.name || ""}`}
                   </Typography>
                 </Accordion.Summary>
 
