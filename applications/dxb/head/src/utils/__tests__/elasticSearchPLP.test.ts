@@ -106,7 +106,13 @@ describe("compileESQueryPLP function", () => {
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
-        aggs: {},
+        aggs: {
+          unique_base_products_count: {
+            cardinality: {
+              field: "baseProduct.code.keyword"
+            }
+          }
+        },
         query: {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
@@ -141,7 +147,13 @@ describe("compileESQueryPLP function", () => {
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
-        aggs: {},
+        aggs: {
+          unique_base_products_count: {
+            cardinality: {
+              field: "baseProduct.code.keyword"
+            }
+          }
+        },
         query: {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
@@ -183,7 +195,13 @@ describe("compileESQueryPLP function", () => {
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
           ],
-          aggs: {},
+          aggs: {
+            unique_base_products_count: {
+              cardinality: {
+                field: "baseProduct.code.keyword"
+              }
+            }
+          },
           query: {
             bool: {
               must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
@@ -230,7 +248,13 @@ describe("compileESQueryPLP function", () => {
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
           ],
-          aggs: {},
+          aggs: {
+            unique_base_products_count: {
+              cardinality: {
+                field: "baseProduct.code.keyword"
+              }
+            }
+          },
           query: {
             bool: {
               must: [
@@ -280,7 +304,13 @@ describe("compileESQueryPLP function", () => {
             { scoringWeightInt: "desc" },
             { "name.keyword": "asc" }
           ],
-          aggs: {},
+          aggs: {
+            unique_base_products_count: {
+              cardinality: {
+                field: "baseProduct.code.keyword"
+              }
+            }
+          },
           query: {
             bool: {
               must: [
@@ -320,7 +350,13 @@ describe("compileESQueryPLP function", () => {
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
-        aggs: {},
+        aggs: {
+          unique_base_products_count: {
+            cardinality: {
+              field: "baseProduct.code.keyword"
+            }
+          }
+        },
         query: {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
@@ -355,7 +391,13 @@ describe("compileESQueryPLP function", () => {
           { scoringWeightInt: "desc" },
           { "name.keyword": "asc" }
         ],
-        aggs: {},
+        aggs: {
+          unique_base_products_count: {
+            cardinality: {
+              field: "baseProduct.code.keyword"
+            }
+          }
+        },
         query: {
           bool: {
             must: [{ terms: { "allCategories.code.keyword": ["Category"] } }]
@@ -404,6 +446,11 @@ describe("compileESQueryPLP function", () => {
               field: "Brand.code.keyword",
               include: undefined
             }
+          },
+          unique_base_products_count: {
+            cardinality: {
+              field: "baseProduct.code.keyword"
+            }
           }
         },
         query: {
@@ -451,6 +498,11 @@ describe("compileESQueryPLP function", () => {
               field: "Brand.code.keyword",
               include: undefined
             }
+          },
+          unique_base_products_count: {
+            cardinality: {
+              field: "baseProduct.code.keyword"
+            }
           }
         },
         query: {
@@ -493,6 +545,11 @@ describe("compileESQueryPLP function", () => {
                 size: "300",
                 field: "roofAttributes.minimumpitch.code.keyword",
                 include: undefined
+              }
+            },
+            unique_base_products_count: {
+              cardinality: {
+                field: "baseProduct.code.keyword"
               }
             }
           },
@@ -554,6 +611,11 @@ describe("compileESQueryPLP function", () => {
                 size: "300",
                 field: "generalInformation.materials.code.keyword",
                 include: undefined
+              }
+            },
+            unique_base_products_count: {
+              cardinality: {
+                field: "baseProduct.code.keyword"
               }
             }
           },
