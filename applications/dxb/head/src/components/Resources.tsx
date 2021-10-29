@@ -33,6 +33,7 @@ export type Data = {
   welcomeDialogBrands: [string] | null;
   welcomeDialogBody: RichTextData | null;
   countryNavigationIntroduction?: RichTextData | null;
+  maximumSamples: number | null;
 };
 
 export const query = graphql`
@@ -44,6 +45,7 @@ export const query = graphql`
       ...TitleWithContentFragment
     }
     pdpCardsTitle
+    maximumSamples
     pdpCards {
       ... on ContentfulPromoOrPage {
         ...PromoFragment

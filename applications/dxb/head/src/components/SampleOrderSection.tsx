@@ -1,24 +1,25 @@
 import Button from "@bmi/button";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
 import Section from "@bmi/section";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ACTION_TYPES,
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
-
 import { VariantOption } from "./types/pim";
 
 const SampleOrderSection = ({
-  onlyDisplayCompleteOrder = false,
+  isSampleOrderAllowed,
   variant,
-  productName
+  productName,
+  maximumSamples
 }: {
+  isSampleOrderAllowed: Boolean;
   variant?: VariantOption;
-  onlyDisplayCompleteOrder?: Boolean;
-  productName: string;
+  maximumSamples?: number;
+  productName?: string;
 }) => {
   const { basketState, basketDispatch } = useBasketContext();
   //actions
@@ -34,51 +35,76 @@ const SampleOrderSection = ({
       payload: { ...variant, name: productName }
     });
   };
-  const hasSampleInTheBasket = (): boolean => {
-    return (
-      basketState.products.filter((product) => product.code === variant.code)
-        .length > 0
-    );
-  };
+  const isBasketFull = basketState.products.length >= maximumSamples;
+  const basketHasProducts = basketState.products.length > 0;
 
   const { getMicroCopy } = useSiteContext();
 
+  const sampleMessage = () => {
+    if (isBasketFull) {
+      return getMicroCopy("pdp.overview.sampleLimitReachedMessage");
+    }
+    if (isSampleOrderAllowed) {
+      return getMicroCopy("pdp.overview.canAddMoreMessage");
+    }
+    return getMicroCopy("pdp.overview.canAddOtherMessage");
+  };
+  const [hasSampleInTheBasket, setHasSampleInTheBasket] = useState(false);
+
+  useEffect(() => {
+    if (variant) {
+      setHasSampleInTheBasket(
+        basketState.products.filter((product) => product.code === variant.code)
+          .length > 0
+      );
+    }
+  }, [basketState]);
+
   return (
-    <Section
-      backgroundColor="white"
-      spacing="none"
-      className={styles["SampleOrderSection"]}
-      hasNoPadding
-    >
-      <div
-        className={
-          onlyDisplayCompleteOrder
-            ? styles["buttons-container-complete-sample-order-only"]
-            : styles["buttons-container"]
-        }
+    (isSampleOrderAllowed || basketHasProducts) && (
+      <Section
+        backgroundColor="white"
+        spacing="none"
+        className={styles["SampleOrderSection"]}
+        hasNoPadding
       >
-        {variant ? (
-          !hasSampleInTheBasket() ? (
-            <Button endIcon={<Add />} onClick={() => addToBasket(variant)}>
-              {getMicroCopy("pdp.overview.addSample")}
-            </Button>
-          ) : (
-            <Button
-              endIcon={<Remove />}
-              onClick={() => removeFromBasket(variant)}
-              variant="text"
-            >
-              {getMicroCopy("pdp.overview.removeSample")}
-            </Button>
-          )
-        ) : undefined}
-        {basketState.products.length > 0 && (
-          <Button endIcon={<ShoppingCart />} variant="outlined">
-            {getMicroCopy("pdp.overview.completeSampleOrder")}
-          </Button>
+        {basketHasProducts && (
+          <div className={styles["sample-message"]}>{sampleMessage()}</div>
         )}
-      </div>
-    </Section>
+
+        <div className={styles["buttons-container"]}>
+          {isSampleOrderAllowed ? (
+            hasSampleInTheBasket ? (
+              <Button
+                className={styles["remove-from-basket"]}
+                endIcon={<Remove />}
+                onClick={() => removeFromBasket(variant)}
+                variant="text"
+              >
+                {getMicroCopy("pdp.overview.removeSample")}
+              </Button>
+            ) : !isBasketFull ? (
+              <Button
+                className={styles["add-to-basket"]}
+                endIcon={<Add />}
+                onClick={() => addToBasket(variant)}
+              >
+                {getMicroCopy("pdp.overview.addSample")}
+              </Button>
+            ) : undefined
+          ) : undefined}
+          {basketHasProducts && (
+            <Button
+              className={styles["complete-order"]}
+              endIcon={<ShoppingCart />}
+              variant="outlined"
+            >
+              {getMicroCopy("pdp.overview.completeSampleOrder")}
+            </Button>
+          )}
+        </div>
+      </Section>
+    )
   );
 };
 

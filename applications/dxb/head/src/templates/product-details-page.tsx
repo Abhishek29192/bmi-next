@@ -114,6 +114,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     inputBanner: resources.pdpInputBanner,
     seo: null
   };
+  const { maximumSamples } = resources;
 
   const bimIframeUrl = getBimIframeUrl(product.assets);
 
@@ -125,7 +126,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   const getSampleOrderAllowed = () => {
     if (process.env.GATSBY_ENABLE_SAMPLE_ORDERING === "true") {
-      return selfProduct.isSampleOrderAllowed ?? product.isSampleOrderAllowed;
+      return (
+        selfProduct.isSampleOrderAllowed ??
+        product.isSampleOrderAllowed ??
+        false
+      );
     }
     return false;
   };
@@ -173,18 +178,14 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   )
                 }}
               >
-                {(getSampleOrderAllowed() && (
+                {
                   <SampleOrderSection
+                    isSampleOrderAllowed={getSampleOrderAllowed()}
                     productName={product.name}
                     variant={getVariant(product, pageContext.variantCode)}
+                    maximumSamples={maximumSamples}
                   />
-                )) ||
-                  (basketState.products.length > 0 && (
-                    <SampleOrderSection
-                      productName={product.name}
-                      onlyDisplayCompleteOrder={true}
-                    />
-                  ))}
+                }
                 {resources?.pdpShareWidget && (
                   <ShareWidgetSection
                     data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
