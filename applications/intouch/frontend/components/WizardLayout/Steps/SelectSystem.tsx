@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { gql } from "@apollo/client";
 import { System, Technology } from "@bmi/intouch-api-types";
 import { useSearchSystemsLazyQuery } from "../../../graphql/generated/hooks";
@@ -11,6 +11,7 @@ import { useWizardContext } from "../WizardContext";
 import { WizardSystemDetailCard } from "../WizardSystemDetailCard";
 
 const SelectSystem = () => {
+  const debouncer = useRef<NodeJS.Timeout>();
   const { data, setData } = useWizardContext();
   const [options, setOptions] = useState<WizardAutoCompleteOptions>({
     totalCount: 0,
@@ -69,7 +70,10 @@ const SelectSystem = () => {
         options={options}
         value={value}
         onChange={handleChange}
-        onInputChange={handleInput}
+        onInputChange={(input) => {
+          debouncer.current && clearTimeout(debouncer.current);
+          debouncer.current = setTimeout(() => handleInput(input), 500);
+        }}
       />
       {system && (
         <WizardSystemDetailCard
