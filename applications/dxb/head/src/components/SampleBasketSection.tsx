@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 
 import Button from "@bmi/button";
@@ -22,6 +22,10 @@ const SampleBasketSection = ({
 }: {
   data: Data;
 }) => {
+  const [isCompleteFormShow, setCompleteFormShow] = useState(false);
+
+  const handleCompleteClick = () => setCompleteFormShow(true);
+
   const { getMicroCopy } = useSiteContext();
 
   return (
@@ -32,15 +36,19 @@ const SampleBasketSection = ({
       >
         <RichText document={description} />
         <SampleBasketSectionProducts />
-        <div className={styles["complete-button"]}>
-          <Button endIcon={<ShoppingCart />}>
-            {getMicroCopy("pdp.overview.completeSampleOrder")}
-          </Button>
-        </div>
+        {!isCompleteFormShow && (
+          <div className={styles["complete-button"]}>
+            <Button endIcon={<ShoppingCart />} onClick={handleCompleteClick}>
+              {getMicroCopy("pdp.overview.completeSampleOrder")}
+            </Button>
+          </div>
+        )}
       </Section>
-      <Section>
-        <FormSection data={sections} backgroundColor="pearl" />
-      </Section>
+      {isCompleteFormShow && (
+        <Section>
+          <FormSection data={sections} backgroundColor="pearl" />
+        </Section>
+      )}
     </>
   );
 };
