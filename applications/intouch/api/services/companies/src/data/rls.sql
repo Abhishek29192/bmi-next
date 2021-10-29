@@ -282,6 +282,12 @@ USING (
     SELECT market_id FROM company JOIN project ON project.company_id = company.id WHERE project.id = project_id
   )
 );
+CREATE POLICY policy_market_admin ON evidence_item FOR ALL TO market_admin 
+USING (
+  current_market() = (
+    SELECT market_id FROM company JOIN project ON project.company_id = company.id WHERE project.id = project_id
+  )
+);
 CREATE POLICY policy_company_admin ON evidence_item FOR ALL TO company_admin 
   USING (
      current_company() IN (SELECT company_id FROM project WHERE project.id = project_id)

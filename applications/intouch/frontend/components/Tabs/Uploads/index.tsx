@@ -35,13 +35,6 @@ import styles from "./styles.module.scss";
 import { AddEvidenceDialog, EvidenceCategory } from "./AddEvidenceDialog";
 import RequirementDialog from "./RequirementDialog";
 
-const isCustomEvidenceAvailable = (guarantee: DeepPartial<Guarantee>) => {
-  return (
-    guarantee?.coverage === "SOLUTION" &&
-    !["APPROVED", "REVIEW"].includes(guarantee?.status)
-  );
-};
-
 type Evidence = {
   id: number;
   name: string;
@@ -58,7 +51,7 @@ export type UploadsTabProps = {
   project: GetProjectQuery["project"];
 };
 
-const getGalleryItems = (evidenceItems): GalleryItem[] =>
+const getGalleryItems = (evidenceItems: Evidence[]): GalleryItem[] =>
   evidenceItems.map(({ id, url, category, name }) => {
     const type = name.match(/(\w+)$/g)[0].includes("pdf") ? "pdf" : "image";
     return {
@@ -139,6 +132,12 @@ const getUploads = (project: GetProjectQuery["project"]) => {
     uploads.set("MISCELLANEOUS", { evidences: [] });
 
   return uploads;
+};
+const isCustomEvidenceAvailable = (guarantee: DeepPartial<Guarantee>) => {
+  return (
+    guarantee?.coverage === "SOLUTION" &&
+    !["APPROVED", "REVIEW"].includes(guarantee?.status)
+  );
 };
 
 export const UploadsTab = ({ project }: UploadsTabProps) => {
@@ -262,19 +261,14 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
 
   useEffect(() => {
     if (uploads) {
-      const evidenceItems = []
+      const evidenceItems: Evidence[] = []
         .concat([...uploads.entries()])
-        .filter(([key, values]) => values.length > 0)
-        .flatMap(([key, values]) =>
-          values.map((item) => ({ ...item, category: key }))
-        );
+        .filter(([key, values]) => values?.evidences?.length > 0)
+        .flatMap(([key, values]) => values.evidences);
       if (evidenceItems.length > 0) {
         setGalleryItems(getGalleryItems(evidenceItems));
       }
     }
-  }, [uploads]);
-
-  useEffect(() => {
     getEvidenceCategory();
   }, [projectId]);
 
