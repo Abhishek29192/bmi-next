@@ -1,7 +1,7 @@
 import Button from "@bmi/button";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
 import Section from "@bmi/section";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ACTION_TYPES,
   useBasketContext
@@ -35,11 +35,6 @@ const SampleOrderSection = ({
       payload: { ...variant, name: productName }
     });
   };
-  const hasSampleInTheBasket = variant
-    ? basketState.products.filter((product) => product.code === variant.code)
-        .length > 0
-    : undefined;
-
   const isBasketFull = basketState.products.length >= maximumSamples;
   const basketHasProducts = basketState.products.length > 0;
 
@@ -54,16 +49,16 @@ const SampleOrderSection = ({
     }
     return getMicroCopy("pdp.overview.canAddOtherMessage");
   };
+  const [hasSampleInTheBasket, setHasSampleInTheBasket] = useState(false);
 
-  // const sampleMessage = () => {
-  //   if (!isBasketFull && isSampleOrderAllowed) {
-  //     return getMicroCopy("pdp.overview.canAddMoreMessage");
-  //   } else if (!isBasketFull) {
-  //     return getMicroCopy("pdp.overview.canAddOtherMessage");
-  //   } else if (isBasketFull) {
-  //     return getMicroCopy("pdp.overview.sampleLimitReachedMessage");
-  //   }
-  // };
+  useEffect(() => {
+    if (variant) {
+      setHasSampleInTheBasket(
+        basketState.products.filter((product) => product.code === variant.code)
+          .length > 0
+      );
+    }
+  }, [basketState]);
 
   return (
     (isSampleOrderAllowed || basketHasProducts) && (

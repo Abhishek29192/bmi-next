@@ -3,8 +3,13 @@ import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
 
+afterEach(() => {
+  cleanup();
+  localStorage.clear();
+});
+
 describe("Functionality of sample basket", () => {
-  it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", () => {
+  it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", async () => {
     const variant = {
       code: "somthing",
       path: null,
@@ -27,7 +32,9 @@ describe("Functionality of sample basket", () => {
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
-    addSampleCta.click();
+    await waitFor(() => {
+      addSampleCta.click();
+    });
     expect(screen.queryByText(`MC: pdp.overview.removeSample`)).not.toBeNull();
     expect(
       screen.queryByText("MC: pdp.overview.completeSampleOrder")
@@ -35,7 +42,10 @@ describe("Functionality of sample basket", () => {
     const removeSample = screen.getByRole("button", {
       name: `MC: pdp.overview.removeSample`
     });
-    removeSample.click();
+    await waitFor(() => {
+      removeSample.click();
+    });
+
     expect(screen.queryByText(`MC: pdp.overview.removeSample`)).toBeNull();
     expect(screen.queryByText(`MC: pdp.overview.addSample`)).not.toBeNull();
     expect(
@@ -82,10 +92,6 @@ describe("Functionality of sample basket", () => {
 });
 
 describe("disable 'Add to basket' if basket is full", () => {
-  afterEach(() => {
-    cleanup();
-    localStorage.clear();
-  });
   it("not ordered max samples & sample available, show MC:canAddMoreMessage ", async () => {
     const maximumSamples = 3;
     const variant1 = {
