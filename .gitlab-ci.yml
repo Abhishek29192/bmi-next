@@ -105,10 +105,23 @@ secret_detection:
     - if: !reference [ .run_for_changes_on_mr, rules, if ]
     - if: !reference [ .run_for_changes_on_main, rules, if ]
 
+update_dependabot_config:
+  stage: audit
+  rules:
+    - when: never # Enable when we have dependabot setup
+#    - if: ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')
+  needs: []
+  image: bash:latest
+  cache: {}
+  script:
+    - scripts/create_dependabot_file.sh
+
 release:
   stage: release
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
+  needs: []
+  cache: {}
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
