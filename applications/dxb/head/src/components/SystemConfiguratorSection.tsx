@@ -188,10 +188,10 @@ const SystemConfiguratorBlock = ({
   useEffect(() => {
     if (hasSingleAnswer && !isReload) {
       pushToDataLayer({
-        id: `system-configurator01-selected`,
+        id: `system-configurator01-selected-auto`,
         label: title,
         action: selectedAnswer.title,
-        event: "gtm.click"
+        event: "dxb.button_click"
       });
     }
   }, [hasSingleAnswer, isReload]);
@@ -265,9 +265,9 @@ const SystemConfiguratorBlockNoResultsSection = ({
   useEffect(() => {
     pushToDataLayer({
       id: "system-configurator01-results",
-      event: "gtm.click",
       label: "No system found",
-      action: "No system found"
+      action: "No system found",
+      event: "dxb.button_click"
     });
   }, []);
 
