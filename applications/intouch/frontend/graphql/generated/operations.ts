@@ -1655,6 +1655,64 @@ export type GetCompaniesReportQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type GetGuaranteesReportQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetGuaranteesReportQuery = { readonly __typename?: "Query" } & {
+  readonly guarantees?: SchemaTypes.Maybe<
+    { readonly __typename?: "GuaranteesConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Guarantee" } & Pick<
+          SchemaTypes.Guarantee,
+          | "id"
+          | "bmiReferenceId"
+          | "requestorAccountId"
+          | "coverage"
+          | "status"
+          | "languageCode"
+          | "guaranteeReferenceCode"
+          | "startDate"
+          | "expiryDate"
+          | "signedFileStorageUrl"
+        > & {
+            readonly project?: SchemaTypes.Maybe<
+              { readonly __typename?: "Project" } & Pick<
+                SchemaTypes.Project,
+                "name" | "technology" | "roofArea"
+              > & {
+                  readonly company?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Company" } & Pick<
+                      SchemaTypes.Company,
+                      "name"
+                    >
+                  >;
+                }
+            >;
+            readonly guaranteeType?: SchemaTypes.Maybe<
+              { readonly __typename?: "ContentfulGuaranteeType" } & Pick<
+                SchemaTypes.ContentfulGuaranteeType,
+                "name" | "maximumValidityYears"
+              >
+            >;
+            readonly systemBySystemBmiRef?: SchemaTypes.Maybe<
+              { readonly __typename?: "System" } & Pick<
+                SchemaTypes.System,
+                "name"
+              >
+            >;
+            readonly productByProductBmiRef?: SchemaTypes.Maybe<
+              { readonly __typename?: "Product" } & Pick<
+                SchemaTypes.Product,
+                "name"
+              >
+            >;
+          }
+      >;
+    }
+  >;
+};
+
 export type GetProductsReportQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;
@@ -1676,6 +1734,98 @@ export type GetProductsReportQuery = { readonly __typename?: "Query" } & {
           | "published"
           | "updatedAt"
         >
+      >;
+    }
+  >;
+};
+
+export type GetProjectsReportQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetProjectsReportQuery = { readonly __typename?: "Query" } & {
+  readonly projects?: SchemaTypes.Maybe<
+    { readonly __typename?: "ProjectsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Project" } & Pick<
+          SchemaTypes.Project,
+          | "id"
+          | "name"
+          | "technology"
+          | "roofArea"
+          | "buildingOwnerFirstname"
+          | "buildingOwnerLastname"
+          | "startDate"
+          | "endDate"
+          | "hidden"
+          | "createdAt"
+          | "updatedAt"
+        > & {
+            readonly siteAddress?: SchemaTypes.Maybe<
+              { readonly __typename?: "Address" } & Pick<
+                SchemaTypes.Address,
+                | "id"
+                | "firstLine"
+                | "secondLine"
+                | "town"
+                | "region"
+                | "country"
+                | "postcode"
+              >
+            >;
+            readonly company?: SchemaTypes.Maybe<
+              { readonly __typename?: "Company" } & Pick<
+                SchemaTypes.Company,
+                "name" | "status"
+              >
+            >;
+            readonly guarantees: {
+              readonly __typename?: "GuaranteesConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "Guarantee" } & Pick<
+                  SchemaTypes.Guarantee,
+                  "id" | "coverage" | "languageCode" | "guaranteeReferenceCode"
+                > & {
+                    readonly guaranteeTypes?: SchemaTypes.Maybe<
+                      {
+                        readonly __typename?: "ContentfulGuaranteeTypeCollection";
+                      } & {
+                        readonly items?: SchemaTypes.Maybe<
+                          ReadonlyArray<
+                            SchemaTypes.Maybe<
+                              {
+                                readonly __typename?: "ContentfulGuaranteeType";
+                              } & Pick<
+                                SchemaTypes.ContentfulGuaranteeType,
+                                "name"
+                              >
+                            >
+                          >
+                        >;
+                      }
+                    >;
+                  }
+              >;
+            };
+            readonly projectMembers: {
+              readonly __typename?: "ProjectMembersConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "ProjectMember" } & Pick<
+                  SchemaTypes.ProjectMember,
+                  "id"
+                > & {
+                    readonly account?: SchemaTypes.Maybe<
+                      { readonly __typename?: "Account" } & Pick<
+                        SchemaTypes.Account,
+                        "email"
+                      >
+                    >;
+                  }
+              >;
+            };
+          }
       >;
     }
   >;

@@ -12,6 +12,7 @@ import { findAccountCompany, isSuperOrMarketAdmin } from "../../lib/account";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { getProjectStatus, ProjectStatus } from "../../lib/utils/project";
 import AccessControl from "../../lib/permissions/AccessControl";
+import { GuaranteeReport, ProjectReport } from "../Reports";
 import styles from "./styles.module.scss";
 
 // filter `attr` value
@@ -96,6 +97,20 @@ const ProjectSidePanelFooter = () => {
         onCompleted={handleOnDialogClose}
       />
     </>
+  );
+};
+
+const SidePanelFooter = () => {
+  return (
+    <div>
+      <AccessControl dataModel="project" action="addProject">
+        <ProjectSidePanelFooter />
+      </AccessControl>
+      <AccessControl dataModel="project" action="downloadReport">
+        <ProjectReport />
+        <GuaranteeReport />
+      </AccessControl>
+    </div>
   );
 };
 
@@ -216,11 +231,7 @@ export const ProjectSidePanel = ({
       onSearchFilterChange={(query: string) => {
         setSearchQuery(query);
       }}
-      renderFooter={() => (
-        <AccessControl dataModel="project" action="addProject">
-          <ProjectSidePanelFooter />
-        </AccessControl>
-      )}
+      renderFooter={() => <SidePanelFooter />}
     >
       {filteredProjects.map(
         ({

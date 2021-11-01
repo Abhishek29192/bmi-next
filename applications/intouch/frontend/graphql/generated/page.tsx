@@ -136,6 +136,50 @@ export const ssrGetCompaniesReport = {
 
   usePage: useGetCompaniesReport
 };
+export async function getServerPageGetGuaranteesReport(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetGuaranteesReportQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetGuaranteesReportQuery>({
+      ...options,
+      query: Operations.GetGuaranteesReportDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetGuaranteesReport = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetGuaranteesReportQuery,
+    OperationTypes.GetGuaranteesReportQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetGuaranteesReportDocument, options);
+};
+export type PageGetGuaranteesReportComp = React.FC<{
+  data?: OperationTypes.GetGuaranteesReportQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetGuaranteesReport = {
+  getServerPage: getServerPageGetGuaranteesReport,
+
+  usePage: useGetGuaranteesReport
+};
 export async function getServerPageGetProductsReport(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetProductsReportQueryVariables>,
@@ -178,6 +222,49 @@ export const ssrGetProductsReport = {
   getServerPage: getServerPageGetProductsReport,
 
   usePage: useGetProductsReport
+};
+export async function getServerPageGetProjectsReport(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetProjectsReportQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetProjectsReportQuery>({
+    ...options,
+    query: Operations.GetProjectsReportDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetProjectsReport = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetProjectsReportQuery,
+    OperationTypes.GetProjectsReportQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetProjectsReportDocument, options);
+};
+export type PageGetProjectsReportComp = React.FC<{
+  data?: OperationTypes.GetProjectsReportQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetProjectsReport = {
+  getServerPage: getServerPageGetProjectsReport,
+
+  usePage: useGetProjectsReport
 };
 export async function getServerPageGetSystemsReport(
   options: Omit<
