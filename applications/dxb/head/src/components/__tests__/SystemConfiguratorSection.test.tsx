@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, within } from "@testing-library/react";
+import { render, fireEvent, within, cleanup } from "@testing-library/react";
 import { ErrorBoundary } from "react-error-boundary";
 import mockConsole from "jest-mock-console";
 import axios from "axios";
@@ -54,7 +54,12 @@ beforeAll(() => {
 });
 
 beforeEach(() => {
+  jest.resetModules();
   jest.clearAllMocks();
+});
+
+afterEach(async () => {
+  await cleanup();
 });
 
 afterAll(() => {

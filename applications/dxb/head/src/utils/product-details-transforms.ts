@@ -104,8 +104,8 @@ export const getSizeLabel = (
   );
 };
 
-export const findMasterImageUrl = (images): string =>
-  images.find(
+export const findMasterImageUrl = (images: Image[] | null): string =>
+  images?.find(
     (image) =>
       image.assetType === ImageAssetTypesEnum.MASTER_IMAGE &&
       image.format == "Product-Listing-Card-Large-Desktop"
@@ -115,7 +115,7 @@ export const findProductBrandLogoCode = (product: Product) =>
   product.categories.find((category) => category.categoryType === "Brands")
     ?.code;
 
-export const transformImages = (images) => {
+export const transformImages = (images: GalleryImageType[]) => {
   return images.map(({ mainSource, thumbnail, altText }) => ({
     media: React.createElement("img", { src: mainSource, alt: altText }),
     thumbnail

@@ -11,6 +11,7 @@ import { Data as PageInfoData } from "../PageInfo";
 import { SiteContextProvider } from "../Site";
 import { Product } from "../types/pim";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
+import { createVariantOption } from "../../__tests__/PimDocumentProductHelper";
 
 afterEach(() => {
   cleanup();
@@ -29,16 +30,9 @@ const sampleBasketLinkInfo: PageInfoData = {
   date: null,
   tags: null
 };
-const variant = {
-  code: "somthing",
-  path: null,
-  breadcrumbs: null,
-  approvalStatus: null,
-  images: null,
-  isSampleOrderAllowed: null,
-  longDescription: null,
-  shortDescription: null
-};
+const variant = createVariantOption({
+  code: "somthing"
+});
 const variant2 = { ...variant, code: "variant2" };
 
 const product: Product = {
