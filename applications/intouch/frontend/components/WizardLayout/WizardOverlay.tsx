@@ -20,11 +20,7 @@ type WizardOverlayProps = {
 
 const WizardOverlay = ({ project, onClose, onSubmit }: WizardOverlayProps) => {
   return (
-    <Wizard
-      onCloseClick={onClose}
-      onSubmitClick={onSubmit}
-      project={project as Project}
-    >
+    <Wizard onCloseClick={onClose} onSubmitClick={onSubmit} project={project}>
       <SelectGuarantee />
       <SelectGuaranteesTemplate />
       <SelectProductOrSystem />
