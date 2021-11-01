@@ -19,7 +19,7 @@ import { SystemCard } from "../components/RelatedSystems";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
-import { pushToDataLayer } from "../utils/google-tag-manager";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { queryElasticSearch } from "../utils/elasticSearch";

@@ -20,6 +20,7 @@ import {
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
 import { useSiteContext } from "./Site";
+import { iconMap } from "./Icon";
 
 const ProductListing = ({
   countryCode,
