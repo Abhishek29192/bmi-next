@@ -30,7 +30,7 @@ describe("getTheme", () => {
       (theme.typography as TypographyOptions).h1!.lineHeight = 2;
       return theme;
     };
-    expect(getTheme(true, expandTheme).typography.h1).toEqual({
+    expect(getTheme(expandTheme).typography.h1).toEqual({
       fontFamily: "Effra Heavy",
       fontSize: "2.125rem",
       fontWeight: 300,
