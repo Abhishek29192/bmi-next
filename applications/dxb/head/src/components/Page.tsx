@@ -210,6 +210,13 @@ const Page = ({
             src="https://js.hscta.net/cta/current.js"
           />
         )}
+        <script lang="javascript">
+          {`
+            if(history && history.scrollRestoration && history.scrollRestoration !== 'manual') {
+              history.scrollRestoration = 'manual';
+            }
+          `}
+        </script>
       </Helmet>
 
       <SiteContextProvider value={siteContext}>
