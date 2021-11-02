@@ -9667,13 +9667,15 @@ export type ImageTransformOptions = {
 
 export type ImportAccountsCompaniesFromCsvInput = {
   files: Array<Scalars["Upload"]>;
+  dryRun?: Maybe<Scalars["Boolean"]>;
 };
 
 export type ImportAccountsCompaniesFromCsvResult = {
   __typename?: "ImportAccountsCompaniesFromCSVResult";
   auth0Job?: Maybe<Auth0ImportResult>;
-  accounts?: Maybe<Array<Maybe<Account>>>;
   companies?: Maybe<Array<Maybe<Company>>>;
+  accounts?: Maybe<Array<Maybe<Account>>>;
+  dryRun?: Maybe<Scalars["Boolean"]>;
 };
 
 export type ImportError = {

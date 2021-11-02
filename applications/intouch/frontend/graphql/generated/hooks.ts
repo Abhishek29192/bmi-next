@@ -656,9 +656,49 @@ export const ImportAccountsCompaniesFromCvsDocument = gql`
       }
       accounts {
         email
+        role
+        phone
+        status
+        firstName
+        lastName
+        created
+        doceboUserId
+        doceboUsername
       }
       companies {
+        businessType
         name
+        tier
+        status
+        taxNumber
+        aboutUs
+        logo
+        phone
+        publicEmail
+        website
+        linkedIn
+        registeredAddress {
+          firstLine
+          secondLine
+          town
+          country
+          postcode
+        }
+        companyMembers {
+          nodes {
+            account {
+              role
+              email
+              status
+              phone
+              firstName
+              lastName
+              created
+              doceboUserId
+              doceboUsername
+            }
+          }
+        }
       }
     }
   }
