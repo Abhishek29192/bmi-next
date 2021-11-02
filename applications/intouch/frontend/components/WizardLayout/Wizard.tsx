@@ -2,9 +2,9 @@ import React from "react";
 import Icon from "@bmi/icon";
 import { BMI } from "@bmi/logo";
 import Button from "@bmi/button";
-import { Project } from "@bmi/intouch-api-types";
 import CloseIcon from "@material-ui/icons/Close";
 import Link from "next/link";
+import { GetProjectQuery } from "../../graphql/generated/operations";
 import WizardContextWrapper, { GuaranteeWizardData } from "./WizardContext";
 import styles from "./styles.module.scss";
 import { WizardBody } from "./WizardBody";
@@ -12,7 +12,7 @@ import { WizardFooter } from "./WizardFooter";
 
 export type WizardProps = {
   children: React.ReactNode | React.ReactNode[];
-  project: Project;
+  project: GetProjectQuery["project"];
   onCloseClick?: () => void;
   onSubmitClick?: (data: GuaranteeWizardData) => void;
 };
