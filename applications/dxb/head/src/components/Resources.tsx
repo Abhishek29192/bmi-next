@@ -34,6 +34,7 @@ export type Data = {
   welcomeDialogBody: RichTextData | null;
   countryNavigationIntroduction?: RichTextData | null;
   maximumSamples: number | null;
+  sampleBasketLink: PageInfoData | null;
 };
 
 export const query = graphql`
@@ -46,6 +47,11 @@ export const query = graphql`
     }
     pdpCardsTitle
     maximumSamples
+    sampleBasketLink {
+      ... on ContentfulPage {
+        slug
+      }
+    }
     pdpCards {
       ... on ContentfulPromoOrPage {
         ...PromoFragment

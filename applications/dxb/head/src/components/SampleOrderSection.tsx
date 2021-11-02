@@ -6,6 +6,7 @@ import {
   ACTION_TYPES,
   useBasketContext
 } from "../contexts/SampleBasketContext";
+import { getPathWithCountryCode } from "../utils/path";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
 import { VariantOption } from "./types/pim";
@@ -14,12 +15,14 @@ const SampleOrderSection = ({
   isSampleOrderAllowed,
   variant,
   productName,
-  maximumSamples
+  maximumSamples,
+  sampleBasketLink
 }: {
   isSampleOrderAllowed: Boolean;
   variant?: VariantOption;
   maximumSamples?: number;
   productName?: string;
+  sampleBasketLink: string;
 }) => {
   const { basketState, basketDispatch } = useBasketContext();
   //actions
@@ -50,7 +53,7 @@ const SampleOrderSection = ({
     return getMicroCopy("pdp.overview.canAddOtherMessage");
   };
   const [hasSampleInTheBasket, setHasSampleInTheBasket] = useState(false);
-
+  const { countryCode } = useSiteContext();
   useEffect(() => {
     if (variant) {
       setHasSampleInTheBasket(
@@ -59,7 +62,10 @@ const SampleOrderSection = ({
       );
     }
   }, [basketState]);
-
+  const sampleBasketPath = getPathWithCountryCode(
+    countryCode,
+    sampleBasketLink
+  );
   return (
     (isSampleOrderAllowed || basketHasProducts) && (
       <Section
@@ -98,6 +104,11 @@ const SampleOrderSection = ({
               className={styles["complete-order"]}
               endIcon={<ShoppingCart />}
               variant="outlined"
+              action={{
+                model: "htmlLink",
+                href: sampleBasketPath,
+                target: "_blank"
+              }}
             >
               {getMicroCopy("pdp.overview.completeSampleOrder")}
             </Button>

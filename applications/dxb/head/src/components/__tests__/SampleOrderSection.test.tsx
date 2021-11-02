@@ -24,6 +24,7 @@ describe("Functionality of sample basket", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant}
+        sampleBasketLink={"sample-basket"}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -67,6 +68,7 @@ describe("Functionality of sample basket", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant}
+        sampleBasketLink={"sample-basket"}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -76,6 +78,7 @@ describe("Functionality of sample basket", () => {
       <SampleOrderSection
         isSampleOrderAllowed={false}
         maximumSamples={3}
+        sampleBasketLink={"sample-basket"}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -109,6 +112,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant1}
+        sampleBasketLink={"sample-basket"}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -122,6 +126,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant2}
+        sampleBasketLink={"sample-basket"}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -165,6 +170,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant1}
         maximumSamples={maximumSamples}
+        sampleBasketLink={"sample-basket"}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -179,6 +185,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant2}
         maximumSamples={maximumSamples}
+        sampleBasketLink={"sample-basket"}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -217,6 +224,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant1}
+        sampleBasketLink={"sample-basket"}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -230,6 +238,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant2}
+        sampleBasketLink={"sample-basket"}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -245,7 +254,10 @@ describe("disable 'Add to basket' if basket is full", () => {
 
     //since sample is not available onlyDisplayCompleteOrder is rendered
     render(
-      <SampleOrderSection isSampleOrderAllowed={false}></SampleOrderSection>,
+      <SampleOrderSection
+        isSampleOrderAllowed={false}
+        sampleBasketLink={"sample-basket"}
+      ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
       }

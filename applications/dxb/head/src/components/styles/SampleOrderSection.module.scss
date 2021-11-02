@@ -21,10 +21,8 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    flex-wrap: wrap;
 
     & button {
-      white-space: nowrap;
       font-size: 18px;
       @media (max-width: 1024px) {
         font-size: 16px;
@@ -34,17 +32,14 @@
       margin-left: 16px;
     }
     .complete-order {
-      margin-left: auto;
+      margin-left: 16px;
     }
     @media (max-width: 1300px) {
       flex-direction: column;
-      .add-to-basket {
-        margin-bottom: 12px;
+      .complete-order {
+        margin-top: 16px;
+        margin-left: 0;
       }
-      .remove-from-basket {
-        margin-bottom: 18px;
-      }
-
       & button:last-child {
         margin-left: 0;
         margin-bottom: 24px;
