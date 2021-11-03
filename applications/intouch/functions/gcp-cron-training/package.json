@@ -17,7 +17,8 @@
     "@google-cloud/secret-manager": "^3.7.1",
     "dotenv": "^8.2.0",
     "axios": "^0.21.0",
-    "pg": "^8.5.1"
+    "pg": "^8.5.1",
+    "google-auth-library": "^7.5.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.20",

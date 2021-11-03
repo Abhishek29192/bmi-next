@@ -11,7 +11,6 @@ import {
   Guarantee,
   Technology
 } from "@bmi/intouch-api-types";
-import { GUARANTEE_TEMPLATE_DETAIL_FRAGMENT } from "../contentful";
 
 type guaranteeResolverParams = {
   graphql: <TData = ExecutionResult["data"]>(
@@ -36,6 +35,67 @@ export const guaranteeResolver = async ({
   resolverInfo
 }: guaranteeResolverParams) => {
   const operationName = "GuaranteeQuery";
+
+  const CONTENTFUL_GUARANTEE_TEMPLATE_DETAIL_FRAGMENT = `
+  fragment GuaranteeTemplateDetailFragment on ContentfulGuaranteeTemplate {
+    displayName
+    technology
+    coverage
+    languageCode
+    languageDescriptor
+    approvalMessage {
+      event
+      #format
+      subject
+      notificationBody
+      emailBody
+    }
+    rejectionMessage {
+      event
+      #format
+      subject
+      notificationBody
+      emailBody
+    }
+    logo {
+      title
+      url
+    }
+    maintenanceTemplate {
+      fileName
+      url
+    }
+    terms {
+      fileName
+      url
+    }
+    guaranteeScope
+    signatory
+    headingGuarantee
+    headingScope
+    headingProducts
+    headingBeneficiary
+    headingBuildingOwnerName
+    headingBuildingAddress
+    headingRoofArea
+    headingRoofType
+    headingContractor
+    headingContractorName
+    headingContractorId
+    headingStartDate
+    headingGuaranteeId
+    headingValidity
+    headingExpiry
+    footer
+    mailBody
+    filenamePrefix
+    titleLine1
+    titleLine2
+    roofType
+  }
+  
+  `;
+
   const document = `
     query GuaranteeQuery($id: Int!) {
       guarantee(id: $id) {
@@ -105,7 +165,7 @@ export const guaranteeResolver = async ({
         }
       }
     }
-    ${GUARANTEE_TEMPLATE_DETAIL_FRAGMENT}
+    ${CONTENTFUL_GUARANTEE_TEMPLATE_DETAIL_FRAGMENT}
   `;
 
   const variables = { id: args.id };

@@ -17,7 +17,7 @@ import WelcomeDialog from "../components/WelcomeDialog";
 import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../utils/path";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -47,7 +47,7 @@ const getHeroItemsWithContext = (
       const callToAction =
         rest.__typename === "ContentfulPromo" && rest.cta ? (
           <Link component={Button} data={rest.cta}>
-            {rest.cta.label}
+            {rest.cta?.label}
           </Link>
         ) : (
           <Link

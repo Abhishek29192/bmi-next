@@ -450,6 +450,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "The PIM categories this page is attached to."
   categoryCodes: [String!]
+
+  "Allow Filter By"
+  allowFilterBy: [String!]
 }
 
 """
@@ -1243,6 +1246,9 @@ type ContentfulDocument implements Node {
 
   "The image for this document."
   image: ContentfulAsset @link(by: "id", from: "image___NODE")
+
+  "The main image document."
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 }
 
 """
@@ -1363,39 +1369,119 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
 union ProductDocument = PIMDocument | PIMLinkDocument
 
-type DataJson implements Node {
-  id: String!
+type Systems implements Node {
+  type: String
+  approvalStatus: String!
+  assets: [PimAsset!]
+  categories: [Categories!]
+  classifications: [Classification!]
+  code: String!
+  images: [PimImage!]
+  longDescription: String!
+  name: String
+  shortDescription: String
+  systemBenefits: [String]
   systemLayers: [SystemLayer]
-  categories: [Categories]
+  systemReferences: [PimSystemReference]
+  path: String!
+}
+
+type PimAsset {
+  allowedToDownload: Boolean
+  assetType: String
+  fileSize: Int
+  format: String
+  mime: String
+  name: String
+  realFileName: String
+  url: String
 }
 
 type SystemLayer {
   addon: Boolean
   approvalStatus: String!
   code: String!
-  # images: []
-  layerNumber: Int
-  longDescription: String
+  layerNumber: Int!
+  longDescription: String!
   name: String
   optionalProducts: [SystemProduct]
   products: [SystemProduct]
   shortDescription: String
-  type: String!
+  type: String
   relatedProducts: [Products] @link(from: "products___NODE")
   relatedOptionalProducts: [Products] @link(from: "products___NODE")
 }
 
+type PimSystemReference {
+  referenceType: String
+  target: PimSystemReferenceTarget
+  preselected: Boolean
+}
+
+type PimSystemReferenceTarget {
+  code: String!
+  name: String
+}
+
 type SystemProduct {
   code: String!
+  name: String
+  variantOptions: [SystemProductVariantOption]
+}
+
+type SystemProductVariantOption {
+  path: String
 }
 
 type Categories {
-  image: CategoryImage
+  categoryType: String!
+  code: String!
+  image: PimImage
+  name: String!
+  parentCategoryCode: String
 }
 
-type CategoryImage {
+type PimImage {
   allowedToDownload: Boolean
   fileSize: Int
+  mime: String
+  name: String
+  realFileName: String
+  url: String
+  containerId: String
+  format: String
+  assetType: String
+}
+
+type Classification {
+  code: String
+  features: [Feature]
+  name: String
+}
+
+type Feature {
+  code: String
+  featureUnit: FeatureUnit
+  featureValues: [FeatureValue]
+  name: String!
+}
+
+type FeatureValue {
+  value: String
+}
+
+type FeatureUnit {
+  name: String
+  symbol: String
+  unitType: String
+}
+
+type SystemImage {
+  allowedToDownload: Boolean
+  assetType: String
+  containerId: String
+  fileSize: Int
+  format: String
   mime: String
   name: String
   realFileName: String
@@ -1551,6 +1637,12 @@ type ContentfulService implements Node {
 
   "The type of this service."
   type: [String]
+
+  "The type of this branch."
+  branchType: [String]
+
+  "The type of this merchant."
+  merchantType: [String!]
 
   "The certification level of this service."
   certification: String

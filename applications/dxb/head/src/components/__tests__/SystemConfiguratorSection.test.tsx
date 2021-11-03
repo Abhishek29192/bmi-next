@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, within } from "@testing-library/react";
 import { ErrorBoundary } from "react-error-boundary";
 import mockConsole from "jest-mock-console";
 import axios from "axios";
@@ -8,11 +8,14 @@ import {
   createMemorySource,
   LocationProvider
 } from "@reach/router";
+import * as ReactRoter from "@reach/router";
 import { SiteContextProvider } from "../Site";
 import SystemConfiguratorSection, {
   Data,
   NextStepData
 } from "../SystemConfiguratorSection";
+import * as elasticSearch from "../../utils/elasticSearch";
+import * as GTM from "../../utils/google-tag-manager";
 
 jest.mock("react-google-recaptcha-v3", () => {
   return {
@@ -41,12 +44,20 @@ class CancelToken {
 // @ts-ignore
 mockedAxios.CancelToken = CancelToken;
 
+const { location } = window;
+
 beforeAll(() => {
   mockConsole();
+  delete window.location;
+  window.location = { pathname: "/test-path" } as Location;
 });
 
 beforeEach(() => {
   jest.clearAllMocks();
+});
+
+afterAll(() => {
+  window.location = location;
 });
 
 const richTextRaw = {
@@ -161,6 +172,38 @@ const getSiteContext = (
   }
 });
 
+const pimSystem = {
+  _source: {
+    code: "efgh",
+    name: "efgh name",
+    shortDescription: "efgh description",
+    images: [
+      {
+        assetType: "MASTER_IMAGE",
+        format: "Product-Listing-Card-Large-Desktop",
+        url: "testhttp",
+        allowedToDownload: true,
+        containerId: "container_490189 wireløper.jpg",
+        fileSize: 172262,
+        mime: "image/jpeg",
+        name: "Product-Hero-Large-Desktop_490189 wireløper",
+        realFileName: "Product-Hero-Large-Desktop_490189 wireløper.jpg"
+      }
+    ]
+  }
+};
+
+const mockQueryES = jest
+  .spyOn(elasticSearch, "queryElasticSearch")
+  .mockResolvedValue({
+    hits: {
+      hits: [pimSystem],
+      total: {
+        value: 1
+      }
+    }
+  });
+
 describe("SystemConfiguratorSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
@@ -257,49 +300,12 @@ describe("SystemConfiguratorSection component", () => {
     fireEvent.click(label);
 
     await findByRole("progressbar");
-
     await findByText("Result Title");
+    await findByText(pimSystem._source.name);
+    await findByText(pimSystem._source.shortDescription);
 
     expect(container).toMatchSnapshot();
-  });
-
-  it("stores selected system when a result system card clicked", async () => {
-    jest.spyOn(window.localStorage.__proto__, "setItem");
-    window.localStorage.__proto__.setItem = jest.fn();
-    mockedAxios.get.mockResolvedValue({
-      data: {
-        __typename: "ContentfulSystemConfiguratorBlock",
-        title: "Result Title",
-        description: { raw: JSON.stringify(richTextRaw), references: null },
-        type: "Result",
-        recommendedSystems: ["abcd", "efgh"]
-      }
-    });
-
-    const { container, findByText, findByLabelText, findByRole } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
-        </LocationProvider>
-      </SiteContextProvider>
-    );
-
-    const label = await findByLabelText("Answer 1c title");
-    fireEvent.click(label);
-
-    await findByRole("progressbar");
-
-    await findByText("Result Title");
-
-    const label2 = await findByText((text) => text.startsWith("System-abcd"));
-    fireEvent.click(label2);
-
-    expect(window.localStorage.setItem).toHaveBeenLastCalledWith(
-      "SystemConfiguratorBlock",
-      // eslint-disable-next-line no-useless-escape
-      `{\"selectedAnswers\":[\"A1c\"],\"selectedSystem\":\"abcd\"}`
-    );
-    expect(container).toMatchSnapshot();
+    expect(mockQueryES).toBeCalledTimes(1);
   });
 
   it("renders a no result section when answer clicked", async () => {
@@ -513,6 +519,8 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders skipping a block with only one answer", async () => {
+    const mockPushToDataLayer = jest.spyOn(GTM, "pushToDataLayer");
+
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         __typename: "ContentfulSystemConfiguratorBlock",
@@ -547,6 +555,7 @@ describe("SystemConfiguratorSection component", () => {
 
     expect(container).toMatchSnapshot();
     expect(mockedAxios.get).toBeCalledTimes(2);
+    expect(mockPushToDataLayer).toHaveBeenCalledTimes(1);
   });
 
   it("throws error", async () => {
@@ -594,8 +603,10 @@ describe("SystemConfiguratorSection component", () => {
 
     expect(container).toMatchSnapshot();
   });
+
   describe("When returning from valid referer", () => {
     it("removes query string from path", async () => {
+      const mockPushToDataLayer = jest.spyOn(GTM, "pushToDataLayer");
       mockedAxios.get.mockResolvedValue({
         data: {
           __typename: "ContentfulSystemConfiguratorBlock",
@@ -621,14 +632,16 @@ describe("SystemConfiguratorSection component", () => {
       fireEvent.click(label);
 
       await findByText("Result Title");
+      await findByText(pimSystem._source.name);
+      await findByText(pimSystem._source.shortDescription);
 
-      await findByText((text) => text.startsWith("System-abcd"));
       expect(window.history.replaceState).toHaveBeenLastCalledWith(
         null,
         null,
         "/jest-test-page"
       );
       expect(container).toMatchSnapshot();
+      expect(mockPushToDataLayer).toHaveBeenCalledTimes(0);
     });
 
     it("highlights last selected system", async () => {
@@ -657,13 +670,188 @@ describe("SystemConfiguratorSection component", () => {
       fireEvent.click(label);
 
       await findByText("Result Title");
-
-      const systemCard = await findByText((tex) =>
-        tex.startsWith("System-abcd")
-      );
+      await findByText(pimSystem._source.name);
+      await findByText(pimSystem._source.shortDescription);
 
       expect(window.history.replaceState).toBeCalled();
       expect(container).toMatchSnapshot();
     });
+  });
+
+  it("renders only the recommendedSystems that match the pimSystem list from contentful", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulSystemConfiguratorBlock",
+        title: "Result Title",
+        description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
+        recommendedSystems: ["abcd", "ijkl", "efgh"]
+      }
+    });
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          pimSystem,
+          {
+            _source: {
+              code: "ijkl",
+              name: "ijkl name"
+            }
+          }
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+
+    const { container, findByLabelText, findByRole, findByText } = render(
+      <SiteContextProvider value={getSiteContext()}>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </SiteContextProvider>
+    );
+
+    const label = await findByLabelText("Answer 1c title");
+    fireEvent.click(label);
+
+    await findByRole("progressbar");
+    await findByText("Result Title");
+    await findByText(pimSystem._source.name);
+    await findByText(pimSystem._source.shortDescription);
+    await findByText("ijkl name");
+
+    expect(container).toMatchSnapshot();
+    expect(mockQueryES).toBeCalledTimes(1);
+
+    const renderedSystems = Array.from(
+      container.querySelectorAll<HTMLElement>(
+        ".SystemConfigurator-result .OverviewCard"
+      )
+    );
+
+    expect(renderedSystems.length).toBe(2);
+    //verify the order matches 'recommendedSystems' in which they are rendred within results section
+    expect(within(renderedSystems[0]).getByText("ijkl name")).not.toBeNull();
+    expect(within(renderedSystems[1]).getByText("efgh name")).not.toBeNull();
+  });
+
+  it("renders only max of 4 recommendedSystems", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulSystemConfiguratorBlock",
+        title: "Result Title",
+        description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
+        recommendedSystems: ["ijkl", "efgh", "abcd", "mnop", "qrst"]
+      }
+    });
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          {
+            _source: {
+              code: "abcd",
+              name: "abcd name"
+            }
+          },
+          {
+            _source: {
+              code: "efgh",
+              name: "efgh name"
+            }
+          },
+          {
+            _source: {
+              code: "ijkl",
+              name: "ijkl name"
+            }
+          },
+          {
+            _source: {
+              code: "mnop",
+              name: "mnop name"
+            }
+          },
+          {
+            _source: {
+              code: "qrst",
+              name: "qrst name"
+            }
+          }
+        ],
+        total: {
+          value: 5
+        }
+      }
+    });
+
+    const { container, findByLabelText, findByRole, findByText } = render(
+      <SiteContextProvider value={getSiteContext()}>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </SiteContextProvider>
+    );
+
+    const label = await findByLabelText("Answer 1c title");
+    fireEvent.click(label);
+
+    await findByRole("progressbar");
+    await findByText("Result Title");
+
+    expect(container).toMatchSnapshot();
+    expect(mockQueryES).toBeCalledTimes(1);
+
+    const renderedSystems = Array.from(
+      container.querySelectorAll<HTMLElement>(
+        ".SystemConfigurator-result .OverviewCard"
+      )
+    );
+
+    expect(renderedSystems.length).toBe(4);
+    //verify the order matches 'recommendedSystems' in which they are rendred within results section
+    expect(within(renderedSystems[0]).getByText("ijkl name")).not.toBeNull();
+    expect(within(renderedSystems[1]).getByText("efgh name")).not.toBeNull();
+    expect(within(renderedSystems[2]).getByText("abcd name")).not.toBeNull();
+    expect(within(renderedSystems[3]).getByText("mnop name")).not.toBeNull();
+  });
+
+  it("redirect to 404 page if no matches to pimSystem code", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        __typename: "ContentfulSystemConfiguratorBlock",
+        title: "Result Title",
+        description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
+        recommendedSystems: ["efgh", "ijkl"]
+      }
+    });
+    const redirection = jest.spyOn(ReactRoter, "navigate");
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [],
+        total: {
+          value: 0
+        }
+      }
+    });
+    const { container, findByLabelText, findByText } = render(
+      <SiteContextProvider value={getSiteContext()}>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </SiteContextProvider>
+    );
+
+    const label = await findByLabelText("Answer 1c title");
+    fireEvent.click(label);
+
+    await findByText("Result Title");
+
+    expect(container).toMatchSnapshot();
+    expect(mockQueryES).toBeCalledTimes(1);
+    expect(redirection).toHaveBeenCalledWith("/404");
   });
 });

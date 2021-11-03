@@ -3,6 +3,8 @@
     "editorconfig.editorconfig",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "bradymholt.pgformatter"
+    "bradymholt.pgformatter",
+    "anweber.vscode-httpyac",
+    "adamhartford.vscode-base64"
   ]
 }

@@ -1,9 +1,11 @@
 @import "@bmi/styles";
 
+$tablet-width: 1024px;
+
 .headerContainer {
   position: sticky;
   top: 0;
-  z-index: 1301;
+  z-index: 1251;
 }
 
 .header {
@@ -43,7 +45,7 @@
   height: 72px;
   background: $color-white;
 
-  @media (min-width: 1024px) {
+  @media (min-width: $tablet-width + 1) {
     display: none;
   }
 }
@@ -66,7 +68,7 @@
     height: 90px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet-width) {
     display: none;
   }
 }
@@ -99,7 +101,8 @@
 
 .tabletSidebarContainer {
   display: none;
-  @media (min-width: $breakpoint-md) and (max-width: 1024px) {
+  z-index: 1250 !important;
+  @media (min-width: $breakpoint-md) and (max-width: $tablet-width) {
     display: block;
   }
 }
@@ -115,7 +118,7 @@
 
 .tabletNavButton {
   display: none;
-  @media (min-width: $breakpoint-md) and (max-width: 1024px) {
+  @media (min-width: $breakpoint-md) and (max-width: $tablet-width + 1) {
     display: block;
   }
 }
@@ -126,6 +129,7 @@
 
 .mobileSidebarContainer {
   display: none;
+  z-index: 1250 !important;
   @media (max-width: $breakpoint-md) {
     display: block;
   }
@@ -147,11 +151,15 @@
   }
 }
 
+.notificationsContainer {
+  z-index: 1250 !important;
+}
+
 .notifications {
   padding: 1rem;
   padding-top: 112px;
   position: relative;
-  @media (max-width: 1024px) {
+  @media (max-width: $tablet-width) {
     padding-top: 122px;
   }
   @media (min-width: $breakpoint-md) {
@@ -165,6 +173,32 @@
   justify-content: space-between;
   position: sticky;
   top: 0;
+}
+
+.notificationsIcon {
+  position: relative;
+
+  &:after {
+    content: "";
+    display: none;
+    background: $color-orange-400;
+    border: 2px solid $color-white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 0.7em;
+    right: 0.7em;
+
+    @media (min-width: $breakpoint-md) {
+      top: 0.5em;
+      right: 0.5em;
+    }
+  }
+
+  &--unread:after {
+    display: block;
+  }
 }
 
 .mobileUserMenu {

@@ -41,7 +41,7 @@ export default gql`
 
   type ContentfulMessage {
     event: ContentfulMessageEventType
-    format: ContentfulMessageFormat
+    format: [ContentfulMessageFormat]
     subject: String
     notificationBody: String
     emailBody: String
@@ -149,9 +149,11 @@ export default gql`
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType
     guaranteeTypes: ContentfulGuaranteeTypeCollection
+    signedFileStorageUrl: String
   }
   extend type EvidenceItem {
     customEvidenceCategory: ContentfulEvidenceCategory
+    signedUrl: String @requires(columns: ["attachment"])
   }
   extend type Account {
     formattedRole: String
@@ -178,6 +180,7 @@ export default gql`
   extend input AccountPatch {
     photoUpload: Upload
     shouldRemovePhoto: Boolean
+    termsCondition: Boolean
   }
 
   extend input CompanyPatch {
@@ -251,6 +254,25 @@ export default gql`
     result: String
   }
 
+  type Auth0ImportResult {
+    type: String
+    status: String
+    connection_id: String
+    connection: String
+    created_at: String
+    id: String
+  }
+
+  input ImportAccountsCompaniesFromCSVInput {
+    files: [Upload!]!
+  }
+
+  type ImportAccountsCompaniesFromCSVResult {
+    auth0Job: Auth0ImportResult
+    accounts: [Account]
+    companies: [Company]
+  }
+
   extend type Mutation {
     resetPassword: String
     publishMessage(input: PublishInput!): Publish
@@ -261,5 +283,8 @@ export default gql`
     ): resetPasswordImportedUsersResult
     completeInvitation(companyId: Int!): Account
     bulkImport(input: BulkImportInput!): ImportOutput
+    importAccountsCompaniesFromCVS(
+      input: ImportAccountsCompaniesFromCSVInput!
+    ): ImportAccountsCompaniesFromCSVResult
   }
 `;

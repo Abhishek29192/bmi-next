@@ -1,8 +1,19 @@
-import React from "react";
-import { Document, Img } from "@bmi/react-pdf-maker";
+import {
+  Canvas,
+  Col,
+  Document,
+  Img,
+  Row,
+  SVG,
+  View
+} from "@bmi-digital/react-pdf-maker";
 import { ContentfulGuaranteeTemplate, Guarantee } from "@bmi/intouch-api-types";
+import React from "react";
+import locales from "../locales.json";
+import Logo from "../svgs/BMI";
+import svgMap from "../util/svgMap";
+import { Field } from "./Field";
 import { Typography } from "./Typography";
-import { LessWidth } from "./LessWidth";
 
 export const PdfDocument = ({
   template,
@@ -21,16 +32,16 @@ export const PdfDocument = ({
     project,
     bmiReferenceId,
     startDate,
-    expiryDate
+    expiryDate,
+    languageCode = "NO"
   } = guaranteeData;
 
   const address = project.siteAddress;
+  const technology = locales[languageCode][guaranteeType.technology];
 
   if (!address) {
     throw new Error("project site address can not be undefined");
   }
-  const addressLine = `${address.firstLine} ${address.secondLine} ${address.town} ${address.country} ${address.postcode}`;
-
   const { company } = project;
   if (!company) {
     throw new Error("project company missing");
@@ -42,89 +53,113 @@ export const PdfDocument = ({
         signature: ``
       }}
       defaultStyle={{
-        font: "Roboto"
+        font: "Effra"
       }}
     >
-      <LessWidth>
-        <Img src={logoEncoded} width={20} height={90} />
-      </LessWidth>
-      <Typography variant={"h1"} marginBottom={20}>
-        {guaranteeType.displayName}
-      </Typography>
+      <Row marginBottom={20}>
+        <Col width={60} marginTop={20}>
+          <SVG width={50} height={50}>
+            {Logo}
+          </SVG>
+        </Col>
+        <Col width={360} marginTop={20}>
+          <Typography variant="h1" marginBottom={2}>
+            {guaranteeType.displayName}
+          </Typography>
+          <SVG width={20} height={20}>
+            {svgMap[guaranteeType.technology]}
+          </SVG>
+        </Col>
+        <Col width={75}>
+          <Img src={logoEncoded} width={20} height={90} />
+        </Col>
+      </Row>
 
-      <Typography headlineLevel={2} variant={"h6"} marginBottom={10}>
-        {guaranteeType.name}
-      </Typography>
+      <Canvas>
+        <Canvas.Rect x={0} y={0} w={500} h={130} color="#e0f3f9" />
+      </Canvas>
 
-      <Typography variant={"h6"} marginBottom={10}>
-        {template.headingGuarantee}: {project.name}
-      </Typography>
+      <View marginTop={-120} marginLeft={10} marginBottom={20}>
+        <Typography variant="h2">{template.headingGuarantee}:</Typography>
+        <Typography marginBottom={10}>{project.name}</Typography>
 
-      <Typography variant={"h6"} marginBottom={10}>
-        {template.headingScope}: {template.guaranteeScope}
-      </Typography>
+        <Typography variant="h3">{template.headingScope}:</Typography>
+        <Typography marginBottom={10}>{template.guaranteeScope}</Typography>
 
-      <Typography variant={"h6"} marginBottom={10}>
-        {template.headingProducts}: {productByProductBmiRef.name}
-      </Typography>
+        <Typography variant="h3">{template.headingProducts}:</Typography>
+        <Typography>{productByProductBmiRef?.name}</Typography>
+      </View>
 
-      <Typography variant={"h1"} marginBottom={20}>
-        {template.headingBeneficiary}
-      </Typography>
+      <Row>
+        <Col width={250}>
+          <Typography variant="h3" marginBottom={20}>
+            {template.headingBeneficiary}
+          </Typography>
+          <Field
+            title={template.headingBuildingOwnerName}
+            values={[
+              `${project.buildingOwnerFirstname} ${project.buildingOwnerLastname}`
+            ]}
+          />
+          <Field
+            title={template.headingBuildingAddress}
+            values={[
+              address.firstLine,
+              address.secondLine,
+              address.town,
+              address.country,
+              address.postcode
+            ]}
+          />
+          <Field
+            title={template.headingRoofArea}
+            values={[`${project.roofArea}`]}
+          />
+          <Field title={template.headingRoofType} values={[technology]} />
+        </Col>
 
-      <Typography variant={"h6"} marginBottom={10}>
-        {template.headingBuildingOwnerName}:{project.buildingOwnerFirstname}{" "}
-        {project.buildingOwnerLastname}
-      </Typography>
+        <Col width={250}>
+          <Typography variant="h3" marginBottom={20}>
+            {template.headingContractor}
+          </Typography>
+          <Field
+            title={template.headingContractorName}
+            values={[company.name]}
+          />
+          <Field
+            title={template.headingContractorId}
+            values={[`${company.referenceNumber}`]}
+          />
+          <Field
+            title={template.headingStartDate}
+            values={[new Date(startDate).toLocaleDateString()]}
+          />
+          <Field
+            title={template.headingGuaranteeId}
+            values={[bmiReferenceId]}
+          />
+          <Field
+            title={template.headingValidity}
+            values={[
+              `${
+                new Date(expiryDate).getFullYear() -
+                new Date(startDate).getFullYear()
+              }`
+            ]}
+          />
+          <Field
+            title={template.headingExpiry}
+            values={[new Date(expiryDate).toLocaleDateString()]}
+          />
+        </Col>
+      </Row>
 
-      <Typography variant={"h6"} marginBottom={10}>
-        {template.headingBuildingAddress}:{addressLine}
-      </Typography>
+      <View marginTop={20} marginBottom={20}>
+        <Img src={signatureEncoded} width={150} />
+        <Typography>{template.signatory}</Typography>
+      </View>
 
-      <Typography variant={"h6"} marginBottom={10}>
-        {template.headingRoofArea}: {project.roofArea}
-      </Typography>
-
-      <Typography variant={"h6"} marginBottom={10}>
-        {template.headingRoofType}: {guaranteeType.technology}
-      </Typography>
-
-      <Typography variant={"h1"} marginBottom={20}>
-        {template.headingContractor}
-      </Typography>
-
-      <Typography variant={"h6"} marginTop={5} marginBottom={3}>
-        {template.headingContractorName}:{company.name}
-      </Typography>
-
-      <Typography variant={"h6"} marginBottom={3}>
-        {template.headingContractorId}: {company.referenceNumber}
-      </Typography>
-
-      <Typography variant={"h6"} marginBottom={5}>
-        {template.headingStartDate} :{startDate}
-      </Typography>
-
-      <Typography variant={"h6"} marginBottom={5}>
-        {template.headingGuaranteeId} :{bmiReferenceId}
-      </Typography>
-
-      <Typography variant={"h6"} marginBottom={5}>
-        {template.headingValidity}:
-        {new Date(expiryDate).getFullYear() - new Date(startDate).getFullYear()}
-      </Typography>
-
-      <Typography variant={"h6"} marginBottom={5}>
-        {template.headingExpiry}:{expiryDate}
-      </Typography>
-
-      <Typography variant={"h6"} marginBottom={5}>
-        {template.signatory}
-      </Typography>
-
-      <LessWidth>
-        <Img src={signatureEncoded} width={20} height={20} />
-      </LessWidth>
+      <Typography variant="body2">{template.footer}</Typography>
     </Document>
   );
 };

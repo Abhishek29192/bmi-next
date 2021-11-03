@@ -1,5 +1,4 @@
 import get from "lodash/get";
-import set from "lodash/set";
 import React, { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import Grid from "@bmi/grid";
@@ -102,7 +101,14 @@ export const SetCompanyDetailsDialog = ({
       <Dialog.Title hasUnderline>{title}</Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
-        <Form className={styles.form} onSubmit={handleSubmit} rightAlignButton>
+        <Form
+          className={styles.form}
+          onSubmit={handleSubmit}
+          rightAlignButton
+          onKeyDown={(e) => {
+            if (e.key === "Enter") e.preventDefault();
+          }}
+        >
           <Typography variant="h6" className={styles.sectionText}>
             {t("company-page:edit_dialog.sections.registered_details")}
           </Typography>
@@ -111,22 +117,32 @@ export const SetCompanyDetailsDialog = ({
               <TextField {...getFieldProps("name")} isRequired />
               <TextField
                 {...getFieldProps("registeredAddress.firstLine")}
+                autoComplete="off"
                 isRequired
               />
-              <TextField {...getFieldProps("registeredAddress.secondLine")} />
+              <TextField
+                {...getFieldProps("registeredAddress.secondLine")}
+                autoComplete="off"
+              />
               <TextField
                 {...getFieldProps("registeredAddress.town")}
+                autoComplete="off"
                 isRequired
               />
               <TextField
                 {...getFieldProps("registeredAddress.postcode")}
+                autoComplete="off"
                 isRequired
               />
-              <TextField {...getFieldProps("registeredAddress.region")} />
+              <TextField
+                {...getFieldProps("registeredAddress.region")}
+                autoComplete="off"
+              />
 
               <TextField
                 {...getFieldProps("registeredAddress.country")}
                 isRequired
+                autoComplete="off"
               />
             </Grid>
 
@@ -216,6 +232,7 @@ export const SetCompanyDetailsDialog = ({
             <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("phone")}
+                type="tel"
                 getValidationError={validatePhoneNumber}
               />
               <TextField
@@ -248,6 +265,7 @@ export const SetCompanyDetailsDialog = ({
             <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("ownerPhone")}
+                type="tel"
                 getValidationError={validatePhoneNumber}
               />
             </Grid>
@@ -261,6 +279,11 @@ export const SetCompanyDetailsDialog = ({
           </Grid>
 
           <Form.ButtonWrapper>
+            {company?.status !== "NEW" ? (
+              <Form.Button onClick={onCloseClick}>
+                {t("company-page:edit_dialog.form.actions.cancel")}
+              </Form.Button>
+            ) : null}
             <Form.SubmitButton>
               {t("company-page:edit_dialog.form.actions.submit")}
             </Form.SubmitButton>

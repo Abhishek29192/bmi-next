@@ -32,7 +32,7 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
 
             return { access_token };
           } catch (error) {
-            logger.error("Error fetching token: ", error);
+            logger.error("Error fetching token: ", error.message);
             throw error;
           }
         },
@@ -47,7 +47,7 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             );
             return { access_token };
           } catch (error) {
-            logger.error("Error fetching token by username:", error);
+            logger.error("Error fetching token by username:", error.message);
             throw error;
           }
         }
@@ -80,7 +80,7 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             const { data } = await doceboClient.createUser(input);
             return data;
           } catch (error) {
-            logger.error("Error creating user", error);
+            logger.error("Error creating user", error.message);
             throw error;
           }
         },
@@ -94,7 +94,7 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             const { data } = await doceboClient.updateUser(input);
             return data;
           } catch (error) {
-            logger.error("Error creating user", error);
+            logger.error("Error creating user", error.message);
             throw error;
           }
         }

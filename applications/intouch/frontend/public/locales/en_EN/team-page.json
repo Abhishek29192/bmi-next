@@ -10,7 +10,8 @@
     "title": "Certification(s)",
     "type": "Type",
     "certification": "Certification",
-    "validity": "Validity"
+    "validity": "Validity",
+    "noResults": "User has no certifications"
   },
   "invitation": {
     "dialog": {
@@ -29,6 +30,7 @@
   },
   "user_card": {
     "add_admin": "Assign as Company Admin",
+    "remove": "Remove from company",
     "remove_admin": "Remove as Company Admin",
     "confirm": "Confirm",
     "cancel": "Cancel",
@@ -42,5 +44,6 @@
     }
   },
   "memberRemoved": "Member succesfully removed",
-  "genericError": "An error occurred. Please try again or contact your administrator."
+  "genericError": "An error occurred. Please try again or contact your administrator.",
+  "lastCompanyAdminError": "You cannot remove the last Company Admin from a Company unless it has been deactivated by BMI"
 }

@@ -10,9 +10,7 @@ describe("redirects config", () => {
   describe("Local & single market", () => {
     beforeEach(() => {
       jest.mock("..", () => ({
-        baseDomainUrl: "localhost",
-        isProd: false,
-        isSingleMarket: true
+        baseUrlDomain: "localhost"
       }));
       const redirectModuleWithMocks = require("../redirects");
       redirectMap = redirectModuleWithMocks.redirectMap;
@@ -25,7 +23,11 @@ describe("redirects config", () => {
     it("redirectMap map should match inline snapshot", () => {
       expect(redirectMap).toMatchInlineSnapshot(`
         Object {
+          "dev-en.localhost": "dev-en",
+          "dev-no.localhost": "dev-no",
+          "en.localhost": "en",
           "localhost": "en",
+          "no.localhost": "no",
         }
       `);
     });
@@ -33,7 +35,10 @@ describe("redirects config", () => {
     it("redirectMapInverse map should match inline snapshot", () => {
       expect(redirectMapInverse).toMatchInlineSnapshot(`
         Object {
-          "en": "localhost",
+          "dev-en": "dev-en.localhost",
+          "dev-no": "dev-no.localhost",
+          "en": "en.localhost",
+          "no": "no.localhost",
         }
       `);
     });
@@ -63,13 +68,11 @@ describe("redirects config", () => {
     it("redirectMap map should match inline snapshot", () => {
       expect(redirectMap).toMatchInlineSnapshot(`
         Object {
-          "de.local.intouch": "de",
+          "dev-en.local.intouch": "dev-en",
+          "dev-no.local.intouch": "dev-no",
           "en.local.intouch": "en",
-          "es.local.intouch": "es",
-          "it.local.intouch": "it",
           "local.intouch": "en",
           "no.local.intouch": "no",
-          "us.local.intouch": "us",
         }
       `);
     });
@@ -77,12 +80,10 @@ describe("redirects config", () => {
     it("redirectMapInverse map should match inline snapshot", () => {
       expect(redirectMapInverse).toMatchInlineSnapshot(`
         Object {
-          "de": "de.local.intouch",
+          "dev-en": "dev-en.local.intouch",
+          "dev-no": "dev-no.local.intouch",
           "en": "en.local.intouch",
-          "es": "es.local.intouch",
-          "it": "it.local.intouch",
           "no": "no.local.intouch",
-          "us": "us.local.intouch",
         }
       `);
     });
@@ -112,6 +113,8 @@ describe("redirects config", () => {
     it("redirectMap map should match inline snapshot", () => {
       expect(redirectMap).toMatchInlineSnapshot(`
         Object {
+          "dev-en.intouch.dddev.io": "dev-en",
+          "dev-no.intouch.dddev.io": "dev-no",
           "en.intouch.dddev.io": "en",
           "intouch.dddev.io": "en",
           "no.intouch.dddev.io": "no",
@@ -122,6 +125,8 @@ describe("redirects config", () => {
     it("redirectMapInverse map should match inline snapshot", () => {
       expect(redirectMapInverse).toMatchInlineSnapshot(`
         Object {
+          "dev-en": "dev-en.intouch.dddev.io",
+          "dev-no": "dev-no.intouch.dddev.io",
           "en": "en.intouch.dddev.io",
           "no": "no.intouch.dddev.io",
         }

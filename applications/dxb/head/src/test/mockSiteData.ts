@@ -902,6 +902,10 @@ export const createMockSiteData = (): SiteData =>
           value: "Størrelse"
         },
         {
+          key: "pdp.overview.addSample",
+          value: "Add Sample"
+        },
+        {
           key: "pdp.leadBlock.about",
           value: "Om produktet"
         },

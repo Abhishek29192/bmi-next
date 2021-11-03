@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useTranslation } from "next-i18next";
 import Dialog from "@material-ui/core/Dialog";
+import Modal from "@bmi/dialog";
 import { gql } from "@apollo/client";
 import {
   GuaranteeCoverage,
@@ -14,26 +16,41 @@ import { WizardOverlay } from "../../../components/WizardLayout";
 import { GuaranteeWizardData } from "../../../components/WizardLayout/WizardContext";
 import {
   GetProjectDocument,
-  useCreateGuaranteeMutation
+  useCreateGuaranteeMutation,
+  useCreateGuaranteePdfMutation
 } from "../../../graphql/generated/hooks";
 
 type ApplyGuaranteeDialogProps = {
   isOpen: boolean;
   project: GetProjectQuery["project"];
   onCloseClick: () => void;
-  onCompletedClick?: () => void;
 };
 export const ApplyGuaranteeDialog = ({
   isOpen,
   project,
-  onCloseClick,
-  onCompletedClick
+  onCloseClick
 }: ApplyGuaranteeDialogProps) => {
   const [createGuaranteMutation] = useCreateGuaranteeMutation({
-    onCompleted: (data) => {
-      onCompletedClick && onCompletedClick();
+    onCompleted: ({ createGuarantee }) => {
+      const { guarantee } = createGuarantee;
+      if (guarantee.status === "APPROVED") {
+        createGuaranteePdfMutation({
+          variables: {
+            id: guarantee.id
+          }
+        });
+      }
+
+      onCloseClick();
+      setGuaranteeCoverage(guarantee.coverage);
+      setModalOpen(true);
     }
   });
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [guaranteeCoverage, setGuaranteeCoverage] =
+    useState<GuaranteeCoverage>();
+
+  const [createGuaranteePdfMutation] = useCreateGuaranteePdfMutation();
 
   const onSubmitHandler = ({
     guaranteeType,
@@ -87,7 +104,38 @@ export const ApplyGuaranteeDialog = ({
           onSubmit={onSubmitHandler}
         />
       </Dialog>
+      <GuaranteeMessage
+        isModalOpen={isModalOpen}
+        coverage={guaranteeCoverage}
+        onCloseClick={() => setModalOpen(false)}
+      />
     </div>
+  );
+};
+
+type GuaranteeMessageProps = {
+  isModalOpen: boolean;
+  coverage: GuaranteeCoverage;
+  onCloseClick: () => void;
+};
+const GuaranteeMessage = ({
+  isModalOpen,
+  coverage,
+  onCloseClick
+}: GuaranteeMessageProps) => {
+  const { t } = useTranslation("project-page");
+  const dialog = `guarantee_tab.applyGuarantee.${
+    coverage !== "SOLUTION" ? "defaultDialog" : "solutionDialog"
+  }`;
+  return (
+    <Modal open={isModalOpen} onCloseClick={onCloseClick}>
+      <Modal.Title hasUnderline>{t(`${dialog}.title`)}</Modal.Title>
+      <Modal.Content>{t(`${dialog}.description`)}</Modal.Content>
+      <Modal.Actions
+        confirmLabel={t(`${dialog}.confirm_label`)}
+        onConfirmClick={onCloseClick}
+      />
+    </Modal>
   );
 };
 
@@ -96,7 +144,17 @@ export const CREATE_GUARANTEE = gql`
     createGuarantee(input: $input) {
       guarantee {
         id
+        coverage
+        status
       }
+    }
+  }
+`;
+
+export const CREATE_GUARANTEE_PDF = gql`
+  mutation createGuaranteePdf($id: Int!) {
+    createGuaranteePdf(id: $id) {
+      messageId
     }
   }
 `;

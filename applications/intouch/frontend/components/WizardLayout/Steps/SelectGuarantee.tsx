@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Tooltip from "@bmi/tooltip";
 import { GuaranteeType } from "@bmi/intouch-api-types";
+import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
 import { ActionTile } from "../../../components/ActionTile";
 import { useWizardContext } from "../WizardContext";
@@ -50,6 +51,18 @@ const SelectGuarantee = () => {
       system: null
     });
   };
+  if (!guaranteeTypes?.length) {
+    return (
+      <div>
+        <AlertBanner severity={"warning"}>
+          <AlertBanner.Title>
+            {t("guarantee_tab.apply_guarantee.alert.selectGuarantee.title")}
+          </AlertBanner.Title>
+          {t("guarantee_tab.apply_guarantee.alert.selectGuarantee.message")}
+        </AlertBanner>
+      </div>
+    );
+  }
 
   return (
     <div>

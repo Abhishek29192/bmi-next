@@ -1,0 +1,13 @@
+###
+
+# @name Get all entries
+
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type=roofer
+Authorization: Bearer {{contentfulToken}}
+
+###
+
+# @name Get entries by content type
+
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type=site
+Authorization: Bearer {{contentfulToken}}

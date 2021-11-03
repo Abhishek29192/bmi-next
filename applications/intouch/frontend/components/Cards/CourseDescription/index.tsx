@@ -1,11 +1,12 @@
 import React from "react";
+import { Technology } from "@bmi/intouch-api-types";
 import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
-import { School } from "@material-ui/icons";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
 import { SimpleCard } from "../SimpleCard";
+import { technologyIcon, technologyNames } from "../../../lib/utils/course";
 import styles from "./styles.module.scss";
 
 export type CourseDescriptionProps = {
@@ -13,6 +14,7 @@ export type CourseDescriptionProps = {
   type: string;
   status?: string;
   image?: string;
+  technology?: Technology;
   lmsUrl?: string;
   children?: React.ReactNode | React.ReactNode[];
 };
@@ -22,10 +24,11 @@ export const CourseDescription = ({
   type,
   status,
   image,
+  technology,
   lmsUrl,
   children
 }: CourseDescriptionProps) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("training-page");
 
   return (
     <SimpleCard>
@@ -40,11 +43,22 @@ export const CourseDescription = ({
         )}
         <div>
           <div className={styles.metadata}>
-            <div className={styles.type}>
-              <Icon source={School} />
-              <Typography variant="h5">{type}</Typography>
+            <div className={styles.type}>{t(`training-page:type.${type}`)}</div>
+            {technology && (
+              <Typography className={styles.tech}>
+                <Icon
+                  source={technologyIcon[technology]}
+                  className={styles.technologyIcon}
+                />
+                {t(technologyNames[technology])}
+              </Typography>
+            )}
+
+            <div className={styles.status}>
+              <Typography variant="body1">
+                {t(`training-page:${status}`)}
+              </Typography>
             </div>
-            <div className={styles.status}>{status}</div>
           </div>
           <div className={styles.cta}>
             <Button
@@ -57,7 +71,7 @@ export const CourseDescription = ({
                 rel: "noopener noreferrer"
               }}
             >
-              {t("View training")}
+              {t("viewTraining")}
             </Button>
           </div>
         </div>

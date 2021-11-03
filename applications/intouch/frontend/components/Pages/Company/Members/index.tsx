@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
@@ -10,21 +11,28 @@ import {
 } from "@bmi/icon";
 import Table from "@bmi/table";
 import { SvgIcon } from "@material-ui/core";
-import { Technology, CompanyMember, Role } from "@bmi/intouch-api-types";
+import { Technology, Role, Account } from "@bmi/intouch-api-types";
+import classnames from "classnames";
 import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
 import { SidePanel } from "../../../SidePanel";
 import { FilterResult } from "../../../FilterResult";
-import { reorderMembers } from "../../../../lib/utils/companyMembers";
-import { CompanyMembersQuery } from "../../../../graphql/generated/operations";
+import { sortByFirstName } from "../../../../lib/utils/account";
+import { TeamMembersQuery } from "../../../../graphql/generated/operations";
 import { useUpdateRoleAccountMutation } from "../../../../graphql/generated/hooks";
 import { TableContainer } from "../../../TableContainer";
 import { UserCard } from "../../../UserCard";
 import {
   useDeleteCompanyMemberMutation,
-  useCompanyMembersLazyQuery
+  useTeamMembersLazyQuery
 } from "../../../../graphql/generated/hooks";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { formatDate } from "../../../../lib/utils";
+import { useAccountContext } from "../../../../context/AccountContext";
+import {
+  findAccountCompany,
+  isSuperOrMarketAdmin
+} from "../../../../lib/account";
+import layoutStyles from "../../../Layout/styles.module.scss";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 import Alert from "./Alert";
@@ -38,7 +46,7 @@ export const REMOVE_MEMBER = gql`
 `;
 
 export type PageProps = {
-  data: CompanyMembersQuery;
+  data: TeamMembersQuery;
   error?: {
     message: string;
   };
@@ -79,14 +87,19 @@ const getValidCertDate = () => {
 };
 
 const CompanyMembers = ({ data }: PageProps) => {
-  const { t } = useTranslation("team-page");
+  const { t } = useTranslation(["common", "team-page"]);
+
+  const { account } = useAccountContext();
+  const router = useRouter();
+
+  const isPowerfulUser = isSuperOrMarketAdmin(account);
 
   const [dialogOpen, setDialogOpen] = useState(false);
   const [messages, setMessages] = useState<MessageProp[]>([]);
-  const [members, setMembers] = useState(data.companyMembers.nodes);
-  const [currentMember, setCurrentMember] = useState<Partial<CompanyMember>>(
-    data?.companyMembers?.nodes?.[0] as CompanyMember
-  );
+  const [members, setMembers] = useState(data.accounts.nodes);
+  const [currentMember, setCurrentMember] = useState<
+    TeamMembersQuery["accounts"]["nodes"][0]
+  >(data?.accounts?.nodes?.[0]);
 
   const [deleteMember] = useDeleteCompanyMemberMutation({
     onError: (error) => {
@@ -99,6 +112,8 @@ const CompanyMembers = ({ data }: PageProps) => {
       closeWithDelay();
     },
     onCompleted: () => {
+      setCurrentMember(null);
+
       const expiryDate = getValidCertDate();
 
       fetchCompanyMembers({
@@ -124,36 +139,54 @@ const CompanyMembers = ({ data }: PageProps) => {
     }, 2000);
   };
 
-  const [fetchCompanyMembers] = useCompanyMembersLazyQuery({
+  const [fetchCompanyMembers] = useTeamMembersLazyQuery({
     fetchPolicy: "network-only",
     onCompleted: (data) => {
-      const newCurrent = data?.companyMembers?.nodes.find(
-        ({ id }) => id === currentMember.id
-      ) as Partial<CompanyMember>;
+      if (currentMember) {
+        const newCurrent = data?.accounts?.nodes.find(
+          ({ id }) => id === currentMember.id
+        );
+        setCurrentMember(newCurrent);
+      } else {
+        setCurrentMember(data?.accounts?.nodes[0]);
+      }
 
-      setMembers(reorderMembers(data?.companyMembers?.nodes));
-
-      setCurrentMember(newCurrent);
+      setMembers(sortByFirstName(data?.accounts?.nodes));
     }
   });
 
-  const onRemoveUser = async () =>
+  const onRemoveUser = async () => {
+    const selectedUser = members.find(
+      (member) => member.id === currentMember.id
+    );
+
+    // Deleting the current user
     deleteMember({
       variables: {
-        id: currentMember.id
+        id: selectedUser?.companyMembers?.nodes?.[0]?.id
       }
     });
+  };
 
   const [updateAccount] = useUpdateRoleAccountMutation({
-    onError: (error) => {
+    onError: ({ message: graphqlError }) => {
+      const message =
+        graphqlError === "last_company_admin"
+          ? "lastCompanyAdminError"
+          : "genericError";
       setMessages([
         {
           severity: "error",
-          message: "genericError"
+          message
         }
       ]);
     },
-    onCompleted: () => {
+    onCompleted: ({ updateAccount }) => {
+      //if a user changes his/her role we should redirect
+      if (account.id === updateAccount.account.id) {
+        router.push(`/profile`, undefined, { shallow: false });
+      }
+
       const expiryDate = getValidCertDate();
 
       fetchCompanyMembers({
@@ -177,27 +210,37 @@ const CompanyMembers = ({ data }: PageProps) => {
     });
 
   const onSearch = (value: string): void => {
-    const valueToSearch = value.toLowerCase();
-    setMembers([
-      ...data.companyMembers.nodes.filter(
-        ({ account: { email = "", firstName = "", lastName = "" } }) =>
-          (email && email.toLowerCase().indexOf(valueToSearch) !== -1) ||
-          (firstName &&
-            firstName.toLowerCase().indexOf(valueToSearch) !== -1) ||
-          (lastName && lastName.toLowerCase().indexOf(valueToSearch) !== -1)
-      )
-    ]);
+    const query = value.toLowerCase().trim();
+
+    const membersResult = [...data.accounts.nodes].filter((account) => {
+      const { email = "", firstName = "", lastName = "" } = account;
+      const companyName = findAccountCompany(account as Account)?.name;
+
+      const defaultFilterData = [email, firstName, lastName];
+      const data = !isPowerfulUser
+        ? defaultFilterData
+        : [...defaultFilterData, companyName];
+
+      return data.filter(Boolean).join(" ").toLowerCase().includes(query);
+    });
+
+    setMembers(membersResult);
   };
 
   return (
     <>
       <Alert messages={messages} onClose={() => setMessages([])} />
-      <div className={styles.companyPage}>
+      <div
+        className={classnames(
+          layoutStyles.sidePanelWrapper,
+          styles.companyPage
+        )}
+      >
         <SidePanel
           filters={null}
-          searchLabel={t("sidePanel.search.label")}
+          searchLabel={t("team-page:sidePanel.search.label")}
           onSearchFilterChange={onSearch}
-          noResultLabel={t("sidePanel.search.noResult")}
+          noResultLabel={t("team-page:sidePanel.search.noResult")}
           renderFooter={() => (
             <AccessControl dataModel="company" action="inviteUser">
               <Button
@@ -206,32 +249,32 @@ const CompanyMembers = ({ data }: PageProps) => {
                 data-testid="footer-btn"
                 className={styles.sidePanelFooterButton}
               >
-                {t("sidePanel.inviteLabel")}
+                {t("team-page:sidePanel.inviteLabel")}
               </Button>
             </AccessControl>
           )}
         >
-          {members.map(({ account, ...rest }) => (
+          {members.map((member) => (
             <FilterResult
               testId="list-item"
-              label={`${account.firstName} ${account.lastName}`}
-              key={account.id}
-              onClick={() =>
-                setCurrentMember({
-                  account,
-                  ...rest
-                } as Partial<CompanyMember>)
-              }
+              label={`${member.firstName} ${member.lastName}`}
+              key={member.id}
+              onClick={() => setCurrentMember(member as Account)}
             >
               <Typography
                 style={{ textTransform: "capitalize" }}
                 variant="subtitle1"
                 color="textSecondary"
               >
-                {account.formattedRole}
+                {t(`common:roles.${member.role}`)}
               </Typography>
+              {isPowerfulUser && (
+                <Typography variant="subtitle1" color="textPrimary">
+                  {member.companyMembers?.nodes?.[0]?.company?.name}
+                </Typography>
+              )}
               <div className={styles.icons}>
-                {getTechnologies(account).map((technology, index) => (
+                {getTechnologies(member).map((technology, index) => (
                   <SvgIcon
                     key={`${account.id}-${index}-${technology}`}
                     viewBox="0 0 48 48"
@@ -247,21 +290,23 @@ const CompanyMembers = ({ data }: PageProps) => {
         <ThreeColumnGrid>
           <div className={styles.detail}>
             <TableContainer
-              title={t("table.title")}
+              title={t("team-page:table.title")}
               testid="certification-table"
+              noResultsText={t("team-page:table.noResults")}
             >
-              {currentMember?.account?.certificationsByDoceboUserId?.nodes
-                .length && (
+              {currentMember?.certificationsByDoceboUserId?.nodes.length && (
                 <Table>
                   <Table.Head>
                     <Table.Row>
-                      <Table.Cell>{t("table.type")}</Table.Cell>
-                      <Table.Cell>{t("table.certification")}</Table.Cell>
-                      <Table.Cell>{t("table.validity")}</Table.Cell>
+                      <Table.Cell>{t("team-page:table.type")}</Table.Cell>
+                      <Table.Cell>
+                        {t("team-page:table.certification")}
+                      </Table.Cell>
+                      <Table.Cell>{t("team-page:table.validity")}</Table.Cell>
                     </Table.Row>
                   </Table.Head>
                   <Table.Body>
-                    {currentMember?.account.certificationsByDoceboUserId.nodes.map(
+                    {currentMember?.certificationsByDoceboUserId.nodes.map(
                       (certification, index) => (
                         <Table.Row
                           key={`certification-${index}-${certification.id}`}
@@ -296,24 +341,24 @@ const CompanyMembers = ({ data }: PageProps) => {
             testid="user-card"
             onAccountUpdate={onAccountUpdate}
             onRemoveUser={onRemoveUser}
-            account={currentMember?.account}
-            companyName={currentMember?.company.name}
+            account={currentMember as Account}
+            companyName={findAccountCompany(currentMember as Account)?.name}
             details={[
               {
                 type: "phone",
-                text: currentMember?.account.phone,
+                text: currentMember?.phone,
                 action: {
                   model: "htmlLink",
-                  href: `tel:${currentMember?.account.phone}`
+                  href: `tel:${currentMember?.phone}`
                 },
                 label: t("common:telephone")
               },
               {
                 type: "email",
-                text: currentMember?.account.email,
+                text: currentMember?.email,
                 action: {
                   model: "htmlLink",
-                  href: `mailto:${currentMember?.account.email}`
+                  href: `mailto:${currentMember?.email}`
                 },
                 label: t("common:email")
               }

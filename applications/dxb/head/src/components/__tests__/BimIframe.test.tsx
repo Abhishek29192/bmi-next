@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { Asset } from "../types/ProductBaseTypes";
+import { Asset } from "../types/pim";
 import BimIframe, { getBimIframeUrl } from "../BimIframe";
 
 describe("BimIframe component", () => {

@@ -10,18 +10,28 @@ import {
   CustomEvidenceCategoryKey
 } from "@bmi/intouch-api-types";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+import DeleteIcon from "@material-ui/icons/Delete";
 import {
   useAddEvidencesMutation,
   GetProjectDocument,
-  useContentfulEvidenceCategoriesLazyQuery
+  useContentfulEvidenceCategoriesLazyQuery,
+  useDeleteEvidenceItemMutation
 } from "../../../graphql/generated/hooks";
+import { NoContent } from "../../NoContent";
 import styles from "./styles.module.scss";
 import { AddEvidenceDialog, EvidenceCategory } from "./AddEvidenceDialog";
+
+export type Evidence = {
+  id: number;
+  name: string;
+  url?: string;
+  canEvidenceDelete?: boolean;
+};
 
 export type UploadsTabProps = {
   projectId: number;
   guaranteeId?: number;
-  uploads?: Map<string, string[]>;
+  uploads?: Map<string, Evidence[]>;
   isContentfulEvidenceAvailable?: boolean;
 };
 
@@ -62,6 +72,17 @@ export const UploadsTab = ({
     }
   });
 
+  const [deleteEvidence] = useDeleteEvidenceItemMutation({
+    refetchQueries: [
+      {
+        query: GetProjectDocument,
+        variables: {
+          projectId
+        }
+      }
+    ]
+  });
+
   const evidenceDialogConfirmHandler = async (
     evidenceCategoryType: EvidenceCategoryType,
     customEvidenceCategoryKey: string,
@@ -88,6 +109,16 @@ export const UploadsTab = ({
       });
     }
     setEvidenceDialogOpen(false);
+  };
+
+  const onDeleteClickHandler = async (id: number) => {
+    deleteEvidence({
+      variables: {
+        input: {
+          id
+        }
+      }
+    });
   };
 
   useEffect(() => {
@@ -119,21 +150,52 @@ export const UploadsTab = ({
                     </Typography>
                   </Accordion.Summary>
                   <Accordion.Details>
-                    <Table>
-                      <Table.Body>
-                        {values.map((value, index) => (
-                          <Table.Row
-                            key={`upload-items-${key}-${index}`}
-                            data-testid="uploads-item"
-                          >
-                            <Table.Cell>{value}</Table.Cell>
-                            <Table.Cell>
-                              <VisibilityIcon />
-                            </Table.Cell>
-                          </Table.Row>
-                        ))}
-                      </Table.Body>
-                    </Table>
+                    {values.length > 0 ? (
+                      <Table>
+                        <Table.Body>
+                          {values.map((value, index) => (
+                            <Table.Row
+                              key={`upload-items-${key}-${index}`}
+                              data-testid="uploads-item"
+                            >
+                              <Table.Cell>
+                                <a
+                                  className={styles.download}
+                                  href={value.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  {value.name}
+                                </a>
+                              </Table.Cell>
+                              <Table.Cell style={{ textAlign: "right" }}>
+                                <Button
+                                  data-testid="upload-item-view"
+                                  variant="text"
+                                >
+                                  <VisibilityIcon color="disabled" />
+                                </Button>
+                                {value.canEvidenceDelete && (
+                                  <Button
+                                    data-testid="upload-item-delete"
+                                    variant="text"
+                                    onClick={() => {
+                                      onDeleteClickHandler(value.id);
+                                    }}
+                                  >
+                                    <DeleteIcon color="primary" />
+                                  </Button>
+                                )}
+                              </Table.Cell>
+                            </Table.Row>
+                          ))}
+                        </Table.Body>
+                      </Table>
+                    ) : (
+                      <div className={styles.noContent}>
+                        <NoContent message={t("upload_tab.noContent")} />
+                      </div>
+                    )}
                   </Accordion.Details>
                 </Accordion.Item>
               );
@@ -174,6 +236,19 @@ export const GET_CONTENTFUL_EVIDENCE_CATEGORIES = gql`
         name
         referenceCode
         minimumUploads
+      }
+    }
+  }
+`;
+export const DELETE_PROJECT_EVIDENCE = gql`
+  mutation deleteEvidenceItem($input: DeleteEvidenceItemInput!) {
+    deleteEvidenceItem(input: $input) {
+      evidenceItem {
+        id
+        name
+        attachment
+        guaranteeId
+        evidenceCategoryType
       }
     }
   }

@@ -1,6 +1,6 @@
 "use strict";
 
-const { generateDigestFromData } = require("./utils/encryption");
+const { generateDigestFromData } = require("../../utils/encryption");
 
 const getNumberValue = (value) => {
   const parsedValue = parseFloat(value);

@@ -40,7 +40,10 @@ export const getMediaItemPath = (
   );
 };
 
-const META_TYPES = {
+export const getMediaContentType = (mediaTool: MediaTool) =>
+  mediaTool.media?.contentType;
+
+export const META_TYPES = {
   FOLDER: "FOLDER",
   IMAGE: "IMAGE",
   VIDEO: "VIDEO",
@@ -58,7 +61,7 @@ export const getMediaItemMeta = (mediaItem: MediaItem) => {
       ? META_TYPES.VIDEO
       : META_TYPES.EXTERNAL_LINK;
   }
-  const contentType = mediaItem.media?.contentType;
+  const contentType = getMediaContentType(mediaItem as MediaTool);
   if (!contentType) {
     return META_TYPES.FALLBACK;
   }
@@ -123,4 +126,8 @@ export const isExternalLink = (mediaItem: MediaItem) => {
     mediaItem.url &&
     !mediaItem.url.includes("vimeo")
   );
+};
+
+export const getMediaAltText = (mediaTool: MediaTool) => {
+  return mediaTool.media?.title || mediaTool.media?.description || "";
 };

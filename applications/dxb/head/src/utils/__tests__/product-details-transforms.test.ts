@@ -27,7 +27,7 @@ import {
   createVariantOptionWithProduct
 } from "../../__tests__/PimDocumentProductHelper";
 import createCategory from "../../__tests__/CategoryHelper";
-import { Product } from "../../components/types/ProductBaseTypes";
+import { Image, Product } from "../../components/types/pim";
 
 describe("product-details-transforms tests", () => {
   describe("getProductUrl tests", () => {
@@ -45,14 +45,14 @@ describe("product-details-transforms tests", () => {
     describe("When measurement is NOT provided", () => {
       describe("And withUnit is false", () => {
         it("returns null", () => {
-          const result = getSizeLabel(null, false);
-          expect(result).toEqual(undefined);
+          const result = getSizeLabel({}, false);
+          expect(result).toEqual("");
         });
       });
       describe("And withUnit is true", () => {
         it("returns null", () => {
-          const result = getSizeLabel(null, true);
-          expect(result).toEqual(undefined);
+          const result = getSizeLabel({}, true);
+          expect(result).toEqual("");
         });
       });
     });
@@ -77,7 +77,7 @@ describe("product-details-transforms tests", () => {
               },
               false
             );
-            expect(result).toEqual("30x10x20");
+            expect(result).toEqual("10x20x30");
           });
         });
         describe("And all measurement units are NOT same", () => {
@@ -99,7 +99,7 @@ describe("product-details-transforms tests", () => {
               },
               false
             );
-            expect(result).toEqual("30mm x 10in x 20cm");
+            expect(result).toEqual("10in x 20cm x 30mm");
           });
         });
       });
@@ -120,7 +120,7 @@ describe("product-details-transforms tests", () => {
                 value: { value: { value: "30" }, unit: "mm" }
               }
             });
-            expect(result).toEqual("30x10x20mm");
+            expect(result).toEqual("10x20x30mm");
           });
         });
         describe("And All units are NOT same", () => {
@@ -139,7 +139,7 @@ describe("product-details-transforms tests", () => {
                 value: { value: { value: "30" }, unit: "mm" }
               }
             });
-            expect(result).toEqual("30mm x 10in x 20cm");
+            expect(result).toEqual("10in x 20cm x 30mm");
           });
         });
       });
@@ -801,7 +801,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  variants: [{ label: "30x10x20mm", isSelected: true }]
+                  variants: [{ label: "10x20x30mm", isSelected: true }]
                 }
               ];
               expect(result).toEqual(expectedResult);
@@ -841,7 +841,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  variants: [{ label: "30x10x20mm", isSelected: false }]
+                  variants: [{ label: "10x20x30mm", isSelected: false }]
                 }
               ];
               expect(result).toEqual(expectedResult);
@@ -1078,7 +1078,7 @@ describe("product-details-transforms tests", () => {
     describe("when master images are present", () => {
       describe("And some images format is null", () => {
         it("returns master image with format only", () => {
-          const inputData = [
+          const inputData: Image[] = [
             {
               realFileName: "Turmalin-monestein-Turmalin-monestein.jpg",
               assetType: "MASTER_IMAGE",
@@ -1251,7 +1251,7 @@ describe("product-details-transforms tests", () => {
       });
       describe("And All images have format specified", () => {
         it("returns master image result", () => {
-          const inputData = [
+          const inputData: Image[] = [
             {
               realFileName:
                 "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
@@ -1325,7 +1325,7 @@ describe("product-details-transforms tests", () => {
         });
       });
       describe("And categories are populated", () => {
-        it("returns products grouped by categoies", () => {
+        it("returns products grouped by categories", () => {
           const baseProduct = createBaseProduct({
             documents: [],
             classifications: [],
@@ -1347,62 +1347,7 @@ describe("product-details-transforms tests", () => {
           });
 
           const expectedResult = {
-            "category-z": [
-              {
-                code: "product-code",
-                externalProductCode: "external-product-code",
-                name: "product-name",
-                description: "product-description",
-                images: [],
-                assets: [],
-                productBenefits: [],
-                categories: [
-                  {
-                    name: "category-z",
-                    categoryType: "Category",
-                    code: "category-z",
-                    parentCategoryCode: ""
-                  },
-                  {
-                    name: "category-2",
-                    categoryType: "Category",
-                    code: "category-2",
-                    parentCategoryCode: "category-z"
-                  }
-                ],
-                classifications: [],
-                variantOptions: [],
-                documents: [],
-                breadcrumbs: null
-              },
-              {
-                code: "product-code",
-                externalProductCode: "external-product-code",
-                name: "product-name",
-                description: "product-description",
-                images: [],
-                assets: [],
-                productBenefits: [],
-                categories: [
-                  {
-                    name: "category-z",
-                    categoryType: "Category",
-                    code: "category-z",
-                    parentCategoryCode: ""
-                  },
-                  {
-                    name: "category-2",
-                    categoryType: "Category",
-                    code: "category-2",
-                    parentCategoryCode: "category-z"
-                  }
-                ],
-                classifications: [],
-                variantOptions: [],
-                documents: [],
-                breadcrumbs: null
-              }
-            ]
+            "category-z": [baseProduct, baseProduct]
           };
           const inputData: Array<Product> = [baseProduct, baseProduct];
           const result = groupProductsByCategory(inputData);
@@ -1452,7 +1397,7 @@ describe("product-details-transforms tests", () => {
             measurements: measurementValue
           };
           const result = mapClassificationValues(inputValue);
-          expect(result).toEqual("30x10x20mm");
+          expect(result).toEqual("10x20x30mm");
         });
       });
       describe("And colour Classification is provided", () => {

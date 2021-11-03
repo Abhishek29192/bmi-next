@@ -6,8 +6,7 @@
   "scripts": {
     "build": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=build --port=9057",
-    "deploy": "yarn build && gcloud functions deploy build-trigger --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=build --env-vars-file=env.yaml"
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=build --port=9057"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^1.7.1",

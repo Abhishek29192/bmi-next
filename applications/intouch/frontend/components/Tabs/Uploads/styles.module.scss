@@ -27,3 +27,18 @@
   justify-content: flex-end;
   margin-bottom: 1rem;
 }
+
+.download {
+  cursor: pointer;
+  &:hover {
+    color: $color-cyan-500;
+  }
+}
+
+.noContent {
+  & > * {
+    min-height: 1px;
+    padding: 2rem;
+    margin-top: 0;
+  }
+}

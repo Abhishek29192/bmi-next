@@ -184,6 +184,7 @@ export const ssrContentfulEvidenceCategories = {
 
   usePage: useContentfulEvidenceCategories
 };
+
 export async function getServerPageGetGuaranteeTemplates(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetGuaranteeTemplatesQueryVariables>,
@@ -574,17 +575,18 @@ export const ssrGetMediaFolders = {
 
   usePage: useGetMediaFolders
 };
-export async function getServerPageGetMediaItemById(
+export async function getServerPageGetMediaFolderContents(
   options: Omit<
-    Apollo.QueryOptions<OperationTypes.GetMediaItemByIdQueryVariables>,
+    Apollo.QueryOptions<OperationTypes.GetMediaFolderContentsQueryVariables>,
     "query"
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data = await apolloClient.query<OperationTypes.GetMediaItemByIdQuery>({
-    ...options,
-    query: Operations.GetMediaItemByIdDocument
-  });
+  const data =
+    await apolloClient.query<OperationTypes.GetMediaFolderContentsQuery>({
+      ...options,
+      query: Operations.GetMediaFolderContentsDocument
+    });
 
   const apolloState = apolloClient.cache.extract();
 
@@ -596,26 +598,26 @@ export async function getServerPageGetMediaItemById(
     }
   };
 }
-export const useGetMediaItemById = (
+export const useGetMediaFolderContents = (
   optionsFunc?: (
     router: NextRouter
   ) => QueryHookOptions<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
   >
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.GetMediaItemByIdDocument, options);
+  return useQuery(Operations.GetMediaFolderContentsDocument, options);
 };
-export type PageGetMediaItemByIdComp = React.FC<{
-  data?: OperationTypes.GetMediaItemByIdQuery;
+export type PageGetMediaFolderContentsComp = React.FC<{
+  data?: OperationTypes.GetMediaFolderContentsQuery;
   error?: Apollo.ApolloError;
 }>;
-export const ssrGetMediaItemById = {
-  getServerPage: getServerPageGetMediaItemById,
+export const ssrGetMediaFolderContents = {
+  getServerPage: getServerPageGetMediaFolderContents,
 
-  usePage: useGetMediaItemById
+  usePage: useGetMediaFolderContents
 };
 export async function getServerPageAccountInfoByEmail(
   options: Omit<
@@ -658,6 +660,50 @@ export const ssrAccountInfoByEmail = {
   getServerPage: getServerPageAccountInfoByEmail,
 
   usePage: useAccountInfoByEmail
+};
+export async function getServerPageGetGlobalDataPublic(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetGlobalDataPublicQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetGlobalDataPublicQuery>({
+      ...options,
+      query: Operations.GetGlobalDataPublicDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetGlobalDataPublic = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetGlobalDataPublicDocument, options);
+};
+export type PageGetGlobalDataPublicComp = React.FC<{
+  data?: OperationTypes.GetGlobalDataPublicQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetGlobalDataPublic = {
+  getServerPage: getServerPageGetGlobalDataPublic,
+
+  usePage: useGetGlobalDataPublic
 };
 export async function getServerPageGetContentArticleContent(
   options: Omit<
@@ -961,16 +1007,16 @@ export const ssrGetProjects = {
 
   usePage: useGetProjects
 };
-export async function getServerPageCompanyMembers(
+export async function getServerPageTeamMembers(
   options: Omit<
-    Apollo.QueryOptions<OperationTypes.CompanyMembersQueryVariables>,
+    Apollo.QueryOptions<OperationTypes.TeamMembersQueryVariables>,
     "query"
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data = await apolloClient.query<OperationTypes.CompanyMembersQuery>({
+  const data = await apolloClient.query<OperationTypes.TeamMembersQuery>({
     ...options,
-    query: Operations.CompanyMembersDocument
+    query: Operations.TeamMembersDocument
   });
 
   const apolloState = apolloClient.cache.extract();
@@ -983,26 +1029,26 @@ export async function getServerPageCompanyMembers(
     }
   };
 }
-export const useCompanyMembers = (
+export const useTeamMembers = (
   optionsFunc?: (
     router: NextRouter
   ) => QueryHookOptions<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
   >
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.CompanyMembersDocument, options);
+  return useQuery(Operations.TeamMembersDocument, options);
 };
-export type PageCompanyMembersComp = React.FC<{
-  data?: OperationTypes.CompanyMembersQuery;
+export type PageTeamMembersComp = React.FC<{
+  data?: OperationTypes.TeamMembersQuery;
   error?: Apollo.ApolloError;
 }>;
-export const ssrCompanyMembers = {
-  getServerPage: getServerPageCompanyMembers,
+export const ssrTeamMembers = {
+  getServerPage: getServerPageTeamMembers,
 
-  usePage: useCompanyMembers
+  usePage: useTeamMembers
 };
 
 export async function getServerPageTraining(

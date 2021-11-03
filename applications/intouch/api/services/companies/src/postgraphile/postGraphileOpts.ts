@@ -15,6 +15,7 @@ import handleErrors from "./handleErrors";
 
 type Props = {
   user: Account;
+  trustedConnection: boolean;
 };
 
 const availableRoles: Role[] = [
@@ -46,10 +47,15 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
       pubSub: req.pubSub,
       clientGateway: req.clientGateway,
       pgRootPool: dbPool,
+      trustedConnection: req.trustedConnection,
       storageClient
     };
   },
-  pgSettings: async ({ user }: Props) => {
+  pgSettings: async ({ user, trustedConnection }: Props) => {
+    if (trustedConnection) {
+      return {};
+    }
+
     let role = user?.role;
     if (!availableRoles.includes(user?.role)) {
       role = "INSTALLER";
@@ -58,7 +64,10 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     return {
       "app.current_account_id": user?.id,
       "app.current_account_email": user?.email,
-      role: role.toLocaleLowerCase()
+      role: role.toLocaleLowerCase(),
+      // If we are super admin we don't have a market in the account table so
+      // we need to pass the current market in order to retrieve only the right data
+      ...(role === "SUPER_ADMIN" && { "app.current_market": user?.marketId })
     };
   }
 };

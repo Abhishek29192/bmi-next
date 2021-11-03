@@ -12,6 +12,7 @@ export type BuildingOwnerDetailsProps = {
   email?: string;
   company?: string;
   address?: AddressProps["address"];
+  renderActions?: () => React.ReactNode;
 };
 
 const InfoPair = (props) => {
@@ -26,7 +27,8 @@ export const BuildingOwnerDetails = ({
   name,
   email,
   company,
-  address
+  address,
+  renderActions
 }: BuildingOwnerDetailsProps) => {
   const { t } = useTranslation("project-page");
 
@@ -49,6 +51,9 @@ export const BuildingOwnerDetails = ({
           </InfoPair>
         </div>
       )}
+      {renderActions ? (
+        <div className={styles.footer}>{renderActions()}</div>
+      ) : null}
     </SimpleCard>
   );
 };

@@ -36,7 +36,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
             >
               <button
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"visualiser\\"}"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":null,\\"action\\":\\"visualiser\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -156,8 +156,8 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                           <a
                             aria-disabled="false"
                             class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
-                            href="/en/null"
+                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                            href="/en"
                             role="button"
                             tabindex="0"
                           >
@@ -251,8 +251,8 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
-                  href="/en/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  href="/en"
                   role="button"
                   tabindex="0"
                 >
@@ -345,8 +345,8 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
-                  href="/en/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  href="/en"
                   role="button"
                   tabindex="0"
                 >
@@ -439,8 +439,8 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
-                  href="/en/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  href="/en"
                   role="button"
                   tabindex="0"
                 >
@@ -533,8 +533,8 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
-                  href="/en/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  href="/en"
                   role="button"
                   tabindex="0"
                 >
@@ -627,8 +627,8 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
-                  href="/en/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  href="/en"
                   role="button"
                   tabindex="0"
                 >
@@ -721,8 +721,8 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
-                  href="/en/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  href="/en"
                   role="button"
                   tabindex="0"
                 >
@@ -815,8 +815,8 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
-                  href="/en/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  href="/en"
                   role="button"
                   tabindex="0"
                 >
@@ -909,8 +909,8 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
-                  href="/en/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  href="/en"
                   role="button"
                   tabindex="0"
                 >
@@ -1101,8 +1101,8 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
-                  href="/no/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  href="/no"
                   role="button"
                   tabindex="0"
                 >
@@ -1154,8 +1154,8 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
-                  href="/no/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  href="/no"
                   role="button"
                   tabindex="0"
                 >
@@ -1207,8 +1207,8 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
-                  href="/no/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  href="/no"
                   role="button"
                   tabindex="0"
                 >
@@ -1343,8 +1343,8 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
-                  href="/no/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  href="/no"
                   role="button"
                   tabindex="0"
                 >
@@ -1396,8 +1396,8 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
-                  href="/no/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  href="/no"
                   role="button"
                   tabindex="0"
                 >
@@ -1449,8 +1449,8 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
-                  href="/no/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  href="/no"
                   role="button"
                   tabindex="0"
                 >
@@ -1609,8 +1609,8 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
-                  href="/no/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  href="/no"
                   role="button"
                   tabindex="0"
                 >
@@ -1662,8 +1662,8 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
-                  href="/no/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  href="/no"
                   role="button"
                   tabindex="0"
                 >
@@ -1715,8 +1715,8 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
-                  href="/no/null"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  href="/no"
                   role="button"
                   tabindex="0"
                 >

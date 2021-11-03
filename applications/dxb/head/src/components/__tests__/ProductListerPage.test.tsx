@@ -14,8 +14,7 @@ import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as PageData } from "../../components/Page";
 import { RichTextData } from "../../components/RichText";
 import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
-import { Data as LinkData } from "../../components/Link";
-import regions from "../../countries/region.json";
+import { Data as LinkData, DataTypeEnum } from "../../components/Link";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
 import ProvideStyles from "./utils/StylesProvider";
@@ -117,7 +116,7 @@ const mockNavigation: NavigationData = {
       isLabelHidden: false,
       url: "link-to-page",
       linkedPage: null,
-      type: "External",
+      type: DataTypeEnum.External,
       parameters: null,
       dialogContent: null,
       hubSpotCTAID: null
@@ -153,10 +152,12 @@ const pageData = {
   contentfulProductListerPage: pageInfo,
   contentfulSite: siteData,
   productFilters: [],
+  plpFilters: [],
   initialProducts: []
 };
 
 const pageContext: PageContextType = {
+  allowFilterBy: [],
   variantCode: "variant1",
   siteId: "siteId",
   countryCode: "no",
@@ -261,6 +262,7 @@ function mockUseDimensions({
       .mockImplementationOnce(getDimensionHookFn(mediumTableWidth));
   }
 }
+process.env.GATSBY_USE_LEGACY_FILTERS = "true";
 process.env.GATSBY_RECAPTCHA_KEY = "test";
 process.env.GATSBY_VISUALISER_ASSETS_URL = "jest-test-page";
 const route = "/jest-test-page";
@@ -299,145 +301,128 @@ beforeEach(() => {
 });
 
 describe("ProductListerPage template", () => {
-  describe("ProductListerPage without initialProducts without BrandProvider", () => {
-    it("renders basic ProductListerPage", async () => {
-      process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
-      pageData.initialProducts = [];
-      pageData.productFilters = [];
-      const { container, findByText } = renderWithStylesAndLocationProvider(
-        pageData,
-        pageContext
-      );
-      await findByText(heroTitle);
-      await waitFor(() => expect(container.parentElement).toMatchSnapshot());
+  describe("New plpFilters tests", () => {
+    beforeEach(() => {
+      process.env.GATSBY_USE_LEGACY_FILTERS = "false";
     });
-  });
 
-  describe("ProductListerPage without initialProducts", () => {
-    it("renders basic ProductListerPage", async () => {
-      pageData.initialProducts = [];
-      pageData.productFilters = [];
-      const { container, findByText } = renderWithStylesAndLocationProvider(
-        pageData,
-        pageContext
-      );
-      await findByText(heroTitle);
-      await waitFor(() => expect(container.parentElement).toMatchSnapshot());
-    });
-  });
-
-  describe("ProductListerPage with multiple category codes", () => {
-    describe("And First Category code on first initial product match", () => {
-      it("then, Renders category code Section Title", async () => {
-        const localPageData = { ...pageData };
-        const localProductWithVariant = { ...productWithVariantAndBase };
-        localProductWithVariant.categories = [
-          {
-            name: "category-code-2",
-            categoryType: "Category",
-            code: "category-code-2",
-            parentCategoryCode: ""
-          }
-        ];
-
-        localPageData.initialProducts = [localProductWithVariant];
-        localPageData.productFilters = [];
-        const localPageContext: PageContextType = {
-          variantCode: "variant1",
-          siteId: "siteId",
-          countryCode: "no",
-          categoryCodes: ["category-code-2", "category-code-1"],
-          pimClassificationCatalogueNamespace: "",
-          variantCodeToPathMap: {
-            variant1: "variant1"
-          }
-        };
-
+    describe("ProductListerPage without initialProducts without BrandProvider", () => {
+      it("renders basic ProductListerPage", async () => {
+        process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
+        pageData.initialProducts = [];
+        pageData.plpFilters = [];
         const { container, findByText } = renderWithStylesAndLocationProvider(
-          localPageData,
-          localPageContext
+          pageData,
+          pageContext
         );
-        await findByText("category-code-2");
+        await findByText(heroTitle);
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });
 
-    describe("And First Category code on first initial product does NOT match", () => {
-      it("then, Renders category code Section Title", async () => {
-        const localPageData = { ...pageData };
-        const localProductWithVariant = { ...productWithVariantAndBase };
-        localProductWithVariant.categories = [
-          {
-            name: "category-code-3",
-            categoryType: "Category",
-            code: "category-code-3",
-            parentCategoryCode: ""
-          }
-        ];
-
-        localPageData.initialProducts = [localProductWithVariant];
-        localPageData.productFilters = [];
-        const localPageContext = {
-          variantCode: "variant1",
-          siteId: "siteId",
-          countryCode: "no",
-          categoryCodes: ["category-code-2", "category-code-1"],
-          pimClassificationCatalogueNamespace: "",
-          variantCodeToPathMap: {
-            variant1: "variant1"
-          }
-        };
-        const { container, findByText, queryByText } =
-          renderWithStylesAndLocationProvider(localPageData, localPageContext);
+    describe("ProductListerPage without initialProducts", () => {
+      it("renders basic ProductListerPage", async () => {
+        pageData.initialProducts = [];
+        pageData.plpFilters = [];
+        const { container, findByText } = renderWithStylesAndLocationProvider(
+          pageData,
+          pageContext
+        );
         await findByText(heroTitle);
-        const categoryLabel = queryByText("category-code-2");
-        expect(categoryLabel).toBeNull();
-        expect(container.parentElement).toMatchSnapshot();
+        await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });
-  });
+    describe("ProductListerPage with multiple category codes", () => {
+      describe("And First Category code on first initial product match", () => {
+        it("renders category code Section Title", async () => {
+          const localPageData = {
+            ...pageData,
+            initialProducts: [
+              {
+                ...productWithVariantAndBase,
+                categories: [
+                  {
+                    name: "category-code-2",
+                    categoryType: "Category",
+                    code: "category-code-2",
+                    parentCategoryCode: ""
+                  }
+                ]
+              }
+            ],
+            plpFilters: []
+          };
+          const localPageContext: PageContextType = {
+            allowFilterBy: [],
+            variantCode: "variant1",
+            siteId: "siteId",
+            countryCode: "no",
+            categoryCodes: ["category-code-2", "category-code-1"],
+            pimClassificationCatalogueNamespace: "",
+            variantCodeToPathMap: {
+              variant1: "variant1"
+            }
+          };
 
-  describe("ProductListerPage with initialProducts", () => {
-    it("renders matching category code of product on Section Title", async () => {
-      pageData.initialProducts = [productWithVariantAndBase];
-      pageData.productFilters = [];
-      const { container, findByText } = renderWithStylesAndLocationProvider(
-        pageData,
-        pageContext
-      );
-      await findByText("category-code-1");
-      expect(container.parentElement).toMatchSnapshot();
-    });
-  });
+          const { container, findByText } = renderWithStylesAndLocationProvider(
+            localPageData,
+            localPageContext
+          );
+          await findByText("category-code-2");
+          await waitFor(() =>
+            expect(container.parentElement).toMatchSnapshot()
+          );
+        });
+      });
 
-  describe("ProductListerPage with product filters", () => {
-    describe("When Colour filters are provided", () => {
-      it("renders FiltersSidebar with color option with color Swatches", async () => {
-        const color1Label = "colour-1";
-        const color2Label = "colour-2";
+      describe("And First Category code on first initial product does NOT match", () => {
+        it("then, Renders category code Section Title", async () => {
+          const localPageData = {
+            ...pageData,
+            initialProducts: [
+              {
+                ...productWithVariantAndBase,
+                categories: [
+                  {
+                    name: "category-code-3",
+                    categoryType: "Category",
+                    code: "category-code-3",
+                    parentCategoryCode: ""
+                  }
+                ]
+              }
+            ],
+            plpFilters: []
+          };
+          const localPageContext = {
+            allowFilterBy: [],
+            variantCode: "variant1",
+            siteId: "siteId",
+            countryCode: "no",
+            categoryCodes: ["category-code-2", "category-code-1"],
+            pimClassificationCatalogueNamespace: "",
+            variantCodeToPathMap: {
+              variant1: "variant1"
+            }
+          };
+          const { container, findByText, queryByText } =
+            renderWithStylesAndLocationProvider(
+              localPageData,
+              localPageContext
+            );
+          await findByText(heroTitle);
+          const categoryLabel = queryByText("category-code-2");
+          expect(categoryLabel).toBeNull();
 
-        const productFilters: Filter[] = [
-          {
-            name: "colour",
-            label: "Colour",
-            options: [
-              { label: color1Label, value: "colour1" },
-              { label: color2Label, value: "colour2" }
-            ]
-          }
-        ];
-        pageData.initialProducts = [productWithVariantAndBase];
-        pageData.productFilters = productFilters;
-        const { container, getByLabelText, queryByText } =
-          renderWithStylesAndLocationProvider(pageData, pageContext);
-        await getByLabelText(color1Label);
-        expect(queryByText(color2Label)).not.toBeNull();
-        expect(container.parentElement).toMatchSnapshot();
+          const categoryLabel3 = queryByText("category-code-3");
+          expect(categoryLabel3).toBeNull();
+          expect(container.parentElement).toMatchSnapshot();
+        });
       });
     });
 
     describe("When level 1 hero selected", () => {
-      it("renders renders hero correctly", async () => {
+      it("renders hero correctly", async () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.contentfulProductListerPage.heroType = "Level 1";
 
@@ -452,28 +437,279 @@ describe("ProductListerPage template", () => {
       });
     });
 
-    describe("When Other filters are provided", () => {
-      it("renders FiltersSidebar with filter option checkboxes", async () => {
-        const size1Label = "Size-1";
-        const size2Label = "Size-2";
+    describe("ProductListerPage with product filters", () => {
+      describe("When Colour filters are provided", () => {
+        it("renders FiltersSidebar with color option with color Swatches", async () => {
+          const color1Label = "colour-1";
+          const color2Label = "colour-2";
 
-        const productFilters: Filter[] = [
-          {
-            name: "size",
-            label: "Size",
-            options: [
-              { label: size1Label, value: "10mm" },
-              { label: size2Label, value: "20mm" }
-            ]
-          }
-        ];
+          const productFilters: Filter[] = [
+            {
+              name: "colour",
+              label: "Colour",
+              options: [
+                { label: color1Label, value: "colour1" },
+                { label: color2Label, value: "colour2" }
+              ]
+            }
+          ];
+          pageData.initialProducts = [productWithVariantAndBase];
+          pageData.plpFilters = productFilters;
+          const { container, getByLabelText, queryByText } =
+            renderWithStylesAndLocationProvider(pageData, pageContext);
+          await getByLabelText(color1Label);
+          expect(queryByText(color2Label)).not.toBeNull();
+          expect(container.parentElement).toMatchSnapshot();
+        });
+      });
+
+      describe("When level 1 hero selected", () => {
+        it("renders hero correctly", async () => {
+          pageData.initialProducts = [productWithVariantAndBase];
+          pageData.contentfulProductListerPage.heroType = "Level 1";
+
+          const { container } = renderWithStylesAndLocationProvider(
+            pageData,
+            pageContext
+          );
+          await waitFor(() =>
+            expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(
+              1
+            )
+          );
+          await waitFor(() =>
+            expect(container.parentElement).toMatchSnapshot()
+          );
+        });
+      });
+
+      describe("When Other filters are provided", () => {
+        it("renders FiltersSidebar with filter option checkboxes", async () => {
+          const size1Label = "Size-1";
+          const size2Label = "Size-2";
+
+          const productFilters: Filter[] = [
+            {
+              name: "size",
+              label: "Size",
+              options: [
+                { label: size1Label, value: "10mm" },
+                { label: size2Label, value: "20mm" }
+              ]
+            }
+          ];
+          pageData.initialProducts = [productWithVariantAndBase];
+          pageData.plpFilters = productFilters;
+          const { container, getByLabelText, queryByText } =
+            renderWithStylesAndLocationProvider(pageData, pageContext);
+          await getByLabelText(size1Label);
+          expect(queryByText(size2Label)).not.toBeNull();
+          expect(container.parentElement).toMatchSnapshot();
+        });
+      });
+    });
+  });
+
+  //TODO: remove these tests when `GATSBY_USE_LEGACY_FILTERS` flag is removed
+  // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
+  describe("ProductListerPage Legacy ProductFilters tests", () => {
+    describe("ProductListerPage without initialProducts without BrandProvider", () => {
+      it("renders basic ProductListerPage", async () => {
+        process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
+        pageData.initialProducts = [];
+        pageData.productFilters = [];
+        const { container, findByText } = renderWithStylesAndLocationProvider(
+          pageData,
+          pageContext
+        );
+        await findByText(heroTitle);
+        await waitFor(() => expect(container.parentElement).toMatchSnapshot());
+      });
+    });
+    describe("ProductListerPage without initialProducts", () => {
+      it("renders basic ProductListerPage", async () => {
+        pageData.initialProducts = [];
+        pageData.productFilters = [];
+        const { container, findByText } = renderWithStylesAndLocationProvider(
+          pageData,
+          pageContext
+        );
+        await findByText(heroTitle);
+        await waitFor(() => expect(container.parentElement).toMatchSnapshot());
+      });
+    });
+
+    describe("ProductListerPage with multiple category codes", () => {
+      describe("And First Category code on first initial product match", () => {
+        it("then, Renders category code Section Title", async () => {
+          const localPageData = {
+            ...pageData,
+            initialProducts: [
+              {
+                ...productWithVariantAndBase,
+                categories: [
+                  {
+                    name: "category-code-2",
+                    categoryType: "Category",
+                    code: "category-code-2",
+                    parentCategoryCode: ""
+                  }
+                ]
+              }
+            ],
+            plpFilters: []
+          };
+          const localPageContext: PageContextType = {
+            allowFilterBy: [],
+            variantCode: "variant1",
+            siteId: "siteId",
+            countryCode: "no",
+            categoryCodes: ["category-code-2", "category-code-1"],
+            pimClassificationCatalogueNamespace: "",
+            variantCodeToPathMap: {
+              variant1: "variant1"
+            }
+          };
+
+          const { container, findByText } = renderWithStylesAndLocationProvider(
+            localPageData,
+            localPageContext
+          );
+          await findByText("category-code-2");
+          await waitFor(() =>
+            expect(container.parentElement).toMatchSnapshot()
+          );
+        });
+      });
+
+      describe("And First Category code on first initial product does NOT match", () => {
+        it("then, Renders category code Section Title", async () => {
+          const localPageData = {
+            ...pageData,
+            initialProducts: [
+              {
+                ...productWithVariantAndBase,
+                categories: [
+                  {
+                    name: "category-code-3",
+                    categoryType: "Category",
+                    code: "category-code-3",
+                    parentCategoryCode: ""
+                  }
+                ]
+              }
+            ],
+            plpFilters: []
+          };
+          const localPageContext = {
+            allowFilterBy: [],
+            variantCode: "variant1",
+            siteId: "siteId",
+            countryCode: "no",
+            categoryCodes: ["category-code-2", "category-code-1"],
+            pimClassificationCatalogueNamespace: "",
+            variantCodeToPathMap: {
+              variant1: "variant1"
+            }
+          };
+          const { container, findByText, queryByText } =
+            renderWithStylesAndLocationProvider(
+              localPageData,
+              localPageContext
+            );
+          await findByText(heroTitle);
+          const categoryLabel = queryByText("category-code-2");
+          expect(categoryLabel).toBeNull();
+
+          const categoryLabel3 = queryByText("category-code-3");
+          expect(categoryLabel3).toBeNull();
+          expect(container.parentElement).toMatchSnapshot();
+        });
+      });
+    });
+
+    describe("ProductListerPage with initialProducts", () => {
+      it("renders matching category code of product on Section Title", async () => {
         pageData.initialProducts = [productWithVariantAndBase];
-        pageData.productFilters = productFilters;
-        const { container, getByLabelText, queryByText } =
-          renderWithStylesAndLocationProvider(pageData, pageContext);
-        await getByLabelText(size1Label);
-        expect(queryByText(size2Label)).not.toBeNull();
+        pageData.productFilters = [];
+        const { container, findByText } = renderWithStylesAndLocationProvider(
+          pageData,
+          pageContext
+        );
+        await findByText("category-code-1");
         expect(container.parentElement).toMatchSnapshot();
+      });
+    });
+
+    describe("ProductListerPage with product filters", () => {
+      describe("When Colour filters are provided", () => {
+        it("renders FiltersSidebar with color option with color Swatches", async () => {
+          const color1Label = "colour-1";
+          const color2Label = "colour-2";
+
+          const productFilters: Filter[] = [
+            {
+              name: "colour",
+              label: "Colour",
+              options: [
+                { label: color1Label, value: "colour1" },
+                { label: color2Label, value: "colour2" }
+              ]
+            }
+          ];
+          pageData.initialProducts = [productWithVariantAndBase];
+          pageData.productFilters = productFilters;
+          const { container, getByLabelText, queryByText } =
+            renderWithStylesAndLocationProvider(pageData, pageContext);
+          await getByLabelText(color1Label);
+          expect(queryByText(color2Label)).not.toBeNull();
+          expect(container.parentElement).toMatchSnapshot();
+        });
+      });
+
+      describe("When level 1 hero selected", () => {
+        it("renders renders hero correctly", async () => {
+          pageData.initialProducts = [productWithVariantAndBase];
+          pageData.contentfulProductListerPage.heroType = "Level 1";
+
+          const { container } = renderWithStylesAndLocationProvider(
+            pageData,
+            pageContext
+          );
+          await waitFor(() =>
+            expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(
+              1
+            )
+          );
+          await waitFor(() =>
+            expect(container.parentElement).toMatchSnapshot()
+          );
+        });
+      });
+
+      describe("When Other filters are provided", () => {
+        it("renders FiltersSidebar with filter option checkboxes", async () => {
+          const size1Label = "Size-1";
+          const size2Label = "Size-2";
+
+          const productFilters: Filter[] = [
+            {
+              name: "size",
+              label: "Size",
+              options: [
+                { label: size1Label, value: "10mm" },
+                { label: size2Label, value: "20mm" }
+              ]
+            }
+          ];
+          pageData.initialProducts = [productWithVariantAndBase];
+          pageData.productFilters = productFilters;
+          const { container, getByLabelText, queryByText } =
+            renderWithStylesAndLocationProvider(pageData, pageContext);
+          await getByLabelText(size1Label);
+          expect(queryByText(size2Label)).not.toBeNull();
+          expect(container.parentElement).toMatchSnapshot();
+        });
       });
     });
   });

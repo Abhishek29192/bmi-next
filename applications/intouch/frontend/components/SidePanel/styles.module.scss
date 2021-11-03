@@ -4,8 +4,10 @@
   background-color: $color-white;
 }
 
+// 144px = bars height
 .sidePanel {
   width: 320px;
+  max-height: calc(100vh - 144px);
   height: 100%;
   padding: 1.5rem;
   overflow: hidden;
@@ -14,14 +16,15 @@
   grid-template-rows: auto 1fr;
   flex-shrink: 0;
   position: sticky;
-  top: 0;
+  top: 144px;
 
   @media (max-width: 1024px) {
     width: 230px;
   }
 
   @media (max-width: $breakpoint-md) {
-    display: none;
+    width: 100%;
+    max-height: 600px;
   }
 }
 

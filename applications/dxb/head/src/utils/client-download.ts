@@ -7,6 +7,9 @@ export type Asset = {
   name: string;
 };
 
+export const getDownloadLink = (url: string) =>
+  url.startsWith("http") ? url : `https://${url}`;
+
 export const downloadAs = saveAs;
 
 export const getExtension = (href: Asset["href"]) => href.split(".").pop();

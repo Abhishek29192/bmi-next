@@ -133,6 +133,8 @@ export const UPDATE_GUARANTEE = gql`
     updateGuarantee(input: $input) {
       guarantee {
         id
+        coverage
+        status
       }
     }
   }

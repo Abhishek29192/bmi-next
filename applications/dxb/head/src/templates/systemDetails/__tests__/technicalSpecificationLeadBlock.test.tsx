@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Component from "../technicalSpecificationLeadBlock";
-import { Classification, Feature } from "../types";
+import { Classification, Feature } from "../../../components/types/pim";
 import "@testing-library/jest-dom";
 
 const technicalSpecClassifications: Classification[] = [

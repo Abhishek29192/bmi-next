@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { graphql } from "gatsby";
 import { compact, first } from "lodash";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
+import { useLocation } from "@reach/router";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
@@ -10,15 +11,23 @@ import ShareWidgetSection, {
 } from "../../components/ShareWidgetSection";
 import { getBimIframeUrl } from "../../components/BimIframe";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
+import RelatedSystems from "../../components/RelatedSystems";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import {
+  System,
+  Asset,
+  Feature,
+  Classification
+} from "../../components/types/pim";
+import { pushToDataLayer } from "../../utils/google-tag-manager";
+import {
+  SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
+  SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
+} from "../../constants/queryConstants";
+import { iconMap } from "../../components/Icon";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
-import {
-  SystemDetails,
-  Assets,
-  Feature,
-  Classification,
-  DocumentData
-} from "./types";
+import { DocumentData } from "./types";
 import TabLeadBlock from "./tabLeadBlock";
 import SystemLayersSection from "./systemLayersSection";
 import styles from "./styles/systemDetailsPage.module.scss";
@@ -28,10 +37,15 @@ type Props = {
   pageContext: {
     systemPageId: string;
     siteId: string;
+    countryCode?: string;
+    relatedSystemCodes?: ReadonlyArray<string>;
   };
   data: {
     contentfulSite: SiteData;
-    dataJson: SystemDetails;
+    systems: System;
+    relatedSystems?: {
+      nodes: ReadonlyArray<System>;
+    };
     shareWidget: ShareWidgetSectionData | null;
     allContentfulAssetType: {
       nodes: ReadonlyArray<{
@@ -57,9 +71,11 @@ export const IGNORED_DOCUMENTS_ASSETS = [
   "WARRANTIES"
 ];
 
-const SystemDetailsPage = ({ data }: Props) => {
-  const { contentfulSite, dataJson, allContentfulAssetType } = data;
-  const { resources } = contentfulSite;
+const SystemDetailsPage = ({ pageContext, data }: Props) => {
+  const { contentfulSite, systems, relatedSystems, allContentfulAssetType } =
+    data;
+  const { countryCode, resources } = contentfulSite;
+
   const {
     name,
     categories,
@@ -69,23 +85,23 @@ const SystemDetailsPage = ({ data }: Props) => {
     assets,
     systemBenefits,
     systemLayers
-  } = dataJson;
+  } = systems;
   const bimIframeUrl = getBimIframeUrl(assets);
-  const guaranteesAndWarranties: Assets[] = useMemo(() => {
-    return assets.filter(
+  const guaranteesAndWarranties: Asset[] = useMemo(() => {
+    return (assets || []).filter(
       ({ assetType }) =>
         assetType === "GUARANTIES" || assetType === "WARRANTIES"
     );
-  }, []);
-  const awardsAndCertificates: Assets[] = useMemo(() => {
-    return assets.filter(
+  }, [assets]);
+  const awardsAndCertificates: Asset[] = useMemo(() => {
+    return (assets || []).filter(
       ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
     );
-  }, []);
-  const keyFeatures: Feature = useMemo(() => {
+  }, [assets]);
+  const keyFeatures: Feature | undefined = useMemo(() => {
     return first(
       compact(
-        classifications.map(({ features }) => {
+        (classifications || []).map(({ features }) => {
           return (
             features &&
             features.find(({ code }) => code.includes("keyfeatures"))
@@ -93,12 +109,12 @@ const SystemDetailsPage = ({ data }: Props) => {
         })
       )
     );
-  }, []);
-  const specification: Assets = useMemo(() => {
-    return assets.find(({ assetType }) => assetType === "SPECIFICATION");
-  }, []);
+  }, [classifications]);
+  const specification: Asset | undefined = useMemo(() => {
+    return assets?.find(({ assetType }) => assetType === "SPECIFICATION");
+  }, [assets]);
   const technicalSpecClassifications: Classification[] = useMemo(() => {
-    return classifications
+    return (classifications || [])
       .filter(
         ({ code }) =>
           !IGNORED_ATTRIBUTES.some((attribute) =>
@@ -118,11 +134,11 @@ const SystemDetailsPage = ({ data }: Props) => {
       })
       .filter(({ features }) => features.length > 0)
       .sort((a, b) => (a.name < b.name ? -1 : 1));
-  }, []);
-  const uniqueSellingPropositions: Feature = useMemo(() => {
+  }, [classifications]);
+  const uniqueSellingPropositions: Feature | undefined = useMemo(() => {
     return first(
       compact(
-        classifications.map(({ features }) => {
+        (classifications || []).map(({ features }) => {
           return (
             features &&
             features.find(({ code }) =>
@@ -132,25 +148,25 @@ const SystemDetailsPage = ({ data }: Props) => {
         })
       )
     );
-  }, []);
+  }, [classifications]);
   const brandName = useMemo(
     () =>
       (categories || []).find(({ categoryType }) => {
         return categoryType === "Brand";
-      }).name,
+      })?.name,
     [categories]
   );
   const aboutLeadBlockGenericContent: TitleWithContentData =
     resources?.sdpSidebarItems?.length > 0 && resources?.sdpSidebarItems[0];
   const bimContent: BimContent = useMemo(() => {
     return {
-      title: assets.find(({ assetType }) => assetType === "BIM")?.name,
+      title: assets?.find(({ assetType }) => assetType === "BIM")?.name,
       description: resources?.sdpBimDescription,
       bimIframeUrl
     };
-  }, []);
+  }, [assets, bimIframeUrl, resources?.sdpBimDescription]);
   const documentsAndDownloads: DocumentData[] = useMemo(() => {
-    return assets
+    return (assets || [])
       .filter(
         ({ assetType, allowedToDownload }) =>
           !IGNORED_DOCUMENTS_ASSETS.includes(assetType) && allowedToDownload
@@ -182,7 +198,21 @@ const SystemDetailsPage = ({ data }: Props) => {
           }
         );
       });
-  }, []);
+  }, [assets, allContentfulAssetType.nodes]);
+
+  const breadcrumbs = (
+    <Section backgroundColor="pearl" isSlim>
+      <Breadcrumbs
+        data={[
+          {
+            id: pageContext.systemPageId,
+            label: name,
+            slug: null
+          }
+        ]}
+      />
+    </Section>
+  );
 
   return (
     <Page
@@ -191,20 +221,20 @@ const SystemDetailsPage = ({ data }: Props) => {
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={contentfulSite}
     >
+      {breadcrumbs}
       {resources?.sdpShareWidget && (
         <ShareWidgetSection data={resources.sdpShareWidget} />
       )}
-
       <LeadBlockSection
         name={name}
         categories={categories}
         classifications={classifications}
         cta={resources?.sdpLeadBlockCta}
         uniqueSellingPropositions={uniqueSellingPropositions}
+        brandLogo={iconMap[brandName]}
       />
-
       <Section
-        backgroundColor="pearl"
+        backgroundColor="alabaster"
         className={styles["imageGallery-systemLayers-section"]}
       >
         <Grid container spacing={3}>
@@ -216,7 +246,6 @@ const SystemDetailsPage = ({ data }: Props) => {
           </Grid>
         </Grid>
       </Section>
-
       <TabLeadBlock
         longDescription={longDescription}
         guaranteesAndWarranties={guaranteesAndWarranties}
@@ -229,14 +258,25 @@ const SystemDetailsPage = ({ data }: Props) => {
         bimContent={bimContent}
         documentsAndDownloads={documentsAndDownloads}
       />
+      {relatedSystems?.nodes && (
+        <RelatedSystems
+          systems={relatedSystems.nodes}
+          countryCode={countryCode}
+        />
+      )}
+      {breadcrumbs}
     </Page>
   );
 };
 
 export default SystemDetailsPage;
 
-export const pageQuery = graphql`
-  query SystemDetailsPage($siteId: String!, $systemPageId: String!) {
+export const systemsQuery = graphql`
+  query SystemDetailsPage(
+    $siteId: String!
+    $systemPageId: String!
+    $relatedSystemCodes: [String]!
+  ) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
@@ -246,11 +286,19 @@ export const pageQuery = graphql`
         pimCode
       }
     }
-    dataJson(id: { eq: $systemPageId }) {
+    systems(id: { eq: $systemPageId }, approvalStatus: { eq: "approved" }) {
       name
       shortDescription
       longDescription
       systemBenefits
+      systemReferences {
+        preselected
+        referenceType
+        target {
+          code
+          name
+        }
+      }
       assets {
         allowedToDownload
         assetType
@@ -300,6 +348,20 @@ export const pageQuery = graphql`
         type
         name
         shortDescription
+        approvalStatus
+        products {
+          name
+          variantOptions {
+            path
+          }
+        }
+        optionalProducts {
+          name
+          code
+          variantOptions {
+            path
+          }
+        }
         relatedProducts {
           name
           variantOptions {
@@ -308,11 +370,21 @@ export const pageQuery = graphql`
         }
         relatedOptionalProducts {
           name
-          code
           variantOptions {
             path
           }
         }
+      }
+    }
+
+    relatedSystems: allSystems(
+      filter: {
+        approvalStatus: { eq: "approved" }
+        code: { in: $relatedSystemCodes }
+      }
+    ) {
+      nodes {
+        ...RelatedSystemsFragment
       }
     }
   }

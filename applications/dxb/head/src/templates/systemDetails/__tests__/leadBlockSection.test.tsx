@@ -6,20 +6,22 @@ import {
   LocationProvider
 } from "@reach/router";
 import LeadBlockSection from "../leadBlockSection";
-import { Data as LinkData } from "../../../components/Link";
+import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
 import "@testing-library/jest-dom";
-import { Category, Classification } from "../../systemDetails/types";
+import { Category, Classification } from "../../../components/types/pim";
+import { iconMap } from "../../../components/Icon";
 
 const leadBlockSectionName = "lead Block section";
 const leadBlockCategories: Category[] = [
   {
     categoryType: "Brand",
+    code: "code_category_1",
     name: "category_1",
     image: {
       realFileName: "test",
       url: "dummy",
       fileSize: 0,
-      mime: "jpeg",
+      mime: "image/png",
       name: "test_img",
       allowedToDownload: false
     }
@@ -57,7 +59,7 @@ const linkData: LinkData = {
   isLabelHidden: null,
   url: "https://www.external.co.uk",
   linkedPage: null,
-  type: "External",
+  type: DataTypeEnum.External,
   parameters: null,
   dialogContent: null,
   hubSpotCTAID: null
@@ -72,6 +74,7 @@ describe("LeadBlockSection tests", () => {
           categories={[]}
           classifications={[]}
           cta={linkData}
+          brandLogo={iconMap.Icopal}
         />
       </LocationProvider>
     );
@@ -91,6 +94,7 @@ describe("LeadBlockSection tests", () => {
           categories={leadBlockCategories}
           classifications={[]}
           cta={linkData}
+          brandLogo={iconMap.Icopal}
         />
       </LocationProvider>
     );
@@ -102,7 +106,6 @@ describe("LeadBlockSection tests", () => {
     expect(setionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
     expect(brandLogo).toBeTruthy();
-    expect(brandLogo).toHaveAttribute("src", leadBlockCategories[0].image.url);
   });
 
   it("should render with uniqueSellingPropositions", () => {
@@ -114,6 +117,7 @@ describe("LeadBlockSection tests", () => {
           classifications={[]}
           cta={linkData}
           uniqueSellingPropositions={leadBlockClassifications[0].features[0]}
+          brandLogo={iconMap.Icopal}
         />
       </LocationProvider>
     );
@@ -139,6 +143,7 @@ describe("LeadBlockSection tests", () => {
           categories={[]}
           classifications={[]}
           cta={linkData}
+          brandLogo={iconMap.Icopal}
         />
       </LocationProvider>
     );
@@ -161,6 +166,7 @@ describe("LeadBlockSection tests", () => {
             categories={leadBlockCategories}
             classifications={leadBlockClassifications}
             cta={linkData}
+            brandLogo={iconMap.Icopal}
           />
         </LocationProvider>
       );
@@ -180,6 +186,7 @@ describe("LeadBlockSection tests", () => {
             categories={leadBlockCategories}
             classifications={leadBlockClassificationsNoFeatures}
             cta={linkData}
+            brandLogo={iconMap.Icopal}
           />
         </LocationProvider>
       );
@@ -194,7 +201,8 @@ describe("LeadBlockSection tests", () => {
 
   describe("When user navigates with selected systems query string", () => {
     it("should render back to your selection button", () => {
-      const route = "/jest-test-page?selected_system=123";
+      const route =
+        "/jest-test-page?selected_system=123&prev_page=system-configurator-page&referer=sys_details";
       const history = createHistory(createMemorySource(route));
       const { container, queryByText } = render(
         <LocationProvider history={history}>
@@ -203,12 +211,13 @@ describe("LeadBlockSection tests", () => {
             categories={[
               {
                 categoryType: "Brand",
+                code: "code_category_1",
                 name: "category_1",
                 image: {
                   realFileName: "test",
                   url: "dummy",
                   fileSize: 0,
-                  mime: "jpeg",
+                  mime: "image/png",
                   name: "test_img",
                   allowedToDownload: false
                 }
@@ -216,6 +225,7 @@ describe("LeadBlockSection tests", () => {
             ]}
             classifications={[]}
             cta={linkData}
+            brandLogo={iconMap.Icopal}
           />
         </LocationProvider>
       );

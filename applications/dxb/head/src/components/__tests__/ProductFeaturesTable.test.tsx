@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import ProductFeaturesTable from "../ProductFeaturesTable";
-import { ClassificationFeature } from "../types/ProductBaseTypes";
+import { Feature } from "../types/pim";
 
 describe("ProductFeaturesTable component", () => {
   describe("Renders correctly", () => {
@@ -13,7 +13,7 @@ describe("ProductFeaturesTable component", () => {
     });
 
     it("With default row pattern color", () => {
-      const features: ClassificationFeature[] = [
+      const features: Feature[] = [
         {
           name: "feature1",
           code: "feature1-code1",
@@ -33,7 +33,7 @@ describe("ProductFeaturesTable component", () => {
     });
 
     it("With default row pattern color and with border", () => {
-      const features: ClassificationFeature[] = [
+      const features: Feature[] = [
         {
           name: "feature1",
           code: "feature1-code1",
@@ -53,7 +53,7 @@ describe("ProductFeaturesTable component", () => {
     });
 
     it("With header row", () => {
-      const features: ClassificationFeature[] = [
+      const features: Feature[] = [
         {
           name: "feature1",
           code: "feature1-code1",
@@ -77,7 +77,7 @@ describe("ProductFeaturesTable component", () => {
     });
 
     it("With even row pattern color", () => {
-      const features: ClassificationFeature[] = [
+      const features: Feature[] = [
         {
           name: "feature1",
           code: "feature1-code1",

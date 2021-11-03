@@ -20,16 +20,16 @@ const isCompanyMember = (
 };
 
 const canSeeProjects = (account) => {
+  if ([ROLES.SUPER_ADMIN].includes(account?.role)) {
+    return true;
+  }
+
   // Market config takes precedence as a feature flag effectively
   if (!account?.market?.projectsEnabled) {
     return false;
   }
 
-  if (
-    [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(
-      account?.role
-    )
-  ) {
+  if ([ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(account?.role)) {
     return true;
   }
 
@@ -80,9 +80,10 @@ const gates = {
       INSTALLER: false,
       COMPANY_ADMIN: false
     },
+    //Only company admin invites people to their company. Market admin and super admin have more company
     inviteUser: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
+      SUPER_ADMIN: false,
+      MARKET_ADMIN: false,
       INSTALLER: false,
       COMPANY_ADMIN: true
     },
@@ -129,6 +130,18 @@ const gates = {
       MARKET_ADMIN: false,
       COMPANY_ADMIN: true,
       INSTALLER: false
+    },
+    deleteEvidence: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
+    },
+    addProject: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
     }
   },
   page: {
@@ -161,6 +174,26 @@ const gates = {
     // Inventory (Available to Market Admins)
     inventory: isSuperOrMarketAdmin,
     productsAdmin: isSuperOrMarketAdmin
+  },
+  home: {
+    CTA_PROJECT: {
+      SUPER_ADMIN: false,
+      MARKET_ADMIN: false,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
+    },
+    CTA_MERCHANDISE: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: true
+    },
+    CTA_TRAINING: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: true
+    }
   }
 };
 

@@ -18,7 +18,10 @@ async function main() {
     { secret: "COMPANIES_DB_HOST", env: "PG_HOST" },
     { secret: "COMPANIES_DB_PASSWORD", env: "PG_PASSWORD" },
     { secret: "AUTH0_API_CLIENT_SECRET", env: "AUTH0_API_CLIENT_SECRET" },
-    { secret: "CONTENTFUL_TOKEN", env: "CONTENTFUL_TOKEN" }
+    { secret: "CONTENTFUL_TOKEN", env: "CONTENTFUL_TOKEN" },
+    { secret: "PG_SSL_CLIENT_KEY", env: "PG_SSL_CLIENT_KEY" },
+    { secret: "PG_SSL_CLIENT_CERT", env: "PG_SSL_CLIENT_CERT" },
+    { secret: "PG_SSL_SERVER_CA", env: "PG_SSL_SERVER_CA" }
   ]);
 
   const app = express();

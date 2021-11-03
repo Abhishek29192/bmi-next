@@ -1,7 +1,4 @@
-import {
-  Classification,
-  ClassificationFeature
-} from "../components/types/ProductBaseTypes";
+import { Classification, Feature } from "../components/types/pim";
 
 const createClassification = (
   classification?: Partial<Classification>
@@ -12,9 +9,7 @@ const createClassification = (
   ...classification
 });
 
-export const createFeature = (
-  feature?: Partial<ClassificationFeature>
-): ClassificationFeature => ({
+export const createFeature = (feature?: Partial<Feature>): Feature => ({
   name: "classification-feature-name",
   code: "classification-feature-code",
   featureValues: [

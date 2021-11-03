@@ -2,73 +2,231 @@
   {
     "label": "Europe",
     "menu": [
-      { "code": "al", "label": "Albania", "icon": "/icons/flags/al.svg" },
-      { "code": "at", "label": "Österreich", "icon": "/icons/flags/at.svg" },
+      {
+        "code": "al",
+        "label": "Albania",
+        "icon": "/icons/flags/al.svg"
+      },
+      {
+        "code": "at",
+        "label": "Österreich",
+        "icon": "/icons/flags/at.svg"
+      },
       {
         "code": "be/fr-be/",
         "label": "Belgique",
         "icon": "/icons/flags/be.svg"
       },
-      { "code": "be", "label": "België", "icon": "/icons/flags/be.svg" },
+      {
+        "code": "be",
+        "label": "België",
+        "icon": "/icons/flags/be.svg"
+      },
       {
         "code": "ba",
         "label": "Bosna i Hercegovina",
         "icon": "/icons/flags/ba.svg"
       },
-      { "code": "bg", "label": "България", "icon": "/icons/flags/bg.svg" },
-      { "code": "hr", "label": "Hrvatska", "icon": "/icons/flags/hr.svg" },
+      {
+        "code": "bg",
+        "label": "България",
+        "icon": "/icons/flags/bg.svg"
+      },
+      {
+        "code": "hr",
+        "label": "Hrvatska",
+        "icon": "/icons/flags/hr.svg"
+      },
       {
         "code": "cz",
         "label": "Česká republika",
         "icon": "/icons/flags/cz.svg"
       },
-      { "code": "dk", "label": "Danmark", "icon": "/icons/flags/dk.svg" },
-      { "code": "ee", "label": "Eesti", "icon": "/icons/flags/ee.svg" },
-      { "code": "fi", "label": "Suomi", "icon": "/icons/flags/fi.svg" },
-      { "code": "fr", "label": "France", "icon": "/icons/flags/fr.svg" },
-      { "code": "de", "label": "Deutschland", "icon": "/icons/flags/de.svg" },
-      { "code": "hu", "label": "Magyarország", "icon": "/icons/flags/hu.svg" },
-      { "code": "uk", "label": "Ireland", "icon": "/icons/flags/ie.svg" },
-      { "code": "it", "label": "Italia", "icon": "/icons/flags/it.svg" },
-      { "code": "lv", "label": "Latvija", "icon": "/icons/flags/lv.svg" },
-      { "code": "lt", "label": "Lietuva", "icon": "/icons/flags/lt.svg" },
-      { "code": "nl", "label": "Nederland", "icon": "/icons/flags/nl.svg" },
-      { "code": "no", "label": "Norge", "icon": "/icons/flags/no.svg" },
-      { "code": "pl", "label": "Poland", "icon": "/icons/flags/pl.svg" },
-      { "code": "pt", "label": "Portugal", "icon": "/icons/flags/pt.svg" },
-      { "code": "ro", "label": "România", "icon": "/icons/flags/ro.svg" },
-      { "code": "ru", "label": "Россия", "icon": "/icons/flags/ru.svg" },
-      { "code": "rs", "label": "Srbija", "icon": "/icons/flags/rs.svg" },
-      { "code": "sk", "label": "Slovensko", "icon": "/icons/flags/sk.svg" },
-      { "code": "si", "label": "Slovenija", "icon": "/icons/flags/si.svg" },
-      { "code": "es", "label": "España", "icon": "/icons/flags/es.svg" },
-      { "code": "se", "label": "Sverige", "icon": "/icons/flags/se.svg" },
+      {
+        "code": "dk",
+        "label": "Danmark",
+        "icon": "/icons/flags/dk.svg"
+      },
+      {
+        "code": "ee",
+        "label": "Eesti",
+        "icon": "/icons/flags/ee.svg"
+      },
+      {
+        "code": "fi",
+        "label": "Suomi",
+        "icon": "/icons/flags/fi.svg"
+      },
+      {
+        "code": "fr",
+        "label": "France",
+        "icon": "/icons/flags/fr.svg"
+      },
+      {
+        "code": "de",
+        "label": "Deutschland",
+        "icon": "/icons/flags/de.svg"
+      },
+      {
+        "code": "hu",
+        "label": "Magyarország",
+        "icon": "/icons/flags/hu.svg"
+      },
+      {
+        "code": "uk",
+        "label": "Ireland",
+        "icon": "/icons/flags/ie.svg"
+      },
+      {
+        "code": "it",
+        "label": "Italia",
+        "icon": "/icons/flags/it.svg"
+      },
+      {
+        "code": "lv",
+        "label": "Latvija",
+        "icon": "/icons/flags/lv.svg"
+      },
+      {
+        "code": "lt",
+        "label": "Lietuva",
+        "icon": "/icons/flags/lt.svg"
+      },
+      {
+        "code": "nl",
+        "label": "Nederland",
+        "icon": "/icons/flags/nl.svg"
+      },
+      {
+        "code": "no",
+        "label": "Norge",
+        "icon": "/icons/flags/no.svg"
+      },
+      {
+        "code": "pl",
+        "label": "Poland",
+        "icon": "/icons/flags/pl.svg"
+      },
+      {
+        "code": "pt",
+        "label": "Portugal",
+        "icon": "/icons/flags/pt.svg"
+      },
+      {
+        "code": "ro",
+        "label": "România",
+        "icon": "/icons/flags/ro.svg"
+      },
+      {
+        "code": "ru",
+        "label": "Россия",
+        "icon": "/icons/flags/ru.svg"
+      },
+      {
+        "code": "rs",
+        "label": "Srbija",
+        "icon": "/icons/flags/rs.svg"
+      },
+      {
+        "code": "sk",
+        "label": "Slovensko",
+        "icon": "/icons/flags/sk.svg"
+      },
+      {
+        "code": "si",
+        "label": "Slovenija",
+        "icon": "/icons/flags/si.svg"
+      },
+      {
+        "code": "es",
+        "label": "España",
+        "icon": "/icons/flags/es.svg"
+      },
+      {
+        "code": "se",
+        "label": "Sverige",
+        "icon": "/icons/flags/se.svg"
+      },
       {
         "code": "ch/fr-ch/",
         "label": "Suisse",
         "icon": "/icons/flags/ch.svg"
       },
-      { "code": "ch", "label": "Schweiz", "icon": "/icons/flags/ch.svg" },
-      { "code": "tr", "label": "Türkiye", "icon": "/icons/flags/tr.svg" },
-      { "code": "uk", "label": "United Kingdom", "icon": "/icons/flags/uk.svg" }
+      {
+        "code": "ch",
+        "label": "Schweiz",
+        "icon": "/icons/flags/ch.svg"
+      },
+      {
+        "code": "uk",
+        "label": "United Kingdom",
+        "icon": "/icons/flags/uk.svg"
+      }
     ]
   },
   {
-    "label": "Asia & Africa",
+    "label": "Asia, Middle East Africa Turkey",
     "menu": [
-      { "code": "cn", "label": "中国", "icon": "/icons/flags/cn.svg" },
-      { "code": "in", "label": "India", "icon": "/icons/flags/in.svg" },
-      { "code": "id", "label": "Indonesia", "icon": "/icons/flags/id.svg" },
-      { "code": "my", "label": "Malaysia", "icon": "/icons/flags/my.svg" },
-      { "code": "za", "label": "South Africa", "icon": "/icons/flags/za.svg" }
+      {
+        "code": "cn",
+        "label": "中国",
+        "icon": "/icons/flags/cn.svg"
+      },
+      {
+        "code": "in",
+        "label": "India",
+        "icon": "/icons/flags/in.svg"
+      },
+      {
+        "code": "id",
+        "label": "Indonesia",
+        "icon": "/icons/flags/id.svg"
+      },
+      {
+        "code": "my",
+        "label": "Malaysia",
+        "icon": "/icons/flags/my.svg"
+      },
+      {
+        "code": "za",
+        "label": "South Africa",
+        "icon": "/icons/flags/za.svg"
+      },
+      {
+        "code": "sa",
+        "label": "Saudi Arabia",
+        "icon": "/icons/flags/sa.svg"
+      },
+      {
+        "code": "tr",
+        "label": "Türkiye",
+        "icon": "/icons/flags/tr.svg"
+      },
+      {
+        "code": "ua",
+        "label": "United Arab Emirates",
+        "icon": "/icons/flags/ua.svg"
+      }
     ]
   },
   {
     "label": "Global",
     "menu": [
-      { "code": "", "label": "English", "icon": "/icons/flags/uk.svg" },
-      { "code": "de-de", "label": "Deutsch", "icon": "/icons/flags/de.svg" },
-      { "code": "fr-fr", "label": "Français", "icon": "/icons/flags/fr.svg" }
+      {
+        "code": "",
+        "label": "English",
+        "icon": "/icons/flags/uk.svg"
+      },
+      {
+        "code": "de-de",
+        "label": "Deutsch",
+        "icon": "/icons/flags/de.svg"
+      },
+      {
+        "code": "fr-fr",
+        "label": "Français",
+        "icon": "/icons/flags/fr.svg"
+      }
     ]
   }
 ]

@@ -6,7 +6,7 @@ import Typography from "@bmi/typography";
 import classnames from "classnames";
 import React, { FormEvent, useState, useEffect } from "react";
 import RichText from "../components/RichText";
-import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../utils/path";
 import styles from "./styles/SearchBlock.module.scss";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 

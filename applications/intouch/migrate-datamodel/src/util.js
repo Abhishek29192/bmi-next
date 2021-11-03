@@ -24,6 +24,8 @@ const writeFile = (fileName, data) => {
 
 const writeSql = (dataModel, service) => {
   let output = "";
+  let outputContraint = "";
+  let outputData = "";
 
   dataModel.enums
     .filter((item) => item.service === service)
@@ -37,25 +39,17 @@ const writeSql = (dataModel, service) => {
   tables.forEach((table) => {
     output += table.getPostgresCreate();
     output += "\n\n";
+    outputData += table.getPostgresInsert();
+    outputContraint += table.getConstraints();
   });
-
-  tables.forEach((table) => {
-    output += table.getPostgresInsert();
-  });
-
-  tables.forEach((table) => {
-    output += table.getConstraints();
-  });
-  output += "\n\n";
-
   const references = dataModel.references.filter((item) => {
     const sourceTables = tables.filter((x) => x.name === item.source);
     const refTables = tables.filter((x) => x.name === item.target);
     return sourceTables.length > 0 && refTables.length > 0;
   });
   references.forEach((reference) => {
-    output += reference.getPostgresCreate();
-    output += "\n\n";
+    outputContraint += reference.getPostgresCreate();
+    outputContraint += "\n\n";
   });
 
   tables.forEach((table) => {
@@ -64,8 +58,8 @@ const writeSql = (dataModel, service) => {
   });
 
   tables.forEach((table) => {
-    output += table.getSequence();
-    output += "\n";
+    outputData += table.getSequence();
+    outputData += "\n";
   });
   output += "\n";
   output += dataModel.getDefaultFunctions();
@@ -85,6 +79,12 @@ const writeSql = (dataModel, service) => {
     });
 
   writeFile(`${service.toLowerCase()}.sql`, output);
+  if (outputData.length > 0) {
+    writeFile(`${service.toLowerCase()}.data.sql`, outputData);
+  }
+  if (outputContraint.length > 0) {
+    writeFile(`${service.toLowerCase()}.contraints.sql`, outputContraint);
+  }
 };
 
 const createFiles = async (csv) => {

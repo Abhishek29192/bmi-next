@@ -17,16 +17,27 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
   const isBrowser = typeof window !== "undefined";
 
   const errorLink = onError(({ graphQLErrors, networkError }) => {
+    const logger = ctx?.req?.logger("apollo");
     if (graphQLErrors)
       graphQLErrors.forEach(({ message, locations, path }) => {
-        // eslint-disable-next-line no-console
-        console.log(
-          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-        );
+        if (logger) {
+          logger.error(
+            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+          );
+        } else {
+          // eslint-disable-next-line no-console
+          console.log(
+            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+          );
+        }
       });
     if (networkError) {
-      // eslint-disable-next-line no-console
-      console.log(`[Network error]: ${networkError}`);
+      if (logger) {
+        logger.error(`[Network error]: ${networkError}`);
+      } else {
+        // eslint-disable-next-line no-console
+        console.log(`[Network error]: ${networkError}`);
+      }
     }
   });
 
@@ -42,6 +53,7 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
   });
 
   const authLink = setContext(async (req, { headers }) => {
+    let userId;
     let accessToken;
 
     if (ctx.req) {
@@ -54,13 +66,22 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
       accessToken = `Bearer ${
         session?.accessToken || ctx.session?.accessToken
       }`;
+      userId = session?.user?.sub || ctx.session?.user?.sub;
     }
 
     return {
       headers: {
         ...headers,
         authorization: accessToken || "",
-        "x-request-id": v4()
+        // Logging purpose
+        ...(headers?.["x-request-id"] && {
+          "x-request-id": headers?.["x-request-id"]
+        }),
+        // Logging purpose
+        ...(headers?.["x-authenticated-user-id"] && {
+          "x-authenticated-user-id": headers?.["x-authenticated-user-id"]
+        }),
+        ...(ctx.headers || {})
       }
     };
   });

@@ -1,0 +1,52 @@
+{
+  "profileCard": {
+    "certificationsHeading": "Sertifiseringer",
+    "buttons": {
+      "editProfile": "Rediger",
+      "changePassword": "Endre passord"
+    }
+  },
+  "editDialog": {
+    "contactDetailsHeading": "Kontaktopplysninger",
+    "title": "Om oss",
+    "fileTypesMessage": "Du kan laste opp jpg-, gif- eller png -filer.",
+    "fileSizeMessage": "Maks filstørrelse 3 mb.",
+    "form": {
+      "fields": {
+        "firstName": "Fornavn",
+        "lastName": "Etternavn",
+        "email": "Email",
+        "phone": "Telefon",
+        "photo": "Profil bilde"
+      }
+    },
+    "buttons": {
+      "uploadProfilePicture": "Last opp nytt bilde",
+      "removeProfilePicture": "Fjern",
+      "saveAndClose": "Lagre og lukk"
+    }
+  },
+  "leaveCompany": {
+    "cta": "Forlater selskapet",
+    "dialog": {
+      "title": "Er du sikker?",
+      "content": "Alle sertifiseringer du har, forblir hos deg, selskapet vil ikke arve noen av sertifiseringene dine. Du vil ikke være medlem av noen prosjekter eller kunne se prosjektdetaljer. Selskapet vil ikke kunne nominere deg som ansvarlig installatør for prosjekter.",
+      "cta": {
+        "cancel": "Avbryt",
+        "confirm": "Fortsett"
+      }
+    }
+  },
+  "registerCompany": {
+    "heading": "Register ditt selskap",
+    "body": "Register ditt selskap",
+    "cta": "Registrer"
+  },
+  "passwordReset": {
+    "dialog": {
+      "title": "Opprett passord",
+      "success": "Vi har sendt deg en e -post med en lenke for å tilbakestille passordet ditt. Følg instruksjonene i e -posten.",
+      "error": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator"
+    }
+  }
+}

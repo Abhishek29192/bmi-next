@@ -24,15 +24,23 @@ STABLE;
 CREATE OR REPLACE FUNCTION current_market ()
   RETURNS int
   AS $$
-  SELECT
-    market_id
-  FROM
-    account
-  WHERE
-    id = current_account_id ();
+DECLARE
+  _market_id int;
+  _account account % rowtype;
+BEGIN
+  
+  SELECT * INTO _account FROM account WHERE id = current_account_id ();
 
+  IF _account.role = 'SUPER_ADMIN' THEN
+    SELECT nullif (current_setting('app.current_market', TRUE), '')::int INTO _market_id;
+    return _market_id;
+  ELSE
+    RETURN _account.market_id;
+  END IF;
+
+END
 $$
-LANGUAGE sql
+LANGUAGE 'plpgsql'
 STABLE
 SECURITY DEFINER;
 
@@ -263,3 +271,10 @@ $$
 LANGUAGE sql
 stable STRICT
 SECURITY DEFINER;
+
+--- Function to mark all notifications as read for the account id passed to it.
+CREATE OR REPLACE FUNCTION mark_all_notifications_as_read(account_to_update_id int)
+RETURNS SETOF notification
+AS $$
+  UPDATE notification SET read = true WHERE account_id = account_to_update_id AND read = false RETURNING *;
+$$ LANGUAGE sql VOLATILE;

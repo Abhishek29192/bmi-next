@@ -6,12 +6,13 @@ import Button from "@bmi/button";
 import { Account, Role } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import AccessControl from "../../lib/permissions/AccessControl";
+import { isSuperOrMarketAdmin } from "../../lib/account";
 import ConfirmDialog, { DialogProps } from "./Dialog";
 
 import styles from "./styles.module.scss";
 
 export type UserCardProps = {
-  account: Partial<Account>;
+  account: Account;
   companyName: string;
   testid?: string;
   onAccountUpdate?: (id: number, role: Role) => void;
@@ -27,7 +28,7 @@ export const UserCard = ({
   details,
   onAccountUpdate
 }: UserCardProps) => {
-  const { t } = useTranslation("team-page");
+  const { t } = useTranslation(["common", "team-page"]);
   const [dialogState, setDialogState] = useState<DialogProps>({
     open: false,
     onConfirm: null,
@@ -69,6 +70,8 @@ export const UserCard = ({
     });
   };
 
+  const isPowerfulUser = isSuperOrMarketAdmin(account);
+
   return account ? (
     <div data-testid={testid} className={styles.main}>
       <div className={styles.content}>
@@ -79,35 +82,43 @@ export const UserCard = ({
         <Typography variant="h5" className={styles.userName}>
           {`${account.firstName} ${account.lastName}`}
         </Typography>
-        <Typography className={styles.role}>{account.formattedRole}</Typography>
+        <Typography className={styles.role}>
+          {t(`common:roles.${account.role}`)}
+        </Typography>
         <Typography variant="body1" className={styles.companyName}>
           {companyName}
         </Typography>
-        <AccessControl dataModel="company" action="changeRole">
-          <Button
-            data-testid="change-role"
-            onClick={onUpdateRole}
-            variant="text"
-          >
-            {account.role === "INSTALLER"
-              ? t("user_card.add_admin")
-              : t("user_card.remove_admin")}
-          </Button>
-        </AccessControl>
+        {!isPowerfulUser && (
+          <AccessControl dataModel="company" action="changeRole">
+            <Button
+              data-testid="change-role"
+              onClick={onUpdateRole}
+              variant="text"
+            >
+              {account.role === "INSTALLER"
+                ? t("team-page:user_card.add_admin")
+                : t("team-page:user_card.remove_admin")}
+            </Button>
+          </AccessControl>
+        )}
+
         <div className={styles.details}>
           {/* TODO: Fix CompanyDetails child requirement in DXB */}
           <CompanyDetails details={details}>&nbsp;</CompanyDetails>
         </div>
-        <AccessControl dataModel="company" action="removeUser">
-          <div className={styles.buttonHolder}>
-            <Button
-              data-testid="remove-member"
-              onClick={onRemoveUserFromCompany}
-            >
-              {t("Remove from company")}
-            </Button>
-          </div>
-        </AccessControl>
+        {account.role === "INSTALLER" &&
+          account?.companyMembers?.nodes?.length > 0 && (
+            <AccessControl dataModel="company" action="removeUser">
+              <div className={styles.buttonHolder}>
+                <Button
+                  data-testid="remove-member"
+                  onClick={onRemoveUserFromCompany}
+                >
+                  {t("team-page:user_card.remove")}
+                </Button>
+              </div>
+            </AccessControl>
+          )}
       </div>
       <ConfirmDialog
         dialogState={dialogState}

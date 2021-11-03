@@ -25,6 +25,7 @@ export type Account = {
   marketId: string;
   company: Company;
   can: (permissions: string | string[]) => boolean;
+  source?: string;
 };
 
 export type PostGraphileContext = {

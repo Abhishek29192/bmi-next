@@ -22,6 +22,7 @@ export const GET_MEDIA_FOLDERS = gql`
       items {
         mediaLibraryRootCollection {
           items {
+            __typename
             sys {
               id
             }
@@ -33,6 +34,7 @@ export const GET_MEDIA_FOLDERS = gql`
     mediaFolderCollection {
       total
       items {
+        __typename
         sys {
           id
         }
@@ -78,12 +80,12 @@ export const CONTENTFUL_MEDIA_TOOL_DETAILS_FRAGMENT = gql`
   }
 `;
 
-export const GET_MEDIA_ITEM_BY_ID = gql`
-  # we could either be retrieving a Media Folder or a Media Tool
-  query getMediaItemById($mediaItemId: String!) {
+export const GET_MEDIA_FOLDER_CONTENTS = gql`
+  query getMediaFolderContents($mediaFolderId: String!) {
     # we need a collection because Contentful will throw an error if it doesn't find the item by id
-    mediaFolderCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
+    mediaFolderCollection(where: { sys: { id: $mediaFolderId } }, limit: 1) {
       items {
+        __typename
         sys {
           id
         }
@@ -92,18 +94,7 @@ export const GET_MEDIA_ITEM_BY_ID = gql`
           total
           items {
             ... on MediaTool {
-              __typename
-              sys {
-                id
-              }
-              name
-              thumbnail {
-                ...ImageFragment
-              }
-              media {
-                ...ImageFragment
-              }
-              url
+              ...MediaToolDetails
             }
 
             ... on MediaFolder {
@@ -115,23 +106,6 @@ export const GET_MEDIA_ITEM_BY_ID = gql`
             }
           }
         }
-      }
-    }
-
-    # we need a collection because Contentful will throw an error if it doesn't find the item by id
-    mediaToolCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
-      items {
-        sys {
-          id
-        }
-        name
-        media {
-          ...ImageFragment
-        }
-        thumbnail {
-          ...ImageFragment
-        }
-        url
       }
     }
   }

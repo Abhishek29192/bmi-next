@@ -1,7 +1,7 @@
 test_intouch_frontend:
   extends: .test_jest
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -20,7 +20,7 @@ build_intouch_frontend_dev:
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -38,12 +38,12 @@ deploy_intouch_frontend_dev_to_cloudrun:
   cache: {}
   needs:
     - build_intouch_frontend_dev
-    - test_intouch_frontend
+    # - test_intouch_frontend
   image: google/cloud-sdk
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/frontend/**/*
   script:

@@ -13,6 +13,17 @@ export const ContactDetailsCollectionFragmentFragmentDoc = gql`
     }
   }
 `;
+export const AddressLinesFragmentFragmentDoc = gql`
+  fragment AddressLinesFragment on Address {
+    id
+    firstLine
+    secondLine
+    town
+    region
+    country
+    postcode
+  }
+`;
 export const ProjectDetailsProductFragmentFragmentDoc = gql`
   fragment ProjectDetailsProductFragment on Product {
     id
@@ -52,25 +63,14 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
     endDate
     description
     siteAddress {
-      id
-      firstLine
-      secondLine
-      town
-      region
-      postcode
-      country
+      ...AddressLinesFragment
     }
     buildingOwnerFirstname
     buildingOwnerLastname
     buildingOwnerCompany
     buildingOwnerMail
     buildingOwnerAddress {
-      id
-      firstLine
-      secondLine
-      town
-      region
-      postcode
+      ...AddressLinesFragment
     }
     guarantees {
       nodes {
@@ -115,6 +115,8 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
             }
           }
         }
+        fileStorageId
+        signedFileStorageUrl
         status
       }
     }
@@ -122,6 +124,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
       nodes {
         id
         name
+        signedUrl
         guaranteeId
         evidenceCategoryType
         customEvidenceCategoryKey
@@ -154,6 +157,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
       tier
     }
   }
+  ${AddressLinesFragmentFragmentDoc}
   ${ProjectDetailsProductFragmentFragmentDoc}
   ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
@@ -188,16 +192,6 @@ export const MediaToolDetailsFragmentDoc = gql`
     url
   }
   ${ImageFragmentFragmentDoc}
-`;
-export const AddressLinesFragmentFragmentDoc = gql`
-  fragment AddressLinesFragment on Address {
-    firstLine
-    secondLine
-    town
-    region
-    country
-    postcode
-  }
 `;
 export const CompanyDetailsFragmentFragmentDoc = gql`
   fragment CompanyDetailsFragment on Company {
@@ -364,6 +358,60 @@ export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProjectHiddenMutation,
   OperationTypes.UpdateProjectHiddenMutationVariables
 >;
+export const MarkAllNotificationsAsReadDocument = gql`
+  mutation markAllNotificationsAsRead($accountId: Int!) {
+    markAllNotificationsAsRead(input: { accountToUpdateId: $accountId }) {
+      notifications {
+        id
+        read
+      }
+    }
+  }
+`;
+export type MarkAllNotificationsAsReadMutationFn = Apollo.MutationFunction<
+  OperationTypes.MarkAllNotificationsAsReadMutation,
+  OperationTypes.MarkAllNotificationsAsReadMutationVariables
+>;
+
+/**
+ * __useMarkAllNotificationsAsReadMutation__
+ *
+ * To run a mutation, you first call `useMarkAllNotificationsAsReadMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useMarkAllNotificationsAsReadMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [markAllNotificationsAsReadMutation, { data, loading, error }] = useMarkAllNotificationsAsReadMutation({
+ *   variables: {
+ *      accountId: // value for 'accountId'
+ *   },
+ * });
+ */
+export function useMarkAllNotificationsAsReadMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.MarkAllNotificationsAsReadMutation,
+    OperationTypes.MarkAllNotificationsAsReadMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.MarkAllNotificationsAsReadMutation,
+    OperationTypes.MarkAllNotificationsAsReadMutationVariables
+  >(MarkAllNotificationsAsReadDocument, options);
+}
+export type MarkAllNotificationsAsReadMutationHookResult = ReturnType<
+  typeof useMarkAllNotificationsAsReadMutation
+>;
+export type MarkAllNotificationsAsReadMutationResult =
+  Apollo.MutationResult<OperationTypes.MarkAllNotificationsAsReadMutation>;
+export type MarkAllNotificationsAsReadMutationOptions =
+  Apollo.BaseMutationOptions<
+    OperationTypes.MarkAllNotificationsAsReadMutation,
+    OperationTypes.MarkAllNotificationsAsReadMutationVariables
+  >;
 export const GetGlobalDataDocument = gql`
   query GetGlobalData($accountId: Int!) {
     marketContentCollection(limit: 1) {
@@ -598,6 +646,67 @@ export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
 >;
+export const ImportAccountsCompaniesFromCvsDocument = gql`
+  mutation importAccountsCompaniesFromCVS(
+    $input: ImportAccountsCompaniesFromCSVInput!
+  ) {
+    importAccountsCompaniesFromCVS(input: $input) {
+      auth0Job {
+        id
+      }
+      accounts {
+        email
+      }
+      companies {
+        name
+      }
+    }
+  }
+`;
+export type ImportAccountsCompaniesFromCvsMutationFn = Apollo.MutationFunction<
+  OperationTypes.ImportAccountsCompaniesFromCvsMutation,
+  OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
+>;
+
+/**
+ * __useImportAccountsCompaniesFromCvsMutation__
+ *
+ * To run a mutation, you first call `useImportAccountsCompaniesFromCvsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useImportAccountsCompaniesFromCvsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [importAccountsCompaniesFromCvsMutation, { data, loading, error }] = useImportAccountsCompaniesFromCvsMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useImportAccountsCompaniesFromCvsMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.ImportAccountsCompaniesFromCvsMutation,
+    OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.ImportAccountsCompaniesFromCvsMutation,
+    OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
+  >(ImportAccountsCompaniesFromCvsDocument, options);
+}
+export type ImportAccountsCompaniesFromCvsMutationHookResult = ReturnType<
+  typeof useImportAccountsCompaniesFromCvsMutation
+>;
+export type ImportAccountsCompaniesFromCvsMutationResult =
+  Apollo.MutationResult<OperationTypes.ImportAccountsCompaniesFromCvsMutation>;
+export type ImportAccountsCompaniesFromCvsMutationOptions =
+  Apollo.BaseMutationOptions<
+    OperationTypes.ImportAccountsCompaniesFromCvsMutation,
+    OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
+  >;
 export const BulkImportDocument = gql`
   mutation bulkImport($input: BulkImportInput!) {
     bulkImport(input: $input) {
@@ -1189,6 +1298,8 @@ export const CreateGuaranteeDocument = gql`
     createGuarantee(input: $input) {
       guarantee {
         id
+        coverage
+        status
       }
     }
   }
@@ -1236,11 +1347,63 @@ export type CreateGuaranteeMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateGuaranteeMutation,
   OperationTypes.CreateGuaranteeMutationVariables
 >;
+export const CreateGuaranteePdfDocument = gql`
+  mutation createGuaranteePdf($id: Int!) {
+    createGuaranteePdf(id: $id) {
+      messageId
+    }
+  }
+`;
+export type CreateGuaranteePdfMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateGuaranteePdfMutation,
+  OperationTypes.CreateGuaranteePdfMutationVariables
+>;
+
+/**
+ * __useCreateGuaranteePdfMutation__
+ *
+ * To run a mutation, you first call `useCreateGuaranteePdfMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateGuaranteePdfMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createGuaranteePdfMutation, { data, loading, error }] = useCreateGuaranteePdfMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useCreateGuaranteePdfMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateGuaranteePdfMutation,
+    OperationTypes.CreateGuaranteePdfMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateGuaranteePdfMutation,
+    OperationTypes.CreateGuaranteePdfMutationVariables
+  >(CreateGuaranteePdfDocument, options);
+}
+export type CreateGuaranteePdfMutationHookResult = ReturnType<
+  typeof useCreateGuaranteePdfMutation
+>;
+export type CreateGuaranteePdfMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateGuaranteePdfMutation>;
+export type CreateGuaranteePdfMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateGuaranteePdfMutation,
+  OperationTypes.CreateGuaranteePdfMutationVariables
+>;
 export const UpdateGuaranteeDocument = gql`
   mutation updateGuarantee($input: UpdateGuaranteeInput!) {
     updateGuarantee(input: $input) {
       guarantee {
         id
+        coverage
+        status
       }
     }
   }
@@ -1343,13 +1506,12 @@ export type AddProjectNoteMutationOptions = Apollo.BaseMutationOptions<
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {
-      account {
-        id
-        firstName
-        lastName
+      projectMember {
+        ...ProjectMemberDetailsFragment
       }
     }
   }
+  ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
 export type DeleteProjectMemberMutationFn = Apollo.MutationFunction<
   OperationTypes.DeleteProjectMemberMutation,
@@ -1755,6 +1917,62 @@ export type ContentfulEvidenceCategoriesQueryResult = Apollo.QueryResult<
   OperationTypes.ContentfulEvidenceCategoriesQuery,
   OperationTypes.ContentfulEvidenceCategoriesQueryVariables
 >;
+export const DeleteEvidenceItemDocument = gql`
+  mutation deleteEvidenceItem($input: DeleteEvidenceItemInput!) {
+    deleteEvidenceItem(input: $input) {
+      evidenceItem {
+        id
+        name
+        attachment
+        guaranteeId
+        evidenceCategoryType
+      }
+    }
+  }
+`;
+export type DeleteEvidenceItemMutationFn = Apollo.MutationFunction<
+  OperationTypes.DeleteEvidenceItemMutation,
+  OperationTypes.DeleteEvidenceItemMutationVariables
+>;
+
+/**
+ * __useDeleteEvidenceItemMutation__
+ *
+ * To run a mutation, you first call `useDeleteEvidenceItemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteEvidenceItemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteEvidenceItemMutation, { data, loading, error }] = useDeleteEvidenceItemMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useDeleteEvidenceItemMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.DeleteEvidenceItemMutation,
+    OperationTypes.DeleteEvidenceItemMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.DeleteEvidenceItemMutation,
+    OperationTypes.DeleteEvidenceItemMutationVariables
+  >(DeleteEvidenceItemDocument, options);
+}
+export type DeleteEvidenceItemMutationHookResult = ReturnType<
+  typeof useDeleteEvidenceItemMutation
+>;
+export type DeleteEvidenceItemMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteEvidenceItemMutation>;
+export type DeleteEvidenceItemMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.DeleteEvidenceItemMutation,
+  OperationTypes.DeleteEvidenceItemMutationVariables
+>;
 export const GetGuaranteeTemplatesDocument = gql`
   query getGuaranteeTemplates(
     $technology: String!
@@ -1774,6 +1992,7 @@ export const GetGuaranteeTemplatesDocument = gql`
         }
         displayName
         languageCode
+        languageDescriptor
         coverage
       }
     }
@@ -2629,6 +2848,7 @@ export const GetMediaFoldersDocument = gql`
       items {
         mediaLibraryRootCollection {
           items {
+            __typename
             sys {
               id
             }
@@ -2640,6 +2860,7 @@ export const GetMediaFoldersDocument = gql`
     mediaFolderCollection {
       total
       items {
+        __typename
         sys {
           id
         }
@@ -2717,10 +2938,11 @@ export type GetMediaFoldersQueryResult = Apollo.QueryResult<
   OperationTypes.GetMediaFoldersQuery,
   OperationTypes.GetMediaFoldersQueryVariables
 >;
-export const GetMediaItemByIdDocument = gql`
-  query getMediaItemById($mediaItemId: String!) {
-    mediaFolderCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
+export const GetMediaFolderContentsDocument = gql`
+  query getMediaFolderContents($mediaFolderId: String!) {
+    mediaFolderCollection(where: { sys: { id: $mediaFolderId } }, limit: 1) {
       items {
+        __typename
         sys {
           id
         }
@@ -2729,18 +2951,7 @@ export const GetMediaItemByIdDocument = gql`
           total
           items {
             ... on MediaTool {
-              __typename
-              sys {
-                id
-              }
-              name
-              thumbnail {
-                ...ImageFragment
-              }
-              media {
-                ...ImageFragment
-              }
-              url
+              ...MediaToolDetails
             }
             ... on MediaFolder {
               __typename
@@ -2753,74 +2964,59 @@ export const GetMediaItemByIdDocument = gql`
         }
       }
     }
-    mediaToolCollection(where: { sys: { id: $mediaItemId } }, limit: 1) {
-      items {
-        sys {
-          id
-        }
-        name
-        media {
-          ...ImageFragment
-        }
-        thumbnail {
-          ...ImageFragment
-        }
-        url
-      }
-    }
   }
-  ${ImageFragmentFragmentDoc}
+  ${MediaToolDetailsFragmentDoc}
 `;
 
 /**
- * __useGetMediaItemByIdQuery__
+ * __useGetMediaFolderContentsQuery__
  *
- * To run a query within a React component, call `useGetMediaItemByIdQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetMediaItemByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetMediaFolderContentsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMediaFolderContentsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetMediaItemByIdQuery({
+ * const { data, loading, error } = useGetMediaFolderContentsQuery({
  *   variables: {
- *      mediaItemId: // value for 'mediaItemId'
+ *      mediaFolderId: // value for 'mediaFolderId'
  *   },
  * });
  */
-export function useGetMediaItemByIdQuery(
+export function useGetMediaFolderContentsQuery(
   baseOptions: Apollo.QueryHookOptions<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
-  >(GetMediaItemByIdDocument, options);
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
+  >(GetMediaFolderContentsDocument, options);
 }
-export function useGetMediaItemByIdLazyQuery(
+export function useGetMediaFolderContentsLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<
-    OperationTypes.GetMediaItemByIdQuery,
-    OperationTypes.GetMediaItemByIdQueryVariables
-  >(GetMediaItemByIdDocument, options);
+    OperationTypes.GetMediaFolderContentsQuery,
+    OperationTypes.GetMediaFolderContentsQueryVariables
+  >(GetMediaFolderContentsDocument, options);
 }
-export type GetMediaItemByIdQueryHookResult = ReturnType<
-  typeof useGetMediaItemByIdQuery
+export type GetMediaFolderContentsQueryHookResult = ReturnType<
+  typeof useGetMediaFolderContentsQuery
 >;
-export type GetMediaItemByIdLazyQueryHookResult = ReturnType<
-  typeof useGetMediaItemByIdLazyQuery
+export type GetMediaFolderContentsLazyQueryHookResult = ReturnType<
+  typeof useGetMediaFolderContentsLazyQuery
 >;
-export type GetMediaItemByIdQueryResult = Apollo.QueryResult<
-  OperationTypes.GetMediaItemByIdQuery,
-  OperationTypes.GetMediaItemByIdQueryVariables
+export type GetMediaFolderContentsQueryResult = Apollo.QueryResult<
+  OperationTypes.GetMediaFolderContentsQuery,
+  OperationTypes.GetMediaFolderContentsQueryVariables
 >;
 export const AccountInfoByEmailDocument = gql`
   query accountInfoByEmail($email: String!) {
@@ -2903,6 +3099,76 @@ export type AccountInfoByEmailLazyQueryHookResult = ReturnType<
 export type AccountInfoByEmailQueryResult = Apollo.QueryResult<
   OperationTypes.AccountInfoByEmailQuery,
   OperationTypes.AccountInfoByEmailQueryVariables
+>;
+export const GetGlobalDataPublicDocument = gql`
+  query GetGlobalDataPublic {
+    marketContentCollection(limit: 1) {
+      items {
+        footerLinksCollection {
+          items {
+            title
+            relativePath
+          }
+        }
+        contactUsPage {
+          title
+          relativePath
+        }
+        externalLinkUrl
+        externalLinkLabel
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetGlobalDataPublicQuery__
+ *
+ * To run a query within a React component, call `useGetGlobalDataPublicQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGlobalDataPublicQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGlobalDataPublicQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetGlobalDataPublicQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >(GetGlobalDataPublicDocument, options);
+}
+export function useGetGlobalDataPublicLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetGlobalDataPublicQuery,
+    OperationTypes.GetGlobalDataPublicQueryVariables
+  >(GetGlobalDataPublicDocument, options);
+}
+export type GetGlobalDataPublicQueryHookResult = ReturnType<
+  typeof useGetGlobalDataPublicQuery
+>;
+export type GetGlobalDataPublicLazyQueryHookResult = ReturnType<
+  typeof useGetGlobalDataPublicLazyQuery
+>;
+export type GetGlobalDataPublicQueryResult = Apollo.QueryResult<
+  OperationTypes.GetGlobalDataPublicQuery,
+  OperationTypes.GetGlobalDataPublicQueryVariables
 >;
 export const GetContentArticleContentDocument = gql`
   query getContentArticleContent($relativePath: String!) {
@@ -3415,31 +3681,34 @@ export type GetProjectsQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectsQuery,
   OperationTypes.GetProjectsQueryVariables
 >;
-export const CompanyMembersDocument = gql`
-  query companyMembers($expiryDate: Datetime) {
-    companyMembers {
+export const TeamMembersDocument = gql`
+  query teamMembers($expiryDate: Datetime) {
+    accounts {
+      totalCount
       nodes {
         id
-        company {
-          name
+        role
+        email
+        phone
+        photo
+        lastName
+        firstName
+        formattedRole
+        certificationsByDoceboUserId(
+          filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
+        ) {
+          nodes {
+            id
+            name
+            technology
+            expiryDate
+          }
         }
-        account {
-          id
-          role
-          email
-          phone
-          photo
-          lastName
-          firstName
-          formattedRole
-          certificationsByDoceboUserId(
-            filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
-          ) {
-            nodes {
-              id
+        companyMembers(first: 1) {
+          nodes {
+            id
+            company {
               name
-              technology
-              expiryDate
             }
           }
         }
@@ -3449,54 +3718,52 @@ export const CompanyMembersDocument = gql`
 `;
 
 /**
- * __useCompanyMembersQuery__
+ * __useTeamMembersQuery__
  *
- * To run a query within a React component, call `useCompanyMembersQuery` and pass it any options that fit your needs.
- * When your component renders, `useCompanyMembersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useTeamMembersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTeamMembersQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useCompanyMembersQuery({
+ * const { data, loading, error } = useTeamMembersQuery({
  *   variables: {
  *      expiryDate: // value for 'expiryDate'
  *   },
  * });
  */
-export function useCompanyMembersQuery(
+export function useTeamMembersQuery(
   baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
-  >(CompanyMembersDocument, options);
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
+  >(TeamMembersDocument, options);
 }
-export function useCompanyMembersLazyQuery(
+export function useTeamMembersLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<
-    OperationTypes.CompanyMembersQuery,
-    OperationTypes.CompanyMembersQueryVariables
-  >(CompanyMembersDocument, options);
+    OperationTypes.TeamMembersQuery,
+    OperationTypes.TeamMembersQueryVariables
+  >(TeamMembersDocument, options);
 }
-export type CompanyMembersQueryHookResult = ReturnType<
-  typeof useCompanyMembersQuery
+export type TeamMembersQueryHookResult = ReturnType<typeof useTeamMembersQuery>;
+export type TeamMembersLazyQueryHookResult = ReturnType<
+  typeof useTeamMembersLazyQuery
 >;
-export type CompanyMembersLazyQueryHookResult = ReturnType<
-  typeof useCompanyMembersLazyQuery
->;
-export type CompanyMembersQueryResult = Apollo.QueryResult<
-  OperationTypes.CompanyMembersQuery,
-  OperationTypes.CompanyMembersQueryVariables
+export type TeamMembersQueryResult = Apollo.QueryResult<
+  OperationTypes.TeamMembersQuery,
+  OperationTypes.TeamMembersQueryVariables
 >;
 export const UpdateRoleAccountDocument = gql`
   mutation UpdateRoleAccount($input: UpdateAccountInput!) {
@@ -3578,6 +3845,7 @@ export const TrainingDocument = gql`
         course {
           courseId
           name
+          slug
           technology
           image
           promoted

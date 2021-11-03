@@ -30,46 +30,47 @@ type SystemGuaranteeCardProps = {
 const SystemGuaranteeCard = ({ guarantee }: SystemGuaranteeCardProps) => {
   const { t } = useTranslation(["common", "project-page"]);
 
-  const { systemBySystemBmiRef: system } = guarantee;
+  const { systemBySystemBmiRef: system, signedFileStorageUrl } = guarantee;
 
-  const products = system.systemMembersBySystemBmiRef.nodes.map(
-    (member) => member.productByProductBmiRef
-  );
+  const products =
+    system.systemMembersBySystemBmiRef?.nodes?.map(
+      (member) => member.productByProductBmiRef
+    ) || [];
 
   return (
-    <div className={styles.main}>
-      <div className={styles.body}>
-        <div className={styles.body__title}>
-          <Typography component="h2" variant="h6">
-            {system.name}
-          </Typography>
-        </div>
-        <div>
-          <Typography variant="subtitle2" color="textSecondary">
-            {system.description}
-          </Typography>
-        </div>
+    <div className={styles.body}>
+      <div className={styles.body__title}>
+        <Typography component="h2" variant="h6">
+          {system.name}
+        </Typography>
+      </div>
+      <div>
+        <Typography variant="subtitle2">{system.description}</Typography>
+      </div>
+      {signedFileStorageUrl && (
         <div className={styles.body__footer}>
-          <div>
-            <Button
-              variant="outlined"
-              startIcon={
-                <Icon className={styles.body__logo} source={FilePDF} />
-              }
-            >
-              {t("common:SavePdf")}
-            </Button>
-          </div>
+          <Button
+            variant="outlined"
+            action={{
+              model: "htmlLink",
+              href: signedFileStorageUrl,
+              target: "_blank",
+              rel: "noopener noreferrer"
+            }}
+            startIcon={<Icon className={styles.body__logo} source={FilePDF} />}
+          >
+            {t("common:SavePdf")}
+          </Button>
         </div>
-        <div>
-          <Table>
-            <Table.Body>
-              {products.map((product) => (
-                <ProductRow key={product.id} product={product} />
-              ))}
-            </Table.Body>
-          </Table>
-        </div>
+      )}
+      <div>
+        <Table>
+          <Table.Body>
+            {products.map((product) => (
+              <ProductRow key={product.id} product={product} />
+            ))}
+          </Table.Body>
+        </Table>
       </div>
     </div>
   );

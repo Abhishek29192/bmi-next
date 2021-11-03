@@ -1,3 +1,9 @@
+import {
+  Tier,
+  TierBenefit,
+  TierBenefitCollection
+} from "@bmi/intouch-api-types";
+
 export type EventMessage =
   | "COMPANY_MEMBER_REMOVED"
   | "COMPANY_REGISTERED"
@@ -117,6 +123,8 @@ export const messageTemplate = async (client, event: EventMessage) => {
       items {
         subject
         emailBody
+        notificationBody
+        format
       }
     }
   }`;
@@ -183,3 +191,30 @@ fragment GuaranteeTemplateDetailFragment on GuaranteeTemplate {
 }
 
 `;
+
+export const tierBenefit = async (client, tier: Tier): Promise<TierBenefit> => {
+  const query = `
+  query tierBenefitCollection($tier: String!) {
+    tierBenefitCollection(limit: 1, where: { tier: $tier }) {
+      items {
+        sys {
+          id
+        }
+        name
+        tier
+        guaranteeValidityOffsetYears
+        shortDescription
+      }
+    }
+  }`;
+
+  const {
+    data
+  }: {
+    data: {
+      tierBenefitCollection: TierBenefitCollection;
+    };
+  } = await client(query, { tier });
+
+  return data.tierBenefitCollection.items[0];
+};

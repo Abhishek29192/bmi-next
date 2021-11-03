@@ -27,6 +27,8 @@ const REDACTED_KEYS = [
 
 const logger = (headers: { [key: string]: string }, module: string) => {
   const reqId = headers["x-request-id"] || "";
+  const accountId = headers["x-authenticated-user-id"] || "";
+
   const loggingWinston = new LoggingWinston({
     labels: {
       name: process.env.LOG_SERVICE_NAME || "run.googleapis.com/intouch"
@@ -100,7 +102,7 @@ const logger = (headers: { [key: string]: string }, module: string) => {
     level: getLogLevel(),
     format: format,
     transports,
-    defaultMeta: { requestId: reqId, module },
+    defaultMeta: { requestId: reqId, accountId, module },
     exceptionHandlers: [new winston.transports.Console({})]
   });
 };

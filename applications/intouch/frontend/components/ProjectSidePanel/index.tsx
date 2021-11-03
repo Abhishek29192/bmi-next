@@ -11,6 +11,7 @@ import { useAccountContext } from "../../context/AccountContext";
 import { findAccountCompany, isSuperOrMarketAdmin } from "../../lib/account";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { getProjectStatus, ProjectStatus } from "../../lib/utils/project";
+import AccessControl from "../../lib/permissions/AccessControl";
 import styles from "./styles.module.scss";
 
 // filter `attr` value
@@ -84,6 +85,7 @@ const ProjectSidePanelFooter = () => {
         variant="outlined"
         onClick={handleOnNewProject}
         className={styles.footerActionButton}
+        data-testid="project-side-panel-footer-button"
       >
         {t("addProject.cta")}
       </Button>
@@ -185,7 +187,7 @@ export const ProjectSidePanel = ({
             : guaranteeFilter(guarantees.nodes, filterSelection));
 
         const data = isPowerfulUser
-          ? [name, company.name]
+          ? [name, company?.name]
           : [
               name,
               siteAddress.town,
@@ -214,7 +216,11 @@ export const ProjectSidePanel = ({
       onSearchFilterChange={(query: string) => {
         setSearchQuery(query);
       }}
-      renderFooter={() => <ProjectSidePanelFooter />}
+      renderFooter={() => (
+        <AccessControl dataModel="project" action="addProject">
+          <ProjectSidePanelFooter />
+        </AccessControl>
+      )}
     >
       {filteredProjects.map(
         ({

@@ -9,44 +9,157 @@ import {
   RootFolders,
   MediaItem
 } from "../../../lib/media/types";
-import { isExternalLink } from "../../../lib/media/utils";
+import {
+  getMediaContentType,
+  getMediaAltText,
+  isExternalLink,
+  isVimeo
+} from "../../../lib/media/utils";
+import log from "../../../lib/logger";
 import { MediaGrid } from "../../MediaGrid";
-import { MediaToolDialog } from "../../MediaTool/Dialog";
+import { GalleryItem, MediaGallery } from "../../MediaGallery";
 
 type Props = {
   rootFolders: RootFolders;
   mediaPath: MediaFolders;
-  mediaTool: MediaTool;
+  activeMediaId?: string;
   mediaFolder: MediaFolder;
+};
+
+type MediaGalleryState = {
+  isOpen: boolean;
+  activeItem: GalleryItem;
+};
+
+const getMediaToolGalleryProps = (
+  mediaTool: MediaTool
+): Omit<GalleryItem, "title"> => {
+  const baseProps = {
+    id: mediaTool.sys.id,
+    url: mediaTool.url || "",
+    description: getMediaAltText(mediaTool)
+  };
+  if (isVimeo(mediaTool)) {
+    return { ...baseProps, type: "vimeo" };
+  }
+  const contentType = getMediaContentType(mediaTool);
+  if (contentType.includes("pdf")) {
+    return {
+      ...baseProps,
+      type: "pdf"
+    };
+  }
+  return { ...baseProps, type: "image" };
 };
 
 export const MediaPage = ({
   mediaFolder,
-  mediaTool,
+  activeMediaId,
   mediaPath,
   rootFolders
 }: Props) => {
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
 
-  const navigateToMediaItem = useCallback(
-    (mediaItem: MediaItem) => {
-      if (isExternalLink(mediaItem)) {
-        // externalLinks are anchor elements that do not need the loading effect nor next.js routing
+  const mediaToolToGalleryItem = useCallback(
+    (m: MediaTool): GalleryItem => {
+      if (!m) {
+        return null;
+      }
+      return {
+        ...getMediaToolGalleryProps(m),
+        title: `${mediaFolder.name} / ${m.name}`
+      };
+    },
+    [mediaFolder]
+  );
+  const mediaFolderGalleryItems = useMemo(
+    () =>
+      (
+        mediaFolder.childrenCollection.items.filter(
+          (item) =>
+            item.__typename === "MediaTool" && (item.media || isVimeo(item))
+        ) as MediaTool[]
+      ).map(mediaToolToGalleryItem),
+    [mediaFolder]
+  );
+
+  const [modalInfo, setModalInfo] = useState<MediaGalleryState>({
+    isOpen: !!activeMediaId,
+    activeItem: mediaFolderGalleryItems.find(
+      (item) => item.id === activeMediaId
+    )
+  });
+
+  const closeModal = useCallback(() => {
+    setModalInfo((state) => ({
+      ...state,
+      isOpen: false,
+      activeItem: null
+    }));
+    // TODO: reset the url
+  }, [setModalInfo]);
+
+  const handleMediaToolClick = useCallback(
+    (mediaTool: MediaTool) => {
+      if (isExternalLink(mediaTool)) {
+        // externalLinks are anchor elements that open in a new tab
+        return;
+      }
+      setModalInfo((state) => ({
+        ...state,
+        isOpen: true,
+        activeItem: mediaToolToGalleryItem(mediaTool)
+      }));
+      // TODO: shallow navigation - update url with query params to open media tool by id
+    },
+    [setModalInfo]
+  );
+
+  const navigateToFolder = useCallback(
+    (mediaFolder: MediaFolder) => {
+      if (!mediaFolder?.sys?.id) {
         return;
       }
       setIsNavigating(true);
-
-      router.push(`/toolkit/${mediaItem.sys.id}`).then(() => {
+      router.push(`/toolkit/${mediaFolder.sys.id}`).then(() => {
         setIsNavigating(false);
       });
     },
     [router, setIsNavigating]
   );
 
-  const activeRootFolderId = rootFolders.find(
-    (r) => r.sys.id === mediaPath[0].sys.id
-  )?.sys?.id;
+  const onTabChange = useCallback(
+    (clickedFolderId) => {
+      navigateToFolder(rootFolders.find((f) => f.sys.id === clickedFolderId));
+    },
+    [navigateToFolder, rootFolders]
+  );
+
+  const onMediaItemClick = useCallback(
+    (mediaItem: MediaItem) => {
+      if (mediaItem.__typename === "MediaTool") {
+        return handleMediaToolClick(mediaItem as MediaTool);
+      }
+      if (mediaItem.__typename === "MediaFolder") {
+        return navigateToFolder(mediaItem);
+      }
+      log({
+        severity: "ERROR",
+        message: `Unknown mediaItem __typename: ${JSON.stringify(
+          mediaItem,
+          null,
+          2
+        )}`
+      });
+    },
+    [handleMediaToolClick, navigateToFolder]
+  );
+
+  const activeRootFolderId = useMemo(
+    () => rootFolders.find((r) => r.sys.id === mediaPath[0].sys.id)?.sys?.id,
+    [mediaPath, rootFolders]
+  );
 
   const items = useMemo(
     () => mediaFolder?.childrenCollection?.items || [],
@@ -60,21 +173,18 @@ export const MediaPage = ({
 
   return (
     <>
-      <MediaToolDialog
-        isOpen={!!mediaTool}
-        mediaTool={mediaTool}
-        handleClose={() => {
-          navigateToMediaItem(mediaFolder);
-        }}
-      />
+      {modalInfo.activeItem && (
+        <MediaGallery
+          isOpen={modalInfo.isOpen}
+          activeItem={modalInfo.activeItem}
+          items={mediaFolderGalleryItems}
+          onClose={closeModal}
+        />
+      )}
       <Tabs
         maxWidth={false}
         initialValue={activeRootFolderId}
-        onChange={(clickedFolderId) => {
-          navigateToMediaItem(
-            rootFolders.find((f) => f.sys.id === clickedFolderId)
-          );
-        }}
+        onChange={onTabChange}
       >
         {rootFolders.map((rootFolder) => {
           const rootFolderId = rootFolder.sys.id;
@@ -105,7 +215,7 @@ export const MediaPage = ({
                             aria-role="button"
                             role="button"
                             onClick={() => {
-                              navigateToMediaItem(folder);
+                              navigateToFolder(folder);
                             }}
                           >
                             {folder.name}
@@ -121,7 +231,7 @@ export const MediaPage = ({
                 items={items}
                 // one day the media query could be paginated and items.length would not equal totalNumItems
                 totalNumItems={mediaFolder.childrenCollection.total}
-                onMediaItemClick={navigateToMediaItem}
+                onMediaItemClick={onMediaItemClick}
               />
             </Tabs.TabPanel>
           );

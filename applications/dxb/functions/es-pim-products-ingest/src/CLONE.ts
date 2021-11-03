@@ -1,17 +1,6 @@
-// THIS IS A CLONE OF EXTERNAL DEPENDENCIES I COULDN'T REQUIRE FROM HEAD ATM
-// POSSIBLY WITH SOME CHANGES
-// product-details-trasnforms.ts
-// @ts-nocheck
-
+/* eslint-disable security/detect-object-injection */
 import { result, find } from "lodash";
-import { Product } from "./pim";
-
-export type Category = {
-  parentCategoryCode: string;
-  name: string;
-  categoryType: string;
-  code: string;
-};
+import { Product, Classification, Category, Image } from "./pim";
 
 type CategoryPath = readonly Category[];
 
@@ -54,13 +43,13 @@ export const getFullCategoriesPaths = (
   // Then iterate over the roots and get all the other
   return roots.map((rootCategory) => {
     let path = [rootCategory];
-    let currentNode = rootCategory;
+    let currentNode: (Category & { found: boolean }) | undefined = rootCategory;
 
     // While we find a node, find another node which is its child, and add to path
     while (currentNode) {
       currentNode = categoriesArray.find(
         ({ found, parentCategoryCode }) =>
-          !found && parentCategoryCode === currentNode.code
+          !found && parentCategoryCode === currentNode!.code
       );
 
       if (currentNode) {
@@ -72,12 +61,6 @@ export const getFullCategoriesPaths = (
     return path;
   });
 };
-
-export const getColourThumbnailUrl = (images): string =>
-  result(
-    find(images, { format: "Product-Color-Selector-Large-Desktop" }),
-    "url"
-  );
 
 // product-details-page.tsx
 export type ClassificationFeatureValue = {
@@ -138,7 +121,6 @@ export const mapProductClassifications = (
       };
     }, {})
   };
-  const mainProduct = product;
 
   // Classifications
   const SCORE_WEIGHT = "scoringWeightAttributes";
@@ -147,124 +129,58 @@ export const mapProductClassifications = (
   const GENERAL_INFORMATION = "generalInformation";
 
   const FEATURES = {
-    SCORE_WEIGHT: `${classificationNamepace}/scoringWeightAttributes.scoringweight`,
-    TEXTURE_FAMILY: `${classificationNamepace}/appearanceAttributes.texturefamily`,
-    COLOUR: `${classificationNamepace}/appearanceAttributes.colour`,
-    COLOUR_FAMILY: `${classificationNamepace}/appearanceAttributes.colourfamily`,
-    LENGTH: `${classificationNamepace}/measurements.length`,
-    WIDTH: `${classificationNamepace}/measurements.width`,
-    HEIGHT: `${classificationNamepace}/measurements.height`,
+    SCORE_WEIGHT: `${classificationNamepace}/${SCORE_WEIGHT}.scoringweight`,
+    TEXTURE_FAMILY: `${classificationNamepace}/${APPEARANCE}.texturefamily`,
+    COLOUR: `${classificationNamepace}/${APPEARANCE}.colour`,
+    COLOUR_FAMILY: `${classificationNamepace}/${APPEARANCE}.colourfamily`,
+    LENGTH: `${classificationNamepace}/${MEASUREMENTS}.length`,
+    WIDTH: `${classificationNamepace}/${MEASUREMENTS}.width`,
+    HEIGHT: `${classificationNamepace}/${MEASUREMENTS}.height`,
     THICKNESS: `${classificationNamepace}/${MEASUREMENTS}.thickness`,
     MATERIALS: `${classificationNamepace}/${GENERAL_INFORMATION}.materials`
   };
 
-  return Object.entries(allProducts).reduce((carry, [productCode, product]) => {
-    (product.classifications || []).forEach((classification) => {
-      const { code, features } = classification;
+  return Object.entries(allProducts).reduce<ClassificationsPerProductMap>(
+    (carry, [productCode, product]) => {
+      (product.classifications || []).forEach((classification) => {
+        const { code, features } = classification;
+        if (code === MEASUREMENTS) {
+          features?.forEach(({ code, name, featureValues, featureUnit }) => {
+            if (
+              [
+                FEATURES.LENGTH,
+                FEATURES.WIDTH,
+                FEATURES.HEIGHT,
+                FEATURES.THICKNESS
+              ].includes(code)
+            ) {
+              const productObject = carry[productCode];
+              const measurements = productObject
+                ? (productObject.measurements as TransformedMeasurementValue)
+                : {};
 
-      const carryProp = (
-        propName: string,
-        value: TransformedClassificationValue | TransformedMeasurementValue
-      ) => {
-        carry[productCode] = {
-          ...(carry[productCode] || {}),
-          [propName]: value
-        };
-      };
-
-      // merging object
-      // combining things just because I don't trust PIM's data to be consistent
-      if (code === SCORE_WEIGHT) {
-        // But here, don't care, score should only have one value
-        // Feature that contains the value
-        const valueFeature = features.find(({ code }) => {
-          return code === FEATURES.SCORE_WEIGHT;
-        });
-
-        carryProp("scoringweight", {
-          name: classification.name,
-          value: valueFeature ? valueFeature.featureValues[0] : "n/a"
-        });
-      }
-
-      if (code === APPEARANCE) {
-        features?.forEach(({ code, name, featureValues }) => {
-          if (code === FEATURES.TEXTURE_FAMILY) {
-            carryProp("texturefamily", {
-              name,
-              value: featureValues ? featureValues[0] : "n/a"
-            });
-          }
-
-          if (code === FEATURES.COLOUR) {
-            carryProp("colour", {
-              name,
-              value: featureValues ? featureValues[0] : "n/a",
-              thumbnailUrl: getColourThumbnailUrl([
-                ...(product.images || []),
-                ...(mainProduct.images || [])
-              ])
-            });
-          }
-
-          if (code === FEATURES.COLOUR_FAMILY) {
-            carryProp("colourfamily", {
-              name,
-              value: featureValues ? featureValues[0] : "n/a",
-              thumbnailUrl: getColourThumbnailUrl([
-                ...(product.images || []),
-                ...(mainProduct.images || [])
-              ])
-            });
-          }
-        });
-      }
-
-      if (code === MEASUREMENTS) {
-        features?.forEach(({ code, name, featureValues, featureUnit }) => {
-          if (
-            [
-              FEATURES.LENGTH,
-              FEATURES.WIDTH,
-              FEATURES.HEIGHT,
-              FEATURES.THICKNESS
-            ].includes(code)
-          ) {
-            const productObject = carry[productCode];
-            const measurements = productObject
-              ? (productObject.measurements as TransformedMeasurementValue)
-              : {};
-
-            carry[productCode] = {
-              ...productObject,
-              measurements: {
-                ...measurements,
-                [code.split(".").pop()]: {
-                  name,
-                  value: {
-                    value: featureValues ? featureValues[0] : "n/a",
-                    unit: featureUnit?.symbol
+              carry[productCode] = {
+                ...productObject,
+                measurements: {
+                  ...measurements,
+                  [code.split(".").pop()!]: {
+                    name,
+                    value: {
+                      value: featureValues ? featureValues[0] : "n/a",
+                      unit: featureUnit?.symbol
+                    }
                   }
-                }
-              }
-            };
-          }
-        });
-      }
-      if (code === GENERAL_INFORMATION) {
-        features?.forEach(({ code, name, featureValues }) => {
-          if (code === FEATURES.MATERIALS) {
-            carryProp("materials", {
-              name,
-              value: featureValues ? featureValues[0] : "n/a"
-            });
-          }
-        });
-      }
-    });
+                } as TransformedMeasurementValue
+              };
+            }
+          });
+        }
+      });
 
-    return carry;
-  }, {});
+      return carry;
+    },
+    {}
+  );
 };
 
 // From applications/dxb/head/src/utils/product-details-transforms.ts
@@ -272,13 +188,10 @@ export const getSizeLabel = (
   measurement: TransformedMeasurementValue,
   withUnit = true
 ) => {
-  const { length, width, height } = measurement || {};
-  const components = [width, length, height].filter(Boolean);
-
-  if (!components.length) {
-    return;
+  const components = Object.values(measurement || {}).filter(Boolean);
+  if (components.length === 0) {
+    return "";
   }
-
   const sameUnit = components.every(
     (value, i, arr) => value.value.unit === arr[0].value.unit
   );
@@ -290,4 +203,72 @@ export const getSizeLabel = (
       // Add extra space if units don't match
       .join(sameUnit ? "x" : " x ") + unit
   );
+};
+
+export type ESIndexObject = {
+  code: string;
+  name: string;
+};
+
+export interface IndexedItem<T = any> {
+  [key: string]: T;
+}
+
+export interface IndexedItemGroup<T> {
+  [key: string]: T[];
+}
+
+export const groupBy = <T extends IndexedItem>(
+  array: readonly T[],
+  key: keyof T
+): IndexedItemGroup<T> => {
+  return (array || []).reduce<IndexedItemGroup<T>>((map, item) => {
+    const itemKey = item[key];
+    map[itemKey] = map[itemKey] || [];
+    map[itemKey].push(item);
+    return map;
+  }, {});
+};
+
+const extractFeatureCode = (
+  pimClassificationNameSpace: string,
+  code: string
+) => {
+  return code.replace(`${pimClassificationNameSpace}/`, "");
+};
+
+export const IndexFeatures = (
+  pimClassificationNameSpace: string = "",
+  classifications: Classification[]
+): IndexedItemGroup<ESIndexObject> => {
+  const allfeaturesAsProps = (classifications || []).reduce(
+    (acc, classification) => {
+      const classificationFeatureAsProp = (
+        classification.features || []
+      ).reduce((featureAsProp, feature) => {
+        const featureCode = extractFeatureCode(
+          pimClassificationNameSpace,
+          feature.code
+        );
+        const nameAndCodeValues = feature.featureValues.map((featVal) => {
+          return {
+            code: `${featVal.code || featVal.value}${
+              feature.featureUnit?.symbol || ""
+            }`.trim(),
+            name: `${featVal.value} ${feature.featureUnit?.symbol || ""}`.trim()
+          };
+        });
+        return {
+          ...featureAsProp,
+          [featureCode]: nameAndCodeValues
+        };
+      }, {});
+      return {
+        ...acc,
+        ...classificationFeatureAsProp
+      };
+    },
+    {}
+  );
+  return allfeaturesAsProps;
 };

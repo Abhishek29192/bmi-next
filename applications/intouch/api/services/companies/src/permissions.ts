@@ -3,7 +3,8 @@ const COMPANY_ADMIN_PERMISSIONS = [
   ...INSTALLER_PERMISSIONS,
   "invite",
   "grant:company_admin",
-  "grant:nominate_responsible_installer"
+  "grant:nominate_responsible_installer",
+  "delete:evidence"
 ];
 const MARKET_ADMIN_PERMISSIONS = [
   ...COMPANY_ADMIN_PERMISSIONS,
@@ -15,7 +16,8 @@ const SUPER_ADMIN_PERMISSIONS = [
   ...MARKET_ADMIN_PERMISSIONS,
   "grant:super_admin",
   "import:products:markets",
-  "resetImportedUsersPasswords"
+  "resetImportedUsersPasswords",
+  "import:account:markets"
 ];
 
 export default {

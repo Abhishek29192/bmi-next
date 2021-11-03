@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import { Inline } from "@contentful/rich-text-types";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import withGTM from "../utils/google-tag-manager";
-import { getPathWithCountryCode } from "../schema/resolvers/utils/path";
+import { getPathWithCountryCode } from "../utils/path";
 import { getClickableActionFromUrl, getLinkURL, renderDialog } from "./Link";
 import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";

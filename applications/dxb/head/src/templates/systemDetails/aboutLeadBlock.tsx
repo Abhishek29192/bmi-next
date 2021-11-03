@@ -4,21 +4,24 @@ import Typography from "@bmi/typography";
 import IconList from "@bmi/icon-list";
 import Icon from "@bmi/icon";
 import CheckIcon from "@material-ui/icons/Check";
-import Button from "@bmi/button";
+import Button, { ButtonProps } from "@bmi/button";
 import { Launch } from "@material-ui/icons";
 import { useSiteContext } from "../../components/Site";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText from "../../components/RichText";
-import { Assets, Feature, SystemBenefits } from "./types";
+import { Asset, Feature } from "../../components/types/pim";
+import withGTM from "../../utils/google-tag-manager";
 import styles from "./styles/aboutLeadBlock.module.scss";
+
+const GTMButton = withGTM<ButtonProps>(Button);
 
 type Props = {
   longDescription: string;
-  guaranteesAndWarranties?: Assets[];
-  awardsAndCertificates?: Assets[];
+  guaranteesAndWarranties?: Asset[];
+  awardsAndCertificates?: Asset[];
   keyFeatures?: Feature;
-  systemBenefits?: SystemBenefits;
-  specification?: Assets;
+  systemBenefits?: string[];
+  specification?: Asset;
   sidebarItem?: ContentfulTitleWithContent;
 };
 
@@ -110,7 +113,7 @@ const AboutLeadBlock = ({
               {getMicroCopy("sdp.leadBlock.specification")}
             </LeadBlock.Content.Heading>
 
-            <Button
+            <GTMButton
               variant="outlined"
               action={{
                 model: "htmlLink",
@@ -119,9 +122,14 @@ const AboutLeadBlock = ({
                 rel: "noopener noreferrer"
               }}
               endIcon={<Launch />}
+              gtm={{
+                id: "cta-click1",
+                label: specification.name,
+                action: specification.url
+              }}
             >
               {specification.name}
-            </Button>
+            </GTMButton>
           </LeadBlock.Content.Section>
         )}
       </LeadBlock.Content>

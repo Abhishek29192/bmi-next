@@ -1,7 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import RelatedProducts from "../RelatedProducts";
-import { Product } from "../types/ProductBaseTypes";
+import { Product } from "../types/pim";
+import { createBaseProduct } from "../../__tests__/PimDocumentProductHelper";
+import createCategory from "../../__tests__/CategoryHelper";
 
 describe("RelatedProducts component", () => {
   it("renders correctly with no products", () => {
@@ -19,29 +21,20 @@ describe("RelatedProducts component", () => {
 
   it("renders correctly with no variants", () => {
     const prods: Product[] = [
-      {
-        code: "test1",
-        externalProductCode: "test1",
-        name: "imaproduct",
-        description: "imadescription",
-        documents: [],
-        breadcrumbs: null,
+      createBaseProduct({
         categories: [
-          {
-            name: "Root",
+          createCategory({
             categoryType: "Category",
-            code: "Root",
+            code: "parent-category",
             parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
+          }),
+          createCategory({
             categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
+            parentCategoryCode: "parent-category"
+          })
         ],
         variantOptions: []
-      }
+      })
     ];
 
     const { container } = render(
@@ -56,41 +49,9 @@ describe("RelatedProducts component", () => {
 
   it("renders correctly with products", () => {
     const prods: Product[] = [
-      {
-        code: "test1",
-        externalProductCode: "test1",
-        name: "imaproduct",
-        description: "imadescription",
-        documents: [],
-        breadcrumbs: null,
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test1",
-            externalProductCode: "test1",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah",
-            longDescription: "blah blah",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
-        ]
-      }
+      createBaseProduct({
+        categories: [createCategory({ categoryType: "Category" })]
+      })
     ];
 
     const { container } = render(
@@ -104,30 +65,7 @@ describe("RelatedProducts component", () => {
   });
 
   it("renders correctly with products without categories", () => {
-    const prods: Product[] = [
-      {
-        code: "test1",
-        externalProductCode: "test1",
-        name: "imaproduct",
-        description: "imadescription",
-        documents: [],
-        breadcrumbs: null,
-        categories: [],
-        variantOptions: [
-          {
-            code: "test1",
-            externalProductCode: "test1",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah",
-            longDescription: "blah blah",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
-        ]
-      }
-    ];
+    const prods: Product[] = [createBaseProduct({ categories: [] })];
 
     const { container } = render(
       <RelatedProducts
@@ -139,79 +77,39 @@ describe("RelatedProducts component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  // TODO: What on earth is going on here?!
   it("renders variants correctly with products without classifications or externalProductCode", () => {
     const prods: Product[] = [
-      {
-        code: "test1",
-        externalProductCode: "test1",
-        name: "imaproduct",
-        description: "imadescription",
-        documents: [],
-        breadcrumbs: null,
+      createBaseProduct({
         categories: [
-          {
-            name: "Root",
+          createCategory({
             categoryType: "Category",
-            code: "Root",
+            code: "parent-category",
             parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
+          }),
+          createCategory({
             categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
+            parentCategoryCode: "parent-category"
+          })
         ],
-        variantOptions: [
-          {
-            code: "test1",
-            externalProductCode: "test1",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah",
-            longDescription: "blah blah",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
-        ]
-      },
-      {
-        code: "test2",
-        externalProductCode: "test2",
-        name: "imaproduct2",
-        description: "imadescription2",
-        documents: [],
-        breadcrumbs: null,
+        classifications: null,
+        externalProductCode: "test1"
+      }),
+      createBaseProduct({
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
         classifications: [],
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test2",
-            externalProductCode: "",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah2",
-            longDescription: "blah blah2",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
-        ]
-      }
+        externalProductCode: "test2"
+      })
     ];
 
     const { container } = render(
@@ -226,13 +124,19 @@ describe("RelatedProducts component", () => {
 
   it("renders correctly with scoringweight", () => {
     const prods: Product[] = [
-      {
-        code: "test1",
-        externalProductCode: "test1",
-        name: "imaproduct",
-        description: "imadescription",
-        documents: [],
-        breadcrumbs: null,
+      createBaseProduct({
+        name: "product-1",
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
         classifications: [
           {
             code: "scoringWeightAttributes",
@@ -250,42 +154,21 @@ describe("RelatedProducts component", () => {
             ],
             name: "test"
           }
-        ],
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test1",
-            externalProductCode: "test1",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah",
-            longDescription: "blah blah",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
         ]
-      },
-      {
-        code: "test2",
-        externalProductCode: "test2",
-        name: "imaproduct2",
-        description: "imadescription2",
-        documents: [],
-        breadcrumbs: null,
+      }),
+      createBaseProduct({
+        name: "product-2",
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
         classifications: [
           {
             code: "scoringWeightAttributes",
@@ -303,35 +186,8 @@ describe("RelatedProducts component", () => {
             ],
             name: "test"
           }
-        ],
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test2",
-            externalProductCode: "test2",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah2",
-            longDescription: "blah blah2",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
         ]
-      }
+      })
     ];
 
     const { container } = render(
@@ -347,13 +203,19 @@ describe("RelatedProducts component", () => {
   // TODO: improve test to check order correctly
   it("renders correctly when scoringweight equal", () => {
     const prods: Product[] = [
-      {
-        code: "test1",
-        externalProductCode: "test1",
-        name: "imaproduct",
-        description: "imadescription",
-        documents: [],
-        breadcrumbs: null,
+      createBaseProduct({
+        name: "product-1",
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
         classifications: [
           {
             code: "scoringWeightAttributes",
@@ -371,42 +233,21 @@ describe("RelatedProducts component", () => {
             ],
             name: "test"
           }
-        ],
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test1",
-            externalProductCode: "test1",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah",
-            longDescription: "blah blah",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
         ]
-      },
-      {
-        code: "test2",
-        externalProductCode: "test2",
-        name: "imaproduct2",
-        description: "imadescription2",
-        documents: [],
-        breadcrumbs: null,
+      }),
+      createBaseProduct({
+        name: "product-2",
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
         classifications: [
           {
             code: "scoringWeightAttributes",
@@ -424,35 +265,8 @@ describe("RelatedProducts component", () => {
             ],
             name: "test"
           }
-        ],
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test2",
-            externalProductCode: "test2",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah2",
-            longDescription: "blah blah2",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
         ]
-      }
+      })
     ];
 
     const { container } = render(
@@ -468,13 +282,19 @@ describe("RelatedProducts component", () => {
   // TODO: improve test to check order correctly
   it("renders correctly when scoringweight equal & names equal", () => {
     const prods: Product[] = [
-      {
-        code: "test1",
-        externalProductCode: "test1",
-        name: "imaproduct",
-        description: "imadescription",
-        documents: [],
-        breadcrumbs: null,
+      createBaseProduct({
+        name: "product",
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
         classifications: [
           {
             code: "scoringWeightAttributes",
@@ -492,42 +312,21 @@ describe("RelatedProducts component", () => {
             ],
             name: "test"
           }
-        ],
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test1",
-            externalProductCode: "test1",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah",
-            longDescription: "blah blah",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
         ]
-      },
-      {
-        code: "test2",
-        externalProductCode: "test2",
-        name: "imaproduct",
-        description: "imadescription2",
-        documents: [],
-        breadcrumbs: null,
+      }),
+      createBaseProduct({
+        name: "product",
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
         classifications: [
           {
             code: "scoringWeightAttributes",
@@ -545,35 +344,8 @@ describe("RelatedProducts component", () => {
             ],
             name: "test"
           }
-        ],
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test2",
-            externalProductCode: "test2",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah2",
-            longDescription: "blah blah2",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
         ]
-      }
+      })
     ];
 
     const { container } = render(
@@ -589,13 +361,19 @@ describe("RelatedProducts component", () => {
   // TODO: improve test to check order correctly
   it("renders correctly when scoringweight equal & names sorted opposite", () => {
     const prods: Product[] = [
-      {
-        code: "test1",
-        externalProductCode: "test1",
-        name: "imaproduct2",
-        description: "imadescription",
-        documents: [],
-        breadcrumbs: null,
+      createBaseProduct({
+        name: "product-2",
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
         classifications: [
           {
             code: "scoringWeightAttributes",
@@ -613,42 +391,21 @@ describe("RelatedProducts component", () => {
             ],
             name: "test"
           }
-        ],
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test1",
-            externalProductCode: "test1",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah",
-            longDescription: "blah blah",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
         ]
-      },
-      {
-        code: "test2",
-        externalProductCode: "test2",
-        name: "imaproduct1",
-        description: "imadescription2",
-        documents: [],
-        breadcrumbs: null,
+      }),
+      createBaseProduct({
+        name: "product-1",
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
         classifications: [
           {
             code: "scoringWeightAttributes",
@@ -666,35 +423,8 @@ describe("RelatedProducts component", () => {
             ],
             name: "test"
           }
-        ],
-        categories: [
-          {
-            name: "Root",
-            categoryType: "Category",
-            code: "Root",
-            parentCategoryCode: ""
-          },
-          {
-            name: "Bob",
-            categoryType: "Category",
-            code: "BOB",
-            parentCategoryCode: "Root"
-          }
-        ],
-        variantOptions: [
-          {
-            code: "test2",
-            externalProductCode: "test2",
-            isSampleOrderAllowed: false,
-            approvalStatus: "approved",
-            shortDescription: "blah2",
-            longDescription: "blah blah2",
-            images: null,
-            breadcrumbs: null,
-            path: ""
-          }
         ]
-      }
+      })
     ];
 
     const { container } = render(

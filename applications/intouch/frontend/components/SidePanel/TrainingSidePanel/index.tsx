@@ -1,43 +1,18 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Typography from "@bmi/typography";
-import { SvgIcon } from "@material-ui/core";
 import { Technology } from "@bmi/intouch-api-types";
+import Icon from "@bmi/icon";
 import { FilterResult } from "../../FilterResult";
 import { SidePanel } from "../";
 import { TrainingQuery } from "../../../graphql/generated/operations";
-import { PitchIcon, FlatIcon, OtherIcon } from "../../icons";
+import { getTechnology, technologyIcon } from "../../../lib/utils/course";
+import styles from "./styles.module.scss";
 
 const DEFAULT_FILTER_CRITERIA = "all";
 
-const courseTech: { [K in Technology]: string } = {
-  FLAT: "FLAT",
-  PITCHED: "PITCHED",
-  OTHER: "OTHER"
-};
-
-const TECHNOLOGIES_ICONS: {
-  [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;
-} = {
-  FLAT: FlatIcon,
-  PITCHED: PitchIcon,
-  OTHER: OtherIcon
-};
-
-const trainingFilters = [
-  {
-    label: DEFAULT_FILTER_CRITERIA.toLowerCase(),
-    attr: DEFAULT_FILTER_CRITERIA,
-    isActive: false
-  },
-  ...Object.keys(courseTech).map((key) => ({
-    label: `${courseTech[`${key}`]}`.toLowerCase(),
-    attr: courseTech[`${key}`],
-    isActive: false
-  }))
-];
-
 type TrainingSidePanelProps = {
-  courseCatalog?: TrainingQuery["courseCatalogues"];
+  courseCatalog?: TrainingQuery["courseCatalogues"]["nodes"];
   onCourseSelected?: (courseId: number) => void;
   onFilterChange?: () => void;
 };
@@ -47,11 +22,30 @@ export const TrainingSidePanel = ({
   onCourseSelected,
   onFilterChange
 }: TrainingSidePanelProps) => {
+  const { t } = useTranslation(["common", "training-page"]);
+  const courseTech: { [K in Technology]: string } = {
+    FLAT: t("common:certifications.flat"),
+    PITCHED: t("common:certifications.pitched"),
+    OTHER: t("common:certifications.other")
+  };
+
+  const trainingFilters = [
+    {
+      label: t("training-page:filter.labels.all"),
+      attr: DEFAULT_FILTER_CRITERIA,
+      isActive: false
+    },
+    ...Object.entries(courseTech).map(([key, label]) => ({
+      label,
+      attr: key.toLowerCase(),
+      isActive: false
+    }))
+  ];
+
   const [filterCriteria, setFilterCriteria] = useState<string>(
     DEFAULT_FILTER_CRITERIA
   );
   const [searchCriteria, setSearchCriteria] = useState<string>(undefined);
-  const { nodes = [] } = courseCatalog || {};
 
   const trainingFilterClickHandler = ({ attr }) => {
     setFilterCriteria(attr);
@@ -61,17 +55,17 @@ export const TrainingSidePanel = ({
   trainingFilters.forEach(
     (item) => (item.isActive = item.attr === filterCriteria)
   );
-  const courses = nodes.filter(
+  const courses = courseCatalog.filter(
     ({ course: { name, technology } }) =>
       (filterCriteria === DEFAULT_FILTER_CRITERIA ||
-        technology === filterCriteria) &&
+        (technology && technology.toLowerCase() === filterCriteria)) &&
       (!searchCriteria ||
         name.toLowerCase().includes(searchCriteria.toLowerCase()))
   );
 
   return (
     <SidePanel
-      searchLabel="Search for training"
+      searchLabel={t("training-page:search.inputLabel")}
       filters={trainingFilters}
       filterClick={trainingFilterClickHandler}
       onSearchFilterChange={(filter: string) => {
@@ -83,11 +77,12 @@ export const TrainingSidePanel = ({
           course: {
             courseId,
             name,
-            technology,
+            technology: courseTechnology,
             trainingType,
             courseEnrollments
           }
         }) => {
+          const technology = getTechnology(courseTechnology);
           return (
             <FilterResult
               label={name}
@@ -97,13 +92,18 @@ export const TrainingSidePanel = ({
               }}
             >
               <Typography style={{ textTransform: "capitalize" }}>
-                {trainingType}
+                {t(`training-page:type.${trainingType}`)}
               </Typography>
-              <Typography style={{ display: "flex", padding: "2px" }}>
-                <SvgIcon
-                  component={TECHNOLOGIES_ICONS[technology as Technology]}
-                />
-                {courseEnrollments.nodes[0]?.status}
+              <Typography className={styles.icon}>
+                {technology && (
+                  <Icon
+                    source={technologyIcon[technology]}
+                    className={styles.technologyIcon}
+                  />
+                )}
+                {t(
+                  `training-page:${courseEnrollments?.nodes[0]?.status || ""}`
+                )}
               </Typography>
             </FilterResult>
           );

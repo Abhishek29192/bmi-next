@@ -1351,12 +1351,12 @@ type Account implements Node {
   """
   First name
   """
-  firstName: String!
+  firstName: String
 
   """
   Last name
   """
-  lastName: String!
+  lastName: String
 
   """
   When the account was created
@@ -2951,7 +2951,7 @@ type Address implements Node {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -2976,7 +2976,7 @@ type Address implements Node {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -3679,6 +3679,7 @@ type EvidenceItem implements Node {
   """
   guarantee: Guarantee
   customEvidenceCategory: ContentfulEvidenceCategory
+  signedUrl: String
 }
 
 enum CustomEvidenceCategoryKey {
@@ -3780,12 +3781,13 @@ type Guarantee implements Node {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -3868,6 +3870,7 @@ type Guarantee implements Node {
   ): EvidenceItemsConnection!
   guaranteeType: ContentfulGuaranteeType
   guaranteeTypes: ContentfulGuaranteeTypeCollection
+  signedFileStorageUrl: String
 }
 
 enum GuaranteeReferenceCode {
@@ -4728,7 +4731,7 @@ type ContentfulGuaranteeTemplate {
 
 type ContentfulMessage {
   event: ContentfulMessageEventType
-  format: ContentfulMessageFormat
+  format: [ContentfulMessageFormat]
   subject: String
   notificationBody: String
   emailBody: String
@@ -8091,6 +8094,12 @@ type Mutation {
     """
     input: LinkAccountToCompanyInput!
   ): LinkAccountToCompanyPayload
+  markAllNotificationsAsRead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: MarkAllNotificationsAsReadInput!
+  ): MarkAllNotificationsAsReadPayload
   projectMembersAdd(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -8124,6 +8133,12 @@ type Mutation {
     """
     input: BulkImportInput!
   ): ImportOutput
+  importAccountsCompaniesFromCVS(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: ImportAccountsCompaniesFromCSVInput!
+  ): ImportAccountsCompaniesFromCSVResult
 }
 
 """
@@ -8185,7 +8200,7 @@ input AddressInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -8210,7 +8225,7 @@ input AddressInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -9035,6 +9050,7 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -11281,6 +11297,7 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -11572,6 +11589,7 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -12531,6 +12549,7 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -12723,12 +12742,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -12912,6 +12932,7 @@ input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -13044,12 +13065,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -13660,7 +13682,7 @@ input ProjectBuildingOwnerAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -13685,7 +13707,7 @@ input ProjectBuildingOwnerAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -14117,12 +14139,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -15106,12 +15129,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -15389,12 +15413,13 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -15578,6 +15603,7 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -16325,6 +16351,7 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -17182,6 +17209,7 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -17478,6 +17506,7 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -17768,6 +17797,7 @@ input AccountPatch {
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
   photoUpload: Upload
   shouldRemovePhoto: Boolean
+  termsCondition: Boolean
 }
 
 """
@@ -18800,12 +18830,13 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -18913,12 +18944,13 @@ input GuaranteePatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -18996,12 +19028,13 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -19203,12 +19236,13 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -20930,12 +20964,13 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -21544,12 +21579,13 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -21852,7 +21888,7 @@ input ProjectSiteAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -21877,7 +21913,7 @@ input ProjectSiteAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -22085,12 +22121,13 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -22238,12 +22275,13 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -23263,7 +23301,7 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -23288,7 +23326,7 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -23379,7 +23417,7 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
   """
   First line of this address
   """
-  firstLine: String!
+  firstLine: String
 
   """
   Second line of this address
@@ -23404,7 +23442,7 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
   """
   The postcode for this address
   """
-  postcode: String!
+  postcode: String
 
   """
   The coordinates on a map of the world
@@ -24385,12 +24423,13 @@ input GuaranteeInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
   """
   expiryDate: Datetime
 
@@ -28582,12 +28621,12 @@ input AccountInput {
   """
   First name
   """
-  firstName: String!
+  firstName: String
 
   """
   Last name
   """
-  lastName: String!
+  lastName: String
 
   """
   When the account was created
@@ -28784,6 +28823,35 @@ input LinkAccountToCompanyInput {
 }
 
 """
+The output of our `markAllNotificationsAsRead` mutation.
+"""
+type MarkAllNotificationsAsReadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  notifications: [Notification!]
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `markAllNotificationsAsRead` mutation.
+"""
+input MarkAllNotificationsAsReadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  accountToUpdateId: Int
+}
+
+"""
 The output of our `projectMembersAdd` mutation.
 """
 type ProjectMembersAddPayload {
@@ -28865,6 +28933,25 @@ type ImportError {
 input BulkImportInput {
   files: [Upload!]!
   dryRun: Boolean
+}
+
+type ImportAccountsCompaniesFromCSVResult {
+  auth0Job: Auth0ImportResult
+  accounts: [Account]
+  companies: [Company]
+}
+
+type Auth0ImportResult {
+  type: String
+  status: String
+  connection_id: String
+  connection: String
+  created_at: String
+  id: String
+}
+
+input ImportAccountsCompaniesFromCSVInput {
+  files: [Upload!]!
 }
 
 """

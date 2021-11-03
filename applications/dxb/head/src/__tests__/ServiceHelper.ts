@@ -1,8 +1,9 @@
+import { EntryTypeEnum } from "../components/Service";
 import { Service } from "../components/ServiceLocatorSection";
 
 const createRoofer = (service?: Partial<Service>): Service => ({
   __typename: "ContentfulService",
-  entryType: "Roofer",
+  entryType: EntryTypeEnum.ROOFER_TYPE,
   id: "roofer_id",
   name: "roofer 1",
   location: {
@@ -15,6 +16,8 @@ const createRoofer = (service?: Partial<Service>): Service => ({
   website: "www.test.com",
   fax: "fax 1",
   type: null,
+  branchType: null,
+  merchantType: null,
   certification: null,
   summary: "roofer summary",
   distance: 10,

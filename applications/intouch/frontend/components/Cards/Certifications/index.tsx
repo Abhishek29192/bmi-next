@@ -52,21 +52,21 @@ export const CertificationsCard = ({
         {isCertifiedPitched && (
           <CertificationsItem
             iconSource={CertificationPitchedRoof}
-            label={t("Pitched")}
+            label={t("certifications.pitched")}
           />
         )}
 
         {isCertifiedFlat && (
           <CertificationsItem
             iconSource={CertificationFlatRoof}
-            label={t("Flat")}
+            label={t("certifications.flat")}
           />
         )}
 
         {isCertifiedOther && (
           <CertificationsItem
             iconSource={CertificationOtherTraining}
-            label={t("Other")}
+            label={t("certifications.other")}
           />
         )}
       </div>

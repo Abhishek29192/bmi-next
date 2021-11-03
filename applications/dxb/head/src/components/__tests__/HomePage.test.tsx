@@ -6,11 +6,10 @@ import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as PageData } from "../../components/Page";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as SectionsData } from "../../components/Sections";
-import regions from "../../countries/region.json";
 import { Data as PromoData } from "../Promo";
 import { Data as SiteData } from "../Site";
-import { NavigationData } from "../Link";
-import { getPathWithCountryCode } from "../../schema/resolvers/utils/path";
+import { DataTypeEnum, NavigationData } from "../Link";
+import { getPathWithCountryCode } from "../../utils/path";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -195,7 +194,7 @@ const mockNavigation: NavigationData = {
       isLabelHidden: false,
       url: "link-to-page",
       linkedPage: null,
-      type: "External",
+      type: DataTypeEnum.External,
       parameters: null,
       dialogContent: null,
       hubSpotCTAID: null
@@ -241,7 +240,7 @@ describe("HomePage template", () => {
   });
 
   it("renders homepage correctly when not using countryCode", () => {
-    slide.path = getPathWithCountryCode("en", "search", true);
+    slide.path = "/search";
 
     const hpData = {
       contentfulHomePage: homepageData,

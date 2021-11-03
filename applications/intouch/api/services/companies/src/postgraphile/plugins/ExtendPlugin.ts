@@ -10,6 +10,7 @@ import {
   completeInvitation,
   resetPasswordImportedUsers
 } from "../../services/account";
+import { importAccountsCompaniesFromCVS } from "../../services/importer";
 import { publish, TOPICS } from "../../services/events";
 import {
   getGuaranteeTypeCollection,
@@ -66,6 +67,11 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             return null;
           }
           return { ...guaranteeTypeCollection.items[0], languageCode };
+        },
+        signedFileStorageUrl: async (parent, args, { storageClient }) => {
+          return await storageClient.getPrivateAssetSignedUrl(
+            parent.fileStorageId
+          );
         }
       },
       ContentfulGuaranteeType: {
@@ -91,6 +97,11 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         }
       },
       EvidenceItem: {
+        signedUrl: async (parent, args, { storageClient }) => {
+          return await storageClient.getPrivateAssetSignedUrl(
+            parent.attachment
+          );
+        },
         customEvidenceCategory: async (_query, args, context) => {
           const { customEvidenceCategoryKey } = _query;
 
@@ -177,6 +188,21 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         resetPassword: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
           return resetPassword(_query, args, context, resolveInfo, auth0);
+        },
+        importAccountsCompaniesFromCVS: async (
+          _query,
+          args,
+          context,
+          resolveInfo
+        ) => {
+          const auth0 = await Auth0.init(context.logger);
+          return importAccountsCompaniesFromCVS(
+            _query,
+            args,
+            context,
+            resolveInfo,
+            auth0
+          );
         }
       }
     }

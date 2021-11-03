@@ -69,9 +69,9 @@ export type Account = Node & {
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
   /** First name */
-  firstName: Scalars["String"];
+  firstName?: Maybe<Scalars["String"]>;
   /** Last name */
-  lastName: Scalars["String"];
+  lastName?: Maybe<Scalars["String"]>;
   /** When the account was created */
   created?: Maybe<Scalars["Datetime"]>;
   /** User account in Docebo */
@@ -285,9 +285,9 @@ export type AccountInput = {
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
   /** First name */
-  firstName: Scalars["String"];
+  firstName?: Maybe<Scalars["String"]>;
   /** Last name */
-  lastName: Scalars["String"];
+  lastName?: Maybe<Scalars["String"]>;
   /** When the account was created */
   created?: Maybe<Scalars["Datetime"]>;
   /** User account in Docebo */
@@ -791,6 +791,7 @@ export type AccountPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 export type AccountStatus = "NEW" | "ACTIVE" | "SUSPENDED";
@@ -839,7 +840,7 @@ export type Address = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -849,7 +850,7 @@ export type Address = Node & {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<Point>;
   /** Used for reference when importing data from the legacy system */
@@ -949,7 +950,7 @@ export type AddressInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -959,7 +960,7 @@ export type AddressInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -1294,6 +1295,16 @@ export type AssetOrder =
   | "sys_firstPublishedAt_DESC"
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
+
+export type Auth0ImportResult = {
+  __typename?: "Auth0ImportResult";
+  type?: Maybe<Scalars["String"]>;
+  status?: Maybe<Scalars["String"]>;
+  connection_id?: Maybe<Scalars["String"]>;
+  connection?: Maybe<Scalars["String"]>;
+  created_at?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars["String"]>;
+};
 
 /** A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’ */
 export type BooleanFilter = {
@@ -3467,7 +3478,7 @@ export type CompanyRegisteredAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -3477,7 +3488,7 @@ export type CompanyRegisteredAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -3557,7 +3568,7 @@ export type CompanyTradingAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -3567,7 +3578,7 @@ export type CompanyTradingAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -3973,7 +3984,7 @@ export type ContentfulGuaranteeTypeCollection = {
 export type ContentfulMessage = {
   __typename?: "ContentfulMessage";
   event?: Maybe<ContentfulMessageEventType>;
-  format?: Maybe<ContentfulMessageFormat>;
+  format?: Maybe<Array<Maybe<ContentfulMessageFormat>>>;
   subject?: Maybe<Scalars["String"]>;
   notificationBody?: Maybe<Scalars["String"]>;
   emailBody?: Maybe<Scalars["String"]>;
@@ -4040,6 +4051,8 @@ export type Course = {
   id: Scalars["Int"];
   /** Docebo CourseId */
   courseId?: Maybe<Scalars["Int"]>;
+  /** Course slug */
+  slug?: Maybe<Scalars["String"]>;
   /** technology */
   technology?: Maybe<Scalars["String"]>;
   /** A short name for the Course taken from Docebo */
@@ -4540,6 +4553,8 @@ export type CourseInput = {
   id?: Maybe<Scalars["Int"]>;
   /** Docebo CourseId */
   courseId?: Maybe<Scalars["Int"]>;
+  /** Course slug */
+  slug?: Maybe<Scalars["String"]>;
   /** technology */
   technology?: Maybe<Scalars["String"]>;
   /** A short name for the Course taken from Docebo */
@@ -4562,6 +4577,8 @@ export type CoursePatch = {
   id?: Maybe<Scalars["Int"]>;
   /** Docebo CourseId */
   courseId?: Maybe<Scalars["Int"]>;
+  /** Course slug */
+  slug?: Maybe<Scalars["String"]>;
   /** technology */
   technology?: Maybe<Scalars["String"]>;
   /** A short name for the Course taken from Docebo */
@@ -4669,6 +4686,8 @@ export type CourseTemp = {
   id: Scalars["Int"];
   /** Docebo CourseId */
   courseId?: Maybe<Scalars["Int"]>;
+  /** Course slug */
+  slug?: Maybe<Scalars["String"]>;
   /** technology */
   technology?: Maybe<Scalars["String"]>;
   /** A short name for the Course taken from Docebo */
@@ -4700,6 +4719,8 @@ export type CourseTempInput = {
   id?: Maybe<Scalars["Int"]>;
   /** Docebo CourseId */
   courseId?: Maybe<Scalars["Int"]>;
+  /** Course slug */
+  slug?: Maybe<Scalars["String"]>;
   /** technology */
   technology?: Maybe<Scalars["String"]>;
   /** A short name for the Course taken from Docebo */
@@ -4722,6 +4743,8 @@ export type CourseTempPatch = {
   id?: Maybe<Scalars["Int"]>;
   /** Docebo CourseId */
   courseId?: Maybe<Scalars["Int"]>;
+  /** Course slug */
+  slug?: Maybe<Scalars["String"]>;
   /** technology */
   technology?: Maybe<Scalars["String"]>;
   /** A short name for the Course taken from Docebo */
@@ -7286,6 +7309,7 @@ export type EvidenceItem = Node & {
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
   customEvidenceCategory?: Maybe<ContentfulEvidenceCategory>;
+  signedUrl?: Maybe<Scalars["String"]>;
 };
 
 /**
@@ -7374,9 +7398,12 @@ export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -7788,9 +7815,12 @@ export type Guarantee = Node & {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -7810,6 +7840,7 @@ export type Guarantee = Node & {
   evidenceItems: EvidenceItemsConnection;
   guaranteeType?: Maybe<ContentfulGuaranteeType>;
   guaranteeTypes?: Maybe<ContentfulGuaranteeTypeCollection>;
+  signedFileStorageUrl?: Maybe<Scalars["String"]>;
 };
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
@@ -7927,9 +7958,12 @@ export type GuaranteeInput = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -8138,9 +8172,12 @@ export type GuaranteePatch = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -8176,9 +8213,12 @@ export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -8303,9 +8343,12 @@ export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -8446,9 +8489,12 @@ export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -8548,9 +8594,12 @@ export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -8650,9 +8699,12 @@ export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -9613,6 +9665,17 @@ export type ImageTransformOptions = {
   format?: Maybe<ImageFormat>;
 };
 
+export type ImportAccountsCompaniesFromCsvInput = {
+  files: Array<Scalars["Upload"]>;
+};
+
+export type ImportAccountsCompaniesFromCsvResult = {
+  __typename?: "ImportAccountsCompaniesFromCSVResult";
+  auth0Job?: Maybe<Auth0ImportResult>;
+  accounts?: Maybe<Array<Maybe<Account>>>;
+  companies?: Maybe<Array<Maybe<Company>>>;
+};
+
 export type ImportError = {
   __typename?: "ImportError";
   ref?: Maybe<Scalars["String"]>;
@@ -10061,6 +10124,29 @@ export type LinkAccountToCompanyPayload = {
 /** The output of our `linkAccountToCompany` mutation. */
 export type LinkAccountToCompanyPayloadCompanyMemberEdgeArgs = {
   orderBy?: Maybe<Array<CompanyMembersOrderBy>>;
+};
+
+/** All input for the `markAllNotificationsAsRead` mutation. */
+export type MarkAllNotificationsAsReadInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  accountToUpdateId?: Maybe<Scalars["Int"]>;
+};
+
+/** The output of our `markAllNotificationsAsRead` mutation. */
+export type MarkAllNotificationsAsReadPayload = {
+  __typename?: "MarkAllNotificationsAsReadPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  notifications?: Maybe<Array<Notification>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** A country that BMI operates in */
@@ -11409,8 +11495,10 @@ export type Mutation = {
   /** Deletes a single `SystemMember` using a unique key. */
   deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<DeleteSystemMemberPayload>;
   evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
+  importAccountsCompaniesFromCVS?: Maybe<ImportAccountsCompaniesFromCsvResult>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
+  markAllNotificationsAsRead?: Maybe<MarkAllNotificationsAsReadPayload>;
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
   resetPassword?: Maybe<Scalars["String"]>;
@@ -12058,6 +12146,11 @@ export type MutationEvidenceItemsAddArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationImportAccountsCompaniesFromCvsArgs = {
+  input: ImportAccountsCompaniesFromCsvInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationInviteArgs = {
   input: InviteInput;
 };
@@ -12065,6 +12158,11 @@ export type MutationInviteArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationLinkAccountToCompanyArgs = {
   input: LinkAccountToCompanyInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationMarkAllNotificationsAsReadArgs = {
+  input: MarkAllNotificationsAsReadInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13690,7 +13788,7 @@ export type ProjectBuildingOwnerAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -13700,7 +13798,7 @@ export type ProjectBuildingOwnerAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -14521,7 +14619,7 @@ export type ProjectSiteAddressIdFkeyAddressCreateInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** First line of this address */
-  firstLine: Scalars["String"];
+  firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
@@ -14531,7 +14629,7 @@ export type ProjectSiteAddressIdFkeyAddressCreateInput = {
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
-  postcode: Scalars["String"];
+  postcode?: Maybe<Scalars["String"]>;
   /** The coordinates on a map of the world */
   coordinates?: Maybe<PointInput>;
   /** Used for reference when importing data from the legacy system */
@@ -19125,6 +19223,7 @@ export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19169,6 +19268,7 @@ export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
     projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
     photoUpload?: Maybe<Scalars["Upload"]>;
     shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+    termsCondition?: Maybe<Scalars["Boolean"]>;
   };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19214,6 +19314,7 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19259,6 +19360,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19304,6 +19406,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19349,6 +19452,7 @@ export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19394,6 +19498,7 @@ export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19439,6 +19544,7 @@ export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
@@ -19484,6 +19590,7 @@ export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
   projectMembersUsingId?: Maybe<ProjectMemberAccountIdFkeyInverseInput>;
   photoUpload?: Maybe<Scalars["Upload"]>;
   shouldRemovePhoto?: Maybe<Scalars["Boolean"]>;
+  termsCondition?: Maybe<Scalars["Boolean"]>;
 };
 
 /** An object where the defined keys will be set on the `address` being updated. */
@@ -20276,9 +20383,12 @@ export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -20314,9 +20424,12 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -20352,9 +20465,12 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -20391,9 +20507,12 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
     languageCode?: Maybe<Language>;
     /** ek */
     status?: Maybe<RequestStatus>;
-    /** The date that the Guarantee is approved either automatically or manually */
+    /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
     startDate?: Maybe<Scalars["Datetime"]>;
-    /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+    /**
+     * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+     * The date is stored in UTC.
+     */
     expiryDate?: Maybe<Scalars["Datetime"]>;
     /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
     bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -20429,9 +20548,12 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -20467,9 +20589,12 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {
   languageCode?: Maybe<Language>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually */
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;

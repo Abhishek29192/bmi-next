@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "@bmi/table";
 import { useTranslation } from "next-i18next";
 import { CompanyMember, Technology } from "@bmi/intouch-api-types";
@@ -14,6 +14,7 @@ type AddTeamMemberDialogProps = {
   onConfirmClick: (members: CompanyMember[]) => void;
   members: CompanyMember[];
 };
+
 export const AddTeamMemberDialog = ({
   isOpen,
   onCloseClick,
@@ -34,6 +35,10 @@ export const AddTeamMemberDialog = ({
         : [...teamMembers.filter((team) => team.id !== member.id)]
     );
   };
+
+  useEffect(() => {
+    setSelectedTeamMembers([]);
+  }, [members]);
 
   return (
     <Dialog open={isOpen} onCloseClick={onCloseClick}>

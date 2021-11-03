@@ -250,7 +250,7 @@ exports[`Page component renders correctly 1`] = `
           <a
             aria-label="MC: global.logoLabel"
             class="logo-link"
-            href="/uk/"
+            href="/uk"
           >
             <svg
               class="logo"
@@ -280,7 +280,7 @@ exports[`Page component renders correctly 1`] = `
                     aria-disabled="false"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
-                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"undefined\\"}"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                     href="tel:+4401234567890"
                     role="tab"
                     tabindex="-1"
@@ -298,7 +298,7 @@ exports[`Page component renders correctly 1`] = `
                     aria-disabled="false"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
-                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"undefined\\"}"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                     href="/uk/landing-page"
                     role="tab"
                     tabindex="-1"
@@ -316,7 +316,7 @@ exports[`Page component renders correctly 1`] = `
                     aria-disabled="false"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
-                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"undefined\\"}"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                     href="link-to-page"
                     role="tab"
                     tabindex="-1"

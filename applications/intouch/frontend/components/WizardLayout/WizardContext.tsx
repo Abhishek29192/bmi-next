@@ -52,11 +52,8 @@ const WizardContextWrapper = ({
   const [currentData, setCurrentData] = useState<GuaranteeWizardData>();
 
   const getTitle = () => {
-    const type = ["SYSTEM", "SOLUTION"].includes(
-      currentData.guaranteeType.coverage
-    )
-      ? "system"
-      : "product";
+    const type = currentData?.guaranteeType?.coverage.toLowerCase();
+
     return {
       title: `guarantee_tab.apply_guarantee.wizard.step3.${type}_title`,
       subTitle: `guarantee_tab.apply_guarantee.wizard.step3.${type}_subTitle`

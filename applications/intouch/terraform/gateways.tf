@@ -52,22 +52,6 @@ resource "google_cloud_run_service" "tf-gateway" {
           value = "https://training-rfwslk3zjq-nw.a.run.app/graphql"
         }
         env {
-          name  = "AUTH0_NAMESPACE"
-          value = "https://intouch"
-        }
-        env {
-          name  = "AUTH0_AUDIENCE"
-          value = "https://dev-api.intouch.dev"
-        }
-        env {
-          name  = "AUTH0_ISSUER_BASE_URL"
-          value = "https://intouch-dev.eu.auth0.com"
-        }
-        env {
-          name  = "AUTH0_CLIENT_ID"
-          value = "W4gH2YagDOBdMpEUESoC4xZhsZbc3W1S"
-        }
-        env {
           name  = "CONTENTFUL_API_HOST"
           value = "https://graphql.contentful.com/content/v1"
         }

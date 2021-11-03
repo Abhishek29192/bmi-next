@@ -2,15 +2,23 @@ import { Source } from "graphql";
 import { makeWrapResolversPlugin } from "graphile-utils";
 import {
   CreateGuaranteeInput,
+  CreateNoteInput,
+  DeleteEvidenceItemInput,
   UpdateGuaranteeInput,
   UpdateProjectMemberInput
 } from "@bmi/intouch-api-types";
 import { updateCompany, deleteCompanyMember } from "../../services/company";
 import { createAccount, updateAccount } from "../../services/account";
-import { evidenceItemsAdd } from "../../services/evidenceItem";
+import {
+  deleteEvidenceItem,
+  evidenceItemsAdd
+} from "../../services/evidenceItem";
 import { createGuarantee, updateGuarantee } from "../../services/guarantee";
+import * as projectMutations from "../../services/project/mutations";
 import { PostGraphileContext } from "../../types";
 import { updateProjectMember } from "../../services/projectMember";
+import { createNote } from "../../services/note";
+import Auth0 from "../../services/auth0";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -42,7 +50,16 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
           context: any,
           resolveInfo
         ) {
-          return updateAccount(resolve, source, args, context, resolveInfo);
+          const auth0 = await Auth0.init(context.logger);
+
+          return updateAccount(
+            resolve,
+            source,
+            args,
+            context,
+            resolveInfo,
+            auth0
+          );
         }
       },
       updateCompany: {
@@ -76,6 +93,23 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
       evidenceItemsAdd: {
         async resolve(resolve: any, source, args: any, context, resolveInfo) {
           return evidenceItemsAdd(resolve, source, args, context, resolveInfo);
+        }
+      },
+      deleteEvidenceItem: {
+        async resolve(
+          resolve,
+          source: Source | string,
+          args: { input: DeleteEvidenceItemInput },
+          context: PostGraphileContext,
+          resolveInfo
+        ) {
+          return deleteEvidenceItem(
+            resolve,
+            source,
+            args,
+            context,
+            resolveInfo
+          );
         }
       },
       createGuarantee: {
@@ -115,6 +149,18 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
             context,
             resolveInfo
           );
+        }
+      },
+      ...projectMutations,
+      createNote: {
+        async resolve(
+          resolve,
+          source: Source | string,
+          args: { input: CreateNoteInput },
+          context: PostGraphileContext,
+          resolveInfo
+        ) {
+          return createNote(resolve, source, args, context, resolveInfo);
         }
       }
     }

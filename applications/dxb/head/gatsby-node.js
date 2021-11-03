@@ -10,7 +10,7 @@ const findUp = require("find-up");
 require("graphql-import-node");
 const jsonfile = require("jsonfile");
 const toml = require("toml");
-const { getPathWithCountryCode } = require("./src/schema/resolvers/utils/path");
+const { getPathWithCountryCode } = require("./src/utils/path");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
 const { createSystemPages } = require("./src/gatsby/systemDetailsPages");
@@ -182,6 +182,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
               ... on ContentfulProductListerPage {
                 categoryCodes
+                allowFilterBy
               }
             }
           }
@@ -236,6 +237,7 @@ exports.createPages = async ({ graphql, actions }) => {
             pageId: page.id,
             siteId: site.id,
             categoryCodes: page.categoryCodes,
+            allowFilterBy: page.allowFilterBy,
             pimClassificationCatalogueNamespace,
             variantCodeToPathMap
           }

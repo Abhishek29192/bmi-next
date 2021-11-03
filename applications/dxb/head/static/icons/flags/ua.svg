@@ -1,0 +1,36 @@
+<svg id="United_Arab_Emirates_الإمارات_العربية_المتحدة_" data-name="United Arab Emirates (الإمارات العربية المتحدة‎)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" y1="8" x2="20" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0c964c"/>
+      <stop offset="0.46257" stop-color="#00843d"/>
+      <stop offset="1" stop-color="#024f26"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="10.66667" x2="20" y2="10.66667" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e8e8e8"/>
+      <stop offset="0.43855" stop-color="#f7f7f7"/>
+      <stop offset="1" stop-color="#ccc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" y1="13.33333" x2="20" y2="13.33333" gradientUnits="userSpaceOnUse">
+      <stop offset="0"/>
+      <stop offset="0.50559" stop-color="#4c4c4c"/>
+      <stop offset="1" stop-color="#313131"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="2.5" y1="16" x2="2.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0.26257" stop-color="#fd7242"/>
+      <stop offset="1" stop-color="#f63404"/>
+    </linearGradient>
+    <radialGradient id="radial-gradient" cx="10.93158" cy="5.46579" r="7.5707" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect id="green" width="20" height="16" fill="url(#linear-gradient)"/>
+  <rect y="5.33333" width="20" height="10.66667" fill="url(#linear-gradient-2)"/>
+  <rect y="10.66667" width="20" height="5.33333" fill="url(#linear-gradient-3)"/>
+  <rect id="red" width="5" height="16" fill="url(#linear-gradient-4)"/>
+  <g id="extras">
+    <path id="glow" d="M18.5,5.5A10.435,10.435,0,0,0,16.932,0H0V12.2915A10.49464,10.49464,0,0,0,18.5,5.5Z" fill-rule="evenodd" fill="url(#radial-gradient)"/>
+    <path id="borderShadow" d="M19,1V15H1V1ZM0,0V16H20V0Z" opacity="0.15"/>
+  </g>
+</svg>

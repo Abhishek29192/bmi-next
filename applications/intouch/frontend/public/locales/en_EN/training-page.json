@@ -5,5 +5,25 @@
   "in_progress": "In progress",
   "enrolled": "Enrolled",
   "completed": "Completed",
-  "waiting": "Waiting"
+  "waiting": "Waiting",
+  "viewTraining": "View training",
+  "Description": "Description",
+  "search": {
+    "inputLabel": "Search for a training"
+  },
+  "filter": {
+    "labels": {
+      "all": "All"
+    }
+  },
+  "type": {
+    "classroom": "Classroom",
+    "elearning": "E-Learning",
+    "webinar": "Webinar"
+  },
+  "technology": {
+    "PITCHED": "Pitched",
+    "FLAT": "Flat",
+    "OTHER": "Other"
+  }
 }

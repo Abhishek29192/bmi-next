@@ -3,11 +3,13 @@ import {
   Product,
   VariantOption,
   VariantOptionWithProduct
-} from "../components/types/ProductBaseTypes";
+} from "../components/types/pim";
 import createCategory from "./CategoryHelper";
 import createClassification from "./ClassificationHelper";
 import createPimDocument from "./PimDocumentHelper";
 import createPimLinkDocument from "./PimLinkDocumentHelper";
+import createImage from "./ImageHelper";
+import createAsset from "./AssetHelper";
 
 const createProduct = (
   product?: Partial<PIMDocumentProduct>
@@ -25,14 +27,17 @@ export const createBaseProduct = (product?: Partial<Product>): Product => {
     externalProductCode: "external-product-code",
     name: "product-name",
     description: "product-description",
-    images: [],
-    assets: [],
+    images: [createImage()],
+    assets: [createAsset()],
     productBenefits: [],
     categories: [createCategory()],
     classifications: [createClassification()],
-    variantOptions: [],
+    variantOptions: [createVariantOption()],
     documents: [createPimDocument(), createPimLinkDocument()],
-    breadcrumbs: null,
+    isSampleOrderAllowed: false,
+    longDescription: "<p>long description</p>",
+    shortDescription: "<p>short description</p>",
+    summary: "<p>summary</p>",
     ...product
   };
 };

@@ -8,6 +8,7 @@ import Button from "@bmi/button";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
+import classnames from "classnames";
 import { SidePanel } from "../../../components/SidePanel";
 import { FilterResult } from "../../FilterResult";
 import { formatDate } from "../../../lib/utils";
@@ -16,6 +17,7 @@ import {
   useUpdateSystemMutation
 } from "../../../graphql/generated/hooks";
 import { ProductsAndSystemsQuery } from "../../../graphql/generated/operations";
+import layoutStyles from "../../Layout/styles.module.scss";
 import styles from "./styles.module.scss";
 
 type ProductsTabProps = {
@@ -189,7 +191,9 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
   }, [filterState]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={classnames(layoutStyles.searchPanelWrapper, styles.container)}
+    >
       <SidePanel
         key="list-products"
         searchLabel={t("sidePanel.search.label")}

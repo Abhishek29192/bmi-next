@@ -1,6 +1,6 @@
 import { uniqBy, map } from "lodash";
 import { Filter } from "@bmi/filters";
-import { Product, Category } from "../components/types/ProductBaseTypes";
+import { Product, Category } from "../components/types/pim";
 import { Data as DocumentResultsData } from "../components/DocumentResults";
 import {
   PIMDocumentData,
@@ -12,24 +12,20 @@ import {
   mapProductClassifications,
   ProductCategoryTree
 } from "./product-details-transforms";
+import {
+  generateCategoryFilters,
+  generateFeatureFilters,
+  removePLPFilterPrefix,
+  ProductFilter
+} from "./product-filters";
 
 export type filterOption = ProductFilter & {
   value: string[];
 };
 
-export type ProductFilter = {
-  label: string;
-  name: string;
-  options: ReadonlyArray<{
-    label: string;
-    value: string;
-  }>;
-  value?: string[];
-};
-
 export type URLProductFilter = {
   name: string;
-  value: string;
+  value: string[];
 };
 
 export const isPIMDocument = (
@@ -42,11 +38,10 @@ export const convertToURLFilters = (
   filters: readonly ProductFilter[]
 ): URLProductFilter[] => {
   return filters.reduce((carry, { name, value }) => {
-    if (value instanceof Array) {
-      return value.length ? [...carry, { name, value }] : carry;
+    if (value && value.length) {
+      carry.push({ name: removePLPFilterPrefix(name), value });
     }
-
-    return value ? [...carry, { name, value }] : carry;
+    return carry;
   }, []);
 };
 
@@ -64,9 +59,11 @@ const getProductsFromDocuments = (documents: DocumentResultsData) => {
 };
 
 export const sortAlphabeticallyBy = (propName) => (a, b) => {
+  // eslint-disable-next-line security/detect-object-injection
   if (a[propName] < b[propName]) {
     return -1;
   }
+  // eslint-disable-next-line security/detect-object-injection
   if (a[propName] > b[propName]) {
     return 1;
   }
@@ -414,6 +411,64 @@ export const getCategoryFilters = (productCategories: ProductCategoryTree) => {
           }))
       };
     });
+};
+
+type PlpFiltersArgs = {
+  products: readonly Product[];
+  allowedFilters?: string[];
+  pimClassificationNamespace?: string;
+  pageCategory?: Category;
+};
+
+export const getPlpFilters = ({
+  pimClassificationNamespace,
+  products = [],
+  allowedFilters = []
+}: PlpFiltersArgs) => {
+  if (
+    !allowedFilters ||
+    !products ||
+    allowedFilters.length === 0 ||
+    products.length === 0
+  )
+    return [];
+
+  const cagegoryFilters = generateCategoryFilters(
+    products.flatMap((product) => product.categories || []),
+    allowedFilters
+  );
+
+  const productClassifications = products.flatMap((product) =>
+    [
+      ...(product.classifications || []),
+      ...(product.variantOptions || []).flatMap(
+        (variant) => variant.classifications || []
+      )
+    ].filter(Boolean)
+  );
+
+  const classificationFeaturesFilters = generateFeatureFilters(
+    pimClassificationNamespace,
+    productClassifications,
+    allowedFilters
+  );
+
+  const uniqueAllowFilterKeys = Array.from(
+    new Set(allowedFilters.map((filter) => filter.split("|")[0].trim()))
+  );
+
+  const allFilters = [...cagegoryFilters, ...classificationFeaturesFilters];
+
+  //order them in the `allowFilterBy` specified order
+  // category filter names are now  prefixed with 'plpFilter' for Microcopy!
+  return uniqueAllowFilterKeys
+    .map((uniqueFilter) =>
+      allFilters.find(
+        ({ name }) =>
+          name === uniqueFilter || removePLPFilterPrefix(name) === uniqueFilter
+      )
+    )
+    .filter(Boolean);
 };
 
 export const getFilters = (

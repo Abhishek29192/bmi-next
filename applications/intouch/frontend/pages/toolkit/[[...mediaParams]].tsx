@@ -6,8 +6,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../components/Layout";
 import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import {
-  getServerPageGetMediaItemById,
-  getServerPageGetMediaFolders
+  getServerPageGetMediaFolders,
+  getServerPageGetMediaFolderContents
 } from "../../graphql/generated/page";
 import can from "../../lib/permissions/can";
 import {
@@ -16,36 +16,32 @@ import {
   withPageError
 } from "../../lib/error";
 import { MediaFolders, RootFolders } from "../../lib/media/types";
-import {
-  getRootFolders,
-  getMediaItemPath,
-  getParentFolder
-} from "../../lib/media/utils";
-import { GetMediaItemByIdQuery } from "../../graphql/generated/operations";
+import { getRootFolders, getMediaItemPath } from "../../lib/media/utils";
+import { GetMediaFolderContentsQuery } from "../../graphql/generated/operations";
 import { MediaPage } from "../../components/Pages/Media";
 
 type ToolkitPageProps = GlobalPageProps & {
   rootFolders: RootFolders;
   mediaPath?: MediaFolders;
-  mediaTool: GetMediaItemByIdQuery["mediaToolCollection"]["items"][0];
-  mediaFolder: GetMediaItemByIdQuery["mediaFolderCollection"]["items"][0];
+  activeMediaId?: string;
+  mediaFolder: GetMediaFolderContentsQuery["mediaFolderCollection"]["items"][0];
 };
 
 const Toolkit = ({
   rootFolders,
   mediaPath,
-  mediaTool,
+  activeMediaId,
   mediaFolder,
   globalPageData
 }: ToolkitPageProps) => {
   const { t } = useTranslation("common");
 
   return (
-    <Layout title={t("Media Tools")} pageData={globalPageData}>
+    <Layout title={t("Tools")} pageData={globalPageData}>
       <MediaPage
         rootFolders={rootFolders}
         mediaPath={mediaPath}
-        mediaTool={mediaTool}
+        activeMediaId={activeMediaId}
         mediaFolder={mediaFolder}
       />
     </Layout>
@@ -74,10 +70,10 @@ export const getServerSideProps = withPage(
     const rootFolders = getRootFolders(data);
     const allFolders = data.mediaFolderCollection.items;
 
-    const mediaItemId = mediaParams?.[0];
+    const mediaFolderId = mediaParams?.[0];
 
     // show the first root folder by default
-    if (!mediaItemId && rootFolders.length > 0) {
+    if (!mediaFolderId && rootFolders.length > 0) {
       return {
         redirect: {
           permanent: false,
@@ -91,12 +87,11 @@ export const getServerSideProps = withPage(
       "toolkit"
     ]);
 
-    if (!mediaItemId && rootFolders.length === 0) {
+    if (!mediaFolderId && rootFolders.length === 0) {
       return {
         props: {
           rootFolders,
           mediaPath: [],
-          mediaItemId,
           mediaFolder: null,
           ...translations
         }
@@ -108,46 +103,27 @@ export const getServerSideProps = withPage(
         data: {
           mediaFolderCollection: {
             items: [mediaFolder]
-          },
-          mediaToolCollection: {
-            items: [mediaTool]
           }
         }
       }
-    } = await getServerPageGetMediaItemById(
-      {
-        variables: { mediaItemId }
-      },
+    } = await getServerPageGetMediaFolderContents(
+      { variables: { mediaFolderId } },
       apolloClient
     );
-
-    if (!mediaFolder && !mediaTool) {
+    // folder not found
+    if (!mediaFolder) {
       const statusCode = ErrorStatusCode.NOT_FOUND;
       res.statusCode = statusCode;
       return generatePageError(statusCode, {}, { globalPageData });
     }
 
-    if (mediaFolder) {
-      const mediaPath = getMediaItemPath(mediaFolder, allFolders, rootFolders);
-
-      return {
-        props: {
-          rootFolders,
-          mediaPath,
-          mediaFolder: mediaFolder,
-          mediaTool: null,
-          ...translations
-        }
-      };
-    }
-    // at this point the media item is a Media Tool (not a folder)
+    // TODO: pass active mediaTool & redirect to folder if mediaTool does not exist
     return {
       props: {
         rootFolders,
-        mediaTool,
-        // TODO: parent folder info is shallow atm
-        mediaFolder: getParentFolder(mediaTool, allFolders),
-        mediaPath: getMediaItemPath(mediaTool, allFolders, rootFolders),
+        mediaPath: getMediaItemPath(mediaFolder, allFolders, rootFolders),
+        mediaFolder: mediaFolder,
+        mediaTool: null,
         ...translations
       }
     };
