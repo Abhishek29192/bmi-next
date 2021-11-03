@@ -70,7 +70,8 @@ export const UserCard = ({
     });
   };
 
-  const isPowerfulUser = isSuperOrMarketAdmin(account);
+  const isCompanyMember = account?.companyMembers?.nodes?.length > 0;
+  const canChangeUserRole = !isSuperOrMarketAdmin(account) && isCompanyMember;
 
   return account ? (
     <div data-testid={testid} className={styles.main}>
@@ -88,7 +89,7 @@ export const UserCard = ({
         <Typography variant="body1" className={styles.companyName}>
           {companyName}
         </Typography>
-        {!isPowerfulUser && (
+        {canChangeUserRole && (
           <AccessControl dataModel="company" action="changeRole">
             <Button
               data-testid="change-role"
@@ -106,19 +107,18 @@ export const UserCard = ({
           {/* TODO: Fix CompanyDetails child requirement in DXB */}
           <CompanyDetails details={details}>&nbsp;</CompanyDetails>
         </div>
-        {account.role === "INSTALLER" &&
-          account?.companyMembers?.nodes?.length > 0 && (
-            <AccessControl dataModel="company" action="removeUser">
-              <div className={styles.buttonHolder}>
-                <Button
-                  data-testid="remove-member"
-                  onClick={onRemoveUserFromCompany}
-                >
-                  {t("team-page:user_card.remove")}
-                </Button>
-              </div>
-            </AccessControl>
-          )}
+        {account.role === "INSTALLER" && isCompanyMember && (
+          <AccessControl dataModel="company" action="removeUser">
+            <div className={styles.buttonHolder}>
+              <Button
+                data-testid="remove-member"
+                onClick={onRemoveUserFromCompany}
+              >
+                {t("team-page:user_card.remove")}
+              </Button>
+            </div>
+          </AccessControl>
+        )}
       </div>
       <ConfirmDialog
         dialogState={dialogState}
