@@ -1,6 +1,6 @@
 variables:
   # There are a coupld of .java files under node_modules which sometimes triggers spotbugs checks
-  SAST_EXCLUDED_ANALYZERS: spotbugs
+  SAST_EXCLUDED_ANALYZERS: spotbugs semgrep
 
 include:
   - template: Code-Quality.gitlab-ci.yml
@@ -18,10 +18,6 @@ eslint-sast:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 nodejs-scan-sast:
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-
-semgrep-sast:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
