@@ -1,12 +1,12 @@
 import { Buffer } from "buffer";
 import { v4 } from "uuid";
 import { NextApiRequest, NextApiResponse } from "next";
-import { createProxyMiddleware } from "http-proxy-middleware";
+import { createProxyMiddleware, Options } from "http-proxy-middleware";
 import { getAuth0Instance } from "../../lib/auth0";
 import { getMarketAndEnvFromReq } from "../../lib/utils";
 import { withLoggerApi } from "../../lib/middleware/withLogger";
 
-interface Request extends NextApiRequest {
+interface ExtendedNextApiRequest extends NextApiRequest {
   logger: any;
 }
 
@@ -17,19 +17,62 @@ export const config = {
   }
 };
 
+const { GRAPHQL_URL, NODE_ENV } = process.env;
+const isDev = NODE_ENV === "development";
+const isLocalGateway = GRAPHQL_URL?.indexOf("local") !== -1;
+
+const proxyOptions: Options = {
+  headers: {
+    ...(!isDev && {
+      Connection: "keep-alive"
+    })
+  },
+  changeOrigin: true,
+  proxyTimeout: isDev ? 5000 : 3000,
+  secure: false,
+  pathRewrite: {
+    "^/api/graphql": ""
+  },
+  xfwd: true,
+  logLevel: "error",
+  onError: (error) => {
+    // eslint-disable-next-line no-console
+    console.log("Error proxying the request: ", error.message);
+  }
+};
+
+const graphqlAuth0Proxy = createProxyMiddleware({
+  target: `${GRAPHQL_URL}/graphql`,
+  ...proxyOptions
+});
+
+const graphqlApiProxy = createProxyMiddleware({
+  target: `${GRAPHQL_URL}/graphql_api`,
+  ...proxyOptions
+});
+
+const nextFn = (error) => {
+  if (error) {
+    // eslint-disable-next-line
+    console.log(
+      "Error proxying the request in the next function: ",
+      error.message
+    );
+
+    throw error;
+  }
+};
+
 export const handler = async function (
-  req: Request,
-  res: NextApiResponse,
-  next: any
+  req: ExtendedNextApiRequest,
+  res: NextApiResponse
 ) {
   let user;
   let market;
 
   const { headers } = req;
-  const { GRAPHQL_URL, NODE_ENV } = process.env;
-  const isLocalGateway = GRAPHQL_URL?.indexOf("local") !== -1;
+
   const logger = req.logger("graphql");
-  const isDev = NODE_ENV === "development";
 
   // In this case I'm doing client side request so I need to check the session
   if (!req.headers.authorization) {
@@ -68,10 +111,6 @@ export const handler = async function (
     market = getMarketAndEnvFromReq(req as any).market;
   }
 
-  let target = `${GRAPHQL_URL}/${
-    headers["x-api-key"] ? "graphql_api" : "graphql"
-  }`;
-
   /**
    * If we are working locally we are not able to use the gcp api-gateway
    * so we need to replicate it sending the paylod base64.
@@ -90,41 +129,20 @@ export const handler = async function (
         headers["x-apigateway-api-userinfo"] = jwtPayloads[1];
       }
     }
-
-    // If the graphql endpoint is pointing locally we need to
-    // send the request to the normal graphql endpoint
-    if (isLocalGateway && headers["x-api-key"]) {
-      target = `${GRAPHQL_URL}/graphql`;
-    }
   }
 
   req.headers["x-request-market-domain"] = market || "en";
 
   if (!req.headers["x-request-id"]) req.headers["x-request-id"] = v4();
 
-  createProxyMiddleware({
-    target,
-    headers: {
-      ...(!isDev && {
-        Connection: "keep-alive"
-      })
-    },
-    changeOrigin: true,
-    proxyTimeout: isDev ? 10000 : 3000,
-    secure: false,
-    pathRewrite: {
-      "^/api/graphql": ""
-    },
-    xfwd: true,
-    logLevel: "error",
-    onError: (error) => {
-      logger.error("Error proxying the request: ", error);
-    }
-  })(req as any, res as any, (error) => {
-    logger.error("Error proxying the request in the next function: ", error);
-
-    return next;
-  });
+  // Nextjs req/res object are different then the express req/response objects
+  // createProxyMiddleware accept only express req/res object so we need to convert
+  // the nextjs req/res to any
+  if (headers["x-api-key"] && !isLocalGateway) {
+    graphqlApiProxy(req as any, res as any, nextFn);
+  } else {
+    graphqlAuth0Proxy(req as any, res as any, nextFn);
+  }
 };
 
 export default withLoggerApi(handler);
