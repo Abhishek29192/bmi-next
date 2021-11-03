@@ -4,6 +4,8 @@ import maskDeep from "mask-deep";
 
 const isProd = process.env.NODE_ENV === "production";
 
+const loggerContainer: Record<string, winston.Logger> = {};
+
 const getLogLevel = () => {
   if (process.env.LOG_LEVEL) {
     return process.env.LOG_LEVEL;
@@ -30,8 +32,6 @@ const loggingWinston = new gcpLogger({
     name: process.env.LOG_SERVICE_NAME || "run.googleapis.com/intouch"
   }
 });
-
-let winstonLogger: winston.Logger;
 
 const redact = winston.format((info, opts) => {
   const redacted = maskDeep(info, REDACTED_KEYS);
@@ -89,42 +89,41 @@ const defaultFormat = isProd
       )
     );
 
-const logger = (headers: { [key: string]: string }, module: string) => {
-  if (!winstonLogger) {
-    winstonLogger = winston.createLogger({
+const getLogger = (headers: { [key: string]: string }, _module: string) => {
+  const addHeader = winston.format((info) => {
+    info.requestId = headers["x-request-id"] || "";
+    info.accountId = headers["x-authenticated-user-id"] || "";
+    info.module = _module;
+    return info;
+  });
+
+  if (!loggerContainer[`${_module}`]) {
+    loggerContainer[`${_module}`] = winston.createLogger({
       handleExceptions: true,
       level: getLogLevel(),
       transports: [
         isProd ? loggingWinston : new winston.transports.Console({})
       ],
+      format: winston.format.combine(addHeader(), defaultFormat),
       exceptionHandlers: [
         isProd ? loggingWinston : new winston.transports.Console({})
       ]
     });
   }
 
-  const addHeader = winston.format((info) => {
-    info.requestId = headers["x-request-id"] || "";
-    info.accountId = headers["x-authenticated-user-id"] || "";
-    info.module = module;
-    return info;
-  });
-
-  winstonLogger.format = winston.format.combine(addHeader(), defaultFormat);
-
-  return winstonLogger;
-};
-
-export const NextLogger = (req: any, res: any) => {
-  const { headers } = req;
-
-  if (!req.logger) req.logger = (module: string) => logger(headers, module);
+  return loggerContainer[`${_module}`];
 };
 
 export default (req: any, res: any, next: any) => {
   const { headers } = req;
 
-  if (!req.logger) req.logger = (module: string) => logger(headers, module);
+  req.logger = (module: string) => getLogger(headers, module);
 
   return next();
+};
+
+export const NextLogger = (req: any, res: any) => {
+  const { headers } = req;
+
+  req.logger = (module: string) => getLogger(headers, module);
 };
