@@ -48,7 +48,7 @@ export const query = graphql`
     pdpCardsTitle
     maximumSamples
     sampleBasketLink {
-      ... on ContentfulPage {
+      ... on ContentfulSimplePage {
         slug
       }
     }
