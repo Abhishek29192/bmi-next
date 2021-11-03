@@ -68,7 +68,7 @@
     "guaranteeStatus": "Garantistatus",
     "cta": {
       "ASSIGN_SOLUTION": "Tildel til meg",
-      "REASSIGN_SOLUTION": "Tildel til meg",
+      "REASSIGN_SOLUTION": "Tilordne meg på nytt",
       "UNASSIGN_SOLUTION": "Fjern tildeling",
       "NOT_ASSIGNABLE": "Ikke delbar",
       "edit": "Redigere"
