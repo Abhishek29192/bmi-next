@@ -120,7 +120,7 @@ describe("Guarantee", () => {
           rows: [{ maximum_validity_years: 1 }]
         }))
         .mockImplementationOnce(() => ({
-          rows: [{ name: "project" }]
+          rows: [{ name: "project", companyId: 1, tier: "T1" }]
         }))
         .mockImplementationOnce(() => ({
           rows: []
@@ -163,7 +163,7 @@ describe("Guarantee", () => {
           rows: [{ maximum_validity_years: 1 }]
         }))
         .mockImplementationOnce(() => ({
-          rows: [{ name: "project" }]
+          rows: [{ name: "project", companyId: 1, tier: "T1" }]
         }))
         .mockImplementationOnce(() => ({
           rows: []
