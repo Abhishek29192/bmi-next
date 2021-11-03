@@ -821,7 +821,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                   >
                     <CompanyDetails
                       details={getCompanyDetails(
-                        eventCatIdSelectorCards,
+                        eventCatIdLinkClicks,
                         service,
                         true
                       )}
