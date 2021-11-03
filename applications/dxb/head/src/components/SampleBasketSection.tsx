@@ -14,11 +14,11 @@ import styles from "./styles/SampleBasketSection.module.scss";
 export type Data = {
   __typename: "SampleBasketSection";
   description: RichTextData;
-  sections: FormData | null;
+  checkoutFormSection: FormData | null;
 };
 
 const SampleBasketSection = ({
-  data: { description, sections }
+  data: { description, checkoutFormSection }
 }: {
   data: Data;
 }) => {
@@ -46,7 +46,7 @@ const SampleBasketSection = ({
       </Section>
       {isCompleteFormShow && (
         <Section>
-          <FormSection data={sections} backgroundColor="pearl" />
+          <FormSection data={checkoutFormSection} backgroundColor="pearl" />
         </Section>
       )}
     </>
@@ -60,7 +60,7 @@ export const query = graphql`
     description {
       ...RichTextFragment
     }
-    sections {
+    checkoutFormSection {
       ...FormSectionFragment
     }
   }

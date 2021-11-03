@@ -4,7 +4,7 @@ module.exports.up = (migration) => {
   const sampleBasket = migration.editContentType("sampleBasket");
 
   sampleBasket
-    .createField("sections")
+    .createField("checkoutFormSection")
     .name("Order Form")
     .type("Link")
     .validations([{ linkContentType: ["form"] }])
@@ -12,4 +12,4 @@ module.exports.up = (migration) => {
 };
 
 module.exports.down = (migration) =>
-  migration.editContentType("sampleBasket").deleteField("sections");
+  migration.editContentType("sampleBasket").deleteField("checkoutFormSection");

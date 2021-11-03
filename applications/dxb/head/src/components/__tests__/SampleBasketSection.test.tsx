@@ -27,7 +27,7 @@ const data: Data = {
     raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
     references: null
   },
-  sections: {
+  checkoutFormSection: {
     __typename: "ContentfulFormSection",
     title: "Complete form",
     showTitle: true,
