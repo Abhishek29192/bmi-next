@@ -116,7 +116,12 @@ const isItCooked = (tag, space, attempts = 0) => {
 
 async function cleanupOldEnvironments(tag, envs, space) {
   const allAliases = await space.getEnvironmentAliases();
-  const aliasedEnvIds = allAliases.items.map((x) => x.environment.sys.id);
+  const aliasedEnvIds = allAliases.items.map(
+    (x) => x.getEnvironments() && x.environment.sys.id
+  );
+
+  console.log("Skipping aliased environments:");
+  aliasedEnvIds.forEach((env) => console.log(env.sys.id));
 
   const sortedEnvVersions = envs.items
     .filter((env) => isValidSemVer(env.sys.id))
@@ -138,9 +143,11 @@ async function cleanupOldEnvironments(tag, envs, space) {
           prevMajEnvs[0].sys.id !== env.sys.id
       )
       .forEach(
-        async (env) =>
-          console.log(`Deleting contentful environment ${env.sys.id}`) &&
-          (await env.delete())
+        // TODO: R21: if the below prints correct envs, uncomment the for R21
+        //async (env) =>
+        (env) =>
+          console.log(`Deleting contentful environment (TEST) ${env.sys.id}`)
+        // && (await env.delete())
       );
   }
 }
