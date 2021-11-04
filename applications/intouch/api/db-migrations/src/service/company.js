@@ -57,16 +57,23 @@ const importCompanyDb = async (
 
   console.log("************ Importing company database ******************");
 
-  console.log("Dropping the schema");
-  await pgClient.query("DROP SCHEMA IF EXISTS public CASCADE");
-  console.log("Dropped");
-  console.log("Creating the schema");
-  await pgClient.query("CREATE SCHEMA public");
-  console.log("Created");
+  // examples:
+  // migrate-companies?updatePermission=true
+  // migrate-companies?resetDb=true
 
-  console.log("Importing main db");
-  await pgClient.query(db);
-  console.log("DB imported");
+  if (query.resetDb === "true") {
+    console.log("Dropping the schema");
+    await pgClient.query("DROP SCHEMA IF EXISTS public CASCADE");
+    console.log("Dropped");
+
+    console.log("Creating the schema");
+    await pgClient.query("CREATE SCHEMA public");
+    console.log("Created");
+
+    console.log("Importing main db");
+    await pgClient.query(db);
+    console.log("DB imported");
+  }
 
   if (query.importData === "true") {
     console.log("Importing data");
@@ -74,25 +81,31 @@ const importCompanyDb = async (
     console.log("Data imported");
   }
 
-  console.log("Importing contraints");
-  await pgClient.query(contraints);
-  console.log("Contraints imported");
+  if (query.resetDb === "true") {
+    console.log("Importing contraints");
+    await pgClient.query(contraints);
+    console.log("Contraints imported");
 
-  console.log("Importing views");
-  await pgClient.query(views);
-  console.log("Views imported");
+    console.log("Importing views");
+    await pgClient.query(views);
+    console.log("Views imported");
+  }
 
-  console.log("Importing roles");
-  await pgClient.query(roles);
-  console.log("Roles imported");
+  if (query.updateProcedure === "true") {
+    console.log("Importing procedure");
+    await pgClient.query(procedure);
+    console.log("Procedure imported");
+  }
 
-  console.log("Importing procedure");
-  await pgClient.query(procedure);
-  console.log("Procedure imported");
+  if (query.updatePermissions === "true") {
+    console.log("Importing roles");
+    await pgClient.query(roles);
+    console.log("Roles imported");
 
-  console.log("Importing RLS");
-  await pgClient.query(rls);
-  console.log("RLS imported");
+    console.log("Importing RLS");
+    await pgClient.query(rls);
+    console.log("RLS imported");
+  }
 
   console.log("************ Company database imported ******************");
 };
