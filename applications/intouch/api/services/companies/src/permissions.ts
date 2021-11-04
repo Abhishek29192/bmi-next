@@ -4,13 +4,13 @@ const COMPANY_ADMIN_PERMISSIONS = [
   "invite",
   "grant:company_admin",
   "grant:nominate_responsible_installer",
-  "delete:evidence"
+  "delete:evidence",
+  "update:guarantee"
 ];
 const MARKET_ADMIN_PERMISSIONS = [
   ...COMPANY_ADMIN_PERMISSIONS,
   "grant:market_admin",
-  "import:products:market",
-  "update:guarantee"
+  "import:products:market"
 ];
 const SUPER_ADMIN_PERMISSIONS = [
   ...MARKET_ADMIN_PERMISSIONS,
