@@ -13,7 +13,7 @@ include:
   - local: "/functions/.gitlab-ci.yml"
   - local: "/libraries/.gitlab-ci.yml"
 
-image: node:14.18.1
+image: !reference [.node-full-image, image]
 
 stages:
   - install
