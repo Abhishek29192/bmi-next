@@ -1,0 +1,11 @@
+test_overview-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/overview-card"
+    ROOT_DIR: "components/overview-card"
+
+build_overview-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/overview-card"
+    ROOT_DIR: "components/overview-card"

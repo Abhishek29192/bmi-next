@@ -1,0 +1,17 @@
+test_carousel:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/carousel"
+    ROOT_DIR: "components/carousel"
+
+test_mr_coverage_carousel:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/carousel"
+    ROOT_DIR: "components/carousel"
+
+build_carousel:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/carousel"
+    ROOT_DIR: "components/carousel"

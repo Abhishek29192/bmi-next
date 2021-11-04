@@ -1,6 +1,6 @@
 build_intouch_api_training_dev:
   stage: build
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   needs: []
@@ -10,8 +10,7 @@ build_intouch_api_training_dev:
       changes:
         - applications/intouch/api/services/training/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
 
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
@@ -26,7 +25,7 @@ deploy_intouch_api_training_dev:
     #  optional: true
     - build_intouch_api_training_dev
     # TODO: add a test step
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}

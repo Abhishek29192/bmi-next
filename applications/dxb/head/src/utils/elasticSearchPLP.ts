@@ -69,9 +69,20 @@ export const compileESQueryPLP = ({
     size: pageSize,
     from: page * pageSize,
     // NOTE: scoringWeightInt is a number (long) in the index, no ".keyword" field
-    sort: ["_score", { scoringWeightInt: "desc" }, { "name.keyword": "asc" }],
+    sort: [
+      "_score",
+      { productScoringWeightInt: "desc" },
+      { variantScoringWeightInt: "desc" },
+      { scoringWeightInt: "desc" },
+      { "name.keyword": "asc" }
+    ],
     aggs: {
-      ...generateAllowFiltersAggs(allowFilterBy)
+      ...generateAllowFiltersAggs(allowFilterBy),
+      unique_base_products_count: {
+        cardinality: {
+          field: "baseProduct.code.keyword"
+        }
+      }
     },
     query: {
       bool: {
@@ -83,6 +94,12 @@ export const compileESQueryPLP = ({
           },
           ...userSelectedFilterTerms
         ].filter(Boolean)
+      }
+    },
+    collapse: {
+      field: "baseProduct.code.keyword",
+      inner_hits: {
+        name: "all_variants"
       }
     }
   };
@@ -106,9 +123,9 @@ const createAggregation = (categoryKey: string, optionKey: string) => {
   return {
     [categoryKey]: {
       terms: {
-        // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
-        // Could request these separately, and figure out a way of retrying and getting more buckets if needed
-        size: "100",
+        // NOTE: returns 300 bucket is hopefully way more than is needed
+        // if you see disabled checkbox items in the UI then check if the bucket size is smaller than the resulting values
+        size: "300",
         field: `${categoryKey}.code.keyword`,
         include: optionKey ? [optionKey] : undefined
       }

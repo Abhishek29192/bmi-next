@@ -7,7 +7,8 @@ test_gcp-upload-file:
 build_gcp-upload-file:
   extends: .build_function
   variables:
-    PROJECT_NAME: gcp-upload-file
+    WORKSPACE: "@bmi/gcp-upload-file"
+    ROOT_DIR: "applications/dxb/functions/gcp-upload-file"
 
 package_gcp-upload-file:
   extends: .package_function
@@ -16,7 +17,8 @@ package_gcp-upload-file:
   dependencies:
     - build_gcp-upload-file
   variables:
-    PROJECT_NAME: gcp-upload-file
+    FUNCTION_NAME: "gcp-upload-file"
+    ROOT_DIR: "applications/dxb/functions/gcp-upload-file"
 
 deploy_gcp-upload-file:
   extends: .deploy_function
@@ -25,4 +27,5 @@ deploy_gcp-upload-file:
   dependencies:
     - package_gcp-upload-file
   variables:
-    PROJECT_NAME: gcp-upload-file
+    FUNCTION_NAME: "gcp-upload-file"
+    ROOT_DIR: "applications/dxb/functions/gcp-upload-file"

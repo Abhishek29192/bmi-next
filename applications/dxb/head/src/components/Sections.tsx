@@ -30,11 +30,13 @@ import TabsOrAccordionSection, {
 import TitleWithContentSection, {
   Data as TitleWithContentData
 } from "./TitleWithContentSection";
+import TeamSection, { Data as TeamSectionData } from "./TeamSection";
 import VideoSection, { Data as VideoSectionData } from "./VideoSection";
 import IframeSection, { Data as IframeSectionData } from "./IframeSection";
 import SystemConfiguratorSection, {
   Data as SystemConfiguratorSectionData
 } from "./SystemConfiguratorSection";
+import SampleBasketSection from "./SampleBasketSection";
 
 export type SectionData =
   | ExploreBarSectionData
@@ -50,7 +52,8 @@ export type SectionData =
   | ServiceLocatorSectionData
   | VideoSectionData
   | IframeSectionData
-  | SystemConfiguratorSectionData;
+  | SystemConfiguratorSectionData
+  | TeamSectionData;
 
 export type Data = SectionData[];
 
@@ -68,7 +71,9 @@ export const sectionsMap = {
   ContentfulServiceLocatorSection: ServiceLocatorSection,
   ContentfulVideoSection: VideoSection,
   ContentfulIframe: IframeSection,
-  ContentfulSystemConfiguratorBlock: SystemConfiguratorSection
+  ContentfulSystemConfiguratorBlock: SystemConfiguratorSection,
+  ContentfulTeamSection: TeamSection,
+  ContentfulSampleBasketSection: SampleBasketSection
 };
 
 type DisplayProps = {
@@ -180,6 +185,8 @@ export const query = graphql`
     ...VideoSectionFragment
     ...IframeSectionFragment
     ...SystemConfiguratorBlockFragment
+    ...TeamSectionFragment
+    ...SampleBasketSectionFragment
   }
   fragment DialogSectionsFragment on ContentfulSection {
     __typename

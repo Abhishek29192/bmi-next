@@ -1,0 +1,11 @@
+test_product-details-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/product-details-card"
+    ROOT_DIR: "components/product-details-card"
+
+build_product-details-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/product-details-card"
+    ROOT_DIR: "components/product-details-card"

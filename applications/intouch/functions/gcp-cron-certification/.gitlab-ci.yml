@@ -36,7 +36,7 @@ package_gcp-intouch-cron-certification:
 
 # Deploy to QA
 deploy_gcp-intouch-cron-certification:
-  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   stage: deploy
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"

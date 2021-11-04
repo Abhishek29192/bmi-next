@@ -1,92 +1,31 @@
 build_gcp-functions-deployer:
-  stage: build
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
-      changes:
-        - functions/gcp-functions-deployer/**/*
-  needs:
-    - install
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/gcp-functions-deployer build -p tsconfig.build.json
-  artifacts:
-    paths:
-      - functions/gcp-functions-deployer/dist
-
-test_gcp-functions-deployer:
-  extends: .test_jest
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-      changes:
-        - functions/gcp-functions-deployer/**/*
-        - jest/**/*
+  extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-functions-deployer"
     ROOT_DIR: "functions/gcp-functions-deployer"
 
-test_mr_coverage_gcp-functions-deployer:
-  extends: .test_jest_mr_coverage
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
-      changes:
-        - functions/gcp-functions-deployer/**/*
-        - jest/**/*
+test_gcp-functions-deployer:
+  extends: .test_jest
   variables:
     WORKSPACE: "@bmi/gcp-functions-deployer"
+    ROOT_DIR: "functions/gcp-functions-deployer"
 
 package_gcp-functions-deployer:
-  stage: package
-  rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
-      changes:
-        - functions/gcp-functions-deployer/**/*
+  extends: .package_function
   needs:
     - build_gcp-functions-deployer
   dependencies:
     - build_gcp-functions-deployer
-  before_script:
-    - apt-get update
-    - apt-get install -y zip unzip
-    - mkdir -p dist/functions
-  script:
-    - cd functions/gcp-functions-deployer
-    - cp ../../yarn.lock .
-    - zip -r $CI_PROJECT_DIR/dist/functions/gcp-functions-deployer.zip package.json yarn.lock dist/
-    - cd $CI_PROJECT_DIR
-  artifacts:
-    paths:
-      - $CI_PROJECT_DIR/dist/functions
+  variables:
+    FUNCTION_NAME: gcp-functions-deployer
+    ROOT_DIR: functions/gcp-functions-deployer
 
-# Deploy to QA or Pre-Production or Production Storage
 deploy_gcp-functions-deployer:
-  image: gcr.io/google.com/cloudsdktool/cloud-sdk
-  stage: deploy
-  rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
-      changes:
-        - functions/gcp-functions-deployer/**/*
-      allow_failure: true
+  extends: .deploy_function
   needs:
     - package_gcp-functions-deployer
   dependencies:
     - package_gcp-functions-deployer
-  before_script:
-    - |
-      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
-        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_QA
-      fi
-          
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
-        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PREPROD
-      fi
-
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
-        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PROD
-      fi
-
-      apt-get update
-      apt-get install -y jq
-  script:
-    - ./scripts/deploy_function_package.sh $GCP_FUNCTIONS_CI gcp-functions-deployer
-  interruptible: false
+  variables:
+    FUNCTION_NAME: gcp-functions-deployer
+    ROOT_DIR: functions/gcp-functions-deployer

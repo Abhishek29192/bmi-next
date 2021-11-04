@@ -1,0 +1,11 @@
+test_radio-pane:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/radio-pane"
+    ROOT_DIR: "components/radio-pane"
+
+build_radio-pane:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/radio-pane"
+    ROOT_DIR: "components/radio-pane"

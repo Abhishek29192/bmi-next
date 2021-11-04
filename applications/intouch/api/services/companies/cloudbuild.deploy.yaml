@@ -33,7 +33,9 @@ steps:
         "--set-env-vars=GCP_SECRET_PROJECT=734962646925",
         "--set-env-vars=GCP_PRIVATE_BUCKET_NAME=intouch-file-storage-bucket",
         "--set-env-vars=GCP_PUBLIC_BUCKET_NAME=intouch-public-assets",
-        "--set-env-vars=AUTH0_CONNECTION_ID=con_0Z9pDsN759ae5Z8U"
+        "--set-env-vars=AUTH0_CONNECTION_ID=con_0Z9pDsN759ae5Z8U",
+        "--set-env-vars=TOPIC_TRANSACTIONAL_EMAIL=transactional-email",
+        "--set-env-vars=TOPIC_GUARANTEE_PDF=guarantee-pdf"
       ]
 
   # promote to latest

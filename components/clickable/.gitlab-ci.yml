@@ -1,0 +1,11 @@
+test_clickable:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/clickable"
+    ROOT_DIR: "components/clickable"
+
+build_clickable:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/clickable"
+    ROOT_DIR: "components/clickable"

@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { v4 } from "uuid";
 import {
   ApolloClient,
   InMemoryCache,
@@ -9,14 +8,10 @@ import { onError } from "@apollo/client/link/error";
 import { ApolloLink } from "@apollo/client/link/core";
 import { setContext } from "@apollo/client/link/context";
 import { createUploadLink } from "apollo-upload-client";
-import { getAuth0Instance } from "../lib/auth0";
 
 let apolloClient;
-const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
-  let baseUrl;
-  const isBrowser = typeof window !== "undefined";
-
-  const errorLink = onError(({ graphQLErrors, networkError }) => {
+const getErrorLink = (ctx) =>
+  onError(({ graphQLErrors, networkError }) => {
     const logger = ctx?.req?.logger("apollo");
     if (graphQLErrors)
       graphQLErrors.forEach(({ message, locations, path }) => {
@@ -33,58 +28,54 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
       });
     if (networkError) {
       if (logger) {
-        logger.error(`[Network error]: ${networkError}`);
+        logger.error(`[Network error]: ${networkError.message}`);
       } else {
         // eslint-disable-next-line no-console
-        console.log(`[Network error]: ${networkError}`);
+        console.log(`[Network error]: ${networkError.message}`);
       }
     }
   });
 
+const getBaseUrl = (req) => {
+  const isBrowser = typeof window !== "undefined";
   if (!isBrowser) {
-    const protocol = ctx?.req?.headers["x-forwarded-proto"] || "http";
-    baseUrl = `${protocol}://${ctx?.req?.headers?.host}`;
+    const protocol = req?.headers["x-forwarded-proto"] || "http";
+    return `${protocol}://${req?.headers?.host}`;
   } else {
-    baseUrl = `${window.location.protocol}//${window.location.host}`;
+    return `${window.location.protocol}//${window.location.host}`;
   }
+};
+
+const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
+  const { req, session } = ctx;
+  const baseUrl = getBaseUrl(req);
+  const isBrowser = typeof window !== "undefined";
 
   const uploadLink = createUploadLink({
     uri: `${baseUrl}/api/graphql`
   });
 
-  const authLink = setContext(async (req, { headers }) => {
-    let userId;
-    let accessToken;
-
-    if (ctx.req) {
-      const auth0 = await getAuth0Instance(ctx.req, ctx.res);
-      const session = auth0.getSession(ctx.req, ctx.res);
-
-      // We use apollo client also before adding the session object in the req object
-      // in particular in pages/api/auth/auth0 in the afterCallback, this is why
-      // we need to check ctx.session
-      accessToken = `Bearer ${
-        session?.accessToken || ctx.session?.accessToken
-      }`;
-      userId = session?.user?.sub || ctx.session?.user?.sub;
+  const authLink = setContext(async (req, { headers }) => ({
+    headers: {
+      ...headers,
+      ...((headers?.authorization || session?.accessToken) && {
+        authorization: `Bearer ${
+          headers?.authorization || session?.accessToken
+        }`
+      }),
+      // Logging purpose
+      ...(headers?.["x-request-id"] && {
+        "x-request-id": headers?.["x-request-id"]
+      }),
+      // Logging purpose
+      ...(headers?.["x-authenticated-user-id"] && {
+        "x-authenticated-user-id": headers?.["x-authenticated-user-id"]
+      }),
+      ...(ctx.headers || {})
     }
+  }));
 
-    return {
-      headers: {
-        ...headers,
-        authorization: accessToken || "",
-        // Logging purpose
-        ...(headers?.["x-request-id"] && {
-          "x-request-id": headers?.["x-request-id"]
-        }),
-        // Logging purpose
-        ...(headers?.["x-authenticated-user-id"] && {
-          "x-authenticated-user-id": headers?.["x-authenticated-user-id"]
-        }),
-        ...(ctx.headers || {})
-      }
-    };
-  });
+  const errorLink = getErrorLink(ctx);
 
   return new ApolloClient({
     connectToDevTools: isBrowser,

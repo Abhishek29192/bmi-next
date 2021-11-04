@@ -329,7 +329,7 @@
     },
     "addNoteDialog": {
       "title": "Add a note",
-      "detailHeading": "Please fill in the details below to share information on this project",
+      "detailHeading": "Share information about this project",
       "cancel": "Cancel",
       "send": "Send"
     },
@@ -343,5 +343,9 @@
       "tier": "You are not in a Tier that supports Guarantees",
       "guaranteeType": "Guarantee Type is not defined"
     }
+  },
+  "report": {
+    "project": "Download projects report",
+    "guarantee": "Download guarantee report"
   }
 }

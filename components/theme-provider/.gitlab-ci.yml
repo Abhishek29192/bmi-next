@@ -1,0 +1,11 @@
+test_theme-provider:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/theme-provider"
+    ROOT_DIR: "components/theme-provider"
+
+build_theme-provider:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/theme-provider"
+    ROOT_DIR: "components/theme-provider"

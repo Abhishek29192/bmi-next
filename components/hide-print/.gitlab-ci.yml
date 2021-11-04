@@ -1,0 +1,11 @@
+test_hide-print:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/hide-print"
+    ROOT_DIR: "components/hide-print"
+
+build_hide-print:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/hide-print"
+    ROOT_DIR: "components/hide-print"

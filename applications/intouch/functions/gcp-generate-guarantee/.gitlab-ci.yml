@@ -5,7 +5,8 @@ build_gcp-intouch-generate-guarantee:
       changes:
         - applications/intouch/functions/gcp-generate-guarantee/**/*
   needs:
-    - install
+    - job: install
+      optional: true
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
@@ -40,7 +41,7 @@ package_gcp-intouch-generate-guarantee:
 
 # Deploy to QA
 deploy_gcp-intouch-generate-guarantee:
-  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   stage: deploy
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"

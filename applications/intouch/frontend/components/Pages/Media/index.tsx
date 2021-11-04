@@ -7,7 +7,9 @@ import {
   MediaFolder,
   MediaFolders,
   RootFolders,
-  MediaItem
+  MediaItem,
+  MediaGalleryState,
+  GalleryItem
 } from "../../../lib/media/types";
 import {
   getMediaContentType,
@@ -17,18 +19,13 @@ import {
 } from "../../../lib/media/utils";
 import log from "../../../lib/logger";
 import { MediaGrid } from "../../MediaGrid";
-import { GalleryItem, MediaGallery } from "../../MediaGallery";
+import { MediaGallery } from "../../MediaGallery";
 
 type Props = {
   rootFolders: RootFolders;
   mediaPath: MediaFolders;
   activeMediaId?: string;
   mediaFolder: MediaFolder;
-};
-
-type MediaGalleryState = {
-  isOpen: boolean;
-  activeItem: GalleryItem;
 };
 
 const getMediaToolGalleryProps = (
@@ -43,13 +40,12 @@ const getMediaToolGalleryProps = (
     return { ...baseProps, type: "vimeo" };
   }
   const contentType = getMediaContentType(mediaTool);
-  if (contentType.includes("pdf")) {
-    return {
-      ...baseProps,
-      type: "pdf"
-    };
-  }
-  return { ...baseProps, type: "image" };
+  return {
+    ...baseProps,
+    url: mediaTool?.thumbnail?.url || "",
+    fileUrl: mediaTool?.media?.url || "",
+    type: contentType.includes("pdf") ? "pdf" : "image"
+  };
 };
 
 export const MediaPage = ({

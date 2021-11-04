@@ -1,7 +1,8 @@
 build_gcp-firestore-writer:
   extends: .build_function
   variables:
-    PROJECT_NAME: gcp-firestore-writer
+    WORKSPACE: "@bmi/gcp-firestore-writer"
+    ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
 
 package_gcp-firestore-writer:
   extends: .package_function
@@ -10,7 +11,8 @@ package_gcp-firestore-writer:
   dependencies:
     - build_gcp-firestore-writer
   variables:
-    PROJECT_NAME: gcp-firestore-writer
+    FUNCTION_NAME: "gcp-firestore-writer"
+    ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
 
 deploy_gcp-firestore-writer:
   extends: .deploy_function
@@ -19,4 +21,5 @@ deploy_gcp-firestore-writer:
   dependencies:
     - package_gcp-firestore-writer
   variables:
-    PROJECT_NAME: gcp-firestore-writer
+    FUNCTION_NAME: "gcp-firestore-writer"
+    ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"

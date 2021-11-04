@@ -211,7 +211,9 @@ exports[`ProjectSidePanel component renders correctly 1`] = `
     </div>
     <div
       class="footerBtn"
-    />
+    >
+      <div />
+    </div>
   </div>
 </div>
 `;
@@ -527,7 +529,9 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
     </div>
     <div
       class="footerBtn"
-    />
+    >
+      <div />
+    </div>
   </div>
 </div>
 `;

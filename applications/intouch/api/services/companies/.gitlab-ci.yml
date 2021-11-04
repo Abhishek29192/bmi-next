@@ -8,10 +8,10 @@ test_intouch_companies:
       changes:
         - applications/intouch/api/services/companies/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   needs:
-    - install
+    - job: install
+      optional: true
   variables:
     PG_HOST: postgres
     PG_USER: postgres
@@ -34,7 +34,7 @@ test_intouch_companies:
 build_intouch_api_companies_dev:
   stage: build
   needs: []
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}
@@ -43,8 +43,7 @@ build_intouch_api_companies_dev:
       changes:
         - applications/intouch/api/services/companies/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
@@ -58,7 +57,7 @@ deploy_intouch_api_companies_dev:
     #  optional: true
     - build_intouch_api_companies_dev
     - test_intouch_companies
-  image: google/cloud-sdk
+  image: !reference [.cloud-sdk-image, image]
   services:
     - docker:dind
   cache: {}

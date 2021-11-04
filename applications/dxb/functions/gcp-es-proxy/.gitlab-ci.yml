@@ -7,4 +7,5 @@ test_gcp-es-proxy:
 build_gcp-es-proxy:
   extends: .build_function
   variables:
-    PROJECT_NAME: gcp-es-proxy
+    WORKSPACE: "@bmi/gcp-es-proxy"
+    ROOT_DIR: "applications/dxb/functions/gcp-es-proxy"

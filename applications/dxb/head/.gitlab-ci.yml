@@ -7,8 +7,7 @@ test_head:
         - components/**/*
         - libraries/**/*
         - jest/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
@@ -19,126 +18,65 @@ test_mr_coverage_head:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
-        - jest/**/*
-        - package.json
   variables:
     WORKSPACE: "@bmi/head"
+    ROOT_DIR: "applications/dxb/head"
 
 build_head_mr:
-  stage: build
+  extends: .build
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
-  needs:
-    - install
+        - yarn.lock
   variables:
-    GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/head check:ts
-    - yarn workspace @bmi/head build
-  artifacts:
-    paths:
-      - applications/dxb/head/public
-  cache:
-    - key:
-        files:
-          - yarn.lock
-      policy: pull
-      untracked: false
-      paths:
-        - "**/node_modules"
-        - ".yarn_cache"
-    - key: build_head_mr
-      policy: pull-push
-      untracked: false
-      paths:
-        - "applications/dxb/head/.cache"
-        - "applications/dxb/head/public"
+    WORKSPACE: "@bmi/head"
+    ROOT_DIR: "applications/dxb/head"
 
-# TODO: Set to use pre-prod environment data
-# build_head_hotfix_mr:
-#   stage: build
-#   rules:
-#     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
-#       changes:
-#         - applications/dxb/head/**/*
-#         - components/**/*
-#         - libraries/**/*
-#         - package.json
-#         - "**/package.json"
-#   needs:
-#     - install
-#   variables:
-#     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
-#   before_script:
-#     - yarn config set cache-folder ${PWD}/.yarn_cache
-#   script:
-#     - yarn workspace @bmi/head check:ts
-#     - yarn workspace @bmi/head build
-#   artifacts:
-#     paths:
-#       - applications/dxb/head/public
-#   cache:
-#     - key:
-#         files:
-#           - yarn.lock
-#       policy: pull
-#       untracked: false
-#       paths:
-#         - "**/node_modules"
-#         - ".yarn_cache"
-#     - key: build_head_hotfix_mr
-#       policy: pull-push
-#       untracked: false
-#       paths:
-#         - "applications/dxb/head/.cache"
-#         - "applications/dxb/head/public"
-
-deploy_head_preview:
+wait_until_head_deployed_to_gatsby:
   stage: deploy
+  image: !reference [.node-full-image, image]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
-  needs:
-    - build_head_mr
+  needs: []
+  timeout: 15m
   before_script:
-    - yarn config set cache-folder ~/.yarn
     - apt-get update
     - apt-get install -y jq
   script:
     - |
-      cd applications/dxb/head
-      node ./scripts/netlify-toml-builder.js
-      node ./scripts/netlify-token-replacer.js
-      cd ../../../
-      DEPLOY_RESULT=$(npx netlify deploy --dir applications/dxb/head/public --site "${NETLIFY_HEAD_SITE_ID}" --auth "${NETLIFY_AUTH_TOKEN}" --json) || exit 0
-      echo ${DEPLOY_RESULT}
-      SITE_URL=$(echo ${DEPLOY_RESULT} | jq -r '.deploy_url')
-      curl --request POST --header "PRIVATE-TOKEN: ${NETLIFY_GITLAB_TOKEN}" -H "Content-Type: application/json" \
-        -d "{\"body\":\"Deployed to: ${SITE_URL}\"}" \
-        "https://gitlab.com/api/v4/projects/19163612/merge_requests/${CI_MERGE_REQUEST_IID}/notes"
-      echo "${SITE_URL}" > deploy_head
+      commit_time=$(date -u +%s --date=$(git show -s --format=%cd --date=iso-strict $CI_COMMIT_SHA))
+      while true; do
+        notes=$(curl --header "PRIVATE-TOKEN: ${NETLIFY_GITLAB_TOKEN}" -H "Content-Type: application/json" \
+          "$CI_API_V4_URL/projects/19163612/merge_requests/${CI_MERGE_REQUEST_IID}/notes?sort=asc&order_by=created_at&page=1")
+        note=$(echo $notes | jq '.[] | select(.body | test("DXB/QA")?)')
+        updated_at=$(date -u +%s --date=$(echo $note | jq -r '.updated_at'))
+        body=$(echo $note | jq '.body')
+        if [[ $(($updated_at - $commit_time)) -gt 0 ]]; then
+          if [[ $body == *"Your build was successful!"* ]]; then
+            sed -n 's/.*\[See the Deploy preview here.\](\(.*\))\\n\\n##.*/\1/p' <<< $body > deploy_head
+            exit 0
+          fi
+          exit 1
+        fi
+        sleep 30
+      done
   artifacts:
     paths:
       - deploy_head
 
+# https://www.zaproxy.org/docs/docker/baseline-scan/
 .base_scan:
   stage: dynamic security
   rules:
     - when: never
-  image: owasp/zap2docker-stable:latest
+  image: !reference [.owasp-image, image]
   cache: {}
   script:
     - mkdir /zap/wrk
@@ -154,11 +92,12 @@ deploy_head_preview:
       - zap_output.html
     when: always
 
+# https://www.zaproxy.org/docs/docker/full-scan/
 .full_scan:
   stage: dynamic security
   rules:
     - when: never
-  image: owasp/zap2docker-stable:latest
+  image: !reference [.owasp-image, image]
   timeout: 3h
   cache: {}
   script:
@@ -175,8 +114,7 @@ deploy_head_preview:
       - zap_output.html
     when: always
 
-# https://www.zaproxy.org/docs/docker/baseline-scan/
-# Triggered by Netlify when deploy is complete
+# Triggered when Gatsby deploy is complete
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
@@ -186,7 +124,7 @@ baseline_scan_head_preview:
         - components/**/*
         - libraries/**/*
   needs:
-    - deploy_head_preview
+    - wait_until_head_deployed_to_gatsby
   allow_failure: true
   variables:
     ZAP_ENVIRONMENT: "mr"
@@ -198,7 +136,6 @@ baseline_scan_head_preview:
       xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${BASE_URL}" applications/dxb/head/dast/mr.context
       export BASE_URL=${BASE_URL}/no
 
-# https://www.zaproxy.org/docs/docker/full-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
 # SAST_DISABLED should be set to true
 full_scan_head_qa:
@@ -217,7 +154,6 @@ full_scan_head_pre_prod:
     BASE_URL: https://bmi-dxb-head-preproduction.netlify.app/no/
     ZAP_ENVIRONMENT: pre-production
 
-# https://www.zaproxy.org/docs/docker/baseline-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
 # SAST_DISABLED should be set to true
 # When happy with how this works, change to use zap-full-scan.py
@@ -229,6 +165,7 @@ baseline_scan_head_prod:
     BASE_URL: https://bmi-dxb-head-production.netlify.app/no
     ZAP_ENVIRONMENT: production
 
+# https://github.com/GoogleChrome/lighthouse-ci
 .lighthouse_scan:
   stage: lighthouse scan
   variables:
@@ -236,7 +173,7 @@ baseline_scan_head_prod:
     NETLIFY_PWD: "$LIGHTHOUSE_PWD"
   rules:
     - when: never
-  image: cypress/browsers:node14.15.0-chrome86-ff82
+  image: !reference [.cypress-image, image]
   script:
     - |
       params="--collect.settings.pwd=${NETLIFY_PWD}"
@@ -248,7 +185,6 @@ baseline_scan_head_prod:
     paths:
       - applications/dxb/head/lighthouseci/reports
 
-# https://github.com/GoogleChrome/lighthouse-ci
 # Lighthouse scan on netlify build
 lighthouseci_scan_head_preview:
   extends: .lighthouse_scan
@@ -259,7 +195,9 @@ lighthouseci_scan_head_preview:
         - components/**/*
         - libraries/**/*
   needs:
-    - deploy_head_preview
+    - job: install
+      optional: true
+    - wait_until_head_deployed_to_gatsby
   allow_failure: true
   variables:
     # Required as QA password has a `$` in it
@@ -275,7 +213,6 @@ lighthouseci_scan_head_preview:
         "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
       )
 
-# https://github.com/GoogleChrome/lighthouse-ci
 # Should be set as a scheduled job for cron 0 2 * * 0 (2am every sunday) for QA
 # Additional scheduled jobs for Pre-Prod and Prod at 3am and 4am
 # SAST_DISABLED should be set to true
@@ -286,6 +223,10 @@ lighthouseci_scan_head:
 
 ############################################################################
 # Templates used by each market to run content migrations
+#
+# For example:
+# variables:
+#   DXB_MARKET_ID: NO
 ############################################################################
 .migrate_content:
   variables:
@@ -322,6 +263,7 @@ lighthouseci_scan_head:
     - yarn build-contentful true $SOURCE_BRANCH $CI_COMMIT_TAG
 
 .deploy_gatsby_cloud:
+  image: !reference [.node-full-image, image]
   variables:
     DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
   stage: deploy
@@ -357,7 +299,8 @@ lighthouseci_scan_head:
 migrate_content_norway:
   extends: .migrate_content
   needs:
-    - install
+    - job: install
+      optional: true
   variables:
     DXB_MARKET_ID: "NO"
 
@@ -394,7 +337,8 @@ deploy_gatsby_cloud_norway:
 migrate_content_france:
   extends: .migrate_content
   needs:
-    - install
+    - job: install
+      optional: true
   variables:
     DXB_MARKET_ID: "FR"
   rules:
