@@ -27,6 +27,7 @@ import { bulkImport } from "../../services/products/bulkImport";
 import { resetPassword } from "../../services/account";
 import { getDocumentType } from "../../utils/companyDocument";
 import { PostGraphileContext } from "../../types";
+import * as reminderMutation from "../../services/reminder";
 import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
@@ -228,7 +229,8 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             resolveInfo,
             auth0
           );
-        }
+        },
+        ...reminderMutation
       },
       ImportAccountsCompaniesFromCSVResult: {
         accounts: async (parent, args, context, resolveInfo) => {
