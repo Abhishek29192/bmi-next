@@ -225,7 +225,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     if (result && result.aggregations) {
       setFilters(
         process.env.GATSBY_USE_LEGACY_FILTERS === "true"
-          ? disableFiltersFromAggregations(filters, result.aggregations)
+          ? xferFilterValue(
+              newFilters,
+              disableFiltersFromAggregations(filters, result.aggregations)
+            )
           : xferFilterValue(
               newFilters,
               disableFiltersFromAggregationsPLP(filters, result.aggregations)
