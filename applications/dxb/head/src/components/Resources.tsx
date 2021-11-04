@@ -49,7 +49,7 @@ export const query = graphql`
     maximumSamples
     sampleBasketLink {
       ... on ContentfulSimplePage {
-        slug
+        ...PageInfoFragment
       }
     }
     pdpCards {

@@ -10,19 +10,21 @@ import { getPathWithCountryCode } from "../utils/path";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
 import { VariantOption } from "./types/pim";
+import { getCTA } from "./Link";
+import { Data as PageInfoData } from "./PageInfo";
 
 const SampleOrderSection = ({
   isSampleOrderAllowed,
   variant,
   productName,
   maximumSamples,
-  sampleBasketLink
+  sampleBasketLinkInfo
 }: {
   isSampleOrderAllowed: Boolean;
   variant?: VariantOption;
   maximumSamples?: number;
   productName?: string;
-  sampleBasketLink: string;
+  sampleBasketLinkInfo?: PageInfoData;
 }) => {
   const { basketState, basketDispatch } = useBasketContext();
   //actions
@@ -62,10 +64,10 @@ const SampleOrderSection = ({
       );
     }
   }, [basketState]);
-  const sampleBasketPath = getPathWithCountryCode(
-    countryCode,
-    sampleBasketLink
-  );
+  const cta =
+    sampleBasketLinkInfo &&
+    getCTA(sampleBasketLinkInfo, countryCode, sampleBasketLinkInfo?.slug);
+
   return (
     (isSampleOrderAllowed || basketHasProducts) && (
       <Section
@@ -99,16 +101,12 @@ const SampleOrderSection = ({
               </Button>
             ) : undefined
           ) : undefined}
-          {basketHasProducts && (
+          {basketHasProducts && cta && cta.action && (
             <Button
               className={styles["complete-order"]}
               endIcon={<ShoppingCart />}
               variant="outlined"
-              action={{
-                model: "htmlLink",
-                href: sampleBasketPath,
-                target: "_blank"
-              }}
+              action={cta.action}
             >
               {getMicroCopy("pdp.overview.completeSampleOrder")}
             </Button>

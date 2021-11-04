@@ -5,7 +5,6 @@ module.exports.up = (migration) => {
   resources
     .createField("sampleBasketLink")
     .name("Samples Basket Link")
-    .required(true)
     .type("Link")
     .validations([{ linkContentType: ["page"] }])
     .linkType("Entry");

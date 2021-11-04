@@ -196,7 +196,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     productName={product.name}
                     variant={getVariant(product, pageContext.variantCode)}
                     maximumSamples={maximumSamples}
-                    sampleBasketLink={sampleBasketLink.slug}
+                    sampleBasketLinkInfo={sampleBasketLink}
                   />
                 }
                 {resources?.pdpShareWidget && (

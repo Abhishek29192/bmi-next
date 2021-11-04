@@ -2,12 +2,37 @@ import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
+import { Data as PageInfoData } from "../PageInfo";
+import { SiteContextProvider } from "../Site";
 
 afterEach(() => {
   cleanup();
   localStorage.clear();
 });
-
+const sampleBasketLinkInfo: PageInfoData = {
+  id: "test",
+  title: "test",
+  __typename: "ContentfulSimplePage",
+  slug: "sample-basket",
+  path: "sample-basket/",
+  subtitle: null,
+  brandLogo: null,
+  featuredMedia: null,
+  featuredVideo: null,
+  date: null,
+  tags: null
+};
+const getMockSiteContext = (
+  countryCode: string = "en",
+  nodeLocale: string = "en-GB"
+) => ({
+  countryCode: countryCode,
+  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
+  node_locale: nodeLocale,
+  homePage: {
+    title: "Home page title"
+  }
+});
 describe("Functionality of sample basket", () => {
   it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", async () => {
     const variant = {
@@ -21,11 +46,13 @@ describe("Functionality of sample basket", () => {
       shortDescription: null
     };
     render(
-      <SampleOrderSection
-        isSampleOrderAllowed={true}
-        variant={variant}
-        sampleBasketLink={"sample-basket"}
-      ></SampleOrderSection>,
+      <SiteContextProvider value={getMockSiteContext()}>
+        <SampleOrderSection
+          isSampleOrderAllowed={true}
+          variant={variant}
+          sampleBasketLinkInfo={sampleBasketLinkInfo}
+        ></SampleOrderSection>
+      </SiteContextProvider>,
       {
         wrapper: BasketContextProvider
       }
@@ -68,7 +95,7 @@ describe("Functionality of sample basket", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant}
-        sampleBasketLink={"sample-basket"}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -78,7 +105,7 @@ describe("Functionality of sample basket", () => {
       <SampleOrderSection
         isSampleOrderAllowed={false}
         maximumSamples={3}
-        sampleBasketLink={"sample-basket"}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -112,7 +139,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant1}
-        sampleBasketLink={"sample-basket"}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -126,7 +153,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant2}
-        sampleBasketLink={"sample-basket"}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -170,7 +197,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant1}
         maximumSamples={maximumSamples}
-        sampleBasketLink={"sample-basket"}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -185,7 +212,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant2}
         maximumSamples={maximumSamples}
-        sampleBasketLink={"sample-basket"}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -224,7 +251,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant1}
-        sampleBasketLink={"sample-basket"}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -238,7 +265,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant2}
-        sampleBasketLink={"sample-basket"}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -256,7 +283,7 @@ describe("disable 'Add to basket' if basket is full", () => {
     render(
       <SampleOrderSection
         isSampleOrderAllowed={false}
-        sampleBasketLink={"sample-basket"}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
