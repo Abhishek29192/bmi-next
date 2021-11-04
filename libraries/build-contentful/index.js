@@ -18,6 +18,10 @@ const CONTENTFUL_DEV_MAIN_BRANCH = "development";
 
 const allowedHooks = ["Gitlab Tag Trigger"];
 
+const minutesToCheckForEnv = 20;
+const secondsBetweenEnvironmentChecks = 10; // 10 secs
+const maxSeconds = minutesToCheckForEnv * 60; // 20 * 60 = 1200
+
 const getCurrentCommitTag = () => {
   console.log("Trying to get the tag from the commit information.");
 
@@ -79,7 +83,8 @@ const getTargetContentfulEnvironment = (branch) =>
     [DEV_MAIN_BRANCH]: CONTENTFUL_DEV_MAIN_BRANCH
   }[branch]);
 
-const wait = (aBit = 1000) => {
+const defaultMilliSecondWait = secondsBetweenEnvironmentChecks * 100;
+const wait = (aBit = defaultMilliSecondWait) => {
   return new Promise((resolve) =>
     setTimeout(() => {
       resolve();
@@ -88,7 +93,8 @@ const wait = (aBit = 1000) => {
 };
 
 const isItCooked = (tag, space, attempts = 0) => {
-  if (attempts === 100) {
+  const maxAttempts = maxSeconds / secondsBetweenEnvironmentChecks;
+  if (attempts === maxAttempts) {
     return;
   }
 
