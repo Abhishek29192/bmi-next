@@ -83,7 +83,7 @@ const getTargetContentfulEnvironment = (branch) =>
     [DEV_MAIN_BRANCH]: CONTENTFUL_DEV_MAIN_BRANCH
   }[branch]);
 
-const defaultMilliSecondWait = secondsBetweenEnvironmentChecks * 100;
+const defaultMilliSecondWait = secondsBetweenEnvironmentChecks * 1000;
 const wait = (aBit = defaultMilliSecondWait) => {
   return new Promise((resolve) =>
     setTimeout(() => {
