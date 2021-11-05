@@ -116,20 +116,24 @@ const isItCooked = (tag, space, attempts = 0) => {
 
 async function cleanupOldEnvironments(tag, envs, space) {
   const allAliases = await space.getEnvironmentAliases();
-  const aliasedEnvIds = allAliases.items.map(
-    (x) => x.getEnvironments() && x.environment.sys.id
-  );
+  const aliasedEnvIds = allAliases.items.map((x) => x.environment.sys.id);
 
-  console.log("Skipping aliased environments:");
-  aliasedEnvIds.forEach((env) => console.log(env.sys.id));
+  console.log("Skipping aliased versions:");
+  aliasedEnvIds.forEach((envId) => console.log(envId));
 
   const sortedEnvVersions = envs.items
     .filter((env) => isValidSemVer(env.sys.id))
     .sort((b, a) => compareSemVer(a.sys.id, b.sys.id));
 
   const prevMajEnvs = sortedEnvVersions.filter(
-    (env) => !parseSemVer(env.sys.id).pre && env.sys.id !== tag
+    (env) =>
+      !parseSemVer(env.sys.id).pre &&
+      env.sys.id !== tag &&
+      !aliasedEnvIds.includes(env.sys.id)
   );
+
+  console.log("Skipping previous major version:");
+  prevMajEnvs.length > 0 && console.log(prevMajEnvs[0].sys.id);
 
   // want to keep at least 2 major versions (newest and previous)
   const envsExceptNewest = sortedEnvVersions.slice(1);
@@ -142,13 +146,13 @@ async function cleanupOldEnvironments(tag, envs, space) {
           prevMajEnvs.length > 0 &&
           prevMajEnvs[0].sys.id !== env.sys.id
       )
-      .forEach(
-        // TODO: R21: if the below prints correct envs, uncomment the for R21
-        //async (env) =>
-        (env) =>
-          console.log(`Deleting contentful environment (TEST) ${env.sys.id}`)
-        // && (await env.delete())
-      );
+      .forEach(async (env) => {
+        console.log(
+          `Deleting contentful environment (TESTING ONLY): ${env.sys.id}`
+        );
+        // TODO: write tests to ensure this logic stays solid, then implement the below delete.
+        //await env.delete();
+      });
   }
 }
 
