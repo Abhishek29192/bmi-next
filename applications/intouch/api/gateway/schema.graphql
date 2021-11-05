@@ -9384,6 +9384,100 @@ type CreateMarketPayload {
 }
 
 """
+All input for the create `Migration` mutation.
+"""
+input CreateMigrationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `Migration` to be created by this mutation.
+  """
+  migration: MigrationInput!
+}
+
+"""
+The output of our create `Migration` mutation.
+"""
+type CreateMigrationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `Migration` that was created by this mutation.
+  """
+  migration: Migration
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `Migration`. May be used by Relay 1.
+  """
+  migrationEdge(
+    """
+    The method to use when ordering `Migration`.
+    """
+    orderBy: [MigrationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MigrationsEdge
+}
+
+"""
+All input for the create `MigrationsState` mutation.
+"""
+input CreateMigrationsStateInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `MigrationsState` to be created by this mutation.
+  """
+  migrationsState: MigrationsStateInput!
+}
+
+"""
+The output of our create `MigrationsState` mutation.
+"""
+type CreateMigrationsStatePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `MigrationsState` that was created by this mutation.
+  """
+  migrationsState: MigrationsState
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `MigrationsState`. May be used by Relay 1.
+  """
+  migrationsStateEdge(
+    """
+    The method to use when ordering `MigrationsState`.
+    """
+    orderBy: [MigrationsStatesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MigrationsStatesEdge
+}
+
+"""
 All input for the create `Note` mutation.
 """
 input CreateNoteInput {
@@ -11351,6 +11445,126 @@ type DeleteMarketPayload {
     """
     orderBy: [MarketsOrderBy!] = [PRIMARY_KEY_ASC]
   ): MarketsEdge
+}
+
+"""
+All input for the `deleteMigrationByNodeId` mutation.
+"""
+input DeleteMigrationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Migration` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteMigration` mutation.
+"""
+input DeleteMigrationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""
+The output of our delete `Migration` mutation.
+"""
+type DeleteMigrationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `Migration` that was deleted by this mutation.
+  """
+  migration: Migration
+  deletedMigrationNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `Migration`. May be used by Relay 1.
+  """
+  migrationEdge(
+    """
+    The method to use when ordering `Migration`.
+    """
+    orderBy: [MigrationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MigrationsEdge
+}
+
+"""
+All input for the `deleteMigrationsStateByNodeId` mutation.
+"""
+input DeleteMigrationsStateByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MigrationsState` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteMigrationsState` mutation.
+"""
+input DeleteMigrationsStateInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  key: String!
+}
+
+"""
+The output of our delete `MigrationsState` mutation.
+"""
+type DeleteMigrationsStatePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `MigrationsState` that was deleted by this mutation.
+  """
+  migrationsState: MigrationsState
+  deletedMigrationsStateNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `MigrationsState`. May be used by Relay 1.
+  """
+  migrationsStateEdge(
+    """
+    The method to use when ordering `MigrationsState`.
+    """
+    orderBy: [MigrationsStatesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MigrationsStatesEdge
 }
 
 """
@@ -18096,12 +18310,20 @@ enum MessageTemplateOrder {
 """
 Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration)
 """
-type Migration implements Entry {
-  sys: Sys!
-  contentfulMetadata: ContentfulMetadata!
-  linkedFrom(allowedLocales: [String]): MigrationLinkingCollections
-  state(locale: String): JSON
+type Migration implements Entry & Node {
   contentTypeId(locale: String): String
+  contentfulMetadata: ContentfulMetadata!
+  id: Int!
+  linkedFrom(allowedLocales: [String]): MigrationLinkingCollections
+  name: String!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  runOn: Datetime!
+  state(locale: String): JSON
+  sys: Sys!
 }
 
 type MigrationCollection {
@@ -18111,18 +18333,61 @@ type MigrationCollection {
   items: [Migration]!
 }
 
+"""
+A condition to be used against `Migration` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input MigrationCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+}
+
+"""
+A filter to be used against `Migration` object types. All fields are combined with a logical ‘and.’
+"""
 input MigrationFilter {
-  sys: SysFilter
-  contentfulMetadata: ContentfulMetadataFilter
-  contentTypeId_exists: Boolean
-  contentTypeId: String
-  contentTypeId_not: String
-  contentTypeId_in: [String]
-  contentTypeId_not_in: [String]
-  contentTypeId_contains: String
-  contentTypeId_not_contains: String
-  OR: [MigrationFilter]
   AND: [MigrationFilter]
+  OR: [MigrationFilter]
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [MigrationFilter!]
+  contentTypeId: String
+  contentTypeId_contains: String
+  contentTypeId_exists: Boolean
+  contentTypeId_in: [String]
+  contentTypeId_not: String
+  contentTypeId_not_contains: String
+  contentTypeId_not_in: [String]
+  contentfulMetadata: ContentfulMetadataFilter
+
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Negates the expression.
+  """
+  not: MigrationFilter
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [MigrationFilter!]
+  sys: SysFilter
+}
+
+"""
+An input for mutations affecting `Migration`
+"""
+input MigrationInput {
+  id: Int
+  name: String!
+  runOn: Datetime!
 }
 
 type MigrationLinkingCollections {
@@ -18145,6 +18410,181 @@ enum MigrationOrder {
   sys_firstPublishedAt_DESC
   sys_publishedVersion_ASC
   sys_publishedVersion_DESC
+}
+
+"""
+Represents an update to a `Migration`. Fields that are set will be updated.
+"""
+input MigrationPatch {
+  id: Int
+  name: String
+  runOn: Datetime
+}
+
+"""
+A connection to a list of `Migration` values.
+"""
+type MigrationsConnection {
+  """
+  A list of `Migration` objects.
+  """
+  nodes: [Migration!]!
+
+  """
+  A list of edges which contains the `Migration` and cursor to aid in pagination.
+  """
+  edges: [MigrationsEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `Migration` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `Migration` edge in the connection.
+"""
+type MigrationsEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `Migration` at the end of the edge.
+  """
+  node: Migration!
+}
+
+"""
+Methods to use when ordering `Migration`.
+"""
+enum MigrationsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type MigrationsState implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  key: String!
+  value: String!
+  runOn: Datetime!
+}
+
+"""
+A condition to be used against `MigrationsState` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input MigrationsStateCondition {
+  """
+  Checks for equality with the object’s `key` field.
+  """
+  key: String
+}
+
+"""
+A filter to be used against `MigrationsState` object types. All fields are combined with a logical ‘and.’
+"""
+input MigrationsStateFilter {
+  """
+  Filter by the object’s `key` field.
+  """
+  key: StringFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [MigrationsStateFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [MigrationsStateFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: MigrationsStateFilter
+}
+
+"""
+An input for mutations affecting `MigrationsState`
+"""
+input MigrationsStateInput {
+  key: String!
+  value: String!
+  runOn: Datetime!
+}
+
+"""
+Represents an update to a `MigrationsState`. Fields that are set will be updated.
+"""
+input MigrationsStatePatch {
+  key: String
+  value: String
+  runOn: Datetime
+}
+
+"""
+A connection to a list of `MigrationsState` values.
+"""
+type MigrationsStatesConnection {
+  """
+  A list of `MigrationsState` objects.
+  """
+  nodes: [MigrationsState!]!
+
+  """
+  A list of edges which contains the `MigrationsState` and cursor to aid in pagination.
+  """
+  edges: [MigrationsStatesEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `MigrationsState` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `MigrationsState` edge in the connection.
+"""
+type MigrationsStatesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `MigrationsState` at the end of the edge.
+  """
+  node: MigrationsState!
+}
+
+"""
+Methods to use when ordering `MigrationsState`.
+"""
+enum MigrationsStatesOrderBy {
+  NATURAL
+  KEY_ASC
+  KEY_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
 }
 
 """
@@ -18369,6 +18809,26 @@ type Mutation {
     """
     input: CreateMarketInput!
   ): CreateMarketPayload
+
+  """
+  Creates a single `Migration`.
+  """
+  createMigration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMigrationInput!
+  ): CreateMigrationPayload
+
+  """
+  Creates a single `MigrationsState`.
+  """
+  createMigrationsState(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMigrationsStateInput!
+  ): CreateMigrationsStatePayload
 
   """
   Creates a single `Note`.
@@ -18920,6 +19380,46 @@ type Mutation {
     """
     input: DeleteMarketByNodeIdInput!
   ): DeleteMarketPayload
+
+  """
+  Deletes a single `Migration` using a unique key.
+  """
+  deleteMigration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMigrationInput!
+  ): DeleteMigrationPayload
+
+  """
+  Deletes a single `Migration` using its globally unique id.
+  """
+  deleteMigrationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMigrationByNodeIdInput!
+  ): DeleteMigrationPayload
+
+  """
+  Deletes a single `MigrationsState` using a unique key.
+  """
+  deleteMigrationsState(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMigrationsStateInput!
+  ): DeleteMigrationsStatePayload
+
+  """
+  Deletes a single `MigrationsState` using its globally unique id.
+  """
+  deleteMigrationsStateByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMigrationsStateByNodeIdInput!
+  ): DeleteMigrationsStatePayload
 
   """
   Deletes a single `Note` using a unique key.
@@ -19626,6 +20126,46 @@ type Mutation {
     """
     input: UpdateMarketByNodeIdInput!
   ): UpdateMarketPayload
+
+  """
+  Updates a single `Migration` using a unique key and a patch.
+  """
+  updateMigration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMigrationInput!
+  ): UpdateMigrationPayload
+
+  """
+  Updates a single `Migration` using its globally unique id and a patch.
+  """
+  updateMigrationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMigrationByNodeIdInput!
+  ): UpdateMigrationPayload
+
+  """
+  Updates a single `MigrationsState` using a unique key and a patch.
+  """
+  updateMigrationsState(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMigrationsStateInput!
+  ): UpdateMigrationsStatePayload
+
+  """
+  Updates a single `MigrationsState` using its globally unique id and a patch.
+  """
+  updateMigrationsStateByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMigrationsStateByNodeIdInput!
+  ): UpdateMigrationsStatePayload
 
   """
   Updates a single `Note` using a unique key and a patch.
@@ -25375,7 +25915,17 @@ type Query implements Node {
     where: MessageTemplateFilter
     order: [MessageTemplateOrder]
   ): MessageTemplateCollection
-  migration(id: String!, preview: Boolean, locale: String): Migration
+  migration(id: Int!, locale: String, preview: Boolean): Migration
+
+  """
+  Reads a single `Migration` using its globally unique `ID`.
+  """
+  migrationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Migration`.
+    """
+    nodeId: ID!
+  ): Migration
   migrationCollection(
     skip: Int = 0
     limit: Int = 100
@@ -25384,6 +25934,109 @@ type Query implements Node {
     where: MigrationFilter
     order: [MigrationOrder]
   ): MigrationCollection
+
+  """
+  Reads and enables pagination through a set of `Migration`.
+  """
+  migrations(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Migration`.
+    """
+    orderBy: [MigrationsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MigrationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MigrationFilter
+  ): MigrationsConnection
+  migrationsState(key: String!): MigrationsState
+
+  """
+  Reads a single `MigrationsState` using its globally unique `ID`.
+  """
+  migrationsStateByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `MigrationsState`.
+    """
+    nodeId: ID!
+  ): MigrationsState
+
+  """
+  Reads and enables pagination through a set of `MigrationsState`.
+  """
+  migrationsStates(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `MigrationsState`.
+    """
+    orderBy: [MigrationsStatesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MigrationsStateCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MigrationsStateFilter
+  ): MigrationsStatesConnection
 
   """
   Fetches an object given its globally unique `ID`.
@@ -30116,6 +30769,144 @@ type UpdateMarketPayload {
 }
 
 """
+All input for the `updateMigrationByNodeId` mutation.
+"""
+input UpdateMigrationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Migration` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Migration` being updated.
+  """
+  patch: MigrationPatch!
+}
+
+"""
+All input for the `updateMigration` mutation.
+"""
+input UpdateMigrationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Migration` being updated.
+  """
+  patch: MigrationPatch!
+  id: Int!
+}
+
+"""
+The output of our update `Migration` mutation.
+"""
+type UpdateMigrationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `Migration` that was updated by this mutation.
+  """
+  migration: Migration
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `Migration`. May be used by Relay 1.
+  """
+  migrationEdge(
+    """
+    The method to use when ordering `Migration`.
+    """
+    orderBy: [MigrationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MigrationsEdge
+}
+
+"""
+All input for the `updateMigrationsStateByNodeId` mutation.
+"""
+input UpdateMigrationsStateByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MigrationsState` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `MigrationsState` being updated.
+  """
+  patch: MigrationsStatePatch!
+}
+
+"""
+All input for the `updateMigrationsState` mutation.
+"""
+input UpdateMigrationsStateInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `MigrationsState` being updated.
+  """
+  patch: MigrationsStatePatch!
+  key: String!
+}
+
+"""
+The output of our update `MigrationsState` mutation.
+"""
+type UpdateMigrationsStatePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `MigrationsState` that was updated by this mutation.
+  """
+  migrationsState: MigrationsState
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `MigrationsState`. May be used by Relay 1.
+  """
+  migrationsStateEdge(
+    """
+    The method to use when ordering `MigrationsState`.
+    """
+    orderBy: [MigrationsStatesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MigrationsStatesEdge
+}
+
+"""
 All input for the `updateNoteByNodeId` mutation.
 """
 input UpdateNoteByNodeIdInput {
@@ -30863,6 +31654,8 @@ union _Entity =
   | Guarantee
   | Invitation
   | Market
+  | Migration
+  | MigrationsState
   | Note
   | Notification
   | Product

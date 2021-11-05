@@ -58,7 +58,8 @@ const importCompanyDb = async (
   console.log("************ Importing company database ******************");
 
   // examples:
-  // migrate-companies?updatePermission=true
+  // migrate-companies <===
+  // migrate-companies?updatePermission=true <===
   // migrate-companies?resetDb=true
 
   if (query.resetDb === "true") {
