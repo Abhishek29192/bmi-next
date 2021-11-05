@@ -176,7 +176,7 @@ const Header = ({
   if (!language) {
     language = {
       code: "EN",
-      icon: "/icons/flags/uk.svg",
+      icon: "/icons/flags/globe.svg",
       label: ""
     };
   }
