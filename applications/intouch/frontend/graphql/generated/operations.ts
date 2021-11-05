@@ -1866,6 +1866,36 @@ export type GetSystemsReportQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type GetTeamsReportQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetTeamsReportQuery = { readonly __typename?: "Query" } & {
+  readonly accounts?: SchemaTypes.Maybe<
+    { readonly __typename?: "AccountsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Account" } & Pick<
+          SchemaTypes.Account,
+          | "id"
+          | "email"
+          | "phone"
+          | "firstName"
+          | "lastName"
+          | "role"
+          | "status"
+          | "created"
+          | "doceboUserId"
+          | "doceboUsername"
+          | "photo"
+          | "signedPhotoUrl"
+          | "migrationId"
+          | "migratedToAuth0"
+        >
+      >;
+    }
+  >;
+};
+
 export type CreateGuaranteeMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.CreateGuaranteeInput;
 }>;

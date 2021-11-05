@@ -1708,6 +1708,78 @@ export type GetSystemsReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetSystemsReportQuery,
   OperationTypes.GetSystemsReportQueryVariables
 >;
+export const GetTeamsReportDocument = gql`
+  query GetTeamsReport {
+    accounts {
+      nodes {
+        id
+        email
+        phone
+        firstName
+        lastName
+        role
+        status
+        created
+        doceboUserId
+        doceboUsername
+        photo
+        signedPhotoUrl
+        migrationId
+        migratedToAuth0
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetTeamsReportQuery__
+ *
+ * To run a query within a React component, call `useGetTeamsReportQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetTeamsReportQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetTeamsReportQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetTeamsReportQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetTeamsReportQuery,
+    OperationTypes.GetTeamsReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetTeamsReportQuery,
+    OperationTypes.GetTeamsReportQueryVariables
+  >(GetTeamsReportDocument, options);
+}
+export function useGetTeamsReportLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetTeamsReportQuery,
+    OperationTypes.GetTeamsReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetTeamsReportQuery,
+    OperationTypes.GetTeamsReportQueryVariables
+  >(GetTeamsReportDocument, options);
+}
+export type GetTeamsReportQueryHookResult = ReturnType<
+  typeof useGetTeamsReportQuery
+>;
+export type GetTeamsReportLazyQueryHookResult = ReturnType<
+  typeof useGetTeamsReportLazyQuery
+>;
+export type GetTeamsReportQueryResult = Apollo.QueryResult<
+  OperationTypes.GetTeamsReportQuery,
+  OperationTypes.GetTeamsReportQueryVariables
+>;
 export const CreateGuaranteeDocument = gql`
   mutation createGuarantee($input: CreateGuaranteeInput!) {
     createGuarantee(input: $input) {
