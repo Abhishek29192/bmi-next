@@ -62,7 +62,8 @@ const ProductLeadBlock = ({
 
   const isPDFAsset = (asset: Asset) => {
     return (
-      asset.url.indexOf(".pdf") > -1 || asset.realFileName.indexOf(".pdf") > -1
+      asset.url?.indexOf(".pdf") > -1 ||
+      asset.realFileName?.indexOf(".pdf") > -1
     );
   };
 
