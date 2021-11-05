@@ -14,7 +14,8 @@ module.exports.up = (migration) => {
             "page",
             "productListerPage",
             "documentLibraryPage",
-            "brandLandingPage"
+            "brandLandingPage",
+            "teamPage"
           ]
         }
       ],

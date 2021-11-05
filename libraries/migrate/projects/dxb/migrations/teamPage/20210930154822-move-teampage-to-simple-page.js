@@ -107,7 +107,10 @@ module.exports.up = (migration, { makeRequest }) => {
             "contactUsPage",
             "homePage",
             "page",
-            "productListerPage"
+            "productListerPage",
+            "documentLibraryPage",
+            "brandLandingPage",
+            "teamPage"
           ]
         }
       ],
