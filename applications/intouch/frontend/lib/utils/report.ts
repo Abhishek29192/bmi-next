@@ -14,7 +14,9 @@ const defaultOptions: Options = {
 };
 
 export const exportCsv = (data, options: Options = {}) => {
-  const option = { ...defaultOptions, ...options };
-  const csvExporter = new ExportToCsv(option);
-  csvExporter.generateCsv(data);
+  if (data?.length > 0) {
+    const option = { ...defaultOptions, ...options };
+    const csvExporter = new ExportToCsv(option);
+    csvExporter.generateCsv(data);
+  }
 };
