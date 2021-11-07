@@ -8,37 +8,14 @@ exports[`PitchedRoofCalculatorSteps component renders correctly 1`] = `
     <svg
       class="logo"
     />
-    <div
-      class="CalculatorStepper"
-    >
-      <form
-        class="Form"
-      >
-        <h4
-          class="MuiTypography-root step-title Typography MuiTypography-h4"
-        >
-          Choose your roof type
-        </h4>
-        <h6
-          class="MuiTypography-root computation Typography MuiTypography-h6"
-        />
-        <p
-          class="MuiTypography-root subtitle Typography MuiTypography-body1"
-        >
-          Get started by letting us know the roof shape that most closely resembles your roof
-        </p>
-        <div
-          class="content"
-        >
-          <p>
-            Rendering 
-            _RoofSelection
-          </p>
-        </div>
-        <hr
-          class="MuiDivider-root hr"
-        />
-      </form>
+    <div>
+      <p>
+        Step 
+        select-roof
+      </p>
+      <p>
+        Rendering _RoofSelection
+      </p>
     </div>
   </div>
 </div>
