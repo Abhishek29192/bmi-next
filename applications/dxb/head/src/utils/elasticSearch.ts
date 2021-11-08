@@ -1,5 +1,9 @@
 import { Filter } from "@bmi/filters";
 import { devLog } from "../utils/devLog";
+import {
+  getCollapseVariantsByBaseProductCodeQuery,
+  getUniqueBaseProductCountCodeAggrigation
+} from "./elasticSearchCommonQuery";
 
 const ES_AGGREGATION_NAMES = {
   // TODO: Rename filter.name to colourfamily
@@ -165,7 +169,8 @@ export const compileElasticSearchQuery = (
           size: "100",
           field: "colourfamilyCode.keyword"
         }
-      }
+      },
+      ...getUniqueBaseProductCountCodeAggrigation()
     },
     // TODO: Join in a bool if multiple categories with multiple values
     // TODO: Still not sure how to handle this exactly
@@ -209,7 +214,8 @@ export const compileElasticSearchQuery = (
           ...categoryFilters
         ].filter(Boolean)
       }
-    }
+    },
+    ...getCollapseVariantsByBaseProductCodeQuery()
   };
 };
 
