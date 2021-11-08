@@ -3,6 +3,7 @@
   "MISCELLANEOUS": "Last opp dokumentasjon",
   "PROOF_OF_PURCHASE": "Kjøpsbevis",
   "CUSTOM": "Bevis på utførelse",
+  "deactivatedCompany": "Selskapet deaktivert",
   "search": {
     "inputLabel": "Søk etter et prosjekt"
   },
