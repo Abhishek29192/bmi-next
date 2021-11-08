@@ -62,6 +62,7 @@ type Data = PageInfoData &
     resultsType: ResultType;
     documents: DocumentResultsData;
     breadcrumbs: BreadcrumbsData;
+    categoryCodes: string[];
   };
 
 type Props = {
@@ -355,6 +356,13 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     </Page>
   );
 };
+// source
+// resultsType
+// documents {
+//   ...DocumentResultsFragment
+// }
+// categoryCodes
+// }
 
 export default DocumentLibraryPage;
 
@@ -368,6 +376,7 @@ export const pageQuery = graphql`
         ...RichTextFragment
       }
       source
+      categoryCodes
       resultsType
       documents {
         ...DocumentResultsFragment
