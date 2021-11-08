@@ -28937,8 +28937,9 @@ input BulkImportInput {
 
 type ImportAccountsCompaniesFromCSVResult {
   auth0Job: Auth0ImportResult
-  accounts: [Account]
   companies: [Company]
+  accounts: [Account]
+  dryRun: Boolean
 }
 
 type Auth0ImportResult {
@@ -28952,6 +28953,7 @@ type Auth0ImportResult {
 
 input ImportAccountsCompaniesFromCSVInput {
   files: [Upload!]!
+  dryRun: Boolean
 }
 
 """

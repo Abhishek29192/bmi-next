@@ -367,7 +367,15 @@ export type ImportAccountsCompaniesFromCvsMutation = {
           SchemaTypes.Maybe<
             { readonly __typename?: "Account" } & Pick<
               SchemaTypes.Account,
-              "email"
+              | "email"
+              | "role"
+              | "phone"
+              | "status"
+              | "firstName"
+              | "lastName"
+              | "created"
+              | "doceboUserId"
+              | "doceboUsername"
             >
           >
         >
@@ -377,8 +385,47 @@ export type ImportAccountsCompaniesFromCvsMutation = {
           SchemaTypes.Maybe<
             { readonly __typename?: "Company" } & Pick<
               SchemaTypes.Company,
-              "name"
-            >
+              | "businessType"
+              | "name"
+              | "tier"
+              | "status"
+              | "taxNumber"
+              | "aboutUs"
+              | "logo"
+              | "phone"
+              | "publicEmail"
+              | "website"
+              | "linkedIn"
+            > & {
+                readonly registeredAddress?: SchemaTypes.Maybe<
+                  { readonly __typename?: "Address" } & Pick<
+                    SchemaTypes.Address,
+                    "firstLine" | "secondLine" | "town" | "country" | "postcode"
+                  >
+                >;
+                readonly companyMembers: {
+                  readonly __typename?: "CompanyMembersConnection";
+                } & {
+                  readonly nodes: ReadonlyArray<
+                    { readonly __typename?: "CompanyMember" } & {
+                      readonly account?: SchemaTypes.Maybe<
+                        { readonly __typename?: "Account" } & Pick<
+                          SchemaTypes.Account,
+                          | "role"
+                          | "email"
+                          | "status"
+                          | "phone"
+                          | "firstName"
+                          | "lastName"
+                          | "created"
+                          | "doceboUserId"
+                          | "doceboUsername"
+                        >
+                      >;
+                    }
+                  >;
+                };
+              }
           >
         >
       >;
