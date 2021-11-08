@@ -78,11 +78,7 @@ export const compileESQueryPLP = ({
     ],
     aggs: {
       ...generateAllowFiltersAggs(allowFilterBy),
-      unique_base_products_count: {
-        cardinality: {
-          field: "baseProduct.code.keyword"
-        }
-      }
+      ...getUniqueBaseProductCountCodeAggrigation()
     },
     query: {
       bool: {
@@ -96,6 +92,22 @@ export const compileESQueryPLP = ({
         ].filter(Boolean)
       }
     },
+    ...getCollapseVariantsByBaseProductCodeQuery()
+  };
+};
+
+const getUniqueBaseProductCountCodeAggrigation = () => {
+  return {
+    unique_base_products_count: {
+      cardinality: {
+        field: "baseProduct.code.keyword"
+      }
+    }
+  };
+};
+
+const getCollapseVariantsByBaseProductCodeQuery = () => {
+  return {
     collapse: {
       field: "baseProduct.code.keyword",
       inner_hits: {

@@ -301,10 +301,15 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     if (results && results.hits) {
       const { hits } = results;
       const uniqueBaseProductsCount =
-        results.aggregations.unique_base_products_count.value;
+        process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+          ? hits.total.value
+          : results.aggregations?.unique_base_products_count?.value;
       const newPageCount = Math.ceil(uniqueBaseProductsCount / PAGE_SIZE);
       const variants = (() => {
-        if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
+        if (
+          process.env.GATSBY_USE_LEGACY_FILTERS !== "true" &&
+          (page + 1) * PAGE_SIZE > uniqueBaseProductsCount
+        ) {
           return hits.hits.slice(0, uniqueBaseProductsCount - page * PAGE_SIZE);
         }
         return hits.hits;
@@ -315,7 +320,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       setProducts(
         variants.map((hit) => ({
           ...hit._source,
-          all_variants: hit.inner_hits.all_variants.hits.hits
+          all_variants:
+            process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+              ? []
+              : hit.inner_hits.all_variants.hits.hits
         }))
       );
     }
