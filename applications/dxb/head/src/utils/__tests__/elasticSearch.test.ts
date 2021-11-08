@@ -180,6 +180,17 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "baseProduct.code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "baseProduct.code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
         },
         "from": 0,
         "query": Object {
@@ -276,6 +287,17 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "baseProduct.code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "baseProduct.code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
         },
         "from": 0,
         "query": Object {
@@ -351,6 +373,17 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "baseProduct.code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "baseProduct.code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
         },
         "from": 0,
         "query": Object {
@@ -423,6 +456,17 @@ describe("compileElasticSearchQuery function", () => {
               "field": "texturefamilyCode.keyword",
               "size": "100",
             },
+          },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "baseProduct.code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "baseProduct.code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
           },
         },
         "from": 0,
