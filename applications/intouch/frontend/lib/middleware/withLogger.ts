@@ -10,8 +10,8 @@ export function withLogger(getServerSideProps) {
       const auth0 = await getAuth0Instance(context.req, context.res);
       const session: Session = auth0.getSession(context.req, context.res);
 
-      context.req["x-request-id"] = v4();
-      context.req["x-authenticated-user-id"] = session?.user?.sub;
+      context.req.headers["x-request-id"] = v4();
+      context.req.headers["x-authenticated-user-id"] = session?.user?.sub || "";
 
       NextLogger(context.req, context.res);
     }
@@ -25,8 +25,8 @@ export function withLoggerApi(handler) {
       const auth0 = await getAuth0Instance(req, res);
       const session: Session = auth0.getSession(req, res);
 
-      req["x-request-id"] = v4();
-      req["x-authenticated-user-id"] = session?.user?.sub;
+      req.headers["x-request-id"] = v4();
+      req.headers["x-authenticated-user-id"] = session?.user?.sub || "";
 
       NextLogger(req, res);
     }

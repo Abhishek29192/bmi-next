@@ -1,0 +1,11 @@
+test_response-message:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/response-message"
+    ROOT_DIR: "components/response-message"
+
+build_response-message:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/response-message"
+    ROOT_DIR: "components/response-message"

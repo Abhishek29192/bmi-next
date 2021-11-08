@@ -5,7 +5,6 @@ const {
   ContentfulDocumentLibraryPage: ContentfulDocumentLibraryPageCommon,
   ContentfulSimplePage,
   ContentfulContactUsPage,
-  ContentfulTeamPage,
   ContentfulProductListerPage,
   ContentfulBrandLandingPage
 } = require("./ContentfulPage");
@@ -33,7 +32,6 @@ module.exports = {
   },
   ContentfulSimplePage,
   ContentfulContactUsPage,
-  ContentfulTeamPage,
   ContentfulProductListerPage,
   ContentfulBrandLandingPage,
   ContentfulServiceLocatorSection,

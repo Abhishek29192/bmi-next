@@ -99,7 +99,6 @@ const queries = [
             const page =
               pageData.contentfulHomePage ||
               pageData.contentfulProductListerPage ||
-              pageData.contentfulTeamPage ||
               pageData.contentfulBrandLandingPage ||
               pageData.contentfulContactUsPage ||
               pageData.contentfulDocumentLibraryPage ||

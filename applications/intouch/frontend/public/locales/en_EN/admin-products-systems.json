@@ -41,5 +41,9 @@
     "filename_wrong_format": "The file has a wrong format",
     "unauthorized": "Not authorized"
   },
-  "dryRunCompleted": "Dry run completed"
+  "dryRunCompleted": "Dry run completed",
+  "report": {
+    "product": "Download Product Report",
+    "system": "Download System Report"
+  }
 }

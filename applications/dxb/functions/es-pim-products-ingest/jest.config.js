@@ -6,10 +6,13 @@ module.exports = {
   ...sharedConfig,
   rootDir: "../../../../",
   roots: ["<rootDir>/applications/dxb/functions/es-pim-products-ingest/src"],
+  collectCoverageFrom: [
+    "<rootDir>/applications/dxb/functions/es-pim-products-ingest/src/**/*.{ts,tsx,js}"
+  ],
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
-      branches: "93"
+      branches: "95"
     }
   }
 };

@@ -695,7 +695,9 @@ export const groupProductsByCategory = (
 
     categoryBranches.forEach((branch) => {
       const tabCategory = getGroupCategory(branch);
-      tabs[tabCategory.name] = [...(tabs[tabCategory.name] || []), product];
+      if (tabCategory) {
+        tabs[tabCategory.name] = [...(tabs[tabCategory.name] || []), product];
+      }
     });
   });
 

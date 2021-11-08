@@ -68,7 +68,7 @@
     "guaranteeStatus": "Garantistatus",
     "cta": {
       "ASSIGN_SOLUTION": "Tildel til meg",
-      "REASSIGN_SOLUTION": "Tildel til meg",
+      "REASSIGN_SOLUTION": "Tilordne meg på nytt",
       "UNASSIGN_SOLUTION": "Fjern tildeling",
       "NOT_ASSIGNABLE": "Ikke delbar",
       "edit": "Redigere"
@@ -342,5 +342,9 @@
       "tier": "Du er ikke i et nivå som støtter garantier",
       "guaranteeType": "Garantitype er ikke definert"
     }
+  },
+  "report": {
+    "project": "Last ned prosjektrapport",
+    "guarantee": "Last ned garantirapport"
   }
 }

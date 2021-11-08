@@ -1,0 +1,17 @@
+test_micro-copy:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/micro-copy"
+    ROOT_DIR: "components/micro-copy"
+
+test_mr_coverage_micro-copy:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/micro-copy"
+    ROOT_DIR: "components/micro-copy"
+
+build_micro-copy:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/micro-copy"
+    ROOT_DIR: "components/micro-copy"

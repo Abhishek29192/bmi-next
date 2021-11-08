@@ -230,6 +230,18 @@ describe("Header component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders correctly when flag doesn't exist", () => {
+    const { container } = render(
+      <Header
+        activeLabel="Main"
+        countryCode="grp"
+        navigationData={navigationData}
+        utilitiesData={utilitiesData}
+        regions={regions}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
   it("renders without navigation props", () => {
     const { container } = render(
       <Header

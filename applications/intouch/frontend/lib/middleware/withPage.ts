@@ -76,7 +76,7 @@ export const innerGetServerSideProps = async (
   const session: Session = auth0.getSession(req, res);
 
   const logger = req.logger("withPage");
-  const apolloClient = initializeApollo(null, { req, res });
+  const apolloClient = initializeApollo(null, { req, res, session });
 
   let market = null;
   let account = null;
@@ -142,7 +142,7 @@ export const innerGetServerSideProps = async (
 
     globalPageData = data;
   } catch (error) {
-    logger.error("Generic error", logger);
+    logger.error("Generic error", error);
 
     throw error;
   }

@@ -98,6 +98,12 @@ const gates = {
       MARKET_ADMIN: true,
       INSTALLER: false,
       COMPANY_ADMIN: true
+    },
+    downloadReport: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
     }
   },
   project: {
@@ -142,6 +148,12 @@ const gates = {
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
       INSTALLER: false
+    },
+    downloadReport: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
     }
   },
   page: {

@@ -1,0 +1,33 @@
+@import "@bmi/styles";
+
+.team-section-white {
+  background-color: $color-white;
+
+  .title {
+    margin-bottom: 30px;
+  }
+
+  .tab-panel>div {
+    background-color: $color-white;
+  }
+
+  .tabs>div {
+    background-color: $color-alabaster;
+  }
+}
+
+.team-section-alabaster {
+  background-color: $color-alabaster;
+
+  .title {
+    margin-bottom: 30px;
+  }
+
+  .tab-panel>div {
+    background-color: $color-alabaster;
+  }
+
+  .tabs>div {
+    background-color: $color-white;
+  }
+}

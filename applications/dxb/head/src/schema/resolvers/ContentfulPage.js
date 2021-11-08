@@ -5,7 +5,6 @@ const { resolvePath, getUrlFromPath } = require("./utils/path");
 const pages = [
   "ContentfulSimplePage",
   "ContentfulContactUsPage",
-  "ContentfulTeamPage",
   "ContentfulProductListerPage",
   "ContentfulDocumentLibraryPage",
   "ContentfulBrandLandingPage"

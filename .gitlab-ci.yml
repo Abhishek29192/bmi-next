@@ -1,5 +1,6 @@
 include:
   - local: "/.gitlab/images.gitlab-ci.yml"
+  - local: "/.gitlab/build.gitlab-ci.yml"
   - local: "/.gitlab/dependabot.gitlab-ci.yml"
   - local: "/.gitlab/functions.gitlab-ci.yml"
   - local: "/.gitlab/static-analysis.gitlab-ci.yml"
@@ -12,7 +13,7 @@ include:
   - local: "/functions/.gitlab-ci.yml"
   - local: "/libraries/.gitlab-ci.yml"
 
-image: !reference [.node-slim-image, image]
+image: !reference [.node-full-image, image]
 
 stages:
   - install
@@ -85,6 +86,9 @@ license_finder:
   stage: audit
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - doc/dependency_decisions.yml
+        - yarn.lock
   needs: []
   image: licensefinder/license_finder:latest
   cache: {}

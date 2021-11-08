@@ -50,6 +50,11 @@
     "COATER": "Takmålning",
     "GREEN": "Grønn"
   },
+  "companyActionsTitle": "Selskapets handlinger",
+  "companyActions": {
+    "activate": "Aktiver selskapet",
+    "deactivate": "Deaktiver selskapet"
+  },
   "register_dialog": {
     "title": "Registrer"
   },
@@ -111,5 +116,6 @@
         "cancel": "Avbryt"
       }
     }
-  }
+  },
+  "report": "Last ned selskapsliste"
 }

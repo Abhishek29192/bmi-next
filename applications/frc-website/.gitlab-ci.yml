@@ -6,8 +6,7 @@ build_frc_website:
         - applications/frc-website/**/*
         - components/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   needs:
     - job: install
       optional: true

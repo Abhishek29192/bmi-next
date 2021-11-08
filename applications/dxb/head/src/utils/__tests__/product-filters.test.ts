@@ -1,16 +1,69 @@
 import createCategory from "../../__tests__/CategoryHelper";
-import createClassification, {
-  createFeature
-} from "../../__tests__/ClassificationHelper";
+import { createFeature } from "../../__tests__/ClassificationHelper";
 import {
   generateCategoryFilters,
   groupDistinctBy,
   generateFeatureFilters,
   ProductFilter,
-  removePLPFilterPrefix
+  removePLPFilterPrefix,
+  groupBy,
+  IndexedItemGroup
 } from "../product-filters";
 
+type ImageItem = {
+  name: string;
+  type: "jpg" | "gif" | "svg";
+  brand: string;
+};
+
 describe("product-filters tests", () => {
+  describe("groupBy tests", () => {
+    it("should return empty object when empty array is provided", () => {
+      expect(groupBy([], "")).toEqual({});
+    });
+    it("should return empty object when empty array with unknown key is provided", () => {
+      expect(groupBy([], "test")).toEqual({});
+    });
+
+    describe("typed object tests", () => {
+      it("should return images grouped by type", () => {
+        const imageGallery: Array<ImageItem> = [
+          { name: "image_1", type: "gif", brand: "aerodek" },
+          { name: "image_3", type: "gif", brand: "aerodek" },
+          { name: "image_4", type: "jpg", brand: "icopal" },
+          { name: "image_2", type: "gif", brand: "aerodek" },
+          { name: "image_5", type: "jpg", brand: "icopal" },
+          { name: "image_6", type: "svg", brand: "aerodek" }
+        ];
+        const result: IndexedItemGroup<ImageItem> = groupBy(
+          imageGallery,
+          "type"
+        );
+        expect(Object.keys(result).length).toEqual(3);
+        expect(result["gif"].length).toEqual(3);
+        expect(result["jpg"].length).toEqual(2);
+        expect(result["svg"].length).toEqual(1);
+      });
+
+      it("should return images grouped by brand", () => {
+        const imageGallery: Array<ImageItem> = [
+          { name: "image_1", type: "gif", brand: "aerodek" },
+          { name: "image_3", type: "gif", brand: "aerodek" },
+          { name: "image_4", type: "jpg", brand: "icopal" },
+          { name: "image_2", type: "gif", brand: "aerodek" },
+          { name: "image_5", type: "jpg", brand: "icopal" },
+          { name: "image_6", type: "svg", brand: "aerodek" }
+        ];
+        const result: IndexedItemGroup<ImageItem> = groupBy(
+          imageGallery,
+          "brand"
+        );
+        expect(Object.keys(result).length).toEqual(2);
+        expect(result["aerodek"].length).toEqual(4);
+        expect(result["icopal"].length).toEqual(2);
+      });
+    });
+  });
   describe("removePLPFilterPrefix tests", () => {
     describe("When null value is passed ", () => {
       const result = removePLPFilterPrefix(null);
@@ -332,9 +385,7 @@ describe("product-filters tests", () => {
     });
     describe("When allowFilters is emtpy array", () => {
       it("should return empty productFilters", () => {
-        expect(
-          generateFeatureFilters("", [createClassification()], [])
-        ).toEqual([]);
+        expect(generateFeatureFilters("", [createFeature()], [])).toEqual([]);
       });
     });
 
@@ -342,11 +393,10 @@ describe("product-filters tests", () => {
       describe("classification features are null", () => {
         it("should return empty productFilters", () => {
           expect(
-            generateFeatureFilters(
-              "",
-              [createClassification({ features: null })],
-              ["some-filter-category", "feature-1"]
-            )
+            generateFeatureFilters("", null, [
+              "some-filter-category",
+              "feature-1"
+            ])
           ).toEqual([]);
         });
       });
@@ -355,7 +405,7 @@ describe("product-filters tests", () => {
           expect(
             generateFeatureFilters(
               "",
-              [createClassification()],
+              [createFeature()],
               ["some-filter-category", "feature-1"]
             )
           ).toEqual([]);
@@ -369,29 +419,25 @@ describe("product-filters tests", () => {
               const result: ProductFilter[] = generateFeatureFilters(
                 "",
                 [
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   })
                 ],
                 ["roofAttributes.minimumpitch"]
@@ -421,27 +467,14 @@ describe("product-filters tests", () => {
               const result: ProductFilter[] = generateFeatureFilters(
                 "",
                 [
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        featureValues: [],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        featureValues: [],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    featureValues: [],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   })
                 ],
                 ["roofAttributes.minimumpitch"]
@@ -454,21 +487,17 @@ describe("product-filters tests", () => {
               const result: ProductFilter[] = generateFeatureFilters(
                 "",
                 [
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: undefined
-                      }),
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: undefined
-                      })
-                    ]
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: undefined
+                  }),
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: undefined
                   })
                 ],
                 ["roofAttributes.minimumpitch"]
@@ -498,21 +527,17 @@ describe("product-filters tests", () => {
               const result: ProductFilter[] = generateFeatureFilters(
                 "",
                 [
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: undefined, value: "8" }],
-                        featureUnit: undefined
-                      }),
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: undefined, value: "9" }],
-                        featureUnit: undefined
-                      })
-                    ]
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: undefined, value: "8" }],
+                    featureUnit: undefined
+                  }),
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: undefined, value: "9" }],
+                    featureUnit: undefined
                   })
                 ],
                 ["roofAttributes.minimumpitch"]
@@ -548,38 +573,30 @@ describe("product-filters tests", () => {
                 const result = generateFeatureFilters(
                   "",
                   [
-                    createClassification({
-                      features: [
-                        createFeature({
-                          code: "roofAttributes.minimumpitch",
-                          name: "minimumpitch",
-                          featureValues: [{ code: "8", value: "8" }]
-                        }),
-                        createFeature({
-                          code: "roofAttributes.minimumpitch",
-                          name: "minimumpitch",
-                          featureValues: [{ code: "9", value: "9" }]
-                        })
-                      ]
+                    createFeature({
+                      code: "roofAttributes.minimumpitch",
+                      name: "minimumpitch",
+                      featureValues: [{ code: "8", value: "8" }]
                     }),
-                    createClassification({
-                      features: [
-                        createFeature({
-                          code: "roofAttributes.minimumpitch",
-                          name: "minimumpitch",
-                          featureValues: [{ code: "10", value: "10" }]
-                        }),
-                        createFeature({
-                          code: "roofAttributes.minimumpitch",
-                          name: "minimumpitch",
-                          featureValues: [{ code: "8", value: "8" }]
-                        }),
-                        createFeature({
-                          code: "roofAttributes.minimumpitch",
-                          name: "minimumpitch",
-                          featureValues: [{ code: "9", value: "9" }]
-                        })
-                      ]
+                    createFeature({
+                      code: "roofAttributes.minimumpitch",
+                      name: "minimumpitch",
+                      featureValues: [{ code: "9", value: "9" }]
+                    }),
+                    createFeature({
+                      code: "roofAttributes.minimumpitch",
+                      name: "minimumpitch",
+                      featureValues: [{ code: "10", value: "10" }]
+                    }),
+                    createFeature({
+                      code: "roofAttributes.minimumpitch",
+                      name: "minimumpitch",
+                      featureValues: [{ code: "8", value: "8" }]
+                    }),
+                    createFeature({
+                      code: "roofAttributes.minimumpitch",
+                      name: "minimumpitch",
+                      featureValues: [{ code: "9", value: "9" }]
                     })
                   ],
                   ["roofAttributes.minimumpitch"]
@@ -615,38 +632,30 @@ describe("product-filters tests", () => {
                 const result = generateFeatureFilters(
                   "",
                   [
-                    createClassification({
-                      features: [
-                        createFeature({
-                          code: "roofAttributes.color",
-                          name: "color",
-                          featureValues: [{ code: "green", value: "green" }]
-                        }),
-                        createFeature({
-                          code: "roofAttributes.color",
-                          name: "color",
-                          featureValues: [{ code: "red", value: "red" }]
-                        })
-                      ]
+                    createFeature({
+                      code: "roofAttributes.color",
+                      name: "color",
+                      featureValues: [{ code: "green", value: "green" }]
                     }),
-                    createClassification({
-                      features: [
-                        createFeature({
-                          code: "roofAttributes.color",
-                          name: "color",
-                          featureValues: [{ code: "blue", value: "blue" }]
-                        }),
-                        createFeature({
-                          code: "roofAttributes.color",
-                          name: "color",
-                          featureValues: [{ code: "white", value: "white" }]
-                        }),
-                        createFeature({
-                          code: "roofAttributes.color",
-                          name: "color",
-                          featureValues: [{ code: "amber", value: "amber" }]
-                        })
-                      ]
+                    createFeature({
+                      code: "roofAttributes.color",
+                      name: "color",
+                      featureValues: [{ code: "red", value: "red" }]
+                    }),
+                    createFeature({
+                      code: "roofAttributes.color",
+                      name: "color",
+                      featureValues: [{ code: "blue", value: "blue" }]
+                    }),
+                    createFeature({
+                      code: "roofAttributes.color",
+                      name: "color",
+                      featureValues: [{ code: "white", value: "white" }]
+                    }),
+                    createFeature({
+                      code: "roofAttributes.color",
+                      name: "color",
+                      featureValues: [{ code: "amber", value: "amber" }]
                     })
                   ],
                   ["roofAttributes.color"]
@@ -700,63 +709,55 @@ describe("product-filters tests", () => {
               const result = generateFeatureFilters(
                 "",
                 [
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   }),
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "10", value: "10" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "10", value: "10" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   })
                 ],
                 [
@@ -800,63 +801,55 @@ describe("product-filters tests", () => {
               const result = generateFeatureFilters(
                 "pim-classification-namespace",
                 [
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   }),
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "10", value: "10" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        name: "minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "10", value: "10" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    name: "minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   })
                 ],
                 ["roofAttributes.minimumpitch", "roofAttributes.maximumpitch"]
@@ -891,58 +884,50 @@ describe("product-filters tests", () => {
               const result = generateFeatureFilters(
                 "pim-classification-namespace",
                 [
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   }),
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "10", value: "10" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "10", value: "10" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   })
                 ],
                 ["colorAttributes.color", "roofAttributes.maximumpitch"]
@@ -955,58 +940,50 @@ describe("product-filters tests", () => {
               const result = generateFeatureFilters(
                 "pim-classification-namespace",
                 [
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   }),
-                  createClassification({
-                    features: [
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "10", value: "10" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "8", value: "8" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      }),
-                      createFeature({
-                        code: "pim-classification-namespace/roofAttributes.minimumpitch",
-                        featureValues: [{ code: "9", value: "9" }],
-                        featureUnit: {
-                          name: "degree",
-                          symbol: "°",
-                          unitType: "slope"
-                        }
-                      })
-                    ]
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "10", value: "10" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "8", value: "8" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
+                  }),
+                  createFeature({
+                    code: "pim-classification-namespace/roofAttributes.minimumpitch",
+                    featureValues: [{ code: "9", value: "9" }],
+                    featureUnit: {
+                      name: "degree",
+                      symbol: "°",
+                      unitType: "slope"
+                    }
                   })
                 ],
                 ["invalid.invalid", "invalidAttributes.invalid"]
