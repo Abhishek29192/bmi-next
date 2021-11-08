@@ -97,9 +97,6 @@ export const compileESQueryPLP = ({
 };
 
 const getUniqueBaseProductCountCodeAggrigation = () => {
-  if (process.env.GATSBY_USE_LEGACY_FILTERS === "true") {
-    return {};
-  }
   return {
     unique_base_products_count: {
       cardinality: {
@@ -110,9 +107,6 @@ const getUniqueBaseProductCountCodeAggrigation = () => {
 };
 
 const getCollapseVariantsByBaseProductCodeQuery = () => {
-  if (process.env.GATSBY_USE_LEGACY_FILTERS === "true") {
-    return {};
-  }
   return {
     collapse: {
       field: "baseProduct.code.keyword",
