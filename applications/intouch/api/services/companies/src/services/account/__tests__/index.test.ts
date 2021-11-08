@@ -1,3 +1,7 @@
+process.env.FRONTEND_URL = "intouch.dddev.io";
+process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
+process.env.APP_ENV = "dev";
+
 import {
   completeInvitation,
   createAccount,
@@ -36,9 +40,6 @@ let logger = () => ({
   error: () => {},
   info: () => {}
 });
-
-process.env.FRONTEND_URL = "intouch.dddev.io";
-process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 
 describe("Account", () => {
   let args;
@@ -324,7 +325,8 @@ describe("Account", () => {
         },
         pgClient: { query: mockQuery },
         pgRootPool: { query: mockRootQuery },
-        logger
+        logger,
+        protocol: "https"
       };
     });
 
@@ -371,10 +373,11 @@ describe("Account", () => {
         {
           email: "email",
           firstname: "first_name",
-          marketUrl: `https://domain.intouch.dddev.io`
+          marketUrl: `https://dev-domain.intouch.dddev.io`
         }
       );
-      expect(mockResolve.mock.calls).toMatchSnapshot();
+
+      expect(mockQuery.mock.calls).toMatchSnapshot();
     });
     it("Should be able to register as installer", async () => {
       args.input.account.role = "INSTALLER";
@@ -382,9 +385,7 @@ describe("Account", () => {
         data: { $account_id: 1 }
       });
 
-      resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
-        {}
-      ]);
+      resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValue([{}]);
 
       mockQuery
         .mockResolvedValueOnce({}) // savepoint
@@ -401,7 +402,7 @@ describe("Account", () => {
 
       await createAccount(mockResolve, null, args, contextMock, resolveInfo);
 
-      expect(mockResolve.mock.calls).toMatchSnapshot();
+      expect(mockQuery.mock.calls).toMatchSnapshot();
     });
   });
 
@@ -435,6 +436,9 @@ describe("Account", () => {
             ...company
           },
           can: userCanMock
+        },
+        req: {
+          protocol: "https"
         },
         pgClient: { query: mockQuery },
         pgRootPool: { query: mockRootQuery },
@@ -575,7 +579,8 @@ describe("Account", () => {
         },
         pgClient: { query: mockQuery },
         pgRootPool: { query: mockRootQuery },
-        logger
+        logger,
+        protocol: "https"
       };
 
       resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
@@ -644,7 +649,7 @@ describe("Account", () => {
         {
           email: "email",
           firstname: "first_name",
-          marketUrl: `https://domain.intouch.dddev.io`
+          marketUrl: `https://dev-domain.intouch.dddev.io`
         }
       );
 

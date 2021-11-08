@@ -14,6 +14,7 @@ steps:
         "managed",
         "--add-cloudsql-instances=automated-style-303709:europe-west2:intouch-db",
         "--set-env-vars=NODE_ENV=production",
+        "--set-env-vars=APP_ENV=prod",
         "--set-env-vars=PG_SCHEMA=public",
         "--set-env-vars=PG_USER=postgres",
         "--set-env-vars=PG_REJECT_UNAUTHORIZED=true",

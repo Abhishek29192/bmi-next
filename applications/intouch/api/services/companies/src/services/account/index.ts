@@ -13,6 +13,15 @@ const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
 const ERROR_ALREADY_MEMBER = "The user is already a member of another company";
 const ERROR_INVITATION_NOT_FOUND = "Invitation not found";
 
+const { APP_ENV, FRONTEND_URL } = process.env;
+
+const getTargetDomain = (marketDomain) => {
+  const targetDomain =
+    APP_ENV === "prod" ? marketDomain : `${APP_ENV}-${marketDomain}`;
+
+  return targetDomain;
+};
+
 export const createAccount = async (
   resolve,
   source,
@@ -21,7 +30,7 @@ export const createAccount = async (
   resolveInfo
 ) => {
   const { pgSql: sql } = resolveInfo.graphile.build;
-  const { pgClient, logger: Logger } = context;
+  const { pgClient, logger: Logger, protocol } = context;
 
   const logger = Logger("service:account");
 
@@ -87,7 +96,9 @@ export const createAccount = async (
     await sendMessageWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
       email: result.data.$email,
       firstname: result.data.$first_name,
-      marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`
+      marketUrl: `${protocol}://${getTargetDomain(
+        markets[0].domain
+      )}.${FRONTEND_URL}`
     });
 
     // Query the requested value
@@ -256,13 +267,17 @@ export const updateAccount = async (
   }
 };
 
-export const invite = async (_query, args, context, resolveInfo, auth0) => {
+export const invite = async (
+  _query,
+  args,
+  context: PostGraphileContext,
+  resolveInfo,
+  auth0
+) => {
   const logger = context.logger("service:account");
 
-  const { FRONTEND_URL } = process.env;
-
   const user: Account = context.user;
-  const { pgClient, pgRootPool } = context;
+  const { pgClient, pgRootPool, protocol } = context;
 
   const {
     emails,
@@ -272,8 +287,6 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
   }: InviteInput = args.input;
 
   const result = [];
-
-  const protocol = FRONTEND_URL.includes("local") ? "http" : "https";
 
   if (!user.can("invite")) {
     throw new Error("you must be an admin to invite other users");
@@ -348,21 +361,24 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
 
       // When the request started the user wasn't in the db so the parseUSer middleware didn't
       // append any information to the request object
-      const updatedContext = {
+      const updatedContext: PostGraphileContext = {
         ...context,
         user: {
           ...context.user,
           market: {
+            ...context.user.market,
             sendMailbox: user.market.sendMailbox
           }
         }
       };
 
+      const targetDomain = getTargetDomain(user.market.domain);
+
       if (invetees.length === 0) {
         // Creating a passsword reset ticket
         const ticket = await auth0.createResetPasswordTicket({
           user_id: auth0User?.user_id,
-          result_url: `${protocol}://${user.market.domain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
+          result_url: `${protocol}://${targetDomain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
         });
         await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetee,
@@ -375,7 +391,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
         await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
           firstname: invetees[0].first_name,
           company: user.company.name,
-          registerlink: `${protocol}://${user.market.domain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
+          registerlink: `${protocol}://${targetDomain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
           email: invetee
         });
         logger.info("Invitation email sent");
@@ -403,7 +419,7 @@ export const completeInvitation = async (
 ) => {
   const { pgSql: sql } = build;
   const { companyId } = args;
-  const { pgClient, pgRootPool } = context;
+  const { pgClient, pgRootPool, protocol } = context;
   const logger = context.logger("service:account");
 
   let user: Account = context.user;
@@ -459,21 +475,23 @@ export const completeInvitation = async (
 
       // When the request started the user wasn't in the db so the parseUSer middleware didn't
       // append any information to the request object
-      const updatedContext = {
+      const updatedContext: PostGraphileContext = {
         ...context,
         user: {
           ...context.user,
           id: user.id,
           market: {
+            ...context.user.market,
             sendMailbox: markets[0].send_mailbox
           }
         }
       };
 
+      const targetDomain = getTargetDomain(markets[0].domain);
       await sendMessageWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
         email: user.email,
         firstname: user.firstName,
-        marketUrl: `https://${markets[0].domain}.${process.env.FRONTEND_URL}`
+        marketUrl: `${protocol}://${targetDomain}.${FRONTEND_URL}`
       });
     }
 

@@ -41,7 +41,10 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     const dbPool = getDbPool();
     const storageClient = new StorageClient();
 
+    const protocol = req.headers["x-forwarded-proto"] || "http";
+
     return {
+      protocol,
       user: req.user,
       logger: req.logger,
       pubSub: req.pubSub,
