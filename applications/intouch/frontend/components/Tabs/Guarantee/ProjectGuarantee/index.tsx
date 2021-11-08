@@ -6,25 +6,30 @@ import { ProductGuarantee } from "../ProductGuarantee";
 import { SolutionGuarantee } from "../SolutionGuarantee";
 import { NoContent } from "../../../../components/NoContent";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
+import {
+  solutionGuaranteeValidate,
+  SolutionGuaranteeValidationError,
+  SolutionGuaranteeValidationErrorMessage
+} from "../../../../lib/utils/guarantee";
 import { SystemGuarantee } from "../SystemGuarantee";
 import styles from "./styles.module.scss";
 
 type ProjectGuaranteeProps = {
-  guarantees: GetProjectQuery["project"]["guarantees"]["nodes"];
+  project: GetProjectQuery["project"];
   onReviewClick: () => void;
-  canGuaranteeBeSubmitted: boolean;
   applyGuaranteeToggle: () => React.ReactElement;
 };
 
 export const ProjectGuarantee = ({
-  guarantees,
+  project,
   onReviewClick,
-  canGuaranteeBeSubmitted,
   applyGuaranteeToggle: ApplyGuaranteeToggle
 }: ProjectGuaranteeProps) => {
   const { t } = useTranslation("project-page");
 
-  if (guarantees.length === 0) {
+  const { guarantees } = project;
+
+  if (guarantees.nodes.length === 0) {
     return (
       <>
         <div className={styles.header}>
@@ -37,21 +42,17 @@ export const ProjectGuarantee = ({
     );
   }
   // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
-  const guarantee = guarantees[0];
-  const showAlert =
-    guarantee.coverage === "SOLUTION" &&
-    !canGuaranteeBeSubmitted &&
-    guarantee.status === "NEW";
+  const guarantee = guarantees.nodes[0];
+
+  const guaranteeSubmitValidateResult = solutionGuaranteeValidate(project);
 
   return (
     <>
-      {showAlert && (
-        <AlertBanner severity={"warning"}>
-          <AlertBanner.Title>
-            {t("project-page:guarantee.incompleteGuaranteeAlert.title")}
-          </AlertBanner.Title>
-          {t("project-page:guarantee.incompleteGuaranteeAlert.description")}
-        </AlertBanner>
+      {!guaranteeSubmitValidateResult.isValid && (
+        <SolutionGuaranteeAlert
+          isNewGuarantee={guarantee.status === "NEW"}
+          validationError={guaranteeSubmitValidateResult.validationError}
+        />
       )}
       <div className={styles.header}>
         <div className={styles.header__grid}>
@@ -65,17 +66,43 @@ export const ProjectGuarantee = ({
       </div>
       <div className={styles.body}>
         {guarantee.coverage === "PRODUCT" ? (
-          <ProductGuarantee guarantees={guarantees} />
+          <ProductGuarantee guarantees={guarantees.nodes} />
         ) : guarantee.coverage === "SYSTEM" ? (
           <SystemGuarantee guarantee={guarantee} />
         ) : (
           <SolutionGuarantee
             guarantee={guarantee}
             onReviewClick={onReviewClick}
-            canGuaranteeBeSubmitted={canGuaranteeBeSubmitted}
+            canGuaranteeBeSubmitted={guaranteeSubmitValidateResult.isValid}
           />
         )}
       </div>
     </>
+  );
+};
+
+type SolutionGuaranteeAlertProps = {
+  isNewGuarantee: boolean;
+  validationError: SolutionGuaranteeValidationError;
+};
+const SolutionGuaranteeAlert = ({
+  isNewGuarantee,
+  validationError
+}: SolutionGuaranteeAlertProps) => {
+  const { t } = useTranslation("project-page");
+  return (
+    <AlertBanner severity={"warning"}>
+      <AlertBanner.Title>
+        {t("project-page:guarantee.incompleteGuaranteeAlert.title")}
+      </AlertBanner.Title>
+      {isNewGuarantee && (
+        <Typography variant="body1">
+          {t("project-page:guarantee.incompleteGuaranteeAlert.description")}
+        </Typography>
+      )}
+      <Typography variant="body1">
+        {t(`${SolutionGuaranteeValidationErrorMessage[validationError]}`)}
+      </Typography>
+    </AlertBanner>
   );
 };

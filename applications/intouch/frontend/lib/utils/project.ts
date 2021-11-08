@@ -7,11 +7,7 @@ import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import { DeepPartial } from "./types";
-import {
-  GuaranteeStatus,
-  guaranteePrerequsitesMet,
-  guaranteeSolutionGuaranteeValidate
-} from "./guarantee";
+import { GuaranteeStatus, guaranteePrerequsitesMet } from "./guarantee";
 
 dayjs.extend(isBetween);
 
@@ -114,15 +110,6 @@ export const isProjectEditable = (project) => {
 
   // If there is a guarantee, some fields can be edited, if it's in certain statuses
   return !["APPROVED", "SUBMITTED", "REVIEW"].includes(guarantee.status);
-};
-
-export const checkProjectGuaranteeReview = (
-  project: GetProjectQuery["project"]
-): boolean => {
-  const solutionGuaranteeValidationResult =
-    guaranteeSolutionGuaranteeValidate(project);
-
-  return solutionGuaranteeValidationResult.isValid;
 };
 
 export const isSolutionOrSystemGuaranteeExist = (

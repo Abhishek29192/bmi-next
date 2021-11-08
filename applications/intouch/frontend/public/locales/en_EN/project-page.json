@@ -347,5 +347,18 @@
   "report": {
     "project": "Download projects report",
     "guarantee": "Download guarantee report"
+  },
+  "guaranteeSubmitAlert": {
+    "title": "You cannot submit for a guarantee yet",
+    "message": {
+      "guaranteeType": "Guarantee Type is not defined",
+      "notApplicable": "Guarantee not applicable",
+      "minumumEvidence": "Insufficient evidence uploaded",
+      "responsibleInstaller": "No responsible installer nominated with the required certification",
+      "certification": "The nominated Responsible Installer currently doesn't hold a certification in the same technology as the Project",
+      "tier": "You are not in a Tier that supports Guarantees",
+      "buildingOwner": "Building owner details incomplete",
+      "projectDetails": "Project details incomplete"
+    }
   }
 }
