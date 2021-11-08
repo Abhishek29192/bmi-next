@@ -36,8 +36,13 @@ You should also put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKE
 
 GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE -
 feature flag for new PDP page url structure
-Default is FALSE (and current url structure is displayed e.g. `/p/roof-products/zanda-protector-normalstein/svart/935895622/`)
-When set to TRUE only the new url structure will be shown for PDP pages (e.g. `/p/zanda-protector-normalstein-sort-betong-935895622`)
+Default is `false` (and current url structure is displayed e.g. `/p/roof-products/zanda-protector-normalstein/svart/935895622/`)
+When set to `true` only the new url structure will be shown for PDP pages (e.g. `/p/zanda-protector-normalstein-sort-betong-935895622`)
+
+GATSBY_ENABLE_OLD_PDP_URL_REDIRECTS -
+Feature flag for generating redirects for PDP URLs, see `gatsby-node.js`
+Default is `false` (will not generate redirects)
+When set to `true` (will generate permanent redirect for old to new PDP url scheme e.g. from `/p/roof-products/zanda-protector-normalstein/svart/935895622/` to `/p/zanda-protector-normalstein-sort-betong-935895622`. redirects will be created at post build time)
 
 ### Setup Google reCAPTCHA
 

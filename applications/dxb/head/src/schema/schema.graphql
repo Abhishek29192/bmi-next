@@ -1492,6 +1492,9 @@ type ProductsVariantOptions implements Node {
   "The path for this product."
   path: String
 
+  "The old path for this product."
+  oldPath: String
+
   "The breadcrumbs for this product."
   breadcrumbs: JSON
 }
