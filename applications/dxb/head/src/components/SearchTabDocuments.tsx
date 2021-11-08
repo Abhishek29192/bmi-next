@@ -102,6 +102,11 @@ const getQueryObject = (queryString, page = 0, filters = []) => {
           size: "100",
           field: "assetType.pimCode.keyword"
         }
+      },
+      total: {
+        cardinality: {
+          field: "titleAndSize.keyword"
+        }
       }
     },
     query:
@@ -111,7 +116,10 @@ const getQueryObject = (queryString, page = 0, filters = []) => {
             bool: {
               must: queryElements
             }
-          }
+          },
+    collapse: {
+      field: "titleAndSize.keyword"
+    }
   };
 };
 
@@ -123,7 +131,7 @@ export const getCount = async (queryString) => {
     ES_INDEX_NAME
   );
 
-  return countResult?.hits?.total?.value;
+  return countResult?.aggregations?.total?.value;
 };
 
 const SearchTabPanelDocuments = (props: Props) => {
@@ -176,14 +184,14 @@ const SearchTabPanelDocuments = (props: Props) => {
     const results = await queryElasticSearch(esQueryObject, ES_INDEX_NAME);
 
     if (results && results.hits) {
-      const { hits } = results;
-      const newPageCount = Math.ceil(hits.total.value / PAGE_SIZE);
+      const { hits, aggregations } = results;
+      const newPageCount = Math.ceil(aggregations.total.value / PAGE_SIZE);
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
       setResults(hits.hits.map((hit) => hit._source));
 
-      onCountChange && onCountChange(hits.total.value);
+      onCountChange && onCountChange(aggregations.total.value);
     }
 
     updateLoadingStatus(false);

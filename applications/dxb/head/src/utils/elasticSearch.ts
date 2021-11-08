@@ -218,7 +218,8 @@ export const compileElasticSearchQuery = (
 // only interested in the query - pagination, aggregates, and sorting don't affect total count
 export const getCountQuery = (fullQuery) => ({
   size: 0,
-  query: fullQuery.query
+  query: fullQuery.query,
+  aggs: fullQuery.aggs ? fullQuery.aggs : null
 });
 
 export const queryElasticSearch = async (query = {}, indexName: string) => {
