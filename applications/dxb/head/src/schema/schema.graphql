@@ -587,6 +587,10 @@ type ContentfulSampleBasketSection implements Node {
 
   "The paragraph text of section."
   description: ContentfulRichText
+
+  "The checkout form section"
+  checkoutFormSection: ContentfulFormSection
+    @link(from: "checkoutFormSection___NODE")
 }
 
 """
