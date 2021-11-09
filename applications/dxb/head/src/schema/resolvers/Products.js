@@ -118,18 +118,16 @@ module.exports = {
               [source.name, ...getSlugAttributes(variant), id].join("/")
             )
           });
-
-          const path = (() => {
-            if (process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "true") {
-              return `p/${getSimpleUrlStructure(source, variant, id)}`;
-            }
-            return `p/${getUrlFromPath(breadcrumbs)}`;
-          })();
+          const oldPath = `p/${getUrlFromPath(breadcrumbs)}`;
 
           return {
             ...variant,
             id,
-            path,
+            path:
+              process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "true"
+                ? `p/${getSimpleUrlStructure(source, variant, id)}`
+                : oldPath,
+            oldPath,
             breadcrumbs
           };
         });
