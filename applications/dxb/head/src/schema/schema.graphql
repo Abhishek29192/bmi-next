@@ -981,7 +981,8 @@ type ContentfulResources implements Node {
   countryNavigationIntroduction: ContentfulRichText
 
   "Sample Basket Link"
-    sampleBasketLink: ContentfulSimplePage @link(from: "sampleBasketLink___NODE")
+  sampleBasketLink: ContentfulSimplePage
+    @link(from: "sampleBasketLink___NODE")
 }
 
 """

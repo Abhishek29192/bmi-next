@@ -6,7 +6,6 @@ import {
   ACTION_TYPES,
   useBasketContext
 } from "../contexts/SampleBasketContext";
-import { getPathWithCountryCode } from "../utils/path";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
 import { VariantOption } from "./types/pim";
