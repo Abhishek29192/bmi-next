@@ -356,13 +356,6 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     </Page>
   );
 };
-// source
-// resultsType
-// documents {
-//   ...DocumentResultsFragment
-// }
-// categoryCodes
-// }
 
 export default DocumentLibraryPage;
 
