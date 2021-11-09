@@ -32,6 +32,13 @@ Note that in .env.\* in `libraries/migrate` you should always put `<YOUR OWN ACC
 
 You should also put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` in .env.\* in `applications/head` to use content and content type from your own accoun
 
+### Feature Flags
+
+GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE -
+feature flag for new PDP page url structure
+Default is FALSE (and current url structure is displayed e.g. `/p/roof-products/zanda-protector-normalstein/svart/935895622/`)
+When set to TRUE only the new url structure will be shown for PDP pages (e.g. `/p/zanda-protector-normalstein-sort-betong-935895622`)
+
 ### Setup Google reCAPTCHA
 
 1. Visit (Google reCAPTCHA)[https://www.google.com/recaptcha/admin]
