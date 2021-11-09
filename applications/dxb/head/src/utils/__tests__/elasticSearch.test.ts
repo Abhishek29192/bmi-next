@@ -241,6 +241,12 @@ describe("compileElasticSearchQuery function", () => {
         "sort": Array [
           "_score",
           Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
+          Object {
             "scoringWeightInt": "desc",
           },
           Object {
@@ -327,6 +333,12 @@ describe("compileElasticSearchQuery function", () => {
         "sort": Array [
           "_score",
           Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
+          Object {
             "scoringWeightInt": "desc",
           },
           Object {
@@ -410,6 +422,12 @@ describe("compileElasticSearchQuery function", () => {
         "size": 10,
         "sort": Array [
           "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
           Object {
             "scoringWeightInt": "desc",
           },
@@ -517,6 +535,12 @@ describe("compileElasticSearchQuery function", () => {
         "size": 10,
         "sort": Array [
           "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
           Object {
             "scoringWeightInt": "desc",
           },
