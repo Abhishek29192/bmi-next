@@ -180,6 +180,17 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "baseProduct.code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "baseProduct.code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
         },
         "from": 0,
         "query": Object {
@@ -230,6 +241,12 @@ describe("compileElasticSearchQuery function", () => {
         "sort": Array [
           "_score",
           Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
+          Object {
             "scoringWeightInt": "desc",
           },
           Object {
@@ -276,6 +293,17 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "baseProduct.code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "baseProduct.code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
         },
         "from": 0,
         "query": Object {
@@ -304,6 +332,12 @@ describe("compileElasticSearchQuery function", () => {
         "size": 10,
         "sort": Array [
           "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
           Object {
             "scoringWeightInt": "desc",
           },
@@ -351,6 +385,17 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "baseProduct.code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "baseProduct.code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
         },
         "from": 0,
         "query": Object {
@@ -377,6 +422,12 @@ describe("compileElasticSearchQuery function", () => {
         "size": 10,
         "sort": Array [
           "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
           Object {
             "scoringWeightInt": "desc",
           },
@@ -423,6 +474,17 @@ describe("compileElasticSearchQuery function", () => {
               "field": "texturefamilyCode.keyword",
               "size": "100",
             },
+          },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "baseProduct.code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "baseProduct.code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
           },
         },
         "from": 0,
@@ -473,6 +535,12 @@ describe("compileElasticSearchQuery function", () => {
         "size": 10,
         "sort": Array [
           "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
           Object {
             "scoringWeightInt": "desc",
           },

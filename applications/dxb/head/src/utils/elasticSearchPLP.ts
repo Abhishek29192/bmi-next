@@ -1,4 +1,8 @@
 import { Filter } from "@bmi/filters";
+import {
+  getCollapseVariantsByBaseProductCodeQuery,
+  getUniqueBaseProductCountCodeAggrigation
+} from "./elasticSearchCommonQuery";
 import { removePLPFilterPrefix, ProductFilter } from "./product-filters";
 
 export type Aggregations = Record<
@@ -93,27 +97,6 @@ export const compileESQueryPLP = ({
       }
     },
     ...getCollapseVariantsByBaseProductCodeQuery()
-  };
-};
-
-const getUniqueBaseProductCountCodeAggrigation = () => {
-  return {
-    unique_base_products_count: {
-      cardinality: {
-        field: "baseProduct.code.keyword"
-      }
-    }
-  };
-};
-
-const getCollapseVariantsByBaseProductCodeQuery = () => {
-  return {
-    collapse: {
-      field: "baseProduct.code.keyword",
-      inner_hits: {
-        name: "all_variants"
-      }
-    }
   };
 };
 
