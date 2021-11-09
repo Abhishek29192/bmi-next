@@ -77,7 +77,8 @@ const getSimpleUrlStructure = (source, variant, id) => {
         const urlParamsFromClassificationFeatures = featuresCodes.reduce(
           (urlFromFeatures, featuresCode) => {
             const featureByFeatureCode = classification.features.find(
-              (feature) => feature.code.endsWith(featuresCode)
+              (feature) =>
+                feature.code.toLocaleLowerCase().endsWith(featuresCode)
             );
             if (featureByFeatureCode) {
               const featureValue = featureByFeatureCode.featureValues[0].value;
