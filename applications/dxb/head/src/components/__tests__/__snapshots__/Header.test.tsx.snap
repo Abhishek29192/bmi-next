@@ -775,7 +775,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               >
                 <img
                   class="language-icon"
-                  src="/icons/flags/uk.svg"
+                  src="/icons/flags/globe.svg"
                 />
                 EN
                 <span
@@ -1381,7 +1381,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 >
                   <img
                     class="LanguageIcon"
-                    src="/icons/flags/uk.svg"
+                    src="/icons/flags/globe.svg"
                   />
                   EN
                 </span>
