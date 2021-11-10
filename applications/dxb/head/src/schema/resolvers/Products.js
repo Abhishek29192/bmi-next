@@ -66,7 +66,7 @@ const getSimpleUrlStructure = (source, variant, id) => {
   const productName = variant.name || source.name;
   const classifications = combineVariantClassifications(source, variant);
   const featuresCodesForUrlParams = {
-    appearanceAttributes: ["colourfamily", "texturefamily"],
+    appearanceAttributes: ["colour", "texturefamily"],
     generalInformation: ["materials"]
   };
 
