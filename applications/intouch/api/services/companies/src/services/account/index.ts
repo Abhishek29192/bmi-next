@@ -6,6 +6,7 @@ import { UpdateAccountInput, Market } from "@bmi/intouch-api-types";
 import { sendMessageWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
 import { Account, PostGraphileContext } from "../../types";
+import { tierBenefit } from "../contentful";
 
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
@@ -431,7 +432,7 @@ export const completeInvitation = async (
 
   // Get the invitation record to check if the request is legit
   const { rows: invitations } = await pgRootPool.query(
-    "select company.market_id, invitation.* from invitation JOIN company ON invitation.company_id = company.id WHERE invitation.company_id = $1 AND invitation.invitee = $2 AND invitation.status = $3",
+    "select company.market_id, company.name, company.tier, invitation.* from invitation JOIN company ON invitation.company_id = company.id WHERE invitation.company_id = $1 AND invitation.invitee = $2 AND invitation.status = $3",
     [companyId, user.email, "NEW"]
   );
 
@@ -504,6 +505,20 @@ export const completeInvitation = async (
     logger.info(
       `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
     );
+
+    const { shortDescription = "" } = await tierBenefit(
+      context.clientGateway,
+      invitations[0].tier
+    );
+
+    await sendMessageWithTemplate(context, "TEAM_JOINED", {
+      email: user.email,
+      accountId: user.id,
+      firstname: user.firstName,
+      company: invitations[0].name,
+      tier: invitations[0].tier,
+      tierBenefitsShortDescription: shortDescription
+    });
 
     const [row] = await resolveInfo.graphile.selectGraphQLResultFromTable(
       sql.fragment`public.account`,

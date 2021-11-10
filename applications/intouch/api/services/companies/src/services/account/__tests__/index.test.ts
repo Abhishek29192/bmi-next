@@ -580,7 +580,8 @@ describe("Account", () => {
         pgClient: { query: mockQuery },
         pgRootPool: { query: mockRootQuery },
         logger,
-        protocol: "https"
+        protocol: "https",
+        clientGateway: mockClientGateway
       };
 
       resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
@@ -602,7 +603,9 @@ describe("Account", () => {
             {
               id: 1,
               market_id: 1,
-              company_id: 1
+              company_id: 1,
+              name: "company name",
+              tier: "T2"
             }
           ]
         });
@@ -627,6 +630,18 @@ describe("Account", () => {
           rows: [{ id: 2, account_id: 1, market_id: 1, company_id: 1 }]
         }); // company_member
 
+      mockClientGateway.mockImplementationOnce(() => ({
+        data: {
+          tierBenefitCollection: {
+            items: [
+              {
+                shortDescription: "shortDescription"
+              }
+            ]
+          }
+        }
+      }));
+
       await completeInvitation(
         null,
         args,
@@ -635,8 +650,9 @@ describe("Account", () => {
         auth0,
         build
       );
-
-      expect(mailerSrv.sendMessageWithTemplate).toBeCalledWith(
+      //expect(drink).toHaveBeenNthCalledWith(1, 'lemon');
+      expect(mailerSrv.sendMessageWithTemplate).toHaveBeenNthCalledWith(
+        1,
         {
           ...contextMock,
           user: {
@@ -650,6 +666,21 @@ describe("Account", () => {
           email: "email",
           firstname: "first_name",
           marketUrl: `https://dev-domain.intouch.dddev.io`
+        }
+      );
+      expect(mailerSrv.sendMessageWithTemplate).toHaveBeenNthCalledWith(
+        2,
+        {
+          ...contextMock
+        },
+        "TEAM_JOINED",
+        {
+          email: "email",
+          firstname: "first_name",
+          accountId: 1,
+          company: "company name",
+          tier: "T2",
+          tierBenefitsShortDescription: "shortDescription"
         }
       );
 
