@@ -1,16 +1,24 @@
-import { CompanyPatch, DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
+import {
+  Company,
+  CompanyPatch,
+  DeleteCompanyMemberInput,
+  Tier,
+  UpdateCompanyInput
+} from "@bmi/intouch-api-types";
+import { PoolClient } from "pg";
 import { sendMessageWithTemplate } from "../../services/mailer";
+import { tierBenefit } from "../contentful";
 
 export const updateCompany = async (
   resolve,
   source,
-  args,
+  args: { input: UpdateCompanyInput },
   context,
   resolveInfo
 ) => {
   const { GCP_PUBLIC_BUCKET_NAME } = process.env;
   const { pgClient, storageClient, user } = context;
-  const { logoUpload, shouldRemoveLogo }: CompanyPatch = args.input.patch;
+  const { logoUpload, shouldRemoveLogo, tier }: CompanyPatch = args.input.patch;
 
   if (!logoUpload && shouldRemoveLogo) {
     args.input.patch.logo = null;
@@ -49,6 +57,8 @@ export const updateCompany = async (
     }
   }
 
+  const activeCompanyTier = await getCompanyTier(args.input.id, pgClient);
+
   const result = await resolve(source, args, context, resolveInfo);
 
   const {
@@ -86,6 +96,31 @@ export const updateCompany = async (
       firstname: user.firstName,
       companyname: user.company.name
     });
+  }
+
+  if (tier && activeCompanyTier !== tier) {
+    const { shortDescription = "" } = await tierBenefit(
+      context.clientGateway,
+      tier
+    );
+    //Get all company admins and send mail
+    const { rows: accounts } = await pgClient.query(
+      `select account.* from account 
+  join company_member on company_member.account_id =account.id 
+  where company_member.company_id=$1`,
+      [args.input.id]
+    );
+
+    for (let i = 0; i < accounts?.length; i++) {
+      const account = accounts[+i];
+      await sendMessageWithTemplate(context, "TIER_ASSIGNED", {
+        email: account.email,
+        accountId: account.id,
+        firstname: account.first_name,
+        tier: tier,
+        tierBenefitsShortDescription: shortDescription
+      });
+    }
   }
 
   return result;
@@ -166,4 +201,16 @@ export const deleteCompanyMember = async (
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }
+};
+
+const getCompanyTier = async (
+  id: number,
+  pgClient: PoolClient
+): Promise<Tier> => {
+  const { rows } = await pgClient.query<Company>(
+    `SELECT company.tier FROM company where company.id=$1`,
+    [id]
+  );
+
+  return rows?.[0]?.tier;
 };
