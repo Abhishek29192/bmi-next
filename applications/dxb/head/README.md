@@ -44,6 +44,11 @@ Feature flag for generating redirects for PDP URLs, see `gatsby-node.js`
 Default is `false` (will not generate redirects)
 When set to `true` (will generate permanent redirect for old to new PDP url scheme e.g. from `/p/roof-products/zanda-protector-normalstein/svart/935895622/` to `/p/zanda-protector-normalstein-sort-betong-935895622`. redirects will be created at post build time)
 
+GATSBY_HIDE_RECOMMENDED_PRODUCTS -
+feature flag for show/hide recommended products on PDP
+Default is `false` (will not hide recommended products)
+When set to `true` will hide recommended products on PDP
+
 ### Setup Google reCAPTCHA
 
 1. Visit (Google reCAPTCHA)[https://www.google.com/recaptcha/admin]
