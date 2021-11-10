@@ -45,7 +45,7 @@ Talk to one of the other devs to give you access to the DXB `Large Space` (which
 1. Go to your own personal space
 1. Go to `Apps > Manage apps`
 1. Install `Image Focal Point` from the list on the page, using the default values
-1. Go back to `Manage apps`
+1. Go back to `Manage apps > Manage private apps > Create an app`
 1. Create `Conditional fields` and `Field editors`
 
 ##### Conditional Fields
