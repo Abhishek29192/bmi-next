@@ -96,6 +96,9 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
               referenceCode
               name
               minimumUploads
+              description {
+                json
+              }
             }
           }
         }
