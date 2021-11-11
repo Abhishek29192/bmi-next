@@ -137,5 +137,5 @@ deploy_intouch_frontend_to_cloudrun_bmi:
     - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
-    - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-frontend:$CI_COMMIT_SHORT_SHA
+    - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-frontend:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
     - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-frontend:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-frontend:latest
