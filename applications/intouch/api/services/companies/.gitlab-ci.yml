@@ -124,28 +124,28 @@ deploy_intouch_companies_to_cloudrun_bmi:
       changes:
         - applications/intouch/api/services/companies/**/*
       variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_DEV_GATEWAY"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_DEV_COMPANY"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
       changes:
         - applications/intouch/api/services/companies/**/*
       variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_QA_GATEWAY"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_QA_COMPANY"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
       changes:
         - applications/intouch/api/services/companies/**/*
       variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_PREPROD_GATEWAY"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_PREPROD_COMPANY"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
         - applications/intouch/api/services/companies/**/*
       variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_PROD_GATEWAY"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_PROD_COMPANY"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
   script:
