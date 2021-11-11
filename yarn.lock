@@ -2317,10 +2317,10 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/template/-/template-1.0.0.tgz#bf8828bc3ae8004d97904d78f64e3cc2cd216438"
   integrity sha512-J6WGZqCLdRMHUkyRG6fBSIFJ0rL60/nsQNh5rQvsYZ5u0PsKw6XQcJcA3DWvd9cN3j/IQx5yB1fexhCafwwUUw==
 
-"@bmi-digital/logger@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.8.tgz#1906f919921f96170583fbc9fac12ef673155c6f"
-  integrity sha512-K4BHSUM7mCFmTwQV7D7zkMqQDh8QvmQNN181DalK5PQjM50H0TaDyIGDpnUtykuU6rtaSZrd3C+39HKiPDMzgA==
+"@bmi-digital/logger@0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.9.tgz#0a0de1ab3c7ba40fe5b87bc088acd64d2b902a35"
+  integrity sha512-dqQrPnQ/izBkUoCkoZFCFLdJSUK5bIjZmt72XowJ2JzfRbLgtFtsRYC88FVN/DDLHcxV+1ajbcFW8zMzW236ZQ==
   dependencies:
     "@google-cloud/logging" "^9.2.3"
     "@google-cloud/logging-winston" "^4.0.4"
@@ -16687,6 +16687,13 @@ gatsby-plugin-material-ui@^3.0.1:
     clean-css "^5.1.1"
     postcss "^8.0.5"
 
+gatsby-plugin-meta-redirect@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-meta-redirect/-/gatsby-plugin-meta-redirect-1.1.1.tgz#058e8e53edff38dc44d3bb6153109d01c910f863"
+  integrity sha512-Oc4qgU3SlDUM9qoxIMKO+re2bdMs3/a2KXrfL65gb8XMLsHylBbveWtXZRhgjd2QDL/49RX4S9SEykuadRju2w==
+  dependencies:
+    fs-extra "^7.0.0"
+
 gatsby-plugin-no-sourcemaps@^3.1.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-no-sourcemaps/-/gatsby-plugin-no-sourcemaps-3.7.0.tgz#48fdf70495584418b1a74b303388d862c6d5e14a"
@@ -21162,6 +21169,17 @@ joi@^17.2.1, joi@^17.4.0:
   version "17.4.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-17.4.0.tgz#b5c2277c8519e016316e49ababd41a1908d9ef20"
   integrity sha512-F4WiW2xaV6wc1jxete70Rw4V/VuMd6IN+a5ilZsxG4uYtUXWu2kq9W5P2dz30e7Gmw8RCbY/u/uk+dMPma9tAg==
+  dependencies:
+    "@hapi/hoek" "^9.0.0"
+    "@hapi/topo" "^5.0.0"
+    "@sideway/address" "^4.1.0"
+    "@sideway/formula" "^3.0.0"
+    "@sideway/pinpoint" "^2.0.0"
+
+joi@^17.4.2:
+  version "17.4.2"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.4.2.tgz#02f4eb5cf88e515e614830239379dcbbe28ce7f7"
+  integrity sha512-Lm56PP+n0+Z2A2rfRvsfWVDXGEWjXxatPopkQ8qQ5mxCEhwHG+Ettgg5o98FFaxilOxozoa14cFhrE/hOzh/Nw==
   dependencies:
     "@hapi/hoek" "^9.0.0"
     "@hapi/topo" "^5.0.0"
@@ -28169,6 +28187,11 @@ react-icons@^3.8.0:
   integrity sha512-JRgiI/vdF6uyBgyZhVyYJUZAop95Sy4XDe/jmT3R/bKliFWpO/uZBwvSjWEdxwzec7SYbEPNPck0Kff2tUGM2Q==
   dependencies:
     camelcase "^5.0.0"
+
+react-idle-timer@^4.6.4:
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/react-idle-timer/-/react-idle-timer-4.6.4.tgz#71ba954ba6f464df24d46a94e63c5ef19f7319dc"
+  integrity sha512-iq61dPud8fgj7l1KOJEY5pyiD532fW0KcIe/5XUe/0lB/4Vytoy4tZBlLGSiYodPzKxTL6HyKoOmG6tyzjD7OQ==
 
 react-inspector@^5.1.0:
   version "5.1.1"

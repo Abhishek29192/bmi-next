@@ -12,7 +12,9 @@
       flex-direction: row-reverse;
       padding: 0;
       .MuiAccordionSummary-content {
+        justify-content: space-between;
         padding-left: 0.6rem;
+        padding-right: 0.6rem;
       }
     }
   }

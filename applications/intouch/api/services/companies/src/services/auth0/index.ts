@@ -181,7 +181,7 @@ class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Change password:", error.message);
+      this.logger.error("Import users", error.message);
     }
   };
 }

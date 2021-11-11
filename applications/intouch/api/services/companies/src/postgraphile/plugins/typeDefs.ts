@@ -67,9 +67,12 @@ export default gql`
   type ContentfulEvidenceCategory {
     sys: ContentfulSys!
     name: String
-    description: String
+    description: ContentfulEvidenceCategoryDescription
     minimumUploads: Int
     referenceCode: String
+  }
+  type ContentfulEvidenceCategoryDescription {
+    json: JSON!
   }
 
   type ContentfulGuaranteeTemplate {
@@ -265,12 +268,14 @@ export default gql`
 
   input ImportAccountsCompaniesFromCSVInput {
     files: [Upload!]!
+    dryRun: Boolean
   }
 
   type ImportAccountsCompaniesFromCSVResult {
     auth0Job: Auth0ImportResult
-    accounts: [Account]
     companies: [Company]
+    accounts: [Account]
+    dryRun: Boolean
   }
 
   extend type Mutation {

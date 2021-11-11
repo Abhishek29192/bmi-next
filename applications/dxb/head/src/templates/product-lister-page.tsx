@@ -301,7 +301,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     if (results && results.hits) {
       const { hits } = results;
       const uniqueBaseProductsCount =
-        results.aggregations.unique_base_products_count.value;
+        results.aggregations?.unique_base_products_count?.value || 0;
       const newPageCount = Math.ceil(uniqueBaseProductsCount / PAGE_SIZE);
       const variants = (() => {
         if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
@@ -315,7 +315,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       setProducts(
         variants.map((hit) => ({
           ...hit._source,
-          all_variants: hit.inner_hits.all_variants.hits.hits
+          all_variants: hit.inner_hits.all_variants.hits.hits || []
         }))
       );
     }

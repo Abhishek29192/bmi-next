@@ -126,7 +126,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     inputBanner: resources.pdpInputBanner,
     seo: null
   };
-  const { maximumSamples } = resources;
+  const { maximumSamples, sampleBasketLink } = resources;
 
   const bimIframeUrl = getBimIframeUrl(product.assets);
 
@@ -196,6 +196,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     productName={product.name}
                     variant={getVariant(product, pageContext.variantCode)}
                     maximumSamples={maximumSamples}
+                    sampleBasketLinkInfo={sampleBasketLink}
                   />
                 }
                 {resources?.pdpShareWidget && (

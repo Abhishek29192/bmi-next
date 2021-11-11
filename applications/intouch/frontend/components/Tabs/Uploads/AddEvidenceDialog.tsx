@@ -12,6 +12,7 @@ export type EvidenceCategory = {
   id: string;
   name: string;
   referenceCode: string;
+  minimumUploads: number;
 };
 
 type AddEvidenceDialogProps = {
@@ -55,7 +56,7 @@ export const AddEvidenceDialog = ({
 
   useEffect(() => {
     setEvidenceCategoryKey("MISCELLANEOUS");
-  }, [isOpen]);
+  }, []);
 
   return (
     <Dialog open={isOpen} onCloseClick={onCloseClick}>
@@ -64,7 +65,7 @@ export const AddEvidenceDialog = ({
       </Dialog.Title>
       <Dialog.Content>
         <div style={{ margin: "15px 0" }}>
-          {evidenceCategories.length > 0 && (
+          {evidenceCategories && (
             <Select
               name="evidenceCategories"
               label={t("upload_tab.add_evidence_modal.evidence_category")}
@@ -76,13 +77,11 @@ export const AddEvidenceDialog = ({
               <MenuItem value={"MISCELLANEOUS"} key={"MISCELLANEOUS"}>
                 {t("MISCELLANEOUS")}
               </MenuItem>
-              {(evidenceCategories || []).map(
-                ({ id, referenceCode, name }, index) => (
-                  <MenuItem value={referenceCode} key={id}>
-                    {name}
-                  </MenuItem>
-                )
-              )}
+              {evidenceCategories.map(({ id, referenceCode, name }, index) => (
+                <MenuItem value={referenceCode} key={id}>
+                  {name}
+                </MenuItem>
+              ))}
             </Select>
           )}
         </div>

@@ -4,6 +4,7 @@ import {
   CreateGuaranteeInput,
   CreateNoteInput,
   DeleteEvidenceItemInput,
+  UpdateCompanyInput,
   UpdateGuaranteeInput,
   UpdateProjectMemberInput
 } from "@bmi/intouch-api-types";
@@ -75,7 +76,13 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
             { column: "status", alias: "$status" }
           ]
         },
-        async resolve(resolve: any, source, args, context: any, resolveInfo) {
+        async resolve(
+          resolve: any,
+          source,
+          args: { input: UpdateCompanyInput },
+          context: any,
+          resolveInfo
+        ) {
           return updateCompany(resolve, source, args, context, resolveInfo);
         }
       },
