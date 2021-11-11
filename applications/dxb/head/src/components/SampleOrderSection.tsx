@@ -70,7 +70,7 @@ const SampleOrderSection = ({
   }, [basketState]);
   const cta =
     sampleBasketLinkInfo &&
-    getCTA(sampleBasketLinkInfo, countryCode, sampleBasketLinkInfo?.slug);
+    getCTA(sampleBasketLinkInfo, countryCode, sampleBasketLinkInfo.slug);
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
