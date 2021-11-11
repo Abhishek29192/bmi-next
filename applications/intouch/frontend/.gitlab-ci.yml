@@ -35,7 +35,7 @@ build_intouch_frontend_dev:
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -55,7 +55,7 @@ build_intouch_frontend_dev:
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -105,7 +105,7 @@ deploy_intouch_frontend_to_cloudrun_bmi:
     - test_intouch_frontend
   image: google/cloud-sdk
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/frontend/**/*
       variables:
