@@ -1,7 +1,13 @@
 
-# Redirect root to /en.
+# Redirects for Group (SITE_MARKET_CODE=en)
 [[redirects]]
-  from = "/"
-  to = "/en"
+  from = "/fr-fr"
+  to = "https://www.bmigroup.com/fr/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/de-de"
+  to = "https://www.bmigroup.com/de/"
   status = 302
   force = true
