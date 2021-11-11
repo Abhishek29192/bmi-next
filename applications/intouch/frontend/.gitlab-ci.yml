@@ -84,7 +84,7 @@ deploy_intouch_frontend_dev_to_cloudrun:
   cache: {}
   needs:
     - build_intouch_frontend_dev
-    # - test_intouch_frontend
+    - test_intouch_frontend
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
@@ -102,7 +102,7 @@ deploy_intouch_frontend_to_cloudrun_bmi:
   cache: {}
   needs:
     - build_intouch_frontend_dev
-    # - test_intouch_frontend
+    - test_intouch_frontend
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/functionscicd'"

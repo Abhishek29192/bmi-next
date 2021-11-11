@@ -118,7 +118,6 @@ deploy_intouch_companies_to_cloudrun_bmi:
   cache: {}
   needs:
     - build_intouch_api_companies
-    # - test_intouch_frontend
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
