@@ -216,16 +216,6 @@
         "code": "",
         "label": "English",
         "icon": "/icons/flags/globe.svg"
-      },
-      {
-        "code": "de-de",
-        "label": "Deutsch",
-        "icon": "/icons/flags/de.svg"
-      },
-      {
-        "code": "fr-fr",
-        "label": "Français",
-        "icon": "/icons/flags/fr.svg"
       }
     ]
   }
