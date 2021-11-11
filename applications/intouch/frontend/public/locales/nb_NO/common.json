@@ -65,5 +65,13 @@
     "today": "I dag",
     "earlier": "Tidligere",
     "older": "Eldre enn 2 måneder"
+  },
+  "session": {
+    "dialog": {
+      "title": "Økten din utløper etter {{counter}}",
+      "content": "Du har vært inaktiv en stund nå, og denne økten vil utløpe og du logges automatisk ut.",
+      "logout": "Logg ut",
+      "continue": "Ikke logg ut"
+    }
   }
 }
