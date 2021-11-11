@@ -43,7 +43,12 @@ const RadioButton = ({
       />
       <label className={styles["label"]} htmlFor={id}>
         {before}
-        <ButtonBase tabIndex={-1} component="div" className={styles["text"]}>
+        <ButtonBase
+          tabIndex={-1}
+          component="div"
+          className={styles["text"]}
+          disabled={disabled}
+        >
           {children}
         </ButtonBase>
       </label>
