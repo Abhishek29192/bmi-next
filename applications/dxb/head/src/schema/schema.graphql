@@ -979,6 +979,10 @@ type ContentfulResources implements Node {
 
   " Language selection dialog introduction"
   countryNavigationIntroduction: ContentfulRichText
+
+  "Sample Basket Link"
+  sampleBasketLink: ContentfulSimplePage
+    @link(from: "sampleBasketLink___NODE")
 }
 
 """
