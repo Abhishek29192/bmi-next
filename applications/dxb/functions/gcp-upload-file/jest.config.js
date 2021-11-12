@@ -8,5 +8,6 @@ module.exports = {
   roots: ["<rootDir>/applications/dxb/functions/gcp-upload-file/src"],
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/gcp-upload-file/src/**/*.{ts,tsx,js}"
-  ]
+  ],
+  testEnvironment: "node"
 };

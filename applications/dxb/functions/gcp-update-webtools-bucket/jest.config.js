@@ -10,5 +10,6 @@ module.exports = {
   ],
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/gcp-update-webtools-bucket/src/**/*.{ts,tsx,js}"
-  ]
+  ],
+  testEnvironment: "node"
 };

@@ -1,6 +1,7 @@
 import { Readable } from "stream";
 import { FetchMockStatic, MockOptions, MockResponseObject } from "fetch-mock";
 import { Request, Response as ExpressResponse } from "express";
+import { Headers } from "node-fetch";
 
 export const mockRequest = (
   method: Request["method"],
@@ -56,7 +57,7 @@ export const mockResponses = (
         : {
             body: mockedResponse.body,
             status: mockedResponse.status || 200,
-            headers: new Headers(mockedResponse.headers),
+            headers: mockedResponse.headers,
             redirectUrl: mockedResponse.redirectUrl
           },
       {

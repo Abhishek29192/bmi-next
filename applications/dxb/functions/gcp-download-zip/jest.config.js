@@ -9,6 +9,7 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/gcp-download-zip/src/**/*.{ts,tsx,js}"
   ],
+  testEnvironment: "node",
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
