@@ -4356,6 +4356,7 @@ export const TeamMembersDocument = gql`
         lastName
         firstName
         formattedRole
+        status
         certificationsByDoceboUserId(
           filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
         ) {
