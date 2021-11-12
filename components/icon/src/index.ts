@@ -4,14 +4,14 @@ import {
   Person as User,
   Phone,
   PhoneIphone as PhoneMobile,
-  PlayArrow
+  PlayArrow,
+  LinkedIn
 } from "@material-ui/icons";
 import Icon from "./Icon";
 import Arrow from "./svgs/Arrow.svg";
 import Box from "./svgs/Box.svg";
 import Download from "./svgs/Download.svg";
 import Facebook from "./svgs/Facebook.svg";
-import LinkedIn from "./svgs/LinkedIn.svg";
 import YouTube from "./svgs/YouTube.svg";
 import FileJPEG from "./svgs/FileJPEG.svg";
 import FileJPG from "./svgs/FileJPG.svg";
