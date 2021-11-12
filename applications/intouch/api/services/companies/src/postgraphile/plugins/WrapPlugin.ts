@@ -20,6 +20,7 @@ import { PostGraphileContext } from "../../types";
 import { updateProjectMember } from "../../services/projectMember";
 import { createNote } from "../../services/note";
 import Auth0 from "../../services/auth0";
+import * as companyDocumentMutation from "../../services/companyDocument";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -169,7 +170,8 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
         ) {
           return createNote(resolve, source, args, context, resolveInfo);
         }
-      }
+      },
+      ...companyDocumentMutation
     }
   };
 });

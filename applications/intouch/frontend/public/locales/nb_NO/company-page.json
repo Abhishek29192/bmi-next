@@ -117,5 +117,33 @@
       }
     }
   },
-  "report": "Last ned selskapsliste"
+  "report": "Last ned selskapsliste",
+  "document": {
+    "title": "Firmadokumenter",
+    "noContent": "Ingen dokumenter lastet opp ennå",
+    "addDocument": "Legg til dokument",
+    "headers": {
+      "document": "Dokument",
+      "date": "Dato",
+      "download": "NEDLASTING"
+    },
+    "uploadDialog": {
+      "title": "Dokumentopplasting",
+      "buttonLabel": "Last opp filer",
+      "microcopy": {
+        "drop": "Miste",
+        "browse": "Bla gjennom"
+      },
+      "instruction": "Du kan legge til filer",
+      "confirmLabel": "Last opp filer",
+      "cancelLabel": "Avbryt",
+      "fileValidationMessage": "Du kan ikke laste opp filer som er større enn {{fileSize}}"
+    },
+    "confirmDialog": {
+      "title": "Firmadokument",
+      "body": "Slett dokument?",
+      "confirmLabel": "Bekrefte",
+      "cancelLabel": "Avbryt"
+    }
+  }
 }

@@ -263,6 +263,28 @@ export const CompanyCertificationsFragmentDoc = gql`
     certifications
   }
 `;
+export const CompanyDocumentFragmentFragmentDoc = gql`
+  fragment CompanyDocumentFragment on CompanyDocument {
+    id
+    document
+    name
+    documentType
+    size
+    signedDocumentUrl
+    createdAt
+    updatedAt
+  }
+`;
+export const CompanyDocumentsFragmentFragmentDoc = gql`
+  fragment CompanyDocumentsFragment on Company {
+    companyDocuments {
+      nodes {
+        ...CompanyDocumentFragment
+      }
+    }
+  }
+  ${CompanyDocumentFragmentFragmentDoc}
+`;
 export const CompanyPageDetailsFragmentFragmentDoc = gql`
   fragment CompanyPageDetailsFragment on Company {
     id
@@ -270,6 +292,7 @@ export const CompanyPageDetailsFragmentFragmentDoc = gql`
     ...CompanyRegisteredDetailsFragment
     ...CompanyAdminsFragment
     ...CompanyCertifications
+    ...CompanyDocumentsFragment
     status
     isProfileComplete
   }
@@ -277,6 +300,7 @@ export const CompanyPageDetailsFragmentFragmentDoc = gql`
   ${CompanyRegisteredDetailsFragmentFragmentDoc}
   ${CompanyAdminsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
+  ${CompanyDocumentsFragmentFragmentDoc}
 `;
 export const AccountPageDetailsFragmentFragmentDoc = gql`
   fragment AccountPageDetailsFragment on Account {
@@ -493,6 +517,113 @@ export type GetGlobalDataLazyQueryHookResult = ReturnType<
 export type GetGlobalDataQueryResult = Apollo.QueryResult<
   OperationTypes.GetGlobalDataQuery,
   OperationTypes.GetGlobalDataQueryVariables
+>;
+export const CreateCompanyDocumentsDocument = gql`
+  mutation createCompanyDocuments($input: CreateCompanyDocumentsInput!) {
+    createCompanyDocuments(input: $input) {
+      companyDocuments {
+        ...CompanyDocumentFragment
+      }
+    }
+  }
+  ${CompanyDocumentFragmentFragmentDoc}
+`;
+export type CreateCompanyDocumentsMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateCompanyDocumentsMutation,
+  OperationTypes.CreateCompanyDocumentsMutationVariables
+>;
+
+/**
+ * __useCreateCompanyDocumentsMutation__
+ *
+ * To run a mutation, you first call `useCreateCompanyDocumentsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateCompanyDocumentsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createCompanyDocumentsMutation, { data, loading, error }] = useCreateCompanyDocumentsMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateCompanyDocumentsMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateCompanyDocumentsMutation,
+    OperationTypes.CreateCompanyDocumentsMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateCompanyDocumentsMutation,
+    OperationTypes.CreateCompanyDocumentsMutationVariables
+  >(CreateCompanyDocumentsDocument, options);
+}
+export type CreateCompanyDocumentsMutationHookResult = ReturnType<
+  typeof useCreateCompanyDocumentsMutation
+>;
+export type CreateCompanyDocumentsMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateCompanyDocumentsMutation>;
+export type CreateCompanyDocumentsMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateCompanyDocumentsMutation,
+  OperationTypes.CreateCompanyDocumentsMutationVariables
+>;
+export const DeleteCompanyDocumentDocument = gql`
+  mutation deleteCompanyDocument($input: DeleteCompanyDocumentInput!) {
+    deleteCompanyDocument(input: $input) {
+      companyDocument {
+        id
+        document
+        createdAt
+      }
+    }
+  }
+`;
+export type DeleteCompanyDocumentMutationFn = Apollo.MutationFunction<
+  OperationTypes.DeleteCompanyDocumentMutation,
+  OperationTypes.DeleteCompanyDocumentMutationVariables
+>;
+
+/**
+ * __useDeleteCompanyDocumentMutation__
+ *
+ * To run a mutation, you first call `useDeleteCompanyDocumentMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteCompanyDocumentMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteCompanyDocumentMutation, { data, loading, error }] = useDeleteCompanyDocumentMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useDeleteCompanyDocumentMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.DeleteCompanyDocumentMutation,
+    OperationTypes.DeleteCompanyDocumentMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.DeleteCompanyDocumentMutation,
+    OperationTypes.DeleteCompanyDocumentMutationVariables
+  >(DeleteCompanyDocumentDocument, options);
+}
+export type DeleteCompanyDocumentMutationHookResult = ReturnType<
+  typeof useDeleteCompanyDocumentMutation
+>;
+export type DeleteCompanyDocumentMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteCompanyDocumentMutation>;
+export type DeleteCompanyDocumentMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.DeleteCompanyDocumentMutation,
+  OperationTypes.DeleteCompanyDocumentMutationVariables
 >;
 export const UpdateCompanyDetailsDocument = gql`
   mutation updateCompanyDetails($input: UpdateCompanyInput!) {

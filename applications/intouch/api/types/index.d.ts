@@ -2042,6 +2042,10 @@ export type CompanyDocument = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
   company?: Maybe<Company>;
+  name?: Maybe<Scalars["String"]>;
+  documentType?: Maybe<CompanyDocumentType>;
+  size?: Maybe<Scalars["Int"]>;
+  signedDocumentUrl?: Maybe<Scalars["String"]>;
 };
 
 /** The fields on `companyDocument` to look up the row to connect. */
@@ -2065,6 +2069,7 @@ export type CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
 
 /** Input for the nested mutation of `company` in the `CompanyDocumentInput` mutation. */
@@ -2155,6 +2160,7 @@ export type CompanyDocumentInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -2199,6 +2205,8 @@ export type CompanyDocumentPatch = {
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
 };
+
+export type CompanyDocumentType = "PDF" | "JPG" | "JPEG" | "PNG";
 
 /** A connection to a list of `CompanyDocument` values. */
 export type CompanyDocumentsConnection = {
