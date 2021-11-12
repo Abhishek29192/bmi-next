@@ -12,7 +12,7 @@ import { ProjectsHeader } from "../Cards/ProjectsHeader";
 import { ProjectsInsight } from "../Cards/ProjectsInsight";
 import { TabCard } from "../Cards/TabCard";
 import { GuaranteeTab } from "../Tabs/Guarantee";
-import { UploadsTab, Evidence } from "../Tabs/Uploads";
+import { UploadsTab } from "../Tabs/Uploads";
 import { Layout, LayoutProps } from ".";
 
 export default {
@@ -112,7 +112,7 @@ export const Team = ({ title }: LayoutProps) => (
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Uploads" index="three">
               <TabCard>
-                <UploadsTab projectId={1} uploads={uploadedFiles} />
+                <UploadsTab project={null} />
               </TabCard>
             </Tabs.TabPanel>
           </Tabs>
@@ -125,66 +125,6 @@ export const Team = ({ title }: LayoutProps) => (
 Team.args = {
   title: "Projects"
 };
-
-const uploadedFiles = new Map<string, Evidence[]>([
-  [
-    "Ventilation systems",
-    [
-      {
-        id: 1,
-        name: `Ut enim ad minim veniam, quis nostrud exercitation ullamco
-  laboris nisi ut aliquip ex ea commodo consequat.`
-      }
-    ]
-  ],
-  [
-    "Roof corners",
-    [
-      {
-        id: 2,
-        name: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-      eget.`
-      }
-    ]
-  ],
-  [
-    "Chimney",
-    [
-      {
-        id: 3,
-        name: `Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.`
-      }
-    ]
-  ],
-  [
-    "Receipt of purchase",
-    [
-      {
-        id: 4,
-        name: `Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.`
-      }
-    ]
-  ],
-  [
-    "Supporting files",
-    [
-      {
-        id: 5,
-        name: `Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.`
-      }
-    ]
-  ]
-]);
 
 const teamMembers = [
   {

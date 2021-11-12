@@ -1,50 +1,132 @@
+import React from "react";
+import { render } from "@testing-library/react";
+import { act } from "@testing-library/react";
+import { MicroCopy } from "../helpers/microCopy";
 import roofs from "../calculation/roofs";
 import data from "../samples/data.json";
 import en from "../samples/copy/en.json";
-
-const components = [
-  "_RoofSelection",
-  "_RoofDimensions",
-  "_TileSelection",
-  "_TileOptions",
-  "_VariantSelection",
-  "_UnderlaySelection",
-  "_Guttering",
-  "_Results"
-];
+import PitchedRoofCalculatorSteps from "../_PitchedRoofCalculatorSteps";
 
 let componentProps = {};
+jest.mock("../_RoofSelection", () => {
+  const RoofSelection = (props) => {
+    componentProps["_RoofSelection"] = props;
+    return <p>Rendering _RoofSelection</p>;
+  };
+  return {
+    __esModule: true,
+    default: RoofSelection
+  };
+});
+jest.mock("../_RoofDimensions", () => {
+  const RoofDimensions = (props) => {
+    componentProps["_RoofDimensions"] = props;
+    return <p>Rendering _RoofDimensions</p>;
+  };
+  return {
+    __esModule: true,
+    default: RoofDimensions
+  };
+});
+jest.mock("../_TileSelection", () => {
+  const TileSelection = (props) => {
+    componentProps["_TileSelection"] = props;
+    return <p>Rendering _TileSelection</p>;
+  };
+  return {
+    __esModule: true,
+    default: TileSelection
+  };
+});
+jest.mock("../_TileOptions", () => {
+  const TileOptions = (props) => {
+    componentProps["_TileOptions"] = props;
+    return <p>Rendering _TileOptions</p>;
+  };
+  return {
+    __esModule: true,
+    default: TileOptions
+  };
+});
+jest.mock("../_VariantSelection", () => {
+  const VariantSelection = (props) => {
+    componentProps["_VariantSelection"] = props;
+    return <p>Rendering _VariantSelection</p>;
+  };
+  return {
+    __esModule: true,
+    default: VariantSelection
+  };
+});
+jest.mock("../_UnderlaySelection", () => {
+  const UnderlaySelection = (props) => {
+    componentProps["_UnderlaySelection"] = props;
+    return <p>Rendering _UnderlaySelection</p>;
+  };
+  return {
+    __esModule: true,
+    default: UnderlaySelection
+  };
+});
+jest.mock("../_Guttering", () => {
+  const Guttering = (props) => {
+    componentProps["_Guttering"] = props;
+    return <p>Rendering _Guttering</p>;
+  };
+  return {
+    __esModule: true,
+    default: Guttering
+  };
+});
+jest.mock("../_Results", () => {
+  const Results = (props) => {
+    componentProps["_Results"] = props;
+    return <p>Rendering _Results</p>;
+  };
+  return {
+    __esModule: true,
+    default: Results
+  };
+});
 
-let React;
-let render;
-let act;
-let MicroCopy;
-let PitchedRoofCalculatorSteps;
+let renderedStep;
+const stepProps = {};
+jest.mock(`@bmi/calculator-stepper`, () => {
+  const CalculatorStepper = ({ selected, children }) => {
+    renderedStep = selected;
+    return React.Children.toArray(children)
+      .filter((item) => (item["key"] + "").substr(2) === selected)
+      .map((element: React.ReactElement) =>
+        React.cloneElement(element, {
+          passedKey: (element.key + "").substr(2)
+        })
+      );
+  };
+
+  CalculatorStepper.Step = jest.fn().mockImplementation((props) => {
+    stepProps[props.passedKey] = props;
+    return (
+      <div>
+        <p>Step {props.passedKey}</p>
+        {props.children}
+      </div>
+    );
+  });
+
+  return {
+    __esModule: true,
+    default: CalculatorStepper
+  };
+});
 
 beforeEach(() => {
   jest.resetModules();
   jest.clearAllMocks();
   componentProps = {};
-  React = require("react");
-  render = require("@testing-library/react").render;
-  act = require("@testing-library/react").act;
-  MicroCopy = require("../helpers/microCopy").MicroCopy;
-  components.forEach((component) => {
-    jest.mock(`../${component}`, () => ({
-      __esModule: true,
-      default: jest.fn().mockImplementation((props) => {
-        componentProps[component] = props;
-        return <p>Rendering {component}</p>;
-      })
-    }));
-  });
 });
 
 describe("PitchedRoofCalculatorSteps component", () => {
   it("renders correctly", () => {
-    PitchedRoofCalculatorSteps =
-      require("../_PitchedRoofCalculatorSteps").default;
-
     const { container } = render(
       <MicroCopy.Provider values={en}>
         <PitchedRoofCalculatorSteps
@@ -59,39 +141,6 @@ describe("PitchedRoofCalculatorSteps component", () => {
   });
 
   it("moves through the steps", async () => {
-    let renderedStep;
-    const stepProps = {};
-    jest.mock(`@bmi/calculator-stepper`, () => {
-      const CalculatorStepper = ({ selected, children }) => {
-        renderedStep = selected;
-        return React.Children.toArray(children)
-          .filter((item) => (item.key + "").substr(2) === selected)
-          .map((element) =>
-            React.cloneElement(element, {
-              passedKey: (element.key + "").substr(2)
-            })
-          );
-      };
-
-      CalculatorStepper.Step = jest.fn().mockImplementation((props) => {
-        stepProps[props.passedKey] = props;
-        return (
-          <div>
-            <p>Step {props.passedKey}</p>
-            {props.children}
-          </div>
-        );
-      });
-
-      return {
-        __esModule: true,
-        default: CalculatorStepper
-      };
-    });
-
-    PitchedRoofCalculatorSteps =
-      require("../_PitchedRoofCalculatorSteps").default;
-
     let selected = "select-roof";
     const setSelected = jest
       .fn()

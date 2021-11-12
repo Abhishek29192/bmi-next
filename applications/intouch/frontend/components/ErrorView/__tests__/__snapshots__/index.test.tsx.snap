@@ -178,8 +178,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
                 Error: 400
               </h3>
               <hr
-                class="MuiDivider-root MuiDivider-flexItem MuiDivider-vertical"
-                style="margin: 0px 1rem;"
+                class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
               />
               <h3
                 class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
@@ -484,8 +483,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
                 Error: 400
               </h3>
               <hr
-                class="MuiDivider-root MuiDivider-flexItem MuiDivider-vertical"
-                style="margin: 0px 1rem;"
+                class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
               />
               <h3
                 class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"

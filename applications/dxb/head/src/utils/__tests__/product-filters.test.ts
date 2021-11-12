@@ -65,19 +65,19 @@ describe("product-filters tests", () => {
     });
   });
   describe("removePLPFilterPrefix tests", () => {
-    describe("When null value is passed ", () => {
+    it("When null value is passed ", () => {
       const result = removePLPFilterPrefix(null);
       expect(result).toEqual("");
     });
-    describe("When undefined value is passed ", () => {
+    it("When undefined value is passed ", () => {
       const result = removePLPFilterPrefix(undefined);
       expect(result).toEqual("");
     });
-    describe("When string without any 'plpFilter.' prefix is passed ", () => {
+    it("When string without any 'plpFilter.' prefix is passed ", () => {
       const result = removePLPFilterPrefix("test");
       expect(result).toEqual("test");
     });
-    describe("When string with 'plpFilter.' prefix is passed ", () => {
+    it("When string with 'plpFilter.' prefix is passed ", () => {
       const result = removePLPFilterPrefix("plpFilter.TEST_VALUE");
       expect(result).toEqual("TEST_VALUE");
     });

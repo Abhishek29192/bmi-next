@@ -73,6 +73,10 @@ $tablet-width: 1024px;
   }
 }
 
+.lowerHeaderDivider {
+  margin: 0 1rem;
+}
+
 .lowerHeaderMeta {
   display: flex;
   align-items: center;
@@ -81,6 +85,10 @@ $tablet-width: 1024px;
 
 .lowerHeaderUserLevel {
   color: $color-cyan-400;
+}
+
+.attentionHeading {
+  color: $color-error;
 }
 
 .lowerHeaderNav {

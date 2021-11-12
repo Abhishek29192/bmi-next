@@ -569,7 +569,8 @@ module.exports = {
     // Avoid extra memory consumption as these shouldn't be needed on prod
     {
       resolve: "gatsby-plugin-no-sourcemaps"
-    }
+    },
+    `gatsby-plugin-meta-redirect` // make sure to put last in the array
   ],
   flags: {
     DEV_SSR: false,

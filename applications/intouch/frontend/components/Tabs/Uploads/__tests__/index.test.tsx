@@ -1,7 +1,16 @@
 import React, { useRef } from "react";
 import { screen } from "@testing-library/react";
-import { UploadsTab, Evidence } from "..";
-import { renderWithI18NProvider } from "../../../../lib/tests/utils";
+import {
+  renderWithI18NProvider,
+  renderWithUserProvider
+} from "../../../../lib/tests/utils";
+import { generateProject } from "../../../../lib/tests/factories/project";
+import { generateGuarantee } from "../../../../lib/tests/factories/guarantee";
+import { generateAccount } from "../../../../lib/tests/factories/account";
+import AccountContextWrapper from "../../../../lib/tests/fixtures/account";
+import ApolloProvider from "../../../../lib/tests/fixtures/apollo";
+
+import { UploadsTab } from "..";
 
 jest.mock("@bmi/use-dimensions", () => ({
   __esModule: true,
@@ -15,75 +24,127 @@ jest.mock("../../../../graphql/generated/hooks", () => ({
 }));
 
 describe("Uploads Components", () => {
-  const files = new Map<string, Evidence[]>([
-    [
-      "Ventilation systems",
-      [
-        {
-          id: 1,
-          name: "Ventilation systemfile 1",
-          url: "http://image.png",
-          canEvidenceDelete: true
-        },
-        {
-          id: 2,
-          name: "Ventilation systemfile 2",
-          url: "http://image.png",
-          canEvidenceDelete: true
-        }
-      ]
-    ],
-    [
-      "Roof corners",
-      [
-        { id: 3, name: "Roof corners 1", url: "https://image.png" },
-        { id: 4, name: "Roof corners 2", url: "https://image.png" },
-        { id: 5, name: "Roof corners 3", url: "https://image.png" },
-        { id: 6, name: "Roof corners 4", url: "https://image.png" }
-      ]
-    ]
-  ]);
-
-  describe("render correct number of category", () => {
-    it("none", () => {
-      renderWithI18NProvider(<UploadsTab projectId={1} uploads={null} />);
-      expect(screen.queryByTestId("uploads-category")).toBeNull();
+  it("render no uploads", () => {
+    const project = generateProject();
+    renderWithI18NProvider(<UploadsTab project={project} />);
+    expect(screen.queryByTestId("uploads-item")).toBeFalsy();
+    expect(screen.findByLabelText("upload_tab.noContent")).toBeTruthy();
+  });
+  describe("render correct categories", () => {
+    it("MISCELLANEOUS category", () => {
+      const project = generateProject();
+      renderWithI18NProvider(<UploadsTab project={project} />);
+      expect(screen.getByTestId("uploads-category")).toHaveTextContent(
+        "MISCELLANEOUS"
+      );
     });
-    it("two categories", () => {
-      renderWithI18NProvider(<UploadsTab projectId={1} uploads={files} />);
-      expect(screen.getAllByTestId("uploads-category").length).toEqual(2);
+
+    it("multiple categories", () => {
+      const guarantee = generateGuarantee({
+        status: "NEW",
+        guaranteeType: {
+          evidenceCategoriesCollection: {
+            items: [
+              {
+                name: "Waterproofing"
+              },
+              {
+                name: "Drainage"
+              }
+            ]
+          }
+        }
+      });
+      const project = generateProject({
+        guarantees: {
+          nodes: [guarantee]
+        }
+      });
+
+      renderWithI18NProvider(<UploadsTab project={project} />);
+      const allCategories = screen
+        .getAllByTestId("uploads-category")
+        .map((category) => category.textContent);
+      expect(allCategories).toEqual([
+        "Waterproofing",
+        "Drainage",
+        "MISCELLANEOUS"
+      ]);
     });
   });
   describe("render correct number of upload", () => {
     it("none", () => {
-      renderWithI18NProvider(<UploadsTab projectId={1} uploads={null} />);
+      const project = generateProject();
+      renderWithI18NProvider(<UploadsTab project={project} />);
       expect(screen.queryByTestId("uploads-item")).toBeNull();
     });
-    it("six upload items", () => {
-      renderWithI18NProvider(<UploadsTab projectId={1} uploads={files} />);
-      expect(screen.getAllByTestId("uploads-item").length).toEqual(6);
+
+    it("multiple upload items", () => {
+      const project = generateProject({
+        evidenceItems: {
+          nodes: [
+            {
+              id: 1,
+              name: "name",
+              signedUrl: "signedUrl",
+              evidenceCategoryType: "MISCELLANEOUS",
+              customEvidenceCategory: null
+            },
+            {
+              id: 2,
+              name: "name2",
+              signedUrl: "signedUrl",
+              evidenceCategoryType: "MISCELLANEOUS",
+              customEvidenceCategory: null
+            },
+            {
+              id: 3,
+              name: "name3",
+              signedUrl: "signedUrl",
+              evidenceCategoryType: "CUSTOM",
+              customEvidenceCategory: null
+            }
+          ]
+        }
+      });
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper>
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+
+      expect(screen.getAllByTestId("uploads-item").length).toEqual(
+        project.evidenceItems.nodes.length
+      );
     });
   });
-
   describe("render delete button", () => {
     it("should not render delete button", () => {
-      renderWithI18NProvider(<UploadsTab projectId={1} uploads={null} />);
+      const project = generateProject();
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper>
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
       expect(screen.queryByTestId("upload-item-delete")).toBeNull();
     });
-    it("should render delete buttons", () => {
-      renderWithI18NProvider(<UploadsTab projectId={1} uploads={files} />);
-      expect(screen.queryAllByTestId("upload-item-delete")).toHaveLength(2);
-    });
 
-    it("no uploads", () => {
-      renderWithI18NProvider(
-        <UploadsTab
-          projectId={1}
-          uploads={new Map([["Ventilation systems", []]])}
-        />
+    it("should render delete buttons", () => {
+      const project = generateProject();
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper
+            account={generateAccount({ role: "COMPANY_ADMIN" })}
+          >
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
       );
-      expect(screen.queryByTestId("uploads-item")).toBeFalsy();
-      expect(screen.findByLabelText("upload_tab.noContent")).toBeTruthy();
+      expect(screen.getAllByTestId("upload-item-delete")).toHaveLength(3);
     });
   });
 });

@@ -2042,6 +2042,10 @@ export type CompanyDocument = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
   company?: Maybe<Company>;
+  name?: Maybe<Scalars["String"]>;
+  documentType?: Maybe<CompanyDocumentType>;
+  size?: Maybe<Scalars["Int"]>;
+  signedDocumentUrl?: Maybe<Scalars["String"]>;
 };
 
 /** The fields on `companyDocument` to look up the row to connect. */
@@ -2065,6 +2069,7 @@ export type CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
 
 /** Input for the nested mutation of `company` in the `CompanyDocumentInput` mutation. */
@@ -2155,6 +2160,7 @@ export type CompanyDocumentInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -2199,6 +2205,8 @@ export type CompanyDocumentPatch = {
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
 };
+
+export type CompanyDocumentType = "PDF" | "JPG" | "JPEG" | "PNG";
 
 /** A connection to a list of `CompanyDocument` values. */
 export type CompanyDocumentsConnection = {
@@ -3904,7 +3912,7 @@ export type ContentfulEvidenceCategory = {
   __typename?: "ContentfulEvidenceCategory";
   sys: ContentfulSys;
   name?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
+  description?: Maybe<ContentfulEvidenceCategoryDescription>;
   minimumUploads?: Maybe<Scalars["Int"]>;
   referenceCode?: Maybe<Scalars["String"]>;
 };
@@ -3912,6 +3920,11 @@ export type ContentfulEvidenceCategory = {
 export type ContentfulEvidenceCategoryCollection = {
   __typename?: "ContentfulEvidenceCategoryCollection";
   items?: Maybe<Array<Maybe<ContentfulEvidenceCategory>>>;
+};
+
+export type ContentfulEvidenceCategoryDescription = {
+  __typename?: "ContentfulEvidenceCategoryDescription";
+  json: Scalars["JSON"];
 };
 
 export type ContentfulGuaranteeCoverageType = "PRODUCT" | "SYSTEM" | "SOLUTION";
@@ -4998,6 +5011,29 @@ export type CreateCompanyDocumentPayload = {
 /** The output of our create `CompanyDocument` mutation. */
 export type CreateCompanyDocumentPayloadCompanyDocumentEdgeArgs = {
   orderBy?: Maybe<Array<CompanyDocumentsOrderBy>>;
+};
+
+/** All input for the `createCompanyDocuments` mutation. */
+export type CreateCompanyDocumentsInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  documents: Array<Maybe<CompanyDocumentInput>>;
+};
+
+/** The output of our `createCompanyDocuments` mutation. */
+export type CreateCompanyDocumentsPayload = {
+  __typename?: "CreateCompanyDocumentsPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  companyDocuments?: Maybe<Array<CompanyDocument>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** All input for the `createCompany` mutation. */
@@ -9667,13 +9703,15 @@ export type ImageTransformOptions = {
 
 export type ImportAccountsCompaniesFromCsvInput = {
   files: Array<Scalars["Upload"]>;
+  dryRun?: Maybe<Scalars["Boolean"]>;
 };
 
 export type ImportAccountsCompaniesFromCsvResult = {
   __typename?: "ImportAccountsCompaniesFromCSVResult";
   auth0Job?: Maybe<Auth0ImportResult>;
-  accounts?: Maybe<Array<Maybe<Account>>>;
   companies?: Maybe<Array<Maybe<Company>>>;
+  accounts?: Maybe<Array<Maybe<Account>>>;
+  dryRun?: Maybe<Scalars["Boolean"]>;
 };
 
 export type ImportError = {
@@ -11323,6 +11361,7 @@ export type Mutation = {
   createCompany?: Maybe<CreateCompanyPayload>;
   /** Creates a single `CompanyDocument`. */
   createCompanyDocument?: Maybe<CreateCompanyDocumentPayload>;
+  createCompanyDocuments?: Maybe<CreateCompanyDocumentsPayload>;
   /** Creates a single `CompanyMember`. */
   createCompanyMember?: Maybe<CreateCompanyMemberPayload>;
   /** Creates a single `CompanyOperation`. */
@@ -11700,6 +11739,11 @@ export type MutationCreateCompanyArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateCompanyDocumentArgs = {
   input: CreateCompanyDocumentInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateCompanyDocumentsArgs = {
+  input: CreateCompanyDocumentsInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */

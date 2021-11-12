@@ -178,6 +178,89 @@ export type CompanyDetailsFragmentFragment = {
     >;
   };
 
+export type CompanyDocumentFragmentFragment = {
+  readonly __typename?: "CompanyDocument";
+} & Pick<
+  SchemaTypes.CompanyDocument,
+  | "id"
+  | "document"
+  | "name"
+  | "documentType"
+  | "size"
+  | "signedDocumentUrl"
+  | "createdAt"
+  | "updatedAt"
+>;
+
+export type CompanyDocumentsFragmentFragment = {
+  readonly __typename?: "Company";
+} & {
+  readonly companyDocuments: {
+    readonly __typename?: "CompanyDocumentsConnection";
+  } & {
+    readonly nodes: ReadonlyArray<
+      { readonly __typename?: "CompanyDocument" } & Pick<
+        SchemaTypes.CompanyDocument,
+        | "id"
+        | "document"
+        | "name"
+        | "documentType"
+        | "size"
+        | "signedDocumentUrl"
+        | "createdAt"
+        | "updatedAt"
+      >
+    >;
+  };
+};
+
+export type CreateCompanyDocumentsMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateCompanyDocumentsInput;
+}>;
+
+export type CreateCompanyDocumentsMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly createCompanyDocuments?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateCompanyDocumentsPayload" } & {
+      readonly companyDocuments?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          { readonly __typename?: "CompanyDocument" } & Pick<
+            SchemaTypes.CompanyDocument,
+            | "id"
+            | "document"
+            | "name"
+            | "documentType"
+            | "size"
+            | "signedDocumentUrl"
+            | "createdAt"
+            | "updatedAt"
+          >
+        >
+      >;
+    }
+  >;
+};
+
+export type DeleteCompanyDocumentMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.DeleteCompanyDocumentInput;
+}>;
+
+export type DeleteCompanyDocumentMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly deleteCompanyDocument?: SchemaTypes.Maybe<
+    { readonly __typename?: "DeleteCompanyDocumentPayload" } & {
+      readonly companyDocument?: SchemaTypes.Maybe<
+        { readonly __typename?: "CompanyDocument" } & Pick<
+          SchemaTypes.CompanyDocument,
+          "id" | "document" | "createdAt"
+        >
+      >;
+    }
+  >;
+};
+
 export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
 }>;
@@ -269,6 +352,23 @@ export type UpdateCompanyDetailsMutation = {
                     >
                   >;
                 }
+              >;
+            };
+            readonly companyDocuments: {
+              readonly __typename?: "CompanyDocumentsConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyDocument" } & Pick<
+                  SchemaTypes.CompanyDocument,
+                  | "id"
+                  | "document"
+                  | "name"
+                  | "documentType"
+                  | "size"
+                  | "signedDocumentUrl"
+                  | "createdAt"
+                  | "updatedAt"
+                >
               >;
             };
           }
@@ -367,7 +467,15 @@ export type ImportAccountsCompaniesFromCvsMutation = {
           SchemaTypes.Maybe<
             { readonly __typename?: "Account" } & Pick<
               SchemaTypes.Account,
-              "email"
+              | "email"
+              | "role"
+              | "phone"
+              | "status"
+              | "firstName"
+              | "lastName"
+              | "created"
+              | "doceboUserId"
+              | "doceboUsername"
             >
           >
         >
@@ -377,8 +485,47 @@ export type ImportAccountsCompaniesFromCvsMutation = {
           SchemaTypes.Maybe<
             { readonly __typename?: "Company" } & Pick<
               SchemaTypes.Company,
-              "name"
-            >
+              | "businessType"
+              | "name"
+              | "tier"
+              | "status"
+              | "taxNumber"
+              | "aboutUs"
+              | "logo"
+              | "phone"
+              | "publicEmail"
+              | "website"
+              | "linkedIn"
+            > & {
+                readonly registeredAddress?: SchemaTypes.Maybe<
+                  { readonly __typename?: "Address" } & Pick<
+                    SchemaTypes.Address,
+                    "firstLine" | "secondLine" | "town" | "country" | "postcode"
+                  >
+                >;
+                readonly companyMembers: {
+                  readonly __typename?: "CompanyMembersConnection";
+                } & {
+                  readonly nodes: ReadonlyArray<
+                    { readonly __typename?: "CompanyMember" } & {
+                      readonly account?: SchemaTypes.Maybe<
+                        { readonly __typename?: "Account" } & Pick<
+                          SchemaTypes.Account,
+                          | "role"
+                          | "email"
+                          | "status"
+                          | "phone"
+                          | "firstName"
+                          | "lastName"
+                          | "created"
+                          | "doceboUserId"
+                          | "doceboUsername"
+                        >
+                      >;
+                    }
+                  >;
+                };
+              }
           >
         >
       >;
@@ -632,6 +779,14 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                                           SchemaTypes.ContentfulSys,
                                           "id"
                                         >;
+                                        readonly description?: SchemaTypes.Maybe<
+                                          {
+                                            readonly __typename?: "ContentfulEvidenceCategoryDescription";
+                                          } & Pick<
+                                            SchemaTypes.ContentfulEvidenceCategoryDescription,
+                                            "json"
+                                          >
+                                        >;
                                       }
                                   >
                                 >
@@ -852,6 +1007,14 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                                         } & Pick<
                                           SchemaTypes.ContentfulSys,
                                           "id"
+                                        >;
+                                        readonly description?: SchemaTypes.Maybe<
+                                          {
+                                            readonly __typename?: "ContentfulEvidenceCategoryDescription";
+                                          } & Pick<
+                                            SchemaTypes.ContentfulEvidenceCategoryDescription,
+                                            "json"
+                                          >
                                         >;
                                       }
                                   >
@@ -1251,6 +1414,14 @@ export type ProjectDetailsFragmentFragment = {
                                 readonly sys: {
                                   readonly __typename?: "ContentfulSys";
                                 } & Pick<SchemaTypes.ContentfulSys, "id">;
+                                readonly description?: SchemaTypes.Maybe<
+                                  {
+                                    readonly __typename?: "ContentfulEvidenceCategoryDescription";
+                                  } & Pick<
+                                    SchemaTypes.ContentfulEvidenceCategoryDescription,
+                                    "json"
+                                  >
+                                >;
                               }
                           >
                         >
@@ -1453,6 +1624,14 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
                                     readonly sys: {
                                       readonly __typename?: "ContentfulSys";
                                     } & Pick<SchemaTypes.ContentfulSys, "id">;
+                                    readonly description?: SchemaTypes.Maybe<
+                                      {
+                                        readonly __typename?: "ContentfulEvidenceCategoryDescription";
+                                      } & Pick<
+                                        SchemaTypes.ContentfulEvidenceCategoryDescription,
+                                        "json"
+                                      >
+                                    >;
                                   }
                               >
                             >
@@ -1861,6 +2040,36 @@ export type GetSystemsReportQuery = { readonly __typename?: "Query" } & {
               >;
             };
           }
+      >;
+    }
+  >;
+};
+
+export type GetTeamsReportQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetTeamsReportQuery = { readonly __typename?: "Query" } & {
+  readonly accounts?: SchemaTypes.Maybe<
+    { readonly __typename?: "AccountsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Account" } & Pick<
+          SchemaTypes.Account,
+          | "id"
+          | "email"
+          | "phone"
+          | "firstName"
+          | "lastName"
+          | "role"
+          | "status"
+          | "created"
+          | "doceboUserId"
+          | "doceboUsername"
+          | "photo"
+          | "signedPhotoUrl"
+          | "migrationId"
+          | "migratedToAuth0"
+        >
       >;
     }
   >;
@@ -3026,6 +3235,23 @@ export type CompanyPageDetailsFragmentFragment = {
         }
       >;
     };
+    readonly companyDocuments: {
+      readonly __typename?: "CompanyDocumentsConnection";
+    } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyDocument" } & Pick<
+          SchemaTypes.CompanyDocument,
+          | "id"
+          | "document"
+          | "name"
+          | "documentType"
+          | "size"
+          | "signedDocumentUrl"
+          | "createdAt"
+          | "updatedAt"
+        >
+      >;
+    };
   };
 
 export type GetCompaniesByMarketQueryVariables = SchemaTypes.Exact<{
@@ -3117,6 +3343,23 @@ export type GetCompaniesByMarketQuery = { readonly __typename?: "Query" } & {
                     >
                   >;
                 }
+              >;
+            };
+            readonly companyDocuments: {
+              readonly __typename?: "CompanyDocumentsConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyDocument" } & Pick<
+                  SchemaTypes.CompanyDocument,
+                  | "id"
+                  | "document"
+                  | "name"
+                  | "documentType"
+                  | "size"
+                  | "signedDocumentUrl"
+                  | "createdAt"
+                  | "updatedAt"
+                >
               >;
             };
           }
@@ -3224,6 +3467,23 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
                 >
               >;
             }
+          >;
+        };
+        readonly companyDocuments: {
+          readonly __typename?: "CompanyDocumentsConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "CompanyDocument" } & Pick<
+              SchemaTypes.CompanyDocument,
+              | "id"
+              | "document"
+              | "name"
+              | "documentType"
+              | "size"
+              | "signedDocumentUrl"
+              | "createdAt"
+              | "updatedAt"
+            >
           >;
         };
       }
@@ -3546,7 +3806,7 @@ export type GetProjectsQuery = { readonly __typename?: "Query" } & {
             readonly company?: SchemaTypes.Maybe<
               { readonly __typename?: "Company" } & Pick<
                 SchemaTypes.Company,
-                "name"
+                "name" | "status"
               >
             >;
             readonly guarantees: {

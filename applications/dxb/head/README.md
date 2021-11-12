@@ -32,6 +32,31 @@ Note that in .env.\* in `libraries/migrate` you should always put `<YOUR OWN ACC
 
 You should also put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` in .env.\* in `applications/head` to use content and content type from your own accoun
 
+### Feature Flags
+
+GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE -
+feature flag for new PDP page url structure
+Default is `false` (and current url structure is displayed e.g. `/p/roof-products/zanda-protector-normalstein/svart/935895622/`)
+When set to `true` only the new url structure will be shown for PDP pages (e.g. `/p/zanda-protector-normalstein-sort-betong-935895622`)
+
+GATSBY_ENABLE_OLD_PDP_URL_REDIRECTS -
+Feature flag for generating redirects for PDP URLs, see `gatsby-node.js`
+Default is `false` (will not generate redirects)
+When set to `true` (will generate permanent redirect for old to new PDP url scheme e.g. from `/p/roof-products/zanda-protector-normalstein/svart/935895622/` to `/p/zanda-protector-normalstein-sort-betong-935895622`. redirects will be created at post build time)
+
+GATSBY_HIDE_RECOMMENDED_PRODUCTS -
+feature flag for show/hide recommended products on PDP
+Default is `false` (will not hide recommended products)
+When set to `true` will hide recommended products on PDP
+
+GATSBY_ENABLE_PDP_VARIANT_ATTRIBUTE_URL -
+feature flag for `simple pdp url structure`, which a market can opt-in
+Default is `false` (will generate URLs same as `GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE`)
+When set to `true` only the new url structure will be use 'variantAttribute' feature value
+
+- If `variantAttribute` feature or its value is found then, it will fall back to generate `/p/zanda-protector-variant-atttr-value-935895622`
+- If `variantAttribute` feature or its value is NOT found then, it will fall back to generate URLs same as `GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE` i.e. `/p/zanda-protector-normalstein-sort-betong-935895622`
+
 ### Setup Google reCAPTCHA
 
 1. Visit (Google reCAPTCHA)[https://www.google.com/recaptcha/admin]

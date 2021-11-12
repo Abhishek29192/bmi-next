@@ -25,6 +25,8 @@ import {
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import { resetPassword } from "../../services/account";
+import { getDocumentType } from "../../utils/companyDocument";
+import { PostGraphileContext } from "../../types";
 import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
@@ -133,6 +135,29 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           return formattedRoles[parent?.role || "INSTALLER"];
         }
       },
+      CompanyDocument: {
+        name: async (parent, _args, context) => {
+          return (parent.document || "").split(/[\\/]/).pop();
+        },
+        documentType: async (parent, _args, context) => {
+          return getDocumentType(parent.document);
+        },
+        size: async (parent, _args, context: PostGraphileContext) => {
+          const fileMetaData = await context.storageClient.getFileMetaData(
+            parent.document
+          );
+          return fileMetaData?.size;
+        },
+        signedDocumentUrl: async (
+          parent,
+          _args,
+          context: PostGraphileContext
+        ) => {
+          return context.storageClient.getPrivateAssetSignedUrl(
+            parent.document
+          );
+        }
+      },
       Mutation: {
         invite: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
@@ -202,6 +227,42 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             context,
             resolveInfo,
             auth0
+          );
+        }
+      },
+      ImportAccountsCompaniesFromCSVResult: {
+        accounts: async (parent, args, context, resolveInfo) => {
+          const { pgSql: sql } = resolveInfo.graphile.build;
+
+          if (parent.dryRun) {
+            return parent.accounts;
+          }
+
+          return await resolveInfo.graphile.selectGraphQLResultFromTable(
+            sql.fragment`account`,
+            (tableAlias, queryBuilder) =>
+              queryBuilder.where(
+                sql.fragment`${tableAlias}.id = ANY (${sql.value(
+                  parent.accounts
+                )}::int[])`
+              )
+          );
+        },
+        companies: async (parent, args, context, resolveInfo) => {
+          const { pgSql: sql } = resolveInfo.graphile.build;
+
+          if (parent.dryRun) {
+            return parent.companies;
+          }
+
+          return await resolveInfo.graphile.selectGraphQLResultFromTable(
+            sql.fragment`company`,
+            (tableAlias, queryBuilder) =>
+              queryBuilder.where(
+                sql.fragment`${tableAlias}.id = ANY (${sql.value(
+                  parent.companies
+                )}::int[])`
+              )
           );
         }
       }

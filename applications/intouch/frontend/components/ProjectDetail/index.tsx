@@ -12,7 +12,7 @@ import { ProjectsInsight } from "../Cards/ProjectsInsight";
 import { TabCard } from "../Cards/TabCard";
 import { TeamTab } from "../Tabs/Team";
 import { GuaranteeTab } from "../Tabs/Guarantee";
-import { UploadsTab, Evidence } from "../Tabs/Uploads";
+import { UploadsTab } from "../Tabs/Uploads";
 import { NoProjectsCard } from "../Cards/NoProjects";
 import { NoteTab } from "../Tabs/Notes";
 import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
@@ -127,7 +127,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       message: `Error loading project details. ID: ${projectId}. Error: ${error.toString()}`
     });
     return (
-      <div style={{ minHeight: "100vh" }}>Error loading project details.</div>
+      <div style={{ minHeight: "100vh" }}>{t("projectDetails.error")}</div>
     );
   }
 
@@ -210,7 +210,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           </Tabs.TabPanel>
           <Tabs.TabPanel heading={t("tabs.uploads")} index="three">
             <TabCard>
-              <UploadedFiles project={project} />
+              <UploadsTab project={project} />
             </TabCard>
           </Tabs.TabPanel>
           <Tabs.TabPanel heading={t("tabs.notes")} index="four">
@@ -237,81 +237,6 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       </Grid>
     </>
   );
-};
-
-const UploadedFiles = ({
-  project
-}: {
-  project: GetProjectQuery["project"];
-}) => {
-  const { t } = useTranslation("project-page");
-  const { id, guarantees, evidenceItems } = project;
-  const { account } = useAccountContext();
-
-  const map = new Map<string, Evidence[]>();
-  //Default category
-  map.set(t("MISCELLANEOUS"), []);
-  //Default guarantee types
-  for (const guarantee of guarantees.nodes) {
-    const evidenceCategories =
-      guarantee.guaranteeType?.evidenceCategoriesCollection?.items || [];
-    for (const evidenceCategory of evidenceCategories.filter(Boolean)) {
-      map.set(evidenceCategory.name, []);
-    }
-  }
-
-  for (const evidence of evidenceItems.nodes) {
-    const categoryLabel =
-      evidence.evidenceCategoryType !== "CUSTOM"
-        ? t(evidence.evidenceCategoryType)
-        : evidence.customEvidenceCategory?.name ||
-          t(evidence.evidenceCategoryType);
-    const canEvidenceDelete =
-      can(account, "project", "deleteEvidence") &&
-      (evidence.evidenceCategoryType === "MISCELLANEOUS" ||
-        (evidence.evidenceCategoryType === "CUSTOM" &&
-          !["REVIEW", "APPROVED"].includes(getGuaranteeStatus(project))));
-
-    const existFiles = map.has(categoryLabel) ? map.get(categoryLabel) : [];
-    map.set(categoryLabel, [
-      ...existFiles,
-      {
-        id: evidence.id,
-        name: evidence.name,
-        url: evidence.signedUrl,
-        canEvidenceDelete
-      }
-    ]);
-  }
-
-  const guaranteeEvidence = getGuaranteeEvidence(guarantees.nodes);
-
-  return (
-    <UploadsTab
-      projectId={id}
-      guaranteeId={guaranteeEvidence.guaranteeId}
-      uploads={map}
-      isContentfulEvidenceAvailable={guaranteeEvidence.customEvidenceAvailable}
-    />
-  );
-};
-
-const getGuaranteeEvidence = (
-  guarantees: GetProjectQuery["project"]["guarantees"]["nodes"]
-) => {
-  const solutionGuarantee =
-    guarantees.find((node) => node.coverage === "SOLUTION") || null;
-
-  let evidenceAvailable = false;
-  if (solutionGuarantee !== null) {
-    evidenceAvailable = !["APPROVED", "REVIEW"].includes(
-      solutionGuarantee.status
-    );
-  }
-  return {
-    guaranteeId: solutionGuarantee?.id,
-    customEvidenceAvailable: evidenceAvailable
-  };
 };
 
 export default ProjectDetail;
@@ -360,6 +285,9 @@ export const GET_PROJECT = gql`
               referenceCode
               name
               minimumUploads
+              description {
+                json
+              }
             }
           }
         }

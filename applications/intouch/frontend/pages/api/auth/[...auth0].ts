@@ -61,13 +61,7 @@ export const afterCallback = async (
 };
 
 export const getLoginOptions = (req) => {
-  const { returnTo } = req.query;
-  const { market, currentHost } = getMarketAndEnvFromReq(req);
-  const protocol = req.headers["x-forwarded-proto"] || "http";
-
-  const targetUrl = encodeURIComponent(
-    `${protocol}://${currentHost}${returnTo}`
-  );
+  const { market } = getMarketAndEnvFromReq(req);
 
   // The returnTo is based on the baseUrl set when we init the auth0 library,
   // returning to / means that we return to the base url without the market
@@ -76,10 +70,6 @@ export const getLoginOptions = (req) => {
   return {
     authorizationParams: {
       market
-    },
-    loginState: {
-      currentHost,
-      returnTo: `/api/redirector?current=${targetUrl}`
     }
   };
 };
@@ -99,11 +89,10 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
   return handleAuth({
     async login(req, res) {
       try {
-        const { authorizationParams, loginState } = getLoginOptions(req);
+        const { authorizationParams } = getLoginOptions(req);
 
         await auth0.handleLogin(req, res, {
-          authorizationParams,
-          getLoginState: (req, loginOptions) => loginState
+          authorizationParams
         });
       } catch (error) {
         logger.error(`handle login:`, error);
@@ -139,13 +128,7 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
     },
     async logout(req, res) {
       try {
-        const protocol = req.headers["x-forwarded-proto"] || "http";
-        const { currentHost } = getMarketAndEnvFromReq(req);
-        const targetUrl = `${protocol}://${currentHost}`;
-
-        await handleLogout(req, res, {
-          returnTo: targetUrl
-        });
+        await handleLogout(req, res);
       } catch (error) {
         logger.error(`handle logout: `, error);
         return res.status(error.status || 500).end(error.message);

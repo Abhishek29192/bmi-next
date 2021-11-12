@@ -1,12 +1,10 @@
 import React from "react";
-import { render, fireEvent, waitFor, cleanup } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import mediaQuery from "css-mediaquery";
 import axios from "axios";
 import Upload from "../";
 
 jest.mock("axios");
-
-afterEach(cleanup);
 
 const uri = "xyz";
 const mapBody = jest.fn();
@@ -33,7 +31,6 @@ describe("Upload component", () => {
     window.URL.revokeObjectURL = initialRevokeObjectURL;
     window.matchMedia = initialMatchMedia;
   });
-  afterEach(cleanup);
   it("renders correctly", () => {
     const { container } = render(
       <Upload

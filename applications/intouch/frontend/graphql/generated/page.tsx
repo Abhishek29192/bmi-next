@@ -309,6 +309,49 @@ export const ssrGetSystemsReport = {
 
   usePage: useGetSystemsReport
 };
+export async function getServerPageGetTeamsReport(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetTeamsReportQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetTeamsReportQuery>({
+    ...options,
+    query: Operations.GetTeamsReportDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetTeamsReport = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetTeamsReportQuery,
+    OperationTypes.GetTeamsReportQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetTeamsReportDocument, options);
+};
+export type PageGetTeamsReportComp = React.FC<{
+  data?: OperationTypes.GetTeamsReportQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetTeamsReport = {
+  getServerPage: getServerPageGetTeamsReport,
+
+  usePage: useGetTeamsReport
+};
 
 export async function getServerPageGetProjectCompanyMembers(
   options: Omit<

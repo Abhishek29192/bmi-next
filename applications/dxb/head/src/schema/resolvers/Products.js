@@ -5,6 +5,7 @@ const {
   generateIdFromString,
   generateDigestFromData
 } = require("../../utils/encryption");
+const { generateSimpleProductUrl } = require("../../utils/product-url-path");
 const {
   getFormatFromFileName,
   isPimLinkDocument
@@ -77,12 +78,22 @@ module.exports = {
               [source.name, ...getSlugAttributes(variant), id].join("/")
             )
           });
-          const path = `p/${getUrlFromPath(breadcrumbs)}`;
+          const oldPath = `p/${getUrlFromPath(breadcrumbs)}`;
 
           return {
             ...variant,
             id,
-            path,
+            path:
+              process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "true"
+                ? `p/${generateSimpleProductUrl(
+                    source,
+                    variant,
+                    id,
+                    process.env.GATSBY_ENABLE_PDP_VARIANT_ATTRIBUTE_URL ===
+                      "true" // this is currently feature flagged so that countries can opt-in for 'variant attributes'
+                  )}`
+                : oldPath,
+            oldPath,
             breadcrumbs
           };
         });

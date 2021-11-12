@@ -1,30 +1,60 @@
+import "@testing-library/jest-dom";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
+import { Data as PageInfoData } from "../PageInfo";
+import { SiteContextProvider } from "../Site";
 
 afterEach(() => {
   cleanup();
   localStorage.clear();
 });
-
+const sampleBasketLinkInfo: PageInfoData = {
+  id: "test",
+  title: "test",
+  __typename: "ContentfulSimplePage",
+  slug: "sample-basket",
+  path: "sample-basket/",
+  subtitle: null,
+  brandLogo: null,
+  featuredMedia: null,
+  featuredVideo: null,
+  date: null,
+  tags: null
+};
+const variant = {
+  code: "somthing",
+  path: null,
+  breadcrumbs: null,
+  approvalStatus: null,
+  images: null,
+  isSampleOrderAllowed: null,
+  longDescription: null,
+  shortDescription: null
+};
+const variant2 = { ...variant, code: "variant2" };
+const getMockSiteContext = (
+  countryCode: string = "en",
+  nodeLocale: string = "en-GB"
+) => ({
+  countryCode: countryCode,
+  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
+  node_locale: nodeLocale,
+  homePage: {
+    title: "Home page title"
+  }
+});
 describe("Functionality of sample basket", () => {
   it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", async () => {
-    const variant = {
-      code: "somthing",
-      path: null,
-      breadcrumbs: null,
-      approvalStatus: null,
-      images: null,
-      isSampleOrderAllowed: null,
-      longDescription: null,
-      shortDescription: null
-    };
     render(
-      <SampleOrderSection
-        isSampleOrderAllowed={true}
-        variant={variant}
-      ></SampleOrderSection>,
+      <SiteContextProvider value={getMockSiteContext()}>
+        <SampleOrderSection
+          isSampleOrderAllowed={true}
+          variant={variant}
+          sampleBasketLinkInfo={sampleBasketLinkInfo}
+        ></SampleOrderSection>
+      </SiteContextProvider>,
       {
         wrapper: BasketContextProvider
       }
@@ -53,20 +83,11 @@ describe("Functionality of sample basket", () => {
     ).toBeNull();
   });
   it("display only complete order if there are some items on basket but sample is not allowed", () => {
-    const variant = {
-      code: "somthing",
-      path: null,
-      breadcrumbs: null,
-      approvalStatus: null,
-      images: null,
-      isSampleOrderAllowed: null,
-      longDescription: null,
-      shortDescription: null
-    };
     render(
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -76,6 +97,7 @@ describe("Functionality of sample basket", () => {
       <SampleOrderSection
         isSampleOrderAllowed={false}
         maximumSamples={3}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -94,21 +116,11 @@ describe("Functionality of sample basket", () => {
 describe("disable 'Add to basket' if basket is full", () => {
   it("not ordered max samples & sample available, show MC:canAddMoreMessage ", async () => {
     const maximumSamples = 3;
-    const variant1 = {
-      code: "variant1",
-      path: null,
-      breadcrumbs: null,
-      approvalStatus: null,
-      images: null,
-      isSampleOrderAllowed: true,
-      longDescription: null,
-      shortDescription: null
-    };
-    const variant2 = { ...variant1, code: "variant2" };
     render(
       <SampleOrderSection
         isSampleOrderAllowed={true}
-        variant={variant1}
+        variant={variant}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -122,6 +134,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant2}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -147,24 +160,13 @@ describe("disable 'Add to basket' if basket is full", () => {
 
   it("ordered max samples then display MC:sampleLimitReachedMessage", async () => {
     //set max samples to 2
-
     const maximumSamples = 2;
-    const variant1 = {
-      code: "variant1",
-      path: null,
-      breadcrumbs: null,
-      approvalStatus: null,
-      images: null,
-      isSampleOrderAllowed: true,
-      longDescription: null,
-      shortDescription: null
-    };
-    const variant2 = { ...variant1, code: "variant2" };
     render(
       <SampleOrderSection
         isSampleOrderAllowed={true}
-        variant={variant1}
+        variant={variant}
         maximumSamples={maximumSamples}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -179,6 +181,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant2}
         maximumSamples={maximumSamples}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -202,21 +205,11 @@ describe("disable 'Add to basket' if basket is full", () => {
   });
   it("not ordered max samples & sample unavailable, show MC: canAddOtherMessage", async () => {
     const maximumSamples = 4;
-    const variant1 = {
-      code: "variant1",
-      path: null,
-      breadcrumbs: null,
-      approvalStatus: null,
-      images: null,
-      isSampleOrderAllowed: true,
-      longDescription: null,
-      shortDescription: null
-    };
-    const variant2 = { ...variant1, code: "variant2" };
     render(
       <SampleOrderSection
         isSampleOrderAllowed={true}
-        variant={variant1}
+        variant={variant}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -230,6 +223,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={true}
         variant={variant2}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -245,7 +239,10 @@ describe("disable 'Add to basket' if basket is full", () => {
 
     //since sample is not available onlyDisplayCompleteOrder is rendered
     render(
-      <SampleOrderSection isSampleOrderAllowed={false}></SampleOrderSection>,
+      <SampleOrderSection
+        isSampleOrderAllowed={false}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
       }
@@ -259,5 +256,48 @@ describe("disable 'Add to basket' if basket is full", () => {
       "MC: pdp.overview.canAddOtherMessage"
     );
     expect(canAddOtherMessage).not.toBeNull();
+  });
+});
+
+describe("Test Functionality of redirections by click on 'Complete order' ", () => {
+  it("add redirect url to 'Complete order' CTA", () => {
+    render(
+      <SiteContextProvider value={getMockSiteContext()}>
+        <SampleOrderSection
+          isSampleOrderAllowed={true}
+          variant={variant}
+          sampleBasketLinkInfo={sampleBasketLinkInfo}
+        ></SampleOrderSection>
+      </SiteContextProvider>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    const addSampleCta = screen.getByRole("button", {
+      name: `MC: pdp.overview.addSample`
+    });
+    addSampleCta.click();
+    const completeOrderCta = screen.getByRole("button", {
+      name: `MC: pdp.overview.completeSampleOrder`
+    });
+
+    expect(completeOrderCta).toHaveAttribute("href", "/en/sample-basket/");
+  });
+  it("should not to be rendered Complete order' CTA if no sampleBasketLinkInfo", () => {
+    render(
+      <SiteContextProvider value={getMockSiteContext()}>
+        <SampleOrderSection
+          isSampleOrderAllowed={true}
+          variant={variant}
+          sampleBasketLinkInfo={null}
+        ></SampleOrderSection>
+      </SiteContextProvider>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    expect(
+      screen.queryAllByAltText(`MC: pdp.overview.completeSampleOrder`)
+    ).toHaveLength(0);
   });
 });

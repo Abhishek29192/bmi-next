@@ -1,27 +1,67 @@
-build_intouch_api_gateway_dev:
+build_intouch_api_gateway:
   stage: build
   needs: []
-  image: !reference [.cloud-sdk-image, image]
+  image: google/cloud-sdk
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
   services:
-    - docker:dind
+    - name: docker:20-dind
+      alias: docker
   cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/api/**/*
         - libraries/**/*
-        - yarn.lock
+        - package.json
+        - "**/package.json"
+      variables:
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
+      changes:
+        - applications/intouch/api/**/*
+        - libraries/**/*
+        - package.json
+        - "**/package.json"
+      variables:
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
+      changes:
+        - applications/intouch/api/**/*
+        - libraries/**/*
+        - package.json
+        - "**/package.json"
+      variables:
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
+      changes:
+        - applications/intouch/api/**/*
+        - libraries/**/*
+        - package.json
+        - "**/package.json"
+      variables:
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - echo $BMI_KEY > gcloud-service-key-bmi.json
+    - echo "Building and pushing image to GCP Projects $BMI_PROJECT and $GCP_INTOUCH_REPLATFORM_PROJECT_ID"
+    - docker build . -t eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA -f ./applications/intouch/api/gateway/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
+    - docker tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/api/gateway/cloudbuild.build.yaml --substitutions _NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
+    - gcloud auth configure-docker
+    - docker push eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
+    - gcloud auth activate-service-account --key-file gcloud-service-key-bmi.json
+    - gcloud auth configure-docker
+    - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
 
-deploy_intouch_api_gateway_dev:
+deploy_intouch_api_gateway:
   stage: deploy_gateway
-  image: !reference [.cloud-sdk-image, image]
-  services:
-    - docker:dind
+  image: google/cloud-sdk
   cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
@@ -32,3 +72,45 @@ deploy_intouch_api_gateway_dev:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gcloud builds submit . --config=applications/intouch/api/gateway/cloudbuild.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
+    - gcloud container images add-tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:latest
+
+deploy_intouch_gateway_to_cloudrun_bmi:
+  stage: deploy_gateway
+  cache: {}
+  image: google/cloud-sdk
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/api/**/*
+      variables:
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_DEV_GATEWAY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
+      changes:
+        - applications/intouch/api/**/*
+      variables:
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_QA_GATEWAY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      changes:
+        - applications/intouch/api/**/*
+      variables:
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_PREPROD_GATEWAY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      changes:
+        - applications/intouch/api/**/*
+      variables:
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_PROD_GATEWAY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
+  script:
+    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - echo "Deploying to $CLOUD_RUN on BMI tenant in project $BMI_PROJECT"
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $BMI_PROJECT
+    - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
+    - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest

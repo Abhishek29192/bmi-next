@@ -184,7 +184,10 @@ const RelatedProducts = ({
 
   const productGroups = groupProductsByCategory(products);
 
-  if (!Object.keys(productGroups).length) {
+  const isRelatedProductsHide =
+    process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS === "true";
+
+  if (!Object.keys(productGroups).length || isRelatedProductsHide) {
     return null;
   }
 

@@ -4,6 +4,7 @@ import {
   CreateGuaranteeInput,
   CreateNoteInput,
   DeleteEvidenceItemInput,
+  UpdateCompanyInput,
   UpdateGuaranteeInput,
   UpdateProjectMemberInput
 } from "@bmi/intouch-api-types";
@@ -19,6 +20,7 @@ import { PostGraphileContext } from "../../types";
 import { updateProjectMember } from "../../services/projectMember";
 import { createNote } from "../../services/note";
 import Auth0 from "../../services/auth0";
+import * as companyDocumentMutation from "../../services/companyDocument";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -75,7 +77,13 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
             { column: "status", alias: "$status" }
           ]
         },
-        async resolve(resolve: any, source, args, context: any, resolveInfo) {
+        async resolve(
+          resolve: any,
+          source,
+          args: { input: UpdateCompanyInput },
+          context: any,
+          resolveInfo
+        ) {
           return updateCompany(resolve, source, args, context, resolveInfo);
         }
       },
@@ -162,7 +170,8 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
         ) {
           return createNote(resolve, source, args, context, resolveInfo);
         }
-      }
+      },
+      ...companyDocumentMutation
     }
   };
 });

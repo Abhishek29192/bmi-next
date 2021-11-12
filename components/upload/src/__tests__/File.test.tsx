@@ -1,5 +1,5 @@
 import React from "react";
-import { render, waitFor, cleanup } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import axios from "axios";
 import FileComponent from "../_File";
 
@@ -21,7 +21,6 @@ describe("Upload component", () => {
     window.URL.createObjectURL = initialCreateObjectURL;
     window.URL.revokeObjectURL = initialRevokeObjectURL;
   });
-  afterEach(cleanup);
 
   it("renders correctly", async () => {
     axios.post = jest.fn().mockResolvedValue({

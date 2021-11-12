@@ -16,6 +16,7 @@ import { EditCompanyButton } from "./EditCompany/Button";
 import { CompanyRegisteredDetails } from "./RegisteredDetails";
 import { CompanyAdmins } from "./Admins";
 import { IncompleteProfileAlert } from "./IncompleteProfileAlert";
+import { CompanyDocuments } from "./Documents";
 import styles from "./styles.module.scss";
 
 type Props = GlobalPageProps & {
@@ -72,6 +73,13 @@ export const CompanyPage = ({
             admins={company.companyMembers.nodes.filter(
               ({ account }) => account.role === ROLES.COMPANY_ADMIN
             )}
+          />
+          <CompanyDocuments
+            companyId={company.id}
+            documents={company.companyDocuments}
+            onCompanyDocumentsUpdate={() => {
+              onCompanyUpdateSuccess(company);
+            }}
           />
         </Grid>
         <Grid item xs={12} lg={5} xl={4}>
