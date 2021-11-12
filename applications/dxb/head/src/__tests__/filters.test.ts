@@ -2571,7 +2571,8 @@ describe("filters tests", () => {
           inputDataItems,
           "ALL",
           "Technical",
-          "classificationNamespace"
+          "classificationNamespace",
+          []
         );
         expect(result).toEqual([]);
 
@@ -2580,7 +2581,8 @@ describe("filters tests", () => {
           inputDataItems,
           "CMS",
           "Technical",
-          "classificationNamespace"
+          "classificationNamespace",
+          []
         );
         expect(result).toEqual([]);
       });
@@ -2636,7 +2638,8 @@ describe("filters tests", () => {
           inputDataItems,
           "PIM",
           "Simple",
-          "classificationNamespace"
+          "classificationNamespace",
+          []
         );
         expect(result).toEqual(expectedResult);
       });
@@ -2691,7 +2694,8 @@ describe("filters tests", () => {
           inputDataItems,
           "PIM",
           "Technical",
-          "classificationNamespace"
+          "classificationNamespace",
+          []
         );
         expect(result).toEqual(expectedResult);
       });
@@ -2735,7 +2739,8 @@ describe("filters tests", () => {
           inputDataItems,
           "CMS",
           "Card Collection",
-          "classificationNamespace"
+          "classificationNamespace",
+          []
         );
         expect(result).toEqual(expectedResult);
       });
@@ -2790,7 +2795,8 @@ describe("filters tests", () => {
           inputDataItems,
           "CMS",
           "Simple",
-          "classificationNamespace"
+          "classificationNamespace",
+          []
         );
         expect(result).toEqual(expectedResult);
       });
@@ -2856,7 +2862,8 @@ describe("filters tests", () => {
           inputDataItems,
           "ALL",
           "Simple",
-          "classificationNamespace"
+          "classificationNamespace",
+          []
         );
         expect(result).toEqual(expectedResult);
       });

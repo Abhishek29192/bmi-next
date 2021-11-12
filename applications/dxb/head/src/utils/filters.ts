@@ -196,6 +196,18 @@ export const getProductFamilyFilterFromDocuments = (
   return getProductFamilyFilter(getProductsFromDocuments(documents));
 };
 
+export const getCategoryCodesFilterFromDocuments = (
+  documents: DocumentResultsData,
+  allowFilterBy: string[]
+) => {
+  const productsFromDocuments = getProductsFromDocuments(documents);
+  const cagegoryFilters = generateCategoryFilters(
+    productsFromDocuments.flatMap((product) => product.categories || []),
+    allowFilterBy || []
+  );
+  return cagegoryFilters;
+};
+
 const getProductFamilyFilter = (
   products: readonly Pick<Product, "categories">[]
 ) => {
@@ -633,7 +645,8 @@ export const getDocumentFilters = (
   documents: DocumentResultsData,
   source: Source,
   resultsType: ResultType,
-  classificationNamespace
+  classificationNamespace,
+  allowFilterBy: string[]
 ) => {
   // AC1 – view a page that displays PIM documents in a Simple Document table - INVALID
 
@@ -641,7 +654,8 @@ export const getDocumentFilters = (
     return [
       getBrandFilterFromDocuments(documents),
       getProductFamilyFilterFromDocuments(documents),
-      getTextureFilterFromDocuments(classificationNamespace, documents)
+      getTextureFilterFromDocuments(classificationNamespace, documents),
+      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
     ];
   }
 
@@ -649,7 +663,8 @@ export const getDocumentFilters = (
   if (source === "PIM" && resultsType === "Technical") {
     return [
       getBrandFilterFromDocuments(documents),
-      getProductFamilyFilterFromDocuments(documents)
+      getProductFamilyFilterFromDocuments(documents),
+      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
     ];
   }
 
@@ -663,7 +678,8 @@ export const getDocumentFilters = (
     return [
       getAssetTypeFilterFromDocuments(documents),
       getBrandFilterFromDocuments(documents),
-      getProductFamilyFilterFromDocuments(documents)
+      getProductFamilyFilterFromDocuments(documents),
+      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
     ];
   }
 
@@ -676,7 +692,8 @@ export const getDocumentFilters = (
       getBrandFilterFromDocuments(documents),
       // TODO: Should not be there if ONLY ONE OPTION AVAILABLE
       // TODO: Move this responsibility to Filters???
-      getAssetTypeFilterFromDocuments(documents)
+      getAssetTypeFilterFromDocuments(documents),
+      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
     ];
   }
 
@@ -722,7 +739,13 @@ export const filterDocuments = (
       if (matcher) {
         return matcher(document, filter.value);
       }
-      return false;
+      // no specific matchers matched!
+      // hence, now try and see if the ANY categories match the selected filter value!
+      return isPIMDocument(document)
+        ? (document.product.categories || []).some((cat) =>
+            filter.value.includes(cat.code)
+          )
+        : false;
     });
   });
 };

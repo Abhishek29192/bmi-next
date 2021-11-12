@@ -59,6 +59,7 @@ const documentCountMap: Record<
 type Data = PageInfoData &
   PageData & {
     description: RichTextData | null;
+    allowFilterBy: string[] | null;
     source: Source;
     resultsType: ResultType;
     documents: DocumentResultsData;
@@ -123,7 +124,8 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     resultsType,
     breadcrumbs,
     breadcrumbTitle,
-    seo
+    seo,
+    allowFilterBy
   } = data.contentfulDocumentLibraryPage;
   const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
@@ -166,7 +168,8 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       initialDocuments,
       source,
       resultsType,
-      pageContext.pimClassificationCatalogueNamespace
+      pageContext.pimClassificationCatalogueNamespace,
+      allowFilterBy || []
     ).filter(Boolean)
   );
 
@@ -378,6 +381,7 @@ export const pageQuery = graphql`
       }
       source
       categoryCodes
+      allowFilterBy
       resultsType
       documents {
         ...DocumentResultsFragment

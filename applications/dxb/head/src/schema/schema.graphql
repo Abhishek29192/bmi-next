@@ -1371,6 +1371,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   "The product codes specified for this page."
   pimCodes: [String]
 
+  "Allow Filter By"
+  allowFilterBy: [String!]
+
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
 

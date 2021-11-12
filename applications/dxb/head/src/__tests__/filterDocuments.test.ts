@@ -110,42 +110,48 @@ describe("getDocumentFilters tests", () => {
   describe("When invalid types are requested", () => {
     it("Then: empty collection returned", () => {
       const src = "ThisIsInvalid" as Source;
-      const results = getDocumentFilters([], src, "Simple", "blah");
+      const results = getDocumentFilters([], src, "Simple", "blah", []);
       expect(results).toEqual([]);
     });
   });
 
   describe("When PIM Simple are requested", () => {
     it("Then: returns correct results", () => {
-      const results = getDocumentFilters([], "PIM", "Simple", "blah");
+      const results = getDocumentFilters([], "PIM", "Simple", "blah", []);
       expect(results).toMatchSnapshot();
     });
   });
 
   describe("When PIM Technical are requested", () => {
     it("Then: returns correct results", () => {
-      const results = getDocumentFilters([], "PIM", "Technical", "blah");
+      const results = getDocumentFilters([], "PIM", "Technical", "blah", []);
       expect(results).toMatchSnapshot();
     });
   });
 
   describe("When CMS Card Collection are requested", () => {
     it("Then: returns correct results", () => {
-      const results = getDocumentFilters([], "CMS", "Card Collection", "blah");
+      const results = getDocumentFilters(
+        [],
+        "CMS",
+        "Card Collection",
+        "blah",
+        []
+      );
       expect(results).toMatchSnapshot();
     });
   });
 
   describe("When CMS Simple are requested", () => {
     it("Then: returns correct results", () => {
-      const results = getDocumentFilters([], "CMS", "Simple", "blah");
+      const results = getDocumentFilters([], "CMS", "Simple", "blah", []);
       expect(results).toMatchSnapshot();
     });
   });
 
   describe("When ALL Simple are requested", () => {
     it("Then: returns correct results", () => {
-      const results = getDocumentFilters([], "ALL", "Simple", "blah");
+      const results = getDocumentFilters([], "ALL", "Simple", "blah", []);
       expect(results).toMatchSnapshot();
     });
   });
