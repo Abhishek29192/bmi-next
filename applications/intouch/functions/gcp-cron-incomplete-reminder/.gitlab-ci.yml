@@ -1,0 +1,64 @@
+build_gcp-intouch-cron-incomplete-reminder:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
+  needs:
+    - job: install
+      optional: true
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn workspace @bmi/gcp-intouch-cron-incomplete-reminder run build
+  artifacts:
+    paths:
+      - applications/intouch/functions/gcp-cron-incomplete-reminder/dist
+
+package_gcp-intouch-cron-incomplete-reminder:
+  stage: package
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
+  needs: [build_gcp-intouch-cron-incomplete-reminder]
+  dependencies:
+    - build_gcp-intouch-cron-incomplete-reminder
+  before_script:
+    - apt-get update
+    - apt-get install -y zip unzip
+    - mkdir -p dist/applications/intouch/functions
+  script:
+    - cd applications/intouch/functions/gcp-cron-incomplete-reminder
+    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-incomplete-reminder.zip package.json dist/
+    - cd $CI_PROJECT_DIR
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/dist/applications/intouch/functions
+
+# Deploy to QA
+deploy_gcp-intouch-cron-incomplete-reminder:
+  image: !reference [.cloud-sdk-image, image]
+  stage: deploy
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
+      allow_failure: true
+  needs: [package_gcp-intouch-cron-incomplete-reminder]
+  dependencies:
+    - package_gcp-intouch-cron-incomplete-reminder
+  before_script:
+    - |
+      GCP_INTOUCH_REPLATFORM_SERVICE_KEY=$GCP_INTOUCH_REPLATFORM_SERVICE_KEY
+      GCP_INTOUCH_REPLATFORM_PROJECT_ID=$GCP_INTOUCH_REPLATFORM_PROJECT_ID
+      GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE
+      GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT
+
+      INTOUCH_GATEWAY_API_URL=$INTOUCH_GATEWAY_API_URL
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-incomplete-reminder.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud builds submit . --config=applications/intouch/functions/gcp-cron-incomplete-reminder/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,_INTOUCH_GATEWAY_API_URL=$INTOUCH_GATEWAY_API_URL

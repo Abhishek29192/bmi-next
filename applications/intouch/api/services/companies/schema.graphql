@@ -400,6 +400,42 @@ type Query implements Node {
   ): EvidenceItemsConnection
 
   """
+  Reads and enables pagination through a set of `FindIncompleteCompanyProfile`.
+  """
+  findIncompleteCompanyProfiles(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `FindIncompleteCompanyProfile`.
+    """
+    orderBy: [FindIncompleteCompanyProfilesOrderBy!] = [NATURAL]
+  ): FindIncompleteCompanyProfilesConnection
+
+  """
   Reads and enables pagination through a set of `FindRoofer`.
   """
   findRoofers(
@@ -6693,6 +6729,61 @@ input AddressFilter {
 }
 
 """
+A connection to a list of `FindIncompleteCompanyProfile` values.
+"""
+type FindIncompleteCompanyProfilesConnection {
+  """
+  A list of `FindIncompleteCompanyProfile` objects.
+  """
+  nodes: [FindIncompleteCompanyProfile!]!
+
+  """
+  A list of edges which contains the `FindIncompleteCompanyProfile` and cursor to aid in pagination.
+  """
+  edges: [FindIncompleteCompanyProfilesEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `FindIncompleteCompanyProfile` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type FindIncompleteCompanyProfile {
+  id: Int
+  firstName: String
+  lastName: String
+  email: String
+  marketid: Int
+}
+
+"""
+A `FindIncompleteCompanyProfile` edge in the connection.
+"""
+type FindIncompleteCompanyProfilesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `FindIncompleteCompanyProfile` at the end of the edge.
+  """
+  node: FindIncompleteCompanyProfile!
+}
+
+"""
+Methods to use when ordering `FindIncompleteCompanyProfile`.
+"""
+enum FindIncompleteCompanyProfilesOrderBy {
+  NATURAL
+}
+
+"""
 A connection to a list of `FindRoofer` values.
 """
 type FindRoofersConnection {
@@ -8165,6 +8256,7 @@ type Mutation {
     """
     input: ImportAccountsCompaniesFromCSVInput!
   ): ImportAccountsCompaniesFromCSVResult
+  sendReminderToIncompleteCompanyProfile: String
 }
 
 """
