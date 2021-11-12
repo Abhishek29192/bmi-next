@@ -1309,6 +1309,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The PIM categories this page is attached to."
+  categoryCodes: [String!]
+
   "The full path for this page, devoid of any prefix."
   path: String!
 

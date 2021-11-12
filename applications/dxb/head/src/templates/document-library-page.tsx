@@ -62,6 +62,7 @@ type Data = PageInfoData &
     resultsType: ResultType;
     documents: DocumentResultsData;
     breadcrumbs: BreadcrumbsData;
+    categoryCodes: string[];
   };
 
 type Props = {
@@ -368,6 +369,7 @@ export const pageQuery = graphql`
         ...RichTextFragment
       }
       source
+      categoryCodes
       resultsType
       documents {
         ...DocumentResultsFragment
