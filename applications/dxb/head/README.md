@@ -49,6 +49,14 @@ feature flag for show/hide recommended products on PDP
 Default is `false` (will not hide recommended products)
 When set to `true` will hide recommended products on PDP
 
+GATSBY_ENABLE_PDP_VARIANT_ATTRIBUTE_URL -
+feature flag for `simple pdp url structure`, which a market can opt-in
+Default is `false` (will generate URLs same as `GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE`)
+When set to `true` only the new url structure will be use 'variantAttribute' feature value
+
+- If `variantAttribute` feature or its value is found then, it will fall back to generate `/p/zanda-protector-variant-atttr-value-935895622`
+- If `variantAttribute` feature or its value is NOT found then, it will fall back to generate URLs same as `GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE` i.e. `/p/zanda-protector-normalstein-sort-betong-935895622`
+
 ### Setup Google reCAPTCHA
 
 1. Visit (Google reCAPTCHA)[https://www.google.com/recaptcha/admin]
