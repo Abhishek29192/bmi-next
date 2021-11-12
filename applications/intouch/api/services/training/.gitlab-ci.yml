@@ -19,7 +19,7 @@ build_intouch_api_training:
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environments/qa')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
       changes:
         - applications/intouch/api/services/training/**/*
         - libraries/**/*
@@ -28,7 +28,7 @@ build_intouch_api_training:
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environments/preprod')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
       changes:
         - applications/intouch/api/services/training/**/*
         - libraries/**/*
@@ -37,7 +37,7 @@ build_intouch_api_training:
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environments/prod')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
       changes:
         - applications/intouch/api/services/training/**/*
         - libraries/**/*

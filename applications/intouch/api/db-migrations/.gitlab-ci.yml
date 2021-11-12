@@ -31,7 +31,7 @@ build_intouch_migration_db_service:
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environments/prod')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
       changes:
         - applications/intouch/api/db-migrations/**/*
         - applications/intouch/api/services/companies/src/data/**/*
