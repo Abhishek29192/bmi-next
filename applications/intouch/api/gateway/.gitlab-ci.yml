@@ -60,15 +60,9 @@ build_intouch_api_gateway:
     - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
 
 deploy_intouch_api_gateway:
-  stage: deploy
+  stage: deploy_gateway
   image: google/cloud-sdk
   cache: {}
-  needs:
-    - build_intouch_api_gateway
-    - job: deploy_intouch_api_training
-      optional: true
-    - job: deploy_intouch_api_companies_dev
-      optional: true
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
@@ -81,14 +75,8 @@ deploy_intouch_api_gateway:
     - gcloud container images add-tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:latest
 
 deploy_intouch_gateway_to_cloudrun_bmi:
-  stage: deploy
+  stage: deploy_gateway
   cache: {}
-  needs:
-    - build_intouch_api_gateway
-    - job: deploy_intouch_training_to_cloudrun_bmi
-      optional: true
-    - job: deploy_intouch_companies_to_cloudrun_bmi
-      optional: true
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
