@@ -11,7 +11,12 @@ import {
 } from "@bmi/icon";
 import Table from "@bmi/table";
 import { SvgIcon } from "@material-ui/core";
-import { Technology, Role, Account } from "@bmi/intouch-api-types";
+import {
+  Technology,
+  Role,
+  Account,
+  AccountStatus
+} from "@bmi/intouch-api-types";
 import classnames from "classnames";
 import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
 import { SidePanel } from "../../../SidePanel";
@@ -37,6 +42,7 @@ import { TeamReport } from "../../../Reports";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 import Alert from "./Alert";
+import CompanyMemberActionCard from "./Action";
 
 export const REMOVE_MEMBER = gql`
   mutation deleteCompanyMember($id: Int!) {
@@ -101,6 +107,8 @@ const CompanyMembers = ({ data }: PageProps) => {
   const [currentMember, setCurrentMember] = useState<
     TeamMembersQuery["accounts"]["nodes"][0]
   >(data?.accounts?.nodes?.[0]);
+
+  const [isMemberActionDisabled, setMemberActionDisabled] = useState(false);
 
   const [deleteMember] = useDeleteCompanyMemberMutation({
     onError: (error) => {
@@ -171,6 +179,7 @@ const CompanyMembers = ({ data }: PageProps) => {
 
   const [updateAccount] = useUpdateRoleAccountMutation({
     onError: ({ message: graphqlError }) => {
+      setMemberActionDisabled(false);
       const message =
         graphqlError === "last_company_admin"
           ? "lastCompanyAdminError"
@@ -183,6 +192,7 @@ const CompanyMembers = ({ data }: PageProps) => {
       ]);
     },
     onCompleted: ({ updateAccount }) => {
+      setMemberActionDisabled(false);
       //if a user changes his/her role we should redirect
       if (account.id === updateAccount.account.id) {
         router.push(`/profile`, undefined, { shallow: false });
@@ -227,7 +237,19 @@ const CompanyMembers = ({ data }: PageProps) => {
 
     setMembers(membersResult);
   };
-
+  const onAccountChangeStatus = async (id: number, status: AccountStatus) => {
+    setMemberActionDisabled(true);
+    updateAccount({
+      variables: {
+        input: {
+          id,
+          patch: {
+            status
+          }
+        }
+      }
+    });
+  };
   return (
     <>
       <Alert messages={messages} onClose={() => setMessages([])} />
@@ -370,6 +392,14 @@ const CompanyMembers = ({ data }: PageProps) => {
               }
             ]}
           />
+
+          <AccessControl dataModel="company" action="changeStatus">
+            <CompanyMemberActionCard
+              member={currentMember}
+              onAccountUpdate={onAccountChangeStatus}
+              disabled={isMemberActionDisabled}
+            />
+          </AccessControl>
         </ThreeColumnGrid>
         <InvitationDialog
           styles={styles}
