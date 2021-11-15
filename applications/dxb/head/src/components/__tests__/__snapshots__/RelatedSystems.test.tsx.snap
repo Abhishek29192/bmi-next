@@ -10,14 +10,14 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
-      <h2
-        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: sdp.recommendedSystemsTitle
-      </h2>
       <div
-        class="RelatedProducts"
+        class="RelatedSystems"
       >
+        <h2
+          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: sdp.recommendedSystemsTitle
+        </h2>
         <div
           class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
@@ -88,14 +88,14 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
-      <h2
-        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: sdp.recommendedSystemsTitle
-      </h2>
       <div
-        class="RelatedProducts"
+        class="RelatedSystems"
       >
+        <h2
+          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: sdp.recommendedSystemsTitle
+        </h2>
         <div
           class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
@@ -212,14 +212,14 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
-      <h2
-        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: sdp.recommendedSystemsTitle
-      </h2>
       <div
-        class="RelatedProducts"
+        class="RelatedSystems"
       >
+        <h2
+          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: sdp.recommendedSystemsTitle
+        </h2>
         <div
           class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
@@ -336,14 +336,14 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
-      <h2
-        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: sdp.recommendedSystemsTitle
-      </h2>
       <div
-        class="RelatedProducts"
+        class="RelatedSystems"
       >
+        <h2
+          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: sdp.recommendedSystemsTitle
+        </h2>
         <div
           class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
@@ -460,14 +460,14 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
-      <h2
-        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: sdp.recommendedSystemsTitle
-      </h2>
       <div
-        class="RelatedProducts"
+        class="RelatedSystems"
       >
+        <h2
+          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: sdp.recommendedSystemsTitle
+        </h2>
         <div
           class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
@@ -536,14 +536,14 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
-      <h2
-        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: sdp.recommendedSystemsTitle
-      </h2>
       <div
-        class="RelatedProducts"
+        class="RelatedSystems"
       >
+        <h2
+          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: sdp.recommendedSystemsTitle
+        </h2>
         <div
           class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
@@ -612,14 +612,14 @@ exports[`RelatedSystems component renders systems correctly without classificati
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"
     >
-      <h2
-        class="MuiTypography-root title section_title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: sdp.recommendedSystemsTitle
-      </h2>
       <div
-        class="RelatedProducts"
+        class="RelatedSystems"
       >
+        <h2
+          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: sdp.recommendedSystemsTitle
+        </h2>
         <div
           class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
