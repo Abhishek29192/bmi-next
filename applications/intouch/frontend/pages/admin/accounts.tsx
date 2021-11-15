@@ -27,6 +27,7 @@ export const getServerSideProps = withPage(
       props: {
         ...(await serverSideTranslations(locale, [
           "admin-account-import",
+          "company-page",
           "common",
           "sidebar",
           "footer"

@@ -1,0 +1,11 @@
+test_slide-controls:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/slide-controls"
+    ROOT_DIR: "components/slide-controls"
+
+build_slide-controls:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/slide-controls"
+    ROOT_DIR: "components/slide-controls"

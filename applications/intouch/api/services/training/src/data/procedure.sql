@@ -60,6 +60,7 @@ SELECT
 ct.user_id,ct.course_id,ct.status,ct.url
 FROM  course_enrollment_temp ct  
 LEFT OUTER JOIN course_enrollment c ON (c.user_id = ct.user_id and c.course_id = ct.course_id)
+join course on course.course_id = ct.course_id 
 WHERE c.course_id IS NULL;
 
   DELETE FROM course_enrollment c

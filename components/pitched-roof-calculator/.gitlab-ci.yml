@@ -1,0 +1,17 @@
+test_pitched-roof-calculator:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/pitched-roof-calculator"
+    ROOT_DIR: "components/pitched-roof-calculator"
+
+test_mr_coverage_pitched-roof-calculator:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/pitched-roof-calculator"
+    ROOT_DIR: "components/pitched-roof-calculator"
+
+build_pitched-roof-calculator:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/pitched-roof-calculator"
+    ROOT_DIR: "components/pitched-roof-calculator"

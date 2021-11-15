@@ -50,6 +50,11 @@
     "COATER": "coater",
     "GREEN": "green"
   },
+  "companyActionsTitle": "Company Actions",
+  "companyActions": {
+    "activate": "Activate company",
+    "deactivate": "Deactivate company"
+  },
   "register_dialog": {
     "title": "Register a company"
   },
@@ -110,6 +115,36 @@
         "submit": "Save & Close",
         "cancel": "Cancel"
       }
+    }
+  },
+  "report": "Download Companies List",
+  "document": {
+    "title": "Company Documents",
+    "noContent": "No documents uploaded yet",
+    "addDocument": "Add Document",
+    "headers": {
+      "document": "Document",
+      "date": "Date",
+      "download": "DOWNLOAD"
+    },
+    "uploadDialog": {
+      "title": "Document Upload",
+      "buttonLabel": "Upload Files",
+      "microcopy": {
+        "drop": "Drop",
+        "browse": "Browse"
+      },
+      "instruction": "You can add files",
+      "confirmLabel": "Upload files",
+      "cancelLabel": "Cancel",
+      "fileValidationMessage": "You cannot upload  files larger than {{fileSize}}",
+      "evidence_category": "Evidence Category"
+    },
+    "confirmDialog": {
+      "title": "Company Document",
+      "body": "Delete document?",
+      "confirmLabel": "Confirm",
+      "cancelLabel": "Cancel"
     }
   }
 }

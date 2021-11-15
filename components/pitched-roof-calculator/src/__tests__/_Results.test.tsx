@@ -12,6 +12,15 @@ beforeAll(() => {
   mockConsole();
 });
 
+beforeEach(() => {
+  jest.clearAllMocks();
+  global.open = jest.fn();
+});
+
+afterAll(() => {
+  global.open = undefined;
+});
+
 jest.mock("@bmi/quantity-table", () => {
   const QuantityTable = (props) => <p>{JSON.stringify(props, null, 2)}</p>;
 
@@ -407,15 +416,6 @@ const resultsProps = {
   gutters: data.gutters as any,
   gutterHooks: data.gutterHooks as any
 };
-
-beforeEach(() => {
-  jest.clearAllMocks();
-  global.open = jest.fn();
-});
-
-afterAll(() => {
-  global.open = undefined;
-});
 
 describe("PitchedRoofCalculator Results component", () => {
   it("renders correctly", () => {

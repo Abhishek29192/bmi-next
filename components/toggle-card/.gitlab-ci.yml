@@ -1,0 +1,11 @@
+test_toggle-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/toggle-card"
+    ROOT_DIR: "components/toggle-card"
+
+build_toggle-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/toggle-card"
+    ROOT_DIR: "components/toggle-card"

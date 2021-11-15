@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SampleBasketSection component renders correctly 1`] = `
+<div>
+  <div
+    class="SampleBasketSection Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="RichText"
+        >
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          >
+            test rich text
+          </p>
+        </div>
+        <div
+          class="SampleBasketSectionProducts"
+        />
+        <div
+          class="complete-button"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              MC: pdp.overview.completeSampleOrder
+              <span
+                class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SampleBasketSection component should render form after complete button press 1`] = `
+<div>
+  <div
+    class="SampleBasketSection Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="RichText"
+        >
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          >
+            test rich text
+          </p>
+        </div>
+        <div
+          class="SampleBasketSectionProducts"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="Section"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          Complete form
+        </h2>
+        Form contains no fields
+        <p
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+        >
+          This site is protected by reCAPTCHA and the Google 
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            href="https://policies.google.com/privacy"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <span>
+              Privacy Policy
+            </span>
+          </a>
+           and 
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            href="https://policies.google.com/terms"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <span>
+              Terms of Service
+            </span>
+          </a>
+           apply.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -41,5 +41,9 @@
     "filename_wrong_format": "Feil filtype",
     "unauthorized": "Ikke autorisert"
   },
-  "dryRunCompleted": "Test fullført"
+  "dryRunCompleted": "Test fullført",
+  "report": {
+    "product": "Last ned produktrapport",
+    "system": "Last ned systemrapport"
+  }
 }

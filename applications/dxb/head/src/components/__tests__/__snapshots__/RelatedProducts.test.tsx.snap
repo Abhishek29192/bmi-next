@@ -559,6 +559,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
 </div>
 `;
 
+exports[`RelatedProducts component renders correctly with GATSBY_HIDE_RECOMMENDED_PRODUCTS = true 1`] = `null`;
+
 exports[`RelatedProducts component renders correctly with no products 1`] = `null`;
 
 exports[`RelatedProducts component renders correctly with no variants 1`] = `

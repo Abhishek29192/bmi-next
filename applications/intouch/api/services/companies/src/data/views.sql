@@ -37,3 +37,24 @@ WHERE
   AND company.public_email IS NOT NULL
   AND address.first_line IS NOT NULL
   AND address.coordinates IS NOT NULL;
+
+CREATE OR REPLACE VIEW find_incomplete_company_profiles AS
+select a.id,a.first_name as "firstName",
+    a.last_name as "lastName",a.email, a.market_id as marketId
+    from company
+    join company_member cm on cm.company_id=company.id
+    join account a on a.id=cm.account_id
+    where 
+    a.role='COMPANY_ADMIN'
+    and company.tier in ('T2','T3','T4')
+    and company.status='ACTIVE'
+    --and company.created_at< CURRENT_DATE - 42
+    and company.created_at < CURRENT_DATE - interval '42 day'
+    --profile is incomplete
+    and 
+    (
+    coalesce(company.phone,'')=''
+    or coalesce(company.about_us,'')=''
+    or coalesce(company.public_email,'')=''
+    or coalesce(company.logo,'')=''
+    or company.trading_address_id is null);

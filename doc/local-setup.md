@@ -45,6 +45,14 @@ nvm install --lts
 npm install --global yarn
 ```
 
+#### sha1sum
+
+Only required to be installed on Mac separately as Git installs it for Windows and most Linux systems have it already installed.
+
+```bash
+brew install md5sha1sum
+```
+
 ### Linux
 
 #### Git
@@ -88,6 +96,28 @@ nvm install --lts
 #### Yarn
 
 ```bash
+npm install --global yarn
+```
+
+### Windows
+
+#### Git
+
+```cmd
+choco install git
+```
+
+#### Node
+
+```cmd
+choco install nvm
+nvm install 14.18.1
+nvm use 14.18.1
+```
+
+#### Yarn
+
+```cmd
 npm install --global yarn
 ```
 

@@ -436,4 +436,22 @@ describe("RelatedProducts component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders correctly with GATSBY_HIDE_RECOMMENDED_PRODUCTS = true", () => {
+    process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS = "true";
+    const prods: Product[] = [
+      createBaseProduct({
+        categories: [createCategory({ categoryType: "Category" })]
+      })
+    ];
+
+    const { container } = render(
+      <RelatedProducts
+        countryCode="en"
+        classificationNamespace={"bmiClassificationCatalog/1.0"}
+        products={prods}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

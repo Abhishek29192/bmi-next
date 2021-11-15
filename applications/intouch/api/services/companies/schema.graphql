@@ -400,6 +400,42 @@ type Query implements Node {
   ): EvidenceItemsConnection
 
   """
+  Reads and enables pagination through a set of `FindIncompleteCompanyProfile`.
+  """
+  findIncompleteCompanyProfiles(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `FindIncompleteCompanyProfile`.
+    """
+    orderBy: [FindIncompleteCompanyProfilesOrderBy!] = [NATURAL]
+  ): FindIncompleteCompanyProfilesConnection
+
+  """
   Reads and enables pagination through a set of `FindRoofer`.
   """
   findRoofers(
@@ -4683,10 +4719,19 @@ type ContentfulEvidenceCategoryCollection {
 type ContentfulEvidenceCategory {
   sys: ContentfulSys!
   name: String
-  description: String
+  description: ContentfulEvidenceCategoryDescription
   minimumUploads: Int
   referenceCode: String
 }
+
+type ContentfulEvidenceCategoryDescription {
+  json: JSON!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
 
 type ContentfulGuaranteeTemplatesCollection {
   total: Int!
@@ -5306,6 +5351,17 @@ type CompanyDocument implements Node {
   Reads a single `Company` that is related to this `CompanyDocument`.
   """
   company: Company
+  name: String
+  documentType: CompanyDocumentType
+  size: Int
+  signedDocumentUrl: String
+}
+
+enum CompanyDocumentType {
+  PDF
+  JPG
+  JPEG
+  PNG
 }
 
 """
@@ -6670,6 +6726,61 @@ input AddressFilter {
   Negates the expression.
   """
   not: AddressFilter
+}
+
+"""
+A connection to a list of `FindIncompleteCompanyProfile` values.
+"""
+type FindIncompleteCompanyProfilesConnection {
+  """
+  A list of `FindIncompleteCompanyProfile` objects.
+  """
+  nodes: [FindIncompleteCompanyProfile!]!
+
+  """
+  A list of edges which contains the `FindIncompleteCompanyProfile` and cursor to aid in pagination.
+  """
+  edges: [FindIncompleteCompanyProfilesEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `FindIncompleteCompanyProfile` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type FindIncompleteCompanyProfile {
+  id: Int
+  firstName: String
+  lastName: String
+  email: String
+  marketid: Int
+}
+
+"""
+A `FindIncompleteCompanyProfile` edge in the connection.
+"""
+type FindIncompleteCompanyProfilesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `FindIncompleteCompanyProfile` at the end of the edge.
+  """
+  node: FindIncompleteCompanyProfile!
+}
+
+"""
+Methods to use when ordering `FindIncompleteCompanyProfile`.
+"""
+enum FindIncompleteCompanyProfilesOrderBy {
+  NATURAL
 }
 
 """
@@ -8082,6 +8193,12 @@ type Mutation {
     """
     input: CreateCompanyInput!
   ): CreateCompanyPayload
+  createCompanyDocuments(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateCompanyDocumentsInput!
+  ): CreateCompanyDocumentsPayload
   evidenceItemsAdd(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -8139,6 +8256,7 @@ type Mutation {
     """
     input: ImportAccountsCompaniesFromCSVInput!
   ): ImportAccountsCompaniesFromCSVResult
+  sendReminderToIncompleteCompanyProfile: String
 }
 
 """
@@ -23128,6 +23246,7 @@ input CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: CompanyDocumentCompanyIdFkeyInput
+  attachmentUpload: Upload
 }
 
 """
@@ -24020,6 +24139,7 @@ input CompanyDocumentInput {
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: CompanyDocumentCompanyIdFkeyInput
+  attachmentUpload: Upload
 }
 
 """
@@ -28739,6 +28859,35 @@ input CreateCompanyInput {
 }
 
 """
+The output of our `createCompanyDocuments` mutation.
+"""
+type CreateCompanyDocumentsPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  companyDocuments: [CompanyDocument!]
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `createCompanyDocuments` mutation.
+"""
+input CreateCompanyDocumentsInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  documents: [CompanyDocumentInput]!
+}
+
+"""
 The output of our `evidenceItemsAdd` mutation.
 """
 type EvidenceItemsAddPayload {
@@ -28937,8 +29086,9 @@ input BulkImportInput {
 
 type ImportAccountsCompaniesFromCSVResult {
   auth0Job: Auth0ImportResult
-  accounts: [Account]
   companies: [Company]
+  accounts: [Account]
+  dryRun: Boolean
 }
 
 type Auth0ImportResult {
@@ -28952,6 +29102,7 @@ type Auth0ImportResult {
 
 input ImportAccountsCompaniesFromCSVInput {
   files: [Upload!]!
+  dryRun: Boolean
 }
 
 """

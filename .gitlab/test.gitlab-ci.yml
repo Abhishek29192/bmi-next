@@ -15,15 +15,14 @@
       changes:
         - $ROOT_DIR/**/*
         - jest/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   needs:
     - job: install
       optional: true
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace ${WORKSPACE} coverage:jest
+    - yarn workspace ${WORKSPACE} coverage:jest --runInBand
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
     when: always
@@ -44,14 +43,11 @@
 ##############################################################################
 .test_jest_mr_coverage:
   stage: test
-  image: !reference [.node-full-image, image]
+  image: !reference [ .node-full-image, image ]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - $ROOT_DIR/**/*
-        - jest/**/*
-        - package.json
-        - "**/package.json"
   needs:
     - job: install
       optional: true
@@ -60,4 +56,4 @@
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - git fetch origin master
-    - yarn workspace ${WORKSPACE} coverage:jest --changed-since=origin/master --coverage-threshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
+    - yarn workspace ${WORKSPACE} coverage:jest --runInBand --changed-since=origin/master --coverage-threshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'

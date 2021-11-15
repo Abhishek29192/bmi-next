@@ -96,123 +96,45 @@ exports[`Account Invitation should invite a user sending complete invitation ema
 exports[`Account Registration Should be able to register as company_admin 1`] = `
 Array [
   Array [
-    null,
-    Object {
-      "input": Object {
-        "account": Object {
-          "role": "COMPANY_ADMIN",
-        },
-        "marketCode": "en",
-      },
-    },
-    Object {
-      "logger": [Function],
-      "pgClient": Object {
-        "query": [MockFunction] {
-          "calls": Array [
-            Array [
-              "SAVEPOINT graphql_mutation",
-            ],
-            Array [
-              "SELECT set_config('app.current_account_id', $1, true);",
-              Array [
-                1,
-              ],
-            ],
-            Array [
-              "SELECT * FROM company",
-              Array [],
-            ],
-            Array [
-              "SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)",
-              Array [
-                null,
-                null,
-                null,
-                null,
-                null,
-                "NEW",
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-              ],
-            ],
-            Array [
-              "SELECT * FROM market WHERE id = $1",
-              Array [
-                1,
-              ],
-            ],
-            Array [
-              "RELEASE SAVEPOINT graphql_mutation",
-            ],
-          ],
-          "results": Array [
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-            Object {
-              "type": "return",
-              "value": undefined,
-            },
-          ],
-        },
-      },
-      "pgRootPool": Object {
-        "query": [MockFunction],
-      },
-      "user": Object {
-        "can": [Function],
-        "id": null,
-        "sub": "user-sub",
-      },
-    },
-    Object {
-      "graphile": Object {
-        "build": Object {
-          "pgSql": Object {
-            "fragment": [Function],
-            "value": [Function],
-          },
-        },
-        "selectGraphQLResultFromTable": [MockFunction] {
-          "calls": Array [
-            Array [
-              [Function],
-              [Function],
-            ],
-          ],
-          "results": Array [
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-          ],
-        },
-      },
-    },
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "SELECT set_config('app.current_account_id', $1, true);",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "SELECT * FROM company",
+    Array [],
+  ],
+  Array [
+    "SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)",
+    Array [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "NEW",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+    ],
+  ],
+  Array [
+    "SELECT * FROM market WHERE id = $1",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
   ],
 ]
 `;
@@ -220,100 +142,26 @@ Array [
 exports[`Account Registration Should be able to register as installer 1`] = `
 Array [
   Array [
-    null,
-    Object {
-      "input": Object {
-        "account": Object {
-          "role": "INSTALLER",
-        },
-        "marketCode": "en",
-      },
-    },
-    Object {
-      "logger": [Function],
-      "pgClient": Object {
-        "query": [MockFunction] {
-          "calls": Array [
-            Array [
-              "SAVEPOINT graphql_mutation",
-            ],
-            Array [
-              "SELECT set_config('app.current_account_id', $1, true);",
-              Array [
-                1,
-              ],
-            ],
-            Array [
-              "SELECT * FROM company",
-              Array [],
-            ],
-            Array [
-              "SELECT * FROM market WHERE id = $1",
-              Array [
-                undefined,
-              ],
-            ],
-            Array [
-              "RELEASE SAVEPOINT graphql_mutation",
-            ],
-          ],
-          "results": Array [
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-            Object {
-              "type": "return",
-              "value": undefined,
-            },
-          ],
-        },
-      },
-      "pgRootPool": Object {
-        "query": [MockFunction],
-      },
-      "user": Object {
-        "can": [Function],
-        "id": null,
-        "sub": "user-sub",
-      },
-    },
-    Object {
-      "graphile": Object {
-        "build": Object {
-          "pgSql": Object {
-            "fragment": [Function],
-            "value": [Function],
-          },
-        },
-        "selectGraphQLResultFromTable": [MockFunction] {
-          "calls": Array [
-            Array [
-              [Function],
-              [Function],
-            ],
-          ],
-          "results": Array [
-            Object {
-              "type": "return",
-              "value": Promise {},
-            },
-          ],
-        },
-      },
-    },
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "SELECT set_config('app.current_account_id', $1, true);",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "SELECT * FROM company",
+    Array [],
+  ],
+  Array [
+    "SELECT * FROM market WHERE id = $1",
+    Array [
+      undefined,
+    ],
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
   ],
 ]
 `;

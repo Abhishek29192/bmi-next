@@ -22,6 +22,9 @@ require("dotenv").config({
 const pimClassificationCatalogueNamespace =
   process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
 
+const enableOldPDPUrlRedirects =
+  process.env.GATSBY_ENABLE_OLD_PDP_URL_REDIRECTS;
+
 const createProductPages = async (
   siteId,
   countryCode,
@@ -35,7 +38,7 @@ const createProductPages = async (
 
     return;
   }
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   const componentMap = {
     Products: path.resolve("./src/templates/product-details-page.tsx")
@@ -56,6 +59,7 @@ const createProductPages = async (
           variantOptions {
             code
             path
+            oldPath
           }
         }
       }
@@ -122,9 +126,27 @@ const createProductPages = async (
       await Promise.all(
         (product.variantOptions || []).map(async (variantOption) => {
           variantCodeToPathMap[variantOption.code] = variantOption.path;
+          const path = getPathWithCountryCode(countryCode, variantOption.path);
 
+          // market has enabled PDP URL Redirects and
+          // OLD and new path are not the same hence write the redirects
+          if (
+            enableOldPDPUrlRedirects === "true" &&
+            (variantOption.oldPath || "") !== (variantOption.path || "")
+          ) {
+            const oldPath = getPathWithCountryCode(
+              countryCode,
+              variantOption.oldPath
+            );
+            console.log(`creating redirect from '${oldPath}' to '${path}'`);
+            createRedirect({
+              fromPath: oldPath,
+              toPath: path,
+              isPermanent: true
+            });
+          }
           await createPage({
-            path: getPathWithCountryCode(countryCode, variantOption.path),
+            path,
             component,
             context: {
               productId: product.id,
@@ -150,7 +172,6 @@ exports.createPages = async ({ graphql, actions }) => {
     ContentfulContactUsPage: path.resolve(
       "./src/templates/contact-us-page.tsx"
     ),
-    ContentfulTeamPage: path.resolve("./src/templates/team-page.tsx"),
     ContentfulProductListerPage: path.resolve(
       "./src/templates/product-lister-page.tsx"
     ),

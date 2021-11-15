@@ -1,0 +1,11 @@
+test_table:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/table"
+    ROOT_DIR: "components/table"
+
+build_table:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/table"
+    ROOT_DIR: "components/table"

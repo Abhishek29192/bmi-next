@@ -495,6 +495,90 @@ describe("transformProduct", () => {
       );
     });
 
+    describe("scoringWeightAttributes classification tests", () => {
+      describe("When scoringWeightAttributes classification is not present", () => {
+        it("should default scoringWeight", () => {
+          const product = createPimProduct({ classifications: [] });
+          const transformedProduct = transformProduct(product);
+          expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(0);
+          expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(0);
+          expect(transformedProduct[0]["scoringWeightInt"]).toEqual(0);
+        });
+      });
+      describe("When scoringWeightAttributes classification is present and no feature", () => {
+        describe("Product Feature is undefined", () => {
+          it("should default scoringWeight", () => {
+            const product = createPimProduct({
+              classifications: [
+                createScoringWeightAttributesClassification({
+                  features: undefined
+                })
+              ]
+            });
+            const transformedProduct = transformProduct(product);
+            expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(0);
+            expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(0);
+            expect(transformedProduct[0]["scoringWeightInt"]).toEqual(0);
+          });
+        });
+        describe("Variant Feature is undefined", () => {
+          it("should default scoringWeight", () => {
+            const product = createPimProduct({
+              classifications: [
+                createScoringWeightAttributesClassification({
+                  features: undefined
+                })
+              ],
+              variantOptions: [
+                createVariantOption({
+                  classifications: [
+                    createScoringWeightAttributesClassification({
+                      features: undefined
+                    })
+                  ]
+                })
+              ]
+            });
+            const transformedProduct = transformProduct(product);
+            expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(0);
+            expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(0);
+            expect(transformedProduct[0]["scoringWeightInt"]).toEqual(0);
+          });
+        });
+      });
+    });
+
+    it("should index product and variant scoringWeightAttributeInt separately", () => {
+      const product = createPimProduct({
+        classifications: [
+          createScoringWeightAttributesClassification({
+            features: [
+              createFeature({
+                featureValues: [createFeatureValue({ value: "3.0" })]
+              })
+            ]
+          })
+        ],
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createScoringWeightAttributesClassification({
+                features: [
+                  createFeature({
+                    featureValues: [createFeatureValue({ value: "2.0" })]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const transformedProduct = transformProduct(product);
+      expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(3);
+      expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(2);
+      expect(transformedProduct[0]["scoringWeightInt"]).toEqual(3);
+    });
+
     it("should override product appearanceAttributes classification with variant", () => {
       const product = createPimProduct({
         variantOptions: [

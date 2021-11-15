@@ -225,6 +225,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 
+  sampleBasketSection: ContentfulSampleBasketSection
+    @link(from: "sampleBasketSection___NODE")
+
   "The CTA link for this page."
   cta: ContentfulLink @link(from: "cta___NODE")
 }
@@ -291,55 +294,6 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The next best actions for this page."
   nextBestActions: [ContentfulPromoOrPage] @link(from: "nextBestActions___NODE")
-
-  "The parent page of this page."
-  parentPage: LinkedPage @link(from: "parentPage___NODE")
-
-  "SEO content"
-  seo: ContentfulSeoContent @link(from: "seo___NODE")
-}
-
-"""
-Represents a team page, implementing ContentfulPage.
-"""
-type ContentfulTeamPage implements ContentfulPage & Node {
-  id: ID!
-
-  "Contentful content entry ID."
-  contentful_id: String!
-
-  "The name of this page, representative of the type."
-  title: String
-
-  "The url for this page, devoid of any prefix."
-  slug: String!
-
-  "The full path for this page, devoid of any prefix."
-  path: String!
-
-  "The breadcrumb items for this page, devoid of any prefix."
-  breadcrumbs: JSON
-
-  "The brand logo for this page."
-  brandLogo: String
-
-  "This field will always return null."
-  subtitle: String
-
-  "The main image of this page. Can be used when referencing this page."
-  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
-
-  "The featured Video"
-  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
-
-  "The input banner for this page."
-  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
-
-  "Tags for the page"
-  tags: [ContentfulTag] @link(from: "tags___NODE")
-
-  "The team categories for this page."
-  teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
@@ -510,7 +464,6 @@ union ContentfulPromoOrPage =
     ContentfulPromo
   | ContentfulContactUsPage
   | ContentfulSimplePage
-  | ContentfulTeamPage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
@@ -521,7 +474,6 @@ union ContentfulRichTextReference =
   | ContentfulHomePage
   | ContentfulContactUsPage
   | ContentfulSimplePage
-  | ContentfulTeamPage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
@@ -622,6 +574,23 @@ type ContentfulFormSection implements Node {
 
   "HubSpot form ID"
   hubSpotFormGuid: String
+}
+
+"""
+Represents a sample basket sections.
+"""
+type ContentfulSampleBasketSection implements Node {
+  id: ID!
+
+  "The title of section."
+  title: String
+
+  "The paragraph text of section."
+  description: ContentfulRichText
+
+  "The checkout form section"
+  checkoutFormSection: ContentfulFormSection
+    @link(from: "checkoutFormSection___NODE")
 }
 
 """
@@ -915,6 +884,8 @@ union ContentfulSection =
   | ContentfulVideoSection
   | ContentfulIframe
   | ContentfulSystemConfiguratorBlock
+  | ContentfulTeamSection
+  | ContentfulSampleBasketSection
 
 """
 Represents a key value pair for UI strings.
@@ -937,6 +908,9 @@ type ContentfulResources implements Node {
   "The elements for the product details page sidebar for these resources."
   pdpSidebarItems: [ContentfulTitleWithContent]
     @link(from: "pdpSidebarItems___NODE")
+
+  "Maximum Numbers of samples allowed"
+  maximumSamples: Int
 
   "The title for the product details page cards for these resources."
   pdpCardsTitle: String
@@ -1005,6 +979,10 @@ type ContentfulResources implements Node {
 
   " Language selection dialog introduction"
   countryNavigationIntroduction: ContentfulRichText
+
+  "Sample Basket Link"
+  sampleBasketLink: ContentfulSimplePage
+    @link(from: "sampleBasketLink___NODE")
 }
 
 """
@@ -1126,7 +1104,6 @@ type contentfulSiteHeadScriptsTextNode implements Node {
 union LinkedPage =
     ContentfulContactUsPage
   | ContentfulSimplePage
-  | ContentfulTeamPage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
   | ContentfulHomePage
@@ -1202,6 +1179,20 @@ type ContentfulLinkColumnsSection implements Node {
 
   "The columns for this page."
   columns: [ContentfulNavigation] @link(from: "columns___NODE")
+}
+
+"""
+Represents a collection of team categories
+"""
+type ContentfulTeamSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The items for this section."
+  teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
+
+  "The background colour"
+  backgroundColor: String
 }
 
 """
@@ -1317,6 +1308,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "The PIM categories this page is attached to."
+  categoryCodes: [String!]
 
   "The full path for this page, devoid of any prefix."
   path: String!
@@ -1504,6 +1498,9 @@ type ProductsVariantOptions implements Node {
 
   "The path for this product."
   path: String
+
+  "The old path for this product."
+  oldPath: String
 
   "The breadcrumbs for this product."
   breadcrumbs: JSON

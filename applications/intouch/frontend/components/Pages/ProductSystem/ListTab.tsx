@@ -17,6 +17,7 @@ import {
   useUpdateSystemMutation
 } from "../../../graphql/generated/hooks";
 import { ProductsAndSystemsQuery } from "../../../graphql/generated/operations";
+import { ProductReport, SystemReport } from "../../Reports";
 import layoutStyles from "../../Layout/styles.module.scss";
 import styles from "./styles.module.scss";
 
@@ -201,6 +202,9 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
         filters={filterState.filters}
         filterClick={onFilterClick}
         noResultLabel={t("sidePanel.search.noResult")}
+        renderFooter={() =>
+          type === "product" ? <ProductReport /> : <SystemReport />
+        }
       >
         {(items?.nodes as any)?.map((item: any, index: number) => (
           <div key={`product-${index}`} onClick={(e) => setSelectedItem(item)}>

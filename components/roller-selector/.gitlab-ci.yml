@@ -1,0 +1,11 @@
+test_roller-selector:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/roller-selector"
+    ROOT_DIR: "components/roller-selector"
+
+build_roller-selector:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/roller-selector"
+    ROOT_DIR: "components/roller-selector"

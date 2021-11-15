@@ -7,8 +7,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "contentful-graph": "dotenv -c development -- contentful-graph"
+    "check:ts": "tsc",
+    "contentful-graph": "dotenv -c development -- contentful-graph",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@bmi/button": "^0.0.0",

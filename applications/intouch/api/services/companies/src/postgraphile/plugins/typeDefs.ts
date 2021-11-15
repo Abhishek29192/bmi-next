@@ -67,9 +67,12 @@ export default gql`
   type ContentfulEvidenceCategory {
     sys: ContentfulSys!
     name: String
-    description: String
+    description: ContentfulEvidenceCategoryDescription
     minimumUploads: Int
     referenceCode: String
+  }
+  type ContentfulEvidenceCategoryDescription {
+    json: JSON!
   }
 
   type ContentfulGuaranteeTemplate {
@@ -160,6 +163,20 @@ export default gql`
     signedPhotoUrl: String
   }
 
+  enum CompanyDocumentType {
+    PDF
+    JPG
+    JPEG
+    PNG
+  }
+
+  extend type CompanyDocument {
+    name: String
+    documentType: CompanyDocumentType
+    size: Int
+    signedDocumentUrl: String @requires(columns: ["document"])
+  }
+
   enum GuaranteeEventType {
     SUBMIT_SOLUTION
     ASSIGN_SOLUTION
@@ -238,6 +255,10 @@ export default gql`
     attachmentUpload: Upload
   }
 
+  extend input CompanyDocumentInput {
+    attachmentUpload: Upload
+  }
+
   input ImportedAccount {
     email: String
     firstName: String
@@ -265,12 +286,14 @@ export default gql`
 
   input ImportAccountsCompaniesFromCSVInput {
     files: [Upload!]!
+    dryRun: Boolean
   }
 
   type ImportAccountsCompaniesFromCSVResult {
     auth0Job: Auth0ImportResult
-    accounts: [Account]
     companies: [Company]
+    accounts: [Account]
+    dryRun: Boolean
   }
 
   extend type Mutation {
@@ -286,5 +309,6 @@ export default gql`
     importAccountsCompaniesFromCVS(
       input: ImportAccountsCompaniesFromCSVInput!
     ): ImportAccountsCompaniesFromCSVResult
+    sendReminderToIncompleteCompanyProfile: String
   }
 `;

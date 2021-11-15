@@ -3,7 +3,6 @@ import Button from "@bmi/button";
 import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
-import { checkProjectGuaranteeReview } from "../../../lib/utils/project";
 import { guaranteeApplicationValidate } from "../../../lib/utils/guarantee";
 import styles from "./styles.module.scss";
 import { ApplyGuaranteeDialog } from "./ApplyGuaranteeDialog";
@@ -22,8 +21,6 @@ export const GuaranteeTab = ({
   const { t } = useTranslation("project-page");
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isReviewOpen, setReviewOpen] = useState(false);
-
-  const { guarantees } = project;
 
   const guaranteeApplicationValidateResult =
     guaranteeApplicationValidate(project);
@@ -57,9 +54,8 @@ export const GuaranteeTab = ({
 
       <div className={styles.body}>
         <ProjectGuarantee
-          guarantees={guarantees.nodes}
+          project={project}
           onReviewClick={() => setReviewOpen(true)}
-          canGuaranteeBeSubmitted={checkProjectGuaranteeReview(project)}
           applyGuaranteeToggle={() => <ApplyGuaranteeDialogToggle />}
         />
       </div>

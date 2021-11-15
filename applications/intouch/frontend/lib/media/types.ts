@@ -18,3 +18,19 @@ export type MediaTool = Omit<ContentfulMediaTool, "contentfulMetadata"> & {
 };
 
 export type MediaItem = MediaFolder["childrenCollection"]["items"][0];
+
+export type GalleryItem = {
+  type: "image" | "pdf" | "vimeo";
+  id: string;
+  url: string;
+  title: string;
+  description?: string;
+  fileUrl?: string;
+};
+
+export type MediaGalleryState = {
+  isOpen: boolean;
+  activeItem: GalleryItem;
+};
+
+export type ActiveMediaId = string;

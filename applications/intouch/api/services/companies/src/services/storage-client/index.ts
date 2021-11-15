@@ -25,6 +25,8 @@ export interface StorageClientType {
     fileName: string,
     expiryDate?: Date
   ): Promise<string | undefined>;
+
+  getFileMetaData(fileName: string): Promise<GoogleCloudFileMetaData | null>;
 }
 
 const STORAGE_BASE_URL = "https://storage.googleapis.com";
@@ -124,4 +126,35 @@ export default class StorageClient implements StorageClientType {
     // Cloud Storage wouldn't find the file
     return !filePath || filePath.startsWith("http");
   }
+
+  async getFileMetaData(
+    fileName: string
+  ): Promise<GoogleCloudFileMetaData | null> {
+    // if we try to sign an externally hosted file
+    // Cloud Storage wouldn't find the file
+    if (
+      !fileName ||
+      // externally-hosted or null images should not be signed
+      fileName.startsWith("http")
+    ) {
+      return null;
+    }
+    const bucketName = process.env.GCP_PRIVATE_BUCKET_NAME;
+
+    //https://cloud.google.com/storage/docs/viewing-editing-metadata
+    const [metadata] = await this.storage
+      .bucket(bucketName)
+      .file(fileName)
+      .getMetadata();
+    return metadata;
+  }
 }
+
+export type GoogleCloudFileMetaData = {
+  id: string;
+  name: string;
+  bucket: string;
+  contentType: string;
+  size: string;
+  timeCreated: string;
+};

@@ -74,7 +74,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(window.console.error).toHaveBeenCalledWith(
+    // eslint-disable-next-line no-console
+    expect(console.error).toHaveBeenCalledWith(
       new Error("[PIM] Unrecognised itemType [TEST]")
     );
     expect(getProducts).toHaveBeenCalledTimes(0);
@@ -96,7 +97,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(window.console.error).toHaveBeenCalledWith(
+    // eslint-disable-next-line no-console
+    expect(console.error).toHaveBeenCalledWith(
       new Error("[PIM] Undercognised message type [TEST]")
     );
     expect(getProducts).toHaveBeenCalledTimes(0);

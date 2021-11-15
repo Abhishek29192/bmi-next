@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account importer should import correctly only accounts 1`] = `
+Array [
+  Array [
+    "SELECT id FROM market WHERE domain = $1",
+    Array [
+      "no",
+    ],
+  ],
+  Array [
+    "BEGIN",
+  ],
+  Array [
+    "INSERT INTO account(market_id, status, role, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, migration_id) VALUES ('1', 'ACTIVE', 'COMPANY_ADMIN', 'companyadmin@digitaldetox.co.uk', '', 'Name 1', 'Surname 1', NULL, NULL, '', 'YQPQKK_NO_0003'), ('1', 'ACTIVE', 'INSTALLER', 'installer@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0004'), (NULL, 'ACTIVE', 'SUPER_ADMIN', 'superadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0005'), ('1', 'ACTIVE', 'MARKET_ADMIN', 'marketadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0006') RETURNING *",
+    Array [],
+  ],
+  Array [
+    "COMMIT",
+  ],
+]
+`;
+
+exports[`Account importer should import correctly with companies 1`] = `
+Array [
+  Array [
+    "SELECT id FROM market WHERE domain = $1",
+    Array [
+      "no",
+    ],
+  ],
+  Array [
+    "BEGIN",
+  ],
+  Array [
+    "INSERT INTO account(market_id, status, role, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, migration_id) VALUES ('1', 'ACTIVE', 'COMPANY_ADMIN', 'companyadmin@digitaldetox.co.uk', '', 'Name 1', 'Surname 1', NULL, NULL, '', 'YQPQKK_NO_0003'), ('1', 'ACTIVE', 'INSTALLER', 'installer@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0004'), (NULL, 'ACTIVE', 'SUPER_ADMIN', 'superadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0005'), ('1', 'ACTIVE', 'MARKET_ADMIN', 'marketadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0006') RETURNING *",
+    Array [],
+  ],
+  Array [
+    "INSERT INTO company(market_id, migration_id, business_type, name, tier, status, tax_number, about_us, logo, phone, public_email, registered_address_migration_id, trading_address_migration_id, website, linked_in) VALUES ('1', 'YQPQKK_NOCO_0003', NULL, 'Company Name LTD - D', 'T4', NULL, '925637149', '', '', '', '', 'YQPQKK_NOAD_0003', '', '', '') RETURNING *",
+    Array [],
+  ],
+  Array [
+    "INSERT INTO company_member(market_id, company_id, account_id) VALUES ('1', (SELECT id from company where migration_id= 'YQPQKK_NOCO_0003' ), (SELECT id from account where migration_id = 'YQPQKK_NO_0003'));INSERT INTO company_member(market_id, company_id, account_id) VALUES ('1', (SELECT id from company where migration_id= 'YQPQKK_NOCO_0003' ), (SELECT id from account where migration_id = 'YQPQKK_NO_0004'));",
+    Array [],
+  ],
+  Array [
+    "UPDATE company SET owner_fullname = 'Dev 1' WHERE id = (SELECT company.id FROM company INNER JOIN company_member on company.id = company_member.company_id INNER JOIN account on company_member.account_id = account.id WHERE account.migration_id = 'YQPQKK_NO_0003');UPDATE company SET owner_email = 'francescov+1232134235@digitaldetox.co.uk' WHERE id = (SELECT company.id FROM company INNER JOIN company_member on company.id = company_member.company_id INNER JOIN account on company_member.account_id = account.id WHERE account.migration_id = 'YQPQKK_NO_0003');UPDATE company SET owner_phone = '11111' WHERE id = (SELECT company.id FROM company INNER JOIN company_member on company.id = company_member.company_id INNER JOIN account on company_member.account_id = account.id WHERE account.migration_id = 'YQPQKK_NO_0003');",
+    Array [],
+  ],
+  Array [
+    "INSERT INTO address(migration_id, first_line, second_line, town, country, postcode) VALUES ('YQPQKK_NOAD_0003', 'First Line 1', '', 'Town 1', 'Norge', '') RETURNING *",
+    Array [],
+  ],
+  Array [
+    "UPDATE company SET registered_address_id = (SELECT id FROM address WHERE migration_id = 'YQPQKK_NOAD_0003') WHERE id = (SELECT id FROM company WHERE migration_id = 'YQPQKK_NOCO_0003');UPDATE company SET trading_address_id = (SELECT id FROM address WHERE migration_id = '') WHERE id = (SELECT id FROM company WHERE migration_id = 'YQPQKK_NOCO_0003');",
+    Array [],
+  ],
+  Array [
+    "COMMIT",
+  ],
+]
+`;
+
+exports[`Account importer should not import if dry-run 1`] = `
+Object {
+  "accounts": Array [
+    Object {
+      "doceboId": "",
+      "doceboUsername": "",
+      "email": "companyadmin@digitaldetox.co.uk",
+      "firstName": "Name 1",
+      "lastName": "Surname 1",
+      "migrationId": "YQPQKK_NO_0003",
+      "password": "Passsword1@",
+      "phone": "",
+      "role": "COMPANY_ADMIN",
+      "status": "ACTIVE",
+    },
+    Object {
+      "doceboId": "",
+      "doceboUsername": "",
+      "email": "installer@digitaldetox.co.uk",
+      "firstName": "Name 123",
+      "lastName": "Surname 123",
+      "migrationId": "YQPQKK_NO_0004",
+      "password": "Passsword1@",
+      "phone": "",
+      "role": "INSTALLER",
+      "status": "ACTIVE",
+    },
+    Object {
+      "doceboId": "",
+      "doceboUsername": "",
+      "email": "superadmin@digitaldetox.co.uk",
+      "firstName": "Name 123",
+      "lastName": "Surname 123",
+      "migrationId": "YQPQKK_NO_0005",
+      "password": "Passsword1@",
+      "phone": "",
+      "role": "SUPER_ADMIN",
+      "status": "ACTIVE",
+    },
+    Object {
+      "doceboId": "",
+      "doceboUsername": "",
+      "email": "marketadmin@digitaldetox.co.uk",
+      "firstName": "Name 123",
+      "lastName": "Surname 123",
+      "migrationId": "YQPQKK_NO_0006",
+      "password": "Passsword1@",
+      "phone": "",
+      "role": "MARKET_ADMIN",
+      "status": "ACTIVE",
+    },
+  ],
+  "companies": Array [
+    Object {
+      "@companyMembers": Object {
+        "data": Array [
+          Object {
+            "@nodes": Object {
+              "@account": Object {
+                "docebo_id": "",
+                "docebo_username": "",
+                "email": "companyadmin@digitaldetox.co.uk",
+                "first_name": "Name 1",
+                "last_name": "Surname 1",
+                "migration_id": "YQPQKK_NO_0003",
+                "password": "Passsword1@",
+                "phone": "",
+                "role": "COMPANY_ADMIN",
+                "status": "ACTIVE",
+              },
+            },
+          },
+          Object {
+            "@nodes": Object {
+              "@account": Object {
+                "docebo_id": "",
+                "docebo_username": "",
+                "email": "installer@digitaldetox.co.uk",
+                "first_name": "Name 123",
+                "last_name": "Surname 123",
+                "migration_id": "YQPQKK_NO_0004",
+                "password": "Passsword1@",
+                "phone": "",
+                "role": "INSTALLER",
+                "status": "ACTIVE",
+              },
+            },
+          },
+        ],
+      },
+      "@registeredAddress": Object {
+        "country": "Norge",
+        "firstLine": "First Line 1",
+        "migrationId": "YQPQKK_NOAD_0003",
+        "postcode": "",
+        "region": "",
+        "secondLine": "",
+        "town": "Town 1",
+      },
+      "@tradingAddress": undefined,
+      "aboutUs": "",
+      "linkedIn": "",
+      "logo": "",
+      "migrationId": "YQPQKK_NOCO_0003",
+      "name": "Company Name LTD - D",
+      "phone": "",
+      "publicEmail": "",
+      "registeredAddressMigrationId": "YQPQKK_NOAD_0003",
+      "taxNumber": "925637149",
+      "tier": "T4",
+      "tradingAddressMigrationId": "",
+      "website": "",
+    },
+  ],
+  "dryRun": true,
+}
+`;

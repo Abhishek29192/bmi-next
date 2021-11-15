@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Postgraphile the context should have the user object 1`] = `
+Object {
+  "clientGateway": undefined,
+  "logger": "logger",
+  "pgRootPool": "pgRootPool",
+  "protocol": "http",
+  "pubSub": "pubSub",
+  "storageClient": Object {},
+  "trustedConnection": undefined,
+  "user": Object {
+    "email": "email",
+    "id": "123",
+    "role": "installer",
+  },
+}
+`;

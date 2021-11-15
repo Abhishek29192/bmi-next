@@ -440,6 +440,62 @@ describe("Sections component", () => {
         }
       },
       {
+        __typename: "ContentfulTeamSection",
+        title: "Team Section - alabaster",
+        teamCategories: [
+          {
+            title: "Team Category 1",
+            description: {
+              raw: contentMock,
+              references: []
+            },
+            team_member: [
+              {
+                name: "Bob McBobbinson",
+                jobTitle: "CEO",
+                profileImage: null,
+                links: null
+              }
+            ]
+          }
+        ],
+        backgroundColor: "alabaster"
+      },
+      {
+        __typename: "ContentfulTeamSection",
+        title: "Team Section - undefined colour (2 categories)",
+        teamCategories: [
+          {
+            title: "Team Category 1",
+            description: {
+              raw: contentMock,
+              references: []
+            },
+            team_member: [
+              {
+                name: "Bob McBobbinson",
+                jobTitle: "CEO",
+                profileImage: null,
+                links: null
+              }
+            ]
+          },
+          {
+            title: "Team Category 2",
+            description: null,
+            team_member: [
+              {
+                name: "Johnny McJohnson",
+                jobTitle: "CEO",
+                profileImage: null,
+                links: null
+              }
+            ]
+          }
+        ],
+        backgroundColor: null
+      },
+      {
         __typename: "ContentfulNavigation",
         label: "Explore",
         links: [

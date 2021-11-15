@@ -1,6 +1,12 @@
 import { uniqBy, map } from "lodash";
 import { Filter } from "@bmi/filters";
-import { Product, Category } from "../components/types/pim";
+import {
+  Product,
+  Category,
+  VariantOption,
+  Classification,
+  Feature
+} from "../components/types/pim";
 import { Data as DocumentResultsData } from "../components/DocumentResults";
 import {
   PIMDocumentData,
@@ -420,6 +426,65 @@ type PlpFiltersArgs = {
   pageCategory?: Category;
 };
 
+export const combineVariantClassifications = (
+  product: Product,
+  variant: VariantOption
+): Classification[] => {
+  const mergedClassifications: Map<string, Classification> = new Map();
+
+  const productClassificationMap = new Map(
+    (product.classifications || []).map((classification) => [
+      classification.code,
+      classification
+    ])
+  );
+
+  // process variant classifications except "scoringWeightAttributes"
+  const vairantClassificationsMap = new Map(
+    (variant.classifications || [])
+      .filter(({ code }) => code !== "scoringWeightAttributes")
+      .map((classification) => [classification.code, classification])
+  );
+
+  // take all COMMON classifications and Variant ONLY classifications
+  // merge their features in such that base features
+  // are overwritten by variant features of same classifications
+  vairantClassificationsMap.forEach((variantClassification, key) => {
+    const mergedFeaturesMap: Map<string, Feature> = new Map(
+      (variantClassification?.features || []).map((feature) => [
+        feature.code,
+        feature
+      ])
+    );
+
+    const productFeaturesMap = new Map(
+      (productClassificationMap.get(key)?.features || []).map((feature) => [
+        feature.code,
+        feature
+      ])
+    );
+
+    //only set the product features which do not exist in variant features!
+    productFeaturesMap.forEach((productFeature, key) => {
+      if (mergedFeaturesMap.get(key) === undefined) {
+        mergedFeaturesMap.set(key, productFeature);
+      }
+    });
+    variantClassification.features = Array.from(mergedFeaturesMap.values());
+    mergedClassifications.set(key, variantClassification);
+  });
+
+  // process remaining classifications that exists ONLY in base/product
+  // add them to collection at the end
+  productClassificationMap.forEach((classification, key) => {
+    if (vairantClassificationsMap.get(key) === undefined) {
+      mergedClassifications.set(key, classification);
+    }
+  });
+
+  return Array.from(mergedClassifications.values());
+};
+
 export const getPlpFilters = ({
   pimClassificationNamespace,
   products = [],
@@ -438,18 +503,19 @@ export const getPlpFilters = ({
     allowedFilters
   );
 
-  const productClassifications = products.flatMap((product) =>
+  const allFeatures = products.flatMap((product) =>
     [
-      ...(product.classifications || []),
-      ...(product.variantOptions || []).flatMap(
-        (variant) => variant.classifications || []
+      ...(product.variantOptions || []).flatMap((variant) =>
+        combineVariantClassifications(product, variant).flatMap(
+          (classification) => classification.features
+        )
       )
     ].filter(Boolean)
   );
 
   const classificationFeaturesFilters = generateFeatureFilters(
     pimClassificationNamespace,
-    productClassifications,
+    allFeatures,
     allowedFilters
   );
 

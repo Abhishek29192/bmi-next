@@ -98,7 +98,6 @@ const queries = [
             const page =
               pageData.contentfulHomePage ||
               pageData.contentfulProductListerPage ||
-              pageData.contentfulTeamPage ||
               pageData.contentfulBrandLandingPage ||
               pageData.contentfulContactUsPage ||
               pageData.contentfulDocumentLibraryPage ||
@@ -562,7 +561,8 @@ module.exports = {
     // Avoid extra memory consumption as these shouldn't be needed on prod
     {
       resolve: "gatsby-plugin-no-sourcemaps"
-    }
+    },
+    `gatsby-plugin-meta-redirect` // make sure to put last in the array
   ],
   flags: {
     DEV_SSR: false,

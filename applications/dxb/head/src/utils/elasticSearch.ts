@@ -1,5 +1,9 @@
 import { Filter } from "@bmi/filters";
 import { devLog } from "../utils/devLog";
+import {
+  getCollapseVariantsByBaseProductCodeQuery,
+  getUniqueBaseProductCountCodeAggrigation
+} from "./elasticSearchCommonQuery";
 
 const ES_AGGREGATION_NAMES = {
   // TODO: Rename filter.name to colourfamily
@@ -104,7 +108,7 @@ export const compileElasticSearchQuery = (
       "productLine",
       "brand"
     ].includes(filter.name)
-      ? searchTerms[filter.name]
+      ? searchTerms[filter.name] || searchTerms.allCategories
       : searchTerms.category;
 
     const termQuery = (value) => ({
@@ -130,7 +134,13 @@ export const compileElasticSearchQuery = (
     size: pageSize,
     from: page * pageSize,
     // NOTE: scoringWeightInt is a number (long) in the index, no ".keyword" field
-    sort: ["_score", { scoringWeightInt: "desc" }, { "name.keyword": "asc" }],
+    sort: [
+      "_score",
+      { productScoringWeightInt: "desc" },
+      { variantScoringWeightInt: "desc" },
+      { scoringWeightInt: "desc" },
+      { "name.keyword": "asc" }
+    ],
     aggs: {
       categories: {
         terms: {
@@ -165,7 +175,8 @@ export const compileElasticSearchQuery = (
           size: "100",
           field: "colourfamilyCode.keyword"
         }
-      }
+      },
+      ...getUniqueBaseProductCountCodeAggrigation()
     },
     // TODO: Join in a bool if multiple categories with multiple values
     // TODO: Still not sure how to handle this exactly
@@ -209,7 +220,8 @@ export const compileElasticSearchQuery = (
           ...categoryFilters
         ].filter(Boolean)
       }
-    }
+    },
+    ...getCollapseVariantsByBaseProductCodeQuery()
   };
 };
 

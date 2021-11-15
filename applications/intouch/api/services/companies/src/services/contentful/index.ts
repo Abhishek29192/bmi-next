@@ -53,6 +53,9 @@ export const getGuaranteeTypeCollection = async (
             referenceCode
             name
             minimumUploads
+            description {
+              json
+            }
           }
         }
       }

@@ -5,6 +5,7 @@ import {
   EvidenceCategoryType,
   EvidenceItemGuaranteeIdFkeyInverseInput,
   Guarantee,
+  Tier,
   UpdateGuaranteeInput
 } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
@@ -85,11 +86,8 @@ export const updateGuarantee = async (
     }
 
     const { id, patch, guaranteeEventType } = args.input;
-
-    const { status, projectId, systemBmiRef } = await getGuarantee(
-      id,
-      pgClient
-    );
+    const { status, projectId, systemBmiRef, bmiReferenceId } =
+      await getGuarantee(id, pgClient);
 
     if (guaranteeEventType === "SUBMIT_SOLUTION") {
       const isValid = await solutionGuaranteeSubmitValidate(
@@ -108,7 +106,7 @@ export const updateGuarantee = async (
       patch.bmiReferenceId =
         status === "NEW"
           ? `${crypto.randomBytes(10).toString("hex")}`
-          : patch.bmiReferenceId;
+          : bmiReferenceId;
       patch.status = "SUBMITTED";
     }
 
@@ -133,9 +131,13 @@ export const updateGuarantee = async (
       patch.startDate = new Date();
       patch.expiryDate = new Date();
 
+      const projectCompanyDetail = await getProjectCompanyDetail(
+        projectId,
+        pgClient
+      );
       const { guaranteeValidityOffsetYears = 0 } = await tierBenefit(
         context.clientGateway,
-        user.company.tier
+        projectCompanyDetail.tier
       );
 
       const max = await getSystemMaximumValidityYears(systemBmiRef, pgClient);
@@ -150,10 +152,9 @@ export const updateGuarantee = async (
       patch.reviewerAccountId = null;
       patch.status = "REJECTED";
     }
-
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
-    logger.error("Error update guarantee");
+    logger.error("Error update guarantee:", e);
 
     await pgClient.query(
       "ROLLBACK TO SAVEPOINT graphql_update_guarantee_mutation"
@@ -170,9 +171,12 @@ const getGuarantee = async (
 ): Promise<Guarantee> => {
   const { rows } = await pgClient.query<Guarantee>(
     `SELECT g.id, g.project_id as "projectId", g.system_bmi_ref as "systemBmiRef", 
-    g.status FROM guarantee g where g.id=$1`,
+    g.bmi_reference_id as "bmiReferenceId", g.status FROM guarantee g where g.id=$1`,
     [id]
   );
+  if (!rows.length) {
+    throw new Error("The guarantee not exist");
+  }
   return rows[0];
 };
 
@@ -204,30 +208,36 @@ const getSystemMaximumValidityYears = async (
   return maximum_validity_years || 0;
 };
 
-const getProjectName = async (
+const getProjectCompanyDetail = async (
   projectId: number,
   pgClient: PoolClient
-): Promise<string> => {
-  const {
-    rows: [{ name: projectName }]
-  } = await pgClient.query(
-    `select project.name from project
-     where project.id=$1`,
+): Promise<ProjectCompanyDetail> => {
+  const { rows } = await pgClient.query(
+    `select project.name, project.company_id as "companyId", company.tier
+    from project
+    join company on company.id=project.company_id 
+    where project.id=$1`,
     [projectId]
   );
 
-  return projectName;
+  if (!rows.length) {
+    throw new Error("The project not exist");
+  }
+  return rows[0];
 };
 
 const sendMail = async (context: PostGraphileContext, projectId: number) => {
   const { pgClient, user } = context;
 
-  const projectName = await getProjectName(projectId, pgClient);
+  const projectCompanyDetail = await getProjectCompanyDetail(
+    projectId,
+    pgClient
+  );
   await sendMessageWithTemplate(context, "REQUEST_APPROVED", {
     email: user.email,
     firstname: user.firstName,
     role: user.role,
-    project: `${projectName}`
+    project: `${projectCompanyDetail.name}`
   });
 
   //Get all company admins and send mail
@@ -235,7 +245,7 @@ const sendMail = async (context: PostGraphileContext, projectId: number) => {
     `select account.* from account 
   join company_member on company_member.account_id =account.id 
   where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
-    [user.company.id]
+    [projectCompanyDetail.companyId]
   );
 
   for (let i = 0; i < accounts?.length; i++) {
@@ -244,7 +254,7 @@ const sendMail = async (context: PostGraphileContext, projectId: number) => {
       email: account.email,
       firstname: account.first_name,
       role: account.role,
-      project: `${projectName}`
+      project: `${projectCompanyDetail.name}`
     });
   }
 };
@@ -272,4 +282,10 @@ const uploadEvidence = async (
       );
     }
   }
+};
+
+type ProjectCompanyDetail = {
+  name: string;
+  companyId: number;
+  tier: Tier;
 };

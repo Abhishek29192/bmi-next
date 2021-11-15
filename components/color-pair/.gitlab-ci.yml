@@ -1,0 +1,11 @@
+test_color-pair:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/color-pair"
+    ROOT_DIR: "components/color-pair"
+
+build_color-pair:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/color-pair"
+    ROOT_DIR: "components/color-pair"

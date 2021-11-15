@@ -30,6 +30,7 @@ type HeaderLink = {
 
 export type HeaderProps = {
   title: string;
+  attentionHeading?: string;
   contactUsLink?: HeaderLink;
   globalExternalLink?: HeaderLink;
   notifications?: GetGlobalDataQuery["notifications"]["nodes"];
@@ -37,6 +38,7 @@ export type HeaderProps = {
 
 export const Header = ({
   title,
+  attentionHeading,
   contactUsLink,
   globalExternalLink,
   notifications: initialNotifications
@@ -255,11 +257,23 @@ export const Header = ({
             <Divider
               orientation="vertical"
               flexItem
-              style={{ margin: "0 1rem" }}
+              className={styles.lowerHeaderDivider}
             />
             <Typography variant="h3" className={styles.lowerHeaderUserLevel}>
               {subHeading}
             </Typography>
+            {attentionHeading && (
+              <>
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  className={styles.lowerHeaderDivider}
+                />
+                <Typography variant="h3" className={styles.attentionHeading}>
+                  {attentionHeading}
+                </Typography>
+              </>
+            )}
           </div>
 
           <div className={styles.lowerHeaderNav}>

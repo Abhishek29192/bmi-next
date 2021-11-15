@@ -13,6 +13,7 @@ import InputBanner, {
 } from "../components/InputBanner";
 import getJpgImage from "../utils/images";
 import { getPathWithCountryCode } from "../utils/path";
+import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import BrandProvider from "./BrandProvider";
 import {
   SiteContextProvider,
@@ -213,62 +214,64 @@ const Page = ({
 
       <SiteContextProvider value={siteContext}>
         <MicroCopy.Provider values={microCopyContext}>
-          <GoogleReCaptchaProvider
-            reCaptchaKey={reCaptchaKey}
-            useRecaptchaNet={reCaptchaNet}
-            language={countryCode}
-          >
-            <BmiThemeProvider>
-              <Header
-                navigationData={menuNavigation}
-                utilitiesData={menuUtilities}
-                countryCode={countryCode}
-                activeLabel={
-                  (breadcrumbs && breadcrumbs[0]?.label) || undefined
-                }
-                isOnSearchPage={isSearchPage}
-                countryNavigationIntroduction={
-                  resources?.countryNavigationIntroduction
-                }
-                regions={regions}
-              />
-            </BmiThemeProvider>
-            <BrandProvider brand={brand}>
-              <ErrorBoundary
-                fallbackRender={() => (
-                  <ErrorFallback
-                    countryCode={countryCode}
-                    promo={resources.errorGeneral}
-                  />
-                )}
-                onError={() =>
-                  navigate(getPathWithCountryCode(countryCode, "422"))
-                }
-              >
-                <VisualiserProvider
-                  contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
-                  variantCodeToPathMap={variantCodeToPathMap}
-                  shareWidgetData={resources?.visualiserShareWidget}
+          <BasketContextProvider>
+            <GoogleReCaptchaProvider
+              reCaptchaKey={reCaptchaKey}
+              useRecaptchaNet={reCaptchaNet}
+              language={countryCode}
+            >
+              <BmiThemeProvider>
+                <Header
+                  navigationData={menuNavigation}
+                  utilitiesData={menuUtilities}
+                  countryCode={countryCode}
+                  activeLabel={
+                    (breadcrumbs && breadcrumbs[0]?.label) || undefined
+                  }
+                  isOnSearchPage={isSearchPage}
+                  countryNavigationIntroduction={
+                    resources?.countryNavigationIntroduction
+                  }
+                  regions={regions}
+                />
+              </BmiThemeProvider>
+              <BrandProvider brand={brand}>
+                <ErrorBoundary
+                  fallbackRender={() => (
+                    <ErrorFallback
+                      countryCode={countryCode}
+                      promo={resources.errorGeneral}
+                    />
+                  )}
+                  onError={() =>
+                    navigate(getPathWithCountryCode(countryCode, "422"))
+                  }
                 >
-                  <Calculator
-                    onError={() =>
-                      navigate(getPathWithCountryCode(countryCode, "422"))
-                    }
+                  <VisualiserProvider
+                    contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
+                    variantCodeToPathMap={variantCodeToPathMap}
+                    shareWidgetData={resources?.visualiserShareWidget}
                   >
-                    <Content>{children}</Content>
-                  </Calculator>
-                </VisualiserProvider>
-                {inputBanner ? <InputBanner data={inputBanner} /> : null}
-              </ErrorBoundary>
-            </BrandProvider>
-            <BmiThemeProvider>
-              <Footer
-                mainNavigation={footerMainNavigation}
-                secondaryNavigation={footerSecondaryNavigation}
-              />
-              <BackToTop accessibilityLabel="Back to the top" />
-            </BmiThemeProvider>
-          </GoogleReCaptchaProvider>
+                    <Calculator
+                      onError={() =>
+                        navigate(getPathWithCountryCode(countryCode, "422"))
+                      }
+                    >
+                      <Content>{children}</Content>
+                    </Calculator>
+                  </VisualiserProvider>
+                  {inputBanner ? <InputBanner data={inputBanner} /> : null}
+                </ErrorBoundary>
+              </BrandProvider>
+              <BmiThemeProvider>
+                <Footer
+                  mainNavigation={footerMainNavigation}
+                  secondaryNavigation={footerSecondaryNavigation}
+                />
+                <BackToTop accessibilityLabel="Back to the top" />
+              </BmiThemeProvider>
+            </GoogleReCaptchaProvider>
+          </BasketContextProvider>
         </MicroCopy.Provider>
       </SiteContextProvider>
     </>

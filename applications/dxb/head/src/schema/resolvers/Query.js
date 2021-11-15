@@ -35,7 +35,11 @@ module.exports = {
         query: categoryCodes
           ? {
               filter: {
-                categories: { elemMatch: { code: { in: categoryCodes } } }
+                categories: { elemMatch: { code: { in: categoryCodes } } },
+                approvalStatus: { eq: "approved" },
+                variantOptions: {
+                  elemMatch: { approvalStatus: { eq: "approved" } }
+                }
               }
             }
           : {},

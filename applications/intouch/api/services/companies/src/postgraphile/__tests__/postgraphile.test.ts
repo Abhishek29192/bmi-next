@@ -18,24 +18,17 @@ describe("Postgraphile", () => {
         email: "email"
       },
       logger: "logger",
-      pubSub: "pubSub"
+      pubSub: "pubSub",
+      headers: {
+        "x-forwarded-proto": "http"
+      }
     };
     const context = await postGraphileOpts.additionalGraphQLContextFromRequest(
       req,
       null
     );
 
-    expect(context).toEqual({
-      user: {
-        id: "123",
-        role: "installer",
-        email: "email"
-      },
-      logger: "logger",
-      pubSub: "pubSub",
-      pgRootPool: "pgRootPool",
-      storageClient: {}
-    });
+    expect(context).toMatchSnapshot();
   });
 
   it("pgSetting should set the role and user id", async () => {
