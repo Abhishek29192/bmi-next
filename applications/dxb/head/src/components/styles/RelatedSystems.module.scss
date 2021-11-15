@@ -1,9 +1,11 @@
-.section_title {
-  margin-bottom: 32px !important;
-}
+.RelatedSystems {
+  .title {
+    margin-bottom: 32px;
+  }
 
-.load-more-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 32px;
+  .load-more-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
 }

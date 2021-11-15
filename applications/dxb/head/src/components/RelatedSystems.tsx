@@ -177,10 +177,10 @@ const RelatedSystems = ({
   }
   return (
     <Section backgroundColor={sectionBackgroundColor || "alabaster"}>
-      <Section.Title className={styles["section_title"]}>
-        {sectionTitle || getMicroCopy("sdp.recommendedSystemsTitle")}
-      </Section.Title>
-      <div className={styles["RelatedProducts"]}>
+      <div className={styles["RelatedSystems"]}>
+        <Section.Title className={styles["title"]}>
+          {sectionTitle || getMicroCopy("sdp.recommendedSystemsTitle")}
+        </Section.Title>
         <SystemListing systems={systems} countryCode={countryCode} />
       </div>
     </Section>
