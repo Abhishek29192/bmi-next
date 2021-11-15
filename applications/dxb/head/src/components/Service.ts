@@ -39,7 +39,15 @@ export enum MerchantTypesEnum {
   BMI_ICOPAL_FLAT_ROOF_SYSTEMS = "BMI Icopal Flat roof Systems",
   DEPOTS_DE_PROXIMITE_SIPLAST = "Dépôts de proximité Siplast",
   DISTRIBUTEURS_SIPLAST = "Distributeurs Siplast",
-  DISTRIBUTEURS_MONIER = "Distributeurs Monier"
+  DISTRIBUTEURS_MONIER = "Distributeurs Monier",
+  FLACHDACHYSTEME = "Flachdachysteme",
+  STEILDACHSYSTEME = "Steildachsysteme",
+  BAUWERKSABDICHTUNG = "Bauwerksabdichtung",
+  VERKEHRSBAUWERKE = "Verkehrsbauwerke",
+  VERARBEITER = "Verarbeiter",
+  TOPDACH_PARTNER = "TopDach Partner",
+  DACHDECKER_7 = "7° Dachdecker",
+  HANDLER = "Händler"
 }
 
 export const merchantTypes = [
@@ -47,7 +55,16 @@ export const merchantTypes = [
   MerchantTypesEnum.BMI_ICOPAL_FLAT_ROOF_SYSTEMS,
   MerchantTypesEnum.DEPOTS_DE_PROXIMITE_SIPLAST,
   MerchantTypesEnum.DISTRIBUTEURS_SIPLAST,
-  MerchantTypesEnum.DISTRIBUTEURS_MONIER
+  MerchantTypesEnum.DISTRIBUTEURS_MONIER,
+  MerchantTypesEnum.DISTRIBUTEURS_MONIER,
+  MerchantTypesEnum.FLACHDACHYSTEME,
+  MerchantTypesEnum.STEILDACHSYSTEME,
+  MerchantTypesEnum.BAUWERKSABDICHTUNG,
+  MerchantTypesEnum.VERKEHRSBAUWERKE,
+  MerchantTypesEnum.VERARBEITER,
+  MerchantTypesEnum.TOPDACH_PARTNER,
+  MerchantTypesEnum.DACHDECKER_7,
+  MerchantTypesEnum.HANDLER
 ];
 
 export enum EntryTypeEnum {
