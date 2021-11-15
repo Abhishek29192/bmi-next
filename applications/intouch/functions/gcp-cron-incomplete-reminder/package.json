@@ -1,0 +1,29 @@
+{
+  "name": "@bmi/gcp-intouch-cron-incomplete-reminder",
+  "license": "BMI-DXB",
+  "version": "1.0.0",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "tsc && concurrently \"tsc -w\" \"nodemon src/index.ts\"",
+    "deploy": "yarn build && gcloud functions deploy pubsub-cron-incomplete-reminder --runtime=nodejs14 --entry-point=sendReminder --source=.  --region=europe-west2 --trigger-topic=send-reminder",
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "@google-cloud/pubsub": "^2.5.0",
+    "@google-cloud/secret-manager": "^3.7.1",
+    "dotenv": "^8.2.0",
+    "axios": "^0.21.0",
+    "pg": "^8.5.1",
+    "google-auth-library": "^7.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.20",
+    "concurrently": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "latest"
+  }
+}

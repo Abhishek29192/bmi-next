@@ -7757,6 +7757,40 @@ export type EvidenceItemsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+export type FindIncompleteCompanyProfile = {
+  __typename?: "FindIncompleteCompanyProfile";
+  id?: Maybe<Scalars["Int"]>;
+  firstName?: Maybe<Scalars["String"]>;
+  lastName?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+  marketid?: Maybe<Scalars["Int"]>;
+};
+
+/** A connection to a list of `FindIncompleteCompanyProfile` values. */
+export type FindIncompleteCompanyProfilesConnection = {
+  __typename?: "FindIncompleteCompanyProfilesConnection";
+  /** A list of `FindIncompleteCompanyProfile` objects. */
+  nodes: Array<FindIncompleteCompanyProfile>;
+  /** A list of edges which contains the `FindIncompleteCompanyProfile` and cursor to aid in pagination. */
+  edges: Array<FindIncompleteCompanyProfilesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `FindIncompleteCompanyProfile` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `FindIncompleteCompanyProfile` edge in the connection. */
+export type FindIncompleteCompanyProfilesEdge = {
+  __typename?: "FindIncompleteCompanyProfilesEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `FindIncompleteCompanyProfile` at the end of the edge. */
+  node: FindIncompleteCompanyProfile;
+};
+
+/** Methods to use when ordering `FindIncompleteCompanyProfile`. */
+export type FindIncompleteCompanyProfilesOrderBy = "NATURAL";
+
 export type FindRoofer = {
   __typename?: "FindRoofer";
   id?: Maybe<Scalars["Int"]>;
@@ -11542,6 +11576,7 @@ export type Mutation = {
   publishMessage?: Maybe<Publish>;
   resetPassword?: Maybe<Scalars["String"]>;
   resetPasswordImportedUsers?: Maybe<ResetPasswordImportedUsersResult>;
+  sendReminderToIncompleteCompanyProfile?: Maybe<Scalars["String"]>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
@@ -14942,6 +14977,8 @@ export type Query = Node & {
   evidenceItemByNodeId?: Maybe<EvidenceItem>;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems?: Maybe<EvidenceItemsConnection>;
+  /** Reads and enables pagination through a set of `FindIncompleteCompanyProfile`. */
+  findIncompleteCompanyProfiles?: Maybe<FindIncompleteCompanyProfilesConnection>;
   /** Reads and enables pagination through a set of `FindRoofer`. */
   findRoofers?: Maybe<FindRoofersConnection>;
   guarantee?: Maybe<Guarantee>;
@@ -15534,6 +15571,16 @@ export type QueryEvidenceItemsArgs = {
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
   condition?: Maybe<EvidenceItemCondition>;
   filter?: Maybe<EvidenceItemFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFindIncompleteCompanyProfilesArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<FindIncompleteCompanyProfilesOrderBy>>;
 };
 
 /** The root query type which gives access points into the data universe. */

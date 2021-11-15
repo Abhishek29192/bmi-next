@@ -15,6 +15,7 @@ type Props = {
 type CardProps = {
   children: React.ReactNode;
   theme?: Colors;
+  className?: string;
 };
 
 const LeadBlockContent = ({ className, children }: Props) => {

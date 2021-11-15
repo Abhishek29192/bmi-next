@@ -8,6 +8,12 @@ import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import ProductImport from "../../components/Pages/ProductSystem";
 import { getServerPageProductsAndSystems } from "../../graphql/generated/page";
 import { ProductsAndSystemsQuery } from "../../graphql/generated/operations";
+import can from "../../lib/permissions/can";
+import {
+  ErrorStatusCode,
+  generatePageError,
+  withPageError
+} from "../../lib/error";
 
 type ProductsAndSystemsPageProps = GlobalPageProps & {
   ssrProducts: ProductsAndSystemsQuery["products"];
@@ -21,7 +27,6 @@ const ProductsAndSystems = ({
   globalPageData
 }: ProductsAndSystemsPageProps) => {
   const { t } = useTranslation();
-
   return (
     <Layout pageData={globalPageData} title={t("Product Import")}>
       <ProductImport products={ssrProducts} systems={ssrSystems} />
@@ -30,7 +35,13 @@ const ProductsAndSystems = ({
 };
 
 export const getServerSideProps = withPage(
-  async ({ locale, account, apolloClient }) => {
+  async ({ locale, account, apolloClient, globalPageData, res }) => {
+    if (!can(account, "navigation", "productsAdmin")) {
+      const statusCode = ErrorStatusCode.UNAUTHORISED;
+      res.statusCode = statusCode;
+      return generatePageError(statusCode, {}, { globalPageData });
+    }
+
     const {
       props: { data }
     } = await getServerPageProductsAndSystems({}, apolloClient);
@@ -83,6 +94,6 @@ export const GetProductsAndSystems = gql`
   }
 `;
 
-export default withPageAuthRequired<ProductsAndSystemsPageProps>(
-  ProductsAndSystems
+export default withPageAuthRequired(
+  withPageError<ProductsAndSystemsPageProps>(ProductsAndSystems)
 );

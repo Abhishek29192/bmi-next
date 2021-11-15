@@ -309,5 +309,6 @@ export default gql`
     importAccountsCompaniesFromCVS(
       input: ImportAccountsCompaniesFromCSVInput!
     ): ImportAccountsCompaniesFromCSVResult
+    sendReminderToIncompleteCompanyProfile: String
   }
 `;

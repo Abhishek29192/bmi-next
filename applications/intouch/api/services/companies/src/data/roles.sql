@@ -139,3 +139,4 @@ grant select, insert, update, delete on system_member to super_admin;
 
 -- views
 grant select on find_roofer to installer;
+grant select on find_incomplete_company_profiles to installer;

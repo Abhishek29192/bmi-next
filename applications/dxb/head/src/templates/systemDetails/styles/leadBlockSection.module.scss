@@ -15,6 +15,7 @@
   }
 
   .backToYourSelectionBtn {
+    margin-right: 20px;
     @media (max-width: $breakpoint-lg) {
       padding-left: 0;
       margin-bottom: 24px;
@@ -23,10 +24,6 @@
 
   .quotationBtn {
     margin-left: 0;
-
-    @media (min-width: $breakpoint-lg) {
-      margin-left: 20px;
-    }
   }
 
   .brandLogo {
@@ -35,8 +32,12 @@
     width: auto;
   }
 
+  .card > div {
+    background-color: $color-alabaster;
+  }
+
   .iconList {
-    >[class*="IconList"] {
+    > [class*="IconList"] {
       &:first-child {
         margin-top: 0;
       }
