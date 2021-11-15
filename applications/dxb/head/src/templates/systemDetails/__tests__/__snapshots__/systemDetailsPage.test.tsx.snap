@@ -7374,7 +7374,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-12"
               data-testid="system-attributes-card"
             >
               <div
@@ -13402,7 +13402,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-12"
               data-testid="system-attributes-card"
             >
               <div
@@ -19561,7 +19561,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-12"
               data-testid="system-attributes-card"
             >
               <div
@@ -25751,7 +25751,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-12"
               data-testid="system-attributes-card"
             >
               <div
