@@ -23,6 +23,9 @@ export const getAuth0Instance = async (req, res) => {
 
       const protocol = req.headers["x-forwarded-proto"] || "http";
 
+      // eslint-disable-next-line
+      console.log(`getAuth0Instance:${protocol}://${req.headers.host}`);
+
       // dynamically redirecting to the request host using `req.headers.host`
       // is currently problematic with the Load Balancer (or the WAF) directing requests to the frontend
       // using a less dynamic fixed URL approach for now
