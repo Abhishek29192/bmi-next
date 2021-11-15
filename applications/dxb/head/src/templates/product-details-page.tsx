@@ -4,6 +4,10 @@ import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
+import {
+  ClassificationCodeEnum,
+  FeatureCodeEnum
+} from "@bmi/es-pim-products-ingest/src/pim";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import ProductOverview, {
@@ -28,6 +32,8 @@ import { Product } from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
 import { getBimIframeUrl } from "../components/BimIframe";
 import { useBasketContext } from "../contexts/SampleBasketContext";
+import { combineVariantClassifications } from "../utils/filters";
+import { extractFeatureValuesByClassification } from "../utils/product-url-path";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -145,6 +151,34 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       );
     }
     return false;
+  };
+
+  const createAnalLabel = () => {
+    const classifications = combineVariantClassifications(product, selfProduct);
+    const classificationConfig = {
+      [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
+        { attrName: FeatureCodeEnum.COLOUR },
+        {
+          attrName: FeatureCodeEnum.COLOUR_FAMILY,
+          separator: " | ",
+          fromStart: true
+        }
+      ],
+      [ClassificationCodeEnum.MEASUREMENTS]: [
+        { attrName: FeatureCodeEnum.LENGTH, separator: "x" },
+        { attrName: FeatureCodeEnum.WIDTH, separator: "x" },
+        { attrName: FeatureCodeEnum.HEIGHT, separator: "x" }
+      ]
+    };
+    const classificationsPath = extractFeatureValuesByClassification(
+      classifications,
+      classificationConfig
+    );
+
+    const result = [product.name, ...classificationsPath]
+      .join(" - ")
+      .replace(/(x)$/, "mm");
+    return result;
   };
 
   return (
