@@ -29,7 +29,7 @@ import ShareWidgetSection, {
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import Link, { Data as LinkData } from "../components/Link";
-import { updateBreadcrumbTitleFromContentfull } from "../utils/updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../utils/updateBreadcrumbTitle";
 
 export type Data = PageInfoData &
   PageData & {
@@ -82,7 +82,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
     featuredVideo,
     cta
   } = data.contentfulSimplePage;
-  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentfull(
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
     breadcrumbTitle
   );

@@ -62,7 +62,7 @@ import { Product } from "../components/types/pim";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { ProductFilter, removePLPFilterPrefix } from "../utils/product-filters";
-import { updateBreadcrumbTitleFromContentfull } from "../utils/updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../utils/updateBreadcrumbTitle";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -133,7 +133,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     featuredVideo,
     cta
   } = data.contentfulProductListerPage;
-  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentfull(
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
     breadcrumbTitle
   );

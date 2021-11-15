@@ -22,7 +22,7 @@ import ContactTopics, {
 import Locations, { Data as LocationsData } from "../components/Locations";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { updateBreadcrumbTitleFromContentfull } from "../utils/updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../utils/updateBreadcrumbTitle";
 
 export type Data = PageInfoData &
   PageData & {
@@ -68,7 +68,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
     seo,
     featuredVideo
   } = data.contentfulContactUsPage;
-  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentfull(
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
     breadcrumbTitle
   );

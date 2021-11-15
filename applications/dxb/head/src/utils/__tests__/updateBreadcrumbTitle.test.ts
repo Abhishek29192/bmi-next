@@ -1,7 +1,7 @@
-import { updateBreadcrumbTitleFromContentfull } from "../updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../updateBreadcrumbTitle";
 import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 
-describe("updateBreadcrumbTitleFromContentfull function", () => {
+describe("updateBreadcrumbTitleFromContentful function", () => {
   it("should update title of breadcrumb by contentful if updated title exist", () => {
     const mockBreadcrumbs: BreadcrumbsData = [
       {
@@ -12,7 +12,7 @@ describe("updateBreadcrumbTitleFromContentfull function", () => {
     ];
     const mockBreadcrumbTitle: string | null = "mock-breadcrumb-title";
 
-    const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentfull(
+    const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
       mockBreadcrumbs,
       mockBreadcrumbTitle
     );
@@ -35,7 +35,7 @@ describe("updateBreadcrumbTitleFromContentfull function", () => {
     ];
     const mockBreadcrumbTitle: string | null = null;
 
-    const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentfull(
+    const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
       mockBreadcrumbs,
       mockBreadcrumbTitle
     );

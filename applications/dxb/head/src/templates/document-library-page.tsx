@@ -43,7 +43,7 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import filterStyles from "../components/styles/Filters.module.scss";
 import withGTM from "../utils/google-tag-manager";
-import { updateBreadcrumbTitleFromContentfull } from "../utils/updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../utils/updateBreadcrumbTitle";
 
 const PAGE_SIZE = 24;
 
@@ -125,7 +125,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     breadcrumbTitle,
     seo
   } = data.contentfulDocumentLibraryPage;
-  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentfull(
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
     breadcrumbTitle
   );

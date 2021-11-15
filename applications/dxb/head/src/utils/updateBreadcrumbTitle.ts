@@ -1,6 +1,6 @@
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
 
-export const updateBreadcrumbTitleFromContentfull = (
+export const updateBreadcrumbTitleFromContentful = (
   breadcrumbs: BreadcrumbsData,
   breadcrumbTitle: string
 ): BreadcrumbsData => {

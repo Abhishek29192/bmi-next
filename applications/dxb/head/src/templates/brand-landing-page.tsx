@@ -18,7 +18,7 @@ import Breadcrumbs, {
 import BrandLogo from "../components/BrandLogo";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { updateBreadcrumbTitleFromContentfull } from "../utils/updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../utils/updateBreadcrumbTitle";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
@@ -82,7 +82,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     seo,
     featuredVideo
   } = data.contentfulBrandLandingPage;
-  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentfull(
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
     breadcrumbTitle
   );
