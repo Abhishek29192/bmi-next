@@ -18,7 +18,7 @@ import Breadcrumbs, {
 import BrandLogo from "../components/BrandLogo";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { updateBreadcrumbTitleFromContentful } from "../utils/updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {

@@ -22,7 +22,7 @@ import ContactTopics, {
 import Locations, { Data as LocationsData } from "../components/Locations";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { updateBreadcrumbTitleFromContentful } from "../utils/updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 export type Data = PageInfoData &
   PageData & {

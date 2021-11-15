@@ -29,7 +29,7 @@ import ShareWidgetSection, {
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import Link, { Data as LinkData } from "../components/Link";
-import { updateBreadcrumbTitleFromContentful } from "../utils/updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 export type Data = PageInfoData &
   PageData & {

@@ -43,7 +43,7 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import filterStyles from "../components/styles/Filters.module.scss";
 import withGTM from "../utils/google-tag-manager";
-import { updateBreadcrumbTitleFromContentful } from "../utils/updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 const PAGE_SIZE = 24;
 

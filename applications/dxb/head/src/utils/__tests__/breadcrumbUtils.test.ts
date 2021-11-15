@@ -1,4 +1,4 @@
-import { updateBreadcrumbTitleFromContentful } from "../updateBreadcrumbTitle";
+import { updateBreadcrumbTitleFromContentful } from "../breadcrumbUtils";
 import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 
 describe("updateBreadcrumbTitleFromContentful function", () => {
