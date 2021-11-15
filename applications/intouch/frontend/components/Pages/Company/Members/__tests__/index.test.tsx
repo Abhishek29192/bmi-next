@@ -29,7 +29,8 @@ jest.mock("../../../../../graphql/generated/hooks", () => ({
   useInviteMutation: () => [inviteMock],
   useDeleteCompanyMemberMutation: () => [mockDelete],
   useTeamMembersLazyQuery: () => [mockCompanyMembers],
-  useUpdateRoleAccountMutation: () => [mockRoleAccountMutation]
+  useUpdateRoleAccountMutation: () => [mockRoleAccountMutation],
+  useGetTeamsReportLazyQuery: () => [jest.fn()]
 }));
 
 jest.mock("@bmi/use-dimensions", () => ({
@@ -355,6 +356,59 @@ describe("Company Members Page", () => {
         expect(
           within(wrapper.container).queryByTestId("change-role")
         ).toBeNull();
+      });
+    });
+    describe("User Action", () => {
+      it("the user action button shouldn't be visible if installer", async () => {
+        (useAccountContext as jest.Mock).mockImplementation(() => ({
+          account: { role: "INSTALLER" }
+        }));
+
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...props} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        expect(
+          within(wrapper.container).queryByTestId("change-user-status")
+        ).toBeNull();
+      });
+      it("the user action button shouldn't be visible if company admin", async () => {
+        (useAccountContext as jest.Mock).mockImplementation(() => ({
+          account: { role: "COMPANY_ADMIN" }
+        }));
+
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...props} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        expect(
+          within(wrapper.container).queryByTestId("change-user-status")
+        ).toBeNull();
+      });
+      it("the user action button visible if super admin", async () => {
+        (useAccountContext as jest.Mock).mockImplementation(() => ({
+          account: { role: "SUPER_ADMIN" }
+        }));
+
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...props} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        expect(
+          within(wrapper.container).getByTestId("change-user-status")
+        ).toBeTruthy();
       });
     });
   });

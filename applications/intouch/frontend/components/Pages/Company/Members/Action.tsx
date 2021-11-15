@@ -27,7 +27,11 @@ const CompanyMemberActionCard = ({
     <SimpleCard>
       <Typography variant="h5">{t("userActions.title")}</Typography>
       <div style={{ textAlign: "right" }}>
-        <Button onClick={toggleCompanyMemberAction} disabled={disabled}>
+        <Button
+          onClick={toggleCompanyMemberAction}
+          disabled={disabled}
+          data-testid="change-user-status"
+        >
           {status === "ACTIVE"
             ? t("userActions.action.deactivate")
             : t("userActions.action.activate")}
