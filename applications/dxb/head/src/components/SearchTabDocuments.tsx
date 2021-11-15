@@ -10,7 +10,8 @@ import {
 import {
   queryElasticSearch,
   disableFiltersFromAggregations,
-  getCountQuery
+  getCountQuery,
+  getDocumentQueryObject
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
@@ -58,72 +59,15 @@ type Props = {
   };
 };
 
-const getQueryObject = (queryString, page = 0, filters = []) => {
-  // Filters in the query
-  // TODO: this acts like it handles many filters but actually handles one. refactor
-  const filtersQuery = filters
-    .filter(({ value }) => value.length)
-    .map((filter) => {
-      const termQuery = (value) => ({
-        term: {
-          ["assetType.pimCode.keyword"]: value
-        }
-      });
-      const query =
-        filter.value.length === 1
-          ? termQuery(filter.value[0])
-          : {
-              bool: {
-                should: filter.value.map(termQuery)
-              }
-            };
-
-      return query;
-    });
-
-  const queryElements = [
-    {
-      query_string: {
-        query: `*${queryString}*`,
-        type: "cross_fields",
-        fields: ["title"]
-      }
-    },
-    ...filtersQuery
-  ];
-
-  return {
-    size: PAGE_SIZE,
-    from: page * PAGE_SIZE,
-    sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
-    aggs: {
-      assetTypes: {
-        terms: {
-          size: "100",
-          field: "assetType.pimCode.keyword"
-        }
-      }
-    },
-    query:
-      queryElements.length === 1
-        ? queryElements[0]
-        : {
-            bool: {
-              must: queryElements
-            }
-          }
-  };
-};
-
 export const getCount = async (queryString) => {
-  const esQueryObject = getQueryObject(queryString);
+  const esQueryObject = getDocumentQueryObject(queryString, PAGE_SIZE);
 
   const countResult = await queryElasticSearch(
     getCountQuery(esQueryObject),
     ES_INDEX_NAME
   );
 
-  return countResult?.hits?.total?.value;
+  return countResult?.aggregations?.total?.value;
 };
 
 const SearchTabPanelDocuments = (props: Props) => {
@@ -169,21 +113,26 @@ const SearchTabPanelDocuments = (props: Props) => {
 
     updateLoadingStatus(true);
 
-    const esQueryObject = getQueryObject(queryString, page, filters);
+    const esQueryObject = getDocumentQueryObject(
+      queryString,
+      pageSize,
+      page,
+      filters
+    );
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
     const results = await queryElasticSearch(esQueryObject, ES_INDEX_NAME);
 
     if (results && results.hits) {
-      const { hits } = results;
-      const newPageCount = Math.ceil(hits.total.value / PAGE_SIZE);
+      const { hits, aggregations } = results;
+      const newPageCount = Math.ceil(aggregations.total.value / PAGE_SIZE);
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
       setResults(hits.hits.map((hit) => hit._source));
 
-      onCountChange && onCountChange(hits.total.value);
+      onCountChange && onCountChange(aggregations.total.value);
     }
 
     updateLoadingStatus(false);
