@@ -10,7 +10,8 @@ import {
 import {
   queryElasticSearch,
   disableFiltersFromAggregations,
-  getCountQuery
+  getCountQuery,
+  getDocumentQueryObject
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
@@ -58,73 +59,8 @@ type Props = {
   };
 };
 
-const getQueryObject = (queryString, page = 0, filters = []) => {
-  // Filters in the query
-  // TODO: this acts like it handles many filters but actually handles one. refactor
-  const filtersQuery = filters
-    .filter(({ value }) => value.length)
-    .map((filter) => {
-      const termQuery = (value) => ({
-        term: {
-          ["assetType.pimCode.keyword"]: value
-        }
-      });
-      const query =
-        filter.value.length === 1
-          ? termQuery(filter.value[0])
-          : {
-              bool: {
-                should: filter.value.map(termQuery)
-              }
-            };
-
-      return query;
-    });
-
-  const queryElements = [
-    {
-      query_string: {
-        query: `*${queryString}*`,
-        type: "cross_fields",
-        fields: ["title"]
-      }
-    },
-    ...filtersQuery
-  ];
-
-  return {
-    size: PAGE_SIZE,
-    from: page * PAGE_SIZE,
-    sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
-    aggs: {
-      assetTypes: {
-        terms: {
-          size: "100",
-          field: "assetType.pimCode.keyword"
-        }
-      },
-      total: {
-        cardinality: {
-          field: "titleAndSize.keyword"
-        }
-      }
-    },
-    query:
-      queryElements.length === 1
-        ? queryElements[0]
-        : {
-            bool: {
-              must: queryElements
-            }
-          },
-    collapse: {
-      field: "titleAndSize.keyword"
-    }
-  };
-};
-
 export const getCount = async (queryString) => {
-  const esQueryObject = getQueryObject(queryString);
+  const esQueryObject = getDocumentQueryObject(queryString, PAGE_SIZE);
 
   const countResult = await queryElasticSearch(
     getCountQuery(esQueryObject),
@@ -177,7 +113,12 @@ const SearchTabPanelDocuments = (props: Props) => {
 
     updateLoadingStatus(true);
 
-    const esQueryObject = getQueryObject(queryString, page, filters);
+    const esQueryObject = getDocumentQueryObject(
+      queryString,
+      pageSize,
+      page,
+      filters
+    );
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
