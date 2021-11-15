@@ -172,20 +172,3 @@ export type Product = {
   summary: string;
   variantOptions?: readonly VariantOption[];
 };
-
-export enum ClassificationCodeEnum {
-  APPEARANCE_ATTRIBUTE = "appearanceAttributes",
-  MEASUREMENTS = "measurements",
-  GENERAL_INFORMATION = "generalInformation"
-}
-
-export enum FeatureCodeEnum {
-  COLOUR = "colour",
-  TEXTURE_FAMILY = "texturefamily",
-  COLOUR_FAMILY = "colourfamily",
-  MATERIALS = "materials",
-  LENGTH = "length",
-  WIDTH = "width",
-  HEIGHT = "height",
-  VARIANT_ATTRIBUTE = "variantattribute"
-}

@@ -2,11 +2,13 @@ import Button from "@bmi/button";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
 import Section from "@bmi/section";
 import React, { useEffect, useState } from "react";
+import { ButtonProps } from "@bmi/button/src";
 import {
   ACTION_TYPES,
   createSample,
   useBasketContext
 } from "../contexts/SampleBasketContext";
+import withGTM from "../utils/google-tag-manager";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
 import { getCTA } from "./Link";
@@ -18,13 +20,15 @@ const SampleOrderSection = ({
   product,
   variant,
   maximumSamples,
-  sampleBasketLinkInfo
+  sampleBasketLinkInfo,
+  actionLabel
 }: {
   isSampleOrderAllowed: Boolean;
   product: Product;
   variant?: VariantOption;
   maximumSamples?: number;
   sampleBasketLinkInfo?: PageInfoData;
+  actionLabel?: string;
 }) => {
   const { basketState, basketDispatch } = useBasketContext();
   //actions
@@ -67,6 +71,7 @@ const SampleOrderSection = ({
   const cta =
     sampleBasketLinkInfo &&
     getCTA(sampleBasketLinkInfo, countryCode, sampleBasketLinkInfo?.slug);
+  const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
     (isSampleOrderAllowed || basketHasProducts) && (
@@ -92,13 +97,18 @@ const SampleOrderSection = ({
                 {getMicroCopy("pdp.overview.removeSample")}
               </Button>
             ) : !isBasketFull ? (
-              <Button
+              <GTMButton
                 className={styles["add-to-basket"]}
                 endIcon={<Add />}
                 onClick={() => addToBasket(variant)}
+                gtm={{
+                  id: "cta-click1-samples-ordering",
+                  label: getMicroCopy("pdp.overview.addSample"),
+                  action: actionLabel
+                }}
               >
                 {getMicroCopy("pdp.overview.addSample")}
-              </Button>
+              </GTMButton>
             ) : undefined
           ) : undefined}
           {basketHasProducts && cta && cta.action && (

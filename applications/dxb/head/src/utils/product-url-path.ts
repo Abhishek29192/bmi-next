@@ -1,15 +1,13 @@
 import {
-  ClassificationCodeEnum,
-  FeatureCodeEnum
-} from "@bmi/es-pim-products-ingest/src/pim";
-import {
   Classification,
   Product,
-  VariantOption
+  VariantOption,
+  ClassificationCodeEnum,
+  FeatureCodeEnum
 } from "../components/types/pim";
 import { combineVariantClassifications } from "./filters";
 
-type AttributeCodeMap = {
+export type AttributeCodeMap = {
   [key in ClassificationCodeEnum]?: {
     attrName: string;
     separator?: string;
@@ -38,6 +36,7 @@ export const extractFeatureValuesByClassification = (
           const featureByFeatureCode = classification.features.find((feature) =>
             feature.code.toLocaleLowerCase().endsWith(featuresCode.attrName)
           );
+          const separator = featuresCode.separator || "";
           if (
             featureByFeatureCode &&
             featureByFeatureCode.featureValues &&
@@ -45,11 +44,11 @@ export const extractFeatureValuesByClassification = (
           ) {
             const featureValue = featureByFeatureCode.featureValues[0].value;
             const val = featuresCode.fromStart
-              ? featuresCode.separator.concat(featureValue)
-              : featureValue.concat(featuresCode.separator || "");
+              ? `${separator}${featureValue}`
+              : `${featureValue}${separator}`;
             urlFromFeatures.push(val);
           }
-          return [urlFromFeatures.join("")];
+          return separator ? [urlFromFeatures.join("")] : urlFromFeatures;
         },
         []
       );
