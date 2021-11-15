@@ -10,8 +10,8 @@ import {
 import { Data as PageInfoData } from "../PageInfo";
 import { SiteContextProvider } from "../Site";
 import { Product } from "../types/pim";
-import { getMockSiteContext } from "./utils/SiteContextProvider";
 import { createVariantOption } from "../../__tests__/PimDocumentProductHelper";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 afterEach(() => {
   cleanup();

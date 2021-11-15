@@ -187,7 +187,18 @@ const pimSystem = {
       {
         assetType: ImageAssetTypesEnum.MASTER_IMAGE,
         format: "Product-Listing-Card-Large-Desktop",
-        url: "testhttp",
+        url: "product-listing-card-large-desktop-url",
+        allowedToDownload: true,
+        containerId: "container_490189 wireløper.jpg",
+        fileSize: 172262,
+        mime: "image/jpeg",
+        name: "Product-Hero-Large-Desktop_490189 wireløper",
+        realFileName: "Product-Hero-Large-Desktop_490189 wireløper.jpg"
+      },
+      {
+        assetType: "MASTER_IMAGE",
+        format: "Product-Listing-Card-Small-Desktop-Tablet",
+        url: "product-listing-card-small-desktop-tablet",
         allowedToDownload: true,
         containerId: "container_490189 wireløper.jpg",
         fileSize: 172262,

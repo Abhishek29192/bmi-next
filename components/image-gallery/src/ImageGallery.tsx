@@ -9,7 +9,7 @@ import { Image } from "./types";
 import styles from "./ImageGallery.module.scss";
 
 type Props = {
-  images: Image[];
+  images: readonly Image[];
   imageSize?: "cover" | "contain";
   thumbnailComponent?: React.ComponentType<any>; // TODO
   layout?: "default" | "short";

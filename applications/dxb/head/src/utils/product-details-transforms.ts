@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
+import { Image as ImageGalleryImage } from "@bmi/image-gallery";
 import React from "react";
 import {
   Category,
@@ -104,20 +105,25 @@ export const getSizeLabel = (
   );
 };
 
-export const findMasterImageUrl = (images: Image[] | null): string =>
+export const findMasterImageUrl = (images: readonly Image[] | null): string =>
   images?.find(
     (image) =>
       image.assetType === ImageAssetTypesEnum.MASTER_IMAGE &&
-      image.format == "Product-Listing-Card-Large-Desktop"
+      image.format == "Product-Listing-Card-Small-Desktop-Tablet"
   )?.url;
 
 export const findProductBrandLogoCode = (product: Product) =>
   product.categories.find((category) => category.categoryType === "Brands")
     ?.code;
 
-export const transformImages = (images: GalleryImageType[]) => {
+export const transformImages = (
+  images: readonly GalleryImageType[]
+): readonly ImageGalleryImage[] => {
   return images.map(({ mainSource, thumbnail, altText }) => ({
-    media: React.createElement("img", { src: mainSource, alt: altText }),
+    media: React.createElement("img", {
+      src: mainSource,
+      alt: altText
+    } as HTMLImageElement),
     thumbnail
   }));
 };

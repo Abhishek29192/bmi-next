@@ -5,7 +5,7 @@ import styles from "./ImageGallery.module.scss";
 import { Image } from "./types";
 
 type Props = {
-  images: Image[];
+  images: readonly Image[];
   /** The index to identify the active thumbnail */
   activeImageIndex: number;
   onThumbnailClick: (index: number) => void;

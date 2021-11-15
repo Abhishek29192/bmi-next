@@ -263,7 +263,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               >
                 <div
                   class="header-picture header-picture--contain"
-                  style="background-image: url(testhttp);"
+                  style="background-image: url(product-listing-card-small-desktop-tablet);"
                 />
                 <div
                   class="body"
@@ -573,7 +573,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               >
                 <div
                   class="header-picture header-picture--contain"
-                  style="background-image: url(testhttp);"
+                  style="background-image: url(product-listing-card-small-desktop-tablet);"
                 />
                 <div
                   class="body"
@@ -1598,7 +1598,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               >
                 <div
                   class="header-picture header-picture--contain"
-                  style="background-image: url(testhttp);"
+                  style="background-image: url(product-listing-card-small-desktop-tablet);"
                 />
                 <div
                   class="body"
@@ -3871,7 +3871,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               >
                 <div
                   class="header-picture header-picture--contain"
-                  style="background-image: url(testhttp);"
+                  style="background-image: url(product-listing-card-small-desktop-tablet);"
                 />
                 <div
                   class="body"
