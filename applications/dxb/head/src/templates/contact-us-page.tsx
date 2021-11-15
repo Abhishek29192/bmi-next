@@ -22,6 +22,7 @@ import ContactTopics, {
 import Locations, { Data as LocationsData } from "../components/Locations";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
+import { updateBreadcrumbTitleFromContentfull } from "../utils/updateBreadcrumbTitle";
 
 export type Data = PageInfoData &
   PageData & {
@@ -35,6 +36,7 @@ export type Data = PageInfoData &
     iframe: IframeSectionData | null;
     nextBestActions: NextBestActionsData | null;
     breadcrumbs: BreadcrumbsData;
+    breadcrumbTitle: string;
   };
 
 type Props = {
@@ -62,9 +64,14 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
     iframe,
     nextBestActions,
     breadcrumbs,
+    breadcrumbTitle,
     seo,
     featuredVideo
   } = data.contentfulContactUsPage;
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentfull(
+    breadcrumbs,
+    breadcrumbTitle
+  );
   const heroProps: HeroItem = {
     title,
     children: subtitle,
@@ -73,7 +80,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
       : renderImage(featuredMedia, { size: "cover" })
   };
   const pageData: PageData = {
-    breadcrumbs,
+    breadcrumbs: enhancedBreadcrumbs,
     inputBanner,
     seo
   };
@@ -89,7 +96,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
       <Hero
         level={1}
         {...heroProps}
-        breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
+        breadcrumbs={<Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />}
       />
       <Section backgroundColor="pearl" overflowVisible>
         <Section.Title>{queriesTitle}</Section.Title>

@@ -9,6 +9,7 @@ describe("ExploreBarSection component", () => {
       __typename: "ContentfulSimplePage",
       brandLogo: "Zanda",
       breadcrumbs: [],
+      breadcrumbTitle: "",
       cta: {
         __typename: "ContentfulLink",
         id: "string",

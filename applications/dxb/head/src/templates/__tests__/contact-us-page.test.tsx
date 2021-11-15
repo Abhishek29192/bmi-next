@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import regions from "../../countries/region.json";
 import ContactUsPage, { Data } from "../contact-us-page";
 
 describe("Contact us page", () => {
@@ -90,6 +89,7 @@ describe("Contact us page", () => {
           slug: "contact-us"
         }
       ],
+      breadcrumbTitle: "",
       queriesTitle: "What do you wish to contact us about?",
       queriesSubtitle: "Choose one of the options below",
       contentTopics: [

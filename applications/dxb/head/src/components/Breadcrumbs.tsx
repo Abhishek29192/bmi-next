@@ -83,5 +83,6 @@ export default IntegratedBreadcrumbs;
 export const query = graphql`
   fragment BreadcrumbsFragment on ContentfulPage {
     breadcrumbs
+    breadcrumbTitle
   }
 `;

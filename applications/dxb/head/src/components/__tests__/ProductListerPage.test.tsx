@@ -28,6 +28,7 @@ type Data = PageInfoData &
     features: string[] | null;
     featuresLink: LinkData | null;
     breadcrumbs: BreadcrumbsData;
+    breadcrumbTitle: string;
     heroType:
       | "Hierarchy"
       | "Spotlight"
@@ -91,6 +92,7 @@ const pageInfo: Data = {
       slug: "/test"
     }
   ],
+  breadcrumbTitle: "",
   inputBanner: null,
   seo: null,
   featuredVideo: null,

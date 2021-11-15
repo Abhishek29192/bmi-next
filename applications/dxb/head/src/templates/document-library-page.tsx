@@ -43,6 +43,7 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import filterStyles from "../components/styles/Filters.module.scss";
 import withGTM from "../utils/google-tag-manager";
+import { updateBreadcrumbTitleFromContentfull } from "../utils/updateBreadcrumbTitle";
 
 const PAGE_SIZE = 24;
 
@@ -63,6 +64,7 @@ type Data = PageInfoData &
     documents: DocumentResultsData;
     breadcrumbs: BreadcrumbsData;
     categoryCodes: string[];
+    breadcrumbTitle: string;
   };
 
 type Props = {
@@ -120,11 +122,15 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     source,
     resultsType,
     breadcrumbs,
+    breadcrumbTitle,
     seo
   } = data.contentfulDocumentLibraryPage;
-
-  const pageData: PageData = {
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentfull(
     breadcrumbs,
+    breadcrumbTitle
+  );
+  const pageData: PageData = {
+    breadcrumbs: enhancedBreadcrumbs,
     inputBanner: data.contentfulDocumentLibraryPage.inputBanner,
     seo
   };
@@ -249,7 +255,9 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
           <Hero
             level={2}
             title={title}
-            breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
+            breadcrumbs={
+              <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+            }
           />
           {description && (
             <Section backgroundColor="white">
@@ -349,7 +357,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
             </Section>
           </DownloadList>
           <Section backgroundColor="alabaster" isSlim>
-            <Breadcrumbs data={breadcrumbs} />
+            <Breadcrumbs data={enhancedBreadcrumbs} />
           </Section>
         </>
       )}
