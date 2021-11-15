@@ -147,42 +147,6 @@ Array [
 ]
 `;
 
-exports[`getDocumentFilters tests When ALL Simple are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-  undefined,
-  undefined,
-]
-`;
-
-exports[`getDocumentFilters tests When CMS Card Collection are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-]
-`;
-
-exports[`getDocumentFilters tests When CMS Simple are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-  undefined,
-]
-`;
-
-exports[`getDocumentFilters tests When PIM Simple are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-  undefined,
-  undefined,
-]
-`;
-
-exports[`getDocumentFilters tests When PIM Technical are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-  undefined,
-]
-`;
-
 exports[`updateFilterValue tests When non checked updateFilterValue is requested Then: returns updated filters 1`] = `
 Array [
   Object {

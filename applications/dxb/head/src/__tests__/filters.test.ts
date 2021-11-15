@@ -1461,6 +1461,64 @@ describe("filters tests", () => {
           ]);
         });
       });
+      describe("And base product has unique features that its variant feature does not have for same classifications", () => {
+        it("returns base features that are not present in variant", () => {
+          const result = combineVariantClassifications(
+            createBaseProduct({
+              classifications: [
+                createClassification({
+                  code: "class-1",
+                  name: "class-1",
+                  features: [
+                    createFeature({
+                      code: "feature-1",
+                      featureValues: [
+                        {
+                          value: "feature-value-1",
+                          code: "feature-value-code-1"
+                        }
+                      ]
+                    })
+                  ]
+                })
+              ]
+            }),
+            createVariantOption({
+              classifications: [
+                createClassification({
+                  code: "class-1",
+                  name: "class-1",
+                  features: []
+                })
+              ]
+            })
+          );
+
+          expect(result).toEqual([
+            {
+              name: "class-1",
+              code: "class-1",
+              features: [
+                {
+                  name: "classification-feature-name",
+                  code: "feature-1",
+                  featureValues: [
+                    {
+                      code: "feature-value-code-1",
+                      value: "feature-value-1"
+                    }
+                  ],
+                  featureUnit: {
+                    name: "classification-feature-feature-unit-name",
+                    symbol: "classification-feature-feature-unit-symbol",
+                    unitType: "classification-feature-feature-unit-unit-type"
+                  }
+                }
+              ]
+            }
+          ]);
+        });
+      });
     });
   });
 
@@ -2589,283 +2647,754 @@ describe("filters tests", () => {
     });
 
     describe("When 'PIM' document data is viewed in 'Simple' Page", () => {
-      it("Then: returns brand and product family filters", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+      describe("and allowFilterBy is not provided", () => {
+        it("Then: returns brand and product family filters", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl: string = "http://localhost/document/library/";
 
-        const pimDocument = createPimDocument({
-          id: `pim-doc-id`,
-          url: `${baseUrl}pim-doc-url`,
-          product: createProduct({
-            categories: [
-              createCategory({ categoryType: "Brand" }),
-              createCategory({ categoryType: "ProductFamily" })
-            ],
-            classifications: [createClassification()]
-          })
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" })
+              ],
+              classifications: [createClassification()]
+            })
+          });
+
+          const expectedResult = [
+            {
+              label: "filterLabels.brand",
+              name: "brand",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "filterLabels.productFamily",
+              name: "productFamily",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            }
+          ];
+
+          inputDataItems.push(pimDocument);
+          const result = getDocumentFilters(
+            inputDataItems,
+            "PIM",
+            "Simple",
+            "classificationNamespace",
+            []
+          );
+          expect(result).toEqual(expectedResult);
         });
+      });
+      describe("and allowFilterBy is provided", () => {
+        it("Then: returns category filters", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const expectedResult = [
-          {
-            label: "filterLabels.brand",
-            name: "brand",
-            options: [
-              {
-                label: "category-name",
-                value: "category-code"
-              }
-            ],
-            value: []
-          },
-          {
-            label: "filterLabels.productFamily",
-            name: "productFamily",
-            options: [
-              {
-                label: "category-name",
-                value: "category-code"
-              }
-            ],
-            value: []
-          },
-          undefined
-        ];
+          const baseUrl: string = "http://localhost/document/library/";
 
-        inputDataItems.push(pimDocument);
-        const result = getDocumentFilters(
-          inputDataItems,
-          "PIM",
-          "Simple",
-          "classificationNamespace",
-          []
-        );
-        expect(result).toEqual(expectedResult);
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "MAINTILE_CLAY_NO"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "CONSTRUCTION"
+                })
+              ],
+              classifications: [createClassification()]
+            })
+          });
+
+          const expectedResult = [
+            {
+              label: "filterLabels.brand",
+              name: "brand",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "filterLabels.productFamily",
+              name: "productFamily",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "",
+              name: "plpFilter.Category",
+              options: [
+                {
+                  label: "category-name",
+                  value: "MAINTILE_CLAY_NO"
+                },
+                {
+                  label: "category-name",
+                  value: "CONSTRUCTION"
+                }
+              ]
+            }
+          ];
+
+          inputDataItems.push(pimDocument);
+          const result = getDocumentFilters(
+            inputDataItems,
+            "PIM",
+            "Simple",
+            "classificationNamespace",
+            ["Category | MAINTILE_CLAY_NO", "Category | CONSTRUCTION"]
+          );
+          expect(result).toEqual(expectedResult);
+        });
       });
     });
 
     describe("When 'PIM' document data is viewed in 'Technical' Page", () => {
-      it("Then: returns brand and product family filters", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+      describe("and allowFilterBy is not provided", () => {
+        it("Then: returns brand and product family filters", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl: string = "http://localhost/document/library/";
 
-        const pimDocument = createPimDocument({
-          id: `pim-doc-id`,
-          url: `${baseUrl}pim-doc-url`,
-          product: createProduct({
-            categories: [
-              createCategory({ categoryType: "Brand" }),
-              createCategory({ categoryType: "ProductFamily" })
-            ],
-            classifications: [createClassification()]
-          })
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" })
+              ],
+              classifications: [createClassification()]
+            })
+          });
+
+          const expectedResult = [
+            {
+              label: "filterLabels.brand",
+              name: "brand",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "filterLabels.productFamily",
+              name: "productFamily",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            }
+          ];
+
+          inputDataItems.push(pimDocument);
+          const result = getDocumentFilters(
+            inputDataItems,
+            "PIM",
+            "Technical",
+            "classificationNamespace",
+            []
+          );
+          expect(result).toEqual(expectedResult);
         });
+      });
 
-        const expectedResult = [
-          {
-            label: "filterLabels.brand",
-            name: "brand",
-            options: [
-              {
-                label: "category-name",
-                value: "category-code"
-              }
-            ],
-            value: []
-          },
-          {
-            label: "filterLabels.productFamily",
-            name: "productFamily",
-            options: [
-              {
-                label: "category-name",
-                value: "category-code"
-              }
-            ],
-            value: []
-          }
-        ];
+      describe("and allowFilterBy is provided", () => {
+        it("Then: returns category filters", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        inputDataItems.push(pimDocument);
-        const result = getDocumentFilters(
-          inputDataItems,
-          "PIM",
-          "Technical",
-          "classificationNamespace",
-          []
-        );
-        expect(result).toEqual(expectedResult);
+          const baseUrl: string = "http://localhost/document/library/";
+
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "MAINTILE_CLAY_NO"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "CONSTRUCTION"
+                })
+              ],
+              classifications: [createClassification()]
+            })
+          });
+
+          const expectedResult = [
+            {
+              label: "filterLabels.brand",
+              name: "brand",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "filterLabels.productFamily",
+              name: "productFamily",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "",
+              name: "plpFilter.Category",
+              options: [
+                {
+                  label: "category-name",
+                  value: "MAINTILE_CLAY_NO"
+                },
+                {
+                  label: "category-name",
+                  value: "CONSTRUCTION"
+                }
+              ]
+            }
+          ];
+
+          inputDataItems.push(pimDocument);
+          const result = getDocumentFilters(
+            inputDataItems,
+            "PIM",
+            "Technical",
+            "classificationNamespace",
+            ["Category | MAINTILE_CLAY_NO", "Category | CONSTRUCTION"]
+          );
+          expect(result).toEqual(expectedResult);
+        });
       });
     });
 
     describe("When 'CMS' document data is viewed in 'Card Collection' Page", () => {
-      it("Then: returns brand filters", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+      describe("and allowFilterBy is not provided", () => {
+        it("Then: returns brand filters", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl: string = "http://localhost/document/library/";
 
-        const pimDocument = createPimDocument({
-          id: `pim-doc-id`,
-          url: `${baseUrl}pim-doc-url`,
-          product: createProduct({
-            categories: [
-              createCategory({ categoryType: "Brand" }),
-              createCategory({ categoryType: "ProductFamily" })
-            ],
-            classifications: [createClassification()]
-          })
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" })
+              ],
+              classifications: [createClassification()]
+            })
+          });
+
+          const expectedResult = [
+            {
+              label: "filterLabels.brand",
+              name: "brand",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            }
+          ];
+
+          inputDataItems.push(pimDocument);
+          const result = getDocumentFilters(
+            inputDataItems,
+            "CMS",
+            "Card Collection",
+            "classificationNamespace",
+            []
+          );
+          expect(result).toEqual(expectedResult);
         });
+      });
+      describe("and allowFilterBy is provided", () => {
+        it("Then: does NOT return category filters", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const expectedResult = [
-          {
-            label: "filterLabels.brand",
-            name: "brand",
-            options: [
-              {
-                label: "category-name",
-                value: "category-code"
-              }
-            ],
-            value: []
-          }
-        ];
+          const baseUrl: string = "http://localhost/document/library/";
 
-        inputDataItems.push(pimDocument);
-        const result = getDocumentFilters(
-          inputDataItems,
-          "CMS",
-          "Card Collection",
-          "classificationNamespace",
-          []
-        );
-        expect(result).toEqual(expectedResult);
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "MAINTILE_CLAY_NO"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "CONSTRUCTION"
+                })
+              ],
+              classifications: [createClassification()]
+            })
+          });
+
+          const expectedResult = [
+            {
+              label: "filterLabels.brand",
+              name: "brand",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            }
+          ];
+
+          inputDataItems.push(pimDocument);
+          const result = getDocumentFilters(
+            inputDataItems,
+            "CMS",
+            "Card Collection",
+            "classificationNamespace",
+            ["Category | MAINTILE_CLAY_NO", "Category | CONSTRUCTION"]
+          );
+          expect(result).toEqual(expectedResult);
+        });
       });
     });
 
     describe("When 'CMS' document data is viewed in 'Simple' Page", () => {
-      it("Then: returns brand filters", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+      describe("and allowFilterBy is not provided", () => {
+        it("Then: returns brand filters", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl: string = "http://localhost/document/library/";
 
-        const pimDocument = createPimDocument({
-          id: `pim-doc-id`,
-          url: `${baseUrl}pim-doc-url`,
-          product: createProduct({
-            categories: [
-              createCategory({ categoryType: "Brand" }),
-              createCategory({ categoryType: "ProductFamily" })
-            ],
-            classifications: [createClassification()]
-          })
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" })
+              ],
+              classifications: [createClassification()]
+            })
+          });
+
+          const expectedResult = [
+            {
+              label: "filterLabels.brand",
+              name: "brand",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "filterLabels.assetType",
+              name: "contentfulAssetType",
+              options: [
+                {
+                  label: "asset-name",
+                  value: "asset-code"
+                }
+              ],
+              value: []
+            }
+          ];
+
+          inputDataItems.push(pimDocument);
+          const result = getDocumentFilters(
+            inputDataItems,
+            "CMS",
+            "Simple",
+            "classificationNamespace",
+            []
+          );
+          expect(result).toEqual(expectedResult);
         });
+      });
+      describe("and allowFilterBy is provided with categories to filter", () => {
+        it("Then: returns category filters", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const expectedResult = [
-          {
-            label: "filterLabels.brand",
-            name: "brand",
-            options: [
-              {
-                label: "category-name",
-                value: "category-code"
-              }
-            ],
-            value: []
-          },
-          {
-            label: "filterLabels.assetType",
-            name: "contentfulAssetType",
-            options: [
-              {
-                label: "asset-name",
-                value: "asset-code"
-              }
-            ],
-            value: []
-          }
-        ];
+          const baseUrl: string = "http://localhost/document/library/";
 
-        inputDataItems.push(pimDocument);
-        const result = getDocumentFilters(
-          inputDataItems,
-          "CMS",
-          "Simple",
-          "classificationNamespace",
-          []
-        );
-        expect(result).toEqual(expectedResult);
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "MAINTILE_CLAY_NO"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "CONSTRUCTION"
+                })
+              ],
+              classifications: [createClassification()]
+            })
+          });
+
+          const expectedResult = [
+            {
+              label: "filterLabels.brand",
+              name: "brand",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "filterLabels.assetType",
+              name: "contentfulAssetType",
+              options: [
+                {
+                  label: "asset-name",
+                  value: "asset-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "",
+              name: "plpFilter.Category",
+              options: [
+                {
+                  label: "category-name",
+                  value: "MAINTILE_CLAY_NO"
+                },
+                {
+                  label: "category-name",
+                  value: "CONSTRUCTION"
+                }
+              ]
+            }
+          ];
+
+          inputDataItems.push(pimDocument);
+          const result = getDocumentFilters(
+            inputDataItems,
+            "CMS",
+            "Simple",
+            "classificationNamespace",
+            ["Category | MAINTILE_CLAY_NO", "Category | CONSTRUCTION"]
+          );
+          expect(result).toEqual(expectedResult);
+        });
       });
     });
 
     describe("When 'ALL' document data is viewed in 'Simple' Page", () => {
-      it("Then: returns brand filters", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+      describe("and allowFilterBy is not provided", () => {
+        it("Then: returns brand filters", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl: string = "http://localhost/document/library/";
 
-        const pimDocument = createPimDocument({
-          id: `pim-doc-id`,
-          url: `${baseUrl}pim-doc-url`,
-          product: createProduct({
-            categories: [
-              createCategory({ categoryType: "Brand" }),
-              createCategory({ categoryType: "ProductFamily" })
-            ],
-            classifications: [createClassification()]
-          })
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" })
+              ],
+              classifications: [createClassification()]
+            })
+          });
+
+          const expectedResult = [
+            {
+              label: "filterLabels.assetType",
+              name: "contentfulAssetType",
+              options: [
+                {
+                  label: "asset-name",
+                  value: "asset-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "filterLabels.brand",
+              name: "brand",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            },
+            {
+              label: "filterLabels.productFamily",
+              name: "productFamily",
+              options: [
+                {
+                  label: "category-name",
+                  value: "category-code"
+                }
+              ],
+              value: []
+            }
+          ];
+
+          inputDataItems.push(pimDocument);
+          const result = getDocumentFilters(
+            inputDataItems,
+            "ALL",
+            "Simple",
+            "classificationNamespace",
+            []
+          );
+          expect(result).toEqual(expectedResult);
         });
+      });
+      describe("and allowFilterBy is provided with categories to filter", () => {
+        describe("and matching categories DO NOT exist in document products", () => {
+          it("Then: returns category filters", () => {
+            const inputDataItems: DocumentResultsData =
+              Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const expectedResult = [
-          {
-            label: "filterLabels.assetType",
-            name: "contentfulAssetType",
-            options: [
-              {
-                label: "asset-name",
-                value: "asset-code"
-              }
-            ],
-            value: []
-          },
-          {
-            label: "filterLabels.brand",
-            name: "brand",
-            options: [
-              {
-                label: "category-name",
-                value: "category-code"
-              }
-            ],
-            value: []
-          },
-          {
-            label: "filterLabels.productFamily",
-            name: "productFamily",
-            options: [
-              {
-                label: "category-name",
-                value: "category-code"
-              }
-            ],
-            value: []
-          }
-        ];
+            const baseUrl: string = "http://localhost/document/library/";
 
-        inputDataItems.push(pimDocument);
-        const result = getDocumentFilters(
-          inputDataItems,
-          "ALL",
-          "Simple",
-          "classificationNamespace",
-          []
-        );
-        expect(result).toEqual(expectedResult);
+            const pimDocument = createPimDocument({
+              id: `pim-doc-id`,
+              url: `${baseUrl}pim-doc-url`,
+              product: createProduct({
+                categories: [
+                  createCategory({ categoryType: "Brand" }),
+                  createCategory({ categoryType: "ProductFamily" }),
+                  createCategory({
+                    categoryType: "Category",
+                    code: "MAINTILE_CLAY_NO"
+                  }),
+                  createCategory({
+                    categoryType: "Category",
+                    code: "CONSTRUCTION"
+                  })
+                ],
+                classifications: [createClassification()]
+              })
+            });
+
+            const expectedResult = [
+              {
+                label: "filterLabels.assetType",
+                name: "contentfulAssetType",
+                options: [
+                  {
+                    label: "asset-name",
+                    value: "asset-code"
+                  }
+                ],
+                value: []
+              },
+              {
+                label: "filterLabels.brand",
+                name: "brand",
+                options: [
+                  {
+                    label: "category-name",
+                    value: "category-code"
+                  }
+                ],
+                value: []
+              },
+              {
+                label: "filterLabels.productFamily",
+                name: "productFamily",
+                options: [
+                  {
+                    label: "category-name",
+                    value: "category-code"
+                  }
+                ],
+                value: []
+              }
+            ];
+
+            inputDataItems.push(pimDocument);
+            const result = getDocumentFilters(
+              inputDataItems,
+              "ALL",
+              "Simple",
+              "classificationNamespace",
+              ["MAINTILE_CLAY_NO", "CONSTRUCTION"]
+            );
+            expect(result).toEqual(expectedResult);
+          });
+        });
+        describe("and matching categories exists in document products", () => {
+          it("Then: returns category filters", () => {
+            const inputDataItems: DocumentResultsData =
+              Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+            const baseUrl: string = "http://localhost/document/library/";
+
+            const pimDocument = createPimDocument({
+              id: `pim-doc-id`,
+              url: `${baseUrl}pim-doc-url`,
+              product: createProduct({
+                categories: [
+                  createCategory({ categoryType: "Brand" }),
+                  createCategory({ categoryType: "ProductFamily" }),
+                  createCategory({
+                    categoryType: "Category",
+                    code: "MAINTILE_CLAY"
+                  }),
+                  createCategory({
+                    categoryType: "Category",
+                    code: "CONSTRUCTION"
+                  }),
+                  createCategory({
+                    categoryType: "ROOF_NO",
+                    code: "ROOF"
+                  })
+                ],
+                classifications: [createClassification()]
+              })
+            });
+
+            const expectedResult = [
+              {
+                label: "filterLabels.assetType",
+                name: "contentfulAssetType",
+                options: [
+                  {
+                    label: "asset-name",
+                    value: "asset-code"
+                  }
+                ],
+                value: []
+              },
+              {
+                label: "filterLabels.brand",
+                name: "brand",
+                options: [
+                  {
+                    label: "category-name",
+                    value: "category-code"
+                  }
+                ],
+                value: []
+              },
+              {
+                label: "filterLabels.productFamily",
+                name: "productFamily",
+                options: [
+                  {
+                    label: "category-name",
+                    value: "category-code"
+                  }
+                ],
+                value: []
+              },
+              {
+                label: "",
+                name: "plpFilter.Category",
+                options: [
+                  {
+                    label: "category-name",
+                    value: "MAINTILE_CLAY"
+                  },
+                  {
+                    label: "category-name",
+                    value: "CONSTRUCTION"
+                  }
+                ]
+              },
+              {
+                label: "",
+                name: "plpFilter.ROOF_NO",
+                options: [
+                  {
+                    label: "category-name",
+                    value: "ROOF"
+                  }
+                ]
+              }
+            ];
+
+            inputDataItems.push(pimDocument);
+            const result = getDocumentFilters(
+              inputDataItems,
+              "ALL",
+              "Simple",
+              "classificationNamespace",
+              ["Category | MAINTILE_CLAY", "Category | CONSTRUCTION", "ROOF_NO"]
+            );
+            expect(result).toEqual(expectedResult);
+          });
+        });
       });
     });
   });

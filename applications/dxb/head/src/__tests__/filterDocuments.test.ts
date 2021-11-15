@@ -118,14 +118,14 @@ describe("getDocumentFilters tests", () => {
   describe("When PIM Simple are requested", () => {
     it("Then: returns correct results", () => {
       const results = getDocumentFilters([], "PIM", "Simple", "blah", []);
-      expect(results).toMatchSnapshot();
+      expect(results).toEqual([]);
     });
   });
 
   describe("When PIM Technical are requested", () => {
     it("Then: returns correct results", () => {
       const results = getDocumentFilters([], "PIM", "Technical", "blah", []);
-      expect(results).toMatchSnapshot();
+      expect(results).toEqual([]);
     });
   });
 
@@ -138,21 +138,21 @@ describe("getDocumentFilters tests", () => {
         "blah",
         []
       );
-      expect(results).toMatchSnapshot();
+      expect(results).toEqual([]);
     });
   });
 
   describe("When CMS Simple are requested", () => {
     it("Then: returns correct results", () => {
       const results = getDocumentFilters([], "CMS", "Simple", "blah", []);
-      expect(results).toMatchSnapshot();
+      expect(results).toEqual([]);
     });
   });
 
   describe("When ALL Simple are requested", () => {
     it("Then: returns correct results", () => {
       const results = getDocumentFilters([], "ALL", "Simple", "blah", []);
-      expect(results).toMatchSnapshot();
+      expect(results).toEqual([]);
     });
   });
 });

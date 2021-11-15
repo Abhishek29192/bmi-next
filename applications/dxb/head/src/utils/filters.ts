@@ -656,7 +656,7 @@ export const getDocumentFilters = (
       getProductFamilyFilterFromDocuments(documents),
       getTextureFilterFromDocuments(classificationNamespace, documents),
       ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
-    ];
+    ].filter(Boolean);
   }
 
   // AC2 – view a page that displays documents in a Technical Document table
@@ -665,12 +665,12 @@ export const getDocumentFilters = (
       getBrandFilterFromDocuments(documents),
       getProductFamilyFilterFromDocuments(documents),
       ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
-    ];
+    ].filter(Boolean);
   }
 
   // AC3 – view a page that displays documents in a Card Collection
   if (source === "CMS" && resultsType === "Card Collection") {
-    return [getBrandFilterFromDocuments(documents)];
+    return [getBrandFilterFromDocuments(documents)].filter(Boolean);
   }
 
   // AC4 – view a page that displays All documents in a Simple Document table
@@ -680,7 +680,7 @@ export const getDocumentFilters = (
       getBrandFilterFromDocuments(documents),
       getProductFamilyFilterFromDocuments(documents),
       ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
-    ];
+    ].filter(Boolean);
   }
 
   // AC5 – view a page that displays CMS documents in a Simple Document table,
@@ -694,7 +694,7 @@ export const getDocumentFilters = (
       // TODO: Move this responsibility to Filters???
       getAssetTypeFilterFromDocuments(documents),
       ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
-    ];
+    ].filter(Boolean);
   }
 
   return [];
