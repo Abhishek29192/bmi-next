@@ -112,6 +112,9 @@ interface ContentfulPage implements Node {
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
 
+  "The breadcrumb title options"
+  breadcrumbTitle: String
+
   "The brand logo for this page."
   brandLogo: String
 
@@ -176,6 +179,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
+
+  "The breadcrumb title options"
+  breadcrumbTitle: String
 
   "The brand logo for this page."
   brandLogo: String
@@ -252,6 +258,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
+
+  "The breadcrumb title options"
+  breadcrumbTitle: String
 
   "This field will always return null."
   brandLogo: String
@@ -362,6 +371,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
+
+  "The breadcrumb title options"
+  breadcrumbTitle: String
 
   "This field will always return null."
   brandLogo: String
@@ -981,8 +993,7 @@ type ContentfulResources implements Node {
   countryNavigationIntroduction: ContentfulRichText
 
   "Sample Basket Link"
-  sampleBasketLink: ContentfulSimplePage
-    @link(from: "sampleBasketLink___NODE")
+  sampleBasketLink: ContentfulSimplePage @link(from: "sampleBasketLink___NODE")
 }
 
 """
@@ -1318,6 +1329,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
 
+  "The breadcrumb title options"
+  breadcrumbTitle: String
+
   "The brand logo for this page (unused)."
   brandLogo: String
 
@@ -1553,6 +1567,9 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
+
+  "The breadcrumb title options"
+  breadcrumbTitle: String
 
   "The short description for this page."
   subtitle: String

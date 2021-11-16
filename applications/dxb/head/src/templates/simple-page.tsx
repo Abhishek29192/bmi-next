@@ -29,6 +29,7 @@ import ShareWidgetSection, {
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import Link, { Data as LinkData } from "../components/Link";
+import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 export type Data = PageInfoData &
   PageData & {
@@ -48,6 +49,7 @@ export type Data = PageInfoData &
       | null;
     parentPage: PageInfoData | null;
     breadcrumbs: BreadcrumbsData;
+    breadcrumbTitle: string;
     cta: LinkData | null;
   };
 
@@ -75,10 +77,15 @@ const SimplePage = ({ data, pageContext }: Props) => {
     linkColumns,
     heroType,
     breadcrumbs,
+    breadcrumbTitle,
     seo,
     featuredVideo,
     cta
   } = data.contentfulSimplePage;
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
+    breadcrumbs,
+    breadcrumbTitle
+  );
   const heroProps: HeroItem = {
     title,
     children: subtitle,
@@ -93,8 +100,10 @@ const SimplePage = ({ data, pageContext }: Props) => {
   };
   let heroLevel;
   if (heroType == "Spotlight" || heroType == "Hierarchy") {
-    heroLevel = (Math.min(breadcrumbs.filter(({ slug }) => slug).length, 3) ||
-      1) as 1 | 2 | 3;
+    heroLevel = (Math.min(
+      enhancedBreadcrumbs.filter(({ slug }) => slug).length,
+      3
+    ) || 1) as 1 | 2 | 3;
   } else {
     const levelMap = {
       "Level 1": 1,
@@ -106,12 +115,12 @@ const SimplePage = ({ data, pageContext }: Props) => {
 
   const breadcrumbsNode = (
     <Breadcrumbs
-      data={breadcrumbs}
+      data={enhancedBreadcrumbs}
       isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
     />
   );
   const pageData: PageData = {
-    breadcrumbs,
+    breadcrumbs: enhancedBreadcrumbs,
     inputBanner: data.contentfulSimplePage.inputBanner,
     seo
   };
@@ -163,7 +172,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
           </Section>
         )}
         <Section backgroundColor="alabaster" isSlim>
-          <Breadcrumbs data={breadcrumbs} />
+          <Breadcrumbs data={enhancedBreadcrumbs} />
         </Section>
       </TableOfContent>
     </Page>
