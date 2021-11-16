@@ -67,6 +67,7 @@ deploy_intouch_gateway_to_cloudrun_bmi:
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
     - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest
 
+# Run only on release branch
 release_intouch_gateway_to_cloudrun_bmi:
   stage: deploy_gateway
   cache: {}
