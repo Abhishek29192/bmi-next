@@ -10,7 +10,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     type="button"
   >
     <img
-      alt="image-name"
+      alt="sample-1"
       class="product-image header-picture Media"
       src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
@@ -38,13 +38,11 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
             >
-              classification-feature-feature-value-value 
+              classification-feature-feature-value-value
             </p>
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
           </div>
         </div>
       </div>
@@ -91,7 +89,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     type="button"
   >
     <img
-      alt="image-name"
+      alt="sample-2"
       class="product-image header-picture Media"
       src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
@@ -118,9 +116,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             </p>
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
             >
@@ -172,7 +168,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     type="button"
   >
     <img
-      alt="image-name"
+      alt="sample-3"
       class="product-image header-picture Media"
       src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
@@ -199,14 +195,10 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             </p>
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
           </div>
         </div>
       </div>
@@ -260,7 +252,7 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
     type="button"
   >
     <img
-      alt="image-name"
+      alt="sample-1"
       class="product-image header-picture Media"
       src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
@@ -288,13 +280,11 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
             >
-              classification-feature-feature-value-value 
+              classification-feature-feature-value-value
             </p>
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
           </div>
         </div>
       </div>
@@ -302,12 +292,12 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
         class="footer"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined product-button MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined product-button MuiButton-outlinedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label buttonStyles-label-24"
+            class="MuiButton-label buttonStyles-label-64"
           >
             MC: pdp.overview.removeSample
             <span
@@ -341,7 +331,7 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
     type="button"
   >
     <img
-      alt="image-name"
+      alt="sample-2"
       class="product-image header-picture Media"
       src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
@@ -368,9 +358,7 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
             </p>
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
             >
@@ -383,12 +371,12 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
         class="footer"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined product-button MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined product-button MuiButton-outlinedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label buttonStyles-label-24"
+            class="MuiButton-label buttonStyles-label-64"
           >
             MC: pdp.overview.removeSample
             <span
@@ -422,7 +410,7 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
     type="button"
   >
     <img
-      alt="image-name"
+      alt="sample-3"
       class="product-image header-picture Media"
       src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
@@ -449,14 +437,10 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
             </p>
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
           </div>
         </div>
       </div>
@@ -464,12 +448,12 @@ exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] 
         class="footer"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined product-button MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined product-button MuiButton-outlinedPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label buttonStyles-label-24"
+            class="MuiButton-label buttonStyles-label-64"
           >
             MC: pdp.overview.removeSample
             <span

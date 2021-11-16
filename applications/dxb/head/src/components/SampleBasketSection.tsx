@@ -4,8 +4,15 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import { ShoppingCart } from "@material-ui/icons";
+import {
+  SampleOrderElement,
+  useBasketContext
+} from "../contexts/SampleBasketContext";
+import { extractFeatureValuesByClassification } from "../utils/product-url-path";
 import RichText, { RichTextData } from "./RichText";
-import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
+import SampleBasketSectionProducts, {
+  getFeatures
+} from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
 
 import FormSection, { Data as FormData } from "./FormSection";
@@ -28,6 +35,26 @@ const SampleBasketSection = ({
 
   const { getMicroCopy } = useSiteContext();
 
+  const { basketState } = useBasketContext();
+  const samples: SampleOrderElement[] = basketState.products.map((sample) => {
+    const { classifications } = sample;
+
+    const [color, texture] = extractFeatureValuesByClassification(
+      classifications,
+      {
+        appearanceAttributes: ["colour", "texturefamily"]
+      }
+    );
+
+    return {
+      id: sample.code,
+      title: sample.name,
+      url: sample.path,
+      color,
+      texture
+    };
+  });
+
   return (
     <>
       <Section
@@ -46,7 +73,12 @@ const SampleBasketSection = ({
       </Section>
       {isCompleteFormShow && (
         <Section>
-          <FormSection data={checkoutFormSection} backgroundColor="pearl" />
+          <FormSection
+            data={checkoutFormSection}
+            backgroundColor="pearl"
+            additionalValues={{ samples }}
+            isSubmitDisabled={samples.length === 0}
+          />
         </Section>
       )}
     </>

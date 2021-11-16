@@ -1,25 +1,38 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import axios from "axios";
 import {
   BasketContextProvider,
   Sample
 } from "../../contexts/SampleBasketContext";
 import createClassification from "../../__tests__/ClassificationHelper";
 import createImage from "../../__tests__/ImageHelper";
-import { createVariantOption } from "../../__tests__/PimDocumentProductHelper";
 import SampleBasketSection, { Data } from "../SampleBasketSection";
+import { local } from "../../utils/storage";
 
-const samples: Sample[] = [
-  {
-    name: "sample-1",
-    ...createVariantOption({
-      code: "sample-1",
-      images: [createImage()],
-      path: "sample-1-details",
-      classifications: [createClassification({ code: "appearanceAttributes" })]
+const sample: Sample = {
+  name: "sample-1",
+  classifications: [
+    createClassification({
+      code: "appearanceAttributes",
+      features: [
+        {
+          code: "colour",
+          featureValues: [{ value: "green" }],
+          name: "colour"
+        },
+        {
+          code: "texturefamily",
+          featureValues: [{ value: "rough" }],
+          name: "texturefamily"
+        }
+      ]
     })
-  }
-];
+  ],
+  code: "sample-1",
+  image: createImage().url,
+  path: "sample-1-details"
+};
 
 const data: Data = {
   __typename: "SampleBasketSection",
@@ -33,24 +46,36 @@ const data: Data = {
     showTitle: true,
     description: null,
     recipients: "recipient@mail.com",
-    inputs: null,
+    inputs: [
+      {
+        label: "Text",
+        name: "text",
+        type: "text"
+      }
+    ],
     submitText: "Submit",
     successRedirect: null,
-    source: "HubSpot",
+    source: "Contentful",
     hubSpotFormGuid: null
   }
 };
 
-describe("SampleBasketSection component", () => {
-  beforeAll(() => {
-    Object.defineProperty(window, "localStorage", {
-      value: {
-        getItem: jest.fn().mockReturnValue(JSON.stringify(samples)),
-        setItem: jest.fn()
-      }
-    });
-  });
+jest.mock("axios");
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
+axios.CancelToken.source = jest
+  .fn()
+  .mockReturnValue({ token: "this", cancel: () => {} });
+
+jest.mock("react-google-recaptcha-v3", () => ({
+  useGoogleReCaptcha: () => ({
+    executeRecaptcha: () => "RECAPTCHA"
+  })
+}));
+
+jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify([sample]));
+
+describe("SampleBasketSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <BasketContextProvider>
@@ -78,5 +103,52 @@ describe("SampleBasketSection component", () => {
     expect(
       screen.queryByText("MC: pdp.overview.completeSampleOrder")
     ).toBeNull();
+  });
+});
+
+describe("SampleBasketSection with form", () => {
+  it("should submit form with provided samples", async () => {
+    process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT =
+      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT";
+    const { container } = render(
+      <BasketContextProvider>
+        <SampleBasketSection data={data} />
+      </BasketContextProvider>
+    );
+
+    fireEvent.click(screen.getByText("MC: pdp.overview.completeSampleOrder"));
+
+    fireEvent.change(screen.getByRole("textbox"), {
+      target: { value: "Text" }
+    });
+
+    fireEvent.submit(container.querySelector("form"));
+
+    await waitFor(() =>
+      expect(mockedAxios.post).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          locale: "",
+          recipients: "recipient@mail.com",
+          title: "Complete form",
+          values: {
+            samples: [
+              {
+                color: "green",
+                id: "sample-1",
+                texture: "rough",
+                title: "sample-1",
+                url: "sample-1-details"
+              }
+            ],
+            text: "Text"
+          }
+        },
+        {
+          cancelToken: "this",
+          headers: { "X-Recaptcha-Token": "RECAPTCHA" }
+        }
+      )
+    );
   });
 });

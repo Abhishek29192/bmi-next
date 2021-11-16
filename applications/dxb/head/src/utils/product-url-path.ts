@@ -18,7 +18,7 @@ const generateUrl = (urlParts: string[]) => {
     .toLowerCase();
 };
 
-const extractFeatureValuesByClassification = (
+export const extractFeatureValuesByClassification = (
   classifications: Classification[],
   attributeCodeMap: AttributeCodeMap
 ): string[] => {

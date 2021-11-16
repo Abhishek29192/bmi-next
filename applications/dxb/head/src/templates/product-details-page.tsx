@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
@@ -193,7 +193,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 {
                   <SampleOrderSection
                     isSampleOrderAllowed={getSampleOrderAllowed()}
-                    productName={product.name}
+                    product={product}
                     variant={getVariant(product, pageContext.variantCode)}
                     maximumSamples={maximumSamples}
                     sampleBasketLinkInfo={sampleBasketLink}
