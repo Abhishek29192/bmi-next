@@ -4,25 +4,26 @@ import Section from "@bmi/section";
 import React, { useEffect, useState } from "react";
 import {
   ACTION_TYPES,
+  createSample,
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
-import { VariantOption } from "./types/pim";
 import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
+import { Product, VariantOption } from "./types/pim";
 
 const SampleOrderSection = ({
   isSampleOrderAllowed,
+  product,
   variant,
-  productName,
   maximumSamples,
   sampleBasketLinkInfo
 }: {
   isSampleOrderAllowed: Boolean;
+  product: Product;
   variant?: VariantOption;
   maximumSamples?: number;
-  productName?: string;
   sampleBasketLinkInfo?: PageInfoData;
 }) => {
   const { basketState, basketDispatch } = useBasketContext();
@@ -30,13 +31,13 @@ const SampleOrderSection = ({
   const addToBasket = (variant: VariantOption) => {
     basketDispatch({
       type: ACTION_TYPES.BASKET_ADD,
-      payload: { ...variant, name: productName }
+      payload: createSample(product, variant)
     });
   };
   const removeFromBasket = (variant: VariantOption) => {
     basketDispatch({
       type: ACTION_TYPES.BASKET_REMOVE,
-      payload: { ...variant, name: productName }
+      payload: createSample(product, variant)
     });
   };
   const isBasketFull = basketState.products.length >= maximumSamples;

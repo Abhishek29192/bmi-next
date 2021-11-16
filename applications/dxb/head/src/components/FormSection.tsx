@@ -22,6 +22,7 @@ import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
+import { SampleOrderElement } from "../contexts/SampleBasketContext";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 // TODO: FormInputs should be updated and used here.
 import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
@@ -284,11 +285,15 @@ const FormSection = ({
     source,
     hubSpotFormGuid
   },
-  backgroundColor
+  backgroundColor,
+  additionalValues,
+  isSubmitDisabled
 }: {
   id?: string;
   data: Data;
   backgroundColor: "pearl" | "white";
+  additionalValues?: Record<string, SampleOrderElement[]>;
+  isSubmitDisabled?: boolean;
 }) => {
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -308,6 +313,7 @@ const FormSection = ({
     }
 
     setIsSubmitting(true);
+    Object.assign(values, additionalValues);
 
     // @todo: This needs to be less reliant on string patterns
     const recipientsFromValues = (values.recipients as string) || "";
@@ -506,7 +512,7 @@ const FormSection = ({
                   <ArrowForwardIcon />
                 )
               }
-              disabled={isSubmitting}
+              disabled={isSubmitting || isSubmitDisabled}
             >
               {submitText || getMicroCopy("form.submit")}
             </Form.SubmitButton>

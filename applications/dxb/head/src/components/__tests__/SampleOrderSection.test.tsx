@@ -5,6 +5,7 @@ import SampleOrderSection from "../SampleOrderSection";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
 import { Data as PageInfoData } from "../PageInfo";
 import { SiteContextProvider } from "../Site";
+import { Product } from "../types/pim";
 
 afterEach(() => {
   cleanup();
@@ -45,6 +46,18 @@ const getMockSiteContext = (
     title: "Home page title"
   }
 });
+
+const product: Product = {
+  code: "product",
+  documents: null,
+  isSampleOrderAllowed: null,
+  longDescription: null,
+  shortDescription: null,
+  description: null,
+  name: "product",
+  summary: null
+};
+
 describe("Functionality of sample basket", () => {
   it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", async () => {
     render(
@@ -52,6 +65,7 @@ describe("Functionality of sample basket", () => {
         <SampleOrderSection
           isSampleOrderAllowed={true}
           variant={variant}
+          product={product}
           sampleBasketLinkInfo={sampleBasketLinkInfo}
         ></SampleOrderSection>
       </SiteContextProvider>,
@@ -88,6 +102,7 @@ describe("Functionality of sample basket", () => {
         isSampleOrderAllowed={true}
         variant={variant}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -98,6 +113,7 @@ describe("Functionality of sample basket", () => {
         isSampleOrderAllowed={false}
         maximumSamples={3}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -121,6 +137,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -135,6 +152,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant2}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -167,6 +185,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         variant={variant}
         maximumSamples={maximumSamples}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -182,6 +201,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         variant={variant2}
         maximumSamples={maximumSamples}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -210,6 +230,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -224,6 +245,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant2}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -242,6 +264,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={false}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -266,6 +289,7 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
         <SampleOrderSection
           isSampleOrderAllowed={true}
           variant={variant}
+          product={product}
           sampleBasketLinkInfo={sampleBasketLinkInfo}
         ></SampleOrderSection>
       </SiteContextProvider>,
@@ -289,6 +313,7 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
         <SampleOrderSection
           isSampleOrderAllowed={true}
           variant={variant}
+          product={product}
           sampleBasketLinkInfo={null}
         ></SampleOrderSection>
       </SiteContextProvider>,
