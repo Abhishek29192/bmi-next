@@ -69,3 +69,6 @@ http-client.private.env.json
 *.ipr
 *.iws
 *.iml
+
+target/
+package-lock.json
