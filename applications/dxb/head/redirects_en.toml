@@ -72,3 +72,16 @@
   to = "https://www.bmigroup.com/de/"
   status = 302
   force = true
+
+[[redirects]]
+  from = "/fr-fr/*"
+  to = "https://www.bmigroup.com/fr/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/de-de/*"
+  to = "https://www.bmigroup.com/de/"
+  status = 302
+  force = true
+
