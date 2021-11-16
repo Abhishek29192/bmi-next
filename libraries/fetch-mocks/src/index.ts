@@ -32,6 +32,7 @@ export const mockResponse = () => {
 
 export interface MockedResponse {
   url: MockOptions["url"];
+  requestBody?: MockOptions["body"];
   method: MockOptions["method"];
   body?: MockResponseObject["body"] | Response["body"];
   headers?: MockResponseObject["headers"];
@@ -56,12 +57,15 @@ export const mockResponses = (
         : {
             body: mockedResponse.body,
             status: mockedResponse.status || 200,
-            headers: new Headers(mockedResponse.headers),
+            headers: mockedResponse.headers,
             redirectUrl: mockedResponse.redirectUrl
           },
       {
         sendAsJson:
-          !(mockedResponse.body instanceof Readable) && !!mockedResponse.body
+          !(mockedResponse.body instanceof Readable) && !!mockedResponse.body,
+        repeat: 1,
+        overwriteRoutes: false,
+        body: mockedResponse.requestBody
       }
     );
   }

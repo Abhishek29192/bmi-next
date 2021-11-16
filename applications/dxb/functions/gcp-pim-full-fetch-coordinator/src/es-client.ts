@@ -1,5 +1,5 @@
 /**
- * Duplicated in gcp-full-fetch-coordintator. We should keep these in sync until we get shared libraries working for GCP Functions.
+ * Duplicated in es-pim-products-ingest. We should keep these in sync until we get shared libraries working for GCP Functions.
  */
 import { Client } from "@elastic/elasticsearch";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";

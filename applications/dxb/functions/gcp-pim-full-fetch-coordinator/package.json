@@ -1,0 +1,24 @@
+{
+  "name": "@bmi/gcp-pim-full-fetch-coordinator",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=handleRequest --port=9055"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.8.0",
+    "@google-cloud/secret-manager": "^3.7.1",
+    "firebase-admin": "^9.2.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.7.1",
+    "env-cmd": "^10.1.0",
+    "js-yaml": "^4.0.0"
+  }
+}
