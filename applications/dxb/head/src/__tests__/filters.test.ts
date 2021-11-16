@@ -19,7 +19,8 @@ import {
   sortAlphabeticallyBy,
   updateFilterValue,
   getCategoryFilters,
-  combineVariantClassifications
+  combineVariantClassifications,
+  getCategoryCodesFilterFromDocuments
 } from "../utils/filters";
 import { Product } from "../components/types/pim";
 import createPimDocument from "./PimDocumentHelper";
@@ -1541,6 +1542,16 @@ describe("filters tests", () => {
         })
       ).toStrictEqual([]);
     });
+    it("should return empty filters, when product categories are null", () => {
+      const baseProduct = createBaseProduct();
+      baseProduct.categories = null;
+      expect(
+        getPlpFilters({
+          products: [baseProduct],
+          allowedFilters: []
+        })
+      ).toStrictEqual([]);
+    });
     it("should work when no filters allowed", () => {
       const baseProduct = createBaseProduct();
       expect(
@@ -2646,6 +2657,66 @@ describe("filters tests", () => {
       });
     });
 
+    describe("When allowFilterBy is null and non supported arguments are passed for filters tests", () => {
+      it("Then: returns NO filters", () => {
+        const inputDataItems: DocumentResultsData =
+          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+        const baseUrl: string = "http://localhost/document/library/";
+
+        const contenfulDocument = createContentfuldocument({
+          id: `contentful-doc-id`,
+          asset: {
+            file: {
+              url: "",
+              fileName: `contentful-doc-fileName`,
+              contentType: "",
+              details: { size: 9999 }
+            }
+          }
+        });
+
+        const pimLinkDocument = createPimLinkDocument({
+          id: `pim-link-doc-id`,
+          url: `${baseUrl}pim-link-doc-url`
+        });
+
+        const pimDocument = createPimDocument({
+          id: `pim-doc-id`,
+          url: `${baseUrl}pim-doc-url`
+        });
+
+        // create duplicate pim documents
+        [1, 2, 3].map(() => inputDataItems.push(pimDocument));
+
+        // create duplicate pim link documents
+        [1, 2, 3].map(() => inputDataItems.push(pimLinkDocument));
+
+        // create duplicate contentful documents
+        [1, 2, 3].map(() => inputDataItems.push(contenfulDocument));
+
+        // ALL : Technical is not supported
+        let result = getDocumentFilters(
+          inputDataItems,
+          "ALL",
+          "Technical",
+          "classificationNamespace",
+          null
+        );
+        expect(result).toEqual([]);
+
+        // CMS : Technical is not supported
+        result = getDocumentFilters(
+          inputDataItems,
+          "CMS",
+          "Technical",
+          "classificationNamespace",
+          []
+        );
+        expect(result).toEqual([]);
+      });
+    });
+
     describe("When 'PIM' document data is viewed in 'Simple' Page", () => {
       describe("and allowFilterBy is not provided", () => {
         it("Then: returns brand and product family filters", () => {
@@ -3471,6 +3542,15 @@ describe("filters tests", () => {
     it("clears filters correctly", () => {
       const result = convertToURLFilters(input(undefined));
       expect(result).toEqual([]);
+    });
+  });
+
+  describe("getCategoryCodesFilterFromDocuments tests", () => {
+    describe("When allowFilterBy is null", () => {
+      it("returns empty filters", () => {
+        const result = getCategoryCodesFilterFromDocuments([], null);
+        expect(result).toEqual([]);
+      });
     });
   });
 });
