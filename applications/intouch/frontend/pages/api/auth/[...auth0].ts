@@ -111,6 +111,11 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
           return res.end();
         }
 
+        if (req?.query?.error_description === "user is blocked") {
+          res.writeHead(302, { Location: "/api-error?message=user_blocked" });
+          return res.end();
+        }
+
         res.writeHead(302, { Location: "/api-error?message=auth_error" });
         return res.end();
       }

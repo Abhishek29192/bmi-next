@@ -3846,6 +3846,7 @@ export type TeamMembersQuery = { readonly __typename?: "Query" } & {
             | "lastName"
             | "firstName"
             | "formattedRole"
+            | "status"
           > & {
               readonly certificationsByDoceboUserId: {
                 readonly __typename?: "CertificationsConnection";

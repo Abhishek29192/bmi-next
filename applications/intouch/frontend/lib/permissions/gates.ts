@@ -110,6 +110,12 @@ const gates = {
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
       INSTALLER: false
+    },
+    changeStatus: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: false,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
     }
   },
   project: {

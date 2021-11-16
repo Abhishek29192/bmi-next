@@ -28,6 +28,7 @@ export const pageQuery = gql`
         lastName
         firstName
         formattedRole
+        status
         certificationsByDoceboUserId(
           filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
         ) {
