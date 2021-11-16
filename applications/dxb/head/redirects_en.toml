@@ -1,5 +1,66 @@
 
 # Redirects for Group (SITE_MARKET_CODE=en)
+
+[[redirects]]
+  from = "/your-career/career-development"
+  to = "/our-company/your-career/career-development/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/your-career/diversity"
+  to = "/our-company/your-career/diversity/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/your-career"
+  to = "/our-company/your-career/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/our-company/contact-us"
+  to = "/contact-us/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/our-company/news"
+  to = "/news/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/legal/imprint"
+  to = "/imprint/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/legal/cookie-policy"
+  to = "/cookie-policy/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/legal/third-party-privacy-notice"
+  to = "/third-party-site-privacy-notice/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/legal/group-s172-statements"
+  to = "/legal/s172-statements/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/legal/legal/"
+  to = "/legal/"
+  status = 302
+  force = true
+
 [[redirects]]
   from = "/fr-fr"
   to = "https://www.bmigroup.com/fr/"
