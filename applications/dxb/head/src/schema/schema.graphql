@@ -981,8 +981,7 @@ type ContentfulResources implements Node {
   countryNavigationIntroduction: ContentfulRichText
 
   "Sample Basket Link"
-  sampleBasketLink: ContentfulSimplePage
-    @link(from: "sampleBasketLink___NODE")
+  sampleBasketLink: ContentfulSimplePage @link(from: "sampleBasketLink___NODE")
 }
 
 """
@@ -1485,6 +1484,9 @@ type Products implements Node {
 
   "The external code for this product AKA NOBB number"
   externalProductCode: String
+
+  "The isSampleOrderAllowed value for this product."
+  isSampleOrderAllowed: Boolean
 }
 
 type ProductsVariantOptions implements Node {
@@ -1501,6 +1503,9 @@ type ProductsVariantOptions implements Node {
 
   "The breadcrumbs for this product."
   breadcrumbs: JSON
+
+  "The isSampleOrderAllowed value for this product."
+  isSampleOrderAllowed: Boolean
 }
 
 """
