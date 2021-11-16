@@ -197,9 +197,41 @@ VALUES ('2',3,1,'NEW','devs+14@digitaldetox.co.uk','Hi, come and join the team')
 
 TRUNCATE TABLE market RESTART IDENTITY;
 INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
-VALUES ('1','no','no','evpdf7auu9nf','BMI InTouch Norge','BMI Norge','intouch.no@bmigroup.com','28','29',38,'https://bmiportalen.bk.no/',TRUE,'UA-141761217-6','60.4720,8.4689',500);
+VALUES ('1','en','en','opay6t6wwmup','Endor','BMI Intouch Mapleland','intouch@bmigroup.en','7','8',37,'https://italy.bmiroofpromerch.com/',TRUE,'UA-141761217-2','51.5014,-0.1419',200);
 INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
-VALUES ('2','en','en','opay6t6wwmup','Mapleland','BMI Intouch Mapleland','intouch@bmigroup.en','7','8',37,'https://italy.bmiroofpromerch.com/',TRUE,'UA-141761217-2','51.5014,-0.1419',200);
+VALUES ('2','no','no','evpdf7auu9nf','BMI InTouch Norge','BMI Norge','intouch.no@bmigroup.com','28','29',14,'https://bmiportalen.bk.no/',TRUE,'UA-141761217-6','60.4720,8.4689',500);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('3','it','it','n4smcqp6t757','BMI InTouch Italia','BMI Italia','intouch.it@bmigroup.com','47','47',25,'https://italy.bmiroofpromerch.com/',TRUE,'UA-141761217-2','43.0568,12.4392',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('4','da','dk','TBC','BMI InTouch Danmark','BMI Danmark','intouch.dk@bmigroup.com','13','13',6,'https://www.bmigroup.com/',TRUE,'UA-141761217-5','55.5919,10.0026',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('5','pl','pl','opay6t6wwmup','BMI InTouch Poland','BMI Poland','intouch.pl@bmigroup.com','50','50',19,'https://www.bmigroup.com/',TRUE,'UA-141761217-1','52.2297, 21.0122',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('6','es','es','opay6t6wwmup','BMI InTouch Spain','BMI Spain','intouch.es@bmigroup.com','53','53',21,'https://www.bmigroup.com/',TRUE,'UA-141761217-3','40.416775, -3.703790',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('7','fi','fi','opay6t6wwmup','BMI InTouch Finland','BMI Finland','intouch.fi@bmigroup.com','44','44',23,'https://www.bmigroup.com/',TRUE,'UA-141761217-4','60.192059, 24.945831',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('8','en','in','opay6t6wwmup','BMI InTouch India','BMI India','intouch.in@bmigroup.com','NULL','NULL',NULL,'https://www.bmigroup.com/',TRUE,'UA-141761217-7','28.644800,77.216721',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('9','sv','se','opay6t6wwmup','BMI InTouch Sweden','BMI Sweden','intouch.se@bmigroup.com','10','10',8,'https://www.bmigroup.com/',FALSE,'UA-141761217-8','59.334591,18.063240',500);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('10','pt','pt','opay6t6wwmup','BMI InTouch Portugal','BMI Portugal','intouch.pt@bmigroup.com','NULL','NULL',NULL,'https://www.bmigroup.com/',TRUE,'UA-141761217-9','38.736946,-9.142685',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('11','de','at','opay6t6wwmup','BMI InTouch Austria','BMI Austria','intouch.at@bmigroup.com','NULL','NULL',NULL,'https://www.bmigroup.com/',TRUE,'UA-141761217-10','48.210033,16.363449',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('12','nl','nl','opay6t6wwmup','BMI InTouch Netherlands','BMI Netherlands','intouch.nl@bmigroup.com','NULL','NULL',NULL,'https://www.bmigroup.com/',TRUE,'UA-141761217-11','52.377956,4.897070',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('13','sk','sk','opay6t6wwmup','BMI InTouch Slovakia','BMI Slovakia','intouch.sk@bmigroup.com','NULL','NULL',NULL,'https://www.bmigroup.com/',TRUE,'UA-141761217-12','48.148598,17.107748',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('14','fr','be','opay6t6wwmup','BMI InTouch Belgium','BMI Belgium','intouch.be@bmigroup.com','NULL','NULL',NULL,'https://www.bmigroup.com/',TRUE,'UA-141761217-13','50.85045,4.34878',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('15','de','de','opay6t6wwmup','BMI InTouch Germany','BMI Germany','intouch.de@bmigroup.com','62','62',35,'https://www.bmigroup.com/',FALSE,'UA-141761217-14','52.520008,13.404954',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('16','fr','fr','opay6t6wwmup','BMI InTouch France','BMI France','intouch.fr@bmigroup.com','NULL','NULL',NULL,'https://www.bmigroup.com/',TRUE,'UA-141761217-15','48.864716,2.349014',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('17','en','uk','opay6t6wwmup','BMI InTouch UK','BMI UK','intouch.uk@bmigroup.com','7','7',4,'https://www.bmigroup.com/',FALSE,'UA-141761217-16','51.5014,-0.1419',200);
+INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
+VALUES ('18','en','my','opay6t6wwmup','BMI InTouch Malaysia','BMI Malaysia','intouch.my@bmigroup.com','70','70',32,'https://www.bmigroup.com/',TRUE,'UA-141761217-17','3.1390,101.6869',200);
 
 
 TRUNCATE TABLE note RESTART IDENTITY;

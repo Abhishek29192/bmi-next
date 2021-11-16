@@ -104,7 +104,8 @@ ENUM (
   'fr',
   'pl',
   'es',
-  'fi'
+  'fi',
+  'it'
 );
 
 DROP TYPE IF EXISTS message_format CASCADE;
@@ -667,11 +668,11 @@ COMMENT ON COLUMN market.send_name IS 'The From name used when sending an email'
 
 COMMENT ON COLUMN market.send_mailbox IS 'The mailbox on intouch.bmigroup.com that emails will be sent from for this Market';
 
-COMMENT ON COLUMN market.docebo_installers_branch_id IS 'The default branch in Docebo that installers go into';
+COMMENT ON COLUMN market.docebo_installers_branch_id IS 'The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.';
 
-COMMENT ON COLUMN market.docebo_company_admin_branch_id IS 'The branch in Docebo that company admins go into';
+COMMENT ON COLUMN market.docebo_company_admin_branch_id IS 'The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.';
 
-COMMENT ON COLUMN market.docebo_catalogue_id IS 'The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch';
+COMMENT ON COLUMN market.docebo_catalogue_id IS 'The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch';
 
 COMMENT ON COLUMN market.merchandising_url IS 'The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address';
 
