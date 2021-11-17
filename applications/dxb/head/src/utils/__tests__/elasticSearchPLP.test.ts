@@ -7,6 +7,10 @@ import {
 } from "../elasticSearchPLP";
 import { ProductFilter } from "../product-filters";
 
+beforeEach(() => {
+  process.env.GATSBY_GROUP_BY_VARIANT = "false";
+});
+
 describe("disableFiltersFromAggregationsPLP function", () => {
   it("should disable based on aggregations", () => {
     const filters: Filter[] = [
@@ -87,6 +91,131 @@ describe("disableFiltersFromAggregationsPLP function", () => {
 });
 
 describe("compileESQueryPLP function", () => {
+  describe("when `GATSBY_GROUP_BY_VARIANT` is set to true", () => {
+    describe("when allowFilterBy parameter is has filter by attributes", () => {
+      describe("and single attribute is passed", () => {
+        it("should generate valid query with No includes", () => {
+          process.env.GATSBY_GROUP_BY_VARIANT = "true";
+
+          const query = compileESQueryPLP({
+            filters: [],
+            allowFilterBy: ["roofAttributes.minimumpitch"],
+            categoryCodes: ["Category"],
+            page: 0,
+            pageSize: 10
+          });
+          expect(query).toStrictEqual({
+            size: 10,
+            from: 0,
+            sort: [
+              "_score",
+              { productScoringWeightInt: "desc" },
+              { variantScoringWeightInt: "desc" },
+              { scoringWeightInt: "desc" },
+              { "name.keyword": "asc" }
+            ],
+            aggs: {
+              "roofAttributes.minimumpitch": {
+                terms: {
+                  size: "300",
+                  field: "roofAttributes.minimumpitch.code.keyword",
+                  include: undefined
+                }
+              },
+              unique_base_products_count: {
+                cardinality: {
+                  field: "code.keyword"
+                }
+              }
+            },
+            query: {
+              bool: {
+                must: [
+                  { terms: { "allCategories.code.keyword": ["Category"] } }
+                ]
+              }
+            },
+            collapse: {
+              field: "code.keyword",
+              inner_hits: {
+                name: "all_variants"
+              }
+            }
+          });
+        });
+      });
+
+      describe("and multiple attribute is passed", () => {
+        it("should generate valid query with No includes", () => {
+          process.env.GATSBY_GROUP_BY_VARIANT = "true";
+          const query = compileESQueryPLP({
+            filters: [],
+            allowFilterBy: [
+              "roofAttributes.minimumpitch",
+              "measurements.length",
+              "generalInformation.materials"
+            ],
+            categoryCodes: ["Category"],
+            page: 0,
+            pageSize: 10
+          });
+          expect(query).toStrictEqual({
+            size: 10,
+            from: 0,
+            sort: [
+              "_score",
+              { productScoringWeightInt: "desc" },
+              { variantScoringWeightInt: "desc" },
+              { scoringWeightInt: "desc" },
+              { "name.keyword": "asc" }
+            ],
+            aggs: {
+              "roofAttributes.minimumpitch": {
+                terms: {
+                  size: "300",
+                  field: "roofAttributes.minimumpitch.code.keyword",
+                  include: undefined
+                }
+              },
+              "measurements.length": {
+                terms: {
+                  size: "300",
+                  field: "measurements.length.code.keyword",
+                  include: undefined
+                }
+              },
+              "generalInformation.materials": {
+                terms: {
+                  size: "300",
+                  field: "generalInformation.materials.code.keyword",
+                  include: undefined
+                }
+              },
+              unique_base_products_count: {
+                cardinality: {
+                  field: "code.keyword"
+                }
+              }
+            },
+            query: {
+              bool: {
+                must: [
+                  { terms: { "allCategories.code.keyword": ["Category"] } }
+                ]
+              }
+            },
+            collapse: {
+              field: "code.keyword",
+              inner_hits: {
+                name: "all_variants"
+              }
+            }
+          });
+        });
+      });
+    });
+  });
+
   describe("when filters parameter is null", () => {
     it("should generate valid query", () => {
       const query = compileESQueryPLP({
@@ -519,6 +648,7 @@ describe("compileESQueryPLP function", () => {
       });
     });
   });
+
   describe("when allowFilterBy parameter is has filter by attributes", () => {
     describe("and single attribute is passed", () => {
       it("should generate valid query with No includes", () => {

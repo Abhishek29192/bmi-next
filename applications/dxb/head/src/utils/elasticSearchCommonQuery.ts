@@ -2,7 +2,10 @@ export const getUniqueBaseProductCountCodeAggrigation = () => {
   return {
     unique_base_products_count: {
       cardinality: {
-        field: "baseProduct.code.keyword"
+        field:
+          process.env.GATSBY_GROUP_BY_VARIANT === "true"
+            ? "code.keyword"
+            : "baseProduct.code.keyword"
       }
     }
   };
@@ -11,7 +14,10 @@ export const getUniqueBaseProductCountCodeAggrigation = () => {
 export const getCollapseVariantsByBaseProductCodeQuery = () => {
   return {
     collapse: {
-      field: "baseProduct.code.keyword",
+      field:
+        process.env.GATSBY_GROUP_BY_VARIANT === "true"
+          ? "code.keyword"
+          : "baseProduct.code.keyword",
       inner_hits: {
         name: "all_variants"
       }
