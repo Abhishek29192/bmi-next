@@ -1,182 +1,273 @@
-import { handleRequest } from "..";
+import mockConsole from "jest-mock-console";
+import { Request, Response } from "express";
+import {
+  mockRequest,
+  mockResponse
+} from "../../../../../../libraries/fetch-mocks/src/index";
+import { handleRequest as realHandleRequest } from "..";
+import { createFullFetchRequest } from "./helpers/fullFetchHelper";
+import { createProductsApiResponse } from "./helpers/pimHelper";
 
-const ENV = process.env;
-const accessSecretVersion = jest.fn();
-const mockPimClientSecret = "secret";
-const GCPMessagepublisher = jest.fn();
-const statusText = "statusText";
-const serverRequest = { body: {} };
-const serverResponseSend = jest.fn();
-const serverResponse = jest.fn(() => ({
-  status: jest.fn(() => ({
-    send: jest.fn((message) => serverResponseSend(message))
-  })),
-  statusText
-}));
-const deleteElasticSearchIndex = jest.fn();
-const deleteFirestoreCollection = jest.fn();
-const fetch = jest.fn();
-const mockAuthToken = "token";
+const fetchData = jest.fn();
+jest.mock("../pim", () => {
+  const pim = jest.requireActual("../pim");
+  return {
+    ...pim,
+    fetchData: (...args: any) => fetchData(...args)
+  };
+});
 
-jest.mock("@google-cloud/pubsub", () => ({
-  PubSub: jest.fn(() => ({
-    topic: jest.fn(() => ({
-      publish: jest.fn((messageBuffer) => GCPMessagepublisher(messageBuffer))
-    }))
-  }))
-}));
-jest.mock("@google-cloud/secret-manager", () => ({
-  SecretManagerServiceClient: jest.fn(() => ({
-    accessSecretVersion: jest.fn((request) => accessSecretVersion(request))
-  }))
-}));
-jest.mock("../reset/elasticSearch.ts", () => ({
-  deleteElasticSearchIndex: jest.fn(() => deleteElasticSearchIndex())
-}));
-jest.mock("../reset/firestore.ts", () => ({
-  FIRESTORE_COLLECTIONS: {
-    PRODUCTS: "root/products",
-    SYSTEMS: "root/systems"
-  },
-  deleteFirestoreCollection: jest.fn(() => deleteFirestoreCollection())
-}));
-jest.mock("node-fetch", () => jest.fn(() => fetch()));
+const publish = jest.fn();
+jest.mock("@google-cloud/pubsub", () => {
+  const mPubSub = jest.fn(() => ({
+    topic: (...args: any) => ({
+      publish: (...args: any) => publish(...args)
+    })
+  }));
+  return { PubSub: mPubSub };
+});
 
-accessSecretVersion.mockReturnValue([
-  { payload: { data: mockPimClientSecret } }
-]);
-
-fetch.mockReturnValue({
-  ok: true,
-  json: jest.fn(() => ({
-    access_token: mockAuthToken
-  }))
+beforeAll(() => {
+  mockConsole();
 });
 
 beforeEach(() => {
-  jest.clearAllMocks();
+  jest.resetAllMocks();
   jest.resetModules();
-  process.env = { ...ENV };
 });
 
-afterEach(() => {
-  process.env = ENV;
-});
+const handleRequest = (
+  request: Partial<Request>,
+  response: Partial<Response>
+) => realHandleRequest(request as Request, response as Response);
 
 describe("handleRequest", () => {
-  it("should throw error when failed to request oauth", async () => {
-    const consoleSpy = jest.spyOn(console, "error");
-    const status = 404;
-    fetch.mockReturnValueOnce({ ok: false, status, statusText });
-    let error;
-    try {
-      await handleRequest(serverRequest, serverResponse());
-    } catch (err) {
-      error = err;
-    }
+  it("should return 400 if body is not provided", async () => {
+    const request = mockRequest("POST");
+    const response = mockResponse();
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${ENV.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ENV.PIM_CLIENT_SECRET}/versions/latest`
+    await handleRequest(request, response);
+
+    expect(response.status).toBeCalledWith(400);
+    expect(response.send).toBeCalledWith({
+      error: "type, startPage and numberOfPages was not provided."
     });
-    expect(consoleSpy).toBeCalledWith("ERROR!", status, statusText);
-    expect(error.toString()).toContain(statusText);
+    expect(fetchData).not.toHaveBeenCalled();
   });
 
-  describe("should publishMessage", () => {
-    it("trigger GCPMessagepublisher when messagePages is not empty", async () => {
-      const products = [{ id: 1 }];
-      const systems = [{ id: 2 }];
-      fetch
-        .mockReturnValueOnce({
-          ok: true,
-          json: jest.fn(() => ({
-            access_token: mockAuthToken
-          }))
-        })
-        .mockReturnValueOnce({
-          ok: true,
-          json: jest.fn(() => ({
-            products
-          }))
-        })
-        .mockReturnValueOnce({
-          ok: true,
-          json: jest.fn(() => ({
-            access_token: mockAuthToken
-          }))
-        })
-        .mockReturnValueOnce({
-          ok: true,
-          json: jest.fn(() => ({
-            systems
-          }))
-        });
-      await handleRequest(serverRequest, serverResponse());
-
-      expect(accessSecretVersion).toBeCalledWith({
-        name: `projects/${ENV.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ENV.PIM_CLIENT_SECRET}/versions/latest`
-      });
-      expect(deleteElasticSearchIndex).toBeCalled();
-      expect(deleteFirestoreCollection).toBeCalledTimes(2);
-      expect(GCPMessagepublisher).nthCalledWith(
-        1,
-        Buffer.from(
-          JSON.stringify({
-            type: "UPDATED",
-            itemType: "PRODUCTS",
-            items: products
-          })
-        )
-      );
-      expect(GCPMessagepublisher).nthCalledWith(
-        2,
-        Buffer.from(
-          JSON.stringify({
-            type: "UPDATED",
-            itemType: "SYSTEMS",
-            items: systems
-          })
-        )
-      );
-      expect(GCPMessagepublisher).toBeCalledTimes(2);
-      expect(serverResponseSend).toBeCalledWith("ok");
+  it("should return 400 if body does not contain type", async () => {
+    const request = mockRequest("POST", {}, "", {
+      startPage: 0,
+      numberOfPages: 1
     });
+    const response = mockResponse();
 
-    it("throw error when failed to run topicPublisher.publish", async () => {
-      const errorMessage = "errorMessage";
-      let error;
-      fetch
-        .mockReturnValueOnce({
-          ok: true,
-          json: jest.fn(() => ({
-            access_token: mockAuthToken
-          }))
+    await handleRequest(request, response);
+
+    expect(response.status).toBeCalledWith(400);
+    expect(response.send).toBeCalledWith({ error: "type was not provided." });
+    expect(fetchData).not.toHaveBeenCalled();
+  });
+
+  it("should return 400 if body does not contain startPage", async () => {
+    const request = mockRequest("POST", {}, "", {
+      type: "products",
+      numberOfPages: 1
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(response.status).toBeCalledWith(400);
+    expect(response.send).toBeCalledWith({
+      error: "startPage must be a number greater than or equal to 0."
+    });
+    expect(fetchData).not.toHaveBeenCalled();
+  });
+
+  it("should return 400 if startPage is less than 0", async () => {
+    const request = mockRequest("POST", {}, "", {
+      type: "products",
+      startPage: -1,
+      numberOfPages: 1
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(response.status).toBeCalledWith(400);
+    expect(response.send).toBeCalledWith({
+      error: "startPage must be a number greater than or equal to 0."
+    });
+    expect(fetchData).not.toHaveBeenCalled();
+  });
+
+  it("should return 400 if body does not contain numberOfPages", async () => {
+    const request = mockRequest("POST", {}, "", {
+      type: "products",
+      startPage: 0
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(response.status).toBeCalledWith(400);
+    expect(response.send).toBeCalledWith({
+      error: "numberOfPages must be a number greater than 0."
+    });
+    expect(fetchData).not.toHaveBeenCalled();
+  });
+
+  it("should return 400 if numberOfPages is less than 0", async () => {
+    const request = mockRequest("POST", {}, "", {
+      type: "products",
+      startPage: 0,
+      numberOfPages: -1
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(response.status).toBeCalledWith(400);
+    expect(response.send).toBeCalledWith({
+      error: "numberOfPages must be a number greater than 0."
+    });
+    expect(fetchData).not.toHaveBeenCalled();
+  });
+
+  it("should return 400 if numberOfPages is 0", async () => {
+    const request = mockRequest("POST", {}, "", {
+      type: "products",
+      startPage: 0,
+      numberOfPages: 0
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(response.status).toBeCalledWith(400);
+    expect(response.send).toBeCalledWith({
+      error: "numberOfPages must be a number greater than 0."
+    });
+    expect(fetchData).not.toHaveBeenCalled();
+  });
+
+  it("should error when fetching data from PIM throws error", async () => {
+    fetchData.mockRejectedValue(Error("Expected error"));
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("Expected error");
+    }
+
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      fullFetchRequest.startPage
+    );
+  });
+
+  it("should error when publishing data to pub/sub throws error", async () => {
+    const productsApiResponse = createProductsApiResponse();
+    fetchData.mockReturnValue(productsApiResponse);
+    publish.mockRejectedValue(Error("Expected error"));
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("Expected error");
+    }
+
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      fullFetchRequest.startPage
+    );
+    expect(publish).toHaveBeenCalledWith(
+      Buffer.from(
+        JSON.stringify({
+          type: "UPDATED",
+          itemType: fullFetchRequest.type.toUpperCase(),
+          items: productsApiResponse.products
         })
-        .mockRejectedValueOnce(new Error(errorMessage));
-      try {
-        await handleRequest(serverRequest, serverResponse());
-      } catch (err) {
-        error = err;
-      }
+      )
+    );
+  });
 
-      expect(accessSecretVersion).toBeCalledWith({
-        name: `projects/${ENV.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ENV.PIM_CLIENT_SECRET}/versions/latest`
-      });
-      expect(deleteElasticSearchIndex).toBeCalled();
-      expect(deleteFirestoreCollection).toBeCalledTimes(2);
-      expect(error.toString()).toContain(errorMessage);
+  it("should publish data to pub/sub", async () => {
+    const productsApiResponse = createProductsApiResponse();
+    fetchData.mockReturnValue(productsApiResponse);
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      fullFetchRequest.startPage
+    );
+    expect(publish).toHaveBeenCalledWith(
+      Buffer.from(
+        JSON.stringify({
+          type: "UPDATED",
+          itemType: fullFetchRequest.type.toUpperCase(),
+          items: productsApiResponse.products
+        })
+      )
+    );
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+  });
+
+  it("should publish data from multiple pages to pub/sub", async () => {
+    const productsApiResponse1 = createProductsApiResponse({
+      products: [{ id: 1 }]
     });
-
-    it("not being called if messagePages for products and systems is empty", async () => {
-      await handleRequest(serverRequest, serverResponse());
-
-      expect(accessSecretVersion).toBeCalledWith({
-        name: `projects/${ENV.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ENV.PIM_CLIENT_SECRET}/versions/latest`
-      });
-      expect(deleteElasticSearchIndex).toBeCalled();
-      expect(deleteFirestoreCollection).toBeCalledTimes(2);
-      expect(GCPMessagepublisher).not.toBeCalled();
-      expect(serverResponseSend).toBeCalledWith("ok");
+    const productsApiResponse2 = createProductsApiResponse({
+      products: [{ id: 2 }]
     });
+    fetchData
+      .mockReturnValueOnce(productsApiResponse1)
+      .mockReturnValueOnce(productsApiResponse2);
+    const fullFetchRequest = createFullFetchRequest({ numberOfPages: 2 });
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      fullFetchRequest.startPage
+    );
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      fullFetchRequest.startPage + 1
+    );
+    expect(publish).toHaveBeenCalledWith(
+      Buffer.from(
+        JSON.stringify({
+          type: "UPDATED",
+          itemType: fullFetchRequest.type.toUpperCase(),
+          items: productsApiResponse1.products
+        })
+      )
+    );
+    expect(publish).toHaveBeenCalledWith(
+      Buffer.from(
+        JSON.stringify({
+          type: "UPDATED",
+          itemType: fullFetchRequest.type.toUpperCase(),
+          items: productsApiResponse2.products
+        })
+      )
+    );
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
   });
 });

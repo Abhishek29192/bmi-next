@@ -1,5 +1,5 @@
 /**
- * Duplicated in gcp-full-fetch. We should keep these in sync until we get shared libraries working for GCP Functions.
+ * Duplicated in gcp-full-fetch-coordinator. We should keep these in sync until we get shared libraries working for GCP Functions.
  */
 import { URLSearchParams } from "url";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
