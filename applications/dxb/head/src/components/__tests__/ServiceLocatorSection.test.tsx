@@ -1062,7 +1062,7 @@ describe("ServiceLocatorSection component", () => {
     };
 
     it("should show result list after searched by name/company", async () => {
-      const { queryByText, container, getAllByText, getByRole } =
+      const { queryByText, container, getAllByText, getByTitle } =
         renderWithRouter(<ServiceLocatorSection data={data} />);
 
       expect(queryByText(roofer1.name)).toBeFalsy();
@@ -1076,9 +1076,7 @@ describe("ServiceLocatorSection component", () => {
       expect(getAllByText(roofer1.name)).toHaveLength(1);
       expect(queryByText(roofer2.name)).toBeFalsy();
 
-      const clearButton = getByRole("button", {
-        name: "Clear"
-      });
+      const clearButton = getByTitle("Clear");
 
       clearButton.click();
 
