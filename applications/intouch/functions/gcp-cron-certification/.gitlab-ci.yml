@@ -98,6 +98,7 @@ deploy_gcp-intouch-cron-certification_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_DEV_BUILD_STORAGE"
+        BMI_SECRET_PROJECT: "$GCP_BMI_DEV_SECRET_PROJECT"
         BMI_DOCEBO_API_URL: "$GCP_BMI_INTOUCH_DEV_DOCEBO_API_URL"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
       changes:
@@ -107,6 +108,7 @@ deploy_gcp-intouch-cron-certification_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_QA_BUILD_STORAGE"
+        BMI_SECRET_PROJECT: "$GCP_BMI_QA_SECRET_PROJECT"
         BMI_DOCEBO_API_URL: "$GCP_BMI_INTOUCH_QA_DOCEBO_API_URL"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
       changes:
@@ -116,6 +118,7 @@ deploy_gcp-intouch-cron-certification_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PREPROD_BUILD_STORAGE"
+        BMI_SECRET_PROJECT: "$GCP_BMI_PREPROD_SECRET_PROJECT"
         BMI_DOCEBO_API_URL: "$GCP_BMI_INTOUCH_PREPROD_DOCEBO_API_URL"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
@@ -125,6 +128,7 @@ deploy_gcp-intouch-cron-certification_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PROD_BUILD_STORAGE"
+        BMI_SECRET_PROJECT: "$GCP_BMI_PROD_SECRET_PROJECT"
         BMI_DOCEBO_API_URL: "$GCP_BMI_INTOUCH_PROD_DOCEBO_API_URL"
       allow_failure: true
   needs: [package_gcp-intouch-cron-certification]
@@ -135,13 +139,12 @@ deploy_gcp-intouch-cron-certification_bmi:
       GCP_INTOUCH_REPLATFORM_PROJECT_ID=$BMI_PROJECT
       GCP_INTOUCH_REPLATFORM_SERVICE_KEY=$BMI_KEY
       GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$BMI_BUILD_STORAGE
-
-      GCP_BMI_INTOUCH_CERTIFICATION_TOPIC=$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC
-
+      GCP_SECRET_PROJECT=$BMI_SECRET_PROJECT
       INTOUCH_DOCEBO_API_URL=$BMI_DOCEBO_API_URL
+      GCP_BMI_INTOUCH_CERTIFICATION_TOPIC=$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC
   script:
     - echo $BGCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-certification.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-cron-certification --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-certification.zip --runtime=nodejs14 --entry-point=updateCertificates --trigger-topic=$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC-$BMI_ENV --set-env-vars=DOCEBO_API_URL=${_INTOUCH_DOCEBO_API_URL},GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},USER_CERTIFICATION_REPORT_ID=${_USER_CERTIFICATION_REPORT_ID},PG_SSL_HOST=automated-style-303709:intouch-db,PGPORT=5432,PGDATABASE=companies-db,PGUSER=postgres
+    - gcloud functions deploy pubsub-cron-certification --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-certification.zip --runtime=nodejs14 --entry-point=updateCertificates --trigger-topic=$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC-$BMI_ENV --set-env-vars=DOCEBO_API_URL=${_INTOUCH_DOCEBO_API_URL},GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},USER_CERTIFICATION_REPORT_ID=${_USER_CERTIFICATION_REPORT_ID},PG_SSL_HOST=$BMI_PROJECT:bmi-np-intouch-pgsql-db-m-instnc-euw3-$BMI_ENV,PGPORT=5432,PGDATABASE=companies-db,PGUSER=postgres

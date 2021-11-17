@@ -131,10 +131,8 @@ deploy_gcp-intouch-cron-training_bmi:
       GCP_INTOUCH_REPLATFORM_PROJECT_ID=$BMI_PROJECT
       GCP_INTOUCH_REPLATFORM_SERVICE_KEY=$BMI_KEY
       GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$BMI_BUILD_STORAGE
-
-      GCP_BMI_INTOUCH_TRAINING_TOPIC=$GCP_BMI_INTOUCH_TRAINING_TOPIC
-
       INTOUCH_TRAINING_API_URL=$BMI_TRAINING_API_URL
+      GCP_BMI_INTOUCH_TRAINING_TOPIC=$GCP_BMI_INTOUCH_TRAINING_TOPIC
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json

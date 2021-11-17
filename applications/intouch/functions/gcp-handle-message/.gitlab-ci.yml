@@ -93,7 +93,7 @@ deploy_gcp-intouch-handle-message_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_DEV_BUILD_STORAGE"
-        BMI_INTOUCH_SENDGRID_API_KEY: "$GCP_BMI_INTOUCH_DEV_INTOUCH_SENDGRID_API_KEY"
+        BMI_SECRET_PROJECT: "$GCP_BMI_DEV_SECRET_PROJECT"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
@@ -102,7 +102,7 @@ deploy_gcp-intouch-handle-message_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_QA_BUILD_STORAGE"
-        BMI_INTOUCH_SENDGRID_API_KEY: "$GCP_BMI_INTOUCH_QA_INTOUCH_SENDGRID_API_KEY"
+        BMI_SECRET_PROJECT: "$GCP_BMI_QA_SECRET_PROJECT"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
@@ -111,7 +111,7 @@ deploy_gcp-intouch-handle-message_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PREPROD_BUILD_STORAGE"
-        BMI_INTOUCH_SENDGRID_API_KEY: "$GCP_BMI_INTOUCH_PREPROD_INTOUCH_SENDGRID_API_KEY"
+        BMI_SECRET_PROJECT: "$GCP_BMI_PREPROD_SECRET_PROJECT"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
@@ -120,7 +120,7 @@ deploy_gcp-intouch-handle-message_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PROD_BUILD_STORAGE"
-        BMI_INTOUCH_SENDGRID_API_KEY: "$GCP_BMI_INTOUCH_PROD_INTOUCH_SENDGRID_API_KEY"
+        BMI_SECRET_PROJECT: "$GCP_BMI_PROD_SECRET_PROJECT"
       allow_failure: true
   needs: [package_gcp-intouch-handle-message]
   dependencies:
@@ -130,11 +130,10 @@ deploy_gcp-intouch-handle-message_bmi:
       GCP_INTOUCH_REPLATFORM_PROJECT_ID=$BMI_PROJECT
       GCP_INTOUCH_REPLATFORM_SERVICE_KEY=$BMI_KEY
       GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$BMI_BUILD_STORAGE
-
+      GCP_SECRET_PROJECT=$BMI_SECRET_PROJECT
       GCP_BMI_INTOUCH_TRANSACTIONAL_TOPIC=$GCP_BMI_INTOUCH_TRANSACTIONAL_TOPIC
 
-      INTOUCH_SENDGRID_API_KEY=$BMI_INTOUCH_SENDGRID_API_KEY
-      INTOUCH_MAIL_FROM=$BMI_INTOUCH_MAIL_FROM
+      INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
