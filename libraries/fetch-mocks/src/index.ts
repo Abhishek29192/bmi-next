@@ -39,6 +39,7 @@ export interface MockedResponse {
   status?: MockResponseObject["status"];
   error?: MockResponseObject["throws"];
   redirectUrl?: MockResponseObject["redirectUrl"];
+  repeat?: number;
 }
 
 export const mockResponses = (
@@ -63,7 +64,7 @@ export const mockResponses = (
       {
         sendAsJson:
           !(mockedResponse.body instanceof Readable) && !!mockedResponse.body,
-        repeat: 1,
+        repeat: mockedResponse.repeat,
         overwriteRoutes: false,
         body: mockedResponse.requestBody
       }
