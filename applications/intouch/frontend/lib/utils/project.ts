@@ -12,9 +12,9 @@ import { GuaranteeStatus, guaranteePrerequsitesMet } from "./guarantee";
 dayjs.extend(isBetween);
 
 export enum ProjectStatus {
-  NOT_STARTED = "Not started",
-  IN_PROGRESS = "In progress",
-  COMPLETED = "Completed"
+  NOT_STARTED = "filters.labels.NOT_STARTED",
+  IN_PROGRESS = "filters.labels.IN_PROGRESS",
+  COMPLETED = "filters.labels.COMPLETED"
 }
 
 export const getProjectStatus = (startDate, endDate) => {
