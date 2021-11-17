@@ -15,8 +15,10 @@ export type AttributeCodeMap = {
   }[];
 };
 
-const generateUrl = (urlParts: string[]) => {
+export const generateUrl = (urlParts: string[]) => {
   return urlParts
+    .filter(Boolean)
+    .map((part) => part.replace(/[^\s\p{L}\p{Nd}-]/gu, ""))
     .join("-")
     .replace(/\s+/g, "-")
     .replace(/\*/g, "")
