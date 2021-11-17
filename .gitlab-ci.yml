@@ -30,6 +30,7 @@ stages:
   - terraform_execute
   - dynamic security
   - lighthouse scan
+  - post deploy
 
 workflow:
   rules:
