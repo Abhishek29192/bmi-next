@@ -13,9 +13,7 @@ build_gcp-intouch-generate-guarantee:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
       changes:
         - applications/intouch/functions/gcp-generate-guarantee/**/*
-  needs:
-    - job: install
-      optional: true
+  needs: []
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
