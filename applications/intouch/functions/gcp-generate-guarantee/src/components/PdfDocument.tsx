@@ -12,6 +12,7 @@ import React from "react";
 import locales from "../locales.json";
 import Logo from "../svgs/BMI";
 import svgMap from "../util/svgMap";
+import { formatDateByLanguage } from "../util/date";
 import { Field } from "./Field";
 import { Typography } from "./Typography";
 
@@ -132,7 +133,7 @@ export const PdfDocument = ({
           />
           <Field
             title={template.headingStartDate}
-            values={[new Date(startDate).toLocaleDateString()]}
+            values={[formatDateByLanguage(startDate, languageCode)]}
           />
           <Field
             title={template.headingGuaranteeId}
@@ -149,7 +150,7 @@ export const PdfDocument = ({
           />
           <Field
             title={template.headingExpiry}
-            values={[new Date(expiryDate).toLocaleDateString()]}
+            values={[formatDateByLanguage(expiryDate, languageCode)]}
           />
         </Col>
       </Row>
