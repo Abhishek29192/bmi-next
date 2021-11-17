@@ -117,10 +117,12 @@ release_intouch_training_to_cloudrun_bmi:
     - echo $PREVIOUS_ENV_BMI_KEY > gcloud-service-key.json # Promoted Google Cloud service accounts to pull image
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $PREVIOUS_ENV_BMI_PROJECT
+    - gcloud auth configure-docker
     - docker pull eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-api-service-training:latest
     - docker tag eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-api-service-training:latest eu.gcr.io/$BMI_PROJECT/intouch-api-service-training:latest
     - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts to promote
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
+    - gcloud auth configure-docker
     - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-service-training:latest
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-service-training:latest --region=europe-west3 --platform=managed
