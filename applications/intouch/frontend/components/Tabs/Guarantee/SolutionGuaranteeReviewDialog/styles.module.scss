@@ -14,3 +14,8 @@
   padding: 1rem;
   margin: 0 auto;
 }
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
