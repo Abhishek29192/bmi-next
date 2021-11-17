@@ -40,7 +40,9 @@ async function main() {
   // Init postgraphile
   app.get("/", (req, res) => {
     return res.send({
-      status: "You shouldn't be here!"
+      status: "You shouldn't be here!",
+      "companies-host": PG_COMPANIES_HOST,
+      "training-host": PG_TRAINING_HOST
     });
   });
 

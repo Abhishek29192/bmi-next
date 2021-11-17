@@ -21,7 +21,7 @@ const initDb = async (
   };
   const insertOne = curryContext(context, dbInsertOne);
   const market = await insertOne("market", {
-    domain: "da",
+    domain: "ooo",
     language: "da"
   });
 
@@ -60,7 +60,7 @@ describe("Market", () => {
         await actAs(client, admin);
 
         const market = await insertOne("market", {
-          domain: "pt",
+          domain: "rrr",
           language: "pt"
         });
 
@@ -87,7 +87,7 @@ describe("Market", () => {
         await actAs(client, admin);
 
         await insertOne("market", {
-          domain: "pt",
+          domain: "rrr",
           language: "pt"
         });
       } catch (error) {
@@ -113,7 +113,7 @@ describe("Market", () => {
         await actAs(client, account);
 
         await insertOne("market", {
-          domain: "pt",
+          domain: "rrr",
           language: "pt"
         });
       } catch (error) {
@@ -135,7 +135,7 @@ describe("Market", () => {
         await actAs(client, account);
 
         await insertOne("market", {
-          domain: "pt",
+          domain: "rrr",
           language: "pt"
         });
       } catch (error) {
