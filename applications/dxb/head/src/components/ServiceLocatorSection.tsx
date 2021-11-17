@@ -57,6 +57,7 @@ export type Service = ServiceData & {
 export type Data = {
   __typename: "ContentfulServiceLocatorSection";
   type: EntryTypeEnum;
+  showDefaultResultList: boolean;
   title: string;
   label: string;
   body: RichTextData | null;
@@ -121,6 +122,7 @@ const IntegratedLinkCard = ({
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const {
     type: sectionType,
+    showDefaultResultList,
     label,
     body,
     services,
@@ -152,6 +154,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   );
   const [uniqueRoofTypeByData, setUniqueRoofTypeByData] = useState([]);
   const [isUserAction, setUserAction] = useState(false);
+  const [showResultList, setShowResultList] = useState(showDefaultResultList);
 
   const { getMicroCopy, countryCode } = useSiteContext();
   const [googleApi, setgoogleApi] = useState<Google>(null);
@@ -358,18 +361,20 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const markers = useMemo(
     () =>
-      filteredRoofers.map(
-        (service: Service): MarkerOptionsWithData<Service> => ({
-          title: service.name,
-          position: {
-            lat: service.location.lat,
-            lng: service.location.lon
-          },
-          isActive: selectedRoofer && selectedRoofer.id === service.id,
-          data: service
-        })
-      ),
-    [selectedRoofer, filteredRoofers]
+      showResultList
+        ? filteredRoofers.map(
+            (service: Service): MarkerOptionsWithData<Service> => ({
+              title: service.name,
+              position: {
+                lat: service.location.lat,
+                lng: service.location.lon
+              },
+              isActive: selectedRoofer && selectedRoofer.id === service.id,
+              data: service
+            })
+          )
+        : [],
+    [selectedRoofer, filteredRoofers, showResultList]
   );
 
   const handleListClick = (service: Service) => {
@@ -378,6 +383,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const handlePlaceChange = (location?: GoogleGeocoderResult) => {
     // We want to clear the service whenever the place changes.
+    if (location) {
+      setShowResultList(true);
+    }
     setSelectedRoofer(null);
     setZoom(location ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
     setCentre(
@@ -704,6 +712,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                   noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
                   className={styles["company-autocomplete"]}
                   onChange={(_, inputValue) => {
+                    setShowResultList(true);
                     setActiveSearchString(inputValue || "");
                   }}
                   filterOptions={(options, { inputValue }) => {
@@ -762,6 +771,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                       type="selectable"
                       onClick={() => {
                         setUserAction(true);
+                        setShowResultList(true);
                         updateActiveFilters({ name: serviceType });
                       }}
                       isSelected={activeFilters[serviceType]}
@@ -783,71 +793,75 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           visibleUntil="md"
           variant="fullWidth"
         >
-          <Tabs.TabPanel
-            md={12}
-            lg={4}
-            className={styles["tab-panel"]}
-            heading={getMicroCopy("findARoofer.listLabel")}
-            index="list"
-          >
-            <div className={styles["list"]}>
-              {filteredRoofers.length ? (
-                filteredRoofers.map((service) => (
-                  <GTMIntegratedLinkCard
-                    key={service.id}
-                    onClick={() => handleListClick(service)}
-                    onCloseClick={clearRooferAndResetMap}
-                    isOpen={selectedRoofer && selectedRoofer.id === service.id}
-                    title={service.name}
-                    gtm={getResultDataGtm(service)}
-                    subtitle={
-                      <>
-                        {service.address}
-                        {service.certification && shouldListCertification && (
-                          <div className={styles["roofpro-certification"]}>
-                            {getMicroCopy("findARoofer.certificationLabel")}:
-                            <Logo
-                              source={
-                                iconSourceMap[
-                                  service.certification.toLowerCase()
-                                ]
-                              }
-                              className={styles["roofpro-icon"]}
-                            />
-                          </div>
-                        )}
-                      </>
-                    }
-                  >
-                    <CompanyDetails
-                      details={getCompanyDetails(
-                        eventCatIdLinkClicks,
-                        service,
-                        true
-                      )}
+          {showResultList && (
+            <Tabs.TabPanel
+              md={12}
+              lg={4}
+              className={styles["tab-panel"]}
+              heading={getMicroCopy("findARoofer.listLabel")}
+              index="list"
+            >
+              <div className={styles["list"]}>
+                {filteredRoofers.length ? (
+                  filteredRoofers.map((service) => (
+                    <GTMIntegratedLinkCard
+                      key={service.id}
+                      onClick={() => handleListClick(service)}
+                      onCloseClick={clearRooferAndResetMap}
+                      isOpen={
+                        selectedRoofer && selectedRoofer.id === service.id
+                      }
+                      title={service.name}
+                      gtm={getResultDataGtm(service)}
+                      subtitle={
+                        <>
+                          {service.address}
+                          {service.certification && shouldListCertification && (
+                            <div className={styles["roofpro-certification"]}>
+                              {getMicroCopy("findARoofer.certificationLabel")}:
+                              <Logo
+                                source={
+                                  iconSourceMap[
+                                    service.certification.toLowerCase()
+                                  ]
+                                }
+                                className={styles["roofpro-icon"]}
+                              />
+                            </div>
+                          )}
+                        </>
+                      }
                     >
-                      <Typography>{service.summary}</Typography>
-                    </CompanyDetails>
-                  </GTMIntegratedLinkCard>
-                ))
-              ) : (
-                <div className={styles["no-results"]}>
-                  <Typography
-                    variant="h4"
-                    className={styles["no-results-heading"]}
-                  >
-                    {getMicroCopy("findARoofer.noResults.title")}
-                  </Typography>
-                  <Typography>
-                    {getMicroCopy("findARoofer.noResults.subtitle")}
-                  </Typography>
-                </div>
-              )}
-            </div>
-          </Tabs.TabPanel>
+                      <CompanyDetails
+                        details={getCompanyDetails(
+                          eventCatIdLinkClicks,
+                          service,
+                          true
+                        )}
+                      >
+                        <Typography>{service.summary}</Typography>
+                      </CompanyDetails>
+                    </GTMIntegratedLinkCard>
+                  ))
+                ) : (
+                  <div className={styles["no-results"]}>
+                    <Typography
+                      variant="h4"
+                      className={styles["no-results-heading"]}
+                    >
+                      {getMicroCopy("findARoofer.noResults.title")}
+                    </Typography>
+                    <Typography>
+                      {getMicroCopy("findARoofer.noResults.subtitle")}
+                    </Typography>
+                  </div>
+                )}
+              </div>
+            </Tabs.TabPanel>
+          )}
           <Tabs.TabPanel
             md={12}
-            lg={8}
+            lg={showResultList ? 8 : 12}
             className={styles["tab-panel"]}
             heading={getMicroCopy("findARoofer.mapLabel")}
             index="map"
@@ -911,6 +925,7 @@ export const query = graphql`
   fragment ServiceLocatorSectionFragment on ContentfulServiceLocatorSection {
     __typename
     type
+    showDefaultResultList
     title
     label
     body {

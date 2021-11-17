@@ -139,8 +139,13 @@
     height: calc(100vh - 48px); // Note: minus tab label height.
 
     @media (min-width: $breakpoint-lg) {
-      margin: 0 0 0 24px;
       height: 640px;
+    }
+  }
+
+  .tab-panel + .tab-panel .map {
+    @media (min-width: $breakpoint-lg) {
+      margin: 0 0 0 24px;
     }
   }
 }

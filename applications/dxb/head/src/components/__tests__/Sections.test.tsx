@@ -392,6 +392,7 @@ describe("Sections component", () => {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         title: "Service Locator",
+        showDefaultResultList: true,
         label: "Find A Roofer",
         body: null,
         services: null,
@@ -403,6 +404,7 @@ describe("Sections component", () => {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         title: "Service Locator - with services",
+        showDefaultResultList: true,
         label: "Find A Roofer",
         body: null,
         services: [

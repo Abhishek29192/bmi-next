@@ -742,6 +742,9 @@ type ContentfulServiceLocatorSection implements Node {
   "Type of services to be displayed (Roofer, Branch, or Merchant)"
   type: String
 
+  "Flag to show/hide result list on page load"
+  showDefaultResultList: Boolean
+
   "The title for this section."
   title: String
 
