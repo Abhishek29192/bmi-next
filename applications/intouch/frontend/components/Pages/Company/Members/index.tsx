@@ -392,14 +392,15 @@ const CompanyMembers = ({ data }: PageProps) => {
               }
             ]}
           />
-
-          <AccessControl dataModel="company" action="changeStatus">
-            <CompanyMemberActionCard
-              member={currentMember}
-              onAccountUpdate={onAccountChangeStatus}
-              disabled={isMemberActionDisabled}
-            />
-          </AccessControl>
+          <div style={{ flexBasis: "100%" }}>
+            <AccessControl dataModel="company" action="changeStatus">
+              <CompanyMemberActionCard
+                member={currentMember}
+                onAccountUpdate={onAccountChangeStatus}
+                disabled={isMemberActionDisabled}
+              />
+            </AccessControl>
+          </div>
         </ThreeColumnGrid>
         <InvitationDialog
           styles={styles}
