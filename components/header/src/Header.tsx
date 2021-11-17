@@ -26,6 +26,7 @@ import {
   KeyboardArrowDown,
   Menu,
   Search as SearchIcon,
+  ShoppingCartOutlined,
   ChevronLeft
 } from "@material-ui/icons";
 import classnames from "classnames";
@@ -52,9 +53,12 @@ type HeaderProps = {
   tabComponent?: React.ComponentType<any>; // TODO
   isSearchDisabled?: boolean;
   isOnSearchPage?: boolean;
+  isBasketEmpty?: boolean;
   searchAction?: string;
   searchLabel?: string;
+  basketAction?: ClickableAction;
   searchPlaceholder?: string;
+  basketLabel?: string;
   searchTitle?: string;
   openLabel?: string;
   mainMenuTitleLabel?: string;
@@ -78,9 +82,12 @@ const Header = ({
   tabComponent: Tab = DefaultTab,
   isSearchDisabled,
   isOnSearchPage,
+  isBasketEmpty,
   searchAction,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
+  basketAction,
+  basketLabel = "Basket",
   searchTitle = "How can we help you today?",
   openLabel = "Open menu",
   mainMenuTitleLabel,
@@ -368,6 +375,17 @@ const Header = ({
             </nav>
           </div>
           <div className={styles["navigation-bar__right"]}>
+            {!isBasketEmpty && (
+              <Button
+                action={basketAction}
+                accessibilityLabel={basketLabel}
+                className={classnames(styles["basket-button"])}
+                variant={!sizes.length ? "text" : "contained"}
+                isIconButton
+              >
+                <Icon source={ShoppingCartOutlined} />
+              </Button>
+            )}
             {!isSearchDisabled && (
               <Button
                 accessibilityLabel={searchLabel}

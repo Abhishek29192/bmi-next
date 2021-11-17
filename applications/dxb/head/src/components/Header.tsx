@@ -8,6 +8,7 @@ import { Tab, TabProps } from "@material-ui/core";
 import withGTM from "../utils/google-tag-manager";
 import Image from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";
+import { useBasketContext } from "../contexts/SampleBasketContext";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -17,6 +18,7 @@ import {
 } from "./Link";
 import { useSiteContext } from "./Site";
 import RichText, { RichTextData } from "./RichText";
+import { Data as PageInfoData } from "./PageInfo";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
   const cta = getCTA(promo, countryCode, getMicroCopy("page.linkLabel"));
@@ -146,7 +148,8 @@ const Header = ({
   activeLabel,
   isOnSearchPage,
   countryNavigationIntroduction,
-  regions
+  regions,
+  sampleBasketLink
 }: {
   navigationData: NavigationData;
   utilitiesData: NavigationData;
@@ -155,6 +158,7 @@ const Header = ({
   isOnSearchPage?: boolean;
   countryNavigationIntroduction?: RichTextData | null;
   regions: Region[];
+  sampleBasketLink?: PageInfoData;
 }) => {
   const languages = useMemo(
     () =>
@@ -181,6 +185,9 @@ const Header = ({
   }
 
   const { getMicroCopy } = useSiteContext();
+  const {
+    basketState: { products: productsInBasket }
+  } = useBasketContext();
   const utilities = parseNavigation(
     utilitiesData.links,
     countryCode,
@@ -191,6 +198,10 @@ const Header = ({
     countryCode,
     getMicroCopy
   );
+
+  const basketCta =
+    sampleBasketLink &&
+    getCTA(sampleBasketLink, countryCode, sampleBasketLink?.slug);
 
   return (
     <HidePrint
@@ -218,6 +229,9 @@ const Header = ({
           searchButtonComponent={(props: ButtonProps) => (
             <GTMSearchButton gtm={{ id: "search1" }} {...props} />
           )}
+          isBasketEmpty={productsInBasket.length === 0}
+          basketAction={basketCta?.action}
+          basketLabel={getMicroCopy("basket.label")}
           navigationButtonComponent={(props: ButtonProps) => (
             <GTMNavigationButton
               gtm={{
