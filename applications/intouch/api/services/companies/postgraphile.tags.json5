@@ -19,12 +19,12 @@
       },
       migrations_state: {
         tags: {
-          omit: "all"
+          omit: "read,update,create,delete,all,many"
         }
       },
       migrations: {
         tags: {
-          omit: "all"
+          omit: "read,update,create,delete,all,many"
         }
       }
     },

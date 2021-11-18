@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS course CASCADE;
+DROP TABLE IF EXISTS course_temp CASCADE;
+DROP TABLE IF EXISTS course_catalogue CASCADE;
+DROP TABLE IF EXISTS course_catalogue_temp CASCADE;
+DROP TABLE IF EXISTS course_enrollment CASCADE;
+DROP TABLE IF EXISTS course_enrollment_temp CASCADE;
+DROP TABLE IF EXISTS course_sync_configuration CASCADE;
