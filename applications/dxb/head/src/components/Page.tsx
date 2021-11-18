@@ -240,6 +240,7 @@ const Page = ({
                     resources?.countryNavigationIntroduction
                   }
                   regions={regions}
+                  sampleBasketLink={resources?.sampleBasketLink}
                 />
               </BmiThemeProvider>
               <BrandProvider brand={brand}>
