@@ -1,3 +1,4 @@
+import path from "path";
 import { config } from "dotenv";
 import DBMigrate from "db-migrate";
 
@@ -5,8 +6,8 @@ config();
 
 const migrate = async (context) => {
   const { query } = context.req;
-  const { password, database, host, user, port, ssl } = context;
-  const { ssl_client_cert, ssl_client_key, ssl_server_ca } = ssl;
+  const { password, database, host, user, port, ssl, folder } = context;
+  const { ssl_client_cert, ssl_client_key, ssl_server_ca, ssl_host } = ssl;
 
   if (query.migrate !== "true") {
     return {
@@ -26,6 +27,9 @@ const migrate = async (context) => {
 
   const dbmigrate = DBMigrate.getInstance(true, {
     throwUncatched: true,
+    cmdOptions: {
+      "migrations-dir": folder
+    },
     config: {
       dev: {
         driver: "pg",
@@ -37,10 +41,11 @@ const migrate = async (context) => {
         schema: "public",
         ...(ssl_server_ca && {
           ssl: {
-            sslrootcert: ssl_server_ca,
-            sslcert: ssl_client_cert,
-            sslkey: ssl_client_key,
-            sslmode: { ENV: "ssl_mode" }
+            rejectUnauthorized: !!ssl_server_ca,
+            ca: ssl_server_ca,
+            cert: ssl_client_cert,
+            key: ssl_client_key,
+            host: ssl_host
           }
         })
       }

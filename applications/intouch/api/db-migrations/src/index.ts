@@ -10,7 +10,9 @@ import migrate from "./migrate";
 const {
   PG_USER,
   PG_PORT,
-  PG_DATABASE,
+  PG_TRAINING_DATABASE,
+  PG_COMPANIES_DATABASE,
+  PG_TRAINING_HOST,
   PG_COMPANIES_HOST,
   PG_COMPANIES_PASSWORD,
   PORT = 4001
@@ -43,9 +45,9 @@ async function main() {
   // Init postgraphile
   app.get("/", (req, res) => {
     return res.send({
-      status: "You shouldn't be here!"
-      // "companies-host": PG_COMPANIES_HOST,
-      // "training-host": PG_TRAINING_HOST
+      status: "You shouldn't be here!",
+      "companies-host": PG_COMPANIES_HOST,
+      "training-host": PG_TRAINING_HOST
     });
   });
 
@@ -55,18 +57,47 @@ async function main() {
     });
   });
 
-  app.get("/migrate-companies", async (req, res) => {
+  app.get("/migrate-companies-db", async (req, res) => {
     try {
       const result = await migrate({
+        folder: "migration-companies",
         host: PG_COMPANIES_HOST,
         password: PG_COMPANIES_PASSWORD,
-        database: PG_DATABASE,
+        database: PG_COMPANIES_DATABASE,
         user: PG_USER,
         port: PG_PORT,
         ssl: {
           ssl_client_key: null,
           ssl_client_cert: null,
-          ssl_server_ca: null
+          ssl_server_ca: null,
+          host: "PG_SSL_HOST"
+        },
+        req
+      });
+
+      return res.send(result);
+    } catch (error) {
+      return res.send({
+        status: "Not Imported",
+        message: error.message
+      });
+    }
+  });
+
+  app.get("/migrate-training-db", async (req, res) => {
+    try {
+      const result = await migrate({
+        folder: "migration-training",
+        host: PG_TRAINING_HOST,
+        password: PG_COMPANIES_PASSWORD,
+        database: PG_TRAINING_DATABASE,
+        user: PG_USER,
+        port: PG_PORT,
+        ssl: {
+          ssl_client_key: null,
+          ssl_client_cert: null,
+          ssl_server_ca: null,
+          host: "PG_SSL_HOST"
         },
         req
       });
