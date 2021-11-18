@@ -56,7 +56,6 @@ const samples: Sample[] = [
     classifications: []
   }
 ];
-
 describe("SampleBasketSectionProducts component", () => {
   beforeAll(() => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify(samples));
@@ -97,18 +96,5 @@ describe("SampleBasketSectionProducts component", () => {
     fireEvent.click(screen.queryByText("sample-1"));
 
     expect(Gatsby.navigate).toBeCalledWith("/en/sample-1-details");
-  });
-
-  it("renders correctly for mobile", () => {
-    jest.mock("@material-ui/core", () => ({
-      useMediaQuery: jest.fn().mockRejectedValue(true)
-    }));
-
-    const { container } = render(
-      <BasketContextProvider>
-        <SampleBasketSectionProducts />
-      </BasketContextProvider>
-    );
-    expect(container.firstChild).toMatchSnapshot();
   });
 });

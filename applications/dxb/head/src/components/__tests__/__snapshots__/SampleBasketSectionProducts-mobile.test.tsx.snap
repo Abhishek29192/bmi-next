@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SampleBasketSectionProducts component renders correctly 1`] = `
+exports[`SampleBasketSectionProducts component render correctly on mobile devices renders correctly for mobile 1`] = `
 <div
   class="SampleBasketSectionProducts"
 >
@@ -10,9 +10,8 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     type="button"
   >
     <img
-      alt="sample-1"
+      alt="sample"
       class="product-image header-picture Media"
-      src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
     />
     <div
@@ -33,33 +32,22 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             <p
               class="MuiTypography-root product-title Typography MuiTypography-body1"
             >
-              sample-1
+              sample
             </p>
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-              classification-feature-feature-value-value
-            </p>
+            />
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
             />
           </div>
-        </div>
-      </div>
-      <div
-        class="footer"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined product-button MuiButton-outlinedPrimary"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-4"
+          <button
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
+            tabindex="0"
+            type="button"
           >
-            MC: pdp.overview.removeSample
             <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              class="MuiIconButton-label"
             >
               <svg
                 aria-hidden="true"
@@ -72,11 +60,11 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
                 />
               </svg>
             </span>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
     <span
@@ -89,9 +77,8 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     type="button"
   >
     <img
-      alt="sample-2"
+      alt="sample"
       class="product-image header-picture Media"
-      src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
     />
     <div
@@ -112,33 +99,22 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             <p
               class="MuiTypography-root product-title Typography MuiTypography-body1"
             >
-              sample-2
+              sample
             </p>
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
             />
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-              10x20 mm
-            </p>
+            />
           </div>
-        </div>
-      </div>
-      <div
-        class="footer"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined product-button MuiButton-outlinedPrimary"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-4"
+          <button
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
+            tabindex="0"
+            type="button"
           >
-            MC: pdp.overview.removeSample
             <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              class="MuiIconButton-label"
             >
               <svg
                 aria-hidden="true"
@@ -151,11 +127,11 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
                 />
               </svg>
             </span>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
     <span
@@ -168,9 +144,8 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     type="button"
   >
     <img
-      alt="sample-3"
+      alt="sample"
       class="product-image header-picture Media"
-      src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
     />
     <div
@@ -191,7 +166,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             <p
               class="MuiTypography-root product-title Typography MuiTypography-body1"
             >
-              sample-3
+              sample
             </p>
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
@@ -200,22 +175,13 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
               class="MuiTypography-root product-size Typography MuiTypography-body1"
             />
           </div>
-        </div>
-      </div>
-      <div
-        class="footer"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined product-button MuiButton-outlinedPrimary"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-4"
+          <button
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
+            tabindex="0"
+            type="button"
           >
-            MC: pdp.overview.removeSample
             <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              class="MuiIconButton-label"
             >
               <svg
                 aria-hidden="true"
@@ -228,11 +194,11 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
                 />
               </svg>
             </span>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
     <span
