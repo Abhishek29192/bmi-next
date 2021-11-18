@@ -41,10 +41,12 @@ grant select, update, insert, delete on market to super_admin;
 grant select, insert on company to installer;
 grant update (registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, name, tax_number, phone, about_us, public_email, website, facebook,linked_in, logo) on company to company_admin;
 grant update (tier, status) on company to market_admin;
+grant select, update, insert, delete on company to super_admin;
 
 -- company_member
 grant select, insert, delete on company_member to installer;
 grant update (account_id) on company_member to company_admin;
+grant select, update, insert, delete on company_member to super_admin;
 
 -- -- company_operations
 grant select on company_operation to installer;
@@ -67,24 +69,25 @@ grant select, insert, update, delete on address to company_admin;
 -- company_document
 grant select on company_document to installer;
 grant select, insert, delete on company_document to company_admin;
+grant select, insert, delete, update on company_document to super_admin;
 
 
 -- project
 grant select on project to installer;
 grant select, insert, update, delete on project to company_admin;
 grant update (company_id, technology, name, description, roof_area, building_owner_mail, building_owner_firstname, building_owner_lastname, building_owner_company, start_date, end_date) on project to company_admin;
-grant update on project to market_admin;
+grant select, insert, update, delete on account to super_admin;
 
 -- project_member
 grant select, delete on project_member to installer;
-grant select, insert, update,delete on project_member to company_admin;
+grant select, insert, update, delete on project_member to company_admin;
 grant select, insert, update, delete on project_member to super_admin;
 
 -- notification
 grant select on notification to installer;
 grant update (read) on notification to installer;
-grant select, insert, update on notification to super_admin;
 grant select, insert, update on notification to company_admin;
+grant select, insert, update, delete on notification to super_admin;
 
 -- invitation
 grant select on invitation to installer;
@@ -117,8 +120,8 @@ grant select, insert, update, delete on product to market_admin;
 -- note
 grant select on note to installer;
 grant select, insert on note to market_admin;
-grant select, insert, update on note to super_admin;
 grant select, insert on note to company_admin;
+grant select, insert, update, delete on note to super_admin;
 
 
 
