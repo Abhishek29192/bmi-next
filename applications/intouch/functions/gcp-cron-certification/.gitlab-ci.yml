@@ -1,22 +1,21 @@
 variables:
-  APP_NAME: "gcp-cron-certification"
+  FUNCTION_NAME: "gcp-cron-certification"
 
 build_gcp-intouch-cron-certification:
   stage: build
-  cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
   needs: []
   before_script:
     - yarn config set cache-folder ~/.yarn
@@ -24,7 +23,7 @@ build_gcp-intouch-cron-certification:
     - yarn workspace @bmi/gcp-intouch-cron-certification run build
   artifacts:
     paths:
-      - applications/intouch/functions/$APP_NAME/dist
+      - applications/intouch/functions/$FUNCTION_NAME/dist
 
 
 package_gcp-intouch-cron-certification:
@@ -32,17 +31,18 @@ package_gcp-intouch-cron-certification:
   rules:
     - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
-  needs: []
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
+  needs:
+    - build_gcp-intouch-cron-certification
   dependencies:
     - build_gcp-intouch-cron-certification
   before_script:
@@ -50,11 +50,11 @@ package_gcp-intouch-cron-certification:
     - apt-get install -y zip unzip
     - pwd ###
     - ls -a dist ###
-    - ls -a $CI_PROJECT_DIR/applications/intouch/functions/$APP_NAME ###
+    - ls -a $CI_PROJECT_DIR/applications/intouch/functions/$FUNCTION_NAME ###
     - mkdir -p dist/applications/intouch/functions
   script:
-    - cd applications/intouch/functions/$APP_NAME
-    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/$APP_NAME.zip package.json dist/
+    - cd applications/intouch/functions/$FUNCTION_NAME
+    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/$FUNCTION_NAME.zip package.json dist/
     - cd $CI_PROJECT_DIR
   artifacts:
     paths:
@@ -68,9 +68,10 @@ deploy_gcp-intouch-cron-certification:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
       allow_failure: true
-  needs: []
+  needs:
+    - package_gcp-intouch-cron-certification
   dependencies:
     - package_gcp-intouch-cron-certification
   before_script:
@@ -88,8 +89,8 @@ deploy_gcp-intouch-cron-certification:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/$APP_NAME.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud builds submit . --config=applications/intouch/functions/$APP_NAME/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,_USER_CERTIFICATION_REPORT_ID=$USER_CERTIFICATION_REPORT_ID
+    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/$FUNCTION_NAME.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud builds submit . --config=applications/intouch/functions/$FUNCTION_NAME/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,_USER_CERTIFICATION_REPORT_ID=$USER_CERTIFICATION_REPORT_ID
 
 
 # Deploy to BMI environments
@@ -99,7 +100,7 @@ deploy_gcp-intouch-cron-certification_bmi:
   rules:
     - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
       variables:
         BMI_ENV: "dev"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
@@ -109,7 +110,7 @@ deploy_gcp-intouch-cron-certification_bmi:
         BMI_DOCEBO_API_URL: "$GCP_BMI_INTOUCH_DEV_DOCEBO_API_URL"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
       variables:
         BMI_ENV: "qa"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
@@ -119,7 +120,7 @@ deploy_gcp-intouch-cron-certification_bmi:
         BMI_DOCEBO_API_URL: "$GCP_BMI_INTOUCH_QA_DOCEBO_API_URL"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
       variables:
         BMI_ENV: "preprod"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
@@ -129,7 +130,7 @@ deploy_gcp-intouch-cron-certification_bmi:
         BMI_DOCEBO_API_URL: "$GCP_BMI_INTOUCH_PREPROD_DOCEBO_API_URL"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
-        - applications/intouch/functions/$APP_NAME/**/*
+        - applications/intouch/functions/$FUNCTION_NAME/**/*
       variables:
         BMI_ENV: "prod"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
@@ -138,7 +139,8 @@ deploy_gcp-intouch-cron-certification_bmi:
         BMI_SECRET_PROJECT: "$GCP_BMI_PROD_SECRET_PROJECT"
         BMI_DOCEBO_API_URL: "$GCP_BMI_INTOUCH_PROD_DOCEBO_API_URL"
       allow_failure: true
-  needs: []
+  needs:
+    - package_gcp-intouch-cron-certification
   dependencies:
     - package_gcp-intouch-cron-certification
   before_script:
@@ -154,5 +156,5 @@ deploy_gcp-intouch-cron-certification_bmi:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/$APP_NAME.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-cron-certification --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/$APP_NAME.zip --runtime=nodejs14 --region=europe-west3 --entry-point=updateCertificates --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC-$BMI_ENV --set-env-vars=DOCEBO_API_URL=${_INTOUCH_DOCEBO_API_URL},GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},USER_CERTIFICATION_REPORT_ID=${_USER_CERTIFICATION_REPORT_ID},PG_SSL_HOST=$BMI_PROJECT:$PREFIX-pgsql-db-m-instnc-euw3-$BMI_ENV,PGPORT=5432,PGDATABASE=companies-db,PGUSER=postgres
+    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/$FUNCTION_NAME.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud functions deploy pubsub-cron-certification --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/$FUNCTION_NAME.zip --runtime=nodejs14 --region=europe-west3 --entry-point=updateCertificates --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC-$BMI_ENV --set-env-vars=DOCEBO_API_URL=${_INTOUCH_DOCEBO_API_URL},GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},USER_CERTIFICATION_REPORT_ID=${_USER_CERTIFICATION_REPORT_ID},PG_SSL_HOST=$BMI_PROJECT:$PREFIX-pgsql-db-m-instnc-euw3-$BMI_ENV,PGPORT=5432,PGDATABASE=companies-db,PGUSER=postgres
