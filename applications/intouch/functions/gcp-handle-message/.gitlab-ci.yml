@@ -49,7 +49,9 @@ package_gcp-intouch-handle-message:
     - apt-get install -y zip unzip
     - mkdir -p dist/applications/intouch/functions
   script:
-    - cd applications/intouch/functions/gcp-handle-message; zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip package.json dist/; cd $CI_PROJECT_DIR;
+    - cd applications/intouch/functions/gcp-handle-message
+    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip package.json dist/
+    - cd $CI_PROJECT_DIR
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/applications/intouch/functions
