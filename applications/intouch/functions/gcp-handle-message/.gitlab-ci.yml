@@ -26,6 +26,9 @@ build_gcp-intouch-handle-message:
 package_gcp-intouch-handle-message:
   stage: package
   rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849'" # just for test pipeline
+      changes:
+        - applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml # just for test pipeline
     - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
@@ -88,6 +91,7 @@ deploy_gcp-intouch-handle-message_bmi:
     - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
+        - applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml # just for test pipeline
       variables:
         BMI_ENV: "dev"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
@@ -97,6 +101,7 @@ deploy_gcp-intouch-handle-message_bmi:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
+        - applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml
       variables:
         BMI_ENV: "qa"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
