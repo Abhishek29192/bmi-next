@@ -1,6 +1,9 @@
 .cloud-sdk-image:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
 
+.curl:
+  image: curlimages/curl
+
 .cypress-image:
   image: cypress/browsers:node14.17.0-chrome91-ff89
 

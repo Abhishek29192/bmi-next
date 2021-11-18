@@ -7,6 +7,7 @@ Monorepo for BMI websites that includes a component library.
 ## Getting started
 
 [Local setup](doc/local-setup.md)
+
 [Contributing](CONTRIBUTING.md)
 
 ## Contents

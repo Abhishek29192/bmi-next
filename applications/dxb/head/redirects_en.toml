@@ -1,7 +1,87 @@
 
-# Redirect root to /en.
+# Redirects for Group (SITE_MARKET_CODE=en)
+
 [[redirects]]
-  from = "/"
-  to = "/en"
-  status = 302
+  from = "/your-career/career-development"
+  to = "/our-company/your-career/career-development/"
+  status = 301
   force = true
+
+[[redirects]]
+  from = "/your-career/diversity"
+  to = "/our-company/your-career/diversity/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/your-career"
+  to = "/our-company/your-career/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/our-company/contact-us"
+  to = "/contact-us/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/our-company/news"
+  to = "/news/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legal/imprint"
+  to = "/imprint/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legal/cookie-policy"
+  to = "/cookie-policy/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legal/third-party-privacy-notice"
+  to = "/third-party-site-privacy-notice/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legal/group-s172-statements"
+  to = "/legal/s172-statements/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legal/legal/"
+  to = "/legal/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fr-fr"
+  to = "https://www.bmigroup.com/fr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/de-de"
+  to = "https://www.bmigroup.com/de/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fr-fr/*"
+  to = "https://www.bmigroup.com/fr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/de-de/*"
+  to = "https://www.bmigroup.com/de/"
+  status = 301
+  force = true
+

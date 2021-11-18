@@ -57,6 +57,11 @@ When set to `true` only the new url structure will be use 'variantAttribute' fea
 - If `variantAttribute` feature or its value is found then, it will fall back to generate `/p/zanda-protector-variant-atttr-value-935895622`
 - If `variantAttribute` feature or its value is NOT found then, it will fall back to generate URLs same as `GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE` i.e. `/p/zanda-protector-normalstein-sort-betong-935895622`
 
+GATSBY_GROUP_BY_VARIANT -
+Feature flag for grouping / collapsing PLP data with `variant` as opposed to `base product` (Elastic search indexing)
+Default is `false` (will group/collapse by base Product code i.e. `baseProduct.code.keyword`)
+When set to `true` (will group/collapse by variant code i.e. `code.keyword`)
+
 ### Setup Google reCAPTCHA
 
 1. Visit (Google reCAPTCHA)[https://www.google.com/recaptcha/admin]
