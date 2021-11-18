@@ -89,13 +89,6 @@ export const updateCompany = async (
     )
   ) {
     await pgClient.query("SELECT * FROM activate_company($1)", [args.input.id]);
-
-    // send email for registration
-    await sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
-      email: user.email,
-      firstname: user.firstName,
-      companyname: user.company.name
-    });
   }
 
   if (tier && activeCompanyTier !== tier) {
