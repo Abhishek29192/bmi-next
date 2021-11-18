@@ -1,5 +1,6 @@
 import admin from "firebase-admin";
 import { DocumentData, Firestore, Query } from "@google-cloud/firestore";
+import { info } from "./logger";
 
 export enum FirestoreCollections {
   Categories = "root/categories",
@@ -27,8 +28,7 @@ async function deleteQueryBatch(db: Firestore, query: Query<DocumentData>) {
   });
   await batch.commit();
 
-  // eslint-disable-next-line no-console
-  console.log(`Deleted a batch of ${batchSize}`);
+  info({ message: `Deleted a batch of ${batchSize}` });
 
   await deleteQueryBatch(db, query);
 }

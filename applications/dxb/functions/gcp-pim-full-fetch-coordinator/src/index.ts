@@ -6,12 +6,13 @@ import {
   ElasticsearchIndexes
 } from "./elasticsearch";
 import { fetchData, PimTypes } from "./pim";
+import { error, info, initialize } from "./logger";
 
 const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT } = process.env;
 
 const triggerFullFetchBatch = async (type: PimTypes) => {
-  // eslint-disable-next-line no-console
-  console.log(`Batching ${type}.`);
+  info({ message: `Batching ${type}.` });
+
   const response = await fetchData(type);
   const numberOfRequests = response.totalPageCount / 10;
   let lastStartPage = 0;
@@ -44,8 +45,7 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
  * @param {!express:Response} res HTTP response context.
  */
 const handleRequest: HttpFunction = async (req, res) => {
-  // eslint-disable-next-line no-console
-  console.log("Clearing out data...");
+  info({ message: "Clearing out data..." });
 
   await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
   await deleteElasticSearchIndex(ElasticsearchIndexes.Systems);
@@ -61,9 +61,8 @@ const handleRequest: HttpFunction = async (req, res) => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ foo: "bar" })
-  }).catch((error) => {
-    // eslint-disable-next-line no-console
-    console.error("Error whilst trying to trigger the build.", error);
+  }).catch((err) => {
+    error({ message: `Error whilst trying to trigger the build. ${err}` });
   });
 
   res.status(200).send("ok");
