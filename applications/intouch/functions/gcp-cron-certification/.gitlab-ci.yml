@@ -18,7 +18,6 @@ build_gcp-intouch-cron-certification:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-intouch-cron-certification run build
-    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
   artifacts:
     paths:
       - applications/intouch/functions/gcp-cron-certification/dist
@@ -49,14 +48,15 @@ package_gcp-intouch-cron-certification:
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/applications/intouch/functions
-    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
+    - pwd && ls -lah . && ls -lah dist # just for test pipeline
   script:
-    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
+    - pwd && ls -lah . && ls -lah dist # just for test pipeline
     - cd applications/intouch/functions/gcp-cron-certification
-    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
+    - pwd && ls -lah . # just for test pipeline
     - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-certification.zip package.json dist/
-    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
+    - pwd && ls -lah . && ls -lah dist # just for test pipeline
     - cd $CI_PROJECT_DIR
+    - pwd && ls -lah . # just for test pipeline
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/applications/intouch/functions
