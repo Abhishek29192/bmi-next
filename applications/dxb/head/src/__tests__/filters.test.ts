@@ -1586,7 +1586,8 @@ describe("filters tests", () => {
                 value: "AeroDeck",
                 label: "AeroDeck"
               }
-            ]
+            ],
+            value: []
           }
         ]);
       });
@@ -1634,7 +1635,8 @@ describe("filters tests", () => {
               { label: "Ståltak produkter", value: "TILES_STEELROOF_NO" },
               { label: "Takpanne stål", value: "MAINTILE_STEELROOF_NO" },
               { label: "Takprodukter", value: "ROOF_NO" }
-            ]
+            ],
+            value: []
           }
         ]);
       });
@@ -1683,7 +1685,8 @@ describe("filters tests", () => {
                 value: "PITCHEDROOF_NO",
                 label: "Skråtak"
               }
-            ]
+            ],
+            value: []
           }
         ]);
       });
@@ -1739,7 +1742,8 @@ describe("filters tests", () => {
                 value: "TILES_STEELROOF_NO",
                 label: "Ståltak produkter"
               }
-            ]
+            ],
+            value: []
           }
         ]);
       });
@@ -1789,7 +1793,8 @@ describe("filters tests", () => {
               { label: "Ståltak produkter", value: "TILES_STEELROOF_NO" },
               { label: "Takpanne stål", value: "MAINTILE_STEELROOF_NO" },
               { label: "Takprodukter", value: "ROOF_NO" }
-            ]
+            ],
+            value: []
           }
         ]);
 
@@ -1809,7 +1814,8 @@ describe("filters tests", () => {
               { label: "Ståltak produkter", value: "TILES_STEELROOF_NO" },
               { label: "Takpanne stål", value: "MAINTILE_STEELROOF_NO" },
               { label: "Takprodukter", value: "ROOF_NO" }
-            ]
+            ],
+            value: []
           }
         ]);
       });
@@ -1891,7 +1897,8 @@ describe("filters tests", () => {
                 { label: "Takpanne stål", value: "MAINTILE_STEELROOF_NO" },
                 { label: "Takprodukter", value: "ROOF_NO" },
                 { label: "Takprodukter_2", value: "ROOF_NO_2" }
-              ]
+              ],
+              value: []
             }
           ]);
           expect(
@@ -1913,7 +1920,8 @@ describe("filters tests", () => {
                 { label: "Takpanne stål", value: "MAINTILE_STEELROOF_NO" },
                 { label: "Takprodukter", value: "ROOF_NO" },
                 { label: "Takprodukter_2", value: "ROOF_NO_2" }
-              ]
+              ],
+              value: []
             }
           ]);
         });
@@ -1966,7 +1974,8 @@ describe("filters tests", () => {
                   value: "100classification-feature-feature-unit-symbol",
                   sortValue: 100
                 }
-              ]
+              ],
+              value: []
             }
           ]);
 
@@ -1986,7 +1995,8 @@ describe("filters tests", () => {
                   value: "100classification-feature-feature-unit-symbol",
                   sortValue: 100
                 }
-              ]
+              ],
+              value: []
             }
           ]);
         });
@@ -2059,7 +2069,8 @@ describe("filters tests", () => {
                     value: "100classification-feature-feature-unit-symbol",
                     sortValue: 100
                   }
-                ]
+                ],
+                value: []
               },
               {
                 name: "measurements.width",
@@ -2075,7 +2086,8 @@ describe("filters tests", () => {
                     value: "300classification-feature-feature-unit-symbol",
                     sortValue: 300
                   }
-                ]
+                ],
+                value: []
               }
             ]);
           });
@@ -2151,7 +2163,8 @@ describe("filters tests", () => {
                     value: "100classification-feature-feature-unit-symbol",
                     sortValue: 100
                   }
-                ]
+                ],
+                value: []
               },
               {
                 name: "measurements.width",
@@ -2167,7 +2180,8 @@ describe("filters tests", () => {
                     value: "300classification-feature-feature-unit-symbol",
                     sortValue: 300
                   }
-                ]
+                ],
+                value: []
               }
             ]);
           });
@@ -2359,7 +2373,8 @@ describe("filters tests", () => {
                     value: "100classification-feature-feature-unit-symbol",
                     sortValue: 100
                   }
-                ]
+                ],
+                value: []
               },
               {
                 name: "measurements.width",
@@ -2375,7 +2390,8 @@ describe("filters tests", () => {
                     value: "300classification-feature-feature-unit-symbol",
                     sortValue: 300
                   }
-                ]
+                ],
+                value: []
               },
               {
                 name: "plpFilter.Category",
@@ -2386,7 +2402,8 @@ describe("filters tests", () => {
                   { label: "Ståltak produkter", value: "TILES_STEELROOF_NO" },
                   { label: "Takpanne stål", value: "MAINTILE_STEELROOF_NO" },
                   { label: "Takprodukter", value: "ROOF_NO" }
-                ]
+                ],
+                value: []
               }
             ]);
 
@@ -2415,7 +2432,8 @@ describe("filters tests", () => {
                     value: "300classification-feature-feature-unit-symbol",
                     sortValue: 300
                   }
-                ]
+                ],
+                value: []
               },
               {
                 name: "plpFilter.Category",
@@ -2426,7 +2444,8 @@ describe("filters tests", () => {
                   { label: "Ståltak produkter", value: "TILES_STEELROOF_NO" },
                   { label: "Takpanne stål", value: "MAINTILE_STEELROOF_NO" },
                   { label: "Takprodukter", value: "ROOF_NO" }
-                ]
+                ],
+                value: []
               },
               {
                 name: "measurements.length",
@@ -2437,7 +2456,8 @@ describe("filters tests", () => {
                     value: "100classification-feature-feature-unit-symbol",
                     sortValue: 100
                   }
-                ]
+                ],
+                value: []
               }
             ]);
           });
@@ -2835,7 +2855,8 @@ describe("filters tests", () => {
                   label: "category-name",
                   value: "CONSTRUCTION"
                 }
-              ]
+              ],
+              value: []
             }
           ];
 
@@ -2971,7 +2992,8 @@ describe("filters tests", () => {
                   label: "category-name",
                   value: "CONSTRUCTION"
                 }
-              ]
+              ],
+              value: []
             }
           ];
 
@@ -3205,7 +3227,8 @@ describe("filters tests", () => {
                   label: "category-name",
                   value: "CONSTRUCTION"
                 }
-              ]
+              ],
+              value: []
             }
           ];
 
@@ -3441,7 +3464,8 @@ describe("filters tests", () => {
                     label: "category-name",
                     value: "CONSTRUCTION"
                   }
-                ]
+                ],
+                value: []
               },
               {
                 label: "",
@@ -3451,7 +3475,8 @@ describe("filters tests", () => {
                     label: "category-name",
                     value: "ROOF"
                   }
-                ]
+                ],
+                value: []
               }
             ];
 
