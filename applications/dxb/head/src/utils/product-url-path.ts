@@ -1,12 +1,18 @@
 import {
   Classification,
   Product,
-  VariantOption
+  VariantOption,
+  ClassificationCodeEnum,
+  FeatureCodeEnum
 } from "../components/types/pim";
 import { combineVariantClassifications } from "./filters";
 
-type AttributeCodeMap = {
-  [attributeName: string]: string[];
+export type AttributeCodeMap = {
+  [key in ClassificationCodeEnum]?: {
+    attrName: string;
+    separator?: string;
+    fromStart?: boolean;
+  }[];
 };
 
 const generateUrl = (urlParts: string[]) => {
@@ -28,17 +34,21 @@ export const extractFeatureValuesByClassification = (
       const urlParamsFromClassificationFeatures = featuresCodes.reduce(
         (urlFromFeatures, featuresCode) => {
           const featureByFeatureCode = classification.features.find((feature) =>
-            feature.code.toLocaleLowerCase().endsWith(featuresCode)
+            feature.code.toLocaleLowerCase().endsWith(featuresCode.attrName)
           );
+          const separator = featuresCode.separator || "";
           if (
             featureByFeatureCode &&
             featureByFeatureCode.featureValues &&
             featureByFeatureCode.featureValues.length > 0
           ) {
             const featureValue = featureByFeatureCode.featureValues[0].value;
-            urlFromFeatures.push(featureValue);
+            const val = featuresCode.fromStart
+              ? `${separator}${featureValue}`
+              : `${featureValue}${separator}`;
+            urlFromFeatures.push(val);
           }
-          return urlFromFeatures;
+          return separator ? [urlFromFeatures.join("")] : urlFromFeatures;
         },
         []
       );
@@ -54,7 +64,9 @@ const generateVariantAttributeUrl = (
   productIdHash: string
 ): string => {
   const variantAttributeMap = {
-    appearanceAttributes: ["variantattribute"]
+    [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
+      { attrName: FeatureCodeEnum.VARIANT_ATTRIBUTE }
+    ]
   };
   const variantAttributePath = extractFeatureValuesByClassification(
     classifications,
@@ -72,8 +84,13 @@ const generateOtherAttributesUrl = (
   productIdHash: string
 ): string => {
   const featureAttributeMapForUrl = {
-    appearanceAttributes: ["colour", "texturefamily"],
-    generalInformation: ["materials"]
+    [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
+      { attrName: FeatureCodeEnum.COLOUR },
+      { attrName: FeatureCodeEnum.TEXTURE_FAMILY }
+    ],
+    [ClassificationCodeEnum.GENERAL_INFORMATION]: [
+      { attrName: FeatureCodeEnum.MATERIALS }
+    ]
   };
 
   const classificationsPath = extractFeatureValuesByClassification(

@@ -17,6 +17,7 @@ import { useSiteContext } from "./Site";
 
 import FormSection, { Data as FormData } from "./FormSection";
 import styles from "./styles/SampleBasketSection.module.scss";
+import { ClassificationCodeEnum, FeatureCodeEnum } from "./types/pim";
 
 export type Data = {
   __typename: "SampleBasketSection";
@@ -38,12 +39,15 @@ const SampleBasketSection = ({
   const { basketState } = useBasketContext();
   const samples: SampleOrderElement[] = basketState.products.map((sample) => {
     const { classifications } = sample;
-
+    const featureAttributeMapForUrl = {
+      [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
+        { attrName: FeatureCodeEnum.COLOUR },
+        { attrName: FeatureCodeEnum.TEXTURE_FAMILY }
+      ]
+    };
     const [color, texture] = extractFeatureValuesByClassification(
       classifications,
-      {
-        appearanceAttributes: ["colour", "texturefamily"]
-      }
+      featureAttributeMapForUrl
     );
 
     return {

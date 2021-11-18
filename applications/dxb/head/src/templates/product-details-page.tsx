@@ -24,10 +24,15 @@ import ExploreBar from "../components/ExploreBar";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { Product } from "../components/types/pim";
+import {
+  ClassificationCodeEnum,
+  FeatureCodeEnum,
+  Product
+} from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
 import { getBimIframeUrl } from "../components/BimIframe";
 import { useBasketContext } from "../contexts/SampleBasketContext";
+import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -147,6 +152,22 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     return false;
   };
 
+  const classificationConfig = {
+    [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
+      { attrName: FeatureCodeEnum.COLOUR },
+      {
+        attrName: FeatureCodeEnum.TEXTURE_FAMILY,
+        separator: " | ",
+        fromStart: true
+      }
+    ],
+    [ClassificationCodeEnum.MEASUREMENTS]: [
+      { attrName: FeatureCodeEnum.LENGTH, separator: "x" },
+      { attrName: FeatureCodeEnum.WIDTH, separator: "x" },
+      { attrName: FeatureCodeEnum.HEIGHT, separator: "x" }
+    ]
+  };
+
   return (
     <Page
       brand={brandCode}
@@ -197,6 +218,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     variant={getVariant(product, pageContext.variantCode)}
                     maximumSamples={maximumSamples}
                     sampleBasketLinkInfo={sampleBasketLink}
+                    actionLabel={createActionLabel(
+                      product,
+                      selfProduct,
+                      classificationConfig
+                    )}
                   />
                 }
                 {resources?.pdpShareWidget && (
