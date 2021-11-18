@@ -14,8 +14,7 @@ build_intouch_api_training:
       changes:
         - applications/intouch/api/services/training/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
