@@ -1,4 +1,4 @@
-import { generateSimpleProductUrl } from "../product-url-path";
+import { generateSimpleProductUrl, generateUrl } from "../product-url-path";
 import {
   createBaseProduct,
   createVariantOption
@@ -8,6 +8,64 @@ import createClassification, {
 } from "../../__tests__/ClassificationHelper";
 
 describe("product-url-path tests", () => {
+  describe("generateUrl tests", () => {
+    describe("When url parts has special characters", () => {
+      describe("And one single url part is provided with ONLY special characters", () => {
+        it("removes ALL special characters", () => {
+          const result = generateUrl([
+            `±!£$%^&*()_+~\`¡€#¢∞§¶•–≠«‘“{}\`∑®†¥¨^¬˚∆˙©∂≈√∫~≤≥÷≠`
+          ]);
+          expect(result).toEqual("");
+        });
+      });
+      describe("And one single url part is provided with some text", () => {
+        it("removes ALL special characters", () => {
+          const result = generateUrl([
+            `Thickness\`: 1~40#mm $Wid!th:1.'5m, Th{ic?kn;"e}s\\s: 200[m]m W<i>d,th:2.5m`
+          ]);
+          expect(result).toEqual(
+            "thickness-140mm-width15m-thickness-200mm-width25m"
+          );
+        });
+      });
+      describe("And multiple url parts are provided", () => {
+        it("removes ALL special characters", () => {
+          const result = generateUrl([
+            `Thickness\`: 1~40#mm $Wid!th:1.'5m, Th{ic?kne}s\\s: 200[m]m W<i>d,th:2.5m`,
+            null,
+            `color\`: teg~lrød# $hEIg!ht:2.+9&0m=, we{ig?ht}\\: 300(k)g W@i>d{th:3}3m-også`
+          ]);
+          expect(result).toEqual(
+            "thickness-140mm-width15m-thickness-200mm-width25m-color-teglrød-height290m-weight-300kg-width33m-også"
+          );
+        });
+      });
+      describe("And multiple url parts with unicode characters", () => {
+        it("removes ALL special characters", () => {
+          const result = generateUrl([
+            `Thickness\`: 1~40#mm $Widœ∑´®†¥¨^øπ“‘æ…˚∆˙©ƒ∂ßåç≈√∫~µ≤≥÷≠–ª•¶§∞¢#€¡‚·!th:1.'5m, Th{ic?kne}s\\s: 200[m]m W<i>d,th:2.5m£~$@~∑´œ∑´˙˚∆≤~çß¬´ß¬˚ƒ•¶#~¡€˚∆˙˙çß¬∂∆˚çßµ∫~∫∫ß√ç¬…¬å¨^¥∑´˙√ç`,
+            null,
+            `color\`: teg~lrød# $hEIg!ht:2.+9&0m=, we{ig?ht}\\: 300(k)g W@i>d{th:3}3m-også`
+          ]);
+          expect(result).toEqual(
+            "thickness-140mm-widœøπæƒßåçµªth15m-thickness-200mm-width25mœçßßƒçßçßµßçåç-color-teglrød-height290m-weight-300kg-width33m-også"
+          );
+        });
+      });
+      describe("And DE characters with unicode characters", () => {
+        it("removes ALL special characters", () => {
+          const result = generateUrl([
+            `Thickness\`: 1~40#mm $Widœ∑´®†¥¨^øπ“‘æ…˚∆˙©ƒ∂ßåç≈√∫~µ≤≥÷≠–ª•¶§∞¢#€¡‚·!th:1.'5m, Th{ic?kne}s\\s: 200[m]m W<i>d,th:2.5m£~$@~∑´œ∑´˙˚∆≤~çLebensabschnittsgefährte rectequeß¬´ß¬˚ƒ•¶#~¡€˚∆˙˙çß¬∂∆˚çßµ∫~∫∫ß√ç¬…¬å¨^¥∑´˙√ç`,
+            null,
+            `color\`: teg~lrød# $hEIg!ht:2.+9&adhuc laboramus sadipscing per Vorsprung durch Technik in mei ullum gloriatur0m=, we{ig?ht}\\: 300(k)g W@Die Ärztei>d{th:3}3m-også`
+          ]);
+          expect(result).toEqual(
+            "thickness-140mm-widœøπæƒßåçµªth15m-thickness-200mm-width25mœçlebensabschnittsgefährte-rectequeßßƒçßçßµßçåç-color-teglrød-height29adhuc-laboramus-sadipscing-per-vorsprung-durch-technik-in-mei-ullum-gloriatur0m-weight-300kg-wdie-ärzteidth33m-også"
+          );
+        });
+      });
+    });
+  });
   describe("When useVariantAttribute is `false`", () => {
     describe("And feature attributes do NOT exist", () => {
       it("generates simple url with product name and hash", () => {
