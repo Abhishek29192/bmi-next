@@ -1,6 +1,10 @@
 build_gcp-intouch-cron-training:
   stage: build
   rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')" # just for test pipeline
+      changes:
+        - applications/intouch/functions/gcp-cron-training/**/*
+        - applications/intouch/functions/gcp-cron-training/.gitlab-ci.yml # just for test pipeline
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
@@ -28,6 +32,7 @@ package_gcp-intouch-cron-training:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849'" # just for test pipeline
       changes:
+        - applications/intouch/functions/gcp-cron-training/**/*
         - applications/intouch/functions/gcp-cron-training/.gitlab-ci.yml # just for test pipeline
     - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
@@ -50,6 +55,7 @@ package_gcp-intouch-cron-training:
     - mkdir -p dist/applications/intouch/functions
   script:
     - cd applications/intouch/functions/gcp-cron-training
+    - ls -a . && ls -lah dist # just for test pipeline
     - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-training.zip package.json dist/
     - cd $CI_PROJECT_DIR
   artifacts:
