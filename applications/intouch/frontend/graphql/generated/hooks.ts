@@ -817,6 +817,10 @@ export const ImportAccountsCompaniesFromCvsDocument = gql`
           town
           country
           postcode
+          coordinates {
+            x
+            y
+          }
         }
         companyMembers {
           nodes {

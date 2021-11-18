@@ -77,7 +77,11 @@
           "town": "Town / City",
           "postcode": "Post Code / ZIP",
           "region": "Region",
-          "country": "Country"
+          "country": "Country",
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          }
         },
         "tradingAddress": {
           "autocomplete": "Post code, city or street",
@@ -86,7 +90,11 @@
           "town": "Town / City",
           "postcode": "Post Code / ZIP",
           "region": "Region",
-          "country": "Country"
+          "country": "Country",
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          }
         },
         "logo": {
           "label": "Logo",

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import get from "lodash.get";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import Typography from "@bmi/typography";
@@ -223,9 +224,14 @@ const ImportAccount = () => {
                               "secondLine",
                               "town",
                               "country",
-                              "postcode"
-                            ].map((field) =>
-                              !company?.registeredAddress[`${field}`] ? null : (
+                              "postcode",
+                              "coordinates.y",
+                              "coordinates.x"
+                            ].map((field) => {
+                              return !get(
+                                company,
+                                `registeredAddress[${field}]`
+                              ) ? null : (
                                 <div className={styles.field}>
                                   <Typography
                                     key={`${company?.name}-${field}`}
@@ -240,11 +246,14 @@ const ImportAccount = () => {
                                     key={`${company?.name}-${field}-value`}
                                     variant="body1"
                                   >
-                                    {company?.registeredAddress[`${field}`]}
+                                    {get(
+                                      company,
+                                      `registeredAddress[${field}]`
+                                    )}
                                   </Typography>
                                 </div>
-                              )
-                            )}
+                              );
+                            })}
                           </div>
                         )}
                       </div>
@@ -354,6 +363,10 @@ export const uploadAccounts = gql`
           town
           country
           postcode
+          coordinates {
+            x
+            y
+          }
         }
         companyMembers {
           nodes {
