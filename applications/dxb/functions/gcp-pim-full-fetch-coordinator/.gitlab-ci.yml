@@ -1,3 +1,9 @@
+test_gcp-pim-full-fetch-coordinator:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/gcp-pim-full-fetch-coordinator"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch-coordinator"
+
 build_gcp-pim-full-fetch-coordinator:
   extends: .build_function
   variables:
