@@ -18333,52 +18333,18 @@ type MigrationCollection {
   items: [Migration]!
 }
 
-"""
-A condition to be used against `Migration` object types. All fields are tested
-for equality and combined with a logical ‘and.’
-"""
-input MigrationCondition {
-  """
-  Checks for equality with the object’s `id` field.
-  """
-  id: Int
-}
-
-"""
-A filter to be used against `Migration` object types. All fields are combined with a logical ‘and.’
-"""
 input MigrationFilter {
-  AND: [MigrationFilter]
-  OR: [MigrationFilter]
-
-  """
-  Checks for all expressions in this list.
-  """
-  and: [MigrationFilter!]
-  contentTypeId: String
-  contentTypeId_contains: String
-  contentTypeId_exists: Boolean
-  contentTypeId_in: [String]
-  contentTypeId_not: String
-  contentTypeId_not_contains: String
-  contentTypeId_not_in: [String]
-  contentfulMetadata: ContentfulMetadataFilter
-
-  """
-  Filter by the object’s `id` field.
-  """
-  id: IntFilter
-
-  """
-  Negates the expression.
-  """
-  not: MigrationFilter
-
-  """
-  Checks for any expressions in this list.
-  """
-  or: [MigrationFilter!]
   sys: SysFilter
+  contentfulMetadata: ContentfulMetadataFilter
+  contentTypeId_exists: Boolean
+  contentTypeId: String
+  contentTypeId_not: String
+  contentTypeId_in: [String]
+  contentTypeId_not_in: [String]
+  contentTypeId_contains: String
+  contentTypeId_not_contains: String
+  OR: [MigrationFilter]
+  AND: [MigrationFilter]
 }
 
 """
@@ -18422,31 +18388,6 @@ input MigrationPatch {
 }
 
 """
-A connection to a list of `Migration` values.
-"""
-type MigrationsConnection {
-  """
-  A list of `Migration` objects.
-  """
-  nodes: [Migration!]!
-
-  """
-  A list of edges which contains the `Migration` and cursor to aid in pagination.
-  """
-  edges: [MigrationsEdge!]!
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  The count of *all* `Migration` you could get from the connection.
-  """
-  totalCount: Int!
-}
-
-"""
 A `Migration` edge in the connection.
 """
 type MigrationsEdge {
@@ -18483,42 +18424,6 @@ type MigrationsState implements Node {
 }
 
 """
-A condition to be used against `MigrationsState` object types. All fields are
-tested for equality and combined with a logical ‘and.’
-"""
-input MigrationsStateCondition {
-  """
-  Checks for equality with the object’s `key` field.
-  """
-  key: String
-}
-
-"""
-A filter to be used against `MigrationsState` object types. All fields are combined with a logical ‘and.’
-"""
-input MigrationsStateFilter {
-  """
-  Filter by the object’s `key` field.
-  """
-  key: StringFilter
-
-  """
-  Checks for all expressions in this list.
-  """
-  and: [MigrationsStateFilter!]
-
-  """
-  Checks for any expressions in this list.
-  """
-  or: [MigrationsStateFilter!]
-
-  """
-  Negates the expression.
-  """
-  not: MigrationsStateFilter
-}
-
-"""
 An input for mutations affecting `MigrationsState`
 """
 input MigrationsStateInput {
@@ -18534,31 +18439,6 @@ input MigrationsStatePatch {
   key: String
   value: String
   runOn: Datetime
-}
-
-"""
-A connection to a list of `MigrationsState` values.
-"""
-type MigrationsStatesConnection {
-  """
-  A list of `MigrationsState` objects.
-  """
-  nodes: [MigrationsState!]!
-
-  """
-  A list of edges which contains the `MigrationsState` and cursor to aid in pagination.
-  """
-  edges: [MigrationsStatesEdge!]!
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  The count of *all* `MigrationsState` you could get from the connection.
-  """
-  totalCount: Int!
 }
 
 """
@@ -25934,52 +25814,6 @@ type Query implements Node {
     where: MigrationFilter
     order: [MigrationOrder]
   ): MigrationCollection
-
-  """
-  Reads and enables pagination through a set of `Migration`.
-  """
-  migrations(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Migration`.
-    """
-    orderBy: [MigrationsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: MigrationCondition
-
-    """
-    A filter to be used in determining which values should be returned by the collection.
-    """
-    filter: MigrationFilter
-  ): MigrationsConnection
   migrationsState(key: String!): MigrationsState
 
   """
@@ -25991,52 +25825,6 @@ type Query implements Node {
     """
     nodeId: ID!
   ): MigrationsState
-
-  """
-  Reads and enables pagination through a set of `MigrationsState`.
-  """
-  migrationsStates(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `MigrationsState`.
-    """
-    orderBy: [MigrationsStatesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: MigrationsStateCondition
-
-    """
-    A filter to be used in determining which values should be returned by the collection.
-    """
-    filter: MigrationsStateFilter
-  ): MigrationsStatesConnection
 
   """
   Fetches an object given its globally unique `ID`.

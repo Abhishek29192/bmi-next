@@ -19,7 +19,7 @@ test_intouch_companies:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/intouch-api-service-companies migrate-db
+    - yarn workspace @@bmi/intouch-api-migration-scripts run ci:up:companies
     - yarn workspace @bmi/intouch-api-service-companies coverage
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:

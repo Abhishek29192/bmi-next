@@ -16,6 +16,16 @@
         tags: {
           omit: "create"
         }
+      },
+      migrations_state: {
+        tags: {
+          omit: "all"
+        }
+      },
+      migrations: {
+        tags: {
+          omit: "all"
+        }
       }
     },
     procedure: {
