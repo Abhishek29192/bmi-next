@@ -101,7 +101,6 @@ deploy_gcp-intouch-handle-message_bmi:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
-        - applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml
       variables:
         BMI_ENV: "qa"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"

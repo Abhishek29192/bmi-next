@@ -18,6 +18,7 @@ build_gcp-intouch-cron-certification:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-intouch-cron-certification run build
+    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
   artifacts:
     paths:
       - applications/intouch/functions/gcp-cron-certification/dist
@@ -48,9 +49,13 @@ package_gcp-intouch-cron-certification:
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/applications/intouch/functions
+    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
   script:
+    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
     - cd applications/intouch/functions/gcp-cron-certification
+    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
     - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-certification.zip package.json dist/
+    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
     - cd $CI_PROJECT_DIR
   artifacts:
     paths:
@@ -148,8 +153,9 @@ deploy_gcp-intouch-cron-certification_bmi:
       GCP_BMI_INTOUCH_CERTIFICATION_TOPIC=$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC
   script:
     - if [ $BMI_ENV = 'prod' ]; then PREFIX=bmi-p-intouch; else PREFIX=bmi-np-intouch; fi
-    - echo $BGCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - pwd && ls -lah . && ls -lah applications/intouch/functions/gcp-cron-certification/dist # just for test pipeline
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-certification.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
     - gcloud functions deploy pubsub-cron-certification --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-certification.zip --runtime=nodejs14 --region=europe-west3 --entry-point=updateCertificates --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC-$BMI_ENV --set-env-vars=DOCEBO_API_URL=${_INTOUCH_DOCEBO_API_URL},GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},USER_CERTIFICATION_REPORT_ID=${_USER_CERTIFICATION_REPORT_ID},PG_SSL_HOST=$BMI_PROJECT:$PREFIX-pgsql-db-m-instnc-euw3-$BMI_ENV,PGPORT=5432,PGDATABASE=companies-db,PGUSER=postgres
