@@ -74,7 +74,8 @@ const addresses = [
     town: "Town 1",
     region: "",
     country: "Norge",
-    postcode: ""
+    postcode: "",
+    coordinates: "1,2"
   }
 ];
 const owners = [

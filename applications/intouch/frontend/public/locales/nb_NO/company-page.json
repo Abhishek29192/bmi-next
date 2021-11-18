@@ -77,7 +77,11 @@
           "town": "By",
           "postcode": "Postnummer/ Sted",
           "region": "Område",
-          "country": "Land"
+          "country": "Land",
+          "coordinates": {
+            "x": "Breddegrad",
+            "y": "Lengdegrad"
+          }
         },
         "tradingAddress": {
           "autocomplete": "Postnummer, by eller gate",
@@ -86,7 +90,11 @@
           "town": "By",
           "postcode": "Postnummer/ Sted",
           "region": "Område",
-          "country": "Land"
+          "country": "Land",
+          "coordinates": {
+            "x": "Breddegrad",
+            "y": "Lengdegrad"
+          }
         },
         "logo": {
           "label": "Logo",

@@ -48,13 +48,30 @@ export const getTree = (companies, accounts, addresses, owners, members) =>
       }),
       {}
     );
-    const adressMap = addresses.reduce(
-      (result, current) => ({
+    const adressMap = addresses.reduce((result, current) => {
+      let coordinates = null;
+
+      if (current.coordinates) {
+        const [x, y] = current.coordinates.split(",");
+        coordinates = {
+          x: parseFloat(x),
+          y: parseFloat(y)
+        };
+      }
+
+      return {
         ...result,
-        [current.migration_id]: current
-      }),
-      {}
-    );
+        [current.migration_id]: {
+          ...current,
+          ...(coordinates?.y &&
+            coordinates?.x && {
+              coordinates: `(${parseFloat(coordinates.x)},${parseFloat(
+                coordinates.y
+              )})`
+            })
+        }
+      };
+    }, {});
     const ownersMap = owners.reduce(
       (result, current) => ({
         ...result,
@@ -235,14 +252,15 @@ export const importAccountsCompaniesFromCVS = async (
 
   if (addresses.length)
     addressQuery = pgFormat(
-      "INSERT INTO address(migration_id, first_line, second_line, town, country, postcode) VALUES %L RETURNING *",
+      "INSERT INTO address(migration_id, first_line, second_line, town, country, postcode, coordinates) VALUES %L RETURNING *",
       addresses.map((address) => [
         address.migration_id,
         address.first_line,
         address.second_line,
         address.town,
         address.country,
-        address.postcode
+        address.postcode,
+        address.coordinates || null
       ])
     );
 

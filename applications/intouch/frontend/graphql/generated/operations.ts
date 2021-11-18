@@ -501,7 +501,14 @@ export type ImportAccountsCompaniesFromCvsMutation = {
                   { readonly __typename?: "Address" } & Pick<
                     SchemaTypes.Address,
                     "firstLine" | "secondLine" | "town" | "country" | "postcode"
-                  >
+                  > & {
+                      readonly coordinates?: SchemaTypes.Maybe<
+                        { readonly __typename?: "Point" } & Pick<
+                          SchemaTypes.Point,
+                          "x" | "y"
+                        >
+                      >;
+                    }
                 >;
                 readonly companyMembers: {
                   readonly __typename?: "CompanyMembersConnection";
