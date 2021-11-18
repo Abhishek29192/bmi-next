@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { resolve } from "path";
-import { mockGuarantee } from "./mocks/guarantee";
+import { mockGuarantee, mockSolutionGuarantee } from "./mocks/guarantee";
 import GuaranteePdf from "./src/GuaranteePdf";
 import { sendGuaranteePdf } from "./src";
 import StorageClient from "./src/storage-client";
@@ -14,7 +14,18 @@ export const pdfCreate = async () => {
   }
   const file = await guaranteePdf.create();
 
-  writeFileSync(`${filePath}/${file.name}`, file.data);
+  writeFileSync(`${filePath}/Product-${file.name}`, file.data);
+};
+export const createSolutionGuaranteePdf = async () => {
+  const guaranteePdf = new GuaranteePdf(mockSolutionGuarantee);
+
+  const filePath = resolve(".", "pdf");
+  if (!existsSync(filePath)) {
+    mkdirSync(filePath);
+  }
+  const file = await guaranteePdf.create();
+
+  writeFileSync(`${filePath}/Solution-${file.name}`, file.data);
 };
 
 export const pdfUpload = async () => {
@@ -37,6 +48,7 @@ export const sendMail = async () => {
 };
 
 // uncomment any of these lines to try out the code
-// (async () => await pdfCreate())();
-(async () => await sendMail())();
+//(async () => await pdfCreate())();
+//(async () => await createSolutionGuaranteePdf())();
+//(async () => await sendMail())();
 // (async () => await pdfUpload())();
