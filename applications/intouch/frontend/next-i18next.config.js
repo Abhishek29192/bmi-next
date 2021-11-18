@@ -17,6 +17,11 @@ const multiMarketDomains =
         { domain: `uat-en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `uat-no.${baseUrlDomain}`, defaultLocale: "nb_NO" }
       ]
+    : process.env.APP_ENV === "preprod"
+    ? [
+        { domain: `preprod-en.${baseUrlDomain}`, defaultLocale: "en_EN" },
+        { domain: `preprod-no.${baseUrlDomain}`, defaultLocale: "nb_NO" }
+      ]
     : [
         { domain: `en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `no.${baseUrlDomain}`, defaultLocale: "nb_NO" }
@@ -25,7 +30,7 @@ const multiMarketDomains =
 module.exports = {
   i18n: {
     localeDetection: false,
-    locales: ["en_EN", "it_IT", "es_ES", "nb_NO"],
+    locales: ["en_EN", "nb_NO"],
     defaultLocale: "en_EN",
     domains: multiMarketDomains
   }
