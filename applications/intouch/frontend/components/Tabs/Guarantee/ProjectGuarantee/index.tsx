@@ -46,7 +46,8 @@ export const ProjectGuarantee = ({
 
   const guaranteeSubmitValidateResult = solutionGuaranteeValidate(project);
   const showSolutionAlert =
-    !guaranteeSubmitValidateResult.isValid && guarantee.status !== "APPROVED";
+    !guaranteeSubmitValidateResult.isValid &&
+    ["NEW", "REJECTED"].includes(guarantee.status);
 
   return (
     <>
