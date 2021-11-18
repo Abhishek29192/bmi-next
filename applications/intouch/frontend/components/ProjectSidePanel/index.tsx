@@ -154,19 +154,26 @@ export const ProjectSidePanel = ({
     filter: string
   ) => {
     const solutionGuarantee =
-      guarantees.find(
-        (node) => node.coverage === "SOLUTION" && node.status === "REVIEW"
-      ) || null;
+      guarantees.find((node) => node.coverage === "SOLUTION") || null;
 
     if (solutionGuarantee !== null) {
       if (filter === "UNASSIGNED") {
-        return solutionGuarantee.reviewerAccountId === null;
+        return (
+          solutionGuarantee.status === "SUBMITTED" &&
+          solutionGuarantee.reviewerAccountId === null
+        );
       }
       if (filter === "ASSIGNED") {
-        return solutionGuarantee.reviewerAccountId !== null;
+        return (
+          solutionGuarantee.status === "REVIEW" &&
+          solutionGuarantee.reviewerAccountId !== null
+        );
       }
       if (filter === "MY_QUEUE") {
-        return solutionGuarantee.reviewerAccountId === account.id;
+        return (
+          solutionGuarantee.status === "REVIEW" &&
+          solutionGuarantee.reviewerAccountId === account.id
+        );
       }
     }
     return false;

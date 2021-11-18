@@ -94,6 +94,13 @@ const GuaranteeReview = ({ project }: GuaranteeReviewProps) => {
   const evidences = project.evidenceItems.nodes.filter(
     (evidence) => evidence.guaranteeId === guarantee.id
   );
+  const getEvidenceCategoryName = (
+    evidence: GetProjectQuery["project"]["evidenceItems"]["nodes"][0]
+  ) => {
+    return evidence.evidenceCategoryType === "CUSTOM"
+      ? evidence.customEvidenceCategory?.name
+      : evidence.evidenceCategoryType;
+  };
 
   return (
     <div className={styles.main}>
@@ -105,7 +112,7 @@ const GuaranteeReview = ({ project }: GuaranteeReviewProps) => {
           <InfoPair title="">
             {evidences.map((evidence, index) => (
               <div key={index}>
-                {evidence.customEvidenceCategory.name} : {evidence.name}
+                {t(getEvidenceCategoryName(evidence))} : {evidence.name}
               </div>
             ))}
           </InfoPair>
