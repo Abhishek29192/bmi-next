@@ -4,9 +4,16 @@ build_gcp-intouch-cron-incomplete-reminder:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
-  needs:
-    - job: install
-      optional: true
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
+  needs: []
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
@@ -15,13 +22,24 @@ build_gcp-intouch-cron-incomplete-reminder:
     paths:
       - applications/intouch/functions/gcp-cron-incomplete-reminder/dist
 
+
 package_gcp-intouch-cron-incomplete-reminder:
   stage: package
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
       changes:
         - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
-  needs: [build_gcp-intouch-cron-incomplete-reminder]
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
+  needs:
+    - build_gcp-intouch-cron-incomplete-reminder
   dependencies:
     - build_gcp-intouch-cron-incomplete-reminder
   before_script:
@@ -36,9 +54,10 @@ package_gcp-intouch-cron-incomplete-reminder:
     paths:
       - $CI_PROJECT_DIR/dist/applications/intouch/functions
 
-# Deploy to QA
+
+# Deploy to DD environment
 deploy_gcp-intouch-cron-incomplete-reminder:
-  image: !reference [.cloud-sdk-image, image]
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
@@ -62,3 +81,70 @@ deploy_gcp-intouch-cron-incomplete-reminder:
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-incomplete-reminder.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
     - gcloud builds submit . --config=applications/intouch/functions/gcp-cron-incomplete-reminder/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,_INTOUCH_GATEWAY_API_URL=$INTOUCH_GATEWAY_API_URL
+
+
+# Deploy to BMI environments
+deploy_gcp-intouch-handle-message_bmi:
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  stage: deploy
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/functions/gcp-handle-message/**/*
+      variables:
+        BMI_ENV: "dev"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
+        BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_DEV_BUILD_STORAGE"
+        BMI_SECRET_PROJECT: "$GCP_BMI_DEV_SECRET_PROJECT"
+        BMI_GATEWAY_API_URL: "$GCP_BMI_INTOUCH_DEV_GATEWAY_API_URL"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
+      changes:
+        - applications/intouch/functions/gcp-handle-message/**/*
+      variables:
+        BMI_ENV: "qa"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+        BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_QA_BUILD_STORAGE"
+        BMI_SECRET_PROJECT: "$GCP_BMI_QA_SECRET_PROJECT"
+        BMI_GATEWAY_API_URL: "$GCP_BMI_INTOUCH_QA_GATEWAY_API_URL"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      changes:
+        - applications/intouch/functions/gcp-handle-message/**/*
+      variables:
+        BMI_ENV: "preprod"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+        BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PREPROD_BUILD_STORAGE"
+        BMI_SECRET_PROJECT: "$GCP_BMI_PREPROD_SECRET_PROJECT"
+        BMI_GATEWAY_API_URL: "$GCP_BMI_INTOUCH_PREPROD_GATEWAY_API_URL"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      changes:
+        - applications/intouch/functions/gcp-handle-message/**/*
+      variables:
+        BMI_ENV: "prod"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
+        BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PROD_BUILD_STORAGE"
+        BMI_SECRET_PROJECT: "$GCP_BMI_PROD_SECRET_PROJECT"
+        BMI_GATEWAY_API_URL: "$GCP_BMI_INTOUCH_PROD_GATEWAY_API_URL"
+      allow_failure: true
+  needs:
+    - package_gcp-intouch-handle-message
+  dependencies:
+    - package_gcp-intouch-handle-message
+  before_script:
+    - |
+      GCP_INTOUCH_REPLATFORM_PROJECT_ID=$BMI_PROJECT
+      GCP_INTOUCH_REPLATFORM_SERVICE_KEY=$BMI_KEY
+      GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$BMI_BUILD_STORAGE
+      GCP_SECRET_PROJECT=$BMI_SECRET_PROJECT
+      INTOUCH_GATEWAY_API_URL=$BMI_GATEWAY_API_URL
+
+      GCP_BMI_INTOUCH_REMINDER_TOPIC=$GCP_BMI_INTOUCH_REMINDER_TOPIC
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud functions deploy pubsub-cron-incomplete-reminder --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-incomplete-reminder.zip --runtime=nodejs14 --region=europe-west3 --entry-point=sendReminder --trigger-topic=$GCP_BMI_INTOUCH_REMINDER_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},GATEWAY_API_URL=${_INTOUCH_GATEWAY_API_URL}
