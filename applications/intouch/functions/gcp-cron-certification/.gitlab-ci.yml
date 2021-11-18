@@ -146,8 +146,9 @@ deploy_gcp-intouch-cron-certification_bmi:
       INTOUCH_DOCEBO_API_URL=$BMI_DOCEBO_API_URL
       GCP_BMI_INTOUCH_CERTIFICATION_TOPIC=$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC
   script:
+    - if [ $BMI_ENV = 'prod' ]; then PREFIX=bmi-p-intouch; else PREFIX=bmi-np-intouch; fi
     - echo $BGCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-certification.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-cron-certification --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-certification.zip --runtime=nodejs14 --region=europe-west3 --entry-point=updateCertificates --trigger-topic=$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC-$BMI_ENV --set-env-vars=DOCEBO_API_URL=${_INTOUCH_DOCEBO_API_URL},GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},USER_CERTIFICATION_REPORT_ID=${_USER_CERTIFICATION_REPORT_ID},PG_SSL_HOST=$BMI_PROJECT:bmi-np-intouch-pgsql-db-m-instnc-euw3-$BMI_ENV,PGPORT=5432,PGDATABASE=companies-db,PGUSER=postgres
+    - gcloud functions deploy pubsub-cron-certification --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-certification.zip --runtime=nodejs14 --region=europe-west3 --entry-point=updateCertificates --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_CERTIFICATION_TOPIC-$BMI_ENV --set-env-vars=DOCEBO_API_URL=${_INTOUCH_DOCEBO_API_URL},GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},USER_CERTIFICATION_REPORT_ID=${_USER_CERTIFICATION_REPORT_ID},PG_SSL_HOST=$BMI_PROJECT:bmi-np-intouch-pgsql-db-m-instnc-euw3-$BMI_ENV,PGPORT=5432,PGDATABASE=companies-db,PGUSER=postgres

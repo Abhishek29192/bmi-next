@@ -143,8 +143,9 @@ deploy_gcp-intouch-handle-message_bmi:
 
       GCP_BMI_INTOUCH_REMINDER_TOPIC=$GCP_BMI_INTOUCH_REMINDER_TOPIC
   script:
+    - if [ $BMI_ENV = 'prod' ]; then PREFIX=bmi-p-intouch; else PREFIX=bmi-np-intouch; fi
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-cron-incomplete-reminder --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-incomplete-reminder.zip --runtime=nodejs14 --region=europe-west3 --entry-point=sendReminder --trigger-topic=$GCP_BMI_INTOUCH_REMINDER_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},GATEWAY_API_URL=${_INTOUCH_GATEWAY_API_URL}
+    - gcloud functions deploy pubsub-cron-incomplete-reminder --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-incomplete-reminder.zip --runtime=nodejs14 --region=europe-west3 --entry-point=sendReminder --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_REMINDER_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},GATEWAY_API_URL=${_INTOUCH_GATEWAY_API_URL}
