@@ -6,7 +6,7 @@ const merchantTypes = [
   "Dépôts de proximité Siplast",
   "Distributeurs Siplast",
   "Distributeurs Monier",
-  "Flachdachysteme",
+  "Flachdachsysteme",
   "Steildachsysteme",
   "Bauwerksabdichtung",
   "Verkehrsbauwerke",
