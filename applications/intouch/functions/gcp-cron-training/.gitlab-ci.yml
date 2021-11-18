@@ -88,7 +88,7 @@ deploy_gcp-intouch-cron-training_bmi:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
       variables:
