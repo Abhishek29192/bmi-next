@@ -233,6 +233,7 @@ describe("product-filters tests", () => {
             {
               name: "plpFilter.Category",
               label: "",
+              value: [],
               options: [
                 { label: "category-1", value: "category-1" },
                 { label: "category-2", value: "category-2" }
@@ -261,6 +262,7 @@ describe("product-filters tests", () => {
             {
               name: "plpFilter.Category",
               label: "",
+              value: [],
               options: [
                 {
                   label: "category-a",
@@ -297,6 +299,7 @@ describe("product-filters tests", () => {
             {
               name: "plpFilter.Category",
               label: "",
+              value: [],
               options: [{ label: "category-2", value: "category-2" }]
             }
           ]);
@@ -326,6 +329,7 @@ describe("product-filters tests", () => {
             {
               name: "plpFilter.PITCHROOF_NO",
               label: "",
+              value: [],
               options: [
                 { label: "category-1", value: "category-1" },
                 { label: "category-2", value: "category-2" }
@@ -358,6 +362,7 @@ describe("product-filters tests", () => {
             {
               name: "plpFilter.Category",
               label: "",
+              value: [],
               options: [
                 { label: "category-1", value: "category-1" },
                 { label: "category-2", value: "category-2" }
@@ -366,6 +371,7 @@ describe("product-filters tests", () => {
             {
               name: "plpFilter.PITCHROOF_NO",
               label: "",
+              value: [],
               options: [
                 { label: "category-1", value: "category-1" },
                 { label: "category-2", value: "category-2" }
@@ -446,6 +452,7 @@ describe("product-filters tests", () => {
                 {
                   name: "roofAttributes.minimumpitch",
                   label: "minimumpitch",
+                  value: [],
                   options: [
                     {
                       label: "8 °",
@@ -506,6 +513,7 @@ describe("product-filters tests", () => {
                 {
                   name: "roofAttributes.minimumpitch",
                   label: "minimumpitch",
+                  value: [],
                   options: [
                     {
                       label: "8",
@@ -546,6 +554,7 @@ describe("product-filters tests", () => {
                 {
                   name: "roofAttributes.minimumpitch",
                   label: "minimumpitch",
+                  value: [],
                   options: [
                     {
                       label: "8",
@@ -606,6 +615,7 @@ describe("product-filters tests", () => {
                   {
                     name: "roofAttributes.minimumpitch",
                     label: "minimumpitch",
+                    value: [],
                     options: [
                       {
                         label: "8 classification-feature-feature-unit-symbol",
@@ -664,6 +674,7 @@ describe("product-filters tests", () => {
                   {
                     name: "roofAttributes.color",
                     label: "color",
+                    value: [],
                     options: [
                       {
                         label:
@@ -770,6 +781,7 @@ describe("product-filters tests", () => {
                 {
                   name: "roofAttributes.minimumpitch",
                   label: "minimumpitch",
+                  value: [],
                   options: [
                     {
                       label: "8 °",
@@ -858,6 +870,7 @@ describe("product-filters tests", () => {
                 {
                   name: "roofAttributes.minimumpitch",
                   label: "minimumpitch",
+                  value: [],
                   options: [
                     {
                       label: "8 °",
