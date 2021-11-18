@@ -38,8 +38,7 @@ package_gcp-intouch-cron-training:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
-  needs:
-    - build_gcp-intouch-cron-training
+  needs: []
   dependencies:
     - build_gcp-intouch-cron-training
   before_script:
@@ -64,8 +63,7 @@ deploy_gcp-intouch-cron-training:
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
       allow_failure: true
-  needs:
-    - package_gcp-intouch-cron-training
+  needs: []
   dependencies:
     - package_gcp-intouch-cron-training
   before_script:
@@ -125,8 +123,7 @@ deploy_gcp-intouch-cron-training_bmi:
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PROD_BUILD_STORAGE"
         BMI_TRAINING_API_URL: "$GCP_BMI_INTOUCH_PROD_TRAINING_API_URL"
       allow_failure: true
-  needs:
-    - package_gcp-intouch-cron-training
+  needs: []
   dependencies:
     - package_gcp-intouch-cron-training
   before_script:

@@ -38,8 +38,7 @@ package_gcp-intouch-generate-guarantee:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
         - applications/intouch/functions/gcp-generate-guarantee/**/*
-  needs:
-    - build_gcp-intouch-generate-guarantee
+  needs: []
   dependencies:
     - build_gcp-intouch-generate-guarantee
   before_script:
@@ -66,8 +65,7 @@ deploy_gcp-intouch-generate-guarantee:
       changes:
         - applications/intouch/functions/gcp-generate-guarantee/**/*
       allow_failure: true
-  needs:
-    - package_gcp-intouch-generate-guarantee
+  needs: []
   dependencies:
     - package_gcp-intouch-generate-guarantee
   before_script:
@@ -138,8 +136,7 @@ deploy_gcp-intouch-generate-guarantee_bmi:
         BMI_PRIVATE_BUCKET: "$GCP_BMI_INTOUCH_PROD_PRIVATE_BUCKET_NAME"
         BMI_GATEWAY_API_URL: "$GCP_BMI_INTOUCH_PROD_GATEWAY_API_URL"
       allow_failure: true
-  needs:
-    - package_gcp-intouch-generate-guarantee
+  needs: []
   dependencies:
     - package_gcp-intouch-generate-guarantee
   before_script:

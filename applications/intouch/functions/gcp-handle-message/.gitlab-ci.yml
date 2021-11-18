@@ -38,8 +38,7 @@ package_gcp-intouch-handle-message:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
-  needs:
-    - build_gcp-intouch-handle-message
+  needs: []
   dependencies:
     - build_gcp-intouch-handle-message
   before_script:
@@ -62,8 +61,7 @@ deploy_gcp-intouch-handle-message:
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
       allow_failure: true
-  needs:
-    - package_gcp-intouch-handle-message
+  needs: []
   dependencies:
     - package_gcp-intouch-handle-message
   before_script:
@@ -124,8 +122,7 @@ deploy_gcp-intouch-handle-message_bmi:
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PROD_BUILD_STORAGE"
         BMI_SECRET_PROJECT: "$GCP_BMI_PROD_SECRET_PROJECT"
       allow_failure: true
-  needs:
-    - package_gcp-intouch-handle-message
+  needs: []
   dependencies:
     - package_gcp-intouch-handle-message
   before_script:
