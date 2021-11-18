@@ -50,6 +50,11 @@
     "COATER": "coater",
     "GREEN": "green"
   },
+  "companyActionsTitle": "Company Actions",
+  "companyActions": {
+    "activate": "Activate company",
+    "deactivate": "Deactivate company"
+  },
   "register_dialog": {
     "title": "Register a company"
   },
@@ -111,5 +116,6 @@
         "cancel": "Cancel"
       }
     }
-  }
+  },
+  "report": "Download Companies List"
 }

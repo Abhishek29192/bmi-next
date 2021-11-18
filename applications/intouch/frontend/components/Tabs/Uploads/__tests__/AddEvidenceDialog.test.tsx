@@ -7,10 +7,6 @@ import {
   fireEvent
 } from "../../../../lib/tests/utils";
 
-jest.mock("@bmi/use-dimensions", () => ({
-  __esModule: true,
-  default: () => [useRef(), jest.fn()]
-}));
 describe("AddEvidenceDialog Components", () => {
   it("should not show upload", () => {
     renderWithI18NProvider(

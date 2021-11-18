@@ -1,0 +1,25 @@
+build_gcp-pim-full-fetch-coordinator:
+  extends: .build_function
+  variables:
+    WORKSPACE: "@bmi/gcp-pim-full-fetch-coordinator"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch-coordinator"
+
+package_gcp-pim-full-fetch-coordinator:
+  extends: .package_function
+  needs:
+    - build_gcp-pim-full-fetch-coordinator
+  dependencies:
+    - build_gcp-pim-full-fetch-coordinator
+  variables:
+    FUNCTION_NAME: "gcp-pim-full-fetch-coordinator"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch-coordinator"
+
+deploy_gcp-pim-full-fetch-coordinator:
+  extends: .deploy_function
+  needs:
+    - package_gcp-pim-full-fetch-coordinator
+  dependencies:
+    - package_gcp-pim-full-fetch-coordinator
+  variables:
+    FUNCTION_NAME: "gcp-pim-full-fetch-coordinator"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch-coordinator"

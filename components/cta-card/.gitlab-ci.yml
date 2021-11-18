@@ -1,0 +1,11 @@
+test_cta-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/cta-card"
+    ROOT_DIR: "components/cta-card"
+
+build_cta-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/cta-card"
+    ROOT_DIR: "components/cta-card"

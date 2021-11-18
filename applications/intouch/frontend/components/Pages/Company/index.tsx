@@ -4,10 +4,12 @@ import Grid from "@bmi/grid";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
 import { GlobalPageProps } from "../../../lib/middleware/withPage";
 import { ROLES } from "../../../lib/constants";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import { validateCompanyProfile } from "../../../lib/validations/company";
 import GridStyles from "../../../styles/Grid.module.scss";
 import { SupportContactCard } from "../../Cards/SupportContactCard";
 import { CertificationsCard } from "../../Cards/Certifications";
+import { CompanyActionsCard } from "../../Cards/CompanyActions";
 import { OnCompanyUpdateSuccess } from "../../SetCompanyDetailsDialog";
 import { CompanyDetails } from "./Details";
 import { EditCompanyButton } from "./EditCompany/Button";
@@ -59,14 +61,12 @@ export const CompanyPage = ({
             }
           />
         </Grid>
-
         <Grid item xs={12} lg={5} xl={4}>
           <CompanyRegisteredDetails
             company={company}
             onCompanyUpdateSuccess={onCompanyUpdateSuccess}
           />
         </Grid>
-
         <Grid item xs={12} lg={7} xl={8}>
           <CompanyAdmins
             admins={company.companyMembers.nodes.filter(
@@ -74,7 +74,6 @@ export const CompanyPage = ({
             )}
           />
         </Grid>
-
         <Grid item xs={12} lg={5} xl={4}>
           <SupportContactCard
             contactDetailsCollection={contactDetailsCollection}
@@ -87,6 +86,14 @@ export const CompanyPage = ({
             />
           )}
         </Grid>
+        <AccessControl dataModel="company" action="editOperations">
+          <Grid item xs={12} lg={12} xl={12}>
+            <CompanyActionsCard
+              title={t("companyActionsTitle")}
+              company={company}
+            />
+          </Grid>
+        </AccessControl>
       </Grid>
     </div>
   );

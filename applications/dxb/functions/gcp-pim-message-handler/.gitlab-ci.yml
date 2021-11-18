@@ -7,7 +7,8 @@ test_gcp-pim-message-handler:
 build_gcp-pim-message-handler:
   extends: .build_function
   variables:
-    PROJECT_NAME: gcp-pim-message-handler
+    WORKSPACE: "@bmi/gcp-pim-message-handler"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
 
 package_gcp-pim-message-handler:
   extends: .package_function
@@ -16,7 +17,8 @@ package_gcp-pim-message-handler:
   dependencies:
     - build_gcp-pim-message-handler
   variables:
-    PROJECT_NAME: gcp-pim-message-handler
+    FUNCTION_NAME: "gcp-pim-message-handler"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
 
 deploy_gcp-pim-message-handler:
   extends: .deploy_function
@@ -25,4 +27,5 @@ deploy_gcp-pim-message-handler:
   dependencies:
     - package_gcp-pim-message-handler
   variables:
-    PROJECT_NAME: gcp-pim-message-handler
+    FUNCTION_NAME: "gcp-pim-message-handler"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"

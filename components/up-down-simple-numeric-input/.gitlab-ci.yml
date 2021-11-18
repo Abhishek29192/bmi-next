@@ -1,0 +1,17 @@
+test_up-down-simple-numeric-input:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/up-down-simple-numeric-input"
+    ROOT_DIR: "components/up-down-simple-numeric-input"
+
+test_mr_coverage_up-down-simple-numeric-input:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/up-down-simple-numeric-input"
+    ROOT_DIR: "components/up-down-simple-numeric-input"
+
+build_up-down-simple-numeric-input:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/up-down-simple-numeric-input"
+    ROOT_DIR: "components/up-down-simple-numeric-input"

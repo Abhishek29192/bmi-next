@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
@@ -117,6 +117,14 @@ export const TeamTab = ({
     });
   };
 
+  const isSomeResponsibleInstaller = useMemo(
+    () =>
+      projectMembers.some(
+        ({ isResponsibleInstaller }) => isResponsibleInstaller
+      ),
+    [projectMembers]
+  );
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -131,9 +139,12 @@ export const TeamTab = ({
           <Table>
             <Table.Head>
               <Table.Row>
-                <Table.Cell>
-                  {t("teamTab.table.responsibleInstaller")}
-                </Table.Cell>
+                {(isSomeResponsibleInstaller ||
+                  canNominateProjectResponsible) && (
+                  <Table.Cell>
+                    {t("teamTab.table.responsibleInstaller")}
+                  </Table.Cell>
+                )}
                 <Table.Cell>{t("teamTab.table.teamMember")}</Table.Cell>
                 <Table.Cell>{t("teamTab.table.role")}</Table.Cell>
                 <Table.Cell>{t("teamTab.table.certification")}</Table.Cell>
@@ -153,6 +164,7 @@ export const TeamTab = ({
                       canNominateProjectResponsible={
                         canNominateProjectResponsible
                       }
+                      isSomeResponsibleInstaller={isSomeResponsibleInstaller}
                       onResponsibleInstallerChange={() =>
                         onResponsibleInstallerChangeHandler(team)
                       }

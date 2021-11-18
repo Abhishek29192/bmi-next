@@ -1,3 +1,6 @@
+/**
+ * Duplicated in gcp-full-fetch-coordinator. We should keep these in sync until we get shared libraries working for GCP Functions.
+ */
 import { Client } from "@elastic/elasticsearch";
 import { protos } from "@google-cloud/secret-manager";
 

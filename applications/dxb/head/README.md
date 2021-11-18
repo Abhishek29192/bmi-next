@@ -32,6 +32,23 @@ Note that in .env.\* in `libraries/migrate` you should always put `<YOUR OWN ACC
 
 You should also put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` in .env.\* in `applications/head` to use content and content type from your own accoun
 
+### Feature Flags
+
+GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE -
+feature flag for new PDP page url structure
+Default is `false` (and current url structure is displayed e.g. `/p/roof-products/zanda-protector-normalstein/svart/935895622/`)
+When set to `true` only the new url structure will be shown for PDP pages (e.g. `/p/zanda-protector-normalstein-sort-betong-935895622`)
+
+GATSBY_ENABLE_OLD_PDP_URL_REDIRECTS -
+Feature flag for generating redirects for PDP URLs, see `gatsby-node.js`
+Default is `false` (will not generate redirects)
+When set to `true` (will generate permanent redirect for old to new PDP url scheme e.g. from `/p/roof-products/zanda-protector-normalstein/svart/935895622/` to `/p/zanda-protector-normalstein-sort-betong-935895622`. redirects will be created at post build time)
+
+GATSBY_GROUP_BY_VARIANT -
+Feature flag for grouping / collapsing PLP data with `variant` as opposed to `base product` (Elastic search indexing)
+Default is `false` (will group/collapse by base Product code i.e. `baseProduct.code.keyword`)
+When set to `true` (will group/collapse by variant code i.e. `code.keyword`)
+
 ### Setup Google reCAPTCHA
 
 1. Visit (Google reCAPTCHA)[https://www.google.com/recaptcha/admin]

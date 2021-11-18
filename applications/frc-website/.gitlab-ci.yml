@@ -6,10 +6,10 @@ build_frc_website:
         - applications/frc-website/**/*
         - components/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   needs:
-    - install
+    - job: install
+      optional: true
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:

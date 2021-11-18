@@ -10,7 +10,7 @@ export const withApi = (handler) =>
 
     return auth0.withApiAuthRequired(async (req, res) => {
       const session: Session = auth0.getSession(req, res);
-      const apolloClient = await initializeApollo(null, { req, res });
+      const apolloClient = await initializeApollo(null, { req, res, session });
 
       const {
         data: { accountByEmail }

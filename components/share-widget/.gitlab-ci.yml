@@ -1,0 +1,17 @@
+test_share-widget:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/share-widget"
+    ROOT_DIR: "components/share-widget"
+
+test_mr_coverage_share-widget:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/share-widget"
+    ROOT_DIR: "components/share-widget"
+
+build_share-widget:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/share-widget"
+    ROOT_DIR: "components/share-widget"

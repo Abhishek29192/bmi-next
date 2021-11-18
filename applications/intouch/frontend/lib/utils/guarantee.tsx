@@ -30,107 +30,125 @@ export const guaranteeStatusIcons: Record<
 };
 
 export enum SolutionGuaranteeValidationError {
-  NoGuarantee,
-  NotApplicable,
-  MinumumEvidence,
-  ResponsibleInstaller,
-  Certification,
-  Tier,
-  BuilderOwner,
-  ProjectDetail
+  NoGuaranteeType,
+  InvalidStatus,
+  EvidenceNotMet,
+  NoResponsibleInstaller,
+  NoValidCertification,
+  InvalidTier,
+  BuildingOwnerIncomplete,
+  ProjectDetailIncomplete
 }
-
-type SolutionGuaranteeValidateResult = {
-  isValid: boolean;
-  validationError?: SolutionGuaranteeValidationError;
+export const SolutionGuaranteeValidationErrorMessage: Record<
+  SolutionGuaranteeValidationError,
+  string
+> = {
+  [SolutionGuaranteeValidationError.NoGuaranteeType]:
+    "guaranteeSubmitAlert.message.guaranteeType",
+  [SolutionGuaranteeValidationError.InvalidStatus]:
+    "guaranteeSubmitAlert.message.notApplicable",
+  [SolutionGuaranteeValidationError.EvidenceNotMet]:
+    "guaranteeSubmitAlert.message.minumumEvidence",
+  [SolutionGuaranteeValidationError.NoResponsibleInstaller]:
+    "guaranteeSubmitAlert.message.responsibleInstaller",
+  [SolutionGuaranteeValidationError.NoValidCertification]:
+    "guaranteeSubmitAlert.message.certification",
+  [SolutionGuaranteeValidationError.InvalidTier]:
+    "guaranteeSubmitAlert.message.tier",
+  [SolutionGuaranteeValidationError.BuildingOwnerIncomplete]:
+    "guaranteeSubmitAlert.message.buildingOwner",
+  [SolutionGuaranteeValidationError.ProjectDetailIncomplete]:
+    "guaranteeSubmitAlert.message.projectDetails"
 };
 
 // TODO:
 export const guaranteePrerequsitesMet = (guarantee) => true;
 
-export const guaranteeSolutionGuaranteeValidate = (
+type SolutionGuaranteeValidateResult = {
+  isValid: boolean;
+  validationError?: SolutionGuaranteeValidationError;
+};
+export const solutionGuaranteeValidate = (
   project: GetProjectQuery["project"]
 ): SolutionGuaranteeValidateResult => {
   const guarantee = project?.guarantees?.nodes?.[0];
 
-  if (!guarantee?.guaranteeType) {
-    return {
-      isValid: false,
-      validationError: SolutionGuaranteeValidationError.NoGuarantee
-    };
-  }
-  if (!["NEW", "REJECTED"].includes(guarantee.status)) {
-    return {
-      isValid: false,
-      validationError: SolutionGuaranteeValidationError.NotApplicable
-    };
+  if (guarantee?.coverage === "SOLUTION") {
+    if (!guarantee?.guaranteeType) {
+      return {
+        isValid: false,
+        validationError: SolutionGuaranteeValidationError.NoGuaranteeType
+      };
+    }
+    if (!["NEW", "REJECTED"].includes(guarantee.status)) {
+      return {
+        isValid: false,
+        validationError: SolutionGuaranteeValidationError.InvalidStatus
+      };
+    }
+
+    const { guaranteeType } = guarantee;
+    const { projectMembers, technology, company, evidenceItems } = project;
+
+    const isTierAvailable = checkCompanyTier(
+      guaranteeType.tiersAvailable,
+      company.tier
+    );
+    if (!isTierAvailable) {
+      return {
+        isValid: false,
+        validationError: SolutionGuaranteeValidationError.InvalidTier
+      };
+    }
+    const isProjectDetailsCompleted = checkProjectDetail(project);
+    if (!isProjectDetailsCompleted) {
+      return {
+        isValid: false,
+        validationError:
+          SolutionGuaranteeValidationError.ProjectDetailIncomplete
+      };
+    }
+
+    const isBuildingOwnerCompleted = checkBuildingOwner(project);
+    if (!isBuildingOwnerCompleted) {
+      return {
+        isValid: false,
+        validationError:
+          SolutionGuaranteeValidationError.BuildingOwnerIncomplete
+      };
+    }
+
+    const isEvidenceUploaded = checkEvidence(
+      evidenceItems?.nodes,
+      guaranteeType.evidenceCategoriesCollection.items
+    );
+    if (!isEvidenceUploaded) {
+      return {
+        isValid: false,
+        validationError: SolutionGuaranteeValidationError.EvidenceNotMet
+      };
+    }
+
+    const responsibleInsalller = getResponsibleInsalller(projectMembers.nodes);
+    if (!responsibleInsalller) {
+      return {
+        isValid: false,
+        validationError: SolutionGuaranteeValidationError.NoResponsibleInstaller
+      };
+    }
+
+    const isCertificationAvailable = checkCertification(
+      responsibleInsalller,
+      technology
+    );
+    if (!isCertificationAvailable) {
+      return {
+        isValid: false,
+        validationError: SolutionGuaranteeValidationError.NoValidCertification
+      };
+    }
   }
 
-  const { guaranteeType } = guarantee;
-  const { projectMembers, technology, company, evidenceItems } = project;
-
-  const isEvidenceUploaded = checkEvidence(
-    evidenceItems?.nodes,
-    guaranteeType.evidenceCategoriesCollection.items
-  );
-  if (!isEvidenceUploaded) {
-    //The minimum number or Evidence Items has been uploaded for all the Evidence Categories that apply to the Guarantee Type
-    return {
-      isValid: false,
-      validationError: SolutionGuaranteeValidationError.MinumumEvidence
-    };
-  }
-
-  const responsibleInsalller = getResponsibleInsalller(projectMembers.nodes);
-  if (!responsibleInsalller) {
-    //TThere is a Responsible Installer nominated for the Project.
-    return {
-      isValid: false,
-      validationError: SolutionGuaranteeValidationError.ResponsibleInstaller
-    };
-  }
-
-  const isCertificationAvailable = checkCertification(
-    responsibleInsalller,
-    technology
-  );
-  if (!isCertificationAvailable) {
-    //The nominated Responsible Installer currently holds a Certification in the same Technology as the Project
-    return {
-      isValid: false,
-      validationError: SolutionGuaranteeValidationError.Certification
-    };
-  }
-
-  const isTierAvailable = checkCompanyTier(
-    guaranteeType.tiersAvailable,
-    company.tier
-  );
-  if (!isTierAvailable) {
-    //You are in a Tier that supports the Guarantee Type.
-    return {
-      isValid: false,
-      validationError: SolutionGuaranteeValidationError.Tier
-    };
-  }
-
-  const isBuilderOwnerCompleted = checkBuildingOwner(project);
-  if (!isBuilderOwnerCompleted) {
-    //The mandatory Building Owner fields are complete for the Project, i.e.
-    return {
-      isValid: false,
-      validationError: SolutionGuaranteeValidationError.BuilderOwner
-    };
-  }
-
-  const isProjectDetailsCompleted = checkProjectDetail(project);
-  if (!isProjectDetailsCompleted) {
-    //The other mandatory Project details are complete present:
-    return {
-      isValid: false,
-      validationError: SolutionGuaranteeValidationError.ProjectDetail
-    };
-  }
   return {
     isValid: true
   };

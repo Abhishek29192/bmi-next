@@ -1,0 +1,17 @@
+test_google-autocomplete:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/google-autocomplete"
+    ROOT_DIR: "components/google-autocomplete"
+
+test_mr_coverage_google-autocomplete:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/google-autocomplete"
+    ROOT_DIR: "components/google-autocomplete"
+
+build_google-autocomplete:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/google-autocomplete"
+    ROOT_DIR: "components/google-autocomplete"

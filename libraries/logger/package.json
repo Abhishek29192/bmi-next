@@ -1,9 +1,9 @@
 {
   "name": "@bmi/logger",
-  "version": "0.0.3",
+  "version": "0.0.9",
   "private": false,
   "license": "BMI-DXB",
-  "main": "./dist/index.js",
+  "main": "./dist/src/index.js",
   "scripts": {
     "build": "tsc"
   },

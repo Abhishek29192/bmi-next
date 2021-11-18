@@ -90,6 +90,10 @@
   .children {
     margin: 24px 0;
     font-size: 16px;
+
+    &--without-margin {
+      margin: 0;
+    }
   }
 
   .footer {

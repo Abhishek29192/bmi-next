@@ -18,7 +18,8 @@ import {
   getTextureFilterFromDocuments,
   sortAlphabeticallyBy,
   updateFilterValue,
-  getCategoryFilters
+  getCategoryFilters,
+  combineVariantClassifications
 } from "../utils/filters";
 import { Product } from "../components/types/pim";
 import createPimDocument from "./PimDocumentHelper";
@@ -1120,6 +1121,344 @@ describe("filters tests", () => {
               expect(result).toEqual(expectedResult);
             });
           });
+        });
+      });
+    });
+  });
+
+  describe("combineVariantClassifications tests", () => {
+    describe("When base and variant classifications are null", () => {
+      it("returns empty array as result", () => {
+        const result = combineVariantClassifications(
+          createBaseProduct({
+            classifications: null
+          }),
+          createVariantOption()
+        );
+        expect(result).toEqual([]);
+      });
+    });
+    describe("When base classifications are null", () => {
+      it("returns variant classification and feature values product feature values", () => {
+        const result = combineVariantClassifications(
+          createBaseProduct({
+            classifications: null
+          }),
+          createVariantOption({
+            classifications: [
+              createClassification({
+                code: "variant-class-1",
+                name: "variant-class-1",
+                features: [
+                  createFeature({
+                    code: "variant-feature-1",
+                    featureValues: [
+                      {
+                        value: "variant-feature-value-1",
+                        code: "variant-feature-value-code-1"
+                      }
+                    ]
+                  })
+                ]
+              })
+            ]
+          })
+        );
+        expect(result).toEqual([
+          {
+            name: "variant-class-1",
+            code: "variant-class-1",
+            features: [
+              {
+                name: "classification-feature-name",
+                code: "variant-feature-1",
+                featureValues: [
+                  {
+                    value: "variant-feature-value-1",
+                    code: "variant-feature-value-code-1"
+                  }
+                ],
+                featureUnit: {
+                  name: "classification-feature-feature-unit-name",
+                  symbol: "classification-feature-feature-unit-symbol",
+                  unitType: "classification-feature-feature-unit-unit-type"
+                }
+              }
+            ]
+          }
+        ]);
+      });
+    });
+    describe("When variant classifications are null", () => {
+      it("returns base classification and feature values product feature values", () => {
+        const result = combineVariantClassifications(
+          createBaseProduct({
+            classifications: [
+              createClassification({
+                code: "base-class-1",
+                name: "base-class-1",
+                features: [
+                  createFeature({
+                    code: "base-feature-1",
+                    featureValues: [
+                      {
+                        value: "base-feature-value-1",
+                        code: "base-feature-value-code-1"
+                      }
+                    ]
+                  })
+                ]
+              })
+            ]
+          }),
+          createVariantOption()
+        );
+        expect(result).toEqual([
+          {
+            name: "base-class-1",
+            code: "base-class-1",
+            features: [
+              {
+                name: "classification-feature-name",
+                code: "base-feature-1",
+                featureValues: [
+                  {
+                    value: "base-feature-value-1",
+                    code: "base-feature-value-code-1"
+                  }
+                ],
+                featureUnit: {
+                  name: "classification-feature-feature-unit-name",
+                  symbol: "classification-feature-feature-unit-symbol",
+                  unitType: "classification-feature-feature-unit-unit-type"
+                }
+              }
+            ]
+          }
+        ]);
+      });
+    });
+    describe("When base and variant both classifications are present", () => {
+      describe("And both classificaitons are unique", () => {
+        it("returns both classification and their feature values", () => {
+          const result = combineVariantClassifications(
+            createBaseProduct({
+              classifications: [
+                createClassification({
+                  code: "base-class-1",
+                  name: "base-class-1",
+                  features: [
+                    createFeature({
+                      code: "base-feature-1",
+                      featureValues: [
+                        {
+                          value: "base-feature-value-1",
+                          code: "base-feature-value-code-1"
+                        }
+                      ]
+                    })
+                  ]
+                })
+              ]
+            }),
+            createVariantOption({
+              classifications: [
+                createClassification({
+                  code: "variant-class-1",
+                  name: "variant-class-1",
+                  features: [
+                    createFeature({
+                      code: "variant-feature-1",
+                      featureValues: [
+                        {
+                          value: "variant-feature-value-1",
+                          code: "variant-feature-value-code-1"
+                        }
+                      ]
+                    })
+                  ]
+                })
+              ]
+            })
+          );
+          expect(result).toEqual([
+            {
+              name: "variant-class-1",
+              code: "variant-class-1",
+              features: [
+                {
+                  name: "classification-feature-name",
+                  code: "variant-feature-1",
+                  featureValues: [
+                    {
+                      value: "variant-feature-value-1",
+                      code: "variant-feature-value-code-1"
+                    }
+                  ],
+                  featureUnit: {
+                    name: "classification-feature-feature-unit-name",
+                    symbol: "classification-feature-feature-unit-symbol",
+                    unitType: "classification-feature-feature-unit-unit-type"
+                  }
+                }
+              ]
+            },
+            {
+              name: "base-class-1",
+              code: "base-class-1",
+              features: [
+                {
+                  name: "classification-feature-name",
+                  code: "base-feature-1",
+                  featureValues: [
+                    {
+                      value: "base-feature-value-1",
+                      code: "base-feature-value-code-1"
+                    }
+                  ],
+                  featureUnit: {
+                    name: "classification-feature-feature-unit-name",
+                    symbol: "classification-feature-feature-unit-symbol",
+                    unitType: "classification-feature-feature-unit-unit-type"
+                  }
+                }
+              ]
+            }
+          ]);
+        });
+      });
+      describe("And both classificaitons are same", () => {
+        it("returns variant classification and their feature values", () => {
+          const result = combineVariantClassifications(
+            createBaseProduct({
+              classifications: [
+                createClassification({
+                  code: "class-1",
+                  name: "class-1",
+                  features: [
+                    createFeature({
+                      code: "feature-1",
+                      featureValues: [
+                        {
+                          value: "feature-value-1",
+                          code: "feature-value-code-1"
+                        }
+                      ]
+                    })
+                  ]
+                })
+              ]
+            }),
+            createVariantOption({
+              classifications: [
+                createClassification({
+                  code: "class-1",
+                  name: "class-1",
+                  features: [
+                    createFeature({
+                      code: "feature-1",
+                      featureValues: [
+                        {
+                          value: "variant-feature-value-1",
+                          code: "variant-feature-value-code-1"
+                        }
+                      ]
+                    })
+                  ]
+                })
+              ]
+            })
+          );
+
+          expect(result).toEqual([
+            {
+              name: "class-1",
+              code: "class-1",
+              features: [
+                {
+                  name: "classification-feature-name",
+                  code: "feature-1",
+                  featureValues: [
+                    {
+                      value: "variant-feature-value-1",
+                      code: "variant-feature-value-code-1"
+                    }
+                  ],
+                  featureUnit: {
+                    name: "classification-feature-feature-unit-name",
+                    symbol: "classification-feature-feature-unit-symbol",
+                    unitType: "classification-feature-feature-unit-unit-type"
+                  }
+                }
+              ]
+            }
+          ]);
+        });
+      });
+      describe("And both classificaitons are scoringWeightAttributes", () => {
+        it("returns product scoringWeightAttributes and its values", () => {
+          const result = combineVariantClassifications(
+            createBaseProduct({
+              classifications: [
+                createClassification({
+                  code: "scoringWeightAttributes",
+                  name: "scoringWeightAttributes",
+                  features: [
+                    createFeature({
+                      code: "scoringWeightAttributes.scoringweight",
+                      featureUnit: {
+                        name: "point",
+                        symbol: "p",
+                        unitType: "point"
+                      },
+                      featureValues: [
+                        {
+                          value: "9999"
+                        }
+                      ]
+                    })
+                  ]
+                })
+              ]
+            }),
+            createVariantOption({
+              classifications: [
+                createClassification({
+                  code: "scoringWeightAttributes",
+                  name: "scoringWeightAttributes",
+                  features: [
+                    createFeature({
+                      code: "scoringWeightAttributes.scoringweight",
+                      featureUnit: {
+                        name: "point",
+                        symbol: "p",
+                        unitType: "point"
+                      },
+                      featureValues: [
+                        {
+                          value: "974"
+                        }
+                      ]
+                    })
+                  ]
+                })
+              ]
+            })
+          );
+          expect(result).toEqual([
+            {
+              name: "scoringWeightAttributes",
+              code: "scoringWeightAttributes",
+              features: [
+                {
+                  name: "classification-feature-name",
+                  code: "scoringWeightAttributes.scoringweight",
+                  featureValues: [{ value: "9999" }],
+                  featureUnit: { name: "point", symbol: "p", unitType: "point" }
+                }
+              ]
+            }
+          ]);
         });
       });
     });

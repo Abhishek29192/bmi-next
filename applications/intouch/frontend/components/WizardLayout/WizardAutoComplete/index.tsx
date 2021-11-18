@@ -30,6 +30,7 @@ export const WizardAutoComplete = ({
   value
 }: WizardAutoCompleteProps) => {
   const [showFooter, setShowFooter] = useState<boolean>(false);
+  const [hasInput, setHasInput] = useState<boolean>(true);
   const { t } = useTranslation("common");
   return (
     <div className={styles.wizard}>
@@ -37,15 +38,16 @@ export const WizardAutoComplete = ({
         data-testid={"wizard-autocomplete"}
         label={t("Search")}
         options={options.items}
-        noOptionsText={t("No Options")}
+        noOptionsText={hasInput ? t("No Options") : t("Search")}
         onChange={(_, value: WizardAutoCompleteItem) =>
           onChange && onChange(value)
         }
         onOpen={() => setShowFooter(true)}
         onClose={() => setShowFooter(false)}
-        onInputChange={(_, input: string) =>
-          onInputChange && onInputChange(input)
-        }
+        onInputChange={(_, input) => {
+          onInputChange && onInputChange(input);
+          setHasInput(Boolean(input));
+        }}
         value={value}
         getOptionLabel={(option: WizardAutoCompleteItem) => option.name}
         filterOptions={(options, state) => {
@@ -69,7 +71,6 @@ export const WizardAutoComplete = ({
         }}
         disablePortal
       />
-
       {showFooter && (
         <Typography
           variant="body3"

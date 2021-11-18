@@ -3,7 +3,7 @@ import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
-import Button from "@bmi/button";
+import Form from "@bmi/form";
 import AlertBanner from "@bmi/alert-banner";
 import { useImportAccountsCompaniesFromCvsMutation } from "../../../graphql/generated/hooks";
 import { ImportAccountsCompaniesFromCvsMutation } from "../../../graphql/generated/operations";
@@ -12,27 +12,28 @@ import styles from "./styles.module.scss";
 type ImportStatus = {
   title: string;
   severity: "success" | "error" | "warning" | "info";
-  accounts?: ImportAccountsCompaniesFromCvsMutation["importAccountsCompaniesFromCVS"]["accounts"];
   companies?: ImportAccountsCompaniesFromCvsMutation["importAccountsCompaniesFromCVS"]["companies"];
+  accounts?: ImportAccountsCompaniesFromCvsMutation["importAccountsCompaniesFromCVS"]["accounts"];
   auth0Job?: ImportAccountsCompaniesFromCvsMutation["importAccountsCompaniesFromCVS"]["auth0Job"];
 };
 
 const ImportAccount = () => {
-  const { t } = useTranslation("admin-account-import");
+  const { t } = useTranslation(["admin-account-import", "company-page"]);
+  const [isDryRun, setIsDryRun] = useState<boolean>(false);
   const [importResult, setImportResult] = useState<ImportStatus>({
     title: null,
     severity: null,
-    accounts: [],
-    companies: [],
+    companies: null,
     auth0Job: null
   });
   const [filesToUpload, setFilesToUpload] = useState<FileList>();
 
   const [importAccountAndCompanies] = useImportAccountsCompaniesFromCvsMutation(
     {
+      fetchPolicy: "no-cache",
       onCompleted: ({ importAccountsCompaniesFromCVS }) => {
         setImportResult({
-          title: "importCompleted",
+          title: isDryRun ? "dryRunCompleted" : "importCompleted",
           severity: "success",
           accounts: importAccountsCompaniesFromCVS.accounts,
           companies: importAccountsCompaniesFromCVS.companies,
@@ -49,17 +50,18 @@ const ImportAccount = () => {
     }
   );
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (dryRun) => {
+    setIsDryRun(dryRun);
 
-    if (!filesToUpload.length) {
+    if (!filesToUpload || !filesToUpload.length) {
       return;
     }
 
     importAccountAndCompanies({
       variables: {
         input: {
-          files: filesToUpload as unknown as any[]
+          files: filesToUpload as unknown as any[],
+          dryRun: dryRun
         }
       }
     });
@@ -74,17 +76,26 @@ const ImportAccount = () => {
         <Typography className={styles.uploadText} variant="body1">
           {t("uploadFileText")}
         </Typography>
-        <form className={styles.form} onSubmit={onSubmit}>
-          <input
-            multiple
-            required
-            type="file"
-            style={{ marginTop: "12px" }}
-            onChange={({ target: { files } }) => setFilesToUpload(files)}
-            onClick={(event) => (event.currentTarget.value = null)}
-          />
-          <Button type="submit">{t("submit")}</Button>
-        </form>
+        <Form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+          <Form.Row>
+            <input
+              multiple
+              required
+              type="file"
+              style={{ marginTop: "12px" }}
+              onChange={({ target: { files } }) => setFilesToUpload(files)}
+              onClick={(event) => (event.currentTarget.value = null)}
+            />
+          </Form.Row>
+          <Form.ButtonWrapper>
+            <Form.Button onClick={() => onSubmit(true)}>
+              {t("dryRun")}
+            </Form.Button>
+            <Form.SubmitButton onClick={() => onSubmit(false)}>
+              {t("submit")}
+            </Form.SubmitButton>
+          </Form.ButtonWrapper>
+        </Form>
       </Grid>
       {importResult?.title ? (
         <Grid className={styles.importContent} xs={12} spacing={3} container>
@@ -96,33 +107,193 @@ const ImportAccount = () => {
             </div>
           )}
 
-          {importResult?.accounts?.length > 0 ? (
+          {importResult?.companies?.length > 0 ? (
             <>
               <Typography variant="h3" hasUnderline>
-                {t("accountImported")}
+                {t(isDryRun ? "dryRunTitle" : "companiesImported")}
               </Typography>
               <div className={styles.list}>
-                {importResult?.accounts?.map((account) => (
-                  <Typography key={account.email} variant="body1">
-                    {account.email}
-                  </Typography>
+                {importResult?.companies?.map((company, index) => (
+                  <Grid
+                    key={`company-${index}`}
+                    spacing={0}
+                    direction="row"
+                    container
+                  >
+                    <Grid xs={6} item>
+                      <Typography key={`title-${company.name}`} variant="h5">
+                        Company
+                      </Typography>
+                      {[
+                        "name",
+                        "businessType",
+                        "tier",
+                        "status",
+                        "taxNumber",
+                        "aboutUs",
+                        "logo",
+                        "phone",
+                        "publicEmail",
+                        "registeredAddressMigrationId",
+                        "tradingAddressMigrationId",
+                        "website",
+                        "linkedIn"
+                      ].map((field) =>
+                        !company[`${field}`] ? null : (
+                          <div className={styles.field}>
+                            <Typography
+                              key={`${company?.name}-${field}`}
+                              className={styles.listItemKey}
+                              variant="h6"
+                            >
+                              {`${t(
+                                `company-page:edit_dialog.form.fields.${field}`
+                              )}: `}
+                            </Typography>
+                            <Typography
+                              key={`${company?.name}-${field}-value`}
+                              variant="body1"
+                            >
+                              {company[`${field}`]}
+                            </Typography>
+                          </div>
+                        )
+                      )}
+                    </Grid>
+                    <Grid xs={6} item>
+                      <div className={styles.listItem}>
+                        <Typography
+                          key={company.name}
+                          variant="h5"
+                          className={styles.listItemTitle}
+                        >
+                          Members
+                        </Typography>
+                        {company?.companyMembers?.nodes.map((member, index) => (
+                          <div
+                            key={`companyMembers-${index}`}
+                            className={styles.listItem}
+                          >
+                            {[
+                              "email",
+                              "role",
+                              "status",
+                              "phone",
+                              "firstName",
+                              "lastName",
+                              "created",
+                              "doceboUserId",
+                              "doceboUsername"
+                            ].map((field) =>
+                              !member.account[`${field}`] ? null : (
+                                <div className={styles.field}>
+                                  <Typography
+                                    key={`${company?.name}-${field}`}
+                                    className={styles.listItemKey}
+                                    variant="h6"
+                                  >
+                                    {`${t(
+                                      `admin-account-import:account.${field}`
+                                    )}: `}
+                                  </Typography>
+                                  <Typography
+                                    key={`${company?.name}-${field}-value`}
+                                    variant="body1"
+                                  >
+                                    {member.account[`${field}`]}
+                                  </Typography>
+                                </div>
+                              )
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                      <div className={styles.listItem}>
+                        {company?.registeredAddress && (
+                          <div>
+                            <Typography
+                              key={company.name}
+                              variant="h5"
+                              className={styles.listItemTitle}
+                            >
+                              Registered Address
+                            </Typography>
+                            {[
+                              "firstLine",
+                              "secondLine",
+                              "town",
+                              "country",
+                              "postcode"
+                            ].map((field) =>
+                              !company?.registeredAddress[`${field}`] ? null : (
+                                <div className={styles.field}>
+                                  <Typography
+                                    key={`${company?.name}-${field}`}
+                                    className={styles.listItemKey}
+                                    variant="h6"
+                                  >
+                                    {`${t(
+                                      `company-page:edit_dialog.form.fields.registeredAddress.${field}`
+                                    )}: `}
+                                  </Typography>
+                                  <Typography
+                                    key={`${company?.name}-${field}-value`}
+                                    variant="body1"
+                                  >
+                                    {company?.registeredAddress[`${field}`]}
+                                  </Typography>
+                                </div>
+                              )
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </Grid>
+                  </Grid>
                 ))}
               </div>
             </>
           ) : null}
 
-          {importResult?.companies?.length > 0 ? (
+          {importResult?.accounts?.length > 0 ? (
             <>
-              <Typography variant="h3" hasUnderline>
-                {t("companiesImported")}
+              <Typography key="accounts" variant="h5">
+                Accounts
               </Typography>
-              <div className={styles.list}>
-                {importResult?.companies?.map((company, index) => (
-                  <Typography key={`${index}-${company.name}`} variant="body1">
-                    {company.name}
-                  </Typography>
-                ))}
-              </div>
+              {importResult?.accounts.map((account, index) => (
+                <div key={`account-${index}`} className={styles.list}>
+                  {[
+                    "email",
+                    "role",
+                    "status",
+                    "email",
+                    "phone",
+                    "firstName",
+                    "lastName",
+                    "created",
+                    "doceboUserId",
+                    "doceboUsername"
+                  ].map((field) =>
+                    !account[`${field}`] ? null : (
+                      <div className={styles.field}>
+                        <Typography
+                          key={`${account?.email}-${field}`}
+                          className={styles.listItemKey}
+                          variant="h6"
+                        >
+                          {`${t(`admin-account-import:account.${field}`)}: `}
+                        </Typography>
+                        <Typography
+                          key={`${account?.email}-${field}-value`}
+                          variant="body1"
+                        >
+                          {account[`${field}`]}
+                        </Typography>
+                      </div>
+                    )
+                  )}
+                </div>
+              ))}
             </>
           ) : null}
 
@@ -156,9 +327,49 @@ export const uploadAccounts = gql`
       }
       accounts {
         email
+        role
+        phone
+        status
+        firstName
+        lastName
+        created
+        doceboUserId
+        doceboUsername
       }
       companies {
+        businessType
         name
+        tier
+        status
+        taxNumber
+        aboutUs
+        logo
+        phone
+        publicEmail
+        website
+        linkedIn
+        registeredAddress {
+          firstLine
+          secondLine
+          town
+          country
+          postcode
+        }
+        companyMembers {
+          nodes {
+            account {
+              role
+              email
+              status
+              phone
+              firstName
+              lastName
+              created
+              doceboUserId
+              doceboUsername
+            }
+          }
+        }
       }
     }
   }

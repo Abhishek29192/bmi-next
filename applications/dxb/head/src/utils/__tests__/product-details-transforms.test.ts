@@ -1355,6 +1355,28 @@ describe("product-details-transforms tests", () => {
         });
       });
     });
+    describe("And are populated without correctly formed category tree", () => {
+      it("returns empty object", () => {
+        const baseProduct = createBaseProduct({
+          documents: [],
+          classifications: [],
+          categories: [
+            createCategory({
+              categoryType: "Category",
+              code: "category-z",
+              name: "category-z",
+              parentCategoryCode: ""
+            })
+          ],
+          variantOptions: []
+        });
+
+        const expectedResult = {};
+        const inputData: Array<Product> = [baseProduct, baseProduct];
+        const result = groupProductsByCategory(inputData);
+        expect(result).toEqual(expectedResult);
+      });
+    });
   });
   describe("mapClassificationValues tests", () => {
     describe("When classifiction map is empty object", () => {

@@ -204,6 +204,42 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             auth0
           );
         }
+      },
+      ImportAccountsCompaniesFromCSVResult: {
+        accounts: async (parent, args, context, resolveInfo) => {
+          const { pgSql: sql } = resolveInfo.graphile.build;
+
+          if (parent.dryRun) {
+            return parent.accounts;
+          }
+
+          return await resolveInfo.graphile.selectGraphQLResultFromTable(
+            sql.fragment`account`,
+            (tableAlias, queryBuilder) =>
+              queryBuilder.where(
+                sql.fragment`${tableAlias}.id = ANY (${sql.value(
+                  parent.accounts
+                )}::int[])`
+              )
+          );
+        },
+        companies: async (parent, args, context, resolveInfo) => {
+          const { pgSql: sql } = resolveInfo.graphile.build;
+
+          if (parent.dryRun) {
+            return parent.companies;
+          }
+
+          return await resolveInfo.graphile.selectGraphQLResultFromTable(
+            sql.fragment`company`,
+            (tableAlias, queryBuilder) =>
+              queryBuilder.where(
+                sql.fragment`${tableAlias}.id = ANY (${sql.value(
+                  parent.companies
+                )}::int[])`
+              )
+          );
+        }
       }
     }
   };

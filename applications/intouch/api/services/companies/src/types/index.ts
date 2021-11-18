@@ -36,4 +36,5 @@ export type PostGraphileContext = {
   pgRootPool: PoolClient;
   pgClient: PoolClient;
   storageClient: StorageClientType;
+  protocol: string;
 };

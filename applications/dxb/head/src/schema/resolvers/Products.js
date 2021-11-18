@@ -5,6 +5,7 @@ const {
   generateIdFromString,
   generateDigestFromData
 } = require("../../utils/encryption");
+const { combineVariantClassifications } = require("../../utils/filters");
 const {
   getFormatFromFileName,
   isPimLinkDocument
@@ -61,6 +62,46 @@ const resolvePathFromFamily = async (source, args, context) => {
   return resolvePath(parentFamilies[0], args, context);
 };
 
+const getSimpleUrlStructure = (source, variant, id) => {
+  const productName = variant.name || source.name;
+  const classifications = combineVariantClassifications(source, variant);
+  const featuresCodesForUrlParams = {
+    appearanceAttributes: ["colour", "texturefamily"],
+    generalInformation: ["materials"]
+  };
+
+  const classificationsPath = classifications.reduce(
+    (urlFromClassifications, classification) => {
+      const featuresCodes = featuresCodesForUrlParams[classification.code];
+      if (featuresCodes) {
+        const urlParamsFromClassificationFeatures = featuresCodes.reduce(
+          (urlFromFeatures, featuresCode) => {
+            const featureByFeatureCode = classification.features.find(
+              (feature) =>
+                feature.code.toLocaleLowerCase().endsWith(featuresCode)
+            );
+            if (featureByFeatureCode) {
+              const featureValue = featureByFeatureCode.featureValues[0].value;
+              urlFromFeatures.push(featureValue);
+            }
+            return urlFromFeatures;
+          },
+          []
+        );
+        urlFromClassifications.push(...urlParamsFromClassificationFeatures);
+      }
+      return urlFromClassifications;
+    },
+    []
+  );
+  return [productName, ...classificationsPath, id]
+    .join("-")
+    .replace(/\s+/g, "-")
+    .replace("*", "")
+    .replace('"', "")
+    .toLowerCase();
+};
+
 module.exports = {
   variantOptions: {
     async resolve(source, args, context) {
@@ -77,12 +118,16 @@ module.exports = {
               [source.name, ...getSlugAttributes(variant), id].join("/")
             )
           });
-          const path = `p/${getUrlFromPath(breadcrumbs)}`;
+          const oldPath = `p/${getUrlFromPath(breadcrumbs)}`;
 
           return {
             ...variant,
             id,
-            path,
+            path:
+              process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "true"
+                ? `p/${getSimpleUrlStructure(source, variant, id)}`
+                : oldPath,
+            oldPath,
             breadcrumbs
           };
         });

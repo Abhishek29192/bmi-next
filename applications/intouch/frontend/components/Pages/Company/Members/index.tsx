@@ -33,6 +33,7 @@ import {
   isSuperOrMarketAdmin
 } from "../../../../lib/account";
 import layoutStyles from "../../../Layout/styles.module.scss";
+import { TeamReport } from "../../../Reports";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 import Alert from "./Alert";
@@ -242,16 +243,21 @@ const CompanyMembers = ({ data }: PageProps) => {
           onSearchFilterChange={onSearch}
           noResultLabel={t("team-page:sidePanel.search.noResult")}
           renderFooter={() => (
-            <AccessControl dataModel="company" action="inviteUser">
-              <Button
-                variant="outlined"
-                onClick={() => setDialogOpen(true)}
-                data-testid="footer-btn"
-                className={styles.sidePanelFooterButton}
-              >
-                {t("team-page:sidePanel.inviteLabel")}
-              </Button>
-            </AccessControl>
+            <>
+              <AccessControl dataModel="company" action="inviteUser">
+                <Button
+                  variant="outlined"
+                  onClick={() => setDialogOpen(true)}
+                  data-testid="footer-btn"
+                  className={styles.sidePanelFooterButton}
+                >
+                  {t("team-page:sidePanel.inviteLabel")}
+                </Button>
+              </AccessControl>
+              <AccessControl dataModel="company" action="downloadReport">
+                <TeamReport />
+              </AccessControl>
+            </>
           )}
         >
           {members.map((member) => (

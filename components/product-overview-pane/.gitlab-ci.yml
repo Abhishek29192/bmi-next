@@ -1,0 +1,17 @@
+test_product-overview-pane:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/product-overview-pane"
+    ROOT_DIR: "components/product-overview-pane"
+
+test_mr_coverage_product-overview-pane:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/product-overview-pane"
+    ROOT_DIR: "components/product-overview-pane"
+
+build_product-overview-pane:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/product-overview-pane"
+    ROOT_DIR: "components/product-overview-pane"

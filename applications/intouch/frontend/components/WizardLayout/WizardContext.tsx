@@ -1,11 +1,9 @@
 import React, { useState, createContext } from "react";
+import { Product, System, GuaranteeType } from "@bmi/intouch-api-types";
 import {
-  Product,
-  Project,
-  System,
-  GuaranteeType
-} from "@bmi/intouch-api-types";
-import { GetGuaranteeTemplatesQuery } from "../../graphql/generated/operations";
+  GetGuaranteeTemplatesQuery,
+  GetProjectQuery
+} from "../../graphql/generated/operations";
 
 export type GuaranteeWizardData = {
   guaranteeType: GuaranteeType;
@@ -20,8 +18,9 @@ type GuaranteeHeader = {
   subTitle: string;
 };
 
-type ContextProps = {
+export type ContextProps = {
   activeStep: number;
+  previousStep: number;
   data?: GuaranteeWizardData;
   setData?: (data: GuaranteeWizardData) => Promise<void>;
   header: GuaranteeHeader;
@@ -31,12 +30,12 @@ type ContextProps = {
   isNextStepAvailable: boolean;
   isBackStepAvailable: boolean;
   isLastStep: boolean;
-  project?: Project;
+  project?: GetProjectQuery["project"];
 };
 
-type ContextWrapperProps = {
+export type ContextWrapperProps = {
   children?: React.ReactNode;
-  project: Project;
+  project: GetProjectQuery["project"];
   onSubmit?: (data: GuaranteeWizardData) => void;
 };
 
@@ -50,6 +49,7 @@ const WizardContextWrapper = ({
 }: ContextWrapperProps) => {
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [currentData, setCurrentData] = useState<GuaranteeWizardData>();
+  const [previousStep, setPreviousStep] = useState<number>(0);
 
   const getTitle = () => {
     const type = currentData?.guaranteeType?.coverage.toLowerCase();
@@ -109,6 +109,7 @@ const WizardContextWrapper = ({
     <WizardContext.Provider
       value={{
         activeStep: currentStep,
+        previousStep: previousStep,
         setData: async (data) => {
           setCurrentData(data);
         },
@@ -116,9 +117,11 @@ const WizardContextWrapper = ({
         project: project,
         header: getHeader(),
         gotoNext: () => {
+          setPreviousStep(currentStep);
           setCurrentStep(currentStep + 1);
         },
         gotoBack: () => {
+          setPreviousStep(currentStep);
           setCurrentStep(currentStep - 1);
         },
         submit: () => {

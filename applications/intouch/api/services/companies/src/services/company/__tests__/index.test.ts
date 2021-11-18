@@ -1,4 +1,5 @@
-import { deleteCompanyMember } from "..";
+import { UpdateCompanyInput } from "@bmi/intouch-api-types";
+import { deleteCompanyMember, updateCompany } from "..";
 import { sendMessageWithTemplate } from "../../../services/mailer";
 
 jest.mock("../../../services/mailer", () => ({
@@ -12,6 +13,7 @@ describe("Company", () => {
   let context;
   let args;
   let query = jest.fn();
+  let mockClientGateway = jest.fn();
 
   beforeEach(() => {
     context = {
@@ -22,7 +24,8 @@ describe("Company", () => {
       },
       user: {
         role: "COMPANY_ADMIN"
-      }
+      },
+      clientGateway: mockClientGateway
     };
 
     jest.resetAllMocks();
@@ -118,6 +121,102 @@ describe("Company", () => {
           ],
         ]
       `);
+    });
+  });
+
+  describe("company update", () => {
+    beforeEach(() => {
+      args = {
+        input: {
+          id: 1
+        }
+      };
+    });
+    it("should send mail", async () => {
+      query
+        .mockImplementationOnce(() => ({
+          rows: [
+            {
+              id: 1,
+              tier: "T1"
+            }
+          ]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: []
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [
+            {
+              id: 1,
+              email: "email",
+              first_name: "firstname"
+            },
+            {
+              id: 2,
+              email: "email",
+              first_name: "firstname"
+            }
+          ]
+        }));
+
+      const args: { input: UpdateCompanyInput } = {
+        input: {
+          id: 1,
+          patch: {
+            tier: "T2"
+          }
+        }
+      };
+
+      resolve.mockImplementationOnce(() => ({
+        data: {
+          name: "",
+          business_type: "",
+          tax_number: "",
+          status: "",
+          registered_address_id: ""
+        }
+      }));
+      mockClientGateway.mockImplementationOnce(() => ({
+        data: {
+          tierBenefitCollection: {
+            items: [
+              {
+                shortDescription: "shortDescription"
+              }
+            ]
+          }
+        }
+      }));
+
+      await updateCompany(resolve, source, args, context, resolveInfo);
+
+      expect(resolve).toBeCalledTimes(1);
+      expect(sendMessageWithTemplate).toHaveBeenNthCalledWith(
+        1,
+        context,
+        "TIER_ASSIGNED",
+        {
+          email: "email",
+          accountId: 1,
+          firstname: "firstname",
+          tier: "T2",
+          tierBenefitsShortDescription: "shortDescription"
+        }
+      );
+      expect(sendMessageWithTemplate).toHaveBeenNthCalledWith(
+        2,
+        context,
+        "TIER_ASSIGNED",
+        {
+          email: "email",
+          accountId: 2,
+          firstname: "firstname",
+          tier: "T2",
+          tierBenefitsShortDescription: "shortDescription"
+        }
+      );
     });
   });
 });

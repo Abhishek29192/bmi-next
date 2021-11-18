@@ -4,8 +4,10 @@ import { useTranslation } from "next-i18next";
 import { SvgIcon } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 import { GetCompaniesByMarketQuery } from "../../../../graphql/generated/operations";
+import { CompanyReport } from "../../../Reports";
 import { FilterResult } from "../../../FilterResult";
 import { SidePanel } from "../../../SidePanel";
+import AccessControl from "../../../../lib/permissions/AccessControl";
 
 type CompaniesSidePanelProps = {
   companies: GetCompaniesByMarketQuery["companies"]["nodes"];
@@ -26,7 +28,7 @@ export const CompaniesSidePanel = ({
   const filteredCompanies = useMemo(() => {
     return companies.filter(({ name }) => {
       const query = searchQuery.toLowerCase().trim();
-      const matchesQuery = name.toLowerCase().includes(query);
+      const matchesQuery = (name || "").toLowerCase().includes(query);
       return matchesQuery;
     });
   }, [companies, searchQuery]);
@@ -37,6 +39,11 @@ export const CompaniesSidePanel = ({
       onSearchFilterChange={(query: string) => {
         setSearchQuery(query);
       }}
+      renderFooter={() => (
+        <AccessControl dataModel="company" action="downloadReport">
+          <CompanyReport />
+        </AccessControl>
+      )}
     >
       {filteredCompanies.map(({ id, name, isProfileComplete }) => (
         <FilterResult

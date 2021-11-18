@@ -65,7 +65,7 @@ describe("GraphQL proxy", () => {
       }
     }));
 
-    await handler(req, res, null);
+    await handler(req, res);
 
     expect(req.headers).toMatchInlineSnapshot(`
       Object {
@@ -87,7 +87,7 @@ describe("GraphQL proxy", () => {
       }
     }));
 
-    await handler(req, res, null);
+    await handler(req, res);
 
     expect(req.headers).toMatchInlineSnapshot(`
       Object {

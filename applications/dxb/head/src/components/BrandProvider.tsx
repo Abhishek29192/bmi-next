@@ -81,10 +81,7 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
       data-testid="brand-colors-provider"
     >
       <BrandClassNameContext.Provider value={className}>
-        <BmiThemeProvider
-          longText={Boolean(process.env.GATSBY_LONG_TEXT)}
-          modifyTheme={modifyThemePrimaryColor}
-        >
+        <BmiThemeProvider modifyTheme={modifyThemePrimaryColor}>
           <DialogClassNameContext.Provider value={className}>
             {children}
           </DialogClassNameContext.Provider>
@@ -92,9 +89,7 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
       </BrandClassNameContext.Provider>
     </div>
   ) : (
-    <BmiThemeProvider longText={Boolean(process.env.GATSBY_LONG_TEXT)}>
-      {children}
-    </BmiThemeProvider>
+    <BmiThemeProvider>{children}</BmiThemeProvider>
   );
 };
 

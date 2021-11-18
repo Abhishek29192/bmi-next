@@ -1,55 +1,70 @@
-import { render, screen } from "@testing-library/react";
-import React, { useReducer } from "react";
+import "@testing-library/jest-dom";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
-import {
-  BasketContextProvider,
-  basketReducer,
-  initialBasketState
-} from "../../contexts/SampleBasketContext";
+import { BasketContextProvider } from "../../contexts/SampleBasketContext";
+import { Data as PageInfoData } from "../PageInfo";
+import { SiteContextProvider } from "../Site";
 
-const BasketContextProviderForTest = ({ children }: { children: any }) => {
-  const [basketState, basketDispatch] = useReducer(
-    basketReducer,
-    initialBasketState,
-    () => {
-      return typeof window !== "undefined" &&
-        localStorage.getItem("basketItems")
-        ? { products: JSON.parse(localStorage.getItem("basketItems")) }
-        : { products: [] };
-    }
-  );
-
-  const basketContextValues = {
-    basketState,
-    basketDispatch
-  };
-
-  return (
-    <BasketContextProvider value={basketContextValues}>
-      {children}
-    </BasketContextProvider>
-  );
+afterEach(() => {
+  cleanup();
+  localStorage.clear();
+});
+const sampleBasketLinkInfo: PageInfoData = {
+  id: "test",
+  title: "test",
+  __typename: "ContentfulSimplePage",
+  slug: "sample-basket",
+  path: "sample-basket/",
+  subtitle: null,
+  brandLogo: null,
+  featuredMedia: null,
+  featuredVideo: null,
+  date: null,
+  tags: null
 };
-
+const variant = {
+  code: "somthing",
+  path: null,
+  breadcrumbs: null,
+  approvalStatus: null,
+  images: null,
+  isSampleOrderAllowed: null,
+  longDescription: null,
+  shortDescription: null
+};
+const variant2 = { ...variant, code: "variant2" };
+const getMockSiteContext = (
+  countryCode: string = "en",
+  nodeLocale: string = "en-GB"
+) => ({
+  countryCode: countryCode,
+  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
+  node_locale: nodeLocale,
+  homePage: {
+    title: "Home page title"
+  }
+});
 describe("Functionality of sample basket", () => {
-  it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", () => {
-    const variant = {
-      code: "somthing",
-      path: null,
-      breadcrumbs: null,
-      approvalStatus: null,
-      images: null,
-      isSampleOrderAllowed: null,
-      longDescription: null,
-      shortDescription: null
-    };
-    render(<SampleOrderSection variant={variant}></SampleOrderSection>, {
-      wrapper: BasketContextProviderForTest
-    });
+  it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", async () => {
+    render(
+      <SiteContextProvider value={getMockSiteContext()}>
+        <SampleOrderSection
+          isSampleOrderAllowed={true}
+          variant={variant}
+          sampleBasketLinkInfo={sampleBasketLinkInfo}
+        ></SampleOrderSection>
+      </SiteContextProvider>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
-    addSampleCta.click();
+    await waitFor(() => {
+      addSampleCta.click();
+    });
     expect(screen.queryByText(`MC: pdp.overview.removeSample`)).not.toBeNull();
     expect(
       screen.queryByText("MC: pdp.overview.completeSampleOrder")
@@ -57,7 +72,10 @@ describe("Functionality of sample basket", () => {
     const removeSample = screen.getByRole("button", {
       name: `MC: pdp.overview.removeSample`
     });
-    removeSample.click();
+    await waitFor(() => {
+      removeSample.click();
+    });
+
     expect(screen.queryByText(`MC: pdp.overview.removeSample`)).toBeNull();
     expect(screen.queryByText(`MC: pdp.overview.addSample`)).not.toBeNull();
     expect(
@@ -65,16 +83,221 @@ describe("Functionality of sample basket", () => {
     ).toBeNull();
   });
   it("display only complete order if there are some items on basket but sample is not allowed", () => {
-    const { container } = render(
-      <SampleOrderSection onlyDisplayCompleteOrder={true}></SampleOrderSection>,
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
       {
-        wrapper: BasketContextProviderForTest
+        wrapper: BasketContextProvider
+      }
+    );
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={false}
+        maximumSamples={3}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    expect(screen.queryAllByText(`MC: pdp.overview.removeSample`).length).toBe(
+      0
+    );
+    expect(screen.queryAllByText(`MC: pdp.overview.addSample`).length).toBe(1);
+    expect(
+      screen.queryAllByText(`MC: pdp.overview.completeSampleOrder`)
+    ).not.toBeNull();
+  });
+});
+
+describe("disable 'Add to basket' if basket is full", () => {
+  it("not ordered max samples & sample available, show MC:canAddMoreMessage ", async () => {
+    const maximumSamples = 3;
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    const addSampleCta = screen.getByRole("button", {
+      name: `MC: pdp.overview.addSample`
+    });
+    addSampleCta.click();
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant2}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    const addSampleCtaAgain = screen.getByRole("button", {
+      name: `MC: pdp.overview.addSample`
+    });
+    //maximum sample has reached
+    await waitFor(() => {
+      addSampleCtaAgain.click();
+    });
+    // check maximum sample has reached
+    expect(JSON.parse(localStorage.getItem("basketItems")).length).toBeLessThan(
+      maximumSamples
+    );
+    // get the message
+    const canAddMoreMessage = screen.queryAllByText(
+      "MC: pdp.overview.canAddMoreMessage"
+    );
+    expect(canAddMoreMessage).not.toBeNull();
+  });
+
+  it("ordered max samples then display MC:sampleLimitReachedMessage", async () => {
+    //set max samples to 2
+    const maximumSamples = 2;
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant}
+        maximumSamples={maximumSamples}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    const addSampleCta = screen.getByRole("button", {
+      name: `MC: pdp.overview.addSample`
+    });
+    addSampleCta.click();
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant2}
+        maximumSamples={maximumSamples}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    const addSampleCtaAgain = screen.getByRole("button", {
+      name: `MC: pdp.overview.addSample`
+    });
+    //maximum sample has reached
+    await waitFor(() => {
+      addSampleCtaAgain.click();
+    });
+    //check maximum sample has reached
+    expect(JSON.parse(localStorage.getItem("basketItems")).length).toBe(
+      maximumSamples
+    );
+    const sampleLimitReachedMessage = screen.queryByText(
+      "MC: pdp.overview.sampleLimitReachedMessage"
+    );
+    expect(sampleLimitReachedMessage).not.toBeNull();
+  });
+  it("not ordered max samples & sample unavailable, show MC: canAddOtherMessage", async () => {
+    const maximumSamples = 4;
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    const addSampleCta = screen.getByRole("button", {
+      name: `MC: pdp.overview.addSample`
+    });
+    addSampleCta.click();
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant2}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    const addSampleCtaAgain = screen.getByRole("button", {
+      name: `MC: pdp.overview.addSample`
+    });
+    //maximum sample has reached
+    await waitFor(() => {
+      addSampleCtaAgain.click();
+    });
+
+    //since sample is not available onlyDisplayCompleteOrder is rendered
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={false}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    //check the localStorage is not full for basketItems
+    expect(JSON.parse(localStorage.getItem("basketItems")).length).toBeLessThan(
+      maximumSamples
+    );
+    //get the message
+    const canAddOtherMessage = screen.queryByText(
+      "MC: pdp.overview.canAddOtherMessage"
+    );
+    expect(canAddOtherMessage).not.toBeNull();
+  });
+});
+
+describe("Test Functionality of redirections by click on 'Complete order' ", () => {
+  it("add redirect url to 'Complete order' CTA", () => {
+    render(
+      <SiteContextProvider value={getMockSiteContext()}>
+        <SampleOrderSection
+          isSampleOrderAllowed={true}
+          variant={variant}
+          sampleBasketLinkInfo={sampleBasketLinkInfo}
+        ></SampleOrderSection>
+      </SiteContextProvider>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    const addSampleCta = screen.getByRole("button", {
+      name: `MC: pdp.overview.addSample`
+    });
+    addSampleCta.click();
+    const completeOrderCta = screen.getByRole("button", {
+      name: `MC: pdp.overview.completeSampleOrder`
+    });
+
+    expect(completeOrderCta).toHaveAttribute("href", "/en/sample-basket/");
+  });
+  it("should not to be rendered Complete order' CTA if no sampleBasketLinkInfo", () => {
+    render(
+      <SiteContextProvider value={getMockSiteContext()}>
+        <SampleOrderSection
+          isSampleOrderAllowed={true}
+          variant={variant}
+          sampleBasketLinkInfo={null}
+        ></SampleOrderSection>
+      </SiteContextProvider>,
+      {
+        wrapper: BasketContextProvider
       }
     );
     expect(
-      container.getElementsByClassName(
-        "buttons-container-complete-sample-order-only"
-      ).length
-    ).toBe(1);
+      screen.queryAllByAltText(`MC: pdp.overview.completeSampleOrder`)
+    ).toHaveLength(0);
   });
 });

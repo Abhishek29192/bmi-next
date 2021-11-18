@@ -1,4 +1,8 @@
 import { Filter } from "@bmi/filters";
+import {
+  getCollapseVariantsByBaseProductCodeQuery,
+  getUniqueBaseProductCountCodeAggrigation
+} from "./elasticSearchCommonQuery";
 import { removePLPFilterPrefix, ProductFilter } from "./product-filters";
 
 export type Aggregations = Record<
@@ -69,9 +73,16 @@ export const compileESQueryPLP = ({
     size: pageSize,
     from: page * pageSize,
     // NOTE: scoringWeightInt is a number (long) in the index, no ".keyword" field
-    sort: ["_score", { scoringWeightInt: "desc" }, { "name.keyword": "asc" }],
+    sort: [
+      "_score",
+      { productScoringWeightInt: "desc" },
+      { variantScoringWeightInt: "desc" },
+      { scoringWeightInt: "desc" },
+      { "name.keyword": "asc" }
+    ],
     aggs: {
-      ...generateAllowFiltersAggs(allowFilterBy)
+      ...generateAllowFiltersAggs(allowFilterBy),
+      ...getUniqueBaseProductCountCodeAggrigation()
     },
     query: {
       bool: {
@@ -84,7 +95,8 @@ export const compileESQueryPLP = ({
           ...userSelectedFilterTerms
         ].filter(Boolean)
       }
-    }
+    },
+    ...getCollapseVariantsByBaseProductCodeQuery()
   };
 };
 
@@ -106,9 +118,9 @@ const createAggregation = (categoryKey: string, optionKey: string) => {
   return {
     [categoryKey]: {
       terms: {
-        // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
-        // Could request these separately, and figure out a way of retrying and getting more buckets if needed
-        size: "100",
+        // NOTE: returns 300 bucket is hopefully way more than is needed
+        // if you see disabled checkbox items in the UI then check if the bucket size is smaller than the resulting values
+        size: "300",
         field: `${categoryKey}.code.keyword`,
         include: optionKey ? [optionKey] : undefined
       }

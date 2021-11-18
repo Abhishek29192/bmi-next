@@ -1,7 +1,8 @@
 build_gcp-pim-full-fetch:
   extends: .build_function
   variables:
-    PROJECT_NAME: gcp-pim-full-fetch
+    WORKSPACE: "@bmi/gcp-pim-full-fetch"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"
 
 package_gcp-pim-full-fetch:
   extends: .package_function
@@ -10,7 +11,8 @@ package_gcp-pim-full-fetch:
   dependencies:
     - build_gcp-pim-full-fetch
   variables:
-    PROJECT_NAME: gcp-pim-full-fetch
+    FUNCTION_NAME: "gcp-pim-full-fetch"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"
 
 deploy_gcp-pim-full-fetch:
   extends: .deploy_function
@@ -19,4 +21,5 @@ deploy_gcp-pim-full-fetch:
   dependencies:
     - package_gcp-pim-full-fetch
   variables:
-    PROJECT_NAME: gcp-pim-full-fetch
+    FUNCTION_NAME: "gcp-pim-full-fetch"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"

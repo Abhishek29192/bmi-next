@@ -7,7 +7,8 @@ import { GetGuaranteeTemplatesQuery } from "../../../graphql/generated/operation
 import { useWizardContext } from "../WizardContext";
 
 const SelectGuaranteesTemplate = () => {
-  const { data, setData } = useWizardContext();
+  const { data, setData, previousStep, gotoNext, gotoBack } =
+    useWizardContext();
   const { t } = useTranslation("project-page");
 
   const {
@@ -29,6 +30,9 @@ const SelectGuaranteesTemplate = () => {
             guaranteeTemplate: templates[0]
           });
         }
+      }
+      if (templates.length === 1) {
+        previousStep === 0 ? gotoNext() : gotoBack();
       }
     }
   });
