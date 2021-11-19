@@ -123,7 +123,13 @@ describe("Guarantee", () => {
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
         }))
         .mockImplementationOnce(() => ({
-          rows: []
+          rows: [
+            {
+              email: "email",
+              first_name: "first_name",
+              role: "COMPANY_ADMIN"
+            }
+          ]
         }));
 
       mockClientGateway.mockImplementationOnce(() => ({
