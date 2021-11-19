@@ -13,7 +13,7 @@ export default (req, res, next: NextFunction) => {
         url: `${GATEWAY_URL}`,
         method: "POST",
         headers: {
-          Authorization: `Bearer ${bearer}`,
+          Authorization: bearer,
           "Content-Type": "application/json",
           "x-request-market-domain": req.headers[
             "x-request-market-domain"
