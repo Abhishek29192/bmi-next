@@ -1,21 +1,18 @@
-variables:
-  FUNCTION_NAME: "gcp-generate-guarantee"
-
 build_gcp-intouch-generate-guarantee:
   stage: build
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
   needs: []
   before_script:
     - yarn config set cache-folder ~/.yarn
@@ -23,7 +20,7 @@ build_gcp-intouch-generate-guarantee:
     - yarn workspace @bmi/gcp-intouch-generate-guarantee run build
   artifacts:
     paths:
-      - applications/intouch/functions/$FUNCTION_NAME/dist
+      - applications/intouch/functions/gcp-generate-guarantee/dist
 
 
 package_gcp-intouch-generate-guarantee:
@@ -31,16 +28,16 @@ package_gcp-intouch-generate-guarantee:
   rules:
     - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
   needs:
     - build_gcp-intouch-generate-guarantee
   dependencies:
@@ -50,13 +47,13 @@ package_gcp-intouch-generate-guarantee:
     - apt-get install -y zip unzip
     - pwd ###
     - ls -a dist ###
-    - ls -a $CI_PROJECT_DIR/applications/intouch/functions/$FUNCTION_NAME ###
+    - ls -a $CI_PROJECT_DIR/applications/intouch/functions/gcp-generate-guarantee ###
     - mkdir -p dist/applications/intouch/functions
     - NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
   script:
-    - cd applications/intouch/functions/$FUNCTION_NAME
+    - cd applications/intouch/functions/gcp-generate-guarantee
     - echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_READ_TOKEN}">.npmrc
-    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/$FUNCTION_NAME.zip .npmrc .yarnrc package.json dist/
+    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-generate-guarantee.zip .npmrc .yarnrc package.json dist/
     - cd $CI_PROJECT_DIR
   artifacts:
     paths:
@@ -70,7 +67,7 @@ deploy_gcp-intouch-generate-guarantee:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
       allow_failure: true
   needs:
     - package_gcp-intouch-generate-guarantee
@@ -90,8 +87,8 @@ deploy_gcp-intouch-generate-guarantee:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/$FUNCTION_NAME.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud builds submit . --config=applications/intouch/functions/$FUNCTION_NAME/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,_GCP_PRIVATE_BUCKET_NAME=$GCP_PRIVATE_BUCKET_NAME,_NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_INTOUCH_GATEWAY_API_URL=$INTOUCH_GATEWAY_API_URL
+    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-generate-guarantee.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud builds submit . --config=applications/intouch/functions/gcp-generate-guarantee/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,_GCP_PRIVATE_BUCKET_NAME=$GCP_PRIVATE_BUCKET_NAME,_NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_INTOUCH_GATEWAY_API_URL=$INTOUCH_GATEWAY_API_URL
 
 
 # Deploy to BMI environments
@@ -101,7 +98,7 @@ deploy_gcp-intouch-generate-guarantee_bmi:
   rules:
     - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
       variables:
         BMI_ENV: "dev"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
@@ -112,7 +109,7 @@ deploy_gcp-intouch-generate-guarantee_bmi:
         BMI_GATEWAY_API_URL: "$GCP_BMI_INTOUCH_DEV_GATEWAY_API_URL"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
       variables:
         BMI_ENV: "qa"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
@@ -123,7 +120,7 @@ deploy_gcp-intouch-generate-guarantee_bmi:
         BMI_GATEWAY_API_URL: "$GCP_BMI_INTOUCH_QA_GATEWAY_API_URL"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
       variables:
         BMI_ENV: "preprod"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
@@ -134,7 +131,7 @@ deploy_gcp-intouch-generate-guarantee_bmi:
         BMI_GATEWAY_API_URL: "$GCP_BMI_INTOUCH_PREPROD_GATEWAY_API_URL"
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
       changes:
-        - applications/intouch/functions/$FUNCTION_NAME/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
       variables:
         BMI_ENV: "prod"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
@@ -164,5 +161,5 @@ deploy_gcp-intouch-generate-guarantee_bmi:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/$FUNCTION_NAME.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-generate-guarantee --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/$FUNCTION_NAME.zip --runtime=nodejs14 --region=europe-west3 --entry-point=sendGuaranteePdf --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_GUARANTEE_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},GCP_PRIVATE_BUCKET_NAME=${_GCP_PRIVATE_BUCKET_NAME},MAIL_FROM=${_INTOUCH_MAIL_FROM},NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN},GATEWAY_API_URL=${_INTOUCH_GATEWAY_API_URL}
+    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-generate-guarantee.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud functions deploy pubsub-generate-guarantee --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-generate-guarantee.zip --runtime=nodejs14 --region=europe-west3 --entry-point=sendGuaranteePdf --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_GUARANTEE_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},GCP_PRIVATE_BUCKET_NAME=${_GCP_PRIVATE_BUCKET_NAME},MAIL_FROM=${_INTOUCH_MAIL_FROM},NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN},GATEWAY_API_URL=${_INTOUCH_GATEWAY_API_URL}
