@@ -28,8 +28,10 @@ export const PdfDocument = ({
   signatureEncoded: string;
 }) => {
   const {
+    coverage,
     guaranteeType,
     productByProductBmiRef,
+    systemBySystemBmiRef,
     project,
     bmiReferenceId,
     startDate,
@@ -47,6 +49,18 @@ export const PdfDocument = ({
   if (!company) {
     throw new Error("project company missing");
   }
+
+  const guaranteeName =
+    coverage === "PRODUCT"
+      ? productByProductBmiRef?.name
+      : systemBySystemBmiRef?.name;
+
+  const products =
+    coverage === "PRODUCT"
+      ? productByProductBmiRef?.name
+      : systemBySystemBmiRef?.systemMembersBySystemBmiRef?.nodes
+          .map((member) => member.productByProductBmiRef?.name)
+          .join(", ");
 
   return (
     <Document
@@ -82,13 +96,13 @@ export const PdfDocument = ({
 
       <View marginTop={-120} marginLeft={10} marginBottom={20}>
         <Typography variant="h2">{template.headingGuarantee}:</Typography>
-        <Typography marginBottom={10}>{project.name}</Typography>
+        <Typography marginBottom={10}>{guaranteeName}</Typography>
 
         <Typography variant="h3">{template.headingScope}:</Typography>
         <Typography marginBottom={10}>{template.guaranteeScope}</Typography>
 
         <Typography variant="h3">{template.headingProducts}:</Typography>
-        <Typography>{productByProductBmiRef?.name}</Typography>
+        <Typography>{products}</Typography>
       </View>
 
       <Row>
