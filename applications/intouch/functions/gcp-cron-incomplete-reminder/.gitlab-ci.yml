@@ -149,4 +149,4 @@ deploy_gcp-intouch-cron-incomplete-reminder_bmi:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-incomplete-reminder.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-cron-incomplete-reminder --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-cron-incomplete-reminder.zip --runtime=nodejs14 --region=europe-west3 --entry-point=sendReminder --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_REMINDER_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=${_GCP_SECRET_PROJECT},GATEWAY_API_URL=${_INTOUCH_GATEWAY_API_URL}
+    - gcloud functions deploy pubsub-cron-incomplete-reminder --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-cron-incomplete-reminder.zip --runtime=nodejs14 --region=europe-west3 --entry-point=sendReminder --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_REMINDER_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,GATEWAY_API_URL=$INTOUCH_GATEWAY_API_URL
