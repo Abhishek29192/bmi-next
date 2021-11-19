@@ -70,7 +70,7 @@ const Projects = ({
     <Layout
       title={t("common:Projects")}
       attentionHeading={
-        activeProject.company.status === "DEACTIVATED" &&
+        activeProject?.company?.status === "DEACTIVATED" &&
         t("project-page:deactivatedCompany")
       }
       pageData={globalPageData}
@@ -79,7 +79,7 @@ const Projects = ({
         <ProjectSidePanel
           projects={sortedProjects}
           onProjectSelected={handleProjectSelection}
-          selectedProjectId={activeProject.id}
+          selectedProjectId={activeProject?.id}
         />
 
         <Grid
