@@ -19,7 +19,9 @@ import {
   VariantCodeToPathMap,
   transformImages,
   convertImageSetToMediaFormat,
-  groupImage
+  groupImage,
+  UnavailableMicroCopies,
+  UnavailableMicroCopiesEnum
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
 import { getCTA } from "../components/Link";
@@ -37,7 +39,6 @@ import {
 import SampleOrderSection from "../components/SampleOrderSection";
 import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSection";
 import { getBimIframeUrl } from "../components/BimIframe";
-import { useBasketContext } from "../contexts/SampleBasketContext";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { combineVariantClassifications } from "../utils/filters";
 
@@ -206,7 +207,18 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       ogImageUrl={selfProduct?.images?.[0].url}
     >
       {({ siteContext: { getMicroCopy } }) => {
-        const { basketState } = useBasketContext();
+        const attributeUnavailableMicroCopy: UnavailableMicroCopies = [
+          UnavailableMicroCopiesEnum.COLOUR,
+          UnavailableMicroCopiesEnum.SIZE,
+          UnavailableMicroCopiesEnum.VARIANT_ATTRIBUTE,
+          UnavailableMicroCopiesEnum.TEXTURE_FAMILY
+        ].reduce(
+          (carry, key) => ({
+            ...carry,
+            [key]: getMicroCopy(`pdp.unavailable.${key}`)
+          }),
+          {} as Record<keyof UnavailableMicroCopies, string>
+        );
 
         return (
           <>
@@ -233,9 +245,13 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     selfProduct,
                     pageContext.countryCode,
                     {
-                      size: getMicroCopy("pdp.overview.size")
+                      size: getMicroCopy("pdp.overview.size"),
+                      variantattribute: getMicroCopy(
+                        "pdp.overview.variantattribute"
+                      )
                     },
-                    variantCodeToPathMap
+                    variantCodeToPathMap,
+                    attributeUnavailableMicroCopy
                   ),
                   isRecapchaShown: hasFiltredKeyAssetsDocuments
                 }}
