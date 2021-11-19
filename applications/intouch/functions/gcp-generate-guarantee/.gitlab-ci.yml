@@ -45,9 +45,6 @@ package_gcp-intouch-generate-guarantee:
   before_script:
     - apt-get update
     - apt-get install -y zip unzip
-    - pwd ###
-    - ls -a dist ###
-    - ls -a $CI_PROJECT_DIR/applications/intouch/functions/gcp-generate-guarantee ###
     - mkdir -p dist/applications/intouch/functions
     - NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
   script:

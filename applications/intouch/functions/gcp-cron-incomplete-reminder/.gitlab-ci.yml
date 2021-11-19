@@ -45,9 +45,6 @@ package_gcp-intouch-cron-incomplete-reminder:
   before_script:
     - apt-get update
     - apt-get install -y zip unzip
-    - pwd ###
-    - ls -a dist ###
-    - ls -a $CI_PROJECT_DIR/applications/intouch/functions/gcp-cron-incomplete-reminder ###
     - mkdir -p dist/applications/intouch/functions
   script:
     - cd applications/intouch/functions/gcp-cron-incomplete-reminder
