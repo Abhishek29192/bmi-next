@@ -5,6 +5,7 @@ import DBMigrate from "db-migrate";
 config();
 
 const migrate = async (context) => {
+  let result;
   const { query } = context.req;
   const { password, database, host, user, port, ssl, folder } = context;
   const { ssl_client_cert, ssl_client_key, ssl_server_ca, ssl_host } = ssl;
@@ -28,7 +29,8 @@ const migrate = async (context) => {
   const dbmigrate = DBMigrate.getInstance(true, {
     throwUncatched: true,
     cmdOptions: {
-      "migrations-dir": folder
+      "migrations-dir": folder,
+      verbose: true
     },
     config: {
       dev: {
@@ -58,11 +60,22 @@ const migrate = async (context) => {
     migrations = 1;
   }
 
-  if (query.direction === "up") {
-    return await dbmigrate.up();
-  } else {
-    return await dbmigrate.down();
+  try {
+    if (query.direction === "up") {
+      result = await dbmigrate.up();
+    } else {
+      result = await dbmigrate.down();
+    }
+  } catch (error) {
+    // eslint-disable-next-line
+    console.log(
+      `Error running migration scripts ${query.direction}`,
+      error.message
+    );
+    throw error;
   }
+
+  return result;
 };
 
 export default migrate;

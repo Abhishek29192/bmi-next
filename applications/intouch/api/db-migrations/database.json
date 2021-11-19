@@ -2,13 +2,22 @@
   "test:companies": {
     "driver": "pg",
     "user": "postgres",
+    "password": "custom_pass",
+    "host": "postgres",
+    "database": "custom_db",
+    "port": "5432",
+    "schema": "public"
+  },
+  "local:companies": {
+    "driver": "pg",
+    "user": "postgres",
     "password": "postgres",
     "host": "localhost",
     "database": "companies-db",
     "port": "5432",
     "schema": "public"
   },
-  "test:training": {
+  "local:training": {
     "driver": "pg",
     "user": "postgres",
     "password": "postgres",
