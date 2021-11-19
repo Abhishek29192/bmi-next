@@ -33,32 +33,33 @@ export const createNote = async (
   }
 };
 
-const getProjectName = async (
+const getProjectDetails = async (
   projectId: number,
   pgClient: PoolClient
-): Promise<string> => {
+): Promise<ProjectDetail> => {
   const {
-    rows: [{ name: projectName }]
+    rows: [projectDetail]
   } = await pgClient.query(
-    `select project.name from project
+    `select project.name, project.company_id as "companyId",company.market_id as "marketId" 
+     from project join company on company.id=project.company_id
      where project.id=$1`,
     [projectId]
   );
 
-  return projectName;
+  return projectDetail;
 };
 
 const sendMessage = async (projectId: number, context: PostGraphileContext) => {
-  const { pgClient, user } = context;
+  const { pgClient } = context;
 
-  const projectName = await getProjectName(projectId, pgClient);
+  const projectDetails = await getProjectDetails(projectId, pgClient);
 
   //Get all company admins and send mail
   const { rows: companyAdmins } = await pgClient.query(
     `select account.* from account 
 join company_member on company_member.account_id =account.id 
 where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
-    [user.company.id]
+    [projectDetails.companyId]
   );
 
   //Get all market admins and send mail
@@ -66,7 +67,7 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
     `select account.* from account 
         join market on market.id =account.market_id 
         where market.id=$1 and account.role='MARKET_ADMIN'`,
-    [user.marketId]
+    [projectDetails.marketId]
   );
 
   const users: Account[] = [...companyAdmins, ...marketAdmins];
@@ -76,7 +77,13 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
     await sendMessageWithTemplate(context, "NOTE_ADDED", {
       accountId: account.id,
       email: account.email,
-      project: `${projectName}`
+      project: `${projectDetails.name}`
     });
   }
+};
+
+type ProjectDetail = {
+  name: string;
+  companyId: number;
+  marketId: number;
 };

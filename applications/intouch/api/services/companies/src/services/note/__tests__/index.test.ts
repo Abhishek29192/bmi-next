@@ -66,7 +66,9 @@ describe("Note", () => {
       .mockImplementationOnce(() => ({
         rows: [
           {
-            name: "project_name"
+            name: "project_name",
+            companyId: 1,
+            marketId: 1
           }
         ]
       }))
@@ -92,7 +94,9 @@ describe("Note", () => {
       .mockImplementationOnce(() => ({
         rows: [
           {
-            name: "project_name"
+            name: "project_name",
+            companyId: 1,
+            marketId: 1
           }
         ]
       }))
