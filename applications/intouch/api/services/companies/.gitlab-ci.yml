@@ -9,10 +9,17 @@ test_intouch_companies:
         - applications/intouch/api/services/companies/**/*
         - libraries/**/*
         - yarn.lock
+  variables:
+    PG_HOST: postgres
+    PG_USER: postgres
+    PG_SCHEMA: public
+    PG_DATABASE: custom_db
+    PG_PASSWORD: custom_pass
+    PG_PORT: 5432
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @@bmi/intouch-api-migration-scripts run ci:up:companies
+    - yarn workspace @bmi/intouch-api-migration-scripts run ci:up:companies
     - yarn workspace @bmi/intouch-api-service-companies coverage
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:

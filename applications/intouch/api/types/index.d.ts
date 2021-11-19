@@ -398,11 +398,11 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -2350,11 +2350,11 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -2736,11 +2736,11 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -5496,70 +5496,6 @@ export type CreateMarketPayloadMarketEdgeArgs = {
   orderBy?: Maybe<Array<MarketsOrderBy>>;
 };
 
-/** All input for the create `Migration` mutation. */
-export type CreateMigrationInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Migration` to be created by this mutation. */
-  migration: MigrationInput;
-};
-
-/** The output of our create `Migration` mutation. */
-export type CreateMigrationPayload = {
-  __typename?: "CreateMigrationPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Migration` that was created by this mutation. */
-  migration?: Maybe<Migration>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `Migration`. May be used by Relay 1. */
-  migrationEdge?: Maybe<MigrationsEdge>;
-};
-
-/** The output of our create `Migration` mutation. */
-export type CreateMigrationPayloadMigrationEdgeArgs = {
-  orderBy?: Maybe<Array<MigrationsOrderBy>>;
-};
-
-/** All input for the create `MigrationsState` mutation. */
-export type CreateMigrationsStateInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `MigrationsState` to be created by this mutation. */
-  migrationsState: MigrationsStateInput;
-};
-
-/** The output of our create `MigrationsState` mutation. */
-export type CreateMigrationsStatePayload = {
-  __typename?: "CreateMigrationsStatePayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `MigrationsState` that was created by this mutation. */
-  migrationsState?: Maybe<MigrationsState>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `MigrationsState`. May be used by Relay 1. */
-  migrationsStateEdge?: Maybe<MigrationsStatesEdge>;
-};
-
-/** The output of our create `MigrationsState` mutation. */
-export type CreateMigrationsStatePayloadMigrationsStateEdgeArgs = {
-  orderBy?: Maybe<Array<MigrationsStatesOrderBy>>;
-};
-
 /** All input for the create `Note` mutation. */
 export type CreateNoteInput = {
   /**
@@ -6779,7 +6715,7 @@ export type DeleteMarketByDoceboCatalogueIdInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
@@ -6836,92 +6772,6 @@ export type DeleteMarketPayload = {
 /** The output of our delete `Market` mutation. */
 export type DeleteMarketPayloadMarketEdgeArgs = {
   orderBy?: Maybe<Array<MarketsOrderBy>>;
-};
-
-/** All input for the `deleteMigrationByNodeId` mutation. */
-export type DeleteMigrationByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Migration` to be deleted. */
-  nodeId: Scalars["ID"];
-};
-
-/** All input for the `deleteMigration` mutation. */
-export type DeleteMigrationInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  id: Scalars["Int"];
-};
-
-/** The output of our delete `Migration` mutation. */
-export type DeleteMigrationPayload = {
-  __typename?: "DeleteMigrationPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Migration` that was deleted by this mutation. */
-  migration?: Maybe<Migration>;
-  deletedMigrationNodeId?: Maybe<Scalars["ID"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `Migration`. May be used by Relay 1. */
-  migrationEdge?: Maybe<MigrationsEdge>;
-};
-
-/** The output of our delete `Migration` mutation. */
-export type DeleteMigrationPayloadMigrationEdgeArgs = {
-  orderBy?: Maybe<Array<MigrationsOrderBy>>;
-};
-
-/** All input for the `deleteMigrationsStateByNodeId` mutation. */
-export type DeleteMigrationsStateByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `MigrationsState` to be deleted. */
-  nodeId: Scalars["ID"];
-};
-
-/** All input for the `deleteMigrationsState` mutation. */
-export type DeleteMigrationsStateInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  key: Scalars["String"];
-};
-
-/** The output of our delete `MigrationsState` mutation. */
-export type DeleteMigrationsStatePayload = {
-  __typename?: "DeleteMigrationsStatePayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `MigrationsState` that was deleted by this mutation. */
-  migrationsState?: Maybe<MigrationsState>;
-  deletedMigrationsStateNodeId?: Maybe<Scalars["ID"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `MigrationsState`. May be used by Relay 1. */
-  migrationsStateEdge?: Maybe<MigrationsStatesEdge>;
-};
-
-/** The output of our delete `MigrationsState` mutation. */
-export type DeleteMigrationsStatePayloadMigrationsStateEdgeArgs = {
-  orderBy?: Maybe<Array<MigrationsStatesOrderBy>>;
 };
 
 /** All input for the `deleteNoteByNodeId` mutation. */
@@ -10309,7 +10159,8 @@ export type Language =
   | "FR"
   | "PL"
   | "ES"
-  | "FI";
+  | "FI"
+  | "IT";
 
 /** All input for the `linkAccountToCompany` mutation. */
 export type LinkAccountToCompanyInput = {
@@ -10390,11 +10241,11 @@ export type Market = Node & {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -10772,11 +10623,11 @@ export type MarketInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -10800,13 +10651,13 @@ export type MarketInput = {
 
 /** The fields on `market` to look up the row to connect. */
 export type MarketMarketDoceboCatalogueIdKeyConnect = {
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
 /** The fields on `market` to look up the row to delete. */
 export type MarketMarketDoceboCatalogueIdKeyDelete = {
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
@@ -10859,7 +10710,7 @@ export type MarketOnAccountForAccountMarketIdFkeyUsingMarketDoceboCatalogueIdKey
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnAccountForAccountMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10892,7 +10743,7 @@ export type MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDoceboCatalogueIdKey
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10925,7 +10776,7 @@ export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDoceboCa
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10960,7 +10811,7 @@ export type MarketOnProductForProductMarketIdFkeyUsingMarketDoceboCatalogueIdKey
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnProductForProductMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10993,7 +10844,7 @@ export type MarketOnSystemForSystemMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUp
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnSystemForSystemMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -11026,7 +10877,7 @@ export type MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCata
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -11064,11 +10915,11 @@ export type MarketPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -11456,24 +11307,13 @@ export type MessageTemplateOrder =
   | "sys_publishedVersion_DESC";
 
 /** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
-export type Migration = Entry &
-  Node & {
-    __typename?: "Migration";
-    contentTypeId?: Maybe<Scalars["String"]>;
-    contentfulMetadata: ContentfulMetadata;
-    id: Scalars["Int"];
-    linkedFrom?: Maybe<MigrationLinkingCollections>;
-    name: Scalars["String"];
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId: Scalars["ID"];
-    runOn: Scalars["Datetime"];
-    state?: Maybe<Scalars["JSON"]>;
-    sys: Sys;
-  };
-
-/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
-export type MigrationContentTypeIdArgs = {
-  locale?: Maybe<Scalars["String"]>;
+export type Migration = Entry & {
+  __typename?: "Migration";
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<MigrationLinkingCollections>;
+  state?: Maybe<Scalars["JSON"]>;
+  contentTypeId?: Maybe<Scalars["String"]>;
 };
 
 /** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
@@ -11483,6 +11323,11 @@ export type MigrationLinkedFromArgs = {
 
 /** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
 export type MigrationStateArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
+export type MigrationContentTypeIdArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -11508,13 +11353,6 @@ export type MigrationFilter = {
   AND?: Maybe<Array<Maybe<MigrationFilter>>>;
 };
 
-/** An input for mutations affecting `Migration` */
-export type MigrationInput = {
-  id?: Maybe<Scalars["Int"]>;
-  name: Scalars["String"];
-  runOn: Scalars["Datetime"];
-};
-
 export type MigrationLinkingCollections = {
   __typename?: "MigrationLinkingCollections";
   entryCollection?: Maybe<EntryCollection>;
@@ -11538,70 +11376,6 @@ export type MigrationOrder =
   | "sys_firstPublishedAt_DESC"
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
-
-/** Represents an update to a `Migration`. Fields that are set will be updated. */
-export type MigrationPatch = {
-  id?: Maybe<Scalars["Int"]>;
-  name?: Maybe<Scalars["String"]>;
-  runOn?: Maybe<Scalars["Datetime"]>;
-};
-
-/** A `Migration` edge in the connection. */
-export type MigrationsEdge = {
-  __typename?: "MigrationsEdge";
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars["Cursor"]>;
-  /** The `Migration` at the end of the edge. */
-  node: Migration;
-};
-
-/** Methods to use when ordering `Migration`. */
-export type MigrationsOrderBy =
-  | "NATURAL"
-  | "ID_ASC"
-  | "ID_DESC"
-  | "PRIMARY_KEY_ASC"
-  | "PRIMARY_KEY_DESC";
-
-export type MigrationsState = Node & {
-  __typename?: "MigrationsState";
-  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-  nodeId: Scalars["ID"];
-  key: Scalars["String"];
-  value: Scalars["String"];
-  runOn: Scalars["Datetime"];
-};
-
-/** An input for mutations affecting `MigrationsState` */
-export type MigrationsStateInput = {
-  key: Scalars["String"];
-  value: Scalars["String"];
-  runOn: Scalars["Datetime"];
-};
-
-/** Represents an update to a `MigrationsState`. Fields that are set will be updated. */
-export type MigrationsStatePatch = {
-  key?: Maybe<Scalars["String"]>;
-  value?: Maybe<Scalars["String"]>;
-  runOn?: Maybe<Scalars["Datetime"]>;
-};
-
-/** A `MigrationsState` edge in the connection. */
-export type MigrationsStatesEdge = {
-  __typename?: "MigrationsStatesEdge";
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars["Cursor"]>;
-  /** The `MigrationsState` at the end of the edge. */
-  node: MigrationsState;
-};
-
-/** Methods to use when ordering `MigrationsState`. */
-export type MigrationsStatesOrderBy =
-  | "NATURAL"
-  | "KEY_ASC"
-  | "KEY_DESC"
-  | "PRIMARY_KEY_ASC"
-  | "PRIMARY_KEY_DESC";
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
@@ -11649,10 +11423,6 @@ export type Mutation = {
   createGuaranteePdf?: Maybe<PublishOutput>;
   /** Creates a single `Market`. */
   createMarket?: Maybe<CreateMarketPayload>;
-  /** Creates a single `Migration`. */
-  createMigration?: Maybe<CreateMigrationPayload>;
-  /** Creates a single `MigrationsState`. */
-  createMigrationsState?: Maybe<CreateMigrationsStatePayload>;
   /** Creates a single `Note`. */
   createNote?: Maybe<CreateNotePayload>;
   /** Creates a single `Notification`. */
@@ -11764,14 +11534,6 @@ export type Mutation = {
   deleteMarketByDomain?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Market` using its globally unique id. */
   deleteMarketByNodeId?: Maybe<DeleteMarketPayload>;
-  /** Deletes a single `Migration` using a unique key. */
-  deleteMigration?: Maybe<DeleteMigrationPayload>;
-  /** Deletes a single `Migration` using its globally unique id. */
-  deleteMigrationByNodeId?: Maybe<DeleteMigrationPayload>;
-  /** Deletes a single `MigrationsState` using a unique key. */
-  deleteMigrationsState?: Maybe<DeleteMigrationsStatePayload>;
-  /** Deletes a single `MigrationsState` using its globally unique id. */
-  deleteMigrationsStateByNodeId?: Maybe<DeleteMigrationsStatePayload>;
   /** Deletes a single `Note` using a unique key. */
   deleteNote?: Maybe<DeleteNotePayload>;
   /** Deletes a single `Note` using its globally unique id. */
@@ -11913,14 +11675,6 @@ export type Mutation = {
   updateMarketByDomain?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Market` using its globally unique id and a patch. */
   updateMarketByNodeId?: Maybe<UpdateMarketPayload>;
-  /** Updates a single `Migration` using a unique key and a patch. */
-  updateMigration?: Maybe<UpdateMigrationPayload>;
-  /** Updates a single `Migration` using its globally unique id and a patch. */
-  updateMigrationByNodeId?: Maybe<UpdateMigrationPayload>;
-  /** Updates a single `MigrationsState` using a unique key and a patch. */
-  updateMigrationsState?: Maybe<UpdateMigrationsStatePayload>;
-  /** Updates a single `MigrationsState` using its globally unique id and a patch. */
-  updateMigrationsStateByNodeId?: Maybe<UpdateMigrationsStatePayload>;
   /** Updates a single `Note` using a unique key and a patch. */
   updateNote?: Maybe<UpdateNotePayload>;
   /** Updates a single `Note` using its globally unique id and a patch. */
@@ -12096,16 +11850,6 @@ export type MutationCreateGuaranteePdfArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateMarketArgs = {
   input: CreateMarketInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateMigrationArgs = {
-  input: CreateMigrationInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateMigrationsStateArgs = {
-  input: CreateMigrationsStateInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12388,26 +12132,6 @@ export type MutationDeleteMarketByDomainArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteMarketByNodeIdArgs = {
   input: DeleteMarketByNodeIdInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteMigrationArgs = {
-  input: DeleteMigrationInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteMigrationByNodeIdArgs = {
-  input: DeleteMigrationByNodeIdInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteMigrationsStateArgs = {
-  input: DeleteMigrationsStateInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteMigrationsStateByNodeIdArgs = {
-  input: DeleteMigrationsStateByNodeIdInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12780,26 +12504,6 @@ export type MutationUpdateMarketByDomainArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateMarketByNodeIdArgs = {
   input: UpdateMarketByNodeIdInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateMigrationArgs = {
-  input: UpdateMigrationInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateMigrationByNodeIdArgs = {
-  input: UpdateMigrationByNodeIdInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateMigrationsStateArgs = {
-  input: UpdateMigrationsStateInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateMigrationsStateByNodeIdArgs = {
-  input: UpdateMigrationsStateByNodeIdInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13826,11 +13530,11 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -15312,12 +15016,7 @@ export type Query = Node & {
   messageTemplate?: Maybe<MessageTemplate>;
   messageTemplateCollection?: Maybe<MessageTemplateCollection>;
   migration?: Maybe<Migration>;
-  /** Reads a single `Migration` using its globally unique `ID`. */
-  migrationByNodeId?: Maybe<Migration>;
   migrationCollection?: Maybe<MigrationCollection>;
-  migrationsState?: Maybe<MigrationsState>;
-  /** Reads a single `MigrationsState` using its globally unique `ID`. */
-  migrationsStateByNodeId?: Maybe<MigrationsState>;
   /** Fetches an object given its globally unique `ID`. */
   node?: Maybe<Node>;
   /** The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`. */
@@ -16100,14 +15799,9 @@ export type QueryMessageTemplateCollectionArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryMigrationArgs = {
-  id: Scalars["Int"];
-  locale?: Maybe<Scalars["String"]>;
+  id: Scalars["String"];
   preview?: Maybe<Scalars["Boolean"]>;
-};
-
-/** The root query type which gives access points into the data universe. */
-export type QueryMigrationByNodeIdArgs = {
-  nodeId: Scalars["ID"];
+  locale?: Maybe<Scalars["String"]>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -16118,16 +15812,6 @@ export type QueryMigrationCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
   where?: Maybe<MigrationFilter>;
   order?: Maybe<Array<Maybe<MigrationOrder>>>;
-};
-
-/** The root query type which gives access points into the data universe. */
-export type QueryMigrationsStateArgs = {
-  key: Scalars["String"];
-};
-
-/** The root query type which gives access points into the data universe. */
-export type QueryMigrationsStateByNodeIdArgs = {
-  nodeId: Scalars["ID"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -16726,11 +16410,11 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -16930,11 +16614,11 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -18943,7 +18627,7 @@ export type UpdateMarketByDoceboCatalogueIdInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** An object where the defined keys will be set on the `Market` being updated. */
   patch: MarketPatch;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
@@ -19005,98 +18689,6 @@ export type UpdateMarketPayload = {
 /** The output of our update `Market` mutation. */
 export type UpdateMarketPayloadMarketEdgeArgs = {
   orderBy?: Maybe<Array<MarketsOrderBy>>;
-};
-
-/** All input for the `updateMigrationByNodeId` mutation. */
-export type UpdateMigrationByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Migration` to be updated. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `Migration` being updated. */
-  patch: MigrationPatch;
-};
-
-/** All input for the `updateMigration` mutation. */
-export type UpdateMigrationInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** An object where the defined keys will be set on the `Migration` being updated. */
-  patch: MigrationPatch;
-  id: Scalars["Int"];
-};
-
-/** The output of our update `Migration` mutation. */
-export type UpdateMigrationPayload = {
-  __typename?: "UpdateMigrationPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Migration` that was updated by this mutation. */
-  migration?: Maybe<Migration>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `Migration`. May be used by Relay 1. */
-  migrationEdge?: Maybe<MigrationsEdge>;
-};
-
-/** The output of our update `Migration` mutation. */
-export type UpdateMigrationPayloadMigrationEdgeArgs = {
-  orderBy?: Maybe<Array<MigrationsOrderBy>>;
-};
-
-/** All input for the `updateMigrationsStateByNodeId` mutation. */
-export type UpdateMigrationsStateByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `MigrationsState` to be updated. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `MigrationsState` being updated. */
-  patch: MigrationsStatePatch;
-};
-
-/** All input for the `updateMigrationsState` mutation. */
-export type UpdateMigrationsStateInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** An object where the defined keys will be set on the `MigrationsState` being updated. */
-  patch: MigrationsStatePatch;
-  key: Scalars["String"];
-};
-
-/** The output of our update `MigrationsState` mutation. */
-export type UpdateMigrationsStatePayload = {
-  __typename?: "UpdateMigrationsStatePayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `MigrationsState` that was updated by this mutation. */
-  migrationsState?: Maybe<MigrationsState>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `MigrationsState`. May be used by Relay 1. */
-  migrationsStateEdge?: Maybe<MigrationsStatesEdge>;
-};
-
-/** The output of our update `MigrationsState` mutation. */
-export type UpdateMigrationsStatePayloadMigrationsStateEdgeArgs = {
-  orderBy?: Maybe<Array<MigrationsStatesOrderBy>>;
 };
 
 /** All input for the `updateNoteByNodeId` mutation. */
@@ -19590,8 +19182,6 @@ export type _Entity =
   | Guarantee
   | Invitation
   | Market
-  | Migration
-  | MigrationsState
   | Note
   | Notification
   | Product
@@ -21163,11 +20753,11 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -21205,11 +20795,11 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -21247,11 +20837,11 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -21289,11 +20879,11 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -21331,11 +20921,11 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -21373,11 +20963,11 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;

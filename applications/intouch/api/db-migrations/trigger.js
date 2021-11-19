@@ -2,19 +2,19 @@
 
 require("dotenv").config();
 
-// const { GoogleAuth } = require("google-auth-library");
+const { GoogleAuth } = require("google-auth-library");
 
-// const auth = new GoogleAuth();
+const auth = new GoogleAuth();
 
-// async function request(url) {
-//   const { URL } = require("url");
-//   const targetAudience = new URL(url);
+async function request(url) {
+  const { URL } = require("url");
+  const targetAudience = new URL(url);
 
-//   console.info(`request ${url} with target audience ${targetAudience}`);
-//   const client = await auth.getIdTokenClient(targetAudience);
-//   const res = await client.request({ url });
-//   console.info(res.data);
-// }
+  console.info(`request ${url} with target audience ${targetAudience}`);
+  const client = await auth.getIdTokenClient(targetAudience);
+  const res = await client.request({ url });
+  console.info(res.data);
+}
 
 function main() {
   const [dbname, direction] = process.argv.slice(2);
@@ -33,14 +33,12 @@ function main() {
     return;
   }
 
-  console.log(`/migrate-${dbname}?import=true&direction=${direction}`);
-
-  // request(
-  //   `${process.env.MIGRATION_SERVICE_URL}/migrate-${dbname}?import=true&direction=${direction}`
-  // ).catch((err) => {
-  //   console.error(err.message);
-  //   process.exitCode = 1;
-  // });
+  request(
+    `${process.env.MIGRATION_SERVICE_URL}/migrate-${dbname}?import=true&direction=${direction}`
+  ).catch((err) => {
+    console.error(err.message);
+    process.exitCode = 1;
+  });
 }
 
 main();

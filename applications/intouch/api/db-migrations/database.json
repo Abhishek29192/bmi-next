@@ -1,10 +1,10 @@
 {
   "test:companies": {
     "driver": "pg",
-    "user": "postgres",
-    "password": "custom_pass",
+    "user": { "ENV": "PG_USER" },
+    "password": { "ENV": "PG_PASSWORD" },
     "host": "postgres",
-    "database": "custom_db",
+    "database": { "ENV": "PG_DATABASE" },
     "port": "5432",
     "schema": "public"
   },

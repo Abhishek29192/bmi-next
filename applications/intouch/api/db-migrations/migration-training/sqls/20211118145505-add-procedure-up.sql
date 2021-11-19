@@ -1,4 +1,3 @@
-
 -- Function to update courses by temp table
 CREATE OR REPLACE FUNCTION course_update_by_temp()
   RETURNS bigint
@@ -160,4 +159,3 @@ end if;
 
 END;
 $$ LANGUAGE plpgsql volatile;
-

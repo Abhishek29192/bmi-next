@@ -3,41 +3,39 @@ import express from "express";
 
 config();
 
-// import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 import migrate from "./migrate";
 
 const {
   PG_USER,
   PG_PORT,
+  PG_SSL_HOST,
   PG_TRAINING_DATABASE,
   PG_COMPANIES_DATABASE,
-  PG_TRAINING_HOST,
-  PG_COMPANIES_HOST,
-  PG_COMPANIES_PASSWORD,
   PORT = 4001
 } = process.env;
 
-// const getSecret = async (client, key) => {
-//   const secret = await client.accessSecretVersion({
-//     name: `projects/${process.env.GCP_SECRET_PROJECT}/secrets/${key}/versions/latest`
-//   });
+const getSecret = async (client, key) => {
+  const secret = await client.accessSecretVersion({
+    name: `projects/${process.env.GCP_SECRET_PROJECT}/secrets/${key}/versions/latest`
+  });
 
-//   return secret[0].payload.data.toString();
-// };
+  return secret[0].payload.data.toString();
+};
 
 async function main() {
-  // const client = new SecretManagerServiceClient();
-  // const PG_COMPANIES_HOST = await getSecret(client, "COMPANIES_DB_HOST");
-  // const PG_TRAINING_HOST = await getSecret(client, "TRAINING_DB_HOST");
-  // const PG_TRAINING_PASSWORD = await getSecret(client, "TRAINING_DB_PASSWORD");
-  // const PG_COMPANIES_PASSWORD = await getSecret(
-  //   client,
-  //   "COMPANIES_DB_PASSWORD"
-  // );
-  // const PG_SSL_CLIENT_KEY = await getSecret(client, "PG_SSL_CLIENT_KEY");
-  // const PG_SSL_CLIENT_CERT = await getSecret(client, "PG_SSL_CLIENT_CERT");
-  // const PG_SSL_SERVER_CA = await getSecret(client, "PG_SSL_SERVER_CA");
+  const client = new SecretManagerServiceClient();
+  const PG_COMPANIES_HOST = await getSecret(client, "COMPANIES_DB_HOST");
+  const PG_TRAINING_HOST = await getSecret(client, "TRAINING_DB_HOST");
+  const PG_TRAINING_PASSWORD = await getSecret(client, "TRAINING_DB_PASSWORD");
+  const PG_COMPANIES_PASSWORD = await getSecret(
+    client,
+    "COMPANIES_DB_PASSWORD"
+  );
+  const PG_SSL_CLIENT_KEY = await getSecret(client, "PG_SSL_CLIENT_KEY");
+  const PG_SSL_CLIENT_CERT = await getSecret(client, "PG_SSL_CLIENT_CERT");
+  const PG_SSL_SERVER_CA = await getSecret(client, "PG_SSL_SERVER_CA");
 
   const app = express();
   app.use(express.json());
@@ -67,10 +65,10 @@ async function main() {
         user: PG_USER,
         port: PG_PORT,
         ssl: {
-          ssl_client_key: null,
-          ssl_client_cert: null,
-          ssl_server_ca: null,
-          host: "PG_SSL_HOST"
+          ssl_client_key: PG_SSL_CLIENT_KEY,
+          ssl_client_cert: PG_SSL_CLIENT_CERT,
+          ssl_server_ca: PG_SSL_SERVER_CA,
+          host: PG_SSL_HOST
         },
         req
       });
@@ -89,15 +87,15 @@ async function main() {
       const result = await migrate({
         folder: "migration-training",
         host: PG_TRAINING_HOST,
-        password: PG_COMPANIES_PASSWORD,
+        password: PG_TRAINING_PASSWORD,
         database: PG_TRAINING_DATABASE,
         user: PG_USER,
         port: PG_PORT,
         ssl: {
-          ssl_client_key: null,
-          ssl_client_cert: null,
-          ssl_server_ca: null,
-          host: "PG_SSL_HOST"
+          ssl_client_key: PG_SSL_CLIENT_CERT,
+          ssl_client_cert: PG_SSL_CLIENT_CERT,
+          ssl_server_ca: PG_SSL_SERVER_CA,
+          host: PG_SSL_HOST
         },
         req
       });
