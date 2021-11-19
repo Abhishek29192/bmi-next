@@ -371,3 +371,72 @@ exports[`SampleBasketSection component should render form after complete button 
   </div>
 </div>
 `;
+
+exports[`SampleBasketSection remove sample from basket when all samples are removed renders empty basket content and \`browse all products\` button 1`] = `
+<div>
+  <div
+    class="SampleBasketSection Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="RichText"
+        >
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          >
+            test rich text
+          </p>
+        </div>
+        <div
+          class="SampleBasketSectionProducts"
+        />
+        <div
+          class="RichText"
+        >
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          >
+            your basket is empty.
+          </p>
+        </div>
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-69 MuiButton-outlined MuiButton-outlinedPrimary"
+          data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/zanda-brand/torvtak/\\",\\"label\\":\\"torvtak\\"}"
+          href="/no/zanda-brand/torvtak/"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-72"
+          >
+            browse all products
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -603,6 +603,15 @@ type ContentfulSampleBasketSection implements Node {
   "The checkout form section"
   checkoutFormSection: ContentfulFormSection
     @link(from: "checkoutFormSection___NODE")
+
+  "The text to display when basket is empty."
+  emptyBasketMessage: ContentfulRichText
+
+  "Browse products CTA Label."
+  browseProductsCTALabel: String
+
+  "The browse Products CTA link to page."
+  browseProductsCTA: LinkedPage @link(from: "browseProductsCTA___NODE")
 }
 
 """
