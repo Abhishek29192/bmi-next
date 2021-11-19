@@ -89,21 +89,23 @@ export const PdfDocument = ({
           <Img src={logoEncoded} width={20} height={90} />
         </Col>
       </Row>
+      <Row marginBottom={20}>
+        <Col width={500}>
+          <Canvas>
+            <Canvas.Rect x={0} y={0} w={500} h={140} color="#e0f3f9" />
+          </Canvas>
+          <View marginTop={-135} marginLeft={10} marginBottom={20}>
+            <Typography variant="h2">{template.headingGuarantee}:</Typography>
+            <Typography marginBottom={8}>{guaranteeName}</Typography>
 
-      <Canvas>
-        <Canvas.Rect x={0} y={0} w={500} h={130} color="#e0f3f9" />
-      </Canvas>
+            <Typography variant="h3">{template.headingScope}:</Typography>
+            <Typography marginBottom={8}>{template.guaranteeScope}</Typography>
 
-      <View marginTop={-120} marginLeft={10} marginBottom={20}>
-        <Typography variant="h2">{template.headingGuarantee}:</Typography>
-        <Typography marginBottom={10}>{guaranteeName}</Typography>
-
-        <Typography variant="h3">{template.headingScope}:</Typography>
-        <Typography marginBottom={10}>{template.guaranteeScope}</Typography>
-
-        <Typography variant="h3">{template.headingProducts}:</Typography>
-        <Typography>{products}</Typography>
-      </View>
+            <Typography variant="h3">{template.headingProducts}:</Typography>
+            <Typography>{products}</Typography>
+          </View>
+        </Col>
+      </Row>
 
       <Row>
         <Col width={250}>
