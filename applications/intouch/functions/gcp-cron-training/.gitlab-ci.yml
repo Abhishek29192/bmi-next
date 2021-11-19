@@ -142,4 +142,4 @@ deploy_gcp-intouch-cron-training_bmi:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-training.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-cron-training --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-training.zip --runtime=nodejs14 --region=europe-west3 --entry-point=updateTraining --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_TRAINING_TOPIC-$BMI_ENV --set-env-vars=TRAINING_API_URL=${_INTOUCH_TRAINING_API_URL}
+    - gcloud functions deploy pubsub-cron-training --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-cron-training.zip --runtime=nodejs14 --region=europe-west3 --entry-point=updateTraining --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_TRAINING_TOPIC-$BMI_ENV --set-env-vars=TRAINING_API_URL=${_INTOUCH_TRAINING_API_URL}
