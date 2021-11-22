@@ -150,6 +150,36 @@ exports[`RecaptchaPrivacyLinks component When 'no' country code is provided rend
 </p>
 `;
 
+exports[`RecaptchaPrivacyLinks component When custom styles added renders with custom style 1`] = `
+<p
+  class="MuiTypography-root customStyle Typography MuiTypography-body1"
+>
+  Diese Website ist durch reCAPTCHA geschützt und es gelten die 
+  <a
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    href="https://policies.google.com/privacy?hl=de-de"
+    rel="noreferrer noopener"
+    target="_blank"
+  >
+    <span>
+      Datenschutzbestimmungen
+    </span>
+  </a>
+   und 
+  <a
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    href="https://policies.google.com/terms?hl=de-de"
+    rel="noreferrer noopener"
+    target="_blank"
+  >
+    <span>
+      Nutzungsbedingungen
+    </span>
+  </a>
+   von Google.
+</p>
+`;
+
 exports[`RecaptchaPrivacyLinks component When invalid country code is provided renders English Recaptcha policy text and urls 1`] = `
 <p
   class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"

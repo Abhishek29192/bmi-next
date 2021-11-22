@@ -10,7 +10,7 @@ export type GalleryImageType = {
 
 export type DocumentData = Pick<ContentfulDocument, "title" | "id"> & {
   __typename: "SDPDocument";
-  assetType: Pick<ContentfulAssetType, "pimCode" | "name">;
+  assetType: Pick<ContentfulAssetType, "pimCode" | "name" | "code">;
   asset: {
     file: {
       url: Asset["url"];

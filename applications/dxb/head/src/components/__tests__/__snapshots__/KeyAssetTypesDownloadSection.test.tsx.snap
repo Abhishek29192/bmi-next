@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
+<div
+  class="container"
+>
+  <div>
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+      data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://doesnot-exist.com/fileName\\\\\\",\\\\\\"http://doesnot-exist.com/fileName\\\\\\"]\\"}"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-4"
+      >
+        <span
+          class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+            />
+          </svg>
+        </span>
+        Some Asset Type
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+  <div>
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+      data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://doesnot-exist.com/fileName\\\\\\"]\\"}"
+      href="http://doesnot-exist.com/fileName"
+      rel="noopener noreferrer"
+      tabindex="0"
+      target="_blank"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-4"
+      >
+        <span
+          class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+            />
+          </svg>
+        </span>
+        Another Asset Type
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+  </div>
+</div>
+`;

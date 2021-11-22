@@ -51,6 +51,7 @@ type Props = {
       nodes: ReadonlyArray<{
         name: string;
         pimCode: string;
+        code: string;
       }>;
     };
   };
@@ -183,7 +184,8 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
             title: name,
             assetType: {
               pimCode: contentfulAssetType?.pimCode,
-              name: contentfulAssetType?.name
+              name: contentfulAssetType?.name,
+              code: contentfulAssetType?.code
             },
             asset: {
               file: {
@@ -284,6 +286,7 @@ export const systemsQuery = graphql`
       nodes {
         name
         pimCode
+        code
       }
     }
     systems(id: { eq: $systemPageId }, approvalStatus: { eq: "approved" }) {

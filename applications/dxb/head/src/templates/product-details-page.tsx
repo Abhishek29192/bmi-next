@@ -34,6 +34,7 @@ import {
   Image
 } from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
+import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSection";
 import { getBimIframeUrl } from "../components/BimIframe";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
@@ -181,6 +182,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       { attrName: FeatureCodeEnum.HEIGHT, separator: "x" }
     ]
   };
+  const filtredKeyAssetsDocuments = product.documents.filter((document) =>
+    resources.keyAssetTypes.includes(document.assetType.code)
+  );
 
   return (
     <Page
@@ -222,7 +226,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                       size: getMicroCopy("pdp.overview.size")
                     },
                     variantCodeToPathMap
-                  )
+                  ),
+                  isRecapchaShown: !!filtredKeyAssetsDocuments.length
                 }}
               >
                 {
@@ -239,6 +244,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     )}
                   />
                 }
+                {!!filtredKeyAssetsDocuments.length && (
+                  <KeyAssetTypesDownloadSection
+                    assetTypes={resources.keyAssetTypes}
+                    documents={filtredKeyAssetsDocuments}
+                  />
+                )}
                 {resources?.pdpShareWidget && (
                   <ShareWidgetSection
                     data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
