@@ -15,7 +15,7 @@
     "local:up:training": "db-migrate up -e local:training --migrations-dir migration-training -v",
     "local:down:training": "db-migrate down -e local:training --migrations-dir migration-training -v",
     "migrate:companies:up": "node trigger.js migrate-companies-db up",
-    "migrate:companies:down": "node trigger.js migrate-companies-db up",
+    "migrate:companies:down": "node trigger.js migrate-companies-db down",
     "migrate:training:up": "node trigger.js migrate-training-db up",
     "migrate:training:down": "node trigger.js migrate-training-db down"
   },

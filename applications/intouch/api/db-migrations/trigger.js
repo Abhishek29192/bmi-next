@@ -34,7 +34,7 @@ function main() {
   }
 
   request(
-    `${process.env.MIGRATION_SERVICE_URL}/migrate-${dbname}?import=true&direction=${direction}`
+    `${process.env.DB_MIGRATION_SERVICE_URL}/${dbname}?import=true&direction=${direction}`
   ).catch((err) => {
     console.error(err.message);
     process.exitCode = 1;
