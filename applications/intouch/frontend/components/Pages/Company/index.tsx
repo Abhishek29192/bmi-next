@@ -99,6 +99,7 @@ export const CompanyPage = ({
             <CompanyActionsCard
               title={t("companyActionsTitle")}
               company={company}
+              onCompanyUpdateSuccess={onCompanyUpdateSuccess}
             />
           </Grid>
         </AccessControl>

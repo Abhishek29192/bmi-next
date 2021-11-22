@@ -5,21 +5,23 @@ import { useTranslation } from "next-i18next";
 import React, { useCallback, useState } from "react";
 import { useUpdateCompanyDetailsMutation } from "../../../graphql/generated/hooks";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
+import { OnCompanyUpdateSuccess } from "../../SetCompanyDetailsDialog";
 import log from "../../../lib/logger";
 import { SimpleCard } from "../SimpleCard";
 
 export type CompanyActionsCardProps = {
   title: string;
   company: GetCompanyQuery["company"];
+  onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
 };
 
 export const CompanyActionsCard = ({
   title,
-  company
+  company,
+  onCompanyUpdateSuccess
 }: CompanyActionsCardProps) => {
-  const { id } = company;
+  const { id, status } = company;
   const { t } = useTranslation("company-page");
-  const [status, setStatus] = useState<CompanyStatus>(company.status);
   const [isLoading, setIsLoading] = useState<Boolean>(false);
 
   const [updateCompany] = useUpdateCompanyDetailsMutation({
@@ -37,7 +39,7 @@ export const CompanyActionsCard = ({
         message: `Updated company - id: ${company.id}`
       });
       setIsLoading(false);
-      setStatus(company.status);
+      onCompanyUpdateSuccess && onCompanyUpdateSuccess(company);
     }
   });
 
