@@ -37,6 +37,7 @@ import SampleOrderSection from "../components/SampleOrderSection";
 import { getBimIframeUrl } from "../components/BimIframe";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
+import { combineVariantClassifications } from "../utils/filters";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -232,8 +233,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     maximumSamples={maximumSamples}
                     sampleBasketLinkInfo={sampleBasketLink}
                     actionLabel={createActionLabel(
-                      product,
-                      selfProduct,
+                      product.name,
+                      combineVariantClassifications(product, selfProduct),
                       classificationConfig
                     )}
                   />

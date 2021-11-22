@@ -10,8 +10,46 @@ import {
   ClassificationCodeEnum,
   FeatureCodeEnum
 } from "../../components/types/pim";
+import { combineVariantClassifications } from "../filters";
 
 const baseProduct = createBaseProduct();
+const product = createVariantOption({
+  classifications: [
+    createClassification({
+      code: "appearanceAttributes",
+      name: "appearanceAttributes",
+      features: [
+        createFeature({
+          code: "colour",
+          featureValues: [{ code: "RED", value: "red" }]
+        }),
+        createFeature({
+          code: "texturefamily",
+          featureValues: [{ code: "SMOOTH", value: "smooth" }]
+        })
+      ]
+    }),
+    createClassification({
+      code: "measurements",
+      name: "measurements",
+      features: [
+        createFeature({
+          code: "height",
+          featureValues: [{ value: "100" }]
+        }),
+        createFeature({
+          code: "length",
+          featureValues: [{ value: "100" }]
+        }),
+        createFeature({
+          code: "width",
+          featureValues: [{ value: "100" }]
+        })
+      ]
+    })
+  ]
+});
+const classifications = combineVariantClassifications(baseProduct, product);
 const classificationConfig = {
   [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
     { attrName: FeatureCodeEnum.COLOUR },
@@ -29,50 +67,17 @@ const classificationConfig = {
 };
 describe("test createLabel functionality", () => {
   it("test with all data", () => {
-    const product = createVariantOption({
-      classifications: [
-        createClassification({
-          code: "appearanceAttributes",
-          name: "appearanceAttributes",
-          features: [
-            createFeature({
-              code: "colour",
-              featureValues: [{ code: "RED", value: "red" }]
-            }),
-            createFeature({
-              code: "texturefamily",
-              featureValues: [{ code: "SMOOTH", value: "smooth" }]
-            })
-          ]
-        }),
-        createClassification({
-          code: "measurements",
-          name: "measurements",
-          features: [
-            createFeature({
-              code: "height",
-              featureValues: [{ value: "100" }]
-            }),
-            createFeature({
-              code: "length",
-              featureValues: [{ value: "100" }]
-            }),
-            createFeature({
-              code: "width",
-              featureValues: [{ value: "100" }]
-            })
-          ]
-        })
-      ]
-    });
-    const res = createActionLabel(baseProduct, product, classificationConfig);
+    const res = createActionLabel(
+      baseProduct.name,
+      classifications,
+      classificationConfig
+    );
     expect(res).toEqual(
       "product-name-red | smooth-100x100x100classification-feature-feature-unit-symbol"
     );
   });
   it("test with no data", () => {
-    const product = createVariantOption();
-    const res = createActionLabel(baseProduct, product, classificationConfig);
+    const res = createActionLabel(baseProduct.name, [], classificationConfig);
     expect(res).toEqual("product-name");
   });
   it("test with partial data", () => {
@@ -98,7 +103,12 @@ describe("test createLabel functionality", () => {
         })
       ]
     });
-    const res = createActionLabel(baseProduct, product, classificationConfig);
+    const classifications = combineVariantClassifications(baseProduct, product);
+    const res = createActionLabel(
+      baseProduct.name,
+      classifications,
+      classificationConfig
+    );
     expect(res).toEqual(
       "product-name-180x10x10classification-feature-feature-unit-symbol"
     );

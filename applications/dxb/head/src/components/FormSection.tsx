@@ -20,7 +20,7 @@ import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import withGTM from "../utils/google-tag-manager";
+import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { SampleOrderElement } from "../contexts/SampleBasketContext";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
@@ -287,19 +287,23 @@ const FormSection = ({
   },
   backgroundColor,
   additionalValues,
-  isSubmitDisabled
+  isSubmitDisabled,
+  gtmOverride
 }: {
   id?: string;
   data: Data;
   backgroundColor: "pearl" | "white";
   additionalValues?: Record<string, SampleOrderElement[]>;
   isSubmitDisabled?: boolean;
+  gtmOverride?: Partial<GTM>;
 }) => {
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
-
-  const GTMButton = withGTM<ButtonProps>(Button, { label: "children" });
+  const GTMButton = withGTM<ButtonProps>(Button, {
+    label: "aria-label",
+    action: "aria-action"
+  });
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -467,7 +471,6 @@ const FormSection = ({
       </HubspotProvider>
     );
   }
-
   return (
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
@@ -492,15 +495,22 @@ const FormSection = ({
           </Grid>
           <Form.ButtonWrapper>
             <Form.SubmitButton
-              component={(props: ButtonProps) => (
-                <GTMButton
-                  gtm={{
-                    id: "form-button1",
-                    action: title
-                  }}
-                  {...props}
-                />
-              )}
+              component={(props: ButtonProps) => {
+                return (
+                  <GTMButton
+                    {...props}
+                    gtm={{
+                      id: "form-button1"
+                    }}
+                    aria-label={
+                      gtmOverride?.label ? gtmOverride?.label : "children"
+                    }
+                    aria-action={
+                      gtmOverride?.action ? gtmOverride?.action : title
+                    }
+                  />
+                );
+              }}
               endIcon={
                 isSubmitting ? (
                   <CircularProgress

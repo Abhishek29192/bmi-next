@@ -2,7 +2,7 @@ import { ClickableAction } from "@bmi/clickable";
 import { ButtonBaseActions } from "@material-ui/core";
 import React, { createContext, useContext } from "react";
 
-type GTM = {
+export type GTM = {
   id: string;
   event?: string;
   label?: string;
