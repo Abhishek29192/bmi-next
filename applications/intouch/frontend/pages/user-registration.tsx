@@ -76,7 +76,7 @@ const UserRegistration = ({ account, termsToAccept }: Props) => {
                           {t("dialog.form.terms_condition")}
                         </a>
                       </Link>
-                      {t("dialog.form.and")}
+                      {` ${t("dialog.form.and")} `}
                       <Link href="https://www.bmigroup.com/legal/third-party-privacy-notice">
                         <a style={{ textDecoration: "underline" }}>
                           {t("dialog.form.privacy_policy")}
