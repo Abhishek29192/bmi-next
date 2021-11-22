@@ -69,7 +69,11 @@ export const CompanyActionsCard = ({
         {title}
       </Typography>
       <div style={{ textAlign: "right" }}>
-        <Button onClick={toggleCompanyActivation} disabled={isLoading}>
+        <Button
+          onClick={toggleCompanyActivation}
+          disabled={isLoading}
+          data-testid="action-button"
+        >
           {status === "ACTIVE"
             ? t("companyActions.deactivate")
             : t("companyActions.activate")}
