@@ -199,13 +199,13 @@ export const getProductFamilyFilterFromDocuments = (
 export const getCategoryCodesFilterFromDocuments = (
   documents: DocumentResultsData,
   allowFilterBy: string[]
-) => {
+): ProductFilter[] => {
   const productsFromDocuments = getProductsFromDocuments(documents);
   const cagegoryFilters = generateCategoryFilters(
     productsFromDocuments.flatMap((product) => product.categories || []),
     allowFilterBy || []
   );
-  return cagegoryFilters;
+  return cagegoryFilters.filter((filt) => filt.options.length > 0);
 };
 
 const getProductFamilyFilter = (

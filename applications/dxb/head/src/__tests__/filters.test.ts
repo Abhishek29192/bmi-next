@@ -3577,5 +3577,59 @@ describe("filters tests", () => {
         expect(result).toEqual([]);
       });
     });
+    describe("Only returns filter with options", () => {
+      it("Then: returns category filters", () => {
+        const inputDataItems: DocumentResultsData =
+          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+        const baseUrl: string = "http://localhost/document/library/";
+
+        const pimDocument = createPimDocument({
+          id: `pim-doc-id`,
+          url: `${baseUrl}pim-doc-url`,
+          product: createProduct({
+            categories: [
+              createCategory({ categoryType: "Brand" }),
+              createCategory({ categoryType: "ProductFamily" }),
+              createCategory({
+                categoryType: "Category",
+                code: "MAINTILE_CLAY_NO"
+              }),
+              createCategory({
+                categoryType: "Category",
+                code: "CONSTRUCTION"
+              })
+            ],
+            classifications: [createClassification()]
+          })
+        });
+
+        const expectedResult = [
+          {
+            label: "",
+            name: "plpFilter.Category",
+            options: [
+              {
+                label: "category-name",
+                value: "MAINTILE_CLAY_NO"
+              },
+              {
+                label: "category-name",
+                value: "CONSTRUCTION"
+              }
+            ],
+            value: []
+          }
+        ];
+
+        inputDataItems.push(pimDocument);
+        const result = getCategoryCodesFilterFromDocuments(inputDataItems, [
+          "Category | MAINTILE_CLAY_NO",
+          "Category | CONSTRUCTION",
+          "Category | CONSTRUCTION_NOT_EXIST"
+        ]);
+        expect(result).toEqual(expectedResult);
+      });
+    });
   });
 });
