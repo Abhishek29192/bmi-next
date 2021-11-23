@@ -75,54 +75,51 @@ const SampleOrderSection = ({
 
   return (
     (isSampleOrderAllowed || basketHasProducts) && (
-      <Section
-        backgroundColor="white"
-        spacing="none"
-        className={styles["SampleOrderSection"]}
-        hasNoPadding
-      >
-        {basketHasProducts && (
-          <div className={styles["sample-message"]}>{sampleMessage()}</div>
-        )}
-
-        <div className={styles["buttons-container"]}>
-          {isSampleOrderAllowed ? (
-            hasSampleInTheBasket ? (
-              <Button
-                className={styles["remove-from-basket"]}
-                endIcon={<Remove />}
-                onClick={() => removeFromBasket(variant)}
-                variant="text"
-              >
-                {getMicroCopy("pdp.overview.removeSample")}
-              </Button>
-            ) : !isBasketFull ? (
-              <GTMButton
-                className={styles["add-to-basket"]}
-                endIcon={<Add />}
-                onClick={() => addToBasket(variant)}
-                gtm={{
-                  id: "cta-click1-samples-ordering",
-                  label: getMicroCopy("pdp.overview.addSample"),
-                  action: actionLabel
-                }}
-              >
-                {getMicroCopy("pdp.overview.addSample")}
-              </GTMButton>
-            ) : undefined
-          ) : undefined}
-          {basketHasProducts && cta && cta.action && (
-            <Button
-              className={styles["complete-order"]}
-              endIcon={<ShoppingCart />}
-              variant="outlined"
-              action={cta.action}
-            >
-              {getMicroCopy("pdp.overview.completeSampleOrder")}
-            </Button>
+      <div className={styles["SampleOrderSection"]}>
+        <Section backgroundColor="white" spacing="none" hasNoPadding>
+          {basketHasProducts && (
+            <div className={styles["sample-message"]}>{sampleMessage()}</div>
           )}
-        </div>
-      </Section>
+
+          <div className={styles["buttons-container"]}>
+            {isSampleOrderAllowed ? (
+              hasSampleInTheBasket ? (
+                <Button
+                  className={styles["remove-from-basket"]}
+                  endIcon={<Remove />}
+                  onClick={() => removeFromBasket(variant)}
+                  variant="text"
+                >
+                  {getMicroCopy("pdp.overview.removeSample")}
+                </Button>
+              ) : !isBasketFull ? (
+                <GTMButton
+                  className={styles["add-to-basket"]}
+                  endIcon={<Add />}
+                  onClick={() => addToBasket(variant)}
+                  gtm={{
+                    id: "cta-click1-samples-ordering",
+                    label: getMicroCopy("pdp.overview.addSample"),
+                    action: actionLabel
+                  }}
+                >
+                  {getMicroCopy("pdp.overview.addSample")}
+                </GTMButton>
+              ) : undefined
+            ) : undefined}
+            {basketHasProducts && cta && cta.action && (
+              <Button
+                className={styles["complete-order"]}
+                endIcon={<ShoppingCart />}
+                variant="outlined"
+                action={cta.action}
+              >
+                {getMicroCopy("pdp.overview.completeSampleOrder")}
+              </Button>
+            )}
+          </div>
+        </Section>
+      </div>
     )
   );
 };
