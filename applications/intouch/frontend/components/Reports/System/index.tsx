@@ -4,9 +4,10 @@ import Button from "@bmi/button";
 import { gql } from "@apollo/client";
 import { exportCsv } from "../../../lib/utils/report";
 import { useGetSystemsReportLazyQuery } from "../../../graphql/generated/hooks";
+import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
-const SystemReport = () => {
+const SystemReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("admin-products-systems");
   const [getSystemsReport] = useGetSystemsReportLazyQuery({
     onCompleted: ({ systems }) => {
@@ -27,6 +28,8 @@ const SystemReport = () => {
     <div>
       <Button
         variant="outlined"
+        data-testid="export-button"
+        disabled={disabled}
         onClick={getSystemsReport}
         className={styles.sidePanelFooterButton}
       >

@@ -203,7 +203,11 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
         filterClick={onFilterClick}
         noResultLabel={t("sidePanel.search.noResult")}
         renderFooter={() =>
-          type === "product" ? <ProductReport /> : <SystemReport />
+          type === "product" ? (
+            <ProductReport disabled={!items?.nodes?.length} />
+          ) : (
+            <SystemReport disabled={!items?.nodes?.length} />
+          )
         }
       >
         {(items?.nodes as any)?.map((item: any, index: number) => (

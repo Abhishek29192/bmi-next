@@ -277,7 +277,7 @@ const CompanyMembers = ({ data }: PageProps) => {
                 </Button>
               </AccessControl>
               <AccessControl dataModel="company" action="downloadReport">
-                <TeamReport />
+                <TeamReport disabled={members.length === 0} />
               </AccessControl>
             </>
           )}

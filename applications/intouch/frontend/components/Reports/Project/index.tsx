@@ -7,6 +7,7 @@ import { exportCsv } from "../../../lib/utils/report";
 import { useGetProjectsReportLazyQuery } from "../../../graphql/generated/hooks";
 import { GetProjectsReportQuery } from "../../../graphql/generated/operations";
 import { getProjectStatus } from "../../../lib/utils/project";
+import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
 const getReportData = (projects: GetProjectsReportQuery["projects"]) => {
@@ -56,7 +57,7 @@ const getReportData = (projects: GetProjectsReportQuery["projects"]) => {
     );
 };
 
-const ProjectReport = () => {
+const ProjectReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("project-page");
   const [getSystemsReport] = useGetProjectsReportLazyQuery({
     onCompleted: ({ projects }) => {
@@ -73,6 +74,8 @@ const ProjectReport = () => {
     <div>
       <Button
         color="primary"
+        data-testid="export-button"
+        disabled={disabled}
         endIcon={<GetApp />}
         onClick={getSystemsReport}
         className={styles.sidePanelFooterButton}
