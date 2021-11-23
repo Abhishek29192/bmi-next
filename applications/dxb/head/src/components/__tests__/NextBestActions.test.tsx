@@ -6,18 +6,7 @@ import { Data as PageInfoData } from "../PageInfo";
 import { Data as LinkData, DataTypeEnum } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { SiteContextProvider } from "../Site";
-
-const getMockSiteContext = (
-  countryCode: string = "en",
-  nodeLocale: string = "en-GB"
-) => ({
-  countryCode: countryCode,
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: nodeLocale,
-  homePage: {
-    title: "Home page title"
-  }
-});
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const testTag1: TagData = { type: "Group", title: "Badgers" };
 const card1: PageInfoData = {

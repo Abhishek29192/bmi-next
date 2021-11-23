@@ -11,15 +11,14 @@ import createImage from "../../__tests__/ImageHelper";
 import SampleBasketSection, { Data } from "../SampleBasketSection";
 import { local } from "../../utils/storage";
 import { SiteContextProvider } from "../Site";
+import * as BasketContextUtils from "../../contexts/SampleBasketContext";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
     <SiteContextProvider
       value={{
-        node_locale: "en-GB",
-        homePage: { title: "Home Page" },
-        getMicroCopy: (path) => path,
-        countryCode: "no",
+        ...getMockSiteContext("no"),
         reCaptchaKey: "1234",
         reCaptchaNet: false
       }}
@@ -148,10 +147,14 @@ describe("SampleBasketSection with form", () => {
     process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT =
       "GATSBY_GCP_FORM_SUBMIT_ENDPOINT";
     const { container } = render(
-      <BasketContextProvider>
-        <SampleBasketSection data={data} />
-      </BasketContextProvider>
+      <MockSiteContext>
+        <BasketContextProvider>
+          <SampleBasketSection data={data} />
+        </BasketContextProvider>
+      </MockSiteContext>
     );
+
+    jest.spyOn(BasketContextUtils, "basketReducer");
 
     fireEvent.click(screen.getByText("MC: pdp.overview.completeSampleOrder"));
 
@@ -165,19 +168,12 @@ describe("SampleBasketSection with form", () => {
       expect(mockedAxios.post).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
         {
-          locale: "",
+          locale: "en-GB",
           recipients: "recipient@mail.com",
           title: "Complete form",
           values: {
-            samples: [
-              {
-                color: "green",
-                id: "sample-1",
-                texture: "rough",
-                title: "sample-1",
-                url: "sample-1-details"
-              }
-            ],
+            samples:
+              '[\n\t{\n\t\t"id": "sample-1",\n\t\t"title": "sample-1",\n\t\t"url": "http://localhost/no/sample-1-details",\n\t\t"color": "green",\n\t\t"texture": "rough"\n\t}\n]',
             text: "Text"
           }
         },
@@ -186,6 +182,11 @@ describe("SampleBasketSection with form", () => {
           headers: { "X-Recaptcha-Token": "RECAPTCHA" }
         }
       )
+    );
+
+    expect(BasketContextUtils.basketReducer).toHaveBeenCalledWith(
+      { products: [sample] },
+      { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
   });
 });
@@ -201,7 +202,7 @@ describe("SampleBasketSection remove sample from basket", () => {
       );
 
       await waitFor(() =>
-        fireEvent.click(screen.getByText("pdp.overview.removeSample"))
+        fireEvent.click(screen.getByText("MC: pdp.overview.removeSample"))
       );
 
       const browseAllButton = screen.getByRole("button", {
