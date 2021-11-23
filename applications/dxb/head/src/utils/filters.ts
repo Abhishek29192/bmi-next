@@ -205,7 +205,7 @@ export const getCategoryCodesFilterFromDocuments = (
     productsFromDocuments.flatMap((product) => product.categories || []),
     allowFilterBy || []
   );
-  return cagegoryFilters.filter((filt) => filt.options.length > 0);
+  return cagegoryFilters.filter((filt) => filt?.options?.length > 0);
 };
 
 const getProductFamilyFilter = (
