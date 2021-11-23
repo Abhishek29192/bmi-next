@@ -145,4 +145,4 @@ deploy_gcp-intouch-handle-message_bmi:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-handle-message --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-handle-message.zip --runtime=nodejs14 --region=europe-west3 --entry-point=emailSender --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_TRANSACTIONAL_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,MAIL_FROM=$INTOUCH_MAIL_FROM
+    - gcloud functions deploy pubsub-handle-message --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-handle-message.zip --service-account=sa-intouch-$BMI_ENV@$PREFIX-compute-$BMI_ENV.iam.gserviceaccount.com --runtime=nodejs14 --region=europe-west3 --entry-point=emailSender --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_TRANSACTIONAL_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,MAIL_FROM=$INTOUCH_MAIL_FROM
