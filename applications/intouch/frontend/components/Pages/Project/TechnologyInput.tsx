@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { useTranslation } from "next-i18next";
 import { Technology } from "@bmi/intouch-api-types";
-import { FormContext } from "@bmi/form";
+import { FormContext, ValidationResult } from "@bmi/form";
 import Grid from "@bmi/grid";
 import RadioGroup from "@bmi/radio-group";
 import Typography from "@bmi/typography";
@@ -25,19 +25,21 @@ const technologyIcons: Record<
 
 type TechnologyInputProps = Pick<
   TextFieldProps,
-  | "className"
-  | "name"
-  | "label"
-  | "fullWidth"
-  // | "fieldIsRequiredError" // TODO: I don't get why it doesn't like these
-  // | "defaultValue"
-  | "disabled"
+  "className" | "name" | "label" | "fullWidth" | "isRequired" | "disabled"
 > & {
   defaultValue?: any;
+  fieldIsRequiredError?: string;
 };
 
 // This is to manage the Radio group not updating form state when items are not direct children
-const TechnologyInput = ({ defaultValue, disabled }: TechnologyInputProps) => {
+const TechnologyInput = (props: TechnologyInputProps) => {
+  const {
+    name = "technology",
+    defaultValue,
+    disabled,
+    isRequired,
+    fieldIsRequiredError
+  } = props;
   const { t } = useTranslation("project-page");
   const { updateFormState, values } = useContext(FormContext);
 
@@ -50,23 +52,37 @@ const TechnologyInput = ({ defaultValue, disabled }: TechnologyInputProps) => {
     );
   }, []);
 
+  // NOTE: partly copied from `withFormControl`
+  const getError = (val?: any): ValidationResult => {
+    if (isRequired && !val) {
+      return fieldIsRequiredError || null;
+    }
+
+    return null;
+  };
+
   const handleTechnologyChange = (event) => {
+    const { value } = event.target;
+    const error = getError(value);
+
     updateFormState(
       {
-        technology: event.target.value
+        [name]: value
       },
-      // No errors
-      {}
+      {
+        [name]: error
+      }
     );
   };
 
   return (
-    <RadioGroup name="technology" isRequired value={values["technology"]}>
+    // TODO: types still don't align on `name`.
+    <RadioGroup {...props} name={name}>
       <Grid container className={styles.technologyGrid}>
         {["PITCHED", "FLAT"].map((value) => (
           <Grid item md={6} key={value}>
             <RadioGroup.Item
-              name="technology"
+              name={name}
               value={value}
               onChange={handleTechnologyChange}
               checked={values["technology"] === value}
