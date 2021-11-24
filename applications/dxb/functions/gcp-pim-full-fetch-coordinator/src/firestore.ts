@@ -41,4 +41,6 @@ export async function deleteFirestoreCollection(
   const query = collectionRef.orderBy("__name__").limit(batchSize);
 
   await deleteQueryBatch(db, query);
+
+  info({ message: `Deleted all data for ${collectionPath}` });
 }
