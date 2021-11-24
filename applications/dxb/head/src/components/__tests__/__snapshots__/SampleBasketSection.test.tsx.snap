@@ -309,8 +309,10 @@ exports[`SampleBasketSection component should render form after complete button 
             class="ButtonWrapper"
           >
             <button
+              aria-action="sample-1-green | rough"
+              aria-label="samples ordering basket form submitted"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"Submit\\",\\"action\\":\\"Complete form\\"}"
+              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"samples ordering basket form submitted\\",\\"action\\":\\"sample-1-green | rough\\"}"
               tabindex="0"
               type="submit"
             >

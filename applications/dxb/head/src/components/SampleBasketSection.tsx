@@ -10,6 +10,7 @@ import {
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import { extractFeatureValuesByClassification } from "../utils/product-url-path";
+import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
@@ -19,6 +20,22 @@ import styles from "./styles/SampleBasketSection.module.scss";
 import { ClassificationCodeEnum, FeatureCodeEnum } from "./types/pim";
 import { Data as PageInfoData } from "./PageInfo";
 import { getCTA } from "./Link";
+
+const classificationConfig = {
+  [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
+    { attrName: FeatureCodeEnum.COLOUR },
+    {
+      attrName: FeatureCodeEnum.TEXTURE_FAMILY,
+      separator: " | ",
+      fromStart: true
+    }
+  ],
+  [ClassificationCodeEnum.MEASUREMENTS]: [
+    { attrName: FeatureCodeEnum.LENGTH, separator: "x" },
+    { attrName: FeatureCodeEnum.WIDTH, separator: "x" },
+    { attrName: FeatureCodeEnum.HEIGHT, separator: "x" }
+  ]
+};
 
 export type Data = {
   __typename: "SampleBasketSection";
@@ -53,6 +70,7 @@ const SampleBasketSection = ({
     setHasSamplesInTheBasket(basketState && basketState.products.length > 0);
   }, [basketState]);
 
+  let actionLabels = [];
   const samples: SampleOrderElement[] = basketState.products.map((sample) => {
     const { classifications } = sample;
     const featureAttributeMapForUrl = {
@@ -66,6 +84,12 @@ const SampleBasketSection = ({
       featureAttributeMapForUrl
     );
 
+    const actionLabel = createActionLabel(
+      sample.name,
+      classifications,
+      classificationConfig
+    );
+    actionLabels.push(actionLabel);
     return {
       id: sample.code,
       title: sample.name,
@@ -113,6 +137,10 @@ const SampleBasketSection = ({
             backgroundColor="pearl"
             additionalValues={{ samples }}
             isSubmitDisabled={samples.length === 0}
+            gtmOverride={{
+              label: "samples ordering basket form submitted",
+              action: actionLabels.join(", ")
+            }}
           />
         </Section>
       )}

@@ -1,20 +1,18 @@
 import {
-  ClassificationCodeEnum,
-  Product,
-  VariantOption
+  Classification,
+  ClassificationCodeEnum
 } from "../components/types/pim";
-import { combineVariantClassifications } from "./filters";
+
 import {
   AttributeCodeMap,
   extractFeatureValuesByClassification
 } from "./product-url-path";
 
 export const createActionLabel = (
-  product: Product,
-  selfProduct: VariantOption,
+  productName: string,
+  classifications: Classification[],
   config: AttributeCodeMap
 ): string => {
-  const classifications = combineVariantClassifications(product, selfProduct);
   const measurementSymbol =
     classifications.filter(
       ({ code }) => code === ClassificationCodeEnum.MEASUREMENTS
@@ -24,7 +22,7 @@ export const createActionLabel = (
     config
   );
 
-  const result = [product.name, ...classificationsPath]
+  const result = [productName, ...classificationsPath]
     .join("-")
     .replace(/(x)$/, measurementSymbol);
   return result;
