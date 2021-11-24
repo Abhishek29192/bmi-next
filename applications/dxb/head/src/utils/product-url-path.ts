@@ -18,11 +18,16 @@ export type AttributeCodeMap = {
 export const generateUrl = (urlParts: string[]) => {
   return urlParts
     .filter(Boolean)
-    .map((part) => part.replace(/[^\s\p{L}\p{Nd}-]/gu, ""))
+    .map((part) =>
+      part
+        .replace(/_+/g, "-")
+        .replace(/[^.,\s\p{L}\p{Nd}-]/gu, "")
+        .replace(/\.+/g, "-")
+        .replace(/,+/g, "-")
+    )
     .join("-")
     .replace(/\s+/g, "-")
-    .replace(/\*/g, "")
-    .replace(/"/g, "")
+    .replace(/--+/g, "-")
     .toLowerCase();
 };
 
