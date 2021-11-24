@@ -604,6 +604,35 @@
           locale = "no";
         }
         window.AlpineI18n.create(locale, messages);
+
+        var language = config.extraParams.market;
+
+        // Map market / projects status
+        var marketsProjectMap = {
+          no: true, // project active
+          it: true,
+          en: false // project not active
+        };
+
+        // Map projects status / image
+        var marketImages = {
+          projectActive:
+            "https://storage.googleapis.com/intouch-public-assets/auth0/images/design/bmi_roofpro_intouch.f044a6.jpg",
+          projectNotActive:
+            "https://cdn.bmigroup.com/-/media/bmi-global/case-studies/a-family-home-in-deining-germany/deining_neu30_bereinigt_150ppi.jpg?rev=dc4b46606ded44a09128daba90019b40"
+        };
+
+        if (document.getElementsByClassName("login-screen").length) {
+          const image = marketsProjectMap[language]
+            ? marketImages.projectActive
+            : marketImages.projectNotActive;
+
+          console.log("image", image);
+
+          document.getElementsByClassName(
+            "login-screen"
+          )[0].style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${image}")`;
+        }
       });
 
       window.addEventListener("load", function () {
@@ -639,12 +668,16 @@
           config.internalOptions
         );
 
+        var env = config.extraParams.env;
         var language = config.extraParams.market;
 
-        document.getElementById("terms-link").href =
-          "https://" + language + ".intouch.dddev.io/terms";
-        document.getElementById("privacy-link").href =
-          "https://" + language + ".intouch.dddev.io/privacy";
+        var baseUrl =
+          env === "prod"
+            ? `https://${env}.intouch.dddev.io`
+            : `https://${env}-${language}.intouch.dddev.io`;
+
+        document.getElementById("terms-link").href = `${baseUrl}/terms`;
+        document.getElementById("privacy-link").href = `${baseUrl}/privacy`;
 
         var webAuth = new auth0.WebAuth(params);
         var databaseConnection = "Username-Password-Authentication";
