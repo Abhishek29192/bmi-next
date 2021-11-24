@@ -1,4 +1,5 @@
 import React from "react";
+import "@testing-library/jest-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import {
@@ -9,6 +10,24 @@ import createClassification from "../../__tests__/ClassificationHelper";
 import createImage from "../../__tests__/ImageHelper";
 import SampleBasketSection, { Data } from "../SampleBasketSection";
 import { local } from "../../utils/storage";
+import { SiteContextProvider } from "../Site";
+
+const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <SiteContextProvider
+      value={{
+        node_locale: "en-GB",
+        homePage: { title: "Home Page" },
+        getMicroCopy: (path) => path,
+        countryCode: "no",
+        reCaptchaKey: "1234",
+        reCaptchaNet: false
+      }}
+    >
+      {children}
+    </SiteContextProvider>
+  );
+};
 
 const sample: Sample = {
   name: "sample-1",
@@ -57,6 +76,24 @@ const data: Data = {
     successRedirect: null,
     source: "Contentful",
     hubSpotFormGuid: null
+  },
+  emptyBasketMessage: {
+    raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"your basket is empty.","marks":[],"data":{}}],"data":{}}]}',
+    references: null
+  },
+  browseProductsCTALabel: "browse all products",
+  browseProductsCTA: {
+    id: "5bcc3b0f-fcba-54b6-9ddb-2be3f4fc7fae",
+    __typename: "ContentfulProductListerPage",
+    title: "torvtak",
+    subtitle: "sub-title",
+    brandLogo: null,
+    slug: "torvtak",
+    path: "zanda-brand/torvtak/",
+    featuredMedia: null,
+    date: null,
+    tags: null,
+    featuredVideo: null
   }
 };
 
@@ -150,5 +187,34 @@ describe("SampleBasketSection with form", () => {
         }
       )
     );
+  });
+});
+describe("SampleBasketSection remove sample from basket", () => {
+  describe("when all samples are removed", () => {
+    it("renders empty basket content and `browse all products` button", async () => {
+      const { container } = render(
+        <MockSiteContext>
+          <BasketContextProvider>
+            <SampleBasketSection data={data} />
+          </BasketContextProvider>
+        </MockSiteContext>
+      );
+
+      await waitFor(() =>
+        fireEvent.click(screen.getByText("pdp.overview.removeSample"))
+      );
+
+      const browseAllButton = screen.getByRole("button", {
+        name: "browse all products"
+      });
+
+      expect(container).toMatchSnapshot();
+      expect(screen.queryByText("your basket is empty.")).not.toBeNull();
+      expect(browseAllButton).not.toBeNull();
+      expect(browseAllButton).toHaveAttribute(
+        "href",
+        "/no/zanda-brand/torvtak/"
+      );
+    });
   });
 });
