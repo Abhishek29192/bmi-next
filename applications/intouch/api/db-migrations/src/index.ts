@@ -10,6 +10,7 @@ import migrate from "./migrate";
 const {
   PG_USER,
   PG_PORT,
+  PG_SCHEMA,
   PG_SSL_HOST,
   PG_TRAINING_DATABASE,
   PG_COMPANIES_DATABASE,
@@ -64,11 +65,12 @@ async function main() {
         database: PG_COMPANIES_DATABASE,
         user: PG_USER,
         port: PG_PORT,
+        schema: PG_SCHEMA,
         ssl: {
           ssl_client_key: PG_SSL_CLIENT_KEY,
           ssl_client_cert: PG_SSL_CLIENT_CERT,
           ssl_server_ca: PG_SSL_SERVER_CA,
-          host: PG_SSL_HOST
+          ssl_host: PG_SSL_HOST
         },
         req
       });
@@ -91,11 +93,12 @@ async function main() {
         database: PG_TRAINING_DATABASE,
         user: PG_USER,
         port: PG_PORT,
+        schema: PG_SCHEMA,
         ssl: {
-          ssl_client_key: PG_SSL_CLIENT_CERT,
+          ssl_client_key: PG_SSL_CLIENT_KEY,
           ssl_client_cert: PG_SSL_CLIENT_CERT,
           ssl_server_ca: PG_SSL_SERVER_CA,
-          host: PG_SSL_HOST
+          ssl_host: PG_SSL_HOST
         },
         req
       });

@@ -6,8 +6,21 @@ config();
 const migrate = async (context) => {
   let result;
   const { query } = context.req;
-  const { password, database, host, user, port, ssl, folder } = context;
+  const { password, database, host, user, schema, port, ssl, folder } = context;
   const { ssl_client_cert, ssl_client_key, ssl_server_ca, ssl_host } = ssl;
+
+  // eslint-disable-next-line
+  console.log(
+    `Running migration against: ${host} on db: ${database} with port: ${port}`
+  );
+
+  if (ssl_server_ca) {
+    // eslint-disable-next-line
+    console.log(`Using ssl: ${!!ssl} with ssl host: ${ssl_host}`);
+  }
+
+  // eslint-disable-next-line
+  console.log(`Migration folder: ${folder}`);
 
   if (query.migrate !== "true") {
     return {
@@ -26,29 +39,26 @@ const migrate = async (context) => {
   }
 
   const dbmigrate = DBMigrate.getInstance(true, {
-    throwUncatched: true,
     cmdOptions: {
-      "migrations-dir": folder,
-      verbose: true
+      "migrations-dir": folder
     },
     config: {
       dev: {
+        // we have one service per env, so here we can use whatever we want
         driver: "pg",
         database,
         password,
+        schema,
         user,
         host,
         port,
-        schema: "public",
-        ...(ssl_server_ca && {
-          ssl: {
-            rejectUnauthorized: !!ssl_server_ca,
-            ca: ssl_server_ca,
-            cert: ssl_client_cert,
-            key: ssl_client_key,
-            host: ssl_host
-          }
-        })
+        ssl: {
+          rejectUnauthorized: true,
+          ca: ssl_server_ca,
+          key: ssl_client_key,
+          cert: ssl_client_cert,
+          host: ssl_host
+        }
       }
     }
   });
@@ -74,7 +84,9 @@ const migrate = async (context) => {
     throw error;
   }
 
-  return result;
+  return {
+    status: "migration completed"
+  };
 };
 
 export default migrate;

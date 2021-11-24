@@ -9,9 +9,9 @@ build_intouch_migration_db_service:
       alias: docker
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
-      changes:
-        - applications/intouch/api/db-migrations/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/roles-update') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
+      # changes:
+      #   - applications/intouch/api/db-migrations/**/*
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
@@ -52,9 +52,9 @@ deploy_intouch_migration_to_cloudrun_bmi:
     - build_intouch_migration_db_service
   image: google/cloud-sdk
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/intouch/api/db-migrations/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/roles-update'"
+      # changes:
+      #   - applications/intouch/api/db-migrations/**/*
       variables:
         CLOUD_RUN: "$GCP_BMI_INTOUCH_DEV_MIGRATION"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
@@ -125,16 +125,15 @@ migrate_training_db:
   stage: migration
   image: google/cloud-sdk
   needs:
-    - install
     - job: deploy_intouch_migration_to_cloudrun_bmi
       optional: true
     - job: release_intouch_migration_to_cloudrun_bmi
       optional: true
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/roles-update'"
       when: manual
-      changes:
-        - applications/intouch/api/db-migrations/migration-training/**/*
+      # changes:
+      #   - applications/intouch/api/db-migrations/migration-training/**/*
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
@@ -163,12 +162,9 @@ migrate_training_db:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
         DB_MIGRATION_SERVICE_URL: "$GCP_BMI_INTOUCH_PROD_MIGRATION_URL"
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-    - echo "https://$DB_MIGRATION_SERVICE_URL/migrate-training-db?migrate=true&direction=up"
-    - sleep 10
   script:
+    - echo "https://$DB_MIGRATION_SERVICE_URL/migrate-training-db?migrate=true&direction=up"
     - echo $BMI_KEY > gcloud-service-key.json # Promoted Google Cloud service accounts to pull image
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
-    - 'curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" "https://$DB_MIGRATION_SERVICE_URL/migrate-training-db?migrate=true&direction=up"'
+    - 'curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" "$DB_MIGRATION_SERVICE_URL/migrate-training-db?migrate=true&direction=up"'
