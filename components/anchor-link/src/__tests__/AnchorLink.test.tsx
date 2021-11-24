@@ -1,13 +1,7 @@
-import React, { createContext } from "react";
+import React from "react";
 import { render } from "@testing-library/react";
+import { ColorPairContext } from "@bmi/color-pair";
 import AnchorLink from "..";
-
-const MockColorPairContext = createContext<{
-  type: "dark" | "light";
-  theme?: "white";
-}>({
-  type: "dark"
-});
 
 describe("AnchorLink component", () => {
   it("renders default correctly", () => {
@@ -78,27 +72,61 @@ describe("AnchorLink component", () => {
 
   it("renders within a dark color pair context", () => {
     const { container } = render(
-      <MockColorPairContext.Provider value={{ type: "dark" }}>
+      <ColorPairContext.Provider value={{ type: "dark" }}>
         <AnchorLink color="white">BMI Group</AnchorLink>
-      </MockColorPairContext.Provider>
+      </ColorPairContext.Provider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it("renders within a light color pair context", () => {
     const { container } = render(
-      <MockColorPairContext.Provider value={{ type: "light" }}>
+      <ColorPairContext.Provider value={{ type: "light" }}>
         <AnchorLink color="white">BMI Group</AnchorLink>
-      </MockColorPairContext.Provider>
+      </ColorPairContext.Provider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("renders within a white themed color pair context", () => {
+  it("renders only with data from context", () => {
     const { container } = render(
-      <MockColorPairContext.Provider value={{ type: "light", theme: "white" }}>
-        <AnchorLink color="white">BMI Group</AnchorLink>
-      </MockColorPairContext.Provider>
+      <ColorPairContext.Provider value={{ type: "light" }}>
+        <AnchorLink>BMI Group</AnchorLink>
+      </ColorPairContext.Provider>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders with rest props", () => {
+    const { container } = render(
+      <AnchorLink target="_blank" rel="noreferrer">
+        Test
+      </AnchorLink>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders with children component", () => {
+    const { container } = render(
+      <AnchorLink>
+        <div>Test</div>
+      </AnchorLink>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders with className", () => {
+    const { container } = render(
+      <AnchorLink className="test-className">Test</AnchorLink>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders with iconInverted", () => {
+    const { container } = render(
+      <AnchorLink iconInverted iconStart>
+        Test
+      </AnchorLink>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
