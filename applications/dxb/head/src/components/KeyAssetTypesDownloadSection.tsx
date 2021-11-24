@@ -12,10 +12,6 @@ import { Data as DocumentData } from "./Document";
 
 import styles from "./styles/KeyAssetTypesDownloadSection.module.scss";
 
-export type SpecificAsset = {
-  keyAssetTypes: string[];
-};
-
 export type Data =
   | PIMDocumentData
   | DocumentData
