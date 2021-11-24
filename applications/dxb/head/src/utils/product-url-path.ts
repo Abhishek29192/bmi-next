@@ -27,7 +27,6 @@ export const generateUrl = (urlParts: string[]) => {
     )
     .join("-")
     .replace(/\s+/g, "-")
-    .replace(/_+/g, "-")
     .replace(/--+/g, "-")
     .toLowerCase();
 };
