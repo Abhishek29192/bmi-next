@@ -121,7 +121,7 @@ release_intouch_migration_to_cloudrun_bmi:
     - docker push eu.gcr.io/$BMI_PROJECT/db-migrations:latest
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/db-migrations:latest --region=europe-west3 --platform=managed
 
-migrate_training_db:
+migrate_training_db_bmi:
   stage: migration
   image: google/cloud-sdk
   needs:
@@ -163,8 +163,56 @@ migrate_training_db:
         BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
         DB_MIGRATION_SERVICE_URL: "$GCP_BMI_INTOUCH_PROD_MIGRATION_URL"
   script:
-    - echo "https://$DB_MIGRATION_SERVICE_URL/migrate-training-db?migrate=true&direction=up"
+    - echo "$DB_MIGRATION_SERVICE_URL/migrate-training-db?migrate=true&direction=up"
     - echo $BMI_KEY > gcloud-service-key.json # Promoted Google Cloud service accounts to pull image
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
     - 'curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" "$DB_MIGRATION_SERVICE_URL/migrate-training-db?migrate=true&direction=up"'
+
+migrate_companies_db_bmi:
+  stage: migration
+  image: google/cloud-sdk
+  needs:
+    - job: deploy_intouch_migration_to_cloudrun_bmi
+      optional: true
+    - job: release_intouch_migration_to_cloudrun_bmi
+      optional: true
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/roles-update'"
+      when: manual
+      # changes:
+      #   - applications/intouch/api/db-migrations/migration-companies/**/*
+      variables:
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
+        DB_MIGRATION_SERVICE_URL: "$GCP_BMI_INTOUCH_DEV_MIGRATION_URL"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
+      when: manual
+      changes:
+        - applications/intouch/api/db-migrations/migration-companies/**/*
+      variables:
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+        DB_MIGRATION_SERVICE_URL: "$GCP_BMI_INTOUCH_QA_MIGRATION_URL"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      when: manual
+      changes:
+        - applications/intouch/api/db-migrations/migration-companies/**/*
+      variables:
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+        DB_MIGRATION_SERVICE_URL: "$GCP_BMI_INTOUCH_PREPROD_MIGRATION_URL"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      when: manual
+      changes:
+        - applications/intouch/api/db-migrations/migration-companies/**/*
+      variables:
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
+        DB_MIGRATION_SERVICE_URL: "$GCP_BMI_INTOUCH_PROD_MIGRATION_URL"
+  script:
+    - echo "$DB_MIGRATION_SERVICE_URL/migrate-companies-db?migrate=true&direction=up"
+    - echo $BMI_KEY > gcloud-service-key.json # Promoted Google Cloud service accounts to pull image
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $BMI_PROJECT
+    - 'curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" "$DB_MIGRATION_SERVICE_URL/migrate-companies-db?migrate=true&direction=up"'

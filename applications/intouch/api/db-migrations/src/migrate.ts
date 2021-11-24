@@ -71,9 +71,9 @@ const migrate = async (context) => {
 
   try {
     if (query.direction === "up") {
-      result = await dbmigrate.up();
+      await dbmigrate.up();
     } else {
-      result = await dbmigrate.down();
+      await dbmigrate.down();
     }
   } catch (error) {
     // eslint-disable-next-line
