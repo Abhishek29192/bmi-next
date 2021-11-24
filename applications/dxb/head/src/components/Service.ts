@@ -8,7 +8,15 @@ export enum RooferTypesEnum {
   FLAT_ROOF = "Flat roof",
   PITCHED_ROOF_BITUMEN_ROOFS = "Pitched roof - Bitumen roofs",
   PITCHED_ROOF_TILE_ROOFS = "Pitched roof - Tile roofs",
-  PITCHED_ROOF_ROOF_COATERS = "Pitched roof - Roof coaters"
+  PITCHED_ROOF_ROOF_COATERS = "Pitched roof - Roof coaters",
+  FLACHDACHSYSTEME = "Flachdachsysteme",
+  STEILDACHSYSTEME = "Steildachsysteme",
+  BAUWERKSABDICHTUNG = "Bauwerksabdichtung",
+  VERKEHRSBAUWERKE = "Verkehrsbauwerke",
+  VERARBEITER = "Verarbeiter",
+  TOPDACH_PARTNER = "TopDach Partner",
+  DACHDECKER_7 = "7° Dachdecker",
+  HANDLER = "Händler"
 }
 
 export const rooferTypes = [
@@ -17,7 +25,15 @@ export const rooferTypes = [
   RooferTypesEnum.PITCHED_ROOF_BITUMEN_ROOFS,
   RooferTypesEnum.PITCHED_ROOF_TILE_ROOFS,
   RooferTypesEnum.PITCHED_ROOF_ROOF_COATERS,
-  RooferTypesEnum.PITCHED_ROOF_ROOF_COATERS
+  RooferTypesEnum.PITCHED_ROOF_ROOF_COATERS,
+  RooferTypesEnum.FLACHDACHSYSTEME,
+  RooferTypesEnum.STEILDACHSYSTEME,
+  RooferTypesEnum.BAUWERKSABDICHTUNG,
+  RooferTypesEnum.VERKEHRSBAUWERKE,
+  RooferTypesEnum.VERARBEITER,
+  RooferTypesEnum.TOPDACH_PARTNER,
+  RooferTypesEnum.DACHDECKER_7,
+  RooferTypesEnum.HANDLER
 ];
 
 export enum BranchTypesEnum {
@@ -39,15 +55,7 @@ export enum MerchantTypesEnum {
   BMI_ICOPAL_FLAT_ROOF_SYSTEMS = "BMI Icopal Flat roof Systems",
   DEPOTS_DE_PROXIMITE_SIPLAST = "Dépôts de proximité Siplast",
   DISTRIBUTEURS_SIPLAST = "Distributeurs Siplast",
-  DISTRIBUTEURS_MONIER = "Distributeurs Monier",
-  FLACHDACHSYSTEME = "Flachdachsysteme",
-  STEILDACHSYSTEME = "Steildachsysteme",
-  BAUWERKSABDICHTUNG = "Bauwerksabdichtung",
-  VERKEHRSBAUWERKE = "Verkehrsbauwerke",
-  VERARBEITER = "Verarbeiter",
-  TOPDACH_PARTNER = "TopDach Partner",
-  DACHDECKER_7 = "7° Dachdecker",
-  HANDLER = "Händler"
+  DISTRIBUTEURS_MONIER = "Distributeurs Monier"
 }
 
 export const merchantTypes = [
@@ -56,15 +64,7 @@ export const merchantTypes = [
   MerchantTypesEnum.DEPOTS_DE_PROXIMITE_SIPLAST,
   MerchantTypesEnum.DISTRIBUTEURS_SIPLAST,
   MerchantTypesEnum.DISTRIBUTEURS_MONIER,
-  MerchantTypesEnum.DISTRIBUTEURS_MONIER,
-  MerchantTypesEnum.FLACHDACHSYSTEME,
-  MerchantTypesEnum.STEILDACHSYSTEME,
-  MerchantTypesEnum.BAUWERKSABDICHTUNG,
-  MerchantTypesEnum.VERKEHRSBAUWERKE,
-  MerchantTypesEnum.VERARBEITER,
-  MerchantTypesEnum.TOPDACH_PARTNER,
-  MerchantTypesEnum.DACHDECKER_7,
-  MerchantTypesEnum.HANDLER
+  MerchantTypesEnum.DISTRIBUTEURS_MONIER
 ];
 
 export enum EntryTypeEnum {
