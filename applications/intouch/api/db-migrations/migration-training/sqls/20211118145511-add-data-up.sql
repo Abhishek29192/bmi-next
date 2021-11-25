@@ -1,5 +1,3 @@
-TRUNCATE TABLE course RESTART IDENTITY;
-
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
   VALUES ('1', 123, 'slug-1', 'PITCHED', 'Flexbox roofing methodology', 'https://picsum.photos/274/206', TRUE, 'classroom', 'Learn about the Echo roofing methodology in our fantastic Swindon training centre supported by Advanced empowering workforce techniques');
 
@@ -27,8 +25,6 @@ INSERT INTO course (id, course_id, slug, technology, name, image, promoted, trai
 INSERT INTO course (id, course_id, slug, technology, name, image, promoted, training_type, description)
   VALUES ('9', 131, 'slug-9', 'OTHER', 'Passat roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Passat roofing methodology in our fantastic Swindon training centre supported by Digitized intermediate benchmark techniques');
 
-TRUNCATE TABLE course_temp RESTART IDENTITY;
-
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
   VALUES ('1', 123, 'slug-1', 'PITCHED', 'Flexbox roofing methodology', 'https://picsum.photos/274/206', TRUE, 'classroom', 'Learn about the Echo roofing methodology in our fantastic Swindon training centre supported by Advanced empowering workforce techniques');
 
@@ -55,25 +51,15 @@ INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted,
 
 INSERT INTO course_temp (id, course_id, slug, technology, name, image, promoted, training_type, description)
   VALUES ('9', 131, 'slug-9', 'OTHER', 'Passat roofing methodology', 'https://picsum.photos/274/206', FALSE, 'elearning', 'Learn about the Passat roofing methodology in our fantastic Swindon training centre supported by Digitized intermediate benchmark techniques');
-
-TRUNCATE TABLE course_catalogue RESTART IDENTITY;
 
 INSERT INTO course_catalogue (id, catalogue_id, course_id)
   VALUES ('1', 345, 123);
 
-TRUNCATE TABLE course_catalogue_temp RESTART IDENTITY;
-
 INSERT INTO course_catalogue_temp (id, catalogue_id, course_id)
   VALUES ('1', 987, 123);
 
-TRUNCATE TABLE course_enrollment RESTART IDENTITY;
-
 INSERT INTO course_enrollment (id, user_id, course_id, status, url)
   VALUES ('1', 987, 123, 'enrolled', 'url');
-
-TRUNCATE TABLE course_enrollment_temp RESTART IDENTITY;
-
-TRUNCATE TABLE course_sync_configuration RESTART IDENTITY;
 
 INSERT INTO course_sync_configuration (id, config_name, config_value)
   VALUES ('1', 'last_update_date', '1578492981760');

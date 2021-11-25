@@ -1,12 +1,8 @@
-DROP TYPE IF EXISTS account_status CASCADE;
-
 CREATE TYPE account_status AS ENUM (
   'NEW',
   'ACTIVE',
   'SUSPENDED'
 );
-
-DROP TYPE IF EXISTS business_type CASCADE;
 
 CREATE TYPE business_type AS ENUM (
   'CONTRACTOR',
@@ -15,15 +11,11 @@ CREATE TYPE business_type AS ENUM (
   'CORP_DEVELOPER'
 );
 
-DROP TYPE IF EXISTS company_status CASCADE;
-
 CREATE TYPE company_status AS ENUM (
   'NEW',
   'ACTIVE',
   'DEACTIVATED'
 );
-
-DROP TYPE IF EXISTS custom_evidence_category_key CASCADE;
 
 CREATE TYPE custom_evidence_category_key AS ENUM (
   'PITCHED_DETAILS',
@@ -53,23 +45,17 @@ CREATE TYPE custom_evidence_category_key AS ENUM (
   'MISC_4'
 );
 
-DROP TYPE IF EXISTS evidence_category_type CASCADE;
-
 CREATE TYPE evidence_category_type AS ENUM (
   'PROOF_OF_PURCHASE',
   'MISCELLANEOUS',
   'CUSTOM'
 );
 
-DROP TYPE IF EXISTS guarantee_coverage CASCADE;
-
 CREATE TYPE guarantee_coverage AS ENUM (
   'PRODUCT',
   'SYSTEM',
   'SOLUTION'
 );
-
-DROP TYPE IF EXISTS guarantee_reference_code CASCADE;
 
 CREATE TYPE guarantee_reference_code AS ENUM (
   'FLAT_PRODUCT',
@@ -80,15 +66,11 @@ CREATE TYPE guarantee_reference_code AS ENUM (
   'PITCHED_SOLUTION'
 );
 
-DROP TYPE IF EXISTS invitation_status CASCADE;
-
 CREATE TYPE invitation_status AS ENUM (
   'NEW',
   'ACCEPTED',
   'CANCELLED'
 );
-
-DROP TYPE IF EXISTS LANGUAGE CASCADE;
 
 CREATE TYPE
 LANGUAGE AS
@@ -108,15 +90,11 @@ ENUM (
   'it'
 );
 
-DROP TYPE IF EXISTS message_format CASCADE;
-
 CREATE TYPE message_format AS ENUM (
   'EMAIL',
   'NOTIFICATION',
   'ALL'
 );
-
-DROP TYPE IF EXISTS operation CASCADE;
 
 CREATE TYPE operation AS ENUM (
   'FLAT',
@@ -128,8 +106,6 @@ CREATE TYPE operation AS ENUM (
   'GREEN'
 );
 
-DROP TYPE IF EXISTS request_status CASCADE;
-
 CREATE TYPE request_status AS ENUM (
   'NEW',
   'SUBMITTED',
@@ -138,8 +114,6 @@ CREATE TYPE request_status AS ENUM (
   'APPROVED'
 );
 
-DROP TYPE IF EXISTS ROLE CASCADE;
-
 CREATE TYPE ROLE AS ENUM (
   'SUPER_ADMIN',
   'MARKET_ADMIN',
@@ -147,15 +121,11 @@ CREATE TYPE ROLE AS ENUM (
   'COMPANY_ADMIN'
 );
 
-DROP TYPE IF EXISTS technology CASCADE;
-
 CREATE TYPE technology AS ENUM (
   'FLAT',
   'PITCHED',
   'OTHER'
 );
-
-DROP TYPE IF EXISTS tier CASCADE;
 
 CREATE TYPE tier AS ENUM (
   'T1',
@@ -163,8 +133,6 @@ CREATE TYPE tier AS ENUM (
   'T3',
   'T4'
 );
-
-DROP TABLE IF EXISTS account CASCADE;
 
 CREATE TABLE account (
   id serial PRIMARY KEY,
@@ -185,8 +153,6 @@ CREATE TABLE account (
   updated_at timestamp NOT NULL DEFAULT now()
 );
 
-DROP TABLE IF EXISTS address CASCADE;
-
 CREATE TABLE address (
   id serial PRIMARY KEY,
   first_line text,
@@ -201,8 +167,6 @@ CREATE TABLE address (
   updated_at timestamp NOT NULL DEFAULT now()
 );
 
-DROP TABLE IF EXISTS certification CASCADE;
-
 CREATE TABLE certification (
   id serial PRIMARY KEY,
   docebo_user_id int,
@@ -212,8 +176,6 @@ CREATE TABLE certification (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS company CASCADE;
 
 CREATE TABLE company (
   id serial PRIMARY KEY,
@@ -248,8 +210,6 @@ CREATE TABLE company (
 ALTER SEQUENCE company_reference_number_seq
   RESTART WITH 1000000;
 
-DROP TABLE IF EXISTS company_document CASCADE;
-
 CREATE TABLE company_document (
   id serial PRIMARY KEY,
   company_id int,
@@ -257,8 +217,6 @@ CREATE TABLE company_document (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS company_member CASCADE;
 
 CREATE TABLE company_member (
   id serial PRIMARY KEY,
@@ -269,8 +227,6 @@ CREATE TABLE company_member (
   updated_at timestamp NOT NULL DEFAULT now()
 );
 
-DROP TABLE IF EXISTS company_operation CASCADE;
-
 CREATE TABLE company_operation (
   id serial PRIMARY KEY,
   company int NOT NULL,
@@ -278,8 +234,6 @@ CREATE TABLE company_operation (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS evidence_item CASCADE;
 
 CREATE TABLE evidence_item (
   id serial PRIMARY KEY,
@@ -292,8 +246,6 @@ CREATE TABLE evidence_item (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS guarantee CASCADE;
 
 CREATE TABLE guarantee (
   id serial PRIMARY KEY,
@@ -315,8 +267,6 @@ CREATE TABLE guarantee (
   updated_at timestamp NOT NULL DEFAULT now()
 );
 
-DROP TABLE IF EXISTS invitation CASCADE;
-
 CREATE TABLE invitation (
   id serial PRIMARY KEY,
   sender_account_id int,
@@ -327,8 +277,6 @@ CREATE TABLE invitation (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS market CASCADE;
 
 CREATE TABLE market (
   id serial PRIMARY KEY,
@@ -352,8 +300,6 @@ CREATE TABLE market (
   updated_at timestamp NOT NULL DEFAULT now()
 );
 
-DROP TABLE IF EXISTS note CASCADE;
-
 CREATE TABLE note (
   id serial PRIMARY KEY,
   author_id int,
@@ -362,8 +308,6 @@ CREATE TABLE note (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS notification CASCADE;
 
 CREATE TABLE notification (
   id serial PRIMARY KEY,
@@ -374,8 +318,6 @@ CREATE TABLE notification (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS product CASCADE;
 
 CREATE TABLE product (
   id serial PRIMARY KEY,
@@ -391,8 +333,6 @@ CREATE TABLE product (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS project CASCADE;
 
 CREATE TABLE project (
   id serial PRIMARY KEY,
@@ -414,8 +354,6 @@ CREATE TABLE project (
   updated_at timestamp NOT NULL DEFAULT now()
 );
 
-DROP TABLE IF EXISTS project_member CASCADE;
-
 CREATE TABLE project_member (
   id serial PRIMARY KEY,
   project_id int NOT NULL,
@@ -424,8 +362,6 @@ CREATE TABLE project_member (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS SYSTEM CASCADE;
 
 CREATE TABLE SYSTEM (
   id serial PRIMARY KEY,
@@ -439,8 +375,6 @@ CREATE TABLE SYSTEM (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS system_member CASCADE;
 
 CREATE TABLE system_member (
   id serial PRIMARY KEY,

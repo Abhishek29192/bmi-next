@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS course CASCADE;
-
 CREATE TABLE course (
   id serial PRIMARY KEY,
   course_id int,
@@ -13,8 +11,6 @@ CREATE TABLE course (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS course_temp CASCADE;
 
 CREATE TABLE course_temp (
   id serial PRIMARY KEY,
@@ -30,8 +26,6 @@ CREATE TABLE course_temp (
   updated_at timestamp NOT NULL DEFAULT now()
 );
 
-DROP TABLE IF EXISTS course_catalogue CASCADE;
-
 CREATE TABLE course_catalogue (
   id serial PRIMARY KEY,
   catalogue_id int,
@@ -40,8 +34,6 @@ CREATE TABLE course_catalogue (
   updated_at timestamp NOT NULL DEFAULT now()
 );
 
-DROP TABLE IF EXISTS course_catalogue_temp CASCADE;
-
 CREATE TABLE course_catalogue_temp (
   id serial PRIMARY KEY,
   catalogue_id int,
@@ -49,8 +41,6 @@ CREATE TABLE course_catalogue_temp (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS course_enrollment CASCADE;
 
 CREATE TABLE course_enrollment (
   id serial PRIMARY KEY,
@@ -62,8 +52,6 @@ CREATE TABLE course_enrollment (
   updated_at timestamp NOT NULL DEFAULT now()
 );
 
-DROP TABLE IF EXISTS course_enrollment_temp CASCADE;
-
 CREATE TABLE course_enrollment_temp (
   id serial PRIMARY KEY,
   user_id int,
@@ -73,8 +61,6 @@ CREATE TABLE course_enrollment_temp (
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
-
-DROP TABLE IF EXISTS course_sync_configuration CASCADE;
 
 CREATE TABLE course_sync_configuration (
   id serial PRIMARY KEY,

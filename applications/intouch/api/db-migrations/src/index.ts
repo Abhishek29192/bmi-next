@@ -1,15 +1,21 @@
-"use strict";
+import { config } from "dotenv";
+import express from "express";
 
-const dotenv = require("dotenv");
+config();
 
-dotenv.config();
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
-const express = require("express");
-const { SecretManagerServiceClient } = require("@google-cloud/secret-manager");
-const { importCompanyDb } = require("./service/company");
-const { importTrainingDb } = require("./service/training");
+import migrate from "./migrate";
 
-const PORT = process.env.PORT || 4001;
+const {
+  PG_USER,
+  PG_PORT,
+  PG_SCHEMA,
+  PG_SSL_HOST,
+  PG_TRAINING_DATABASE,
+  PG_COMPANIES_DATABASE,
+  PORT = 4001
+} = process.env;
 
 const getSecret = async (client, key) => {
   const secret = await client.accessSecretVersion({
@@ -21,15 +27,13 @@ const getSecret = async (client, key) => {
 
 async function main() {
   const client = new SecretManagerServiceClient();
+  const PG_COMPANIES_HOST = await getSecret(client, "COMPANIES_DB_HOST");
+  const PG_TRAINING_HOST = await getSecret(client, "TRAINING_DB_HOST");
+  const PG_TRAINING_PASSWORD = await getSecret(client, "TRAINING_DB_PASSWORD");
   const PG_COMPANIES_PASSWORD = await getSecret(
     client,
     "COMPANIES_DB_PASSWORD"
   );
-  const PG_COMPANIES_HOST = await getSecret(client, "COMPANIES_DB_HOST");
-
-  const PG_TRAINING_HOST = await getSecret(client, "TRAINING_DB_HOST");
-  const PG_TRAINING_PASSWORD = await getSecret(client, "TRAINING_DB_PASSWORD");
-
   const PG_SSL_CLIENT_KEY = await getSecret(client, "PG_SSL_CLIENT_KEY");
   const PG_SSL_CLIENT_CERT = await getSecret(client, "PG_SSL_CLIENT_CERT");
   const PG_SSL_SERVER_CA = await getSecret(client, "PG_SSL_SERVER_CA");
@@ -52,23 +56,26 @@ async function main() {
     });
   });
 
-  app.get("/migrate-companies", async (req, res) => {
-    const { query } = req;
+  app.get("/migrate-companies-db", async (req, res) => {
     try {
-      await importCompanyDb(
-        {
-          password: PG_COMPANIES_PASSWORD,
-          host: PG_COMPANIES_HOST,
-          client_key: PG_SSL_CLIENT_KEY,
-          client_cert: PG_SSL_CLIENT_CERT,
-          server_ca: PG_SSL_SERVER_CA
+      const result = await migrate({
+        folder: "migration-companies",
+        host: PG_COMPANIES_HOST,
+        password: PG_COMPANIES_PASSWORD,
+        database: PG_COMPANIES_DATABASE,
+        user: PG_USER,
+        port: PG_PORT,
+        schema: PG_SCHEMA,
+        ssl: {
+          ssl_client_key: PG_SSL_CLIENT_KEY,
+          ssl_client_cert: PG_SSL_CLIENT_CERT,
+          ssl_server_ca: PG_SSL_SERVER_CA,
+          ssl_host: PG_SSL_HOST
         },
-        query
-      );
-
-      return res.send({
-        status: "Imported"
+        req
       });
+
+      return res.send(result);
     } catch (error) {
       return res.send({
         status: "Not Imported",
@@ -76,23 +83,27 @@ async function main() {
       });
     }
   });
-  app.get("/migrate-training", async (req, res) => {
-    const { query } = req;
-    try {
-      await importTrainingDb(
-        {
-          password: PG_TRAINING_PASSWORD,
-          host: PG_TRAINING_HOST,
-          client_key: PG_SSL_CLIENT_KEY,
-          client_cert: PG_SSL_CLIENT_CERT,
-          server_ca: PG_SSL_SERVER_CA
-        },
-        query
-      );
 
-      return res.send({
-        status: "Imported"
+  app.get("/migrate-training-db", async (req, res) => {
+    try {
+      const result = await migrate({
+        folder: "migration-training",
+        host: PG_TRAINING_HOST,
+        password: PG_TRAINING_PASSWORD,
+        database: PG_TRAINING_DATABASE,
+        user: PG_USER,
+        port: PG_PORT,
+        schema: PG_SCHEMA,
+        ssl: {
+          ssl_client_key: PG_SSL_CLIENT_KEY,
+          ssl_client_cert: PG_SSL_CLIENT_CERT,
+          ssl_server_ca: PG_SSL_SERVER_CA,
+          ssl_host: PG_SSL_HOST
+        },
+        req
       });
+
+      return res.send(result);
     } catch (error) {
       return res.send({
         status: "Not Imported",
