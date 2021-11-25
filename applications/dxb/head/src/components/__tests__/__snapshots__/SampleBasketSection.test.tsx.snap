@@ -409,7 +409,7 @@ exports[`SampleBasketSection remove sample from basket when all samples are remo
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-69 MuiButton-outlined MuiButton-outlinedPrimary"
-          data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/zanda-brand/torvtak/\\",\\"label\\":\\"torvtak\\"}"
+          data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/zanda-brand/torvtak/\\",\\"label\\":\\"browse all products\\"}"
           href="/no/zanda-brand/torvtak/"
           role="button"
           tabindex="0"
