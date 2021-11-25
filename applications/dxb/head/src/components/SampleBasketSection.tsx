@@ -106,9 +106,9 @@ const SampleBasketSection = ({
   });
 
   const basketCta =
+    browseProductsCTALabel &&
     browseProductsCTA &&
-    getCTA(browseProductsCTA, countryCode, browseProductsCTA.title);
-
+    getCTA(browseProductsCTA, countryCode, browseProductsCTALabel);
   return (
     <>
       <Section
@@ -170,7 +170,12 @@ export const query = graphql`
     }
     browseProductsCTALabel
     browseProductsCTA {
-      ...PageInfoFragment
+      ... on ContentfulHomePage {
+        path
+      }
+      ... on ContentfulPage {
+        path
+      }
     }
   }
 `;
