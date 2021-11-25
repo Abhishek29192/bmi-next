@@ -10,7 +10,8 @@ import { local } from "../utils/storage";
 //action type
 export enum ACTION_TYPES {
   BASKET_ADD,
-  BASKET_REMOVE
+  BASKET_REMOVE,
+  BASKET_CLEAR
 }
 
 export interface Sample {
@@ -42,7 +43,7 @@ export const createSample = (
 
 export interface BasketAction {
   type: ACTION_TYPES;
-  payload: Sample;
+  payload?: Sample;
 }
 
 export interface IBasketState {
@@ -76,6 +77,9 @@ export const basketReducer = (
           (product) => product.code !== payload.code
         )
       };
+
+    case ACTION_TYPES.BASKET_CLEAR:
+      return initialBasketState;
 
     default:
       return state;
