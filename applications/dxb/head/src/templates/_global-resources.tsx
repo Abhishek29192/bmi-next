@@ -59,7 +59,8 @@ const GlobalResources = ({ data, pageContext }: Data) => {
           }
         ],
         inputBanner: null,
-        seo: null
+        seo: null,
+        path: null
       }}
       siteData={siteData}
     >

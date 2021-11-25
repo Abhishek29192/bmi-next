@@ -117,7 +117,8 @@ const siteData: SiteData = {
 const pageData: Data = {
   breadcrumbs: null,
   inputBanner: null,
-  seo: null
+  seo: null,
+  path: "page/"
 };
 
 describe("Page component", () => {
