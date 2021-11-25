@@ -6,11 +6,13 @@ import Section from "@bmi/section";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import {
+  ACTION_TYPES,
   SampleOrderElement,
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import { extractFeatureValuesByClassification } from "../utils/product-url-path";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
+import { getPathWithCountryCode } from "../utils/path";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
@@ -59,16 +61,17 @@ const SampleBasketSection = ({
 }) => {
   const [isCompleteFormShow, setCompleteFormShow] = useState(false);
   const [hasSamplesInTheBasket, setHasSamplesInTheBasket] = useState(false);
-
-  const handleCompleteClick = () => setCompleteFormShow(true);
+  const { basketState, basketDispatch } = useBasketContext();
 
   const { getMicroCopy, countryCode } = useSiteContext();
-
-  const { basketState } = useBasketContext();
 
   useEffect(() => {
     setHasSamplesInTheBasket(basketState && basketState.products.length > 0);
   }, [basketState]);
+
+  const handleCompleteClick = () => setCompleteFormShow(true);
+  const handleSuccess = () =>
+    basketDispatch({ type: ACTION_TYPES.BASKET_CLEAR });
 
   let actionLabels = [];
   const samples: SampleOrderElement[] = basketState.products.map((sample) => {
@@ -93,16 +96,19 @@ const SampleBasketSection = ({
     return {
       id: sample.code,
       title: sample.name,
-      url: sample.path,
+      url: `${window.location.origin}${getPathWithCountryCode(
+        countryCode,
+        sample.path
+      )}`,
       color,
       texture
     };
   });
 
   const basketCta =
+    browseProductsCTALabel &&
     browseProductsCTA &&
-    getCTA(browseProductsCTA, countryCode, browseProductsCTA.title);
-
+    getCTA(browseProductsCTA, countryCode, browseProductsCTALabel);
   return (
     <>
       <Section
@@ -135,12 +141,13 @@ const SampleBasketSection = ({
           <FormSection
             data={checkoutFormSection}
             backgroundColor="pearl"
-            additionalValues={{ samples }}
+            additionalValues={{ samples: JSON.stringify(samples, null, "\t") }}
             isSubmitDisabled={samples.length === 0}
             gtmOverride={{
               label: "samples ordering basket form submitted",
               action: actionLabels.join(", ")
             }}
+            onSuccess={handleSuccess}
           />
         </Section>
       )}
@@ -163,7 +170,12 @@ export const query = graphql`
     }
     browseProductsCTALabel
     browseProductsCTA {
-      ...PageInfoFragment
+      ... on ContentfulHomePage {
+        path
+      }
+      ... on ContentfulPage {
+        path
+      }
     }
   }
 `;

@@ -1,0 +1,29 @@
+{
+  "test:companies": {
+    "driver": "pg",
+    "user": { "ENV": "PG_USER" },
+    "password": { "ENV": "PG_PASSWORD" },
+    "host": "postgres",
+    "database": { "ENV": "PG_DATABASE" },
+    "port": "5432",
+    "schema": "public"
+  },
+  "local:companies": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "postgres",
+    "host": "localhost",
+    "database": "companies-db",
+    "port": "5432",
+    "schema": "public"
+  },
+  "local:training": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "postgres",
+    "host": "localhost",
+    "database": "training-db",
+    "port": "5432",
+    "schema": "public"
+  }
+}

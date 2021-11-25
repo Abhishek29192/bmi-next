@@ -73,10 +73,10 @@
         "name": "Registrert navn",
         "registeredAddress": {
           "firstLine": "Adresse linje 1",
-          "secondLine": "Adresse linje 2",
+          "secondLine": "Adresse linje 2 (valgfri)",
           "town": "By",
           "postcode": "Postnummer/ Sted",
-          "region": "Område",
+          "region": "Område (valgfri)",
           "country": "Land",
           "coordinates": {
             "x": "Breddegrad",
@@ -85,19 +85,19 @@
         },
         "tradingAddress": {
           "autocomplete": "Postnummer, by eller gate",
-          "firstLine": "Adresse linje 1",
-          "secondLine": "Adresse linje 2",
-          "town": "By",
-          "postcode": "Postnummer/ Sted",
-          "region": "Område",
-          "country": "Land",
+          "firstLine": "Adresse linje 1 (valgfri)",
+          "secondLine": "Adresse linje 2 (valgfri)",
+          "town": "By (valgfri)",
+          "postcode": "Postnummer/ Sted (valgfri)",
+          "region": "Område (valgfri)",
+          "country": "Land (valgfri)",
           "coordinates": {
             "x": "Breddegrad",
             "y": "Lengdegrad"
           }
         },
         "logo": {
-          "label": "Logo",
+          "label": "Logo (valgfri)",
           "alt_text": "Firma logo",
           "buttons": {
             "upload": "Last opp nytt bilde",

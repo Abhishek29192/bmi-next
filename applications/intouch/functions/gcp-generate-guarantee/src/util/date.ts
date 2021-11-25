@@ -14,7 +14,8 @@ const locales: {
   FR: "fr-FR",
   PL: "pl-PL",
   ES: "es-ES",
-  FI: "fi-FI"
+  FI: "fi-FI",
+  IT: "it-IT"
 };
 
 export const formatDateByLanguage = (date, language: Language) => {

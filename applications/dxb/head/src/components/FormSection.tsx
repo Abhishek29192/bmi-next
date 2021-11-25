@@ -22,7 +22,6 @@ import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { SampleOrderElement } from "../contexts/SampleBasketContext";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 // TODO: FormInputs should be updated and used here.
 import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
@@ -288,14 +287,16 @@ const FormSection = ({
   backgroundColor,
   additionalValues,
   isSubmitDisabled,
-  gtmOverride
+  gtmOverride,
+  onSuccess
 }: {
   id?: string;
   data: Data;
   backgroundColor: "pearl" | "white";
-  additionalValues?: Record<string, SampleOrderElement[]>;
+  additionalValues?: Record<string, string>;
   isSubmitDisabled?: boolean;
   gtmOverride?: Partial<GTM>;
+  onSuccess?: () => void;
 }) => {
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -348,6 +349,7 @@ const FormSection = ({
       );
 
       setIsSubmitting(false);
+      onSuccess();
       if (successRedirect) {
         navigate(
           successRedirect.url ||

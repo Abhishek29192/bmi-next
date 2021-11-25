@@ -101,13 +101,28 @@ export const transformImages = (images) => {
   }));
 };
 
+export const groupImage = (
+  arr: Image[] = [],
+  criteria: string
+): { [key: string]: Image[] } => {
+  return arr.reduce((acc: { [key: string]: Image[] }, currentValue: Image) => {
+    if (!acc[currentValue[criteria]]) {
+      acc[currentValue[criteria]] = [];
+    }
+    acc[currentValue[criteria]].push(currentValue);
+    return acc;
+  }, {});
+};
+
 // typed this function as this is using all the same type and data in both
 // system details page and also in product details page et.
 //TODO: potentially change the type name to be more generic (SystemProductImageType => ProductImageType)
 export const mapGalleryImages = (
   images: readonly Image[]
 ): GalleryImageType[] => {
-  const imagesByFormat = Object.values(groupBy(images, "containerId"));
+  const imagesByFormat: Image[][] = Object.values(
+    groupImage([...(images || [])], "containerId")
+  );
   const masterImageSet = imagesByFormat.filter(
     // NOTE: Only use one MASTER_IMAGE between the main product and the variant.
     (_images, index, self) => {

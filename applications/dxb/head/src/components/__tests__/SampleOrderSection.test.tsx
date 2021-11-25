@@ -10,6 +10,7 @@ import {
 import { Data as PageInfoData } from "../PageInfo";
 import { SiteContextProvider } from "../Site";
 import { Product } from "../types/pim";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 afterEach(() => {
   cleanup();
@@ -39,17 +40,6 @@ const variant = {
   shortDescription: null
 };
 const variant2 = { ...variant, code: "variant2" };
-const getMockSiteContext = (
-  countryCode: string = "en",
-  nodeLocale: string = "en-GB"
-) => ({
-  countryCode: countryCode,
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: nodeLocale,
-  homePage: {
-    title: "Home page title"
-  }
-});
 
 const product: Product = {
   code: "product",

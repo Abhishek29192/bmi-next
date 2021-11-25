@@ -562,9 +562,7 @@ describe("Account", () => {
       try {
         await invite(null, args, contextMock, resolveInfo, auth0);
       } catch (error) {
-        expect(error.message).toEqual(
-          "The user is already a member of another company"
-        );
+        expect(error.message).toEqual("errorAlreadyMember");
       }
     });
 
@@ -729,6 +727,87 @@ describe("Account", () => {
       } catch (error) {
         expect(mockQuery.mock.calls).toMatchSnapshot();
       }
+    });
+
+    it("should not complete an invitation if invitee has not an invite", async () => {
+      const args = {
+        companyId: 1
+      };
+
+      contextMock = {
+        user: {
+          email: "email@email.com"
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger,
+        protocol: "https",
+        clientGateway: mockClientGateway
+      };
+
+      mockAuth0GetUserByEmail.mockImplementationOnce(() => ({
+        user_metadata: {
+          first_name: "Name",
+          last_name: "Name",
+          intouch_role: "installer"
+        }
+      }));
+
+      mockRootQuery
+        // invitation
+        .mockResolvedValueOnce({
+          rows: []
+        });
+
+      await expect(
+        completeInvitation(null, args, contextMock, resolveInfo, auth0, build)
+      ).rejects.toThrow("errorInvitationNotFound");
+    });
+
+    it("should not complete an invitation if invitee has a company", async () => {
+      const args = {
+        companyId: 1
+      };
+
+      contextMock = {
+        user: {
+          email: "email@email.com",
+          company: {
+            id: 1
+          }
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger,
+        protocol: "https",
+        clientGateway: mockClientGateway
+      };
+
+      mockAuth0GetUserByEmail.mockImplementationOnce(() => ({
+        user_metadata: {
+          first_name: "Name",
+          last_name: "Name",
+          intouch_role: "installer"
+        }
+      }));
+
+      mockRootQuery
+        // invitation
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              id: 1,
+              market_id: 1,
+              company_id: 1,
+              name: "company name",
+              tier: "T2"
+            }
+          ]
+        });
+
+      await expect(
+        completeInvitation(null, args, contextMock, resolveInfo, auth0, build)
+      ).rejects.toThrow("errorAlreadyMember");
     });
   });
 

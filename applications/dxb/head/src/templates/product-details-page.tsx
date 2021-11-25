@@ -18,7 +18,8 @@ import {
   getMergedClassifications,
   VariantCodeToPathMap,
   transformImages,
-  convertImageSetToMediaFormat
+  convertImageSetToMediaFormat,
+  groupImage
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
 import { getCTA } from "../components/Link";
@@ -155,16 +156,21 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     images: readonly Image[],
     selfProdImages: readonly Image[]
   ): Image[] => {
-    const techDrawings = [...(images || []), ...(selfProdImages || [])].filter(
-      (img: Image) => {
-        return img.assetType === ImageAssetTypesEnum.TECHNICAL_DRAWINGS;
-      }
+    const imagesByFormat: Image[][] = Object.values(
+      groupImage([...(images || []), ...(selfProdImages || [])], "containerId")
     );
+    const techDrawings: Image[][] = imagesByFormat.filter((images) => {
+      return images.some(
+        (image) =>
+          image.assetType === ImageAssetTypesEnum.TECHNICAL_DRAWINGS &&
+          !!image.format
+      );
+    });
 
     if (!techDrawings.length) {
       return [];
     }
-    return transformImages(convertImageSetToMediaFormat([techDrawings]));
+    return transformImages(convertImageSetToMediaFormat(techDrawings));
   };
 
   const classificationConfig = {

@@ -398,11 +398,11 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -2350,11 +2350,11 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -2736,11 +2736,11 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -6715,7 +6715,7 @@ export type DeleteMarketByDoceboCatalogueIdInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
@@ -10159,7 +10159,8 @@ export type Language =
   | "FR"
   | "PL"
   | "ES"
-  | "FI";
+  | "FI"
+  | "IT";
 
 /** All input for the `linkAccountToCompany` mutation. */
 export type LinkAccountToCompanyInput = {
@@ -10240,11 +10241,11 @@ export type Market = Node & {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -10622,11 +10623,11 @@ export type MarketInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -10650,13 +10651,13 @@ export type MarketInput = {
 
 /** The fields on `market` to look up the row to connect. */
 export type MarketMarketDoceboCatalogueIdKeyConnect = {
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
 /** The fields on `market` to look up the row to delete. */
 export type MarketMarketDoceboCatalogueIdKeyDelete = {
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
@@ -10709,7 +10710,7 @@ export type MarketOnAccountForAccountMarketIdFkeyUsingMarketDoceboCatalogueIdKey
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnAccountForAccountMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10742,7 +10743,7 @@ export type MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDoceboCatalogueIdKey
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10775,7 +10776,7 @@ export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDoceboCa
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10810,7 +10811,7 @@ export type MarketOnProductForProductMarketIdFkeyUsingMarketDoceboCatalogueIdKey
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnProductForProductMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10843,7 +10844,7 @@ export type MarketOnSystemForSystemMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUp
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnSystemForSystemMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10876,7 +10877,7 @@ export type MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCata
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10914,11 +10915,11 @@ export type MarketPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -13529,11 +13530,11 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -16409,11 +16410,11 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -16613,11 +16614,11 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -18626,7 +18627,7 @@ export type UpdateMarketByDoceboCatalogueIdInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** An object where the defined keys will be set on the `Market` being updated. */
   patch: MarketPatch;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
@@ -20752,11 +20753,11 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20794,11 +20795,11 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20836,11 +20837,11 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20878,11 +20879,11 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20920,11 +20921,11 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20962,11 +20963,11 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;

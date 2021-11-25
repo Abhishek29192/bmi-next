@@ -1,5 +1,4 @@
 
-TRUNCATE TABLE account RESTART IDENTITY;
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo,migration_id,migrated_to_auth0)
 VALUES ('1','ACTIVE',null,'SUPER_ADMIN','devs+1@digitaldetox.co.uk','1234567','Chris','Evans','2020-06-12 10:19:47',13999,'devs+1@digitaldetox.co.uk','https://media.spokesman.com/photos/2020/08/28/5f49c8a43a16d.hires.jpg',null,FALSE);
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo,migration_id,migrated_to_auth0)
@@ -28,7 +27,6 @@ INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,cr
 VALUES ('13','ACTIVE',1,'INSTALLER','devs+13@digitaldetox.co.uk','1234567','Alessandro','Del Piero','2020-06-12 10:19:47',13998,'devs+13@digitaldetox.co.uk','https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Alessandro_Del_Piero_in_2014.jpg',null,FALSE);
 
 
-TRUNCATE TABLE address RESTART IDENTITY;
 INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
 VALUES ('1','Blue Star House','234-244 Stockwell Road','Brixton','London','UK','SW9 9SP',null,null);
 INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
@@ -63,7 +61,6 @@ INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coord
 VALUES ('16','4 Oxford Street',null,'London','London','UK','W1B 5LP',null,null);
 
 
-TRUNCATE TABLE certification RESTART IDENTITY;
 INSERT INTO certification(id,docebo_user_id,technology,name,expiry_date)
 VALUES ('1',13988,'FLAT','Flat Roof Technology Certification (12 months) - demo only','2022-01-01 12:00:00');
 INSERT INTO certification(id,docebo_user_id,technology,name,expiry_date)
@@ -96,7 +93,6 @@ INSERT INTO certification(id,docebo_user_id,technology,name,expiry_date)
 VALUES ('15',13997,'PITCHED','BMI Flat Roof Technology Certification (12 months) demo only','2022-01-01 12:00:00');
 
 
-TRUNCATE TABLE company RESTART IDENTITY;
 INSERT INTO company(id,market_id,registered_address_id,trading_address_id,owner_fullname,owner_email,owner_phone,business_type,tier,status,registered_by,registered_date,name,tax_number,phone,about_us,public_email,website,facebook,linked_in,reference_number,logo,migration_id,trading_address_migration_id,registered_address_migration_id)
 VALUES ('1',1,1,4,'Don Cheadle','don@test.com','1232123','CONTRACTOR','T2','ACTIVE','twhorlton0@miibeian.gov.cn','2020-10-20 12:00:00','Integrated Solutions Inc - demo only','63323-463','8439854588','This is a test company. It is not real data.  It should never be confused with a real roofing company.',null,'https://sphinn.com','https://www.facebook.com/WhiteHouse/','https://www.linkedin.com/company/the-white-house','1000000','https://upload.wikimedia.org/wikipedia/commons/6/63/Integrated_Engineering_Solutions.png',null,null,null);
 INSERT INTO company(id,market_id,registered_address_id,trading_address_id,owner_fullname,owner_email,owner_phone,business_type,tier,status,registered_by,registered_date,name,tax_number,phone,about_us,public_email,website,facebook,linked_in,reference_number,logo,migration_id,trading_address_migration_id,registered_address_migration_id)
@@ -105,12 +101,10 @@ INSERT INTO company(id,market_id,registered_address_id,trading_address_id,owner_
 VALUES ('3',1,3,6,'Charlotte Church','charlotte@test.com','345345','CONTRACTOR','T3','DEACTIVATED','dhechlin2@amazon.com','2020-9-20 12:00:00','dXB Roofing PLC - demo only','49738-530',null,null,'liacovielli2@discovery.com','https://utexas.edu','https://www.facebook.com/Sony/','https://in.linkedin.com/company/sony','1000002','https://upload.wikimedia.org/wikipedia/commons/3/33/StubMetal.png',null,null,null);
 
 
-TRUNCATE TABLE company_document RESTART IDENTITY;
 INSERT INTO company_document(id,company_id,document)
 VALUES ('1',1,'http://www.africau.edu/images/default/sample.pdf');
 
 
-TRUNCATE TABLE company_member RESTART IDENTITY;
 INSERT INTO company_member(id,market_id,account_id,company_id)
 VALUES ('1',1,3,1);
 INSERT INTO company_member(id,market_id,account_id,company_id)
@@ -129,7 +123,6 @@ INSERT INTO company_member(id,market_id,account_id,company_id)
 VALUES ('8',1,10,3);
 
 
-TRUNCATE TABLE company_operation RESTART IDENTITY;
 INSERT INTO company_operation(id,company,operation)
 VALUES ('1',1,'PITCHED');
 INSERT INTO company_operation(id,company,operation)
@@ -144,7 +137,6 @@ INSERT INTO company_operation(id,company,operation)
 VALUES ('6',3,'SOLAR');
 
 
-TRUNCATE TABLE evidence_item RESTART IDENTITY;
 INSERT INTO evidence_item(id,custom_evidence_category_key,project_id,guarantee_id,evidence_category_type,name,attachment)
 VALUES ('1',null,1,1,'PROOF_OF_PURCHASE','stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg','https://image.shutterstock.com/z/stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg');
 INSERT INTO evidence_item(id,custom_evidence_category_key,project_id,guarantee_id,evidence_category_type,name,attachment)
@@ -177,25 +169,22 @@ INSERT INTO evidence_item(id,custom_evidence_category_key,project_id,guarantee_i
 VALUES ('15',null,2,null,'MISCELLANEOUS','1920px-02.Trinidad_%2859%29.JPG','https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/02.Trinidad_%2859%29.JPG/1920px-02.Trinidad_%2859%29.JPG');
 
 
-TRUNCATE TABLE guarantee RESTART IDENTITY;
 INSERT INTO guarantee(id,file_storage_id,requestor_account_id,project_id,guarantee_reference_code,system_bmi_ref,product_bmi_ref,reviewer_account_id,coverage,language_code,status,start_date,expiry_date,bmi_reference_id)
-VALUES ('1','http://www.africau.edu/images/default/sample.pdf',3,1,'PITCHED_PRODUCT',null,'BMI-NO-PROD-001',null,'PRODUCT','en','APPROVED','2021-04-20 12:00:00','2061-04-20 12:00:00','MOCK-1');
+VALUES ('1','http://www.africau.edu/images/default/sample.pdf',3,1,'PITCHED_PRODUCT',null,'TEST-PROD-1',null,'PRODUCT','en','APPROVED','2021-04-20 12:00:00','2061-04-20 12:00:00','MOCK-1');
 INSERT INTO guarantee(id,file_storage_id,requestor_account_id,project_id,guarantee_reference_code,system_bmi_ref,product_bmi_ref,reviewer_account_id,coverage,language_code,status,start_date,expiry_date,bmi_reference_id)
-VALUES ('2','http://www.africau.edu/images/default/sample.pdf',3,1,'PITCHED_PRODUCT',null,'BMI-NO-PROD-002',null,'PRODUCT','en','APPROVED','2021-04-20 12:00:00','2051-04-20 12:00:00','MOCK-2');
+VALUES ('2','http://www.africau.edu/images/default/sample.pdf',3,1,'PITCHED_PRODUCT',null,'TEST-PROD-2',null,'PRODUCT','en','APPROVED','2021-04-20 12:00:00','2051-04-20 12:00:00','MOCK-2');
 INSERT INTO guarantee(id,file_storage_id,requestor_account_id,project_id,guarantee_reference_code,system_bmi_ref,product_bmi_ref,reviewer_account_id,coverage,language_code,status,start_date,expiry_date,bmi_reference_id)
-VALUES ('3','http://www.africau.edu/images/default/sample.pdf',7,3,'FLAT_SOLUTION','BMI-NO-PC21-01',null,null,'SOLUTION','en','REJECTED',null,null,'MOCK-3');
+VALUES ('3','http://www.africau.edu/images/default/sample.pdf',7,3,'FLAT_SOLUTION','TEST-SYS-2',null,null,'SOLUTION','en','REJECTED',null,null,'MOCK-3');
 INSERT INTO guarantee(id,file_storage_id,requestor_account_id,project_id,guarantee_reference_code,system_bmi_ref,product_bmi_ref,reviewer_account_id,coverage,language_code,status,start_date,expiry_date,bmi_reference_id)
-VALUES ('4','http://www.africau.edu/images/default/sample.pdf',13,4,'FLAT_SOLUTION','BMI-NO-PC21-02',null,null,'SOLUTION','en','APPROVED','2020-12-29 12:00:00','2050-12-29 12:00:00','MOCK-4');
+VALUES ('4','http://www.africau.edu/images/default/sample.pdf',13,4,'FLAT_SOLUTION','TEST-SYS-2',null,null,'SOLUTION','en','APPROVED','2020-12-29 12:00:00','2050-12-29 12:00:00','MOCK-4');
 
 
-TRUNCATE TABLE invitation RESTART IDENTITY;
 INSERT INTO invitation(id,sender_account_id,company_id,status,invitee,personal_note)
 VALUES ('1',3,1,'NEW','devs+13@digitaldetox.co.uk','Hi Alex, come and join the team');
 INSERT INTO invitation(id,sender_account_id,company_id,status,invitee,personal_note)
 VALUES ('2',3,1,'NEW','devs+14@digitaldetox.co.uk','Hi, come and join the team');
 
 
-TRUNCATE TABLE market RESTART IDENTITY;
 INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
 VALUES ('1','en','en','opay6t6wwmup','Endor','BMI Intouch Mapleland','intouch@bmigroup.en','7','8',37,'https://italy.bmiroofpromerch.com/',TRUE,'UA-141761217-2','51.5014,-0.1419',200);
 INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle,location_bias_radius_km)
@@ -234,14 +223,12 @@ INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,d
 VALUES ('18','en','my','opay6t6wwmup','BMI InTouch Malaysia','BMI Malaysia','intouch.my@bmigroup.com','70','70',32,'https://www.bmigroup.com/',TRUE,'UA-141761217-17','3.1390,101.6869',200);
 
 
-TRUNCATE TABLE note RESTART IDENTITY;
 INSERT INTO note(id,author_id,project_id,body)
 VALUES ('1',2,4,'Good job Alex');
 INSERT INTO note(id,author_id,project_id,body)
 VALUES ('2',1,3,'Please use compaitble buffing material');
 
 
-TRUNCATE TABLE notification RESTART IDENTITY;
 INSERT INTO notification(id,account_id,send_date,read,body)
 VALUES ('1',3,'2021-08-17 23:20:11',TRUE,'On a the M6 near Birmingham');
 INSERT INTO notification(id,account_id,send_date,read,body)
@@ -258,52 +245,16 @@ INSERT INTO notification(id,account_id,send_date,read,body)
 VALUES ('7',3,'2021-05-17 21:20:11',TRUE,'Warm smell of Morleys chicken rising up through the air');
 
 
-TRUNCATE TABLE product RESTART IDENTITY;
 INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('1',1,'PITCHED','BMI-NO-PROD-001','Zanda','Zanda Vestland',null,'Betongtakstein',TRUE,30);
+VALUES ('1',1,'PITCHED','TEST-PROD-1','Panda Nordkapp','Pand Test Tile','This is test data','Earth',TRUE,30);
 INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('2',1,'PITCHED','BMI-NO-PROD-002','Zanda','Zanda Classic',null,'Betongtakstein',TRUE,30);
+VALUES ('2',1,'PITCHED','TEST-PROD-2','Panda Classic','Panda Test Slate','This is test data','Earth',TRUE,30);
 INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('3',1,'PITCHED','BMI-NO-PROD-003','Zanda','Zanda Protector',null,'Betongtakstein',TRUE,30);
+VALUES ('3',1,'FLAT','TEST-PROD-3','Panda Protector','Panda Test Protect','This is test data','Earth',TRUE,30);
 INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('4',1,'PITCHED','BMI-NO-PROD-004','Zanda','Zanda Arktis',null,'Betongtakstein',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('5',1,'PITCHED','BMI-NO-PROD-005','Zanda','Zanda Minster',null,'Betongtakstein',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('6',1,'PITCHED','BMI-NO-PROD-006','Zanda','Zanda Evo',null,'Betongtakstein',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('7',1,'PITCHED','BMI-NO-PROD-007','Monier','Turmalin',null,'Tegltakstein',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('8',1,'PITCHED','BMI-NO-PROD-008','Monier','KDN VH',null,'Tegltakstein',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('9',1,'PITCHED','BMI-NO-PROD-009','Monier','Hollander V',null,'Tegltakstein',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('10',1,'PITCHED','BMI-NO-PROD-010','Monier','Nortegl',null,'Tegltakstein',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('11',1,'PITCHED','BMI-NO-PROD-011','Monier','Nova',null,'Tegltakstein',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('12',1,'PITCHED','BMI-NO-PROD-012','AeroDek','AeroDek Tradition Plus',null,'Ståltakpanne',TRUE,40);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('13',1,'PITCHED','BMI-NO-PROD-013','AeroDek','AeroDek Robust Plus',null,'Ståltakpanne',TRUE,40);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('14',1,'PITCHED','BMI-NO-PROD-014','AeroDek','AeroDek Unique Plus',null,'Ståltakpanne',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('15',1,'PITCHED','BMI-NO-PROD-015','AeroDek','AeroDek Quadro Plus',null,'Ståltakpanne',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('16',1,'PITCHED','BMI-NO-PROD-016','AeroDek','AeroDek Tradition',null,'Ståltakpanne',TRUE,30);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('17',1,'PITCHED','BMI-NO-PROD-017','Icopal','Icopal Super D',null,'Undertak',TRUE,2);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('18',1,'PITCHED','BMI-NO-PROD-018','Icopal','Icopal Ultra D',null,'Undertak',TRUE,2);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('19',1,'PITCHED','BMI-NO-PROD-019','BMI','BMI Ventex Supra',null,'Undertak',TRUE,2);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('20',1,'FLAT','BMI-NO-PROD-020','BMI','BMI Hemsedal Supra',null,'Undertak',TRUE,10);
-INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
-VALUES ('21',1,'FLAT','BMI-NO-PROD-021','Icopal','Icopal Trysil D',null,'Stein tak',TRUE,10);
+VALUES ('4',1,'FLAT','TEST-PROD-4','Panda Arktis','Panda Test Membrane','This is test data','Earth',TRUE,30);
 
 
-TRUNCATE TABLE project RESTART IDENTITY;
 INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
 VALUES ('1',1,7,11,'PITCHED','St Matthews Church','Fix the roof',FALSE,504,'ccardenoza0@sogou.com','Alice','Malice','Alice in Cheam','2021-01-01 08:23:58','2021-01-04 08:23:58');
 INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
@@ -316,7 +267,6 @@ INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,tech
 VALUES ('5',2,15,16,'FLAT','Nandos','Put in outdoor seating area',FALSE,50,'kferrarini3@smugmug.com','Dave','Le Rave',null,'2021-02-04 08:23:58','2021-12-04 08:23:58');
 
 
-TRUNCATE TABLE project_member RESTART IDENTITY;
 INSERT INTO project_member(id,project_id,account_id,is_responsible_installer)
 VALUES ('1',1,3,FALSE);
 INSERT INTO project_member(id,project_id,account_id,is_responsible_installer)
@@ -339,124 +289,26 @@ INSERT INTO project_member(id,project_id,account_id,is_responsible_installer)
 VALUES ('10',4,10,FALSE);
 
 
-TRUNCATE TABLE system RESTART IDENTITY;
 INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('1',1,'PITCHED','BMI-NO-PC21-01','Zanda Vestland + Icopal Super D','Zanda Vestland er en klassisk betongtakstein med ubehandlet overflate',20,TRUE);
+VALUES ('1',1,'PITCHED','TEST-SYS-1','Panda Nordkapp + Ipsopal Super D','This is just mock data',20,TRUE);
 INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('2',1,'PITCHED','BMI-NO-PC21-02','Zanda Vestland + Icopal Ultra D','Zanda Vestland er en klassisk betongtakstein med ubehandlet overflate',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('3',1,'PITCHED','BMI-NO-PC21-03','Zanda Vestland + BMI Ventex Supra','Zanda Vestland er en klassisk betongtakstein med ubehandlet overflate',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('4',1,'PITCHED','BMI-NO-PC22-01','Zanda Classic + Icopal Super D','Zanda Classic er en prisgunstig takstein med en tradisjonell, behandlet overflate.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('5',1,'PITCHED','BMI-NO-PC22-02','Zanda Classic + Icopal Ultra D','Zanda Classic er en prisgunstig takstein med en tradisjonell, behandlet overflate.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('6',1,'PITCHED','BMI-NO-PC22-03','Zanda Classic + BMI Ventex Supra','Zanda Classic er en prisgunstig takstein med en tradisjonell, behandlet overflate.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('7',1,'PITCHED','BMI-NO-PC23-01','Zanda Protector + Icopal Super D','Zanda Protector har en blank overflate med et unikt overflatebelegg som beskytter mot tilgroing og UV-stråling.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('8',1,'PITCHED','BMI-NO-PC23-02','Zanda Protector + Icopal Ultra D','Zanda Protector har en blank overflate med et unikt overflatebelegg som beskytter mot tilgroing og UV-stråling.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('9',1,'PITCHED','BMI-NO-PC23-03','Zanda Protector + BMI Ventex Supra','Zanda Protector har en blank overflate med et unikt overflatebelegg som beskytter mot tilgroing og UV-stråling.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('10',1,'PITCHED','BMI-NO-PC24-01','Zanda Arktis + Icopal Super D','Zanda Arctic er vår mest holdbare betongtakstein med kvarts og fargepigmenter.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('11',1,'PITCHED','BMI-NO-PC24-02','Zanda Arktis + Icopal Ultra D','Zanda Arctic er vår mest holdbare betongtakstein med kvarts og fargepigmenter.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('12',1,'PITCHED','BMI-NO-PC24-03','Zanda Arktis + BMI Ventex Supra','Zanda Arctic er vår mest holdbare betongtakstein med kvarts og fargepigmenter.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('13',1,'PITCHED','BMI-NO-PC25-01','Zanda Minster + Icopal Super D','Zanda Minster er en trendy og flat takstein som ofte benyttes på moderne arkitektur.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('14',1,'PITCHED','BMI-NO-PC25-02','Zanda Minster + Icopal Ultra D','Zanda Minster er en trendy og flat takstein som ofte benyttes på moderne arkitektur.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('15',1,'PITCHED','BMI-NO-PC25-03','Zanda Minster + BMI Ventex Supra','Zanda Minster er en trendy og flat takstein som ofte benyttes på moderne arkitektur.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('16',1,'PITCHED','BMI-NO-PC26-01','Zanda Evo + Icopal Super D','Zanda Evo er en flat betongtakstein som fås i fargene sort og mørk grå.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('17',1,'PITCHED','BMI-NO-PC26-02','Zanda Evo + Icopal Ultra D','Zanda Evo er en flat betongtakstein som fås i fargene sort og mørk grå.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('18',1,'PITCHED','BMI-NO-PC26-03','Zanda Evo + BMI Ventex Supra','Zanda Evo er en flat betongtakstein som fås i fargene sort og mørk grå.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('19',1,'PITCHED','BMI-NO-PCL21-01','Turmalin + Icopal Super D','Turmalin er en moderne, flat teglstein, finnes i en rekke ulike farger og overflater.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('20',1,'PITCHED','BMI-NO-PCL21-02','Turmalin + Icopal Ultra D','Turmalin er en moderne, flat teglstein, finnes i en rekke ulike farger og overflater.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('21',1,'PITCHED','BMI-NO-PCL21-03','Turmalin + BMI Ventex Supra','Turmalin er en moderne, flat teglstein, finnes i en rekke ulike farger og overflater.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('22',1,'PITCHED','BMI-NO-PCL22-01','KDN VH + Icopal Super D','KDN tegltakstein er den originale hollandske glaserte taksteinen.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('23',1,'PITCHED','BMI-NO-PCL22-02','KDN VH + Icopal Ultra D','KDN tegltakstein er den originale hollandske glaserte taksteinen.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('24',1,'PITCHED','BMI-NO-PCL22-03','KDN VH + BMI Ventex Supra','KDN tegltakstein er den originale hollandske glaserte taksteinen.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('25',1,'PITCHED','BMI-NO-PCL23-01','Hollander V + Icopal Super D','Hollander-V er en formpresset takstein med én side- og én toppfals.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('26',1,'PITCHED','BMI-NO-PCL23-02','Hollander V + Icopal Ultra D','Hollander-V er en formpresset takstein med én side- og én toppfals.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('27',1,'PITCHED','BMI-NO-PCL23-03','Hollander V + BMI Ventex Supra','Hollander-V er en formpresset takstein med én side- og én toppfals.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('28',1,'PITCHED','BMI-NO-PCL24-01','Nortegl + Icopal Super D','Nortegl er en falset tegltakstein med klassisk, nordisk form.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('29',1,'PITCHED','BMI-NO-PCL24-02','Nortegl + Icopal Ultra D','Nortegl er en falset tegltakstein med klassisk, nordisk form.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('30',1,'PITCHED','BMI-NO-PCL24-03','Nortegl + BMI Ventex Supra','Nortegl er en falset tegltakstein med klassisk, nordisk form.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('31',1,'PITCHED','BMI-NO-PCL25-01','Nova + Icopal Super D','Nova er en rimelig, men teknisk avansert enkeltkrum tegltakstein med god passform.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('32',1,'PITCHED','BMI-NO-PCL25-02','Nova + Icopal Ultra D','Nova er en rimelig, men teknisk avansert enkeltkrum tegltakstein med god passform.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('33',1,'PITCHED','BMI-NO-PCL25-03','Nova + BMI Ventex Supra','Nova er en rimelig, men teknisk avansert enkeltkrum tegltakstein med god passform.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('34',1,'PITCHED','BMI-NO-PM21-01','AeroDek Tradition Plus + Icopal Super D','Tradition Plus er en råsterk, vakker og tidløs ståltakpanne.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('35',1,'PITCHED','BMI-NO-PM21-02','AeroDek Tradition Plus + Icopal Ultra D','Tradition Plus er en råsterk, vakker og tidløs ståltakpanne.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('36',1,'PITCHED','BMI-NO-PM21-03','AeroDek Tradition Plus + BMI Ventex Supra','Tradition Plus er en råsterk, vakker og tidløs ståltakpanne.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('37',1,'PITCHED','BMI-NO-PM22-01','AeroDek Robust Plus + Icopal Super D','Med Robust Plus får du takpanner med et unikt utseende som passer ekstra godt til hus og hytter.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('38',1,'PITCHED','BMI-NO-PM22-02','AeroDek Robust Plus + Icopal Ultra D','Med Robust Plus får du takpanner med et unikt utseende som passer ekstra godt til hus og hytter.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('39',1,'PITCHED','BMI-NO-PM22-03','AeroDek Robust Plus + BMI Ventex Supra','Med Robust Plus får du takpanner med et unikt utseende som passer ekstra godt til hus og hytter.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('40',1,'PITCHED','BMI-NO-PM23-01','AeroDek Unique Plus + Icopal Super D','Unique Plus har en høyglanset eller matt overflate av slagsterk pulverlakk, noe som gir den et eksklusivt og stilig utseende.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('41',1,'PITCHED','BMI-NO-PM23-02','AeroDek Unique Plus + Icopal Ultra D','Unique Plus har en høyglanset eller matt overflate av slagsterk pulverlakk, noe som gir den et eksklusivt og stilig utseende.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('42',1,'PITCHED','BMI-NO-PM23-03','AeroDek Unique Plus + BMI Ventex Supra','Unique Plus har en høyglanset eller matt overflate av slagsterk pulverlakk, noe som gir den et eksklusivt og stilig utseende.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('43',1,'PITCHED','BMI-NO-PM24-01','AeroDek Quadro Plus + Icopal Super D','Quadro Plus takstein har en flat profil, som er i stil med den moderne og minimalistiske byggestilen.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('44',1,'PITCHED','BMI-NO-PM24-02','AeroDek Quadro Plus + Icopal Ultra D','Quadro Plus takstein har en flat profil, som er i stil med den moderne og minimalistiske byggestilen.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('45',1,'PITCHED','BMI-NO-PM24-03','AeroDek Quadro Plus + BMI Ventex Supra','Quadro Plus takstein har en flat profil, som er i stil med den moderne og minimalistiske byggestilen.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('46',1,'PITCHED','BMI-NO-PM25-01','AeroDek Tradition + Icopal Super D','AeroDek Tradition er den prisgunstige varianten av Norges mest solgte ståltakpanner.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('47',1,'PITCHED','BMI-NO-PM25-02','AeroDek Tradition + Icopal Ultra D','AeroDek Tradition er den prisgunstige varianten av Norges mest solgte ståltakpanner.',20,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('48',1,'PITCHED','BMI-NO-PM25-03','AeroDek Tradition + BMI Ventex Supra','AeroDek Tradition er den prisgunstige varianten av Norges mest solgte ståltakpanner.',20,TRUE);
+VALUES ('2',1,'FLAT','TEST-SYS-2','Panda Nordkapp + Ipsopal Mega D','This is just mock data',20,TRUE);
 
 
-TRUNCATE TABLE system_member RESTART IDENTITY;
 INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref,market_id)
-VALUES ('1','BMI-NO-PC21-01','BMI-NO-PROD-001',1);
+VALUES ('1','TEST-SYS-1','TEST-PROD-1',1);
 INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref,market_id)
-VALUES ('2','BMI-NO-PC21-01','BMI-NO-PROD-017',1);
+VALUES ('2','TEST-SYS-1','TEST-PROD-2',1);
 INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref,market_id)
-VALUES ('3','BMI-NO-PC21-02','BMI-NO-PROD-001',1);
+VALUES ('3','TEST-SYS-2','TEST-PROD-3',1);
 INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref,market_id)
-VALUES ('4','BMI-NO-PC21-02','BMI-NO-PROD-018',1);
-INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref,market_id)
-VALUES ('5','BMI-NO-PC21-03','BMI-NO-PROD-001',1);
-INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref,market_id)
-VALUES ('6','BMI-NO-PC21-03','BMI-NO-PROD-019',1);
+VALUES ('4','TEST-SYS-2','TEST-PROD-4',1);
 
 SELECT SETVAL('account_id_seq', (select MAX(ID) from account));
 SELECT SETVAL('address_id_seq', (select MAX(ID) from address));
 SELECT SETVAL('certification_id_seq', (select MAX(ID) from certification));
 SELECT SETVAL('company_id_seq', (select MAX(ID) from company)); 
-        SELECT SETVAL('company_reference_number_seq', (select MAX(reference_number) from company));
+SELECT SETVAL('company_reference_number_seq', (select MAX(reference_number) from company));
 SELECT SETVAL('company_document_id_seq', (select MAX(ID) from company_document));
 SELECT SETVAL('company_member_id_seq', (select MAX(ID) from company_member));
 SELECT SETVAL('company_operation_id_seq', (select MAX(ID) from company_operation));
