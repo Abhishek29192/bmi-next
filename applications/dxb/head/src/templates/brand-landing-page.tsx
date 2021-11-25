@@ -89,7 +89,8 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
     inputBanner,
-    seo
+    seo,
+    path: data.contentfulBrandLandingPage.path
   };
 
   const firstSlide: HeroItem = {

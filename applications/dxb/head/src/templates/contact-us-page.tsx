@@ -82,7 +82,8 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
     inputBanner,
-    seo
+    seo,
+    path: data.contentfulContactUsPage.path
   };
 
   return (
