@@ -11,8 +11,8 @@ import { tierBenefit } from "../contentful";
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
 
-const ERROR_ALREADY_MEMBER = "The user is already a member of another company";
-const ERROR_INVITATION_NOT_FOUND = "Invitation not found";
+const ERROR_ALREADY_MEMBER = "errorAlreadyMember";
+const ERROR_INVITATION_NOT_FOUND = "errorInvitationNotFound";
 
 const { APP_ENV, FRONTEND_URL } = process.env;
 
