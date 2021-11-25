@@ -232,7 +232,7 @@ describe("RecaptchaPrivacyLinks component", () => {
             reCaptchaNet: false
           }}
         >
-          <RecaptchaPrivacyLinks customStyle="customStyle" />
+          <RecaptchaPrivacyLinks className="customStyle" />
         </SiteContextProvider>
       );
       await findByText((content) =>

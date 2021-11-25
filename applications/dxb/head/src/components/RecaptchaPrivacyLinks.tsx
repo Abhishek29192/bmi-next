@@ -6,25 +6,19 @@ import getRecaptchaPrivacyContent, {
 } from "./RecaptchaContentProvider";
 import { useSiteContext } from "./Site";
 
-import styles from "./styles/RecaptchaPrivacyLinks.module.scss";
-
 type Props = {
-  customStyle?: string;
+  className?: string;
 };
 
 const RecaptchaPrivacyLinks = (props: Props) => {
   const { countryCode } = useSiteContext();
-  const { customStyle } = props;
+  const { className } = props;
 
   return useMemo(() => {
     const recaptchaContent: RecaptchaPolicyContentType =
       getRecaptchaPrivacyContent(countryCode);
     return (
-      <Typography
-        className={
-          customStyle ? styles[`${customStyle}`] : "RecaptchaPrivacyLinks"
-        }
-      >
+      <Typography className={className ? className : "RecaptchaPrivacyLinks"}>
         {recaptchaContent.startText}
         <AnchorLink
           action={{

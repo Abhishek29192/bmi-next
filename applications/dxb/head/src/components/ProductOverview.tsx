@@ -54,7 +54,9 @@ const ProductOverview = ({
             {children}
           </ProductOverviewPane>
           {isRecapchaShown && (
-            <RecaptchaPrivacyLinks customStyle="keyAssetTypesDownload" />
+            <RecaptchaPrivacyLinks
+              className={styles["keyAssetTypesDownload"]}
+            />
           )}
         </Grid>
       </Grid>

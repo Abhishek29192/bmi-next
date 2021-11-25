@@ -182,9 +182,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       { attrName: FeatureCodeEnum.HEIGHT, separator: "x" }
     ]
   };
+
   const filtredKeyAssetsDocuments = product.documents.filter((document) =>
     resources.keyAssetTypes?.includes(document.assetType.code)
   );
+
+  const hasFiltredKeyAssetsDocuments = !!filtredKeyAssetsDocuments.length;
 
   return (
     <Page
@@ -227,7 +230,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     },
                     variantCodeToPathMap
                   ),
-                  isRecapchaShown: !!filtredKeyAssetsDocuments.length
+                  isRecapchaShown: hasFiltredKeyAssetsDocuments
                 }}
               >
                 {
@@ -244,7 +247,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     )}
                   />
                 }
-                {!!filtredKeyAssetsDocuments.length && (
+                {hasFiltredKeyAssetsDocuments && (
                   <KeyAssetTypesDownloadSection
                     assetTypes={resources.keyAssetTypes}
                     documents={filtredKeyAssetsDocuments}
