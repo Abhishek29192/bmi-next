@@ -26,36 +26,6 @@ exports[`ColorPair component creates the right context value - light theme 1`] =
 </div>
 `;
 
-exports[`ColorPair component exports the correct available themes 1`] = `
-Array [
-  "white",
-  "alabaster",
-  "pearl",
-  "storm",
-  "blue-100",
-  "magenta-100",
-  "aqua-100",
-  "orange-100",
-  "alert",
-  "black",
-  "charcoal",
-  "slate",
-  "blue-800",
-  "blue-900",
-  "teal-400",
-  "teal-500",
-  "magenta-400",
-  "magenta-500",
-  "purple-400",
-  "orange-500",
-  "error",
-  "color-theme-secondary-1",
-  "color-theme-secondary-2",
-  "color-theme-secondary-3",
-  "color-theme-secondary-4",
-]
-`;
-
 exports[`ColorPair component renders correctly 1`] = `
 <div
   class="ColorPair ColorPair--white"

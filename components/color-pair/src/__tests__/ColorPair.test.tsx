@@ -3,7 +3,8 @@ import { render } from "@testing-library/react";
 import ColorPair, {
   availableThemes,
   withColorPair,
-  ColorPairContext
+  ColorPairContext,
+  darkThemes
 } from "../";
 
 describe("ColorPair component", () => {
@@ -65,6 +66,52 @@ describe("ColorPair component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
   it("exports the correct available themes", () => {
-    expect(availableThemes).toMatchSnapshot();
+    expect(availableThemes).toEqual([
+      "white",
+      "alabaster",
+      "pearl",
+      "storm",
+      "blue-100",
+      "magenta-100",
+      "aqua-100",
+      "orange-100",
+      "alert",
+      "black",
+      "charcoal",
+      "slate",
+      "blue-800",
+      "blue-900",
+      "teal-400",
+      "teal-500",
+      "magenta-400",
+      "magenta-500",
+      "purple-400",
+      "orange-500",
+      "error",
+      "color-theme-secondary-1",
+      "color-theme-secondary-2",
+      "color-theme-secondary-3",
+      "color-theme-secondary-4"
+    ]);
+  });
+  it("exports the correct dark themes", () => {
+    expect(darkThemes).toEqual([
+      "black",
+      "charcoal",
+      "slate",
+      "blue-800",
+      "blue-900",
+      "teal-400",
+      "teal-500",
+      "magenta-400",
+      "magenta-500",
+      "purple-400",
+      "orange-500",
+      "error",
+      "color-theme-secondary-1",
+      "color-theme-secondary-2",
+      "color-theme-secondary-3",
+      "color-theme-secondary-4"
+    ]);
   });
 });
