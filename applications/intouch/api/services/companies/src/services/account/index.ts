@@ -198,6 +198,7 @@ export const updateAccount = async (
         });
 
         await sendMessageWithTemplate(context, "ROLE_ASSIGNED", {
+          accountId: args.input.id,
           email: result.data.$email,
           firstname: result.data.$first_name,
           role: role?.toLowerCase().replace("_", " ")
@@ -415,10 +416,12 @@ export const invite = async (
         });
         logger.info("Reset password email sent");
       } else {
-        await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
+        await sendMessageWithTemplate(updatedContext, "MEMBER_INVITED", {
+          accountId: invetees[0].id,
           firstname: invetees[0].first_name,
           company: user.company.name,
           registerlink: `${protocol}://${targetDomain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
+          sender: `${user.firstName} ${user.lastName}`,
           email: invetee
         });
         logger.info("Invitation email sent");
@@ -516,6 +519,7 @@ export const completeInvitation = async (
 
       const targetDomain = getTargetDomain(markets[0].domain);
       await sendMessageWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+        accountId: user.id,
         email: user.email,
         firstname: user.firstName,
         marketUrl: `${protocol}://${targetDomain}.${FRONTEND_URL}`
