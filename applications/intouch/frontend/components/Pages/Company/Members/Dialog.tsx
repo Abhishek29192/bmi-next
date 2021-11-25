@@ -27,22 +27,23 @@ type AlertStateProp = {
 };
 
 const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
-  const { t } = useTranslation("team-page");
+  const { t } = useTranslation(["error-page", "team-page"]);
   const [alertState, setAlertState] = useState<AlertStateProp>({
     open: false
   });
   const [inviteUsers] = useInviteMutation({
-    onError: (error) =>
+    onError: (error) => {
       setAlertState({
         open: true,
         severity: "error",
-        message: error.message
-      }),
+        message: t(`error-page:${error.message}`)
+      });
+    },
     onCompleted: () =>
       setAlertState({
         open: true,
         severity: "success",
-        message: t("invitation.dialog.success")
+        message: t("team-page:invitation.dialog.success")
       })
   });
 
@@ -68,7 +69,9 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
       open={dialogOpen}
       data-testid="dialog"
     >
-      <Dialog.Title hasUnderline>{t("invitation.dialog.title")}</Dialog.Title>
+      <Dialog.Title hasUnderline>
+        {t("team-page:invitation.dialog.title")}
+      </Dialog.Title>
       <Dialog.Content>
         {alertState.open && (
           <AlertBanner severity={alertState.severity}>
@@ -79,8 +82,8 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
           <Form.Row>
             <TextField
               name="emails"
-              label={t("invitation.dialog.emails.label")}
-              helperText={t("invitation.dialog.emails.helperText")}
+              label={t("team-page:invitation.dialog.emails.label")}
+              helperText={t("team-page:invitation.dialog.emails.helperText")}
               className={styles.input}
               inputProps={{
                 ["data-testid"]: "emails"
@@ -91,7 +94,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
             />
             <TextField
               name="personalNote"
-              label={t("invitation.dialog.personalNote.label")}
+              label={t("team-page:invitation.dialog.personalNote.label")}
               className={styles.personalNote}
               onChange={() => setAlertState({ open: false })}
               inputProps={{
@@ -110,10 +113,10 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
               variant="outlined"
               data-testid="invite-dialog-cancel"
             >
-              {t("invitation.dialog.cancel")}
+              {t("team-page:invitation.dialog.cancel")}
             </Button>
             <Form.SubmitButton data-testid="invite-dialog-submit">
-              {t("invitation.dialog.send")}
+              {t("team-page:invitation.dialog.send")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>
         </Form>

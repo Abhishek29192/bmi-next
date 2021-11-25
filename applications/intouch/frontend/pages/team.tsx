@@ -111,7 +111,8 @@ export const getServerSideProps = withPage(
         ...(await serverSideTranslations(locale, [
           "common",
           "sidebar",
-          "team-page"
+          "team-page",
+          "error-page"
         ]))
       }
     };
