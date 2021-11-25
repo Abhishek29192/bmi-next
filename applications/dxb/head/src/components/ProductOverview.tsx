@@ -9,6 +9,7 @@ import withGTM from "../utils/google-tag-manager";
 import styles from "./styles/ProductOverview.module.scss";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
+import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 
 export type Data = {
   name: string;
@@ -16,10 +17,11 @@ export type Data = {
   nobb: string | null;
   images: Image[];
   attributes: ProductOverviewProps["attributes"] | null;
+  isRecapchaShown?: boolean;
 };
 
 const ProductOverview = ({
-  data: { name, brandName, nobb, images, attributes },
+  data: { name, brandName, nobb, images, attributes, isRecapchaShown },
   children
 }: {
   data: Data;
@@ -51,6 +53,11 @@ const ProductOverview = ({
           >
             {children}
           </ProductOverviewPane>
+          {isRecapchaShown && (
+            <RecaptchaPrivacyLinks
+              className={styles["keyAssetTypesDownload"]}
+            />
+          )}
         </Grid>
       </Grid>
     </div>

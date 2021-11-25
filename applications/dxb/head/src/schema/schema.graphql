@@ -1006,6 +1006,9 @@ type ContentfulResources implements Node {
 
   "Sample Basket Link"
   sampleBasketLink: ContentfulSimplePage @link(from: "sampleBasketLink___NODE")
+
+  "Key Asset Types"
+  keyAssetTypes: [String]
 }
 
 """
