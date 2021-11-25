@@ -1,16 +1,7 @@
 build_gcp-intouch-handle-message:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
-      changes:
-        - applications/intouch/functions/gcp-handle-message/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
-      changes:
-        - applications/intouch/functions/gcp-handle-message/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
-      changes:
-        - applications/intouch/functions/gcp-handle-message/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
   needs: []
@@ -22,20 +13,10 @@ build_gcp-intouch-handle-message:
     paths:
       - applications/intouch/functions/gcp-handle-message/dist
 
-
 package_gcp-intouch-handle-message:
   stage: package
   rules:
-    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
-      changes:
-        - applications/intouch/functions/gcp-handle-message/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
-      changes:
-        - applications/intouch/functions/gcp-handle-message/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
-      changes:
-        - applications/intouch/functions/gcp-handle-message/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
   needs:
@@ -53,7 +34,6 @@ package_gcp-intouch-handle-message:
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/applications/intouch/functions
-
 
 # Deploy to DD environment
 deploy_gcp-intouch-handle-message:
@@ -83,7 +63,6 @@ deploy_gcp-intouch-handle-message:
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
     - gcloud builds submit . --config=applications/intouch/functions/gcp-handle-message/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT
 
-
 # Deploy to BMI environments
 deploy_gcp-intouch-handle-message_bmi:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
@@ -98,7 +77,7 @@ deploy_gcp-intouch-handle-message_bmi:
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_DEV_BUILD_STORAGE"
         BMI_SECRET_PROJECT: "$GCP_BMI_DEV_SECRET_PROJECT"
-    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
       variables:

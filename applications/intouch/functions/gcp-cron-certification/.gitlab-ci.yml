@@ -1,16 +1,7 @@
 build_gcp-intouch-cron-certification:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
-      changes:
-        - applications/intouch/functions/gcp-cron-certification/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
-      changes:
-        - applications/intouch/functions/gcp-cron-certification/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
-      changes:
-        - applications/intouch/functions/gcp-cron-certification/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
       changes:
         - applications/intouch/functions/gcp-cron-certification/**/*
   needs: []
@@ -22,20 +13,10 @@ build_gcp-intouch-cron-certification:
     paths:
       - applications/intouch/functions/gcp-cron-certification/dist
 
-
 package_gcp-intouch-cron-certification:
   stage: package
   rules:
-    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
-      changes:
-        - applications/intouch/functions/gcp-cron-certification/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
-      changes:
-        - applications/intouch/functions/gcp-cron-certification/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
-      changes:
-        - applications/intouch/functions/gcp-cron-certification/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
       changes:
         - applications/intouch/functions/gcp-cron-certification/**/*
   needs:
@@ -53,7 +34,6 @@ package_gcp-intouch-cron-certification:
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/applications/intouch/functions
-
 
 # Deploy to DD environment
 deploy_gcp-intouch-cron-certification:
@@ -86,7 +66,6 @@ deploy_gcp-intouch-cron-certification:
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-certification.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
     - gcloud builds submit . --config=applications/intouch/functions/gcp-cron-certification/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,_USER_CERTIFICATION_REPORT_ID=$USER_CERTIFICATION_REPORT_ID
 
-
 # Deploy to BMI environments
 deploy_gcp-intouch-cron-certification_bmi:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
@@ -102,7 +81,7 @@ deploy_gcp-intouch-cron-certification_bmi:
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_DEV_BUILD_STORAGE"
         BMI_SECRET_PROJECT: "$GCP_BMI_DEV_SECRET_PROJECT"
         BMI_DOCEBO_API_URL: "$GCP_BMI_INTOUCH_DEV_DOCEBO_API_URL"
-    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
       changes:
         - applications/intouch/functions/gcp-cron-certification/**/*
       variables:

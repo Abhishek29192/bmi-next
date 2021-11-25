@@ -1,16 +1,7 @@
 build_gcp-intouch-cron-training:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
-      changes:
-        - applications/intouch/functions/gcp-cron-training/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
-      changes:
-        - applications/intouch/functions/gcp-cron-training/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
-      changes:
-        - applications/intouch/functions/gcp-cron-training/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
   needs: []
@@ -22,20 +13,10 @@ build_gcp-intouch-cron-training:
     paths:
       - applications/intouch/functions/gcp-cron-training/dist
 
-
 package_gcp-intouch-cron-training:
   stage: package
   rules:
-    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
-      changes:
-        - applications/intouch/functions/gcp-cron-training/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
-      changes:
-        - applications/intouch/functions/gcp-cron-training/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
-      changes:
-        - applications/intouch/functions/gcp-cron-training/**/*
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
   needs:
@@ -53,7 +34,6 @@ package_gcp-intouch-cron-training:
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/applications/intouch/functions
-
 
 # Deploy to DD environment
 deploy_gcp-intouch-cron-training:
@@ -82,7 +62,6 @@ deploy_gcp-intouch-cron-training:
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-training.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
     - gcloud builds submit . --config=applications/intouch/functions/gcp-cron-training/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_TRAINING_API_URL=$INTOUCH_TRAINING_API_URL
 
-
 # Deploy to BMI environments
 deploy_gcp-intouch-cron-training_bmi:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
@@ -97,7 +76,7 @@ deploy_gcp-intouch-cron-training_bmi:
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
         BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_DEV_BUILD_STORAGE"
         BMI_TRAINING_API_URL: "$GCP_BMI_INTOUCH_DEV_TRAINING_API_URL"
-    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/IRP-849')"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
       variables:
