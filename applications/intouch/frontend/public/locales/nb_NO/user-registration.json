@@ -3,7 +3,11 @@
     "title": "Fullfør registrering",
     "form": {
       "firstName": "Fornavn",
-      "lastName": "Etternavn"
+      "lastName": "Etternavn",
+      "agree_label": "Jeg er enig i BMI",
+      "terms_condition": "Betingelser og vilkår",
+      "and": "og",
+      "privacy_policy": "Personvernerklæring"
     }
   }
 }

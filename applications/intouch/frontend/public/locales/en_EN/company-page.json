@@ -73,10 +73,10 @@
         "name": "Registered Name",
         "registeredAddress": {
           "firstLine": "Address Line 1",
-          "secondLine": "Address Line 2",
+          "secondLine": "Address Line 2 (optional)",
           "town": "Town / City",
           "postcode": "Post Code / ZIP",
-          "region": "Region",
+          "region": "Region (optional)",
           "country": "Country",
           "coordinates": {
             "x": "Latitude",
@@ -85,19 +85,19 @@
         },
         "tradingAddress": {
           "autocomplete": "Post code, city or street",
-          "firstLine": "Address Line 1",
-          "secondLine": "Address Line 2",
-          "town": "Town / City",
-          "postcode": "Post Code / ZIP",
-          "region": "Region",
-          "country": "Country",
+          "firstLine": "Address Line 1 (optional)",
+          "secondLine": "Address Line 2 (optional)",
+          "town": "Town / City (optional)",
+          "postcode": "Post Code / ZIP (optional)",
+          "region": "Region (optional)",
+          "country": "Country (optional)",
           "coordinates": {
             "x": "Latitude",
             "y": "Longitude"
           }
         },
         "logo": {
-          "label": "Logo",
+          "label": "Logo (optional)",
           "alt_text": "Company logo",
           "buttons": {
             "upload": "Upload new photo",
