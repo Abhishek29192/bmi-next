@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox component calls onChange handler 1`] = `
-Array [
-  Array [
-    true,
-  ],
-]
-`;
-
-exports[`Checkbox component does not call onChange handler when disabled 1`] = `Array []`;
-
 exports[`Checkbox component renders correctly 1`] = `
 <div
   class="MuiFormControl-root Checkbox"
@@ -53,6 +43,53 @@ exports[`Checkbox component renders correctly 1`] = `
 </div>
 `;
 
+exports[`Checkbox component renders custom error 1`] = `
+<div
+  class="MuiFormControl-root Checkbox"
+>
+  <label
+    class="MuiFormControlLabel-root"
+  >
+    <span
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-29 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <input
+          class="PrivateSwitchBase-input-32"
+          data-indeterminate="false"
+          type="checkbox"
+          value=""
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </span>
+    <span
+      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+    />
+  </label>
+  <p
+    class="MuiFormHelperText-root Mui-error"
+  >
+    Custom Error Text
+  </p>
+</div>
+`;
+
 exports[`Checkbox component renders error 1`] = `
 <div
   class="MuiFormControl-root Checkbox"
@@ -93,6 +130,55 @@ exports[`Checkbox component renders error 1`] = `
     >
       test-label-2
     </span>
+  </label>
+  <p
+    class="MuiFormHelperText-root Mui-disabled Mui-error"
+  >
+    required
+  </p>
+</div>
+`;
+
+exports[`Checkbox component renders with additional props 1`] = `
+<div
+  class="MuiFormControl-root Checkbox"
+>
+  <label
+    class="MuiFormControlLabel-root"
+  >
+    <span
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary test-classname MuiIconButton-colorPrimary"
+      data-testid="test-id"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <input
+          class="PrivateSwitchBase-input-8"
+          data-indeterminate="false"
+          name="Test checkbox"
+          type="checkbox"
+          value=""
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </span>
+    <span
+      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+    />
   </label>
 </div>
 `;
@@ -141,7 +227,7 @@ exports[`Checkbox component renders with disabled state 1`] = `
 </div>
 `;
 
-exports[`Checkbox component renders with error message 1`] = `
+exports[`Checkbox component renders with label 1`] = `
 <div
   class="MuiFormControl-root Checkbox"
 >
@@ -157,51 +243,6 @@ exports[`Checkbox component renders with error message 1`] = `
       >
         <input
           class="PrivateSwitchBase-input-12"
-          data-indeterminate="false"
-          name="Test checkbox"
-          type="checkbox"
-          value=""
-        />
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-          />
-        </svg>
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </span>
-    <span
-      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-    >
-      Send a copy of this message to my email address
-    </span>
-  </label>
-</div>
-`;
-
-exports[`Checkbox component renders with label 1`] = `
-<div
-  class="MuiFormControl-root Checkbox"
->
-  <label
-    class="MuiFormControlLabel-root"
-  >
-    <span
-      aria-disabled="false"
-      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-    >
-      <span
-        class="MuiIconButton-label"
-      >
-        <input
-          class="PrivateSwitchBase-input-8"
           data-indeterminate="false"
           name="Test checkbox"
           type="checkbox"

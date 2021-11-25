@@ -13,7 +13,7 @@ export type Props = CheckboxProps & {
   onChange: (value: boolean) => void;
 };
 
-const Checkbox = ({
+export const Checkbox = ({
   label,
   error,
   disabled,
