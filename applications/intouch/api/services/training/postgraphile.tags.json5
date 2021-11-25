@@ -2,11 +2,6 @@
   version: 1,
   config: {
     class: {
-      migrations_state: {
-        tags: {
-          omit: "read,update,create,delete,all,many"
-        }
-      },
       migrations: {
         tags: {
           omit: "read,update,create,delete,all,many"

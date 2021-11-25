@@ -95,6 +95,9 @@ deploy_intouch_companies_to_cloudrun_bmi:
         CLOUD_RUN: "$GCP_BMI_INTOUCH_DEV_COMPANY"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
+  needs:
+    - job: migrate_companies_db_bmi
+      optional: true
   script:
     - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo "Deploying to $CLOUD_RUN on BMI tenant in project $BMI_PROJECT"
