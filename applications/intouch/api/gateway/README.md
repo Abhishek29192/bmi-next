@@ -10,7 +10,7 @@ Install dependencies using [Yarn](https://yarnpkg.org/):
 
 ## Deployment
 
-> This is a sample process to deploy Google Cloud.
+> This is a sample process to deploy Google Cloud
 
     yarn build
 

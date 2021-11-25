@@ -74,8 +74,6 @@ release_intouch_migration_to_cloudrun_bmi:
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_TLS_CERTDIR: ""
-  needs:
-    - build_intouch_migration_db_service
   services:
     - name: docker:20-dind
       alias: docker
