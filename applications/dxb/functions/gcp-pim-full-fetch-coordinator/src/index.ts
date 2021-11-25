@@ -6,7 +6,7 @@ import {
   ElasticsearchIndexes
 } from "./elasticsearch";
 import { fetchData, PimTypes } from "./pim";
-import { error, info, initialize } from "./logger";
+import { error, info } from "./logger";
 
 const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT } = process.env;
 
@@ -21,6 +21,9 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
     const numberOfPages = numberOfPagesLeft > 10 ? 10 : numberOfPagesLeft;
     const systemsBatchResponse = await fetch(FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         type: type,
         startPage: lastStartPage,
