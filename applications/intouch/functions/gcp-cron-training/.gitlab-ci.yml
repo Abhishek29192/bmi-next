@@ -1,10 +1,10 @@
 build_gcp-intouch-cron-training:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
-  needs: [install]
+  needs: []
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
@@ -16,10 +16,11 @@ build_gcp-intouch-cron-training:
 package_gcp-intouch-cron-training:
   stage: package
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
-  needs: [build_gcp-intouch-cron-training]
+  needs:
+    - build_gcp-intouch-cron-training
   dependencies:
     - build_gcp-intouch-cron-training
   before_script:
@@ -34,16 +35,17 @@ package_gcp-intouch-cron-training:
     paths:
       - $CI_PROJECT_DIR/dist/applications/intouch/functions
 
-# Deploy to QA
+# Deploy to DD environment
 deploy_gcp-intouch-cron-training:
-  image: !reference [.cloud-sdk-image, image]
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
         - applications/intouch/functions/gcp-cron-training/**/*
       allow_failure: true
-  needs: [package_gcp-intouch-cron-training]
+  needs:
+    - package_gcp-intouch-cron-training
   dependencies:
     - package_gcp-intouch-cron-training
   before_script:
@@ -59,3 +61,64 @@ deploy_gcp-intouch-cron-training:
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-training.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
     - gcloud builds submit . --config=applications/intouch/functions/gcp-cron-training/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_TRAINING_API_URL=$INTOUCH_TRAINING_API_URL
+
+# Deploy to BMI environments
+deploy_gcp-intouch-cron-training_bmi:
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  stage: deploy
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/functions/gcp-cron-training/**/*
+      variables:
+        BMI_ENV: "dev"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
+        BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_DEV_BUILD_STORAGE"
+        BMI_TRAINING_API_URL: "$GCP_BMI_INTOUCH_DEV_TRAINING_API_URL"
+    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
+      changes:
+        - applications/intouch/functions/gcp-cron-training/**/*
+      variables:
+        BMI_ENV: "qa"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+        BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_QA_BUILD_STORAGE"
+        BMI_TRAINING_API_URL: "$GCP_BMI_INTOUCH_QA_TRAINING_API_URL"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      changes:
+        - applications/intouch/functions/gcp-cron-training/**/*
+      variables:
+        BMI_ENV: "preprod"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+        BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PREPROD_BUILD_STORAGE"
+        BMI_TRAINING_API_URL: "$GCP_BMI_INTOUCH_PREPROD_TRAINING_API_URL"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      changes:
+        - applications/intouch/functions/gcp-cron-training/**/*
+      variables:
+        BMI_ENV: "prod"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
+        BMI_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PROD_BUILD_STORAGE"
+        BMI_TRAINING_API_URL: "$GCP_BMI_INTOUCH_PROD_TRAINING_API_URL"
+      allow_failure: true
+  needs:
+    - package_gcp-intouch-cron-training
+  dependencies:
+    - package_gcp-intouch-cron-training
+  before_script:
+    - |
+      GCP_INTOUCH_REPLATFORM_PROJECT_ID=$BMI_PROJECT
+      GCP_INTOUCH_REPLATFORM_SERVICE_KEY=$BMI_KEY
+      GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$BMI_BUILD_STORAGE
+      INTOUCH_TRAINING_API_URL=$BMI_TRAINING_API_URL
+      GCP_BMI_INTOUCH_TRAINING_TOPIC=$GCP_BMI_INTOUCH_TRAINING_TOPIC
+  script:
+    - if [ $BMI_ENV = 'prod' ]; then PREFIX=bmi-p-intouch; else PREFIX=bmi-np-intouch; fi
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-training.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud functions deploy pubsub-cron-training --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-cron-training.zip --service-account=sa-intouch-$BMI_ENV@$PREFIX-compute-$BMI_ENV.iam.gserviceaccount.com --runtime=nodejs14 --region=europe-west3 --entry-point=updateTraining --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_TRAINING_TOPIC-$BMI_ENV --set-env-vars=TRAINING_API_URL=$INTOUCH_TRAINING_API_URL
