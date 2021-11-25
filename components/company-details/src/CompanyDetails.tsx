@@ -19,7 +19,7 @@ import React from "react";
 import classnames from "classnames";
 import styles from "./CompanyDetails.module.scss";
 
-export type RoofProLevel = "expert" | "partner" | "elite";
+export type RoofProLevel = "expert" | "partner" | "elite" | string;
 
 type DetailTypeWithIcons =
   | "address"
@@ -134,9 +134,10 @@ const DetailsItem = (props: DetailProps) => {
         {display !== "contentOnly" ? (
           <Typography
             component="span"
-            className={classnames(styles["label"], {
-              [styles["accessibility-label"] || ""]: display === "icon"
-            })}
+            className={classnames(
+              styles["label"],
+              display === "icon" && styles["accessibility-label"]
+            )}
           >
             {label}
           </Typography>

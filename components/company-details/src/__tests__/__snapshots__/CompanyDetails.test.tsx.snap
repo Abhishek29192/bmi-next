@@ -43,6 +43,94 @@ exports[`CompanyDetails component renders all types of details 1`] = `
           full address
         </dd>
       </address>
+      <address
+        class="row"
+      >
+        <dt
+          class="term"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+            />
+          </svg>
+          <span
+            class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+          >
+            Address
+          </span>
+        </dt>
+        <dd
+          class="description"
+        >
+          <b>
+            full address
+          </b>
+        </dd>
+      </address>
+      <address
+        class="row"
+      >
+        <dt
+          class="term"
+        />
+        <dd
+          class="description"
+        >
+          full address
+        </dd>
+      </address>
+      <address
+        class="row"
+      >
+        <dt
+          class="term"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+            />
+          </svg>
+          <span
+            class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+          >
+            Address
+          </span>
+        </dt>
+        <dd
+          class="description"
+        >
+          full address
+        </dd>
+      </address>
+      <address
+        class="row"
+      >
+        <dt
+          class="term"
+        >
+          <span
+            class="MuiTypography-root label Typography MuiTypography-body1"
+          >
+            Address
+          </span>
+        </dt>
+        <dd
+          class="description"
+        >
+          full address
+        </dd>
+      </address>
       <div
         class="row"
       >
@@ -290,6 +378,35 @@ exports[`CompanyDetails component renders all types of details 1`] = `
           </span>
         </dd>
       </div>
+      <div
+        class="row"
+      >
+        <dt
+          class="term"
+        >
+          <span
+            class="label"
+          >
+            BMI RoofPro Level
+          </span>
+        </dt>
+        <dd
+          class="description"
+        >
+          <pre
+            style="color: rgb(214, 0, 28);"
+          >
+            Error: Level "
+            invalid-level
+            " does not exist
+          </pre>
+          <span
+            class="accessibility-label"
+          >
+            invalid-level
+          </span>
+        </dd>
+      </div>
     </dl>
     <p>
       Summary
@@ -327,6 +444,40 @@ exports[`CompanyDetails component renders with no details 1`] = `
   >
     Name of the company
   </h5>
+  <div
+    class="scrollbar-container ps"
+  >
+    <p>
+      Summary
+    </p>
+    <div
+      class="ps__rail-x"
+      style="left: 0px; top: 0px;"
+    >
+      <div
+        class="ps__thumb-x"
+        style="left: 0px; width: 0px;"
+        tabindex="0"
+      />
+    </div>
+    <div
+      class="ps__rail-y"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="ps__thumb-y"
+        style="top: 0px; height: 0px;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CompanyDetails component renders with no details and no name 1`] = `
+<div
+  class="CompanyDetails"
+>
   <div
     class="scrollbar-container ps"
   >
