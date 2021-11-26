@@ -3,17 +3,20 @@ import {
   Product,
   VariantOption,
   ClassificationCodeEnum,
-  FeatureCodeEnum
+  FeatureCodeEnum,
+  Feature
 } from "../components/types/pim";
 import { combineVariantClassifications } from "./filters";
 
 export type AttributeCodeMap = {
-  [key in ClassificationCodeEnum]?: {
-    attrName: string;
-    separator?: string;
-    fromStart?: boolean;
-  }[];
+  [key in ClassificationCodeEnum]?: AttributeCode[];
 };
+
+export interface AttributeCode {
+  attrName: string;
+  separator?: string;
+  fromStart?: boolean;
+}
 
 export const generateUrl = (urlParts: string[]) => {
   return urlParts
@@ -35,34 +38,80 @@ export const extractFeatureValuesByClassification = (
   classifications: Classification[],
   attributeCodeMap: AttributeCodeMap
 ): string[] => {
-  return classifications.reduce((urlFromClassifications, classification) => {
-    const featuresCodes = attributeCodeMap[classification.code];
-    if (featuresCodes) {
-      const urlParamsFromClassificationFeatures = featuresCodes.reduce(
-        (urlFromFeatures, featuresCode) => {
-          const featureByFeatureCode = classification.features.find((feature) =>
-            feature.code.toLocaleLowerCase().endsWith(featuresCode.attrName)
-          );
-          const separator = featuresCode.separator || "";
+  const features: { [key in FeatureCodeEnum]?: Feature } =
+    getClassificationFeaturesByFeatureCodes(classifications, attributeCodeMap);
+
+  return Object.values(attributeCodeMap).reduce(
+    (
+      classificationFeatureValues: string[],
+      attributeCodes: AttributeCode[]
+    ) => {
+      const featureValues: string[] = attributeCodes.reduce(
+        (featureValues: string[], attributeCode: AttributeCode) => {
+          const featureByFeatureCode: Feature =
+            features[attributeCode.attrName];
+          const separator = attributeCode.separator || "";
           if (
             featureByFeatureCode &&
             featureByFeatureCode.featureValues &&
             featureByFeatureCode.featureValues.length > 0
           ) {
             const featureValue = featureByFeatureCode.featureValues[0].value;
-            const val = featuresCode.fromStart
+            const val = attributeCode.fromStart
               ? `${separator}${featureValue}`
               : `${featureValue}${separator}`;
-            urlFromFeatures.push(val);
+
+            featureValues.push(val);
           }
-          return separator ? [urlFromFeatures.join("")] : urlFromFeatures;
+          return separator ? [featureValues.join("")] : featureValues;
         },
         []
       );
-      urlFromClassifications.push(...urlParamsFromClassificationFeatures);
-    }
-    return urlFromClassifications;
-  }, []);
+      return [...classificationFeatureValues, ...featureValues];
+    },
+    []
+  );
+};
+
+export const getClassificationFeaturesByFeatureCodes = (
+  classifications: Classification[],
+  attributeCodeMap: AttributeCodeMap
+): { [key in FeatureCodeEnum]?: Feature } => {
+  return classifications.reduce(
+    (
+      classificationFeaturesByFeatureCodes: {
+        [key in FeatureCodeEnum]?: Feature;
+      },
+      classification: Classification
+    ) => {
+      const featuresCodes = attributeCodeMap[classification.code];
+      if (featuresCodes) {
+        const classificationFeatures = featuresCodes.reduce(
+          (
+            classificationFeatures: { [key in FeatureCodeEnum]?: Feature },
+            featuresCode: AttributeCode
+          ) => {
+            const classificationFeature = classification.features.find(
+              (feature) =>
+                feature.code.toLocaleLowerCase().endsWith(featuresCode.attrName)
+            );
+            if (classificationFeature) {
+              classificationFeatures[featuresCode.attrName] =
+                classificationFeature;
+            }
+            return classificationFeatures;
+          },
+          {}
+        );
+        return {
+          ...classificationFeaturesByFeatureCodes,
+          ...classificationFeatures
+        };
+      }
+      return classificationFeaturesByFeatureCodes;
+    },
+    {}
+  );
 };
 
 const generateVariantAttributeUrl = (

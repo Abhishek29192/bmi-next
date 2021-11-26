@@ -197,7 +197,8 @@ export enum ImageAssetTypesEnum {
 export enum ClassificationCodeEnum {
   APPEARANCE_ATTRIBUTE = "appearanceAttributes",
   MEASUREMENTS = "measurements",
-  GENERAL_INFORMATION = "generalInformation"
+  GENERAL_INFORMATION = "generalInformation",
+  WEIGHT_ATTRIBUTES = "weightAttributes"
 }
 
 export enum FeatureCodeEnum {
@@ -210,5 +211,11 @@ export enum FeatureCodeEnum {
   HEIGHT = "height",
   SCORE_WEIGHT = "scoringweight",
   THICKNESS = "thickness",
-  VARIANT_ATTRIBUTE = "variantattribute"
+  VARIANT_ATTRIBUTE = "variantattribute",
+  NET_WEIGHT = "netweight",
+  GROSS_WEIGHT = "grossweight",
+  WEIGHT_PER_PRICE = "weightperpiece",
+  WEIGHT_PER_SQM = "weightpersqm",
+  WEIGHT_PER_PALLET = "weightperpallet",
+  VOLUME = "volume"
 }
