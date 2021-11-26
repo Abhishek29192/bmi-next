@@ -4,9 +4,10 @@ import Button from "@bmi/button";
 import { gql } from "@apollo/client";
 import { useGetProductsReportLazyQuery } from "../../../graphql/generated/hooks";
 import { exportCsv } from "../../../lib/utils/report";
+import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
-const ProductReport = () => {
+const ProductReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("admin-products-systems");
 
   const [getProductsReport] = useGetProductsReportLazyQuery({
@@ -20,6 +21,8 @@ const ProductReport = () => {
     <div>
       <Button
         variant="outlined"
+        data-testid="export-button"
+        disabled={disabled}
         onClick={getProductsReport}
         className={styles.sidePanelFooterButton}
       >

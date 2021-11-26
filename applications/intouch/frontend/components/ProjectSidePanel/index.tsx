@@ -100,15 +100,21 @@ const ProjectSidePanelFooter = () => {
   );
 };
 
-const SidePanelFooter = () => {
+const SidePanelFooter = ({
+  projectLength,
+  guaranteeLength
+}: {
+  projectLength: number;
+  guaranteeLength: number;
+}) => {
   return (
     <div>
       <AccessControl dataModel="project" action="addProject">
         <ProjectSidePanelFooter />
       </AccessControl>
       <AccessControl dataModel="project" action="downloadReport">
-        <ProjectReport />
-        <GuaranteeReport />
+        <ProjectReport disabled={projectLength === 0} />
+        <GuaranteeReport disabled={guaranteeLength === 0} />
       </AccessControl>
     </div>
   );
@@ -230,6 +236,13 @@ export const ProjectSidePanel = ({
     );
   }, [projects, searchQuery, filterSelection]);
 
+  const guaranteeLength = useMemo(() => {
+    return projects.reduce(
+      (sum, { guarantees }) => sum + guarantees?.nodes?.length || 0,
+      0
+    );
+  }, [projects]);
+
   return (
     <SidePanel
       searchLabel={t("search.inputLabel")}
@@ -238,7 +251,12 @@ export const ProjectSidePanel = ({
       onSearchFilterChange={(query: string) => {
         setSearchQuery(query);
       }}
-      renderFooter={() => <SidePanelFooter />}
+      renderFooter={() => (
+        <SidePanelFooter
+          projectLength={projects.length}
+          guaranteeLength={guaranteeLength}
+        />
+      )}
     >
       {filteredProjects.map(
         ({
