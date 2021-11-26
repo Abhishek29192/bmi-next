@@ -129,7 +129,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const pageData: PageData = {
     breadcrumbs,
     inputBanner: resources.pdpInputBanner,
-    seo: null
+    seo: null,
+    path: null // won't work with PDPs currently
   };
   const { maximumSamples, sampleBasketLink } = resources;
 

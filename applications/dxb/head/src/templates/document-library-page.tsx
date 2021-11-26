@@ -134,7 +134,8 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
     inputBanner: data.contentfulDocumentLibraryPage.inputBanner,
-    seo
+    seo,
+    path: data.contentfulDocumentLibraryPage.path
   };
 
   const theme = useTheme();

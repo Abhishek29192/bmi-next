@@ -380,7 +380,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
     inputBanner,
-    seo
+    seo,
+    path: data.contentfulProductListerPage.path
   };
 
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);

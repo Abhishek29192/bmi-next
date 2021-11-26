@@ -84,7 +84,8 @@ const HomePage = ({ data, pageContext }: Props) => {
   const pageData: PageData = {
     breadcrumbs: null,
     inputBanner,
-    seo
+    seo,
+    path: data.contentfulHomePage.path
   };
   const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
     data.contentfulSite.resources || {};

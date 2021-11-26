@@ -220,7 +220,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     <Page
       brand={brandName}
       title={name}
-      pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
+      pageData={{ breadcrumbs: null, inputBanner: null, seo: null, path: null }}
       siteData={contentfulSite}
     >
       {breadcrumbs}
