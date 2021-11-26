@@ -71,4 +71,28 @@ describe("Button component", () => {
     fireEvent.click(button);
     expect(onClick.mock.calls.length).toBe(1);
   });
+  it("renders with additional classes", () => {
+    const { container } = render(<Button classes={"textSecondary"} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders a flat button with icon on dark background", () => {
+    const { container } = render(
+      <Button hasDarkBackground variant="text" isIconButton>
+        <UserIcon />
+      </Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders button with component props", () => {
+    const { container } = render(<Button component="span">Test</Button>);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders button with color props", () => {
+    const { container } = render(<Button color="secondary">Test</Button>);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders button with rest props", () => {
+    const { container } = render(<Button size="large">Test</Button>);
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
