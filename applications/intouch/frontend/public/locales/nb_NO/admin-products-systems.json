@@ -5,6 +5,7 @@
   "description": "Beskrivelse",
   "family": "Familie",
   "published": "Publisert",
+  "unpublished": "Upublisert",
   "maximumValidityYears": "Maksimal gyldighet år",
   "updatedAt": "Sist oppdatert",
   "show": "Vis mer",
