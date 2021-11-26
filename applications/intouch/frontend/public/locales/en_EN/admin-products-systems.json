@@ -5,6 +5,7 @@
   "description": "Description",
   "family": "Family",
   "published": "Published",
+  "unpublished": "Unpublished",
   "maximumValidityYears": "Maximum validity years",
   "updatedAt": "Updated at",
   "show": "Show",
