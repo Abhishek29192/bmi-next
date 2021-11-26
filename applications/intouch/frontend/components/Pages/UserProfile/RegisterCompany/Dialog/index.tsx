@@ -64,8 +64,10 @@ export const RegisterCompanyDialog = ({
         tradingAddress,
         logoUpload,
         shouldRemoveLogo,
-        ...newCompanyDetails
+        ...companyDetails
       } = values;
+
+      const newCompanyDetails = { ...companyDetails, status: "NEW" };
 
       // creates company without addresses & logo,
       // which are created in 2nd step

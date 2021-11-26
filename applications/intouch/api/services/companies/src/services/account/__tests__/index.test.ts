@@ -160,6 +160,7 @@ describe("Account", () => {
           contextMock,
           "ROLE_ASSIGNED",
           {
+            accountId: 2,
             email: "email@email.co.uk",
             role: "company admin",
             firstname: "Name"
@@ -228,6 +229,7 @@ describe("Account", () => {
           contextMock,
           "ROLE_ASSIGNED",
           {
+            accountId: 2,
             email: "email@email.co.uk",
             role: "installer",
             firstname: "Name"
@@ -661,6 +663,7 @@ describe("Account", () => {
         },
         "ACCOUNT_ACTIVATED",
         {
+          accountId: 1,
           email: "email",
           firstname: "first_name",
           marketUrl: `https://dev-domain.intouch.dddev.io`

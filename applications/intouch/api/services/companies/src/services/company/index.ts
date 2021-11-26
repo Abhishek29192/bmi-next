@@ -6,6 +6,7 @@ import {
   UpdateCompanyInput
 } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
+import { PostGraphileContext } from "../../types";
 import { sendMessageWithTemplate } from "../../services/mailer";
 import { tierBenefit } from "../contentful";
 
@@ -13,7 +14,7 @@ export const updateCompany = async (
   resolve,
   source,
   args: { input: UpdateCompanyInput },
-  context,
+  context: PostGraphileContext,
   resolveInfo
 ) => {
   const { GCP_PUBLIC_BUCKET_NAME } = process.env;
@@ -89,10 +90,16 @@ export const updateCompany = async (
     )
   ) {
     await pgClient.query("SELECT * FROM activate_company($1)", [args.input.id]);
+    await sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
+      email: user.email,
+      accountId: user.id,
+      firstname: user.firstName,
+      company: $name
+    });
   }
 
   if (tier && activeCompanyTier !== tier) {
-    const { shortDescription = "" } = await tierBenefit(
+    const { shortDescription = "", name = "" } = await tierBenefit(
       context.clientGateway,
       tier
     );
@@ -110,7 +117,7 @@ export const updateCompany = async (
         email: account.email,
         accountId: account.id,
         firstname: account.first_name,
-        tier: tier,
+        tier: name || tier,
         tierBenefitsShortDescription: shortDescription
       });
     }
@@ -177,7 +184,8 @@ export const deleteCompanyMember = async (
 
     await sendMessageWithTemplate(context, "COMPANY_MEMBER_REMOVED", {
       account: userToRemove.email,
-      firstName: userToRemove.first_name,
+      accountId: userToRemove.id,
+      firstname: userToRemove.first_name,
       company: userToRemove.name,
       email: userToRemove.email
     });
