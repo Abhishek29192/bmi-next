@@ -138,4 +138,4 @@ deploy_gcp-intouch-generate-guarantee_bmi:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
     - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-generate-guarantee.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-generate-guarantee --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-generate-guarantee.zip --service-account=sa-intouch-guarantee-$BMI_ENV@$PREFIX-compute-$BMI_ENV.iam.gserviceaccount.com --runtime=nodejs14 --region=europe-west3 --entry-point=sendGuaranteePdf --trigger-topic=$PREFIX-$GCP_BMI_INTOUCH_GUARANTEE_TOPIC-$BMI_ENV --set-env-vars=GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT,GCP_PRIVATE_BUCKET_NAME=$GCP_PRIVATE_BUCKET_NAME,MAIL_FROM=$INTOUCH_MAIL_FROM,NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,GATEWAY_API_URL=$INTOUCH_GATEWAY_API_URL
+    - gcloud functions deploy pubsub-generate-guarantee --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-generate-guarantee.zip --region=europe-west3
