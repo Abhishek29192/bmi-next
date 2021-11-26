@@ -313,6 +313,7 @@ const PartnerBrand = ({
                 }
                 brandImageSource={partnerBrand.logo.url}
                 href="/partner-brands"
+                target="_blank"
                 footer={
                   <Button component={"span"} variant="outlined">
                     {t("partnerBrands.ctaLabel")}
@@ -351,7 +352,11 @@ const FeedHolder = ({
             frameBorder="0"
             className={styles.embed}
           />
-          <Button variant="outlined" href={marketContent.newsItemCta}>
+          <Button
+            variant="outlined"
+            href={marketContent.newsItemCta}
+            target="_blank"
+          >
             {t("linkedin.ctaLabel")}
           </Button>
         </SimpleCard>
