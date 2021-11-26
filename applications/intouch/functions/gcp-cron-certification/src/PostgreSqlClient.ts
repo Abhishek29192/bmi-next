@@ -41,11 +41,17 @@ const executeQuery = async (query) => {
     }
   };
 
-  const pool = new Pool(dbConfig);
-  const { rows } = await pool.query(query);
-  pool.end();
+  try {
+    const pool = new Pool(dbConfig);
+    const { rows } = await pool.query(query);
+    pool.end();
 
-  return rows;
+    return rows;
+  } catch (error) {
+    // eslint-disable-next-line
+    console.log("Error syncing the db:", error.message);
+    throw error;
+  }
 };
 const getDoceboUsers = async () => {
   const query =
