@@ -50,18 +50,20 @@ export const extractFeatureValuesByClassification = (
         (featureValues: string[], attributeCode: AttributeCode) => {
           const featureByFeatureCode: Feature =
             features[attributeCode.attrName];
-          const separator = attributeCode.separator || "";
+          const separator = attributeCode?.separator || "";
           if (
             featureByFeatureCode &&
-            featureByFeatureCode.featureValues &&
-            featureByFeatureCode.featureValues.length > 0
+            featureByFeatureCode?.featureValues &&
+            featureByFeatureCode?.featureValues?.length > 0
           ) {
-            const featureValue = featureByFeatureCode.featureValues[0].value;
-            const val = attributeCode.fromStart
-              ? `${separator}${featureValue}`
-              : `${featureValue}${separator}`;
+            const featureValue = featureByFeatureCode?.featureValues[0]?.value;
+            if (featureValue) {
+              const val = attributeCode?.fromStart
+                ? `${separator}${featureValue}`
+                : `${featureValue}${separator}`;
 
-            featureValues.push(val);
+              featureValues.push(val);
+            }
           }
           return separator ? [featureValues.join("")] : featureValues;
         },
@@ -86,23 +88,26 @@ export const getClassificationFeaturesByFeatureCodes = (
     ) => {
       const featuresCodes = attributeCodeMap[classification.code];
       if (featuresCodes) {
-        const classificationFeatures = featuresCodes.reduce(
-          (
-            classificationFeatures: { [key in FeatureCodeEnum]?: Feature },
-            featuresCode: AttributeCode
-          ) => {
-            const classificationFeature = classification.features.find(
-              (feature) =>
-                feature.code.toLocaleLowerCase().endsWith(featuresCode.attrName)
-            );
-            if (classificationFeature) {
-              classificationFeatures[featuresCode.attrName] =
-                classificationFeature;
-            }
-            return classificationFeatures;
-          },
-          {}
-        );
+        const classificationFeatures: { [key in FeatureCodeEnum]?: Feature } =
+          featuresCodes.reduce(
+            (
+              classificationFeatures: { [key in FeatureCodeEnum]?: Feature },
+              featuresCode: AttributeCode
+            ) => {
+              const classificationFeature = classification.features.find(
+                (feature) =>
+                  feature.code
+                    .toLocaleLowerCase()
+                    .endsWith(featuresCode.attrName)
+              );
+              if (classificationFeature) {
+                classificationFeatures[featuresCode.attrName] =
+                  classificationFeature;
+              }
+              return classificationFeatures;
+            },
+            {}
+          );
         return {
           ...classificationFeaturesByFeatureCodes,
           ...classificationFeatures
