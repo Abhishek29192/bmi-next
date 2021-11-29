@@ -42,8 +42,7 @@ const documents: DocumentData[] = [
     title: "title",
     assetType: {
       name: "CAD name",
-      pimCode: "CAD",
-      code: "CAD"
+      pimCode: "CAD"
     },
     asset: {
       file: {

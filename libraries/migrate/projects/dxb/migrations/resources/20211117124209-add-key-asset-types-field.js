@@ -15,7 +15,7 @@ module.exports.up = (migration) => {
     });
 
   resources.changeFieldControl(field, "builtin", "tagEditor", {
-    helpText: "This is the code which is an abbreviation of the asset type"
+    helpText: "This is the pim code of the asset type"
   });
 };
 

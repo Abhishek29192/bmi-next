@@ -192,7 +192,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   };
 
   const filtredKeyAssetsDocuments = product.documents.filter((document) =>
-    resources.keyAssetTypes?.includes(document.assetType.code)
+    resources.keyAssetTypes?.includes(document.assetType.pimCode)
   );
 
   const hasFiltredKeyAssetsDocuments = !!filtredKeyAssetsDocuments.length;
