@@ -87,9 +87,10 @@ const Homepage = ({
   });
 
   const pageTitle = getPageTitle(account);
-  // Note: Can see if a member of a company AND in T2, T3, T4
   const company = findAccountCompany(account);
-  const canSeePartnerBrandsCarousel = company && company.tier !== "T1";
+  const canSeePartnerBrandsCarousel = ["T2", "T3", "T4"].includes(
+    company?.tier
+  );
 
   const getCta = (ctaName: string) => {
     if (ctaName === "PROJECT") {
